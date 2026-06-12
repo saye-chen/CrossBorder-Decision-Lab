@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Link Breakdown"
+  short_description: "Turn video links into content teardowns."
+  default_prompt: "Paste a video link and ask for a script, editing, and content-quality breakdown."
