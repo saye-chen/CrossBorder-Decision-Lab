@@ -1,4 +1,4 @@
 interface:
   display_name: "Category Investment Decision"
-  short_description: "Score and decide ecommerce category entry."
+  short_description: "评估跨境电商品类是否值得进入。"
   default_prompt: "使用 $category-investment-decision 用中文评估这个跨境电商品类是否值得进入，并输出评分、风险和运营打法。"

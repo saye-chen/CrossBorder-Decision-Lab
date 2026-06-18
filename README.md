@@ -20,6 +20,8 @@ Path: `video-link-breakdown/`
 
 Use this repository as the source of truth for local skill changes.
 
+Install or sync these folders into `${CODEX_HOME:-$HOME/.codex}/skills` before relying on bundled script paths inside a skill. For example, `video-link-breakdown` calls its helper script from the installed skill location, so the repository copy and installed copy should stay in sync after edits.
+
 ## Workspace Hygiene
 
 After each skill modification, new skill creation, report generation, script run, or analysis task, clean up temporary files created during the work. Keep only intentional source changes and final deliverables.

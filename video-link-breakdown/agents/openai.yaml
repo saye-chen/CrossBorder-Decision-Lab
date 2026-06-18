@@ -1,4 +1,4 @@
 interface:
   display_name: "Video Link Breakdown"
-  short_description: "Turn video links into content teardowns."
-  default_prompt: "Paste a video link and ask for a script, editing, and content-quality breakdown."
+  short_description: "拆解视频脚本、剪辑和复刻打法。"
+  default_prompt: "使用 $video-link-breakdown 拆解这个视频链接，分析脚本、剪辑、内容质量和可复刻打法。"

@@ -1,6 +1,6 @@
 ---
 name: video-link-breakdown
-description: Analyze a video from a user-provided URL into script structure, editing techniques, content quality, audience fit, reusable patterns, and improvement suggestions. Use when the user pastes a TikTok, YouTube Shorts, Instagram Reels, X/Twitter video, Bilibili, Douyin, or other video link and asks to拆解, analyze, critique, reverse engineer, score, improve, or replicate the video's script, pacing, visuals, hook, editing, or content strategy.
+description: 默认用中文拆解用户提供的视频链接，输出脚本结构、剪辑手法、内容质量、受众匹配、可复刻模板和优化建议。适用于 TikTok、YouTube Shorts、Instagram Reels、X/Twitter 视频、Bilibili、抖音等链接；当用户要求“拆解这个视频”“分析脚本/剪辑/节奏/钩子/内容质量”“复刻这个视频”“改写短视频脚本”或提供视频链接希望做内容策略分析时使用。
 ---
 
 # Video Link Breakdown
