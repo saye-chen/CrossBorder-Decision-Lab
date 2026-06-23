@@ -1,4 +1,4 @@
 interface:
   display_name: "跨境电商品类投资决策"
-  short_description: "跨境选品投决：链接反查、多品组合、国家本地化与测款。"
-  default_prompt: "使用 $category-investment-decision 识别我的选品场景，先确认最少输入，再完成量化评分、风险红线和验证方案。"
+  short_description: "跨境选品投决：VOC竞品取证、量化评分、组合与测款闭环。"
+  default_prompt: "使用 $category-investment-decision 识别选品场景，用 VOC 与竞品证据完成量化评分、风险红线和分阶段验证。"

@@ -52,6 +52,52 @@ CSV/Excel 建议字段：
 
 店铺数据至少包含：SKU、类目、价格、流量词、曝光、点击、订单、净贡献、退货、库存和关联购买。老品扩展另需原品基准期、变体、素材、供应商、MOQ、毛利和销售蚕食观察。
 
+## VOC 与竞品数据
+
+CSV、JSON 数组或 JSONL 每条记录推荐使用：
+
+| 字段 | 必需 | 说明 |
+|---|---:|---|
+| `text` | 是 | 原始评论、问答或反馈 |
+| `source` | 否 | Amazon、Reddit、support、survey 等 |
+| `competitor` | 否 | 品牌、产品或替代方案 |
+| `rating` / `date` | 否 | 0-5 评分和原文日期 |
+| `sentiment` | 否 | `positive/neutral/negative/mixed` |
+| `themes` | 否 | 多标签，CSV 用 `|`，JSON 可用数组 |
+| `verified` / `url` | 否 | 已购/交易信号与原文地址 |
+
+`scripts/analyze_voc.py` 只做去重、数据质量、分布和已编码主题聚合，不自动发明标签。
+
+## 测款实验
+
+`scripts/evaluate_experiment.py` 输入示例：
+
+```json
+{
+  "experiment": "US landing-page test v1",
+  "currency": "USD",
+  "spend": 300,
+  "revenue": 180,
+  "counts": {
+    "impressions": 12000,
+    "clicks": 360,
+    "landing_visits": 330,
+    "leads": 42,
+    "add_to_cart": 20,
+    "checkout_started": 10,
+    "purchases": 4,
+    "refunds": 0
+  },
+  "minimums": {"landing_visits": 300},
+  "gates": [
+    {"metric": "lead_rate", "operator": ">=", "threshold": 0.10, "kind": "primary"},
+    {"metric": "refund_rate", "operator": "<=", "threshold": 0.10, "kind": "redline"}
+  ]
+}
+```
+
+率使用 0-1 小数；事先门槛必须来自当前实验的历史基线、同期对照或明确商业约束，不使用无来源的统一健康线。
+
 ## 数据质量
 
 - 每个数字尽量附 `source`、`period_start`、`period_end` 和 `retrieved_at`。

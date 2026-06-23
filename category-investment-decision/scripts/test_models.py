@@ -88,6 +88,91 @@ class WorkspaceTests(unittest.TestCase):
             self.assertFalse(path.exists())
 
 
+class VocAnalyzerTests(unittest.TestCase):
+    def test_deduplicates_and_aggregates_coded_records(self):
+        records = [
+            {"text": "Lid leaks", "source": "Amazon", "competitor": "A", "rating": 1, "sentiment": "negative", "themes": "leak|lid"},
+            {"text": "  lid   leaks ", "source": "Reddit", "competitor": "A", "rating": 2, "sentiment": "negative", "themes": "leak"},
+            {"text": "Hard to clean", "source": "Reddit", "competitor": "B", "rating": 2, "sentiment": "negative", "themes": ["cleaning"]},
+            {"text": "", "source": "Amazon"},
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "voc.json"
+            path.write_text(json.dumps(records), encoding="utf-8")
+            result = run_script("analyze_voc.py", path)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        data = json.loads(result.stdout)
+        self.assertEqual(data["records"]["raw"], 4)
+        self.assertEqual(data["records"]["unique_with_text"], 2)
+        self.assertEqual(data["records"]["duplicates_or_reposts"], 1)
+        self.assertEqual(data["records"]["missing_text"], 1)
+        self.assertTrue(any("qualitative" in warning for warning in data["warnings"]))
+
+    def test_flags_invalid_rating(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "voc.json"
+            path.write_text(json.dumps([{"text": "Example", "rating": 8}]), encoding="utf-8")
+            result = run_script("analyze_voc.py", path)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)["distributions"]["ratings"]["invalid"], 1)
+
+
+class ExperimentEvaluationTests(unittest.TestCase):
+    @staticmethod
+    def payload(**overrides):
+        base = {
+            "experiment": "test",
+            "spend": 100,
+            "revenue": 200,
+            "counts": {"impressions": 1000, "clicks": 100, "landing_visits": 80, "leads": 16, "purchases": 4, "refunds": 0},
+            "minimums": {"landing_visits": 50},
+            "gates": [
+                {"metric": "lead_rate", "operator": ">=", "threshold": 0.15, "kind": "primary"},
+                {"metric": "refund_rate", "operator": "<=", "threshold": 0.1, "kind": "redline"},
+            ],
+        }
+        base.update(overrides)
+        return base
+
+    def evaluate(self, payload):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "experiment.json"
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            result = run_script("evaluate_experiment.py", path)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        return json.loads(result.stdout)
+
+    def test_continue_when_all_gates_pass(self):
+        result = self.evaluate(self.payload())
+        self.assertEqual(result["decision"], "CONTINUE")
+        self.assertAlmostEqual(result["metrics"]["ctr"], 0.1)
+        self.assertAlmostEqual(result["metrics"]["cac"], 25)
+
+    def test_inconclusive_when_minimum_not_met(self):
+        result = self.evaluate(self.payload(minimums={"landing_visits": 100}))
+        self.assertEqual(result["decision"], "INCONCLUSIVE")
+
+    def test_stop_when_redline_fails(self):
+        changed = self.payload()
+        changed["counts"]["refunds"] = 2
+        self.assertEqual(self.evaluate(changed)["decision"], "STOP")
+
+    def test_iterate_when_primary_fails(self):
+        changed = self.payload()
+        changed["gates"][0]["threshold"] = 0.3
+        self.assertEqual(self.evaluate(changed)["decision"], "ITERATE")
+
+    def test_rejects_impossible_funnel(self):
+        changed = self.payload()
+        changed["counts"]["refunds"] = 5
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "experiment.json"
+            path.write_text(json.dumps(changed), encoding="utf-8")
+            result = run_script("evaluate_experiment.py", path)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("refunds cannot exceed purchases", result.stderr)
+
+
 class CoreInvariantTests(unittest.TestCase):
     def test_core_model_unchanged(self):
         text = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
