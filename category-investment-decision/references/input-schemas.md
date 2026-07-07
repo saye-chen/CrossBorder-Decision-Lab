@@ -21,10 +21,11 @@
 
 CSV/Excel 建议字段：
 
-`id,name,country,platform,category,url,variant,price,currency,score,confidence,investment,operational_load,cash_cycle_days,supplier,redline,notes`
+`id,name,country,platform,category,url,variant,price,currency,score,confidence,dimension_confidence,investment,operational_load,cash_cycle_days,supplier,redline,notes`
 
 - `score` 必须来自同一版本基础模型；未评分时留空，先逐项评分。
-- `confidence` 使用 `high/medium/low`。
+- `confidence` 使用 `high/medium/low`，表示整体置信度。
+- `dimension_confidence` 可填 JSON 或短文本摘要，记录七维中的确定/中等/不确定短板；缺失时必须在报告中单独补评。
 - `investment` 使用统一币种，包含启动阶段预计现金投入。
 - `operational_load` 使用同一团队定义的相对尺度。
 - `redline` 仅使用 `true/false`，并在 `notes` 写原因。

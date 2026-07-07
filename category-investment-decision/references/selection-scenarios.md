@@ -2,60 +2,102 @@
 
 ## 路由原则
 
-选择一个主场景；只有用户目标同时包含两个独立任务时才增加一个辅场景。场景只决定取证重点、补充指标和额外输出，不修改五道门槛、七维评分及决策阈值。
+本文件只在主 Skill 的轻量路由表无法明确判断，或多场景冲突会改变输出骨架时读取。先用“决策类型 × 对象类型 × 输出格式”识别任务，再选择参考文件和报告模板。场景路由只决定取证重点、补充指标和附表，不修改五道门槛、七维评分及决策阈值。
 
-商品链接反查、多候选组合和国家本地化是可叠加的横向模块，不占主场景/辅场景名额。它们分别回答“输入事实从哪里来”“有限资源选哪些”“在哪个国家如何落地”。
+商品链接反查、多候选组合、国家本地化、平台适配、关键词策略是横向模块，可以叠加到任何主场景。
 
-默认决策顺序：`市场 → 人群 → 平台 → 流量 → 产品 → 供应链 → 利润与风险 → 测款验证`。
+一旦确定主场景和横向模块，就停止继续读取其他路由文件，直接进入对应专业参考文件。不要为了确认同一场景反复读取 `scene-output-protocols.md` 和 `universal-scenario-kernel.md`。
 
-“长期价值链”用于查漏，不直接相乘计分：`需求 → 点击 → 转化 → 复购 → 利润 → 供应稳定 → 合规`。指出最弱环节及其验证动作。
+当用户表达不在本文件列举范围内，读取 `universal-scenario-kernel.md` 兜底；不要因为场景未列出就输出泛泛建议。
 
-## 场景表
+## 一、决策类型
 
-| 场景 | 典型触发 | 取证重点 | 场景补充输出 |
+| 决策类型 | 典型触发 | 默认输出骨架 | 关键问题 |
 |---|---|---|---|
-| 品类投资决策 | 值不值得进入、市场进入 | 五道门槛与完整七维证据 | 四档决策、投资姿态、切入楔子 |
-| VOC/竞品情报 | 拆评论/差评、用户痛点、竞品缺口 | 跨来源 VOC、替代方案、承诺-体验落差、反例 | 主题与原话、竞品格局、候选空白、评分影响、验证假设 |
-| 商品链接反查 | ASIN、商品页、竞品链接、拆这个链接 | 页面事实、流量代理、评论痛点、利润、供应链与风险 | 链接反查卡、可复制/不可复制项、验证清单 |
-| 多候选组合决策 | 对比这些产品、预算内选 3 个 | 基础评分、置信度、预算、运营负荷、集中度与协同 | 单品排名、最优组合、入选/落选原因、候补 |
-| 国家本地化决策 | 美国/欧洲/日本/东南亚哪个市场 | 消费、平台、法规、税务、进口、物流、语言与支付 | 国家适配卡、本地化成本、进入顺序与红线 |
-| 趋势爆品 | 最近增长、7/30/90 天趋势 | 多周期热度、销量/内容增速、生命周期 | 趋势阶段、追入时点、衰退信号 |
-| 平台榜单 | Best Sellers、新品榜、飙升榜 | 排名持续性、上架时间、评论、品牌集中度 | 可复制机会与不可复制原因 |
-| 竞品店铺监控 | 监控店铺、上新、价格变化 | 新品、评论/销量增速、库存、补货、下架 | 监控项、频率、告警阈值、跟进动作 |
-| TikTok 内容种草 | 短视频爆品、达人带货 | 3 秒钩子、完播互动、评论需求、素材裂变 | 内容角度、达人画像、素材测试矩阵 |
-| Amazon 长尾机会 | 高需求低竞争、关键词机会 | 关键词簇、Review 门槛、CPC、新品突破 | 关键词切口、Listing 与产品改良 |
-| Temu 供应链选品 | 核价、低价铺货 | 出厂价、申报价、竞品最低价、轻小件、退货 | 核价空间、铺货优先级、不可做成本线 |
-| 季节/节日 | 旺季、节庆、大促备货 | 历史启动点、交期、物流、销售与清仓窗口 | 选品日历、下单点、停止补货与清仓点 |
-| 人群需求 | 针对某年龄/职业/兴趣/家庭 | 人群规模、痛点、支付意愿、触达渠道 | 人群画像、需求优先级、平台匹配 |
-| 使用场景 | 居家、出行、收纳、户外等 | 痛点频次、替代方案、关联购买、可视化 | 问题—方案映射、组合与内容方向 |
-| DTC/独立站 | 品牌站、订阅、品牌选品 | 品牌叙事、贡献毛利、CAC、复购/LTV、SEO | 首发英雄品、获客假设、复购路径 |
-| 利润核算 | 算利润、ACOS 上限、ROI | 全链路成本、现金占用、三场景敏感性 | 盈亏平衡 ACOS/CPA、退货临界点 |
-| 店铺缺口补品 | 店铺还缺什么、SKU 结构 | 价格带、流量词、关联购买、库存与定位 | 缺口清单、上架优先级、承接流量 |
-| 老品延展/变体 | 扩颜色尺寸套装、老品扩品 | 原品数据、变体需求、素材复用、库存复杂度 | 扩展树、复用比例、增量 ROI 与蚕食风险 |
-| 测款验证 | 怎么测试、何时放量/放弃、复盘实验 | 假设树、证据阶梯、样本、CTR/CVR/CPA/ACOS、退货、周转 | 实验卡、事先门槛、Continue/Iterate/Stop/Inconclusive、评分回写 |
+| Enter | 值不值得进入、能不能做 | Investment Memo | 是否进入、怎么进入、什么条件停止 |
+| Screen | 快速判断、初筛、粗看 | Compressed Investment Memo | 是否值得继续取证 |
+| Reverse | 拆链接、拆 ASIN、拆竞品 | Investment Memo + Reverse Module | 可复制什么、不能复制什么、风险在哪 |
+| Compare | 比较、排序、预算选几个 | Investment Memo + Matrix | 选谁、为什么、候补是谁 |
+| Monitor | 监控、跟踪、月报 | Full Report or Monthly Report | 发生什么、是否告警、下次看什么 |
+| Diagnose | 为什么不增长、问题在哪 | Investment Memo + Diagnosis Module | 根因、修复动作、复查指标 |
+| Scale | 放量、加码、扩 SKU | Investment Memo + Operating Module | 放多少、风险上限、监控指标 |
+| Maintain | 稳态巡检、维持 | Full Report or Operating Review | 是否稳定、是否需要优化 |
+| Reduce | 收缩、降预算、清库存 | Full Report or Operating Review | 收缩哪些、释放多少资金 |
+| Stop | 停止、清退、失败复盘 | Full Report or Exit Memo | 为什么停、损失多少、学到什么 |
+| Review | 复盘、实验回看 | Full Report or Experiment Review | 假设是否被验证或推翻 |
+
+## 二、对象类型
+
+| 对象类型 | 必查证据 | 横向模块 |
+|---|---|---|
+| Category / Product | 需求、竞争、利润、供应、风险、机会 | 国家、平台、关键词、VOC |
+| ASIN / Link | 页面事实、价格、评论、流量代理、风险 | 竞品、VOC、利润 |
+| Store | SKU 结构、价格带、上新、流量承接、缺口 | 店铺补品、监控 |
+| Keyword | 词簇、意图、竞争、CPC/代理、Listing 应用 | 关键词策略 |
+| Country / Region | 消费者、法规、税务、进口、物流、语言 | 国家本地化 |
+| Platform | 流量逻辑、费用、履约、准入、平台风险 | 平台适配 |
+| Portfolio | 单品评分、预算、负荷、集中度、协同 | 组合决策 |
+| Experiment | 事先门槛、样本、指标、异常、评分回写 | 测款复盘 |
+| Supplier | 报价、MOQ、交期、质检、备选、合规资料 | 供应链 |
+| Creative / Content | 钩子、素材、达人、转化、疲劳 | 内容传播 |
+| Review / VOC | 样本、痛点、反例、服务风险、切入楔子 | VOC 情报 |
+
+## 三、输出格式
+
+| 输出格式 | 使用场景 | 必须包含 |
+|---|---|---|
+| Investment Memo | 完整投决与所有正式场景 | 决策页、门槛、评分、利润、风险、行动、Evidence/Assumption Ledger |
+| Compressed Investment Memo | 快速初筛 | 结论、门槛速判、粗评分、利润/风险假设、关键证据、Go/Stop |
+| Reverse Module | 链接/ASIN 拆解 | 页面事实、可复制项、不可复制项、风险、评分 |
+| Matrix Module | 多候选/多国家/多平台 | 横向表、排序、进入顺序、淘汰原因 |
+| Monthly Report | 竞品/店铺/老品监控 | 范围、变化、告警、动作、下次检查 |
+| Experiment Module | 测款设计/复盘 | 假设、指标、样本、Go/Iterate/Stop |
+| Operating Module | 上市后经营 | KPI、告警、根因、Scale/Maintain/Review/Reduce/Stop |
+| Exit Module | 退出复盘 | 初始假设、实际表现、损失、学习、下次规则 |
+| Checklist | 补数/合规/上架准备 | 待确认项、责任角色、截止条件 |
+
+## 常见场景映射
+
+| 用户场景 | 决策类型 | 对象类型 | 输出格式 |
+|---|---|---|---|
+| 品类进入 | Enter | Category/Product | Investment Memo |
+| 快速初筛 | Screen | Product/Category | Compressed Investment Memo |
+| 商品链接反查 | Reverse | ASIN/Link | Investment Memo + Reverse Module |
+| 多候选组合 | Compare | Portfolio | Investment Memo + Matrix Module |
+| 国家比较 | Compare | Country/Region | Investment Memo + Country Matrix |
+| 平台适配 | Compare / Enter | Platform | Investment Memo + Platform Fit |
+| VOC/竞品情报 | Review | Review/VOC + Competitor | Investment Memo + Intelligence Module |
+| 关键词策略 | Review | Keyword | Investment Memo + Keyword Module |
+| 竞品监控月报 | Monitor | ASIN/Store | Full Report or Monthly Report |
+| 店铺补品 | Diagnose / Enter | Store/Product | Investment Memo + SKU Gap Matrix |
+| 老品延展 | Scale | Product | Investment Memo + Operating Module |
+| 老品诊断 | Diagnose | Product | Investment Memo + Diagnosis Module |
+| 测款设计 | Review | Experiment | Investment Memo + Experiment Module |
+| 测款复盘 | Review | Experiment | Full Report or Experiment Review |
+| 上市后巡检 | Maintain / Scale / Reduce | Product | Full Report or Operating Review |
+| 退出复盘 | Stop / Review | Product/Experiment | Full Report or Exit Memo |
+| 季节选品 | Enter / Screen | Product/Category | Investment Memo / Compressed Investment Memo |
+| 趋势爆品 | Screen / Enter | Product/Category | Compressed Investment Memo / Investment Memo |
+| 榜单反查 | Reverse / Screen | Category/ASIN | Investment Memo + Reverse Module |
 
 ## 使用要求
 
-- 趋势场景：同时看 7/30/90 天或其他短中长窗口；不把单日峰值当趋势。
-- 链接反查：页面不可访问时使用用户提供的截图、导出或页面文本；不得凭 ASIN 猜测页面事实。
-- VOC/竞品：披露原始与去重样本量、来源偏差和反例；用户原话必须可追溯，样本内频率不外推为市场比例。
-- 多候选决策：先按同一证据截止日和基础模型分别评分，再做资源约束组合；不得为入选产品篡改基础分。
-- 国家本地化：欧洲和东南亚只能作为路由区域，正式结论必须落到具体国家；法规、税率和平台费必须核验当前官方来源。
-- 榜单场景：区分榜单流量红利、品牌势能和产品本身优势；榜上成功不等于可复制。
-- 监控场景：只做证据与告警设计，不把疑似侵权商品自动推荐进入测款。
-- 季节场景：从销售窗口反推下单、生产、运输和清仓节点，并计算滞销压力场景。
-- 店铺补品：先检查是否符合店铺定位、流量承接和库存能力，不为了填空而扩 SKU。
-- 老品延展：单列增量销售与原品蚕食，避免把销售迁移误判为增长。
-- 测款验证：事先定义主假设、主指标、最小样本、红线和迭代上限；实验结果回写原评分版本。
-- 多场景冲突时，以最终商业目标确定主场景。例如“找 TikTok 圣诞爆品”以 TikTok 内容种草为主、季节选品为辅。
+- 多场景冲突时，以最终商业决策确定主场景；其他模块作为横向附表。
+- 国家或区域相关任务必须落到具体国家；区域只用于选择候选国家。
+- 平台未覆盖时先判断平台类型，不套用 Amazon、TikTok 或 Temu 逻辑。
+- 监控、月报、复盘和诊断默认挂载到完整报告骨架；若用户明确要求月报/卡片或未产生新的投资判断，可以压缩 STEP1-STEP8 展示，但仍要保留专业判断闭环。只有触发投资判断变化时才重新评分。
+- 链接反查页面不可访问时，使用用户提供的截图、导出或页面文本；不得凭 ASIN 猜测页面事实。
+- VOC/竞品必须披露原始与去重样本量、来源偏差和反例；样本内频率不外推为市场比例。
+- 多候选决策先按同一证据截止日和基础模型分别评分，再做资源约束组合。
+- 测款验证事先定义主假设、主指标、最小样本、红线和迭代上限；实验结果回写原评分版本。
 
 ## 批量机会记录
 
 用户要求批量候选、机会池、CSV/Excel 或持续复盘时，增加以下字段；单品报告不强制展示：
 
 - 基础：商品方向、类目、平台、国家、价格带、来源场景、来源链接。
-- 判断：总分、七维原始分、风险等级、置信度、推荐动作、切入楔子。
+- 判断：总分、七维原始分、风险等级、整体/维度置信度、推荐动作、切入楔子。
 - 审计：数据日期、评分模型版本、人工复核、复核结论、放弃原因。
 - 验证：批次、曝光、CTR、CVR、订单、净利、退货、周转、测款结论。
 
-建议状态：`待评估 → 待验证 → 测试中 → 已验证 / 已放弃 → 放量 / 清退`。不要把“已分析”等同于“已验证”。
+建议状态：`待评估 -> 待验证 -> 测试中 -> 已验证 / 已放弃 -> 放量 / 清退`。不要把“已分析”等同于“已验证”。

@@ -14,9 +14,9 @@ Structured, evidence-driven category-entry decisions for cross-border ecommerce.
 
 **Path:** `category-investment-decision/`
 
-**Scopes supported (19+ scenarios):** category entry, competitor/VOC research, link reverse analysis, multi-candidate portfolio, country localization (US/EU/UK/JP/SEA), trend/seasonal/opportunity screening, platform-specific analysis (Amazon, TikTok Shop, Temu, Shopify/DTC, Walmart, Etsy, eBay, Shopee/Lazada), product monitoring, store gap filling, SKU extension, profit calculation, experiment design, and launch review.
+**Scopes supported (25+ scenarios):** category entry, competitor/VOC research, link reverse analysis, multi-candidate portfolio, country localization (US/EU/UK/JP/SEA), trend/seasonal/opportunity screening, platform-specific analysis (Amazon, TikTok Shop, Temu, Shopify/DTC, Walmart, Etsy, eBay, Shopee/Lazada), competitor monitoring, keyword strategy, product monitoring, store gap filling, SKU extension, old-product diagnosis, post-launch scaling, exit review, profit calculation, experiment design, and launch review.
 
-**Core model (CIDM-2026.06):** 7 dimensions × weighted scoring (100 pts), 5 pre-checks with redline priority, 4 decision tiers. Outputs include full reports, rapid screening cards, link reverse-analysis cards, portfolio comparison tables, country entry matrices, and phased validation plans.
+**Core model (CIDM-2026.08):** 7 dimensions × weighted scoring (100 pts), 5 pre-checks with redline priority, 4 decision tiers, dimension confidence, LTV/content-fit/growth-sustainability calibration. Outputs include full reports, rapid screening cards, link reverse-analysis cards, portfolio comparison tables, country entry matrices, competitor monitoring reports, post-launch decision cards, exit reviews, and phased validation plans.
 
 **Files:**
 
@@ -31,15 +31,24 @@ Structured, evidence-driven category-entry decisions for cross-border ecommerce.
 | `scripts/evaluate_experiment.py` | Funnel metrics and preregistered launch-gate evaluator |
 | `scripts/test_models.py` | Regression tests for finance, portfolio, VOC, experiments and workspace safety |
 | `references/scoring-model.md` | 7-dimension scoring anchors, confidence levels |
-| `references/selection-scenarios.md` | 19+ scenario routes with evidence priorities |
-| `references/report-template.md` | Full report and rapid screening templates |
+| `references/selection-scenarios.md` | 25+ scenario routes with evidence priorities |
+| `references/report-style-guide.md` | Professional report structure, decision page and evidence ledger rules |
+| `references/report-template.md` | Investment memo, screening card, matrix, operating review and exit memo templates |
+| `references/universal-scenario-kernel.md` | Universal decision/object/output routing for uncovered scenarios |
 | `references/link-reverse-analysis.md` | 6-step ASIN/product link reverse analysis |
 | `references/portfolio-decision.md` | Multi-candidate ranking and combinatorial selection |
 | `references/country-localization.md` | US/EU/UK/JP/SEA localization checks |
+| `references/country-routing-universal.md` | Any-country localization fallback and regional split rules |
 | `references/validation-playbooks.md` | Phased testing plans and review framework |
+| `references/post-launch-playbook.md` | Post-launch scale, steady-state, decline and exit decisions |
+| `references/competitor-monitoring.md` | Ongoing competitor monitoring, alerts and monthly report structure |
+| `references/keyword-strategy.md` | Keyword classification, lifecycle strategy and traffic-gap application |
+| `references/command-reference.md` | Command-style scene entry points and routing rules |
+| `references/pressure-test-matrix.md` | Ten-scenario regression matrix for report quality and routing coverage |
 | `references/voc-competitor-intelligence.md` | VOC coding, competitor layering and market-gap qualification |
 | `references/evidence-and-finance.md` | Evidence grading, unit economics, sensitivity scenarios |
 | `references/platform-playbooks.md` | Platform-specific analysis (Amazon, TikTok, Temu, etc.) |
+| `references/platform-routing-universal.md` | Any-platform routing by traffic logic, fees, fulfillment and risk |
 | `references/scene-output-protocols.md` | Per-scene deliverable structure |
 | `references/usage-guide.md` | Minimum input requirements, call examples |
 | `references/source-routing.md` | Data source selection by question type |
@@ -82,9 +91,9 @@ Analyzes short-form video links into structured content teardowns covering scrip
 
 **路径：** `category-investment-decision/`
 
-**支持场景（19+）：** 品类进入、竞品/VOC 情报、链接反查、多候选组合、国家本地化（美国/欧盟/英国/日本/东南亚）、趋势/季节/机会筛选、平台专项分析（Amazon、TikTok Shop、Temu、Shopify/DTC、Walmart、Etsy、eBay、Shopee/Lazada）、竞品监控、店铺补品、老品扩展、利润核算、测款设计与复盘。
+**支持场景（25+）：** 品类进入、竞品/VOC 情报、链接反查、多候选组合、国家本地化（美国/欧盟/英国/日本/东南亚）、趋势/季节/机会筛选、平台专项分析（Amazon、TikTok Shop、Temu、Shopify/DTC、Walmart、Etsy、eBay、Shopee/Lazada）、竞品监控、关键词策略、店铺补品、老品扩展、老品诊断、上市后放量、退出复盘、利润核算、测款设计与复盘。
 
-**核心模型（CIDM-2026.06）：** 七维加权评分（100 分制）、五道前置门槛（红线优先）、四档决策阈值。交付物包括完整报告、快速初筛卡、链接反查卡、组合对比表、国家进入矩阵和分阶段验证计划。
+**核心模型（CIDM-2026.08）：** 七维加权评分（100 分制）、五道前置门槛（红线优先）、四档决策阈值、维度置信度、复购/LTV、达人/联盟适配度和增长可持续性校准。交付物包括完整报告、快速初筛卡、链接反查卡、组合对比表、国家进入矩阵、竞品监控月报、上市后决策卡、退出复盘和分阶段验证计划。
 
 **文件清单：**
 
@@ -99,15 +108,24 @@ Analyzes short-form video links into structured content teardowns covering scrip
 | `scripts/evaluate_experiment.py` | 漏斗指标与事先测款门槛评估 |
 | `scripts/test_models.py` | 利润、组合、VOC、实验与工作空间回归测试 |
 | `references/scoring-model.md` | 七维评分锚点与置信度定义 |
-| `references/selection-scenarios.md` | 19+ 个场景的路由与取证重点 |
-| `references/report-template.md` | 完整报告与快速初筛模板 |
+| `references/selection-scenarios.md` | 25+ 个场景的路由与取证重点 |
+| `references/report-style-guide.md` | 高密度专业报告结构、决策页与 Evidence/Assumption Ledger 规则 |
+| `references/report-template.md` | 投资备忘录、压缩版完整报告、场景模块、经营复盘与退出复盘模板 |
+| `references/universal-scenario-kernel.md` | 未覆盖场景的通用决策/对象/输出路由 |
 | `references/link-reverse-analysis.md` | ASIN/商品链接六步反查 |
 | `references/portfolio-decision.md` | 多候选排名与组合选择 |
 | `references/country-localization.md` | 美/欧/英/日/东南亚本地化检查 |
+| `references/country-routing-universal.md` | 任意国家本地化兜底与区域拆分规则 |
 | `references/validation-playbooks.md` | 分阶段测款与复盘框架 |
+| `references/post-launch-playbook.md` | 上市后放量、稳态、衰退与退出决策 |
+| `references/competitor-monitoring.md` | 竞品持续监控、告警和月报结构 |
+| `references/keyword-strategy.md` | 关键词分类、生命周期策略与流量缺口应用 |
+| `references/command-reference.md` | 命令式场景入口与路由规则 |
+| `references/pressure-test-matrix.md` | 报告质量与路由覆盖的 10 场景回归矩阵 |
 | `references/voc-competitor-intelligence.md` | VOC 编码、竞品分层与市场空白判定 |
 | `references/evidence-and-finance.md` | 证据分级、单位经济模型、敏感性场景 |
 | `references/platform-playbooks.md` | 各平台分析剧本（Amazon、TikTok、Temu 等） |
+| `references/platform-routing-universal.md` | 任意平台按流量逻辑、费用、履约和风险路由 |
 | `references/scene-output-protocols.md` | 各场景交付物结构 |
 | `references/usage-guide.md` | 最小输入要求、调用示例 |
 | `references/source-routing.md` | 按问题类型选择数据源 |
