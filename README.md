@@ -73,19 +73,34 @@ Structured, evidence-driven category-entry decisions for cross-border ecommerce.
 
 ### Video Link Breakdown
 
-Analyzes short-form video links into structured content teardowns covering script structure, editing techniques, content quality, audience fit, replicable templates, and upgrade suggestions.
+Professional-grade short-form video teardown at creator/CMO level. Turns any video link into a 12-dimension strategic analysis: second-level rhythm mapping, emotion arc, script beat structure, professional editing grammar, platform-algorithm fit, weighted content scoring, audience segmentation, competitive positioning, monetization funnel, replication cost, A/B hypotheses, and cross-cultural localization.
 
 **Path:** `video-link-breakdown/`
 
 **Supported platforms:** TikTok, YouTube Shorts, Instagram Reels, X/Twitter videos, Bilibili, Douyin.
 
-**Analysis output:** basic video facts, strategic diagnosis, script structure (hook/setup/beats/payoff/CTA), editing techniques (pacing/jump-cuts/captions/transitions/sound/camera), content quality scores (hook/pacing/clarity/persuasion/originality/replication value), replicable beat-by-beat template, concrete upgrade suggestions, and rewritten script when useful.
+**Special modes:** cross-border localization, account diagnosis, competitor benchmarking, audio-first/podcast teardown.
+
+**Analysis output:**
+- Basic metadata & engagement signals
+- One-sentence strategic diagnosis + three-part thesis
+- Second-level rhythm map with information density, emotion value, attention risk, and functional role per 3–5s slice
+- Emotion arc with peak/valley annotations and retention-rate predictions
+- Beat-by-beat script structure with narrative function and psychology mechanism
+- Professional editing grammar: match cuts, motion continuity, J-cut/L-cut, sound–image counterpoint, visual focus & heat-zone prediction
+- Platform-algorithm fit matrix (Douyin/TikTok vs YouTube Shorts vs Bilibili vs Reels) with hook preference, core metric, and migration notes
+- Audience segmentation: core vs reach demographics, consumption scenario, and decision-type match (impulse vs rational)
+- Competitive positioning: category coordinate, trendsetter/follower/copycat label, differentiation vs Top 10
+- Monetization funnel audit: exposure → play → completion → interaction → conversion → retention, with CTA and landing-page match assessment
+- Weighted content scoring: type-specific weights (product/conversion, knowledge, emotion, entertainment, persona) × 7 dimensions, each with one-line justification
+- Replication template + execution-cost estimate (equipment, scene, talent, post-production, timeline, budget) + replication-risk warning
+- A/B hypotheses in "assumption → expected impact → trade-off → validation method" format, plus rewritten script or shot list when useful
 
 **Files:**
 
 | Path | Purpose |
 |---|---|
-| `SKILL.md` | Analysis framework, workflow, link handling, output templates |
+| `SKILL.md` | Full 12-dimension analysis framework, special-mode routing, workflow, link handling, output templates, quality gate |
 | `agents/openai.yaml` | Codex Skill UI metadata |
 | `scripts/prepare_video_link.py` | Video download via yt-dlp, metadata extraction, frame extraction, contact sheet generation |
 
@@ -166,18 +181,33 @@ Analyzes short-form video links into structured content teardowns covering scrip
 
 ### 视频链接拆解
 
-将短视频链接拆解为结构化分析报告，覆盖脚本结构、剪辑手法、内容质量、受众匹配、可复刻模板和优化建议。
+面向创作者/CMO 级别的专业短视频深度拆解。将任意视频链接转化为十二维度战略分析：秒级节奏图谱、情绪曲线、脚本节拍结构、专业剪辑语法、平台算法适配、加权内容评分、受众分层、竞争格局定位、变现漏斗、复刻成本、A/B 假设与跨文化本地化。
 
 **路径：** `video-link-breakdown/`
 
 **支持平台：** TikTok、YouTube Shorts、Instagram Reels、X/Twitter 视频、Bilibili、抖音。
 
-**分析输出：** 基础信息、一句话诊断、脚本结构（钩子/铺垫/节奏/收尾/CTA）、剪辑手法（节奏/跳切/字幕/转场/音效/镜头）、内容质量评分（钩子/节奏/清晰度/说服力/原创性/复刻价值）、可复刻模板、具体优化建议、以及改写脚本（如适用）。
+**特殊模式：** 出海/本地化分析、账号诊断、竞品对标、纯音频/播客型拆解。
+
+**分析输出：**
+- 基础元数据与互动信号
+- 一句话战略诊断 + 三段论展开
+- 秒级节奏图谱：按 3–5 秒切片，标注信息密度、情绪值、注意力风险、功能定位
+- 情绪曲线：标注峰值/低谷，预测各节点留存率
+- 节拍级脚本结构：每拍的叙事功能与心理学机制
+- 专业剪辑语法：匹配剪辑、运动连贯性、J-cut/L-cut、声画对位、视觉焦点与热区预测
+- 平台算法适配矩阵：抖音/TikTok vs YouTube Shorts vs B站 vs Reels 的钩子偏好、核心指标、迁移建议
+- 受众分层：核心/扩散人群、消费场景、决策类型匹配（冲动型 vs 理性型）
+- 竞争格局：品类坐标、定义者/跟风者/搬运者定位、与 Top 10 的共性与差异
+- 变现漏斗审计：曝光→播放→完播→互动→转化→留存，CTA 与承接页匹配度评估
+- 加权内容评分：按带货/知识/情绪/娱乐/人设五类分配权重，七维度逐项评分并附一句话依据
+- 可复刻模板 + 执行成本评估（设备、场景、演员、后期、周期、预算）+ 复刻风险提示
+- A/B 假设：采用"假设→预期影响→Trade-off→验证方式"四段式，必要时附改写脚本或分镜
 
 **文件清单：**
 
 | 路径 | 用途 |
 |---|---|
-| `SKILL.md` | 分析框架、工作流、链接处理、输出模板 |
+| `SKILL.md` | 完整十二维度分析框架、特殊模式路由、工作流、链接处理、输出模板、交付自检 |
 | `agents/openai.yaml` | Codex Skill 界面元数据 |
 | `scripts/prepare_video_link.py` | 视频下载（yt-dlp）、元数据提取、关键帧提取、联系表生成 |
