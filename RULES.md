@@ -20,6 +20,16 @@ skill-name/
 
 Keep runtime instructions inside the Skill. Do not add per-Skill README, changelog, installation guide, or other auxiliary documentation.
 
+## 2b. Versioning
+
+Each Skill's `SKILL.md` frontmatter contains a `version` field. Follow semantic versioning:
+
+- **Patch** (1.0.0 → 1.0.1): typo fixes, reference file corrections, no behavioral change.
+- **Minor** (1.0.0 → 1.1.0): new scenario, new reference file, new script, or behavioral refinement that does not break existing workflows.
+- **Major** (1.0.0 → 2.0.0): breaking change to scoring model, decision tiers, output structure, or input schema that would invalidate comparison with prior reports.
+
+When bumping a major version, note the change in the commit message. Old report scores from different model versions must not be directly compared unless recalculated.
+
 ## 3. Source File Safety
 
 - Treat user-provided files as read-only. Do not overwrite, rename, move, delete, or modify their metadata.
@@ -76,21 +86,30 @@ Do not use `cp -r` as an update mechanism; existing destinations can retain stal
 
 ## 7. Validation
 
-After modifying a Skill:
+After modifying a Skill, run validation for **every changed Skill** (not just the one you were editing):
 
 ```bash
-python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" category-investment-decision
-python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" video-link-breakdown
-python3 category-investment-decision/scripts/test_models.py
+# Validate all skills in the repo (generic — works as skills are added/removed)
+for skill_dir in */; do
+  [ -f "$skill_dir/SKILL.md" ] || continue
+  python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "${skill_dir%/}"
+done
+
+# Run skill-specific test suites (only for skills that ship them)
+[ -f category-investment-decision/scripts/test_models.py ] && \
+  python3 category-investment-decision/scripts/test_models.py
+
 git diff --check
 git status --short
 ```
+
+> **Note:** `quick_validate.py` is provided by the Codex/QoderWork runtime at `${CODEX_HOME}/skills/.system/skill-creator/`. It is not part of this repository. If the script is missing, check that your local Codex installation is up to date.
 
 Also verify that:
 
 - every local link from `SKILL.md` resolves;
 - `agents/openai.yaml` still represents the Skill accurately;
-- README file inventories match the repository;
+- README file inventories match the repository (update README if files were added, removed, or renamed);
 - no caches, downloads, screenshots, or test artifacts remain.
 
 ## 8. Git Workflow
@@ -108,8 +127,43 @@ git push origin main
 1. Use `skill-creator` to initialize and validate the Skill.
 2. Keep the Skill self-contained and add only required resources.
 3. Add `agents/openai.yaml` with accurate UI metadata.
-4. Add the Skill to both language sections of `README.md`.
-5. Add its symlink command and any Skill-specific validation command to this file.
+4. Add the Skill to both language sections of `README.md` (description + file inventory table).
+5. Add its symlink command to section 6 and any Skill-specific validation/test command to section 7.
+6. If the new Skill references or integrates with an existing Skill, document the relationship in section 10.
+
+## 10. Cross-Skill Dependencies
+
+Skills in this repository are **independent and self-contained by default**. Do not design implicit data flows or call chains between Skills unless explicitly documented here.
+
+### Current relationships
+
+**video-link-breakdown → category-investment-decision (optional, unidirectional)**
+
+When the user provides a CIDM report or explicitly requests it, `video-link-breakdown` can:
+- **Read** CIDM's "content propagation" dimension score, wedge, and weakest assumption as analysis input.
+- **Write back** video analysis conclusions to CIDM dimensions:
+  - Dimension 13 (product-video fit) → CIDM "content propagation"
+  - Dimension 14 (unit economics) → CIDM "profit margin"
+  - Dimension 15 (compliance quick-screen) → CIDM "risk controllability"
+  - Dimension 16 (creator matrix cost) → CIDM "batch fixed cost"
+
+Rules: integration is opt-in, never auto-triggered; video analysis conclusions take priority over CIDM optimism; write-backs are "suggested adjustments" for the user to accept or reject.
+
+**category-investment-decision → video-link-breakdown: no explicit reference.** CIDM scores "content propagation" as a dimension but does not currently direct users to `video-link-breakdown` for deeper video analysis. If this changes, document it here.
+
+### Rules for new cross-skill references
+
+- The integrating Skill must contain the reference in its own `SKILL.md`; the referenced Skill does not need to know about its caller.
+- Cross-skill references must be **optional** — each Skill must function correctly without the other.
+- Document every cross-skill reference in this section, including direction (one-way / mutual), trigger condition (user-initiated / automatic), and data flow (what is read / written back).
+
+## 11. Deprecating or Removing a Skill
+
+1. Update this file: remove the Skill's symlink command from section 6, test command from section 7, and cross-skill references from section 10.
+2. Update `README.md`: remove the Skill's entry from both language sections.
+3. Remove the symlink in `${CODEX_HOME}/skills/`: `rm "${CODEX_HOME:-$HOME/.codex}/skills/<skill-name>"`.
+4. Commit the removal with a clear message explaining why.
+5. Keep the directory in the repo for one commit cycle if other Skills or external workflows may still reference it; then delete.
 
 ---
 
@@ -134,6 +188,16 @@ skill-name/
 ```
 
 运行规则写入 Skill 本身。不要在单个 Skill 内添加 README、更新日志、安装指南等辅助文档。
+
+## 2b. 版本管理
+
+每个 Skill 的 `SKILL.md` 前置元数据包含 `version` 字段，遵循语义化版本：
+
+- **补丁版本**（1.0.0 → 1.0.1）：修正错别字、参考文件勘误，无行为变更。
+- **次版本**（1.0.0 → 1.1.0）：新增场景、参考文件、脚本，或不破坏现有工作流的行为调整。
+- **主版本**（1.0.0 → 2.0.0）：评分模型、决策档位、输出结构或输入格式的破坏性变更，导致旧报告分数不可直接比较。
+
+主版本升级时需在 commit message 中注明变更。不同模型版本的报告分数不可直接对比，除非按同一版本重算。
 
 ## 3. 源文件安全
 
@@ -191,21 +255,30 @@ ln -sfn "$PWD/video-link-breakdown" \
 
 ## 7. 校验
 
-每次修改 Skill 后运行：
+每次修改 Skill 后，对**所有变更的 Skill** 运行校验（不仅限于你正在编辑的那个）：
 
 ```bash
-python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" category-investment-decision
-python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" video-link-breakdown
-python3 category-investment-decision/scripts/test_models.py
+# 通用校验：遍历仓库中所有含 SKILL.md 的子目录
+for skill_dir in */; do
+  [ -f "$skill_dir/SKILL.md" ] || continue
+  python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "${skill_dir%/}"
+done
+
+# 运行 Skill 专属测试套件（仅对提供了测试的 Skill）
+[ -f category-investment-decision/scripts/test_models.py ] && \
+  python3 category-investment-decision/scripts/test_models.py
+
 git diff --check
 git status --short
 ```
+
+> **说明：** `quick_validate.py` 由 Codex/QoderWork 运行时提供，位于 `${CODEX_HOME}/skills/.system/skill-creator/`，不属于本仓库。如脚本缺失，请检查本地 Codex 安装是否完整。
 
 同时检查：
 
 - `SKILL.md` 中的本地链接全部存在；
 - `agents/openai.yaml` 与 Skill 实际能力一致；
-- README 文件清单与仓库一致；
+- README 文件清单与仓库一致（新增、删除或重命名文件后必须同步更新 README）；
 - 没有残留缓存、下载文件、截图或测试产物。
 
 ## 8. Git 工作流
@@ -223,5 +296,40 @@ git push origin main
 1. 使用 `skill-creator` 初始化并校验 Skill。
 2. 保持 Skill 自包含，只添加必要资源。
 3. 添加与能力一致的 `agents/openai.yaml`。
-4. 在 `README.md` 中英文部分都登记该 Skill。
-5. 在本文件加入软链接命令及该 Skill 特有的校验命令。
+4. 在 `README.md` 中英文部分都登记该 Skill（描述 + 文件清单表）。
+5. 在本文件第 6 节加入软链接命令，第 7 节加入该 Skill 专属的校验/测试命令。
+6. 若新 Skill 引用或对接了已有 Skill，在第 10 节记录该关系。
+
+## 10. 跨 Skill 依赖
+
+本仓库的 Skill 默认**独立自包含**。不要设计隐式数据流或调用链，除非在此处显式记录。
+
+### 当前关系
+
+**video-link-breakdown → category-investment-decision（可选、单向）**
+
+当用户主动提供 CIDM 报告或明确要求对接时，`video-link-breakdown` 可以：
+- **读取** CIDM 的"内容传播"维度评分、切入楔子和最弱假设，作为视频分析起点。
+- **回写**视频分析结论到 CIDM 维度：
+  - 第十三维度（产品-视频匹配度）→ CIDM "内容传播"维度
+  - 第十四维度（单位经济）→ CIDM "利润空间"维度
+  - 第十五维度（合规快筛）→ CIDM "风险可控性"维度
+  - 第十六维度（达人矩阵成本）→ CIDM 利润模型的"批次固定成本"
+
+规则：对接为用户主动触发，不自动执行；视频分析结论优先于 CIDM 乐观判断；回写以"建议调整"形式呈现，由用户决定是否采纳。
+
+**category-investment-decision → video-link-breakdown：当前无显式引用。** CIDM 对"内容传播"维度评分，但未引导用户使用 `video-link-breakdown` 做深度视频拆解。若后续增加此引导，需在此处记录。
+
+### 新增跨 Skill 引用的规则
+
+- 引用方 Skill 必须在其 `SKILL.md` 中写明引用关系；被引用方无需知晓调用者。
+- 跨 Skill 引用必须是**可选的**——每个 Skill 必须能在不依赖其他 Skill 的情况下独立运行。
+- 所有跨 Skill 引用必须在本节记录，包括方向（单向/双向）、触发条件（用户发起/自动）和数据流（读取什么/回写什么）。
+
+## 11. 废弃与移除 Skill
+
+1. 更新本文件：从第 6 节删除软链接命令、从第 7 节删除测试命令、从第 10 节删除跨 Skill 引用。
+2. 更新 `README.md`：从中英文两部分中移除该 Skill 的条目。
+3. 删除本地软链接：`rm "${CODEX_HOME:-$HOME/.codex}/skills/<skill-name>"`。
+4. 提交移除操作，commit message 中说明原因。
+5. 若有其他 Skill 或外部工作流可能仍在引用该目录，保留一个 commit 周期后再删除目录。
