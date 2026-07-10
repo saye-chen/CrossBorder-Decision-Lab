@@ -22,7 +22,7 @@ Keep runtime instructions inside the Skill. Do not add per-Skill README, changel
 
 ## 2b. Versioning
 
-Each Skill's `SKILL.md` frontmatter contains a `version` field. Follow semantic versioning:
+Skill frontmatter must contain only `name` and `description`, as required by the Codex Skill format. Put the runtime/model version in the `SKILL.md` body and validate it with `scripts/validate_repo.py`. Follow semantic versioning for package releases and date-based identifiers for runtime models:
 
 - **Patch** (1.0.0 → 1.0.1): typo fixes, reference file corrections, no behavioral change.
 - **Minor** (1.0.0 → 1.1.0): new scenario, new reference file, new script, or behavioral refinement that does not break existing workflows.
@@ -99,6 +99,11 @@ done
 [ -f category-investment-decision/scripts/test_models.py ] && \
   python3 category-investment-decision/scripts/test_models.py
 
+[ -f video-link-breakdown/scripts/test_prepare_video_link.py ] && \
+  python3 video-link-breakdown/scripts/test_prepare_video_link.py
+
+python3 scripts/validate_repo.py
+
 git diff --check
 git status --short
 ```
@@ -149,7 +154,7 @@ When the user provides a CIDM report or explicitly requests it, `video-link-brea
 
 Rules: integration is opt-in, never auto-triggered; video analysis conclusions take priority over CIDM optimism; write-backs are "suggested adjustments" for the user to accept or reject.
 
-**category-investment-decision → video-link-breakdown: no explicit reference.** CIDM scores "content propagation" as a dimension but does not currently direct users to `video-link-breakdown` for deeper video analysis. If this changes, document it here.
+**category-investment-decision → video-link-breakdown (optional, user-confirmed).** When content propagation is a key weakness or weakest assumption and the user supplies a video or requests tactic validation, CIDM may suggest the video Skill. It may consume the output only when the user explicitly requests integration. Write-back must record the original CIDM version/date, affected dimension, original and suggested score, reason, evidence/assumption IDs, and whether a gate must be reassessed. Never silently overwrite a historical report.
 
 ### Rules for new cross-skill references
 
@@ -191,7 +196,7 @@ skill-name/
 
 ## 2b. 版本管理
 
-每个 Skill 的 `SKILL.md` 前置元数据包含 `version` 字段，遵循语义化版本：
+Skill 前置元数据必须按 Codex Skill 格式只包含 `name` 和 `description`。运行时/模型版本写在 `SKILL.md` 正文中，并由 `scripts/validate_repo.py` 强制校验。发布版本遵循语义化版本，运行时模型使用日期型标识：
 
 - **补丁版本**（1.0.0 → 1.0.1）：修正错别字、参考文件勘误，无行为变更。
 - **次版本**（1.0.0 → 1.1.0）：新增场景、参考文件、脚本，或不破坏现有工作流的行为调整。
@@ -268,6 +273,11 @@ done
 [ -f category-investment-decision/scripts/test_models.py ] && \
   python3 category-investment-decision/scripts/test_models.py
 
+[ -f video-link-breakdown/scripts/test_prepare_video_link.py ] && \
+  python3 video-link-breakdown/scripts/test_prepare_video_link.py
+
+python3 scripts/validate_repo.py
+
 git diff --check
 git status --short
 ```
@@ -318,7 +328,7 @@ git push origin main
 
 规则：对接为用户主动触发，不自动执行；视频分析结论优先于 CIDM 乐观判断；回写以"建议调整"形式呈现，由用户决定是否采纳。
 
-**category-investment-decision → video-link-breakdown：当前无显式引用。** CIDM 对"内容传播"维度评分，但未引导用户使用 `video-link-breakdown` 做深度视频拆解。若后续增加此引导，需在此处记录。
+**category-investment-decision → video-link-breakdown（可选、用户确认）。** 当内容传播是关键短板或最弱假设，且用户提供视频或要求验证打法时，CIDM 可建议启用视频 Skill；只有用户明确要求对接时才读取输出。回写必须记录原 CIDM 版本/日期、受影响维度、原分与建议分、变化理由、证据/假设编号，以及是否需要重判门槛；不得静默覆盖历史报告。
 
 ### 新增跨 Skill 引用的规则
 

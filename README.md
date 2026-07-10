@@ -4,6 +4,8 @@ Personal Codex skills for cross-border ecommerce investment research and video c
 
 See [RULES.md](RULES.md) for repository conventions: directory structure, source file rules, temporary work directories, delivery naming, sync to local Codex, and Git workflow.
 
+Repository-specific validation is implemented in `scripts/validate_repo.py`; it enforces runtime version declarations, local-link integrity, frontmatter compatibility, and normalized video-scoring weights in addition to the generic Codex Skill validator.
+
 ---
 
 ## Skills
@@ -73,7 +75,7 @@ Structured, evidence-driven category-entry decisions for cross-border ecommerce.
 
 ### Video Link Breakdown
 
-Professional-grade short-form video teardown at creator/CMO level. Turns any video link into a 12-dimension strategic analysis: second-level rhythm mapping, emotion arc, script beat structure, professional editing grammar, platform-algorithm fit, weighted content scoring, audience segmentation, competitive positioning, monetization funnel, replication cost, A/B hypotheses, and cross-cultural localization. In cross-border e-commerce mode, adds 4 business dimensions (13–16): product-video fit & commercial viability, e-commerce conversion funnel & unit economics, cross-border localization & compliance, and scalable production & creator matrix design.
+Professional-grade short-form video teardown at creator/CMO level. Runtime model `VLB-2026.07` adds evidence IDs, six scenario routes, normalized scoring and explicit ROI/profit definitions to the 12-dimension framework. In cross-border e-commerce mode, it adds 4 business dimensions (13–16): product-video fit & commercial viability, e-commerce conversion funnel & unit economics, cross-border localization & compliance, and scalable production & creator matrix design.
 
 **Path:** `video-link-breakdown/`
 
@@ -88,15 +90,15 @@ Professional-grade short-form video teardown at creator/CMO level. Turns any vid
 - Emotion arc with peak/valley annotations and retention-rate predictions
 - Beat-by-beat script structure with narrative function and psychology mechanism
 - Professional editing grammar: match cuts, motion continuity, J-cut/L-cut, sound–image counterpoint, visual focus & heat-zone prediction
-- Platform-algorithm fit matrix (Douyin/TikTok vs YouTube Shorts vs Bilibili vs Reels vs TikTok Shop vs Shopee Video vs Pinterest) with hook preference, core metric, and migration notes; TikTok vs TikTok Shop strategic distinction
+- Platform-fit hypothesis matrix (Douyin/TikTok vs YouTube Shorts vs Bilibili vs Reels vs TikTok Shop vs Shopee Video vs Pinterest), calibrated with current market/category/account data rather than fixed algorithm claims
 - Audience segmentation: core vs reach demographics, consumption scenario, and decision-type match (impulse vs rational)
 - Competitive positioning: category coordinate, trendsetter/follower/copycat label, differentiation vs Top 10
 - Monetization funnel audit: exposure → play → completion → interaction → conversion → retention, with CTA and landing-page match assessment; e-commerce bridge layer (product screen time, selling-point clarity, price anchoring, CTA-to-product path, promise-vs-experience consistency) in cross-border mode
-- Weighted content scoring: type-specific weights (product/conversion, knowledge, emotion, entertainment, persona, e-commerce short-video) × 7 dimensions, each with one-line justification
+- Weighted content scoring: type-specific normalized weights across 7 standard dimensions, plus product-video fit as the eighth dimension in e-commerce mode; each score includes a one-line justification
 - Replication template + execution-cost estimate (equipment, scene, talent, post-production, timeline, budget) + replication-risk warning
 - A/B hypotheses in "assumption → expected impact → trade-off → validation method" format, plus rewritten script or shot list when useful
-- (Cross-border mode) Product-video fit scoring, commercial viability quick-screen, unit economics calculation, ROI estimate, 5-market localization matrix, compliance quick-screen, creator matrix design, and material lifecycle management
-- Optional CIDM integration: when user provides a category investment decision report, video analysis conclusions can write back to CIDM scoring dimensions
+- (Cross-border mode) Product-video fit scoring, commercial viability quick-screen, unit economics, separately defined ROI and net-margin scenarios, 5-market localization matrix, compliance quick-screen, creator matrix design, and material lifecycle management
+- Optional CIDM integration: structured adjustment proposal with original/new score, evidence IDs and gate-reassessment flag; historical reports are never silently overwritten
 
 **Files:**
 
@@ -105,6 +107,7 @@ Professional-grade short-form video teardown at creator/CMO level. Turns any vid
 | `SKILL.md` | Full 12-dimension analysis framework + 4 cross-border business dimensions (13–16), special-mode routing, workflow, link handling, output templates, quality gate |
 | `agents/openai.yaml` | Codex Skill UI metadata |
 | `scripts/prepare_video_link.py` | Video download via yt-dlp, metadata extraction, frame extraction, contact sheet generation |
+| `scripts/test_prepare_video_link.py` | Regression tests for URL/sample validation, dependency safety and preparation invariants |
 
 ---
 
@@ -113,6 +116,8 @@ Professional-grade short-form video teardown at creator/CMO level. Turns any vid
 跨境电商投资研究与视频内容拆解技能库；品类投决中内建竞品/VOC 情报与上市验证闭环。
 
 仓库公约（目录结构、源文件规则、临时目录、交付命名、本地同步、Git 工作流）详见 [RULES.md](RULES.md)。
+
+仓库级校验由 `scripts/validate_repo.py` 执行，在 Codex 通用 Skill 校验之外强制检查运行时版本、本地链接、frontmatter 兼容性和视频评分权重归一化。
 
 ---
 
@@ -183,7 +188,7 @@ Professional-grade short-form video teardown at creator/CMO level. Turns any vid
 
 ### 视频链接拆解
 
-面向创作者/CMO 级别的专业短视频深度拆解。将任意视频链接转化为十二维度战略分析：秒级节奏图谱、情绪曲线、脚本节拍结构、专业剪辑语法、平台算法适配、加权内容评分、受众分层、竞争格局定位、变现漏斗、复刻成本、A/B 假设与跨文化本地化。跨境电商模式下追加四个商业维度（第十三至十六维度）：产品-视频匹配度与商业可行性、电商转化漏斗与单位经济、跨境本地化与合规、规模化生产与达人矩阵适配。
+面向创作者/CMO 级别的专业短视频深度拆解。运行时模型 `VLB-2026.07` 在十二维框架上新增证据编号、六类场景路由、标准化评分和明确的 ROI/利润口径。跨境电商模式下追加四个商业维度（第十三至十六维度）：产品-视频匹配度与商业可行性、电商转化漏斗与单位经济、跨境本地化与合规、规模化生产与达人矩阵适配。
 
 **路径：** `video-link-breakdown/`
 
@@ -198,15 +203,15 @@ Professional-grade short-form video teardown at creator/CMO level. Turns any vid
 - 情绪曲线：标注峰值/低谷，预测各节点留存率
 - 节拍级脚本结构：每拍的叙事功能与心理学机制
 - 专业剪辑语法：匹配剪辑、运动连贯性、J-cut/L-cut、声画对位、视觉焦点与热区预测
-- 平台算法适配矩阵：抖音/TikTok vs YouTube Shorts vs B站 vs Reels vs TikTok Shop vs Shopee Video vs Pinterest 的钩子偏好、核心指标、迁移建议；TikTok 与 TikTok Shop 战略区别说明
+- 平台适配假设矩阵：抖音/TikTok vs YouTube Shorts vs B站 vs Reels vs TikTok Shop vs Shopee Video vs Pinterest；优先用当前国家、品类和账号数据校准，不把固定算法权重当事实
 - 受众分层：核心/扩散人群、消费场景、决策类型匹配（冲动型 vs 理性型）
 - 竞争格局：品类坐标、定义者/跟风者/搬运者定位、与 Top 10 的共性与差异
 - 变现漏斗审计：曝光→播放→完播→互动→转化→留存，CTA 与承接页匹配度评估；跨境电商模式增加电商衔接层（产品出现时间占比、卖点传达清晰度、价格锚定、CTA 跳转路径、视频承诺与实际体验一致性）
-- 加权内容评分：按带货/知识/情绪/娱乐/人设/电商短视频六类分配权重，七维度逐项评分并附一句话依据
+- 加权内容评分：六类内容使用归一化权重；标准模式七维，电商模式增加产品-视频匹配形成八维，每项评分附一句话依据
 - 可复刻模板 + 执行成本评估（设备、场景、演员、后期、周期、预算）+ 复刻风险提示
 - A/B 假设：采用"假设→预期影响→Trade-off→验证方式"四段式，必要时附改写脚本或分镜
-- （跨境电商模式）产品-视频匹配度评分、商业可行性快筛、单位经济快算、ROI 区间预估、五市场本地化矩阵、合规快筛、达人矩阵设计、素材生命周期管理
-- 可选 CIDM 对接：用户提供品类投资决策报告时，视频分析结论可回写 CIDM 评分维度
+- （跨境电商模式）产品-视频匹配度评分、商业可行性快筛、单位经济、分别定义的 ROI 与净利润率三场景、五市场本地化矩阵、合规快筛、达人矩阵设计、素材生命周期管理
+- 可选 CIDM 对接：输出包含原分、建议分、证据编号和门槛重判标记的结构化调整建议，不静默覆盖历史报告
 
 **文件清单：**
 
@@ -215,3 +220,4 @@ Professional-grade short-form video teardown at creator/CMO level. Turns any vid
 | `SKILL.md` | 完整十二维度分析框架 + 跨境电商模式四维度（十三至十六）、特殊模式路由、工作流、链接处理、输出模板、交付自检 |
 | `agents/openai.yaml` | Codex Skill 界面元数据 |
 | `scripts/prepare_video_link.py` | 视频下载（yt-dlp）、元数据提取、关键帧提取、联系表生成 |
+| `scripts/test_prepare_video_link.py` | URL/采样参数、依赖安全和准备流程不变量回归测试 |
