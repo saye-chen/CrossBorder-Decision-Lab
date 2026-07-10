@@ -41,12 +41,19 @@ def validate_skill(skill_dir: Path) -> list[str]:
 
 
 def validate_video_weights() -> list[str]:
-    skill_file = ROOT / "video-link-breakdown" / "SKILL.md"
+    skill_file = ROOT / "video-link-breakdown" / "references" / "scoring-model.md"
     text = skill_file.read_text(encoding="utf-8")
-    rows = re.findall(r"^\| [^|]+ \|(?: [^|]+ \|){5} ([0-9]+)% \|$", text, re.MULTILINE)
-    if not rows:
+    table_rows = [
+        [cell.strip() for cell in line.strip().strip("|").split("|")]
+        for line in text.splitlines()
+        if line.startswith("|")
+    ]
+    header = next((row for row in table_rows if "电商成交" in row), None)
+    if header is None:
         return [f"{skill_file}: could not locate e-commerce weight column"]
-    total = sum(map(int, rows))
+    column = header.index("电商成交")
+    rows = [row for row in table_rows if len(row) > column and re.fullmatch(r"\d+", row[column])]
+    total = sum(int(row[column]) for row in rows)
     return [] if total == 100 else [f"{skill_file}: e-commerce weights total {total}%, expected 100%"]
 
 

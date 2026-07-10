@@ -1,5 +1,12 @@
 # 输入与批量数据规范
 
+## 目录
+
+- 通用字段、单品与链接
+- 多候选与国家比较
+- 店铺、老品与 VOC 数据
+- 测款实验与数据质量
+
 ## 通用字段
 
 所有任务尽量提供：`task_id`、`scenario`、`country`、`platform`、`product_scope`、`currency`、`tax_basis`、`evidence_cutoff`、`seller_constraints`。缺失字段允许为空，但必须在报告中列为假设或数据缺口。

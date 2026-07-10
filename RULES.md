@@ -147,10 +147,10 @@ Skills in this repository are **independent and self-contained by default**. Do 
 When the user provides a CIDM report or explicitly requests it, `video-link-breakdown` can:
 - **Read** CIDM's "content propagation" dimension score, wedge, and weakest assumption as analysis input.
 - **Write back** video analysis conclusions to CIDM dimensions:
-  - Dimension 13 (product-video fit) → CIDM "content propagation"
-  - Dimension 14 (unit economics) → CIDM "profit margin"
-  - Dimension 15 (compliance quick-screen) → CIDM "risk controllability"
-  - Dimension 16 (creator matrix cost) → CIDM "batch fixed cost"
+  - Product-video fit and replication evidence → CIDM "content propagation"
+  - Unit economics and creator/material cost → CIDM "profit margin"
+  - Product/content compliance quick-screen → CIDM "risk controllability"
+  - New video evidence → CIDM wedge, validation plan or opportunity window
 
 Rules: integration is opt-in, never auto-triggered; video analysis conclusions take priority over CIDM optimism; write-backs are "suggested adjustments" for the user to accept or reject.
 
@@ -321,10 +321,10 @@ git push origin main
 当用户主动提供 CIDM 报告或明确要求对接时，`video-link-breakdown` 可以：
 - **读取** CIDM 的"内容传播"维度评分、切入楔子和最弱假设，作为视频分析起点。
 - **回写**视频分析结论到 CIDM 维度：
-  - 第十三维度（产品-视频匹配度）→ CIDM "内容传播"维度
-  - 第十四维度（单位经济）→ CIDM "利润空间"维度
-  - 第十五维度（合规快筛）→ CIDM "风险可控性"维度
-  - 第十六维度（达人矩阵成本）→ CIDM 利润模型的"批次固定成本"
+  - 产品-视频匹配与复刻证据 → CIDM "内容传播"维度
+  - 单位经济与达人/素材成本 → CIDM "利润空间"维度
+  - 产品/内容合规快筛 → CIDM "风险可控性"维度
+  - 新视频证据 → CIDM 切入楔子、验证计划或机会窗口
 
 规则：对接为用户主动触发，不自动执行；视频分析结论优先于 CIDM 乐观判断；回写以"建议调整"形式呈现，由用户决定是否采纳。
 

@@ -1,4 +1,4 @@
 interface:
-  display_name: "Video Link Breakdown"
-  short_description: "拆解视频脚本、剪辑和复刻打法。"
-  default_prompt: "使用 $video-link-breakdown 拆解这个视频链接，分析脚本、剪辑、内容质量和可复刻打法。"
+  display_name: "视频内容与商业决策"
+  short_description: "拆解视频机制，评估带货、本地化与规模化打法。"
+  default_prompt: "使用 $video-link-breakdown 拆解这个视频，并给出证据驱动的内容或商业决策。"
