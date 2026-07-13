@@ -30,3 +30,7 @@
 - **Weekly Intelligence Brief**：范围、总览、变化表、关键告警、我方动作、下次检查。
 - **Monthly Competitive Review**：加入 CPI/定位/竞争格局、假设验证和路由回收。
 - **Special Intelligence Memo**：围绕一个价格战、新品、内容或渠道问题展开，不机械复制月报。
+- **Competitive Decision Brief**：快速竞品分析，包含商品识别、分层、差距、竞争姿态和验证动作。
+- **Competitive Investment Intelligence Report**：投资级竞争尽调，按 [professional-report-delivery.md](professional-report-delivery.md) 输出决策页、正文、Evidence/Assumption Ledger 和自检摘要。
+
+正式报告必须说明它是竞争维度决策还是完整投资决策；不得把监控评分、CPI 或单次竞品快照包装成最终投资结论。

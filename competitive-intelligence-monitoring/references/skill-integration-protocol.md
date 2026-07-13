@@ -5,6 +5,7 @@
 | 情报信号 | 路由 | 输入/回收 |
 |---|---|---|
 | 新竞品、HHI/竞争环境变化、持续降价 | `category-investment-decision` | 输入事件卡；回收门槛/评分建议调整 |
+| 用户要求最终进入、投资或 Go/No-Go | `category-investment-decision` | 输入商品识别卡、竞品池、竞争姿态、证据/假设账本；回收完整投决结论 |
 | 稳定差评主题或产品缺口 | `category-investment-decision` VOC | 输入样本范围和链接；回收产品机会与验证 |
 | 视频/广告素材换版并伴随效果信号 | `video-link-breakdown` | 输入素材、前后快照、产品一致性；回收内容机制、迁移性与测试假设 |
 | Listing 承诺、图片或结构改变 | Listing 专业能力 | 输入变化与证据；回收我方表达调整方案 |
