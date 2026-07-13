@@ -1,0 +1,5 @@
+interface:
+  display_name: "竞品情报与持续监控"
+  short_description: "持续追踪竞品变化，完成异动归因、经营预警与专业能力联动"
+  default_prompt: "使用 $competitive-intelligence-monitoring 建立竞品池、检测异动并输出可执行的经营情报。"
+  runtime: "CIM-2026.07"

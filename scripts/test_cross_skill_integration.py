@@ -19,6 +19,10 @@ CIDM_SKILL = ROOT / "category-investment-decision" / "SKILL.md"
 VLB_SKILL = ROOT / "video-link-breakdown" / "SKILL.md"
 VLB_CIDM_INTEGRATION = ROOT / "video-link-breakdown" / "references" / "cidm-integration.md"
 RULES_MD = ROOT / "RULES.md"
+CIM_SKILL = ROOT / "competitive-intelligence-monitoring" / "SKILL.md"
+CIM_INTEGRATION = ROOT / "competitive-intelligence-monitoring" / "references" / "skill-integration-protocol.md"
+CIG_SKILL = ROOT / "consumer-insights-customer-growth" / "SKILL.md"
+CIG_INTEGRATION = ROOT / "consumer-insights-customer-growth" / "references" / "skill-integration-protocol.md"
 
 
 class CrossSkillFieldMapping(unittest.TestCase):
@@ -111,6 +115,54 @@ class CrossSkillRulesConsistency(unittest.TestCase):
                 self.rules_text,
                 f"RULES.md missing write-back mapping for: {item}",
             )
+
+
+class CompetitiveIntelligenceIntegration(unittest.TestCase):
+    """Verify CIM boundaries and event-card routing are explicit."""
+
+    def setUp(self) -> None:
+        self.cim = CIM_SKILL.read_text(encoding="utf-8")
+        self.protocol = CIM_INTEGRATION.read_text(encoding="utf-8")
+        self.rules = RULES_MD.read_text(encoding="utf-8")
+
+    def test_cim_is_documented_as_optional_with_both_skills(self):
+        self.assertIn("competitive-intelligence-monitoring ↔ category-investment-decision", self.rules)
+        self.assertIn("competitive-intelligence-monitoring ↔ video-link-breakdown", self.rules)
+
+    def test_event_card_and_history_protection(self):
+        self.assertIn("情报事件卡", self.cim)
+        self.assertIn("不静默覆盖", self.protocol)
+        self.assertIn("未经用户确认", self.protocol)
+
+    def test_cim_does_not_claim_downstream_ownership(self):
+        for boundary in ["不独立决定品类是否值得进入", "不完成详细 VOC", "不完成视频逐镜头拆解"]:
+            self.assertIn(boundary, self.cim)
+
+
+class ConsumerGrowthIntegration(unittest.TestCase):
+    """Verify CIG inference, privacy and cross-skill boundaries."""
+
+    def setUp(self) -> None:
+        self.cig = CIG_SKILL.read_text(encoding="utf-8")
+        self.protocol = CIG_INTEGRATION.read_text(encoding="utf-8")
+        self.rules = RULES_MD.read_text(encoding="utf-8")
+
+    def test_inference_levels_and_no_contact_are_explicit(self):
+        for phrase in ["事实 → 描述 → 预测 → 因果 → 决策", "不触达", "预测准确不能证明动作有效"]:
+            self.assertIn(phrase, self.cig)
+
+    def test_all_three_relationships_are_documented(self):
+        for relationship in ["CIDM ↔ CIG", "CIM ↔ CIG", "VLB ↔ CIG"]:
+            self.assertIn(relationship, self.protocol)
+
+    def test_history_and_external_execution_are_protected(self):
+        self.assertIn("不静默覆盖", self.protocol)
+        self.assertIn("真实曝光", self.protocol)
+        self.assertIn("未授权数据", self.cig)
+
+    def test_rules_document_cig_relationships(self):
+        for skill in ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown"]:
+            self.assertIn(f"consumer-insights-customer-growth ↔ {skill}", self.rules)
 
 
 class CrossSkillLinkIntegrity(unittest.TestCase):
