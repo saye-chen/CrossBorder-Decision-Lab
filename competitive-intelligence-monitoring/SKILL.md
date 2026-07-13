@@ -1,0 +1,96 @@
+---
+name: competitive-intelligence-monitoring
+description: 默认用中文执行跨境电商竞品发现、分析、建档、投资级竞争尽调与持续监控。支持从一句自然语言、商品链接、ASIN/SKU、店铺链接、商品图片或截图识别自有商品，在用户指定的 Amazon、TikTok Shop、Shopee、Lazada、Shopify/DTC、Walmart、eBay、Etsy、Temu、Shein 等平台和国家寻找、去重和分层竞品，分析价格、促销、排名、评论、评分、变体、库存、上新、Listing、广告、内容与渠道，输出竞争投资姿态、威胁/机会、验证门槛、专业可下载报告、周报/月报和专项研究；当用户要求找竞品、分析竞争格局、建立竞品池、监控竞品、解释竞品增长/降价/上新/内容换版，或把竞争信号路由给选品、视频、Listing、定价、广告、库存、供应链和经营诊断时使用。
+---
+
+# 竞品情报与持续监控
+
+运行时版本：`CIM-2026.08`。
+
+## 目标与边界
+
+默认用中文把自有商品线索和外部竞争信号转换为可追溯的竞品池、可验证的竞争判断和可执行的经营或投资动作。不将销量、广告投入或市场份额估算写成事实。
+
+- 负责：自有商品识别、搜索词扩展、竞品发现、分层、画像、快照、异动、归因、竞争投资姿态、预警、专业报告和下游路由。
+- 不负责：仅凭竞争数据独立完成最终品类准入、全量 VOC 原子编码、视频逐镜头拆解、Listing 成稿或自动执行调价/广告/库存动作。
+- 不独立决定品类是否值得进入，不完成详细 VOC 原子编码，不完成视频逐镜头拆解；竞争结论作为完整投资决策或下游专业分析的输入。
+- 可以输出竞争维度的 `Advance / Test / Watch / Stop`；最终投资 Go/No-Go 必须补齐需求、利润、合规、供应链和卖家能力，路由给 `category-investment-decision`。
+- 法务、侵权、恶意竞争指控、大幅调价、大额预算和重仓进入必须人工复核。
+
+## 一句话入口
+
+接受商品链接、ASIN/SKU/商品 ID、店铺链接、商品图片/截图、自然语言描述或品类名称。先读取 [product-identification-and-query-expansion.md](references/product-identification-and-query-expansion.md)，建立自有商品识别卡，再发现竞品。
+
+- 高置信识别直接执行。
+- 中置信识别带显式假设执行，不因非关键字段缺失反复追问。
+- 只有歧义会显著改变品类、平台、国家或竞品池时，才追问一个最关键问题。
+- 店铺包含多个商品时列出最可能候选；不得擅自认定目标商品。
+- 未指定平台或国家且上下文无法安全继承时，只补问会改变结果的字段。
+
+## 与消费者洞察与客户增长 Skill 的边界
+
+本 Skill 负责竞品差评、服务、价格、内容和渠道的外部变化；`consumer-insights-customer-growth` 负责这些变化是否也出现在我方客户中、影响哪些人群/生命周期及其经济结果。只在用户提供 CIG 卡片或明确要求联动时交换已去识别的汇总结论；不将公开竞品受众与我方客户做个人级匹配，不用外部信号直接触达我方客户。
+
+## 工作区与时效
+
+对价格、排名、库存、广告、平台规则和市场状态默认进行当日外部核验。保留平台、市场、URL、采集时间和展示条件。复杂或可恢复任务使用受管临时目录 `${TMPDIR:-/tmp}/competitive-intelligence-monitoring/<YYYYMMDD-HHMMSS>-<task-slug>/`，写入 `.task-owner.json`；任务后只删除本任务目录并验证。
+
+## 任务路由
+
+| 模式 | 触发 | 必读 | 默认交付 |
+|---|---|---|---|
+| 快速竞品分析 | 一句话、图片、描述、链接或商品 ID | [product-identification-and-query-expansion.md](references/product-identification-and-query-expansion.md)、[competitor-discovery-and-tiering.md](references/competitor-discovery-and-tiering.md) | 识别卡、T1/T2 竞品、差距、机会、下一步 |
+| 竞品建档 | 要求完整竞品池、画像或基线 | [competitor-discovery-and-tiering.md](references/competitor-discovery-and-tiering.md)、[competitor-profile-schema.md](references/competitor-profile-schema.md) | 竞品池、T1-T4、画像、基线计划 |
+| 竞争投资尽调 | 要求专业、投资级、投委会或进入判断 | [competitive-scoring-and-positioning.md](references/competitive-scoring-and-positioning.md)、[professional-report-delivery.md](references/professional-report-delivery.md) | 竞争姿态、门槛、风险、验证、投决路由 |
+| 单次情报 | 询问竞品最近发生了什么 | [anomaly-detection-and-attribution.md](references/anomaly-detection-and-attribution.md) | 变化、归因、影响、动作 |
+| 持续监控 | 要求周期跟踪或对比快照 | [monitoring-signals-and-frequency.md](references/monitoring-signals-and-frequency.md)、[baseline-and-dynamic-thresholds.md](references/baseline-and-dynamic-thresholds.md) | 绿/黄/红/机会告警和下周重点 |
+| 专项研究 | 价格战、新品、内容换版、渠道扩张等 | [competitive-scoring-and-positioning.md](references/competitive-scoring-and-positioning.md)、[anomaly-detection-and-attribution.md](references/anomaly-detection-and-attribution.md) | 专项判断与验证方案 |
+
+所有模式均读 [evidence-quality-control.md](references/evidence-quality-control.md)。需要告警或正式报告时读 [alert-and-report-protocols.md](references/alert-and-report-protocols.md)；需要生成可下载文件时必须再读 [professional-report-delivery.md](references/professional-report-delivery.md)；需要与其他 Skill 交换结果时读 [skill-integration-protocol.md](references/skill-integration-protocol.md)。
+
+## 核心流程
+
+1. **翻译决策问题**：锁定自有商品、平台、国家、时间窗口和将被改变的经营或投资决策。
+2. **识别商品**：生成自有商品识别卡，记录输入、属性、场景、价格带、置信度、假设和排除项。
+3. **扩展检索**：组合核心品类词、功能需求词、场景词、目标人群词和替代方案词；记录发现渠道与查询词。
+4. **建立对象和基线**：召回、去重、排除并分层竞品；分开主体、商品、快照、事件和机会。单次快照不得声称趋势。
+5. **采集与标注**：区分 `O` 直接观测、`M` 实测/平台数据、`U` 用户输入、`B` 外部基准、`E` 估算、`I` 推断。
+6. **分析竞争**：比较定位、价格、产品、内容、口碑和渠道；输出优势、暴露、进入楔子、反例与最弱假设。
+7. **检测与归因**：确认变化，复核证据，评估影响，提出 2-3 个原因假设，用独立信号交叉验证。
+8. **决策与路由**：输出竞争姿态、动作、风险、最小验证、成功/停止条件；最终投资判断按边界路由。
+9. **学习闭环**：后续快照验证或推翻归因，保留原结论、模型版本和修订记录。
+
+## 默认输出深度
+
+- 用户只说“找竞品/看看竞品”时，交付快速竞品分析，不机械生成长报告。
+- 用户要求深入、专业、投资级、投委会或可下载报告时，交付完整 Competitive Investment Intelligence Report；文件交付默认生成 Markdown 到 `$HOME/Downloads`。
+- 用户要求持续关注时，把首轮结果转为监控基线；未经明确要求不自动创建周期任务。
+- 用户要求最终是否值得进入或投资时，先完成竞争尽调，再联合 `category-investment-decision` 输出最终投决；不得用 CPI 代替完整投资模型。
+
+## 计算脚本
+
+- `python3 scripts/compare_snapshots.py --previous old.json --current new.json --output changes.json`：对比两期 JSON 快照。
+- `python3 scripts/detect_changes.py --input history.json --output alerts.json`：按阈值与滚动基线检测异动。
+- `python3 scripts/build_monitoring_report.py --alerts alerts.json --output report.md`：生成可复核的 Markdown 简报。
+
+脚本只计算和整理用户提供或已取证的数据，不自动采集、不补行业阈值、不发明归因。
+
+## 必要输出
+
+1. 决策问题、对象、平台、国家、截止时间、输入来源和数据缺口。
+2. 自有商品识别结果、置信度、关键假设及可能改变竞品池的歧义。
+3. 搜索范围、发现渠道、候选排除、竞品层级和比较基线。
+4. 关键事实、估算、推断、反例、证据等级和是否已确认。
+5. 对我方的威胁、机会、进入楔子、适用 SKU/市场和时间窗口。
+6. 竞争投资姿态、理由、风险、最小验证、成功信号和停止条件。
+7. 情报事件卡或专业报告、推荐路由；无需路由时明确写“继续监控”。
+
+## 质量门槛
+
+- 商品识别必须保留输入来源、置信度和假设；图片可见特征不得冒充材质、性能或认证事实。
+- 每个纳入竞品保留发现渠道、查询词、纳入理由；每个排除对象保留关键排除理由。
+- 时间趋势至少需要 3 个可比快照；显著异动原则上需要连续 2 期确认。
+- 高置信归因至少需要 3 个一致信号，中置信至少 2 个，否则为低置信待验证。
+- 不同模型版本的 CPI 不直接比较；必须使用同一权重和归一化基准重算。
+- 投资级报告必须包含竞争决策页、Evidence/Assumption Ledger、反例、最弱假设、验证预算或资源边界及停止条件。
+- 建议不得超过证据支持的范围；无法核验时降级结论并给出补证动作。

@@ -80,6 +80,12 @@ ln -sfn "$PWD/category-investment-decision" \
 
 ln -sfn "$PWD/video-link-breakdown" \
   "${CODEX_HOME:-$HOME/.codex}/skills/video-link-breakdown"
+
+ln -sfn "$PWD/competitive-intelligence-monitoring" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/competitive-intelligence-monitoring"
+
+ln -sfn "$PWD/consumer-insights-customer-growth" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/consumer-insights-customer-growth"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.
@@ -101,6 +107,12 @@ done
 
 [ -f video-link-breakdown/scripts/test_prepare_video_link.py ] && \
   python3 video-link-breakdown/scripts/test_prepare_video_link.py
+
+[ -f competitive-intelligence-monitoring/scripts/test_monitoring.py ] && \
+  python3 competitive-intelligence-monitoring/scripts/test_monitoring.py
+
+[ -f consumer-insights-customer-growth/scripts/test_growth.py ] && \
+  python3 consumer-insights-customer-growth/scripts/test_growth.py
 
 python3 scripts/test_cross_skill_integration.py
 
@@ -157,6 +169,16 @@ When the user provides a CIDM report or explicitly requests it, `video-link-brea
 Rules: integration is opt-in, never auto-triggered; video analysis conclusions take priority over CIDM optimism; write-backs are "suggested adjustments" for the user to accept or reject.
 
 **category-investment-decision → video-link-breakdown (optional, user-confirmed).** When content propagation is a key weakness or weakest assumption and the user supplies a video or requests tactic validation, CIDM may suggest the video Skill. It may consume the output only when the user explicitly requests integration. Write-back must record the original CIDM version/date, affected dimension, original and suggested score, reason, evidence/assumption IDs, and whether a gate must be reassessed. Never silently overwrite a historical report.
+
+**competitive-intelligence-monitoring ↔ category-investment-decision (optional, user-confirmed).** CIM may consume CIDM's target market, own SKU, initial competitor links, wedge, gates, and weakest assumptions to initialize a monitored competitor pool. CIM sends confirmed intelligence event cards back when a new entrant, concentration shift, sustained price move, VOC gap, or competitive change may affect entry, scaling, or exit. CIDM owns gate and score reassessment. Both sides retain model version, event/evidence IDs, original conclusion, suggested adjustment, confidence, and gate impact; neither silently overwrites history.
+
+**competitive-intelligence-monitoring ↔ video-link-breakdown (optional, user-confirmed).** CIM routes a confirmed creative or advertising change, before/after snapshots, product identity, and associated performance signals to VLB. VLB returns observed content mechanisms, transferability, test hypotheses, and stop conditions. CIM owns timeline and competitive-impact tracking; VLB owns video-level analysis. A creative score is not proof of sales or competitive advantage.
+
+**consumer-insights-customer-growth ↔ category-investment-decision (optional, user-confirmed).** CIDM provides market, product, audience, wedge, repeat-purchase, and LTV hypotheses. CIG returns authorized customer evidence, retention, returns, contribution-profit CLV, and hypothesis/experiment results. CIDM owns capital decisions; CIG owns customer evidence and incremental-effect validity. Write-back retains both model versions, data date, original conclusion/score, evidence or experiment IDs, suggested adjustment, confidence interval, and gate impact.
+
+**consumer-insights-customer-growth ↔ competitive-intelligence-monitoring (optional, user-confirmed).** CIM provides external competitor feedback, service, price, creative, and opportunity-window events. CIG tests whether the same issue appears among authorized first-party customers and quantifies affected segments, lifecycle states, and economic outcomes. CIM owns external change; CIG owns internal customer impact. Do not person-match public competitor audiences to first-party customers.
+
+**consumer-insights-customer-growth ↔ video-link-breakdown (optional, user-confirmed).** CIG provides de-identified audiences, lifecycle states, jobs, frictions, language, and content hypotheses. VLB returns content mechanisms, transferability, production plans, and test variants. VLB owns content analysis; only CIG experiments or credible quasi-experiments may claim incremental retention or profit. No historical report is silently overwritten and neither Skill executes contact automatically.
 
 ### Rules for new cross-skill references
 
@@ -256,6 +278,12 @@ ln -sfn "$PWD/category-investment-decision" \
 
 ln -sfn "$PWD/video-link-breakdown" \
   "${CODEX_HOME:-$HOME/.codex}/skills/video-link-breakdown"
+
+ln -sfn "$PWD/competitive-intelligence-monitoring" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/competitive-intelligence-monitoring"
+
+ln -sfn "$PWD/consumer-insights-customer-growth" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/consumer-insights-customer-growth"
 ```
 
 不要使用 `cp -r` 更新 Skill；目标已存在时可能保留旧文件或产生嵌套目录。
@@ -277,6 +305,12 @@ done
 
 [ -f video-link-breakdown/scripts/test_prepare_video_link.py ] && \
   python3 video-link-breakdown/scripts/test_prepare_video_link.py
+
+[ -f competitive-intelligence-monitoring/scripts/test_monitoring.py ] && \
+  python3 competitive-intelligence-monitoring/scripts/test_monitoring.py
+
+[ -f consumer-insights-customer-growth/scripts/test_growth.py ] && \
+  python3 consumer-insights-customer-growth/scripts/test_growth.py
 
 python3 scripts/test_cross_skill_integration.py
 
@@ -333,6 +367,16 @@ git push origin main
 规则：对接为用户主动触发，不自动执行；视频分析结论优先于 CIDM 乐观判断；回写以"建议调整"形式呈现，由用户决定是否采纳。
 
 **category-investment-decision → video-link-breakdown（可选、用户确认）。** 当内容传播是关键短板或最弱假设，且用户提供视频或要求验证打法时，CIDM 可建议启用视频 Skill；只有用户明确要求对接时才读取输出。回写必须记录原 CIDM 版本/日期、受影响维度、原分与建议分、变化理由、证据/假设编号，以及是否需要重判门槛；不得静默覆盖历史报告。
+
+**competitive-intelligence-monitoring ↔ category-investment-decision（可选、用户确认）。** CIM 可读取 CIDM 的目标市场、自有 SKU、初始竞品链接、切入楔子、门槛和最弱假设来初始化监控池；新进入者、集中度、持续价格、VOC 缺口或竞争变化可以情报事件卡回传。CIDM 负责门槛与评分重判；双方保留版本、事件/证据 ID、原结论、建议调整、置信度和门槛影响，不静默覆盖历史。
+
+**competitive-intelligence-monitoring ↔ video-link-breakdown（可选、用户确认）。** CIM 向 VLB 提供已确认的素材/广告变化、前后快照、产品一致性和关联效果信号；VLB 回传内容观测、机制、迁移性、测试假设和停止条件。CIM 负责时间线和竞争影响，VLB 负责视频级分析；内容高分不等于销量或竞争优势事实。
+
+**consumer-insights-customer-growth ↔ category-investment-decision（可选、用户确认）。** CIDM 提供市场、商品、人群、切入楔子、复购与 LTV 假设；CIG 回传授权客户证据、留存、退货、贡献利润 CLV 和假设/实验结果。CIDM 负责资本决策，CIG 负责客户证据与增量效果有效性。回写保留双方版本、数据日期、原结论/评分、证据/实验 ID、建议调整、区间和门槛影响。
+
+**consumer-insights-customer-growth ↔ competitive-intelligence-monitoring（可选、用户确认）。** CIM 提供外部竞品反馈、服务、价格、内容和机会窗口事件；CIG 检查相同问题是否出现在经授权的我方客户中，并量化受影响人群、生命周期和经济结果。CIM 负责外部变化，CIG 负责内部客户影响；不将公开竞品受众与我方客户做个人匹配。
+
+**consumer-insights-customer-growth ↔ video-link-breakdown（可选、用户确认）。** CIG 提供已去识别人群、生命周期、任务、阻力、语言和内容假设；VLB 回传内容机制、迁移性、生产方案和测试变体。VLB 负责内容分析，只有 CIG 的实验或可信准实验可声称增量留存/利润。不静默覆盖历史，不自动执行触达。
 
 ### 新增跨 Skill 引用的规则
 
