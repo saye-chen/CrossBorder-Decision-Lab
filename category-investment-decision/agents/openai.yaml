@@ -1,5 +1,5 @@
 interface:
   display_name: "跨境电商品类投资决策"
-  version: "CIDM-2026.08"
+  version: "CIDM-2026.09"
   short_description: "证据驱动的品类投资决策：机会初筛、链接反查、VOC竞品情报、关键词策略、多候选组合与预算选择、国家/平台本地化、七维评分与红线、利润三场景与敏感性、测款设计与实验复盘、放量/稳态/衰退/退出全生命周期、竞品持续监控。"
   default_prompt: "使用 $category-investment-decision 识别选品场景，用 VOC、竞品、关键词和经营数据完成量化评分、风险红线、测款复盘与上市后决策。"

@@ -33,7 +33,7 @@ This is not a generic research prompt library. It is a structured analysis syste
 
 **Path:** `category-investment-decision/`
 
-**Runtime:** `CIDM-2026.08`
+**Runtime:** `CIDM-2026.09`
 
 CIDM evaluates whether a category, product, SKU, market, or portfolio deserves investment. It supports Amazon, TikTok Shop, Shopee, Lazada, Shopify/DTC, Walmart, eBay, Etsy, Temu, Shein, and other cross-border channels through platform- and country-specific routing.
 
@@ -207,7 +207,7 @@ See [RULES.md](RULES.md) for repository conventions.
 
 **目录：** `category-investment-decision/`
 
-**运行模型：** `CIDM-2026.08`
+**运行模型：** `CIDM-2026.09`
 
 CIDM 用于判断一个品类、产品、SKU、国家市场或候选组合是否值得投入。针对 Amazon、TikTok Shop、Shopee、Lazada、Shopify/DTC、Walmart、eBay、Etsy、Temu、Shein 等跨境渠道，按平台流量逻辑和目标国家进行差异化路由。
 
