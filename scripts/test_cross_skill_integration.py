@@ -68,6 +68,35 @@ class CrossSkillFieldMapping(unittest.TestCase):
             )
 
 
+class SystemWideProfessionalInvariant(unittest.TestCase):
+    """Every skill must preserve professional depth in every execution mode."""
+
+    def test_all_skills_declare_professional_hard_constraint(self):
+        for skill_file in (CIDM_SKILL, VLB_SKILL, CIM_SKILL, CIG_SKILL):
+            with self.subTest(skill=skill_file.parent.name):
+                text = skill_file.read_text(encoding="utf-8")
+                self.assertIn("专业性与决策可用性硬约束", text)
+                self.assertIn("只允许压缩展示", text)
+                self.assertIn("停止条件", text)
+                self.assertIn("决策影响", text)
+
+    def test_decision_ownership_is_explicit(self):
+        expected = {
+            CIDM_SKILL: "最终主权",
+            CIM_SKILL: "外部竞争事实",
+            VLB_SKILL: "视频观察",
+            CIG_SKILL: "授权客户证据",
+        }
+        for skill_file, phrase in expected.items():
+            with self.subTest(skill=skill_file.parent.name):
+                self.assertIn(phrase, skill_file.read_text(encoding="utf-8"))
+
+    def test_investment_validator_is_routed(self):
+        text = CIDM_SKILL.read_text(encoding="utf-8")
+        self.assertIn("validate_decision_contract.py", text)
+        self.assertTrue((CIDM_SKILL.parent / "scripts" / "validate_decision_contract.py").exists())
+
+
 class HistoricalReportProtection(unittest.TestCase):
     """Verify both skills agree on not modifying historical reports."""
 

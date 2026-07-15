@@ -200,6 +200,14 @@ Rules: integration is opt-in, never auto-triggered; video analysis conclusions t
 
 本文件用于维护本仓库，不会在 Skill 执行时自动加载。所有运行时必须遵守的规则都应写入对应的 `SKILL.md`。
 
+## 0. 系统级专业性与决策主权
+
+所有 Skill 在单独调用、任意联合调用、快速交付、完整报告、demo、压测、缺数据、工具失败和极端场景下，都必须保持本域专业研究和决策可用性。压缩只作用于展示，不作用于研究；降级只作用于结论强度，不得删除对象边界、证据与假设、反例、商业约束、风险、动作、成功/停止条件和缺失数据影响。
+
+决策主权固定为：CIDM 拥有品类投资、资本配置和最终 Go/No-Go 主权；CIM 拥有外部竞争事实、变化确认与竞争归因主权；VLB 拥有视频观察、内容机制与迁移性主权；CIG 拥有授权客户证据、客户状态与增量有效性主权。非主权 Skill 只能提交结构化建议，不得直接改变主权 Skill 的正式结论、评分、门槛或历史报告。
+
+所有会改变投资结论的计算使用确定性脚本；跨 Skill 调整使用 `proposed → validated/rejected` 状态，只有主权 Skill 接受并按原模型重算后才能生效。任何跨档位变化必须有两个独立证据指纹、目标对象直接证据、完整计算、无未解决红线和主权 Skill重算。违反任一条件即阻断交付，不允许用自然语言免责声明绕过。
+
 ## 1. 唯一真实来源
 
 将本仓库作为 Skill 变更的唯一真实来源。先在这里修改；本地 Codex 安装目录通过软链接指向本仓库。
@@ -302,6 +310,9 @@ done
 # 运行 Skill 专属测试套件（仅对提供了测试的 Skill）
 [ -f category-investment-decision/scripts/test_models.py ] && \
   python3 category-investment-decision/scripts/test_models.py
+
+[ -f category-investment-decision/scripts/test_decision_contract.py ] && \
+  python3 category-investment-decision/scripts/test_decision_contract.py
 
 [ -f video-link-breakdown/scripts/test_prepare_video_link.py ] && \
   python3 video-link-breakdown/scripts/test_prepare_video_link.py
