@@ -23,6 +23,71 @@ CrossBorder Decision Lab
 
 This is not a generic research prompt library. It is a structured analysis system with evidence grading, explicit assumptions, decision gates, quantitative models, confidence controls, redline overrides, validation plans, and stopping rules.
 
+## Project Value and Long-Term Defensibility
+
+### From model output to accountable decisions
+
+CrossBorder Decision Lab does not compete by generating more analysis. It turns cross-border commerce judgments that are usually experience-dependent, difficult to reproduce, and difficult to validate into decisions with evidence, gates, calculations, action boundaries, and post-decision review.
+
+General-purpose models can understand source material, draft reports, and propose ideas. Real operating and investment decisions require additional controls:
+
+- What evidence supports the conclusion, and what remains an inference or an untested assumption?
+- Is the evidence sufficient to justify capital, inventory, content, or customer action?
+- Which commercial redlines override an otherwise attractive score?
+- What is the smallest responsible budget for testing the weakest assumption?
+- What result should trigger scale, iteration, hold, or stop?
+- Did the subsequent operating result validate or falsify the original judgment?
+
+The project therefore optimizes the reliability, auditability, and reviewability of the decision process—not the apparent sophistication of a single answer.
+
+### Stronger foundation models make the system cheaper to run, not unnecessary
+
+No individual foundation model is treated as a permanent moat. Models are replaceable reasoning engines. The durable layer is the decision infrastructure above them:
+
+- how a professional problem is decomposed;
+- what evidence is required for each type of claim;
+- which metrics and professional conclusions must not be substituted for one another;
+- how uncertainty, conflicting evidence, and missing information constrain a decision;
+- how analysis becomes a budget, experiment, operating action, and stopping rule;
+- how later outcomes recalibrate the next decision.
+
+As models improve, they reduce the cost of executing these workflows. They do not automatically acquire a company's authorized first-party data, historical judgments, operating outcomes, accountability boundaries, or long-term business context.
+
+### Capability foundations already present
+
+1. **Structured decision protocols:** expert judgment is expressed through evidence, assumptions, commercial gates, quantitative analysis, validation plans, capital actions, and stop conditions.
+2. **Explicit professional boundaries:** CIDM, CIM, VLB, and CIG own different questions. A local signal or specialist score cannot silently become a complete commercial conclusion.
+3. **Auditable deterministic calculations:** unit economics, reverse funnels, portfolio break-even, and experiment evaluation use deterministic models rather than untraceable model arithmetic.
+4. **Evidence and uncertainty governance:** weak, missing, or conflicting evidence lowers confidence, narrows the claim, or blocks the decision instead of being hidden by fluent language.
+5. **Reversible cross-skill collaboration:** evidence and proposed adjustments retain their source, version, cutoff date, original conclusion, rationale, confidence, and gate impact.
+6. **Regression-based quality control:** repository validation, domain invariants, deterministic tests, and cross-skill integration tests help detect quality drift as models and workflows change.
+
+### How long-term defensibility is intended to compound
+
+Professional skills and frameworks can be studied or imitated. The long-term moat is expected to come from the compound assets created through real use:
+
+1. **Decision-action-outcome data:** what was known, what was decided, what action was taken, and what actually happened afterward.
+2. **Professional evaluations and failure cases:** false triggers, unsupported claims, boundary violations, missed redlines, unusable outputs, and user corrections become durable regression cases.
+3. **Outcome calibration by context:** evidence weights, priors, gates, and validation methods can be recalibrated by country, platform, category, price band, and lifecycle stage.
+4. **Continuous operating context:** candidate products, competitor pools, experiments, content variants, customer evidence, and operating results form a history that a stateless general model does not possess.
+5. **Workflow trust and switching cost:** users depend on a traceable record of why prior decisions were made, which assumptions remain open, and what evidence should change the next action.
+
+```text
+More real decisions
+        ↓
+More actions and operating outcomes
+        ↓
+Better failure cases and professional evaluations
+        ↓
+Better contextual calibration and decision gates
+        ↓
+More reliable and executable decisions
+        ↓
+More use and more outcome feedback
+```
+
+The repository currently provides the professional methods, decision protocols, and quality-governance foundation. Its long-term direction is to connect that foundation to real operating workflows and outcome feedback, creating cross-border commerce decision infrastructure that can be continuously tested, calibrated, and improved.
+
 ## Quick Skill Routing / Skill 快速定位
 
 按“要做什么决策”选择主 Skill，而不是按手头文件格式选择。四个 Skill 都能独立运行；跨 Skill 承接只在用户明确要求或提供上游报告时发生，不静默覆盖历史结论。
@@ -273,6 +338,71 @@ See [RULES.md](RULES.md) for repository conventions.
 ```
 
 它不是一组泛化的研究提示词，而是一套包含证据分级、显式假设、前置门槛、量化模型、置信度控制、红线否决、验证计划和停止条件的结构化分析系统。
+
+## 项目价值与长期壁垒
+
+### 不只是让模型给出更多答案
+
+CrossBorder Decision Lab 的核心价值，不是让大模型生成更多分析，而是将跨境商业中依赖个人经验、难以复用和难以验证的判断，转化为有证据、有门槛、有计算、有行动边界、可以持续复盘的决策系统。
+
+通用模型可以快速理解资料、生成报告和提出建议，但真实经营与投资决策还需要回答：
+
+- 结论建立在什么证据上，哪些仍然只是推断或待验证假设？
+- 当前证据是否足以支持资金、库存、内容或客户动作？
+- 哪些商业红线能够直接否决一个表面高分的机会？
+- 应该用多少预算验证最弱假设？
+- 什么结果意味着应该放量、迭代、维持或停止？
+- 后续经营结果是否验证或推翻了原判断？
+
+本项目优化的不是单次答案看起来有多丰富，而是决策形成过程的可靠性、可审计性和可复盘性。
+
+### 基础模型越强，专业决策系统越值得建立
+
+CrossBorder Decision Lab 不把任何单一基础模型视为永久壁垒。模型是可以持续升级和替换的推理引擎，项目沉淀的是位于模型之上的专业决策基础设施：
+
+- 专业问题应该如何拆解；
+- 不同类型的结论需要什么等级的证据；
+- 哪些指标和专业结论不能相互替代；
+- 如何用证据缺失、证据冲突与不确定性约束结论；
+- 如何把分析转化为预算、实验、经营动作和停止条件；
+- 如何利用后续结果校准下一次决策。
+
+模型能力增强会降低这些专业流程的执行成本，但不会自动获得企业经授权的一方数据、历史判断、经营结果、责任边界和长期业务上下文。因此，本项目不与基础模型竞争，而是把模型组织成能够承担真实经营决策任务的专业系统。
+
+### 当前已经形成的能力基础
+
+1. **结构化决策协议：** 将专家经验转化为证据、假设、商业门槛、量化分析、验证计划、资本动作和停止条件。
+2. **明确的专业边界：** CIDM、CIM、VLB 与 CIG 分别负责不同问题；任何局部信号或单项专业评分都不能静默升级为完整商业结论。
+3. **可审计的确定性计算：** 单位经济、反推漏斗、投资组合盈亏平衡和实验评估等关键结果由确定性模型完成，不依赖不可追溯的模型心算。
+4. **证据与不确定性治理：** 证据不足、缺失或冲突会降低置信度、缩小结论范围或阻断决策，不用流畅语言掩盖不确定性。
+5. **可逆的跨能力协同：** 能力之间可以交换证据和调整建议，但必须保留来源、版本、截止时间、原结论、调整理由、置信度和门槛影响。
+6. **可回归的质量控制：** 通过仓库校验、专业不变量、确定性测试和跨能力集成测试，识别模型升级和流程修改造成的质量漂移。
+
+### 长期壁垒如何形成
+
+专业 Skill 和决策框架本身可以被学习或模仿。项目的长期壁垒不依赖提示词保密，而来自真实使用过程中逐渐形成的复合资产：
+
+1. **决策—行动—结果数据：** 持续记录当时获得了什么证据、形成了什么判断、采取了什么动作，以及后续真实经营结果。相比公开市场数据，这类带有决策上下文和结果标签的数据更难获得。
+2. **专业评测与失败案例：** 将误判、漏判、错误触发、越权结论、证据缺失、不可执行输出和用户纠正沉淀为长期回归案例。
+3. **针对场景的结果校准：** 随着结果回收，逐步校准不同国家、平台、品类、价格带和经营阶段中的证据权重、先验门槛与验证方法。
+4. **连续经营上下文：** 候选商品、竞品池、历史投决、测款记录、内容变体、客户证据和经营结果共同形成通用模型默认不具备的长期业务历史。
+5. **工作流、信任与切换成本：** 用户依赖的不再是某次生成结果，而是一套能够追溯过去判断、识别未验证假设并指导下一步动作的连续决策记录。
+
+```text
+更多真实决策
+    ↓
+更多行动与经营结果
+    ↓
+更完整的失败案例和专业评测
+    ↓
+更准确的场景校准与决策门槛
+    ↓
+更可靠、更可执行的经营判断
+    ↓
+更多使用与结果回收
+```
+
+CrossBorder Decision Lab 当前已经完成的是专业方法、决策协议和质量治理基础。长期方向是在此基础上连接真实经营工作流与结果反馈，形成能够持续测试、校准和改进的跨境商业决策基础设施。
 
 ## 为什么具备专业决策价值
 
