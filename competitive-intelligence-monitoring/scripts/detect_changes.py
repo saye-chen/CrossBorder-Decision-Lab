@@ -21,6 +21,14 @@ def main():
     rows = json.loads(Path(args.input).read_text(encoding="utf-8"))
     if not isinstance(rows, list) or len(rows) < 2:
         raise SystemExit("input must be a JSON list with at least two snapshots")
+    if any(not isinstance(row, dict) for row in rows):
+        raise SystemExit("each snapshot must be an object")
+    timestamps = [row.get("snapshot_at") for row in rows]
+    if any(not isinstance(value, str) or not value for value in timestamps) or timestamps != sorted(timestamps):
+        raise SystemExit("snapshots must contain chronological snapshot_at values")
+    product_ids = {row.get("product_id") for row in rows}
+    if None in product_ids or len(product_ids) != 1:
+        raise SystemExit("all snapshots must belong to one product_id")
     current, previous = rows[-1], rows[-2]
     calibration = {}
     if args.calibration:
@@ -31,7 +39,7 @@ def main():
     fields = sorted(set().union(*(row.keys() for row in rows)) - ignored)
     for field in fields:
         value, before = current.get(field), previous.get(field)
-        if not isinstance(value, (int, float)) or not isinstance(before, (int, float)):
+        if not isinstance(value, (int, float)) or not isinstance(before, (int, float)) or not math.isfinite(value) or not math.isfinite(before):
             continue
         absolute = value - before
         relative = None if before == 0 else absolute / abs(before)

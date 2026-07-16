@@ -23,6 +23,7 @@ CIM_SKILL = ROOT / "competitive-intelligence-monitoring" / "SKILL.md"
 CIM_INTEGRATION = ROOT / "competitive-intelligence-monitoring" / "references" / "skill-integration-protocol.md"
 CIG_SKILL = ROOT / "consumer-insights-customer-growth" / "SKILL.md"
 CIG_INTEGRATION = ROOT / "consumer-insights-customer-growth" / "references" / "skill-integration-protocol.md"
+D09_SKILL = ROOT / "advertising-analysis-measurement-optimization" / "SKILL.md"
 
 
 class CrossSkillFieldMapping(unittest.TestCase):
@@ -72,7 +73,7 @@ class SystemWideProfessionalInvariant(unittest.TestCase):
     """Every skill must preserve professional depth in every execution mode."""
 
     def test_all_skills_declare_professional_hard_constraint(self):
-        for skill_file in (CIDM_SKILL, VLB_SKILL, CIM_SKILL, CIG_SKILL):
+        for skill_file in (CIDM_SKILL, VLB_SKILL, CIM_SKILL, CIG_SKILL, D09_SKILL):
             with self.subTest(skill=skill_file.parent.name):
                 text = skill_file.read_text(encoding="utf-8")
                 self.assertIn("专业性与决策可用性硬约束", text)
@@ -86,6 +87,7 @@ class SystemWideProfessionalInvariant(unittest.TestCase):
             CIM_SKILL: "外部竞争事实",
             VLB_SKILL: "视频观察",
             CIG_SKILL: "授权客户证据",
+            D09_SKILL: "广告架构",
         }
         for skill_file, phrase in expected.items():
             with self.subTest(skill=skill_file.parent.name):
@@ -231,6 +233,17 @@ class CrossSkillLinkIntegrity(unittest.TestCase):
                         f"{md_file.relative_to(ROOT)}: broken link {target}",
                     )
 
+    def test_d09_references_all_resolve(self):
+        d09_dir = ROOT / "advertising-analysis-measurement-optimization"
+        link_re = re.compile(r"\[[^]]+\]\(([^)]+)\)")
+        for md_file in d09_dir.rglob("*.md"):
+            for target in link_re.findall(md_file.read_text(encoding="utf-8")):
+                if "://" in target or target.startswith("#"):
+                    continue
+                local_target = target.split("#", 1)[0]
+                if local_target:
+                    self.assertTrue((md_file.parent / local_target).resolve().exists(), f"{md_file.relative_to(ROOT)}: broken link {target}")
+
 
 class ProductTransferabilityProtocol(unittest.TestCase):
     """Verify cidm-integration.md enforces product transferability assessment before dimension adjustments."""
@@ -349,13 +362,29 @@ class VersionConsistency(unittest.TestCase):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         cidm_text = CIDM_SKILL.read_text(encoding="utf-8")
         vlb_text = VLB_SKILL.read_text(encoding="utf-8")
+        d09_text = D09_SKILL.read_text(encoding="utf-8")
 
         cidm_version = re.search(r"`(CIDM-\d{4}\.\d{2})`", cidm_text)
         vlb_version = re.search(r"`(VLB-\d{4}\.\d{2})`", vlb_text)
+        d09_version = re.search(r"`(D09-\d{4}\.\d{2})`", d09_text)
         self.assertIsNotNone(cidm_version)
         self.assertIsNotNone(vlb_version)
+        self.assertIsNotNone(d09_version)
         self.assertIn(cidm_version.group(1), readme)
         self.assertIn(vlb_version.group(1), readme)
+        self.assertIn(d09_version.group(1), readme)
+
+
+class AdvertisingIntegration(unittest.TestCase):
+    def test_rules_document_d09_relationships(self):
+        rules = RULES_MD.read_text(encoding="utf-8")
+        for skill in ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth"]:
+            self.assertIn(f"advertising-analysis-measurement-optimization ↔ {skill}", rules)
+
+    def test_d09_keeps_cross_domain_outputs_non_authoritative(self):
+        text = D09_SKILL.read_text(encoding="utf-8")
+        for phrase in ["proposed / validated / blocked / inconclusive", "不得越权", "不拥有品类投资"]:
+            self.assertIn(phrase, text)
 
 
 if __name__ == "__main__":

@@ -24,7 +24,7 @@ def valid_payload() -> dict:
         "decision_type": "investment",
         "decision_owner": CIDM,
         "participating_skills": [CIDM, VLB],
-        "runtime_versions": {CIDM: "CIDM-2026.09", VLB: "VLB-2026.08"},
+        "runtime_versions": {CIDM: "CIDM-2026.10", VLB: "VLB-2026.09"},
         "professional_core": {
             "object_boundary": "US Amazon indoor electronic pet fountain, LC-2",
             "conclusion": "Only content testing is authorized before gates pass.",
@@ -117,6 +117,36 @@ class ProfessionalCompletenessTests(unittest.TestCase):
 
 
 class OwnershipAndWriteBackTests(unittest.TestCase):
+    def test_expanded_domain_aliases_have_the_correct_owner(self):
+        cases = {
+            "capital_portfolio": CIDM,
+            "competitive_intelligence": "competitive-intelligence-monitoring",
+            "content_creative": VLB,
+            "customer_experience": "consumer-insights-customer-growth",
+            "service_recovery": "consumer-insights-customer-growth",
+            "loyalty": "consumer-insights-customer-growth",
+            "reputation": "consumer-insights-customer-growth",
+            "crm_orchestration": "consumer-insights-customer-growth",
+            "advertising": "advertising-analysis-measurement-optimization",
+            "advertising_measurement": "advertising-analysis-measurement-optimization",
+            "advertising_scaling": "advertising-analysis-measurement-optimization",
+        }
+        for decision_type, owner in cases.items():
+            with self.subTest(decision_type=decision_type):
+                payload = valid_payload()
+                payload.update({
+                    "mode": "single",
+                    "decision_type": decision_type,
+                    "decision_owner": owner,
+                    "participating_skills": [owner],
+                    "runtime_versions": {owner: "TEST-2026.01"},
+                    "evidence": [], "claims": [], "adjustments": [],
+                })
+                if owner != CIDM:
+                    payload["calculations"] = []
+                    payload["required_calculation_ids"] = []
+                self.assertEqual(run(payload).returncode, 0, run(payload).stderr)
+
     def test_wrong_decision_owner_is_blocked(self):
         payload = valid_payload()
         payload["decision_owner"] = VLB
@@ -215,6 +245,26 @@ class ThresholdAndEvidenceTests(unittest.TestCase):
 
 
 class CalculationAndReferenceTests(unittest.TestCase):
+    def test_proxy_evidence_cannot_support_observed_fact(self):
+        payload = valid_payload()
+        payload["claims"][0].update({"state": "observed", "effective_now": False})
+        payload["evidence"][1]["evidence_class"] = "proxy"
+        self.assertIn("non-direct evidence", run(payload).stderr)
+
+    def test_non_investment_economic_decision_can_require_calculation(self):
+        payload = valid_payload()
+        payload.update({
+            "decision_type": "loyalty",
+            "decision_owner": "consumer-insights-customer-growth",
+            "participating_skills": [CIDM, VLB, "consumer-insights-customer-growth"],
+            "runtime_versions": {CIDM: "TEST", VLB: "TEST", "consumer-insights-customer-growth": "TEST"},
+            "claims": [], "adjustments": [], "calculation_required": True,
+            "required_calculation_ids": ["profit"],
+        })
+        self.assertEqual(run(payload).returncode, 0, run(payload).stderr)
+        payload["required_calculation_ids"] = ["missing"]
+        self.assertIn("calculation_required", run(payload).stderr)
+
     def test_incomplete_calculation_is_blocked(self):
         payload = valid_payload()
         payload["calculations"][0]["status"] = "failed"
@@ -253,21 +303,23 @@ class CalculationAndReferenceTests(unittest.TestCase):
 class InvocationTopologyTests(unittest.TestCase):
     """All four singles plus every pair/triple/quad topology must be representable."""
 
-    def test_all_fifteen_skill_topologies(self):
+    def test_all_skill_topologies(self):
         skills = [
             "category-investment-decision",
             "competitive-intelligence-monitoring",
             "video-link-breakdown",
             "consumer-insights-customer-growth",
+            "advertising-analysis-measurement-optimization",
         ]
         owner_to_type = {
             "category-investment-decision": "investment",
             "competitive-intelligence-monitoring": "competition",
             "video-link-breakdown": "content",
             "consumer-insights-customer-growth": "customer_growth",
+            "advertising-analysis-measurement-optimization": "advertising",
         }
         tested = 0
-        for size in range(1, 5):
+        for size in range(1, 6):
             for participants in itertools.combinations(skills, size):
                 payload = valid_payload()
                 owner = participants[0]
@@ -292,7 +344,7 @@ class InvocationTopologyTests(unittest.TestCase):
                     result = run(payload)
                     self.assertEqual(result.returncode, 0, result.stderr)
                 tested += 1
-        self.assertEqual(tested, 15)
+        self.assertEqual(tested, 31)
 
 
 if __name__ == "__main__":

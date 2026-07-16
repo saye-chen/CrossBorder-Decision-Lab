@@ -2,4 +2,4 @@ interface:
   display_name: "消费者洞察与客户增长"
   short_description: "统一客户证据、生命周期、价值预测、实验评估与增量增长决策"
   default_prompt: "使用 $consumer-insights-customer-growth 分析消费者证据、客户状态与增量增长机会。"
-  runtime: "CIG-2026.08"
+  runtime: "CIG-2026.09"

@@ -17,9 +17,22 @@ from pathlib import Path
 
 OWNERS = {
     "investment": "category-investment-decision",
+    "capital_portfolio": "category-investment-decision",
+    "lifecycle_capital": "category-investment-decision",
     "competition": "competitive-intelligence-monitoring",
+    "competitive_intelligence": "competitive-intelligence-monitoring",
     "content": "video-link-breakdown",
+    "content_creative": "video-link-breakdown",
+    "content_migration": "video-link-breakdown",
     "customer_growth": "consumer-insights-customer-growth",
+    "customer_experience": "consumer-insights-customer-growth",
+    "service_recovery": "consumer-insights-customer-growth",
+    "loyalty": "consumer-insights-customer-growth",
+    "reputation": "consumer-insights-customer-growth",
+    "crm_orchestration": "consumer-insights-customer-growth",
+    "advertising": "advertising-analysis-measurement-optimization",
+    "advertising_measurement": "advertising-analysis-measurement-optimization",
+    "advertising_scaling": "advertising-analysis-measurement-optimization",
 }
 SKILLS = set(OWNERS.values())
 CLAIM_STATES = {"observed", "estimated", "hypothesis", "proposed", "validated", "rejected"}
@@ -169,6 +182,20 @@ def validate(payload: dict) -> list[str]:
                     errors.append(f"claim {claim_id} references unknown evidence {ref}")
         if claim.get("state") == "observed" and not refs:
             errors.append(f"observed claim {claim_id} requires direct evidence")
+        if claim.get("state") == "observed" and isinstance(refs, list):
+            non_direct = {
+                "proxy", "estimate", "estimated", "inference", "inferred",
+                "benchmark", "external_statement",
+            }
+            unsafe_refs = [
+                ref for ref in refs
+                if ref in evidence_by_id
+                and str(evidence_by_id[ref].get("evidence_class", "")).lower() in non_direct
+            ]
+            if unsafe_refs:
+                errors.append(
+                    f"observed claim {claim_id} cannot rely on non-direct evidence: {unsafe_refs}"
+                )
         if claim.get("effective_now") and claim.get("state") != "validated":
             errors.append(f"claim {claim_id} cannot be effective before validation")
         if not nonempty(claim.get("allowed_uses")) or not isinstance(claim.get("forbidden_uses"), list):
@@ -278,12 +305,19 @@ def validate(payload: dict) -> list[str]:
             elif CONFIDENCE_RANK[after_confidence] < CONFIDENCE_RANK[before_confidence]:
                 errors.append(f"threshold-crossing adjustment {adjustment_id} cannot lower confidence")
 
-    if decision_type == "investment":
+    if decision_type in {"investment", "capital_portfolio", "lifecycle_capital"}:
         required = set(payload.get("required_calculation_ids", []))
         if not required:
             errors.append("investment decisions require required_calculation_ids")
         elif not required.issubset(calculation_ids):
             errors.append("investment decision references missing calculations")
+
+    if payload.get("calculation_required"):
+        required = set(payload.get("required_calculation_ids", []))
+        if not required:
+            errors.append("calculation_required decisions require required_calculation_ids")
+        elif not required.issubset(calculation_ids):
+            errors.append("calculation_required decision references missing calculations")
 
     return errors
 

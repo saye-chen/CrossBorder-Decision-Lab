@@ -74,7 +74,7 @@ class EvidenceAndSellerTests(unittest.TestCase):
 
 class VersionTests(unittest.TestCase):
     def test_cidm_version_is_consistent(self):
-        expected = "CIDM-2026.09"
+        expected = "CIDM-2026.10"
         files = [
             CIDM / "SKILL.md",
             CIDM / "agents" / "openai.yaml",
