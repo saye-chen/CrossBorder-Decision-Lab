@@ -86,6 +86,9 @@ ln -sfn "$PWD/competitive-intelligence-monitoring" \
 
 ln -sfn "$PWD/consumer-insights-customer-growth" \
   "${CODEX_HOME:-$HOME/.codex}/skills/consumer-insights-customer-growth"
+
+ln -sfn "$PWD/advertising-analysis-measurement-optimization" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/advertising-analysis-measurement-optimization"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.
@@ -114,7 +117,16 @@ done
 [ -f consumer-insights-customer-growth/scripts/test_growth.py ] && \
   python3 consumer-insights-customer-growth/scripts/test_growth.py
 
+[ -f advertising-analysis-measurement-optimization/scripts/test_models.py ] && \
+  python3 advertising-analysis-measurement-optimization/scripts/test_models.py
+
 python3 scripts/test_cross_skill_integration.py
+
+python3 scripts/test_domain_stress.py
+
+python3 scripts/test_advertising_stress.py
+
+python3 scripts/test_expert_release.py
 
 python3 scripts/validate_repo.py
 
@@ -180,6 +192,14 @@ Rules: integration is opt-in, never auto-triggered; video analysis conclusions t
 
 **consumer-insights-customer-growth ↔ video-link-breakdown (optional, user-confirmed).** CIG provides de-identified audiences, lifecycle states, jobs, frictions, language, and content hypotheses. VLB returns content mechanisms, transferability, production plans, and test variants. VLB owns content analysis; only CIG experiments or credible quasi-experiments may claim incremental retention or profit. No historical report is silently overwritten and neither Skill executes contact automatically.
 
+**advertising-analysis-measurement-optimization ↔ category-investment-decision (optional, user-confirmed).** D09 returns advertising feasibility, measured CAC range, mature marginal profit, budget capacity, scaling and stop signals. CIDM alone owns category entry and capital-allocation decisions; advertising efficiency cannot silently change an investment conclusion.
+
+**advertising-analysis-measurement-optimization ↔ competitive-intelligence-monitoring (optional, user-confirmed).** CIM supplies confirmed competitor advertising events and snapshots; D09 tests their relevance to the user's advertising system and owns only advertising actions. A competitor signal is neither a verified auction mechanism nor proof that copying it will work.
+
+**advertising-analysis-measurement-optimization ↔ video-link-breakdown (optional, user-confirmed).** VLB supplies observed content mechanisms, transferability and creative test variants; D09 owns paid delivery, advertising-internal budget and scaling. Paid performance does not prove a content mechanism, and a strong video score does not authorize budget.
+
+**advertising-analysis-measurement-optimization ↔ consumer-insights-customer-growth (optional, user-confirmed).** CIG supplies authorized customer value, lifecycle and credible incrementality evidence; D09 supplies exposure, cost and platform-attributed outcomes. D09 does not execute customer contact, and platform attribution cannot replace CIG's causal standard.
+
 ### Rules for new cross-skill references
 
 - The integrating Skill must contain the reference in its own `SKILL.md`; the referenced Skill does not need to know about its caller.
@@ -204,7 +224,7 @@ Rules: integration is opt-in, never auto-triggered; video analysis conclusions t
 
 所有 Skill 在单独调用、任意联合调用、快速交付、完整报告、demo、压测、缺数据、工具失败和极端场景下，都必须保持本域专业研究和决策可用性。压缩只作用于展示，不作用于研究；降级只作用于结论强度，不得删除对象边界、证据与假设、反例、商业约束、风险、动作、成功/停止条件和缺失数据影响。
 
-决策主权固定为：CIDM 拥有品类投资、资本配置和最终 Go/No-Go 主权；CIM 拥有外部竞争事实、变化确认与竞争归因主权；VLB 拥有视频观察、内容机制与迁移性主权；CIG 拥有授权客户证据、客户状态与增量有效性主权。非主权 Skill 只能提交结构化建议，不得直接改变主权 Skill 的正式结论、评分、门槛或历史报告。
+决策主权固定为：CIDM 拥有品类投资、资本配置和最终 Go/No-Go 主权；CIM 拥有外部竞争事实、变化确认与竞争归因主权；VLB 拥有视频观察、内容机制与迁移性主权；CIG 拥有授权客户证据、客户状态与增量有效性主权；D09 拥有广告架构、广告内部预算/出价、广告诊断/测量和放量/停投主权。非主权 Skill 只能提交结构化建议，不得直接改变主权 Skill 的正式结论、评分、门槛或历史报告。
 
 所有会改变投资结论的计算使用确定性脚本；跨 Skill 调整使用 `proposed → validated/rejected` 状态，只有主权 Skill 接受并按原模型重算后才能生效。任何跨档位变化必须有两个独立证据指纹、目标对象直接证据、完整计算、无未解决红线和主权 Skill重算。违反任一条件即阻断交付，不允许用自然语言免责声明绕过。
 
@@ -292,6 +312,9 @@ ln -sfn "$PWD/competitive-intelligence-monitoring" \
 
 ln -sfn "$PWD/consumer-insights-customer-growth" \
   "${CODEX_HOME:-$HOME/.codex}/skills/consumer-insights-customer-growth"
+
+ln -sfn "$PWD/advertising-analysis-measurement-optimization" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/advertising-analysis-measurement-optimization"
 ```
 
 不要使用 `cp -r` 更新 Skill；目标已存在时可能保留旧文件或产生嵌套目录。
@@ -323,7 +346,16 @@ done
 [ -f consumer-insights-customer-growth/scripts/test_growth.py ] && \
   python3 consumer-insights-customer-growth/scripts/test_growth.py
 
+[ -f advertising-analysis-measurement-optimization/scripts/test_models.py ] && \
+  python3 advertising-analysis-measurement-optimization/scripts/test_models.py
+
 python3 scripts/test_cross_skill_integration.py
+
+python3 scripts/test_domain_stress.py
+
+python3 scripts/test_advertising_stress.py
+
+python3 scripts/test_expert_release.py
 
 python3 scripts/validate_repo.py
 
@@ -388,6 +420,14 @@ git push origin main
 **consumer-insights-customer-growth ↔ competitive-intelligence-monitoring（可选、用户确认）。** CIM 提供外部竞品反馈、服务、价格、内容和机会窗口事件；CIG 检查相同问题是否出现在经授权的我方客户中，并量化受影响人群、生命周期和经济结果。CIM 负责外部变化，CIG 负责内部客户影响；不将公开竞品受众与我方客户做个人匹配。
 
 **consumer-insights-customer-growth ↔ video-link-breakdown（可选、用户确认）。** CIG 提供已去识别人群、生命周期、任务、阻力、语言和内容假设；VLB 回传内容机制、迁移性、生产方案和测试变体。VLB 负责内容分析，只有 CIG 的实验或可信准实验可声称增量留存/利润。不静默覆盖历史，不自动执行触达。
+
+**advertising-analysis-measurement-optimization ↔ category-investment-decision（可选、用户确认）。** D09 回传广告可行性、测量后的 CAC 区间、成熟边际利润、预算容量、放量与停止信号；只有 CIDM 拥有品类准入和资本配置主权，广告效率不得静默改变投资结论。
+
+**advertising-analysis-measurement-optimization ↔ competitive-intelligence-monitoring（可选、用户确认）。** CIM 提供已确认的竞品广告事件与快照；D09 判断其对我方广告系统的相关性并只拥有广告动作主权。竞品信号不等于已验证的竞价机制，也不证明复制有效。
+
+**advertising-analysis-measurement-optimization ↔ video-link-breakdown（可选、用户确认）。** VLB 提供内容机制、迁移性和创意测试变体；D09 负责付费交付、广告内部预算与放量。付费效果不能证明内容机制，视频高分也不自动授权预算。
+
+**advertising-analysis-measurement-optimization ↔ consumer-insights-customer-growth（可选、用户确认）。** CIG 提供授权客户价值、生命周期和可信增量证据；D09 提供曝光、成本和平台归因结果。D09 不执行客户触达，平台归因不能替代 CIG 的因果标准。
 
 ### 新增跨 Skill 引用的规则
 

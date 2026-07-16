@@ -1,5 +1,5 @@
 interface:
-  display_name: "视频内容与商业决策"
-  version: "VLB-2026.08"
-  short_description: "证据驱动的视频内容拆解与商业决策：秒级节奏图谱、平台算法适配（7 平台）、内容质量加权评分、产品-视频匹配评估、电商衔接审计、单位经济与 ROI、品类视频表达模型（9 品类）、视频类型分类学（货架/内容/广告/品牌/达人）、用户决策-内容作用链映射、创意变体矩阵与规模化、疲劳类型诊断与刷新策略、7+ 市场本地化适配与法规快筛、CIDM 品类投决对接。"
-  default_prompt: "使用 $video-link-breakdown 拆解这个视频，并给出证据驱动的内容或商业决策。"
+  display_name: "内容创意与传播决策"
+  version: "VLB-2026.09"
+  short_description: "拆解视频与多格式内容，形成创意策略、生产 Brief、实验矩阵、素材组合、疲劳刷新和跨平台/国家迁移决策。"
+  default_prompt: "使用 $video-link-breakdown 分析这组内容，给出证据驱动的创意、生产、测试与传播决策。"

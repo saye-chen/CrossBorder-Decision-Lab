@@ -54,7 +54,7 @@ def main():
     if proxies and total > 0:
         proxy_hhi = sum((value / total) ** 2 for value in proxies) * 10000
     result = {
-        "model_version": data.get("model_version", "CIM-2026.09"),
+        "model_version": data.get("model_version", "CIM-2026.10"),
         "normalization_basis": data.get("normalization_basis"),
         "cpi_weights": cpi_weights,
         "own_cpi": own_cpi,

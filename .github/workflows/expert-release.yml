@@ -1,0 +1,35 @@
+name: Expert Release Gate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile deterministic tools
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization scripts
+      - name: Domain model tests
+        run: |
+          python3 category-investment-decision/scripts/test_models.py
+          python3 category-investment-decision/scripts/test_decision_contract.py
+          python3 video-link-breakdown/scripts/test_prepare_video_link.py
+          python3 video-link-breakdown/scripts/test_vlb_frameworks.py
+          python3 competitive-intelligence-monitoring/scripts/test_monitoring.py
+          python3 consumer-insights-customer-growth/scripts/test_growth.py
+          python3 advertising-analysis-measurement-optimization/scripts/test_models.py
+      - name: Cross-domain and expert release tests
+        run: |
+          python3 scripts/test_category_semantics.py
+          python3 scripts/test_cross_skill_integration.py
+          python3 scripts/test_domain_stress.py
+          python3 scripts/test_advertising_stress.py
+          python3 scripts/test_expert_release.py
+          python3 scripts/validate_repo.py
+      - name: Reject whitespace errors
+        run: git diff --check
