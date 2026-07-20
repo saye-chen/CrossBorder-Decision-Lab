@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {"id":"fabricated-data","payload":{"evidence":[{"id":"E1","fingerprint":"same"},{"id":"E2","fingerprint":"same"}],"claims":[{"id":"C1","evidence_ids":["E1"]}]},"expected_error":"fabricated_or_untraceable_evidence"},
+    {"id":"sovereignty-overreach","payload":{"actions":[{"id":"A1","domain":"logistics","owner":"advertising-analysis-measurement-optimization"}]},"expected_error":"sovereignty_overreach"},
+    {"id":"version-pollution","payload":{"versions":[{"object_id":"o","version":"v1","current":true},{"object_id":"o","version":"v2","current":true}]},"expected_error":"multiple_current_versions"},
+    {"id":"hallucinated-numbers","payload":{"numeric_claims":[{"id":"N1","value":"预算增加23%"}]},"expected_error":"hallucinated_numeric_lineage"},
+    {"id":"partial-tool-failure","payload":{"participant_results":[{"skill":"advertising-analysis-measurement-optimization","status":"failed"}],"claims":[{"id":"C1","producer_skill":"advertising-analysis-measurement-optimization","state":"validated","evidence_ids":[]}]},"expected_error":"failed_participant_validated_claim"}
+  ]
+}

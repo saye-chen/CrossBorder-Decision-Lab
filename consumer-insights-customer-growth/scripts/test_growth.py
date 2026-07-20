@@ -6,6 +6,43 @@ ROOT=Path(__file__).parent
 def run(script,*args): subprocess.run(["python3",ROOT/script,*map(str,args)],check=True)
 
 class GrowthScripts(unittest.TestCase):
+    def test_domain_decision_blocks_identity_and_consent(self):
+        with tempfile.TemporaryDirectory() as td:
+            td=Path(td);inp=td/"in.json";out=td/"out.json"
+            inp.write_text(json.dumps({"object_id":"c1","as_of_time":"2026-01-01","purpose":"retention","identity":{"grain":"person","confidence":.4},"consent":{"purpose_allowed":False,"not_withdrawn":True,"not_unsubscribed":True,"retention_valid":True},"data_quality":{"events_reconciled":True,"revenue_reconciled":True,"no_future_leakage":True},"analysis_level":"descriptive","action":{"frequency_ok":True,"inventory_ok":True,"market_allowed":True,"fairness_ok":True,"sensitive_event_clear":True}}),encoding="utf-8")
+            run("evaluate_growth_decision.py","--input",inp,"--output",out);d=json.loads(out.read_text());self.assertEqual(d["decision"],"Blocked");self.assertIn("consent_gate:purpose_allowed",d["errors"])
+
+    def test_domain_decision_requires_causal_maturity(self):
+        with tempfile.TemporaryDirectory() as td:
+            td=Path(td);inp=td/"in.json";out=td/"out.json"
+            inp.write_text(json.dumps({"object_id":"c1","as_of_time":"2026-01-01","purpose":"retention","identity":{"grain":"person","confidence":1},"consent":{"purpose_allowed":True,"not_withdrawn":True,"not_unsubscribed":True,"retention_valid":True},"data_quality":{"events_reconciled":True,"revenue_reconciled":True,"no_future_leakage":True},"analysis_level":"causal","experiment":{"randomization_valid":True,"exposure_reconciled":True,"outcome_mature":False,"interference_addressed":True,"treatment_n":100,"control_n":100,"treatment_outcome":20,"control_outcome":10},"action":{"frequency_ok":True,"inventory_ok":True,"market_allowed":True,"fairness_ok":True,"sensitive_event_clear":True}}),encoding="utf-8")
+            run("evaluate_growth_decision.py","--input",inp,"--output",out);self.assertIn("experiment_gate:outcome_mature",json.loads(out.read_text())["errors"])
+
+    def test_report_builder_is_explicit_about_no_contact(self):
+        with tempfile.TemporaryDirectory() as td:
+            td=Path(td); inp=td/"input.json"; out=td/"report.md"
+            inp.write_text(json.dumps({"decision":"No contact","evidence_level":"descriptive","limitations":["no experiment"],"actions":[]}),encoding="utf-8")
+            run("build_growth_report.py","--input",inp,"--output",out)
+            text=out.read_text(encoding="utf-8")
+            self.assertIn("不触达",text)
+            self.assertNotIn("causal uplift validated",text.lower())
+
+    def test_event_validator_rejects_missing_consent(self):
+        with tempfile.TemporaryDirectory() as td:
+            td=Path(td); source=td/"events.csv"; out=td/"out.json"
+            fields=["event_id","event_time","ingest_time","customer_key","market","channel","event_type","consent_state","source"]
+            with source.open("w",newline="",encoding="utf-8") as f:
+                w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerow({"event_id":"e1","event_time":"2026-01-01","ingest_time":"2026-01-01","customer_key":"c1","market":"US","channel":"email","event_type":"send","consent_state":"","source":"crm"})
+            run("validate_customer_events.py","--input",source,"--output",out)
+            self.assertFalse(json.loads(out.read_text())["valid"])
+
+    def test_action_ranking_preserves_not_selected_reasons(self):
+        with tempfile.TemporaryDirectory() as td:
+            td=Path(td);inp=td/"in.json";out=td/"out.json"
+            inp.write_text(json.dumps([{"customer_key":"c1","action":"email","uplift":.2,"contribution_margin":10,"contact_cost":0,"consent":False,"not_unsubscribed":True,"frequency_ok":True,"inventory_ok":True,"market_allowed":True}]),encoding="utf-8")
+            run("rank_next_best_actions.py","--input",inp,"--output",out)
+            data=json.loads(out.read_text());self.assertEqual(data["selected"],[]);self.assertIn("consent",data["not_selected"][0]["rejection_reasons"])
+
     def test_event_validation_and_rfm(self):
         with tempfile.TemporaryDirectory() as td:
             td=Path(td); events=td/"events.csv"; out=td/"out.json"

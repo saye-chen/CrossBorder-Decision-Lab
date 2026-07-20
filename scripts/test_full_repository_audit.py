@@ -16,13 +16,16 @@ SKILLS={
  "consumer-insights-customer-growth":("customer_growth","CIG-2026.09","cig"),
  "advertising-analysis-measurement-optimization":("advertising","D09-2026.07","d09"),
  "logistics-inventory-fulfillment-decision":("logistics","D07-2026.03","d07"),
- "platform-store-listing-conversion":("listing_conversion","D08-2026.01","d08"),
+ "platform-store-listing-conversion":("listing_conversion","D08-2026.07","d08"),
 }
 spec=importlib.util.spec_from_file_location("quality",ROOT/"scripts/evaluate_report_quality.py")
 quality=importlib.util.module_from_spec(spec); spec.loader.exec_module(quality)
 
 def shared_payload(skill,decision_type,runtime):
- return {"mode":"single","decision_type":decision_type,"decision_owner":skill,"participating_skills":[skill],"runtime_versions":{skill:runtime},"participant_results":{skill:{"status":"contributed"}},"professional_core":{"object_boundary":"one canonical object and version","conclusion":"Controlled decision","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["profit and capacity"],"risks_and_redlines":["P0/P1"],"actions":["controlled test"],"success_conditions":["mature pass"],"stop_conditions":["guardrail"],"limitations_and_missing_data":["real replay"]},"objects":[{"canonical_id":"o","country":"US","platform":"fixture","category":"fixture","lifecycle":"test"}],"evidence":[{"id":"E1","source_skill":skill,"evidence_type":"authorized_fixture","evidence_class":"direct","source_ref":"fixture:E1","observed_at":"2026-07-20","fingerprint":f"{skill}-E1"}],"claims":[{"id":"C1","producer_skill":skill,"claim_domain":decision_type,"state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[{"id":"CAL1","calculator":"audit_fixture.py","input_hash":"sha256:audit-in","output_hash":"sha256:audit-out","status":"complete"}],"required_calculation_ids":["CAL1"],"unresolved_redlines":[],"adjustments":[]}
+ payload={"mode":"single","decision_type":decision_type,"decision_owner":skill,"participating_skills":[skill],"runtime_versions":{skill:runtime},"participant_results":{skill:{"status":"contributed"}},"professional_core":{"object_boundary":"one canonical object and version","conclusion":"Controlled decision","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["profit and capacity"],"risks_and_redlines":["P0/P1"],"actions":["controlled test"],"success_conditions":["mature pass"],"stop_conditions":["guardrail"],"limitations_and_missing_data":["real replay"]},"objects":[{"canonical_id":"o","country":"US","platform":"fixture","category":"fixture","lifecycle":"test"}],"evidence":[{"id":"E1","source_skill":skill,"evidence_type":"authorized_fixture","evidence_class":"direct","source_ref":"fixture:E1","observed_at":"2026-07-20","fingerprint":f"{skill}-E1"}],"claims":[{"id":"C1","producer_skill":skill,"claim_domain":decision_type,"state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[{"id":"CAL1","calculator":"audit_fixture.py","input_hash":"sha256:audit-in","output_hash":"sha256:audit-out","status":"complete"}],"required_calculation_ids":["CAL1"],"unresolved_redlines":[],"adjustments":[]}
+ if skill=="advertising-analysis-measurement-optimization":
+  payload["advertising_context"]={"country":"US","platform":"fixture","as_of_time":"2026-07-20","lifecycle":"validation","axes":{"traffic_scenario":"paid","control_mode":"manual","billing_mode":"cpc","optimization_goal":"contribution"},"maturity":{"data":"mature","tracking":"mature","attribution":"mature","orders":"mature"},"ledgers":{"platform_attribution":{},"business_orders":{},"mature_contribution":{}},"incrementality_status":"not_claimed"}
+ return payload
 
 class FullRepositoryAudit(unittest.TestCase):
  def test_01_all_seven_skills_structurally_validate(self):
@@ -90,7 +93,7 @@ class FullRepositoryAudit(unittest.TestCase):
   self.assertEqual(r.returncode,0,(r.stdout,r.stderr))
 
  def test_10_repository_and_release_gates_pass(self):
-  commands=("validate_repo.py","test_governance.py","test_cross_skill_integration.py","test_expert_release.py","test_domain_stress.py","test_category_semantics.py","test_advertising_stress.py","test_logistics_stress.py")
+  commands=("validate_repo.py","validate_governance_baseline.py","test_professional_depth.py","test_adversarial_execution.py","test_governance.py","test_cross_skill_integration.py","test_expert_release.py","test_domain_stress.py","test_category_semantics.py","test_advertising_stress.py","test_logistics_stress.py")
   for cmd in commands:
    r=subprocess.run(["python3",str(ROOT/"scripts"/cmd)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(cmd,r.stdout[-2000:],r.stderr[-2000:]))

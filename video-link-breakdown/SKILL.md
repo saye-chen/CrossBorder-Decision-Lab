@@ -92,7 +92,7 @@ python3 "<skill-dir>/scripts/prepare_video_link.py" "<video-url>" --out "$TASK_D
 
 不要为了展示能力机械展开全部模块。只有用户明确要求完整尽调，或结论同时依赖内容、商业、本地化和规模化时，才组合所有模块。
 
-## 交付层级
+## 入口与交付层级
 
 ### Decision Card
 
@@ -107,6 +107,10 @@ python3 "<skill-dir>/scripts/prepare_video_link.py" "<video-url>" --out "$TASK_D
 仅在用户明确要求完整报告、商业尽调、多个市场/平台比较或规模化方案时使用。覆盖内容机制、商业门槛、本地化、合规、单位经济、规模系统和证据台账。
 
 完整闭环指结论、证据、推理、风险、动作和验证齐全，不等于所有模块都必须出现。
+
+## 跨域边界与双向数据交换
+
+与 CIDM、CIM、CIG、D07、D08、D09 的统一输入输出、部分失败和冲突裁决读取 [skill-integration-protocol.md](references/skill-integration-protocol.md)。素材自动化读取 [data-contract-and-automation.md](references/data-contract-and-automation.md)，正式交付读取 [professional-report-delivery.md](references/output-protocols/professional-report-delivery.md)。结果卡必须带素材版本、证据、允许/禁止用途和状态。
 
 ## 核心分析顺序
 
