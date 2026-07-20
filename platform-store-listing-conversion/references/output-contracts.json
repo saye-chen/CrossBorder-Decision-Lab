@@ -1,0 +1,13 @@
+{
+  "version":"D08-output-2026.01",
+  "contracts":[
+    {"type":"decision_card","required":["object_version","gates","conclusion","evidence_counterevidence","root_cause","concrete_action","success_stop_rollback"]},
+    {"type":"three_layer_diagnostic","required":["listing","image_set","detail_or_applicability","cross_layer_consistency","issues","concrete_optimization"]},
+    {"type":"conversion_diagnosis_memo","required":["data_quality","funnel","root_causes","alternative_explanations","repair_experiment"]},
+    {"type":"listing_experiment_memo","required":["object_version","hypothesis","primary_metric","guardrails","maturity","effect_interval","decision","rollback"]},
+    {"type":"incident_recovery_card","required":["incident","scope","partial_success_failure","containment","repair","propagation_verification","residual_exposure","closure"]},
+    {"type":"migration_merge_memo","required":["inherit_revalidate_prohibit","lineage","loss_risk","cutover","rollback","exit"]},
+    {"type":"store_portfolio_architecture","required":["store_category_series_sku_roles","navigation","cannibalization","variants","offer_inventory_dependencies"]},
+    {"type":"conversion_diligence","required":["decision_page","ledger","calculations","four_surface_diagnosis","funnel","experiment","cross_domain","lineage","action_plan","audit"]}
+  ]
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Repository-wide entry point for the shared six-domain decision contract."""
+"""Repository-wide entry point for the shared seven-domain decision contract."""
 from __future__ import annotations
 import importlib.util, sys
 from pathlib import Path

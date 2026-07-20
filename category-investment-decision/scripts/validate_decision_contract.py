@@ -40,6 +40,10 @@ OWNERS = {
     "fulfillment": "logistics-inventory-fulfillment-decision",
     "reverse_logistics": "logistics-inventory-fulfillment-decision",
     "logistics_incident": "logistics-inventory-fulfillment-decision",
+    "listing_conversion": "platform-store-listing-conversion",
+    "page_conversion": "platform-store-listing-conversion",
+    "listing_incident": "platform-store-listing-conversion",
+    "listing_migration": "platform-store-listing-conversion",
 }
 SKILLS = set(OWNERS.values())
 CLAIM_STATES = {"observed", "estimated", "hypothesis", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"}
@@ -49,6 +53,7 @@ VERSION_PREFIX = {
     "category-investment-decision":"CIDM", "competitive-intelligence-monitoring":"CIM",
     "video-link-breakdown":"VLB", "consumer-insights-customer-growth":"CIG",
     "advertising-analysis-measurement-optimization":"D09", "logistics-inventory-fulfillment-decision":"D07",
+    "platform-store-listing-conversion":"D08",
 }
 PROFESSIONAL_FIELDS = (
     "object_boundary",
