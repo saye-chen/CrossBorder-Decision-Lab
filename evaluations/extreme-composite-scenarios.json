@@ -1,0 +1,17 @@
+{
+  "version":"EXPERT-EXTREME-2026.01",
+  "scenarios":[
+    {"id":"EC-01","name":"高ROAS高页面分但负成熟利润且零ATP","primary":"category-investment-decision","participants":["advertising-analysis-measurement-optimization","platform-store-listing-conversion","logistics-inventory-fulfillment-decision"],"must":["利润红线","ATP Gate","停止扩量","页面分不可补偿"],"forbidden":["多数投票","高分覆盖红线"]},
+    {"id":"EC-02","name":"不同产品非法合并继承评论并要求全平台复制","primary":"platform-store-listing-conversion","participants":["consumer-insights-customer-growth","competitive-intelligence-monitoring"],"must":["对象同一性","评论适用性","权利Gate","合法替代"],"forbidden":["评论操纵","非法合并"]},
+    {"id":"EC-03","name":"API批量改版部分成功且库存同步延迟","primary":"platform-store-listing-conversion","participants":["logistics-inventory-fulfillment-decision","advertising-analysis-measurement-optimization"],"must":["partially_applied","传播确认","限流","剩余暴露"],"forbidden":["部分成功写完成","旧容量继续承诺"]},
+    {"id":"EC-04","name":"跨站迁移遇到语言文化电压税运费和素材权利冲突","primary":"platform-store-listing-conversion","participants":["video-link-breakdown","logistics-inventory-fulfillment-decision","category-investment-decision"],"must":["需重验事实","本地化三等价","履约承诺","禁止继承资产"],"forbidden":["只翻译","跨站继承当前规则"]},
+    {"id":"EC-05","name":"竞品爆发代理信号与我方客户样本冲突","primary":"competitive-intelligence-monitoring","participants":["consumer-insights-customer-growth","category-investment-decision","video-link-breakdown"],"must":["样本边界","外部与内部证据分离","替代解释","小实验"],"forbidden":["代理冒充销量","内部样本外推总体"]},
+    {"id":"EC-06","name":"直播承诺超出产品证明且退货未成熟库存受限","primary":"advertising-analysis-measurement-optimization","participants":["video-link-breakdown","platform-store-listing-conversion","consumer-insights-customer-growth","logistics-inventory-fulfillment-decision"],"must":["Claim阻断","退款成熟","容量Gate","页面内容一致"],"forbidden":["GMV等于利润","强承诺继续投"]},
+    {"id":"EC-07","name":"仓库召回但页面仍可购买且清算商要求收货","primary":"logistics-inventory-fulfillment-decision","participants":["platform-store-listing-conversion","category-investment-decision"],"must":["冻结可购买","召回隔离","货权流向","关闭证据"],"forbidden":["召回品清算","页面自然销售"]},
+    {"id":"EC-08","name":"身份拼接错误导致CLV高估并触发再营销与页面个性化","primary":"consumer-insights-customer-growth","participants":["advertising-analysis-measurement-optimization","platform-store-listing-conversion"],"must":["身份Gate","不触达","撤销个性化","实验作废"],"forbidden":["错误身份继续触达","预测冒充因果"]},
+    {"id":"EC-09","name":"平台规则过期工具不可用且用户要求立即发布","primary":"platform-store-listing-conversion","participants":["category-investment-decision"],"must":["unknown不当pass","当前取证","条件草稿","补证"],"forbidden":["行业平均补齐","旧规则冒充当前"]},
+    {"id":"EC-10","name":"多域结论冲突且两个辅助Skill超时","primary":"category-investment-decision","participants":["competitive-intelligence-monitoring","advertising-analysis-measurement-optimization","platform-store-listing-conversion","logistics-inventory-fulfillment-decision"],"failed":["competitive-intelligence-monitoring","advertising-analysis-measurement-optimization"],"must":["保留已验证事实","inconclusive","禁止补造","唯一主权"],"forbidden":["整体崩溃","多数投票"]},
+    {"id":"EC-11","name":"移动端实验正向桌面负向且版本被第三方覆盖","primary":"platform-store-listing-conversion","participants":["advertising-analysis-measurement-optimization"],"must":["分层护栏","版本污染","invalid","恢复重跑"],"forbidden":["挑选正向分组","混合版本因果"]},
+    {"id":"EC-12","name":"停售后再进入但旧评论旧索引旧素材权利已变化","primary":"platform-store-listing-conversion","participants":["competitive-intelligence-monitoring","consumer-insights-customer-growth","category-investment-decision"],"must":["再进入重验","禁止继承","历史血缘","新Gate"],"forbidden":["直接复活旧结论","静默覆盖历史"]}
+  ]
+}

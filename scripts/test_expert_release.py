@@ -26,6 +26,7 @@ SKILLS = {
     "consumer-insights-customer-growth": ROOT / "consumer-insights-customer-growth" / "SKILL.md",
     "advertising-analysis-measurement-optimization": ROOT / "advertising-analysis-measurement-optimization" / "SKILL.md",
     "logistics-inventory-fulfillment-decision": ROOT / "logistics-inventory-fulfillment-decision" / "SKILL.md",
+    "platform-store-listing-conversion": ROOT / "platform-store-listing-conversion" / "SKILL.md",
 }
 
 
@@ -42,14 +43,14 @@ def run_json(script: Path, payload: object, expect_ok: bool = True) -> subproces
 
 
 class GoldenReportGate(unittest.TestCase):
-    def test_all_six_single_skill_golden_reports_pass(self):
+    def test_all_seven_single_skill_golden_reports_score_100(self):
         files = sorted(GOLDEN.glob("*.md"))
-        self.assertEqual(len(files), 6)
+        self.assertEqual(len(files), 7)
         for file in files:
             with self.subTest(report=file.name):
                 result = report_eval.score_report(file.read_text(encoding="utf-8"), "contract")
                 self.assertEqual(result["result"], "PASS")
-                self.assertGreaterEqual(result["score"], 85)
+                self.assertEqual(result["score"], 100)
 
     def test_full_golden_reports_pass_semantic_depth_gate(self):
         files = sorted(FULL_GOLDEN.glob("*.md"))
@@ -58,6 +59,7 @@ class GoldenReportGate(unittest.TestCase):
             with self.subTest(report=file.name):
                 result = report_eval.score_report(file.read_text(encoding="utf-8"), "full")
                 self.assertEqual(result["result"], "PASS", result)
+                self.assertEqual(result["score"], 100, result)
 
     def test_keyword_stuffing_and_fake_reproducibility_fail(self):
         for file in ADVERSARIAL.glob("*.md"):
@@ -112,7 +114,7 @@ class CrossSkillScenarioGate(unittest.TestCase):
         for scenario in SCENARIOS:
             self.assertNotIn(scenario["primary"], scenario["participants"], scenario["id"])
 
-    def test_all_six_skills_are_exercised_and_inventory_conflict_routes_d07(self):
+    def test_all_seven_skills_are_exercised_and_inventory_conflict_routes_d07(self):
         exercised = {s["primary"] for s in SCENARIOS}
         exercised |= {p for s in SCENARIOS for p in s["participants"]}
         self.assertEqual(exercised, set(SKILLS))

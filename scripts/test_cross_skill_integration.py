@@ -25,6 +25,7 @@ CIG_SKILL = ROOT / "consumer-insights-customer-growth" / "SKILL.md"
 CIG_INTEGRATION = ROOT / "consumer-insights-customer-growth" / "references" / "skill-integration-protocol.md"
 D09_SKILL = ROOT / "advertising-analysis-measurement-optimization" / "SKILL.md"
 D07_SKILL = ROOT / "logistics-inventory-fulfillment-decision" / "SKILL.md"
+D08_SKILL = ROOT / "platform-store-listing-conversion" / "SKILL.md"
 
 
 class CrossSkillFieldMapping(unittest.TestCase):
@@ -84,6 +85,9 @@ class SystemWideProfessionalInvariant(unittest.TestCase):
         d07 = D07_SKILL.read_text(encoding="utf-8")
         for phrase in ("专家级", "压缩展示", "停止条件", "不得替代"):
             self.assertIn(phrase, d07)
+        d08 = D08_SKILL.read_text(encoding="utf-8")
+        for phrase in ("专家级", "压缩展示", "停止条件", "具体优化", "不得替代"):
+            self.assertIn(phrase, d08)
 
     def test_decision_ownership_is_explicit(self):
         expected = {
@@ -93,6 +97,7 @@ class SystemWideProfessionalInvariant(unittest.TestCase):
             CIG_SKILL: "授权客户证据",
             D09_SKILL: "广告架构",
             D07_SKILL: "物流网络",
+            D08_SKILL: "页面承接",
         }
         for skill_file, phrase in expected.items():
             with self.subTest(skill=skill_file.parent.name):
@@ -242,6 +247,17 @@ class CrossSkillLinkIntegrity(unittest.TestCase):
         d09_dir = ROOT / "advertising-analysis-measurement-optimization"
         link_re = re.compile(r"\[[^]]+\]\(([^)]+)\)")
         for md_file in d09_dir.rglob("*.md"):
+            for target in link_re.findall(md_file.read_text(encoding="utf-8")):
+                if "://" in target or target.startswith("#"):
+                    continue
+                local_target = target.split("#", 1)[0]
+                if local_target:
+                    self.assertTrue((md_file.parent / local_target).resolve().exists(), f"{md_file.relative_to(ROOT)}: broken link {target}")
+
+    def test_d08_references_all_resolve(self):
+        d08_dir = ROOT / "platform-store-listing-conversion"
+        link_re = re.compile(r"\[[^]]+\]\(([^)]+)\)")
+        for md_file in d08_dir.rglob("*.md"):
             for target in link_re.findall(md_file.read_text(encoding="utf-8")):
                 if "://" in target or target.startswith("#"):
                     continue

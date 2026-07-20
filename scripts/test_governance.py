@@ -20,7 +20,7 @@ class ImpactGovernance(unittest.TestCase):
         result = impact.analyze(["unknown/contract.md"])
         self.assertEqual(result["unmapped_paths"], ["unknown/contract.md"])
 
-    def test_all_six_domain_entrypoints_execute_shared_contract(self):
+    def test_all_seven_domain_entrypoints_execute_shared_contract(self):
         payload = {"mode":"single", "decision_type":"content_creative", "decision_owner":"video-link-breakdown",
                    "participating_skills":["video-link-breakdown"], "runtime_versions":{"video-link-breakdown":"VLB-2026.09"},
                    "participant_results":{"video-link-breakdown":{"status":"contributed"}},
@@ -30,7 +30,7 @@ class ImpactGovernance(unittest.TestCase):
                    "claims":[{"id":"C1","producer_skill":"video-link-breakdown","claim_domain":"content_creative","state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[],"required_calculation_ids":[],"unresolved_redlines":[],"adjustments":[]}
         with tempfile.TemporaryDirectory() as td:
             path = Path(td) / "contract.json"; path.write_text(json.dumps(payload), encoding="utf-8")
-            for skill in ["category-investment-decision","competitive-intelligence-monitoring","video-link-breakdown","consumer-insights-customer-growth","advertising-analysis-measurement-optimization","logistics-inventory-fulfillment-decision"]:
+            for skill in ["category-investment-decision","competitive-intelligence-monitoring","video-link-breakdown","consumer-insights-customer-growth","advertising-analysis-measurement-optimization","logistics-inventory-fulfillment-decision","platform-store-listing-conversion"]:
                 result = subprocess.run(["python3", str(ROOT/skill/"scripts/validate_decision_contract.py"), str(path)], capture_output=True, text=True)
                 self.assertEqual(result.returncode, 0, (skill, result.stderr))
 

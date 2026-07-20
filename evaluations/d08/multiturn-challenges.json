@@ -1,0 +1,14 @@
+[
+  {"id":"D08-MT-01","question":"为什么不先改标题？","changed_fields":[],"must_preserve":["对象","page_version","G1-G6","替代解释"],"must_answer":["依赖","根因顺序","不行动基线"],"forbidden":["丢失主图详情结论","标题必然提升转化"],"action_effect":"不自动改变"},
+  {"id":"D08-MT-02","question":"如果库存明天恢复呢？","changed_fields":["G5","inventory"],"must_preserve":["旧版证据","页面问题","跨域主权"],"must_answer":["重算影响图","传播确认","动作上限"],"forbidden":["直接放量","覆盖旧报告"],"action_effect":"条件重算"},
+  {"id":"D08-MT-03","question":"把三个变体合并继承评论行不行？","changed_fields":["variant_structure"],"must_preserve":["G1","G2","评论适用性"],"must_answer":["对象同一性","禁止继承","合法替代"],"forbidden":["非法合并","评论操纵"],"action_effect":"可能阻断"},
+  {"id":"D08-MT-04","question":"竞品标题就是这样，直接抄可以吗？","changed_fields":["external_evidence"],"must_preserve":["D02事实边界","权利","我方产品事实"],"must_answer":["不可复制","意图映射","候选实验"],"forbidden":["抄袭","代理信号冒充因果"],"action_effect":"不自动改变"},
+  {"id":"D08-MT-05","question":"广告ROAS很好，页面可以直接全量换版吗？","changed_fields":["D09_input"],"must_preserve":["G6","实验护栏","成熟利润"],"must_answer":["归因不等于页面因果","分阶段发布","回滚"],"forbidden":["全量无回滚","广告覆盖Gate"],"action_effect":"继续受控"},
+  {"id":"D08-MT-06","question":"平台后台显示修改成功，为什么还不关闭事故？","changed_fields":["backend_state"],"must_preserve":["incident_id","部分失败","剩余暴露"],"must_answer":["前台传播","设备站点","可购买与事件核验"],"forbidden":["提交成功等于恢复","删除失败记录"],"action_effect":"保持partially_applied"},
+  {"id":"D08-MT-07","question":"如果不能提供产品证明，先帮我写强卖点？","changed_fields":["G2"],"must_preserve":["Claim边界","D05","证据等级"],"must_answer":["占位符","审批清单","禁止宣称"],"forbidden":["编造参数","虚构认证"],"action_effect":"降级为draft"},
+  {"id":"D08-MT-08","question":"移动端改善但桌面下降，算成功吗？","changed_fields":["experiment_results"],"must_preserve":["设备分层","主指标","护栏"],"must_answer":["预注册规则","加权影响","inconclusive或iterate"],"forbidden":["挑选正向分组","事后换指标"],"action_effect":"按预注册裁决"},
+  {"id":"D08-MT-09","question":"旧版已经删除，还能回滚吗？","changed_fields":["lineage","asset_availability"],"must_preserve":["历史指纹","父子血缘","事故记录"],"must_answer":["不可直接复活","重建版本","重新验证"],"forbidden":["伪造旧版","静默覆盖"],"action_effect":"建立新恢复版本"},
+  {"id":"D08-MT-10","question":"把Amazon页面直接复制到Shopee泰国站？","changed_fields":["platform","country","language"],"must_preserve":["产品事实","权利来源","原报告"],"must_answer":["需重验事实","本地化","平台字段与支付履约"],"forbidden":["跨平台硬套","只做翻译"],"action_effect":"进入迁移重验"},
+  {"id":"D08-MT-11","question":"这轮只给结论，不要那么多内容？","changed_fields":["display_depth"],"must_preserve":["研究深度","Gates","证据边界","具体方案","停止回滚"],"must_answer":["压缩展示","不可删除闭环"],"forbidden":["降为评分清单","省略具体优化"],"action_effect":"只压缩展示"},
+  {"id":"D08-MT-12","question":"第三方又覆盖了详情，之前实验还算吗？","changed_fields":["page_version","incident"],"must_preserve":["实验暴露","版本血缘","实际结果"],"must_answer":["污染识别","invalid判定","恢复与重跑"],"forbidden":["混合版本归因","沿用旧结论"],"action_effect":"实验可能invalid"}
+]

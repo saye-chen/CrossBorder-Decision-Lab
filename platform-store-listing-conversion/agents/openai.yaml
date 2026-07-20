@@ -1,0 +1,4 @@
+interface:
+  display_name: "平台店铺Listing与转化"
+  short_description: "全平台Listing、主图、详情、落地页与转化专家诊断优化"
+  default_prompt: "使用 $platform-store-listing-conversion 诊断跨境电商平台、店铺、Listing、主图、详情或落地页，并给出可直接执行和验证回滚的具体优化方案。"

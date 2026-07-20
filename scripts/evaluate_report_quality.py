@@ -82,7 +82,8 @@ def score_report(text: str, profile: str = "fixture") -> dict:
     critical_ok = all(dimensions[name]["score"] >= dimensions[name]["max"] * .8 for name in critical)
     refs_ok = bool(re.search(r"E\d+", text) and re.search(r"A\d+", text) and re.search(r"C\d+", text))
     semantic_errors = semantic_checks(text, profile)
-    result = "PASS" if total >= 85 and critical_ok and refs_ok and not redlines and not semantic_errors else "FAIL"
+    threshold = 100 if profile == "full" else 85
+    result = "PASS" if total >= threshold and critical_ok and refs_ok and not redlines and not semantic_errors else "FAIL"
     return {"result": result, "profile": profile, "score": total, "dimensions": dimensions, "redlines": redlines, "semantic_errors": semantic_errors, "missing_required_sections": missing_headings, "ledger_refs_ok": refs_ok}
 
 
