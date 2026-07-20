@@ -1,5 +1,42 @@
 {
+  "schema_version": "D07-historical-replay-2.0",
   "minimum_authorized_cases": 3,
+  "production_ready": false,
+  "authorization_requirements": {
+    "allowed_source_types": ["authorized_warehouse_export", "authorized_order_export", "authorized_carrier_export"],
+    "must_be_deidentified": true,
+    "requires_independent_reviewer": true,
+    "requires_input_and_outcome_hashes": true
+  },
+  "required_case_fields": [
+    "case_id",
+    "object_id",
+    "as_of_time",
+    "input_file",
+    "input_hash",
+    "model_version",
+    "decision",
+    "observed_outcome",
+    "outcome_time",
+    "outcome_file",
+    "outcome_hash",
+    "decision_correct",
+    "calibration_notes",
+    "source_type",
+    "authorization_ref",
+    "source_system",
+    "reviewer",
+    "reviewed_at"
+  ],
+  "case_acceptance": {
+    "input_predates_decision": true,
+    "outcome_postdates_decision": true,
+    "decision_frozen_before_outcome": true,
+    "no_golden_or_synthetic_fixture": true,
+    "quantity_conservation_recomputed": true,
+    "failure_and_exit_reviewed": true
+  },
   "cases": [],
-  "note": "只允许填入经授权、已脱敏且具有实际结果的历史案例。空模板必须判定 production_ready=false；不得用Golden Case或合成案例冒充真实回放。"
+  "blocking_reason": "No authorized real historical cases have been provided. Keep production_ready=false.",
+  "note": "只允许填入经授权、已脱敏且具有实际结果的历史案例；不得用Golden Case或合成案例冒充真实回放。"
 }

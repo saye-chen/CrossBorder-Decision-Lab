@@ -10,7 +10,7 @@
     "decision-contract-core": {
       "owner": "repository",
       "authoritative_sources": ["category-investment-decision/scripts/validate_decision_contract.py", "scripts/validate_decision_contract.py"],
-      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"],
       "validators": ["scripts/validate_decision_contract.py"],
       "tests": ["scripts/test_domain_stress.py", "scripts/test_cross_skill_integration.py", "scripts/test_expert_release.py"],
       "evaluations": ["evaluations/golden-reports", "evaluations/adversarial-cases"]
@@ -55,10 +55,34 @@
       "tests": ["scripts/test_domain_stress.py", "scripts/test_expert_release.py"],
       "evaluations": ["evaluations/golden/vlb-single.md", "evaluations/adversarial-cases/keyword-stuffed.md"]
     },
+    "seven-skill-governance-baseline": {
+      "owner": "repository",
+      "authoritative_sources": ["governance/required-skill-governance.md", "scripts/validate_governance_baseline.py"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"],
+      "validators": ["scripts/validate_governance_baseline.py", "scripts/validate_repo.py"],
+      "tests": ["scripts/test_governance.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["evaluations/golden", "evaluations/golden-reports", "evaluations/adversarial-cases"]
+    },
+    "cim-monitoring-and-integration": {
+      "owner": "competitive-intelligence-monitoring",
+      "authoritative_sources": ["competitive-intelligence-monitoring/SKILL.md", "competitive-intelligence-monitoring/references/monitoring-signals-and-frequency.md", "competitive-intelligence-monitoring/references/skill-integration-protocol.md", "competitive-intelligence-monitoring/references/data-contract-and-automation.md"],
+      "consumers": ["category-investment-decision", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "platform-store-listing-conversion"],
+      "validators": ["competitive-intelligence-monitoring/scripts/validate_decision_contract.py", "scripts/validate_governance_baseline.py"],
+      "tests": ["competitive-intelligence-monitoring/scripts/test_monitoring.py", "scripts/test_cross_skill_integration.py", "scripts/test_domain_stress.py"],
+      "evaluations": ["evaluations/golden/cim-single.md", "evaluations/golden-reports/cim-full.md"]
+    },
+    "cig-customer-growth-and-incrementality": {
+      "owner": "consumer-insights-customer-growth",
+      "authoritative_sources": ["consumer-insights-customer-growth/SKILL.md", "consumer-insights-customer-growth/references/experimentation-and-causal-inference.md", "consumer-insights-customer-growth/references/uplift-and-incremental-value.md", "consumer-insights-customer-growth/references/skill-integration-protocol.md", "consumer-insights-customer-growth/references/data-contract-and-automation.md"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "advertising-analysis-measurement-optimization", "platform-store-listing-conversion"],
+      "validators": ["consumer-insights-customer-growth/scripts/validate_decision_contract.py", "scripts/validate_governance_baseline.py"],
+      "tests": ["consumer-insights-customer-growth/scripts/test_growth.py", "scripts/test_cross_skill_integration.py", "scripts/test_domain_stress.py"],
+      "evaluations": ["evaluations/golden/cig-single.md", "evaluations/golden-reports/cig-full.md"]
+    },
     "d09-runtime": {
       "owner": "advertising-analysis-measurement-optimization",
-      "authoritative_sources": ["advertising-analysis-measurement-optimization/SKILL.md"],
-      "consumers": ["advertising-analysis-measurement-optimization/agents/openai.yaml", "advertising-analysis-measurement-optimization/references/professional-report-delivery.md", "README.md"],
+      "authoritative_sources": ["advertising-analysis-measurement-optimization/SKILL.md", "advertising-analysis-measurement-optimization/references/skill-integration-protocol.md", "advertising-analysis-measurement-optimization/references/data-contract-and-automation.md"],
+      "consumers": ["advertising-analysis-measurement-optimization/agents/openai.yaml", "advertising-analysis-measurement-optimization/references/output-protocols/professional-report-delivery.md", "README.md", "category-investment-decision", "video-link-breakdown", "consumer-insights-customer-growth", "competitive-intelligence-monitoring", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"],
       "validators": ["advertising-analysis-measurement-optimization/scripts/validate_decision_contract.py"],
       "tests": ["advertising-analysis-measurement-optimization/scripts/test_models.py", "scripts/test_advertising_stress.py", "scripts/test_cross_skill_integration.py"],
       "evaluations": ["evaluations/golden/d09-single.md"]
@@ -70,6 +94,14 @@
       "validators": ["logistics-inventory-fulfillment-decision/scripts/validate_decision_contract.py", "scripts/validate_repo.py"],
       "tests": ["logistics-inventory-fulfillment-decision/scripts/test_models.py"],
       "evaluations": ["logistics-inventory-fulfillment-decision/references/expert-scenarios.json", "evaluations/golden/d07-single.md", "evaluations/golden-reports/d07-full.md"]
+    },
+    "d08-runtime": {
+      "owner": "platform-store-listing-conversion",
+      "authoritative_sources": ["platform-store-listing-conversion/SKILL.md", "platform-store-listing-conversion/references/input-evidence-and-gates.md", "platform-store-listing-conversion/references/skill-integration-protocol.md", "platform-store-listing-conversion/references/data-contract-and-automation.md"],
+      "consumers": ["platform-store-listing-conversion/agents/openai.yaml", "README.md", "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision"],
+      "validators": ["platform-store-listing-conversion/scripts/validate_d08_contract.py", "platform-store-listing-conversion/scripts/validate_decision_contract.py", "scripts/validate_governance_baseline.py"],
+      "tests": ["platform-store-listing-conversion/scripts/test_models.py", "scripts/test_listing_conversion_stress.py", "scripts/test_cross_skill_integration.py"],
+      "evaluations": ["evaluations/golden/d08-single.md", "evaluations/golden-reports/d08-full.md", "evaluations/d08/output-goldens"]
     }
   }
 }

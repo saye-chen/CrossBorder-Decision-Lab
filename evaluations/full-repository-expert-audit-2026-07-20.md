@@ -2,13 +2,15 @@
 
 > 审计日期：2026-07-20  
 > 审计对象：7个专业 Skill 与共享治理/报告/评测体系  
-> 结论：自动化专家审计 `100/100 PASS`；真实经营结果门保持独立，D08仍为 `controlled pilot`
+> 口径更正：本文原 `100/100 PASS` 仅代表当时 L1 Structure 与部分 L2 Contract fixture 通过，不代表 L3 Expert 或 L4 Production。七域成熟度必须按 `governance/required-skill-governance.md` 分层报告；D08仍为 `controlled pilot`。
 
 > 实质补强复审：原六项残余缺口中的平台卡、8类Golden、100独立fixture、13工具深测、六Skill迁移等价、12极端完整报告均已修复并通过；真实历史回放仍等待授权数据。
 
-## 一、执行结论
+## 一、执行结论（历史结构门结果，禁止外推为专家成熟度）
 
-全仓7个Skill均可独立触发、独立接受本域决策合同、调用本域确定性工具并输出专业报告。7份单Skill Golden Report与7份标准完整报告均为100分；全目录11份完整Golden Report均为100分。共享主权、证据、计算、动作、成功/停止/回滚和历史保护门已覆盖D08。
+全仓7个Skill均可独立触发、接受本域决策合同、调用本域确定性工具并输出符合当时评分器锚点的报告。此前“Golden 100分”只证明固定锚点存在；未独立证明平台机制、知识深度、域级模型充分性或真实经营效果。
+
+成熟度必须分别报告：L1 Structure、L2 Contract、L3 Expert、L4 Production。任一层未通过都不得由其他层分数补偿，也不得再输出不带层级的“全仓100分”。
 
 10个跨Skill场景、12个极端复合场景、D07六轮与D08十二轮连续追问挑战、部分失败、冲突裁决、动态规则、非法合并、负利润、零ATP、召回、身份错误、页面覆盖和跨站迁移均通过可执行压力门。
 
@@ -40,7 +42,7 @@
 | consumer-insights-customer-growth | CIG-2026.09 | 3 | 100 | 100 | PASS |
 | advertising-analysis-measurement-optimization | D09-2026.07 | 6 | 100 | 100 | PASS |
 | logistics-inventory-fulfillment-decision | D07-2026.03 | 48 | 100 | 100 | PASS |
-| platform-store-listing-conversion | D08-2026.01 | 110 | 100 | 100 | PASS |
+| platform-store-listing-conversion | D08-2026.07 | 110 | 100 | 100 | PASS |
 
 本地测试数量不是专业深度的替代物；每域还必须同时通过共享报告、主权、跨域、对抗和发布门。CIM/CIG本地脚本测试较少，但其专业合同、报告、语义、跨域和对抗测试由共享套件实际覆盖；后续新增模型时应继续增加本地性质测试。
 

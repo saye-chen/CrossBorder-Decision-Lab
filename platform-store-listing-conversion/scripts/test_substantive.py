@@ -16,8 +16,11 @@ from rank_repair_actions import rank
 from validate_page_lineage import validate as lineage
 from validate_output_goldens import validate as output_goldens
 from validate_migration_parity import validate as migration
+from validate_historical_replay import validate as historical
 
 class SubstantiveD08(unittest.TestCase):
+ def test_historical_template_blocks_production(self):
+  p=ROOT/"evaluations/d08/historical-replay-template.json";d=json.loads(p.read_text());r=historical(d,p.parent);self.assertFalse(r["valid"]);self.assertFalse(r["production_ready"]);self.assertIn("authorized_cases_below_minimum:0<3",r["errors"])
  def test_100_semantically_named_scenarios(self):
   with (ROOT/"evaluations/d08/expert-scenarios.tsv").open(encoding="utf-8",newline="") as fh: rows=list(csv.DictReader(fh,delimiter="\t"))
   self.assertEqual(len(rows),100); self.assertEqual(len({r["id"] for r in rows}),100); self.assertEqual({r["group"] for r in rows},{f"S{i:02}" for i in range(1,15)})

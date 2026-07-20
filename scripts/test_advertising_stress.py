@@ -92,8 +92,8 @@ class AdvertisingStress(unittest.TestCase):
             {"spend": 100, "mature_revenue": 400, "contribution_profit": 60},
             {"spend": 200, "mature_revenue": 480, "contribution_profit": 40},
         ])
-        self.assertGreater(result[1]["average_roas"], 1)
-        self.assertLess(result[1]["marginal_contribution"], 0)
+        self.assertGreater(result["stages"][1]["average_roas"], 1)
+        self.assertLess(result["stages"][1]["marginal_contribution"], 0)
 
     def test_allocator_rejects_negative_and_respects_caps(self):
         result = run_model("allocate_budget.py", {"budget": 500, "candidates": [

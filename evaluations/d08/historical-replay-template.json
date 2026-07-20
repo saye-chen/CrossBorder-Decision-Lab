@@ -1,0 +1,35 @@
+{
+  "schema_version": "D08-historical-replay-1.0",
+  "minimum_authorized_cases": 3,
+  "production_ready": false,
+  "required_case_fields": [
+    "case_id",
+    "object_id",
+    "page_version_before",
+    "page_version_after",
+    "as_of_time",
+    "authorized_input_file",
+    "input_hash",
+    "frozen_decision",
+    "primary_metric",
+    "guardrails",
+    "observed_outcome",
+    "outcome_maturity_time",
+    "outcome_hash",
+    "outcome_file",
+    "rollback_was_available",
+    "concurrent_changes_recorded",
+    "reviewer",
+    "authorization_ref",
+    "source_type"
+  ],
+  "acceptance": {
+    "deidentified": true,
+    "decision_frozen_before_outcome": true,
+    "same_object_and_measurement_version": true,
+    "concurrent_price_inventory_and_traffic_changes_recorded": true,
+    "no_golden_or_synthetic_fixture": true
+  },
+  "cases": [],
+  "blocking_reason": "Three authorized real replays are not available; D08 remains controlled pilot."
+}

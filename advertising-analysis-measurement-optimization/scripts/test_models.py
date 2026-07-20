@@ -23,9 +23,54 @@ class Models(unittest.TestCase):
         rows=[{"gross_revenue":100,"discount":5,"refund":10,"chargeback":0,"tax":5,"cogs":30,"fulfillment":10,"platform_fee":5,"service_cost":2,"ad_spend":20}]
         d=run("mature_profit.py",rows,"csv");self.assertEqual(d["mature_net_revenue"],80);self.assertEqual(d["ad_contribution_profit"],13)
     def test_marginal_negative(self):
-        d=run("marginal_analysis.py",[{"spend":100,"mature_revenue":400,"contribution_profit":50},{"spend":200,"mature_revenue":500,"contribution_profit":40}]);self.assertLess(d[1]["marginal_contribution"],0)
+        d=run("marginal_analysis.py",[{"spend":100,"mature_revenue":400,"contribution_profit":50},{"spend":200,"mature_revenue":500,"contribution_profit":40}]);self.assertLess(d["stages"][1]["marginal_contribution"],0)
     def test_incrementality(self):
         d=run("evaluate_incrementality.py",{"treatment":{"n":100,"value":1200,"variance":4},"control":{"n":100,"value":1000,"variance":4},"incremental_spend":50,"contribution_margin_rate":.5});self.assertEqual(d["decision"],"Go")
     def test_budget_rejects_negative_margin(self):
         d=run("allocate_budget.py",{"budget":300,"candidates":[{"id":"a","step":100,"max_budget":200,"marginal_contribution_per_currency":.2},{"id":"b","step":100,"max_budget":200,"marginal_contribution_per_currency":-.1}]});self.assertEqual(d["allocations"][0]["allocated"],200);self.assertEqual(d["allocations"][1]["allocated"],0)
+
+    def test_budget_reserve_group_cap_and_risk(self):
+        d=run("allocate_budget.py",{
+            "budget":1000,"reserve":200,"group_caps":{"prospecting":500},
+            "candidates":[
+                {"id":"safe","group":"prospecting","step":100,"min_budget":100,"max_budget":700,"marginal_contribution_per_currency":.4,"uncertainty_penalty":.05},
+                {"id":"risky","group":"prospecting","step":100,"max_budget":700,"marginal_contribution_per_currency":.5,"uncertainty_penalty":.6},
+            ]})
+        self.assertEqual(d["group_spend"]["prospecting"],500)
+        self.assertEqual(d["reserve"],200)
+        self.assertEqual(d["allocations"][1]["allocated"],0)
+        self.assertEqual(d["rejected"][0]["reason"],"non_positive_risk_adjusted_marginal")
+
+    def test_budget_rejects_infeasible_minimums(self):
+        with self.assertRaises(AssertionError):
+            run("allocate_budget.py",{"budget":100,"candidates":[{"id":"a","step":100,"min_budget":200,"max_budget":300,"marginal_contribution_per_currency":.2}]})
+
+    def test_incrementality_blocks_immature_outcome(self):
+        d=run("evaluate_incrementality.py",{
+            "treatment":{"n":100,"assigned":120,"exposed":90,"value":1200,"variance":4},
+            "control":{"n":100,"assigned":120,"exposed":0,"value":1000,"variance":4},
+            "incremental_spend":50,"contribution_margin_rate":.5,
+            "maturity":{"assignment":"mature","exposure":"mature","outcome":"immature","refund":"immature"}})
+        self.assertEqual(d["decision"],"Inconclusive")
+        self.assertIn("outcome",d["blockers"])
+
+    def test_incrementality_guardrail_stops(self):
+        d=run("evaluate_incrementality.py",{
+            "treatment":{"n":100,"value":1200,"variance":4},
+            "control":{"n":100,"value":1000,"variance":4},
+            "incremental_spend":50,"contribution_margin_rate":.5,
+            "guardrails":[{"id":"refund_rate","direction":"max","observed":.2,"limit":.1}]})
+        self.assertEqual(d["decision"],"Stop")
+        self.assertIn("guardrail",d["blockers"])
+
+    def test_marginal_rejects_duplicate_spend(self):
+        with self.assertRaises(AssertionError):
+            run("marginal_analysis.py",[
+                {"spend":100,"mature_revenue":400,"contribution_profit":50},
+                {"spend":100,"mature_revenue":500,"contribution_profit":60}])
+
+    def test_mature_profit_rejects_negative_cost(self):
+        rows=[{"gross_revenue":100,"discount":-1,"refund":0,"chargeback":0,"tax":0,"cogs":1,"fulfillment":1,"platform_fee":1,"service_cost":1,"ad_spend":1}]
+        with self.assertRaises(AssertionError):
+            run("mature_profit.py",rows,"csv")
 if __name__=="__main__":unittest.main(verbosity=2)

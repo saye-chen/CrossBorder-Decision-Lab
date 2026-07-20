@@ -2,7 +2,7 @@
 
 ## 执行摘要
 
-决策结论：`Repair / Controlled test`。一句话理由：示例独立站落地页的入口承诺、标题、图组、详情和结账路径存在可观察断层，但产品事实、合规、Offer、库存履约和测量仅支持可回滚测试，不支持直接声称增量或放量。主决策 Skill：`platform-store-listing-conversion`；运行时`D08-2026.01`；置信度中。
+决策结论：`Repair / Controlled test`。一句话理由：示例独立站落地页的入口承诺、标题、图组、详情和结账路径存在可观察断层，但产品事实、合规、Offer、库存履约和测量仅支持可回滚测试，不支持直接声称增量或放量。主决策 Skill：`platform-store-listing-conversion`；运行时`D08-2026.07`；置信度中。
 
 ## 对象与边界
 
