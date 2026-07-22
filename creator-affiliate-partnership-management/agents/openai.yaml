@@ -1,0 +1,4 @@
+interface:
+  display_name: "CAPM 达人与联盟经营决策"
+  short_description: "跨境达人合作、联盟经营、内容权利与组合经济专业决策"
+  default_prompt: "使用 $creator-affiliate-partnership-management 评估达人或联盟合作并输出可复算、可停止、可回滚的专业决策。"

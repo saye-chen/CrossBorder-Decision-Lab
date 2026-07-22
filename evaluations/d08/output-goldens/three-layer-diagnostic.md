@@ -1,4 +1,4 @@
-# D08 Three-Layer Diagnostic Golden
+# PLCO Three-Layer Diagnostic Golden
 ## 对象与证据
 UK/eBay `OBJ-3L-01`、listing `v3`、L6，E1前后台快照、E2商品事实、E3移动截图；证据截止2026-07-20。
 ## Gates

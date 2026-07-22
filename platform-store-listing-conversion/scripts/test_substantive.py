@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv,json,pathlib,sys,unittest
 HERE=pathlib.Path(__file__).resolve().parent; ROOT=HERE.parents[1]; sys.path.insert(0,str(HERE))
-from validate_d08_contract import validate as contract
+from validate_plco_contract import validate as contract
 from validate_object_version import validate as obj
 from validate_evidence_ledger import validate as evidence
 from evaluate_hard_gates import evaluate as gates
@@ -18,7 +18,7 @@ from validate_output_goldens import validate as output_goldens
 from validate_migration_parity import validate as migration
 from validate_historical_replay import validate as historical
 
-class SubstantiveD08(unittest.TestCase):
+class SubstantivePLCO(unittest.TestCase):
  def test_historical_template_blocks_production(self):
   p=ROOT/"evaluations/d08/historical-replay-template.json";d=json.loads(p.read_text());r=historical(d,p.parent);self.assertFalse(r["valid"]);self.assertFalse(r["production_ready"]);self.assertIn("authorized_cases_below_minimum:0<3",r["errors"])
  def test_100_semantically_named_scenarios(self):

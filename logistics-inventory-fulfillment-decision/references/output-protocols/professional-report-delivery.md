@@ -1,4 +1,4 @@
-# D07 专业报告交付
+# LIFD 专业报告交付
 
 Decision Card 用于单路线、补货或异常；Decision Memo 用于网络、库存配置或退出；Logistics Diligence 用于多国多仓、重大资本和连续性设计。
 

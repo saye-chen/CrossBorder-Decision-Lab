@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import math
-from d08_common import integer, number, required, run_cli
+from plco_common import integer, number, required, run_cli
 
 def evaluate(data):
     required(data,("control","treatment","primary_metric","mature"))
@@ -19,4 +19,4 @@ def evaluate(data):
     elif ci[1]<0: decision="stop"
     else: decision="iterate"
     return {"status":"ok","control_rate":pc,"treatment_rate":pt,"absolute_effect":diff,"ci95":ci,"decision":decision,"guardrail_breached":guardrail_breached}
-if __name__ == "__main__": run_cli(evaluate,"D08-experiment-1")
+if __name__ == "__main__": run_cli(evaluate,"PLCO-experiment-1")

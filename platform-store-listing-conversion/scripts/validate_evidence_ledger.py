@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import fail, required, run_cli
+from plco_common import fail, required, run_cli
 
 VALID={"E0","E1","E2","E3","E4","E5"}
 def validate(data):
@@ -18,4 +18,4 @@ def validate(data):
         if c["claim_type"]=="causal" and not levels.intersection({"E4","E5"}): errors.append(f"{c['claim_id']}: causal claim lacks E4/E5")
     return {"status":"pass" if not errors else "fail","errors":errors,
             "duplicate_fingerprint_groups":[v for v in fps.values() if len(v)>1],"evidence_count":len(entries)}
-if __name__ == "__main__": run_cli(validate,"D08-evidence-1")
+if __name__ == "__main__": run_cli(validate,"PLCO-evidence-1")

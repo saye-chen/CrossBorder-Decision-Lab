@@ -1,5 +1,5 @@
 {
-  "schema_version": "D07-fixture-1.0",
+  "schema_version": "LIFD-fixture-1.0",
   "profiles": {
     "route_pass": {"script":"network_routing.py","input":{"required_flow":10,"required_cash":10,"max_p90_days":20,"routes":[{"id":"R1","compliance_pass":true,"sku_allowed":true,"documents_ready":true,"capacity":20,"cash_capacity":20,"p90_days":10,"main_haul":5}]},"assert":{"path":"decision","op":"eq","value":"select"}},
     "route_block": {"script":"network_routing.py","input":{"required_flow":10,"routes":[{"id":"R1","compliance_pass":false,"sku_allowed":true,"documents_ready":true,"capacity":20,"cash_capacity":20,"p90_days":10}]},"assert":{"path":"decision","op":"eq","value":"blocked"}},
@@ -22,11 +22,11 @@
     "perfect_order": {"script":"cost_to_serve.py","input":{"orders":[{"right_product":true,"right_quantity":true,"right_condition":true,"right_customer_place":true,"on_original_commit_date":true,"documents_accurate":true,"no_unexpected_claim":true},{"right_product":true}]},"assert":{"path":"perfect_order_rate","op":"eq","value":0.5}}
   },
   "cases": [
-    ["D07-001","replenishment_pass"],["D07-002","allocation"],["D07-003","route_capacity"],["D07-004","flow_pass"],["D07-005","forecast"],["D07-006","replenishment"],["D07-007","route_block"],["D07-008","forecast"],["D07-009","exit"],["D07-010","exit"],
-    ["D07-011","route_capacity"],["D07-012","ledger_block"],["D07-013","route_capacity"],["D07-014","negative_economics"],["D07-015","route_block"],["D07-016","replenishment"],["D07-017","ledger_block"],["D07-018","route_pass"],["D07-019","route_capacity"],["D07-020","replenishment"],
-    ["D07-021","exit_block"],["D07-022","allocation"],["D07-023","ledger_block"],["D07-024","order"],["D07-025","allocation"],["D07-026","cost"],["D07-027","capacity"],["D07-028","exit"],["D07-029","allocation"],["D07-030","exit"],
-    ["D07-031","exit"],["D07-032","exit_block"],["D07-033","exit"],["D07-034","cost"],["D07-035","exit"],["D07-036","trace_block"],["D07-037","exit"],["D07-038","exit"],["D07-039","exit"],["D07-040","trace_block"],
-    ["D07-041","order"],["D07-042","order"],["D07-043","order"],["D07-044","replenishment"],["D07-045","capacity"],["D07-046","capacity"],["D07-047","replenishment"],["D07-048","route_block"],["D07-049","route_block"],["D07-050","trace_block"],
-    ["D07-051","ledger_block"],["D07-052","ledger_block"],["D07-053","perfect_order"],["D07-054","forecast"],["D07-055","allocation"],["D07-056","route_block"],["D07-057","capacity"],["D07-058","cost"],["D07-059","cost"],["D07-060","cost"]
+    ["LIFD-001","replenishment_pass"],["LIFD-002","allocation"],["LIFD-003","route_capacity"],["LIFD-004","flow_pass"],["LIFD-005","forecast"],["LIFD-006","replenishment"],["LIFD-007","route_block"],["LIFD-008","forecast"],["LIFD-009","exit"],["LIFD-010","exit"],
+    ["LIFD-011","route_capacity"],["LIFD-012","ledger_block"],["LIFD-013","route_capacity"],["LIFD-014","negative_economics"],["LIFD-015","route_block"],["LIFD-016","replenishment"],["LIFD-017","ledger_block"],["LIFD-018","route_pass"],["LIFD-019","route_capacity"],["LIFD-020","replenishment"],
+    ["LIFD-021","exit_block"],["LIFD-022","allocation"],["LIFD-023","ledger_block"],["LIFD-024","order"],["LIFD-025","allocation"],["LIFD-026","cost"],["LIFD-027","capacity"],["LIFD-028","exit"],["LIFD-029","allocation"],["LIFD-030","exit"],
+    ["LIFD-031","exit"],["LIFD-032","exit_block"],["LIFD-033","exit"],["LIFD-034","cost"],["LIFD-035","exit"],["LIFD-036","trace_block"],["LIFD-037","exit"],["LIFD-038","exit"],["LIFD-039","exit"],["LIFD-040","trace_block"],
+    ["LIFD-041","order"],["LIFD-042","order"],["LIFD-043","order"],["LIFD-044","replenishment"],["LIFD-045","capacity"],["LIFD-046","capacity"],["LIFD-047","replenishment"],["LIFD-048","route_block"],["LIFD-049","route_block"],["LIFD-050","trace_block"],
+    ["LIFD-051","ledger_block"],["LIFD-052","ledger_block"],["LIFD-053","perfect_order"],["LIFD-054","forecast"],["LIFD-055","allocation"],["LIFD-056","route_block"],["LIFD-057","capacity"],["LIFD-058","cost"],["LIFD-059","cost"],["LIFD-060","cost"]
   ]
 }

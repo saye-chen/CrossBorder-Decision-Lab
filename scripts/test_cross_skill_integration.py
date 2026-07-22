@@ -23,9 +23,9 @@ CIM_SKILL = ROOT / "competitive-intelligence-monitoring" / "SKILL.md"
 CIM_INTEGRATION = ROOT / "competitive-intelligence-monitoring" / "references" / "skill-integration-protocol.md"
 CIG_SKILL = ROOT / "consumer-insights-customer-growth" / "SKILL.md"
 CIG_INTEGRATION = ROOT / "consumer-insights-customer-growth" / "references" / "skill-integration-protocol.md"
-D09_SKILL = ROOT / "advertising-analysis-measurement-optimization" / "SKILL.md"
-D07_SKILL = ROOT / "logistics-inventory-fulfillment-decision" / "SKILL.md"
-D08_SKILL = ROOT / "platform-store-listing-conversion" / "SKILL.md"
+AAMO_SKILL = ROOT / "advertising-analysis-measurement-optimization" / "SKILL.md"
+LIFD_SKILL = ROOT / "logistics-inventory-fulfillment-decision" / "SKILL.md"
+PLCO_SKILL = ROOT / "platform-store-listing-conversion" / "SKILL.md"
 
 
 class CrossSkillFieldMapping(unittest.TestCase):
@@ -75,19 +75,19 @@ class SystemWideProfessionalInvariant(unittest.TestCase):
     """Every skill must preserve professional depth in every execution mode."""
 
     def test_all_skills_declare_professional_hard_constraint(self):
-        for skill_file in (CIDM_SKILL, VLB_SKILL, CIM_SKILL, CIG_SKILL, D09_SKILL):
+        for skill_file in (CIDM_SKILL, VLB_SKILL, CIM_SKILL, CIG_SKILL, AAMO_SKILL):
             with self.subTest(skill=skill_file.parent.name):
                 text = skill_file.read_text(encoding="utf-8")
                 self.assertIn("专业性与决策可用性硬约束", text)
                 self.assertIn("只允许压缩展示", text)
                 self.assertIn("停止条件", text)
                 self.assertIn("决策影响", text)
-        d07 = D07_SKILL.read_text(encoding="utf-8")
+        lifd = LIFD_SKILL.read_text(encoding="utf-8")
         for phrase in ("专家级", "压缩展示", "停止条件", "不得替代"):
-            self.assertIn(phrase, d07)
-        d08 = D08_SKILL.read_text(encoding="utf-8")
+            self.assertIn(phrase, lifd)
+        plco = PLCO_SKILL.read_text(encoding="utf-8")
         for phrase in ("专家级", "压缩展示", "停止条件", "具体优化", "不得替代"):
-            self.assertIn(phrase, d08)
+            self.assertIn(phrase, plco)
 
     def test_decision_ownership_is_explicit(self):
         expected = {
@@ -95,9 +95,9 @@ class SystemWideProfessionalInvariant(unittest.TestCase):
             CIM_SKILL: "外部竞争事实",
             VLB_SKILL: "视频观察",
             CIG_SKILL: "授权客户证据",
-            D09_SKILL: "广告架构",
-            D07_SKILL: "物流网络",
-            D08_SKILL: "页面承接",
+            AAMO_SKILL: "广告架构",
+            LIFD_SKILL: "物流网络",
+            PLCO_SKILL: "页面承接",
         }
         for skill_file, phrase in expected.items():
             with self.subTest(skill=skill_file.parent.name):
@@ -243,10 +243,10 @@ class CrossSkillLinkIntegrity(unittest.TestCase):
                         f"{md_file.relative_to(ROOT)}: broken link {target}",
                     )
 
-    def test_d09_references_all_resolve(self):
-        d09_dir = ROOT / "advertising-analysis-measurement-optimization"
+    def test_aamo_references_all_resolve(self):
+        aamo_dir = ROOT / "advertising-analysis-measurement-optimization"
         link_re = re.compile(r"\[[^]]+\]\(([^)]+)\)")
-        for md_file in d09_dir.rglob("*.md"):
+        for md_file in aamo_dir.rglob("*.md"):
             for target in link_re.findall(md_file.read_text(encoding="utf-8")):
                 if "://" in target or target.startswith("#"):
                     continue
@@ -254,10 +254,10 @@ class CrossSkillLinkIntegrity(unittest.TestCase):
                 if local_target:
                     self.assertTrue((md_file.parent / local_target).resolve().exists(), f"{md_file.relative_to(ROOT)}: broken link {target}")
 
-    def test_d08_references_all_resolve(self):
-        d08_dir = ROOT / "platform-store-listing-conversion"
+    def test_plco_references_all_resolve(self):
+        plco_dir = ROOT / "platform-store-listing-conversion"
         link_re = re.compile(r"\[[^]]+\]\(([^)]+)\)")
-        for md_file in d08_dir.rglob("*.md"):
+        for md_file in plco_dir.rglob("*.md"):
             for target in link_re.findall(md_file.read_text(encoding="utf-8")):
                 if "://" in target or target.startswith("#"):
                     continue
@@ -383,29 +383,49 @@ class VersionConsistency(unittest.TestCase):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         cidm_text = CIDM_SKILL.read_text(encoding="utf-8")
         vlb_text = VLB_SKILL.read_text(encoding="utf-8")
-        d09_text = D09_SKILL.read_text(encoding="utf-8")
+        aamo_text = AAMO_SKILL.read_text(encoding="utf-8")
 
         cidm_version = re.search(r"`(CIDM-\d{4}\.\d{2})`", cidm_text)
         vlb_version = re.search(r"`(VLB-\d{4}\.\d{2})`", vlb_text)
-        d09_version = re.search(r"`(D09-\d{4}\.\d{2})`", d09_text)
+        aamo_version = re.search(r"`(AAMO-\d{4}\.\d{2})`", aamo_text)
         self.assertIsNotNone(cidm_version)
         self.assertIsNotNone(vlb_version)
-        self.assertIsNotNone(d09_version)
+        self.assertIsNotNone(aamo_version)
         self.assertIn(cidm_version.group(1), readme)
         self.assertIn(vlb_version.group(1), readme)
-        self.assertIn(d09_version.group(1), readme)
+        self.assertIn(aamo_version.group(1), readme)
 
 
 class AdvertisingIntegration(unittest.TestCase):
-    def test_rules_document_d09_relationships(self):
+    def test_rules_document_aamo_relationships(self):
         rules = RULES_MD.read_text(encoding="utf-8")
         for skill in ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth"]:
             self.assertIn(f"advertising-analysis-measurement-optimization ↔ {skill}", rules)
 
-    def test_d09_keeps_cross_domain_outputs_non_authoritative(self):
-        text = D09_SKILL.read_text(encoding="utf-8")
+    def test_aamo_keeps_cross_domain_outputs_non_authoritative(self):
+        text = AAMO_SKILL.read_text(encoding="utf-8")
         for phrase in ["proposed / validated / blocked / inconclusive", "不得越权", "不拥有品类投资"]:
             self.assertIn(phrase, text)
+
+
+class CreatorAffiliateIntegration(unittest.TestCase):
+    """CAPM must integrate without taking over adjacent professional domains."""
+
+    def test_capm_contract_and_runtime_are_routed(self):
+        skill = (ROOT / "creator-affiliate-partnership-management/SKILL.md").read_text(encoding="utf-8")
+        protocol = (ROOT / "creator-affiliate-partnership-management/references/skill-integration-protocol.md").read_text(encoding="utf-8")
+        for phrase in ["CAPM-2026.07", "paid_amplification_candidate", "不得替代", "部分失败", "幂等"]:
+            self.assertIn(phrase, skill + protocol)
+
+    def test_capm_sovereignty_and_aamo_paid_media_boundary(self):
+        rules = RULES_MD.read_text(encoding="utf-8")
+        self.assertIn("creator-affiliate-partnership-management ↔ CIDM/CIM/VLB/CIG/AAMO/LIFD/PLCO", rules)
+        self.assertIn("只有AAMO能生效付费媒体决策", rules)
+
+    def test_capm_handoff_schema_requires_usage_and_lineage(self):
+        schema = (ROOT / "creator-affiliate-partnership-management/schemas/cross_skill_envelope.schema.json").read_text(encoding="utf-8")
+        for phrase in ["allowed_uses", "forbidden_uses", "runtime_version", "input_hash", "message_id"]:
+            self.assertIn(phrase, schema)
 
 
 if __name__ == "__main__":

@@ -2,4 +2,3 @@ interface:
   display_name: "物流库存与履约决策"
   short_description: "跨境物流、库存、补货、多仓、履约、退货与退出专业决策"
   default_prompt: "使用 $logistics-inventory-fulfillment-decision 分析跨境物流、库存、补货、多仓路由、尾程履约、退货或海外库存退出问题，并给出可复算的动作、成功条件与停止条件。"
-  runtime: "D07-2026.03"

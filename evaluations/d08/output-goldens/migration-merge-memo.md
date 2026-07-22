@@ -1,4 +1,4 @@
-# D08 Migration / Merge Memo Golden
+# PLCO Migration / Merge Memo Golden
 ## 对象与目标
 Amazon US `OBJ-MG-01` v5迁移至Amazon CA新对象，不执行跨产品评论合并；证据截止2026-07-20。
 G1—G6 Gate逐站重验；反证是产品事实可复用但不证明站点资产可继承。根因不是翻译，而是对象、规则和经营条件变化。

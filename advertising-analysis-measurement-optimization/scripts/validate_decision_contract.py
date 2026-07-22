@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the shared contract plus D09-specific advertising invariants."""
+"""Validate the shared contract plus AAMO-specific advertising invariants."""
 from __future__ import annotations
 
 import argparse
@@ -15,39 +15,39 @@ CORE = importlib.util.module_from_spec(SPEC)
 assert SPEC and SPEC.loader
 SPEC.loader.exec_module(CORE)
 
-D09 = "advertising-analysis-measurement-optimization"
+AAMO = "advertising-analysis-measurement-optimization"
 QUANTIFIED_ACTIONS = {"scale", "reduce", "pause", "stop", "rebuild", "budget", "bid", "target"}
 
 
-def validate_d09(payload: dict) -> list[str]:
+def validate_aamo(payload: dict) -> list[str]:
     """Return advertising-specific errors without weakening the shared kernel."""
     errors: list[str] = []
     owner = payload.get("decision_owner")
-    if owner != D09:
+    if owner != AAMO:
         return errors
 
     context = payload.get("advertising_context")
     if not isinstance(context, dict):
-        errors.append("D09 requires advertising_context")
+        errors.append("AAMO requires advertising_context")
         return errors
 
     for key in ("country", "platform", "as_of_time", "lifecycle"):
         if not context.get(key):
-            errors.append(f"D09 advertising_context requires {key}")
+            errors.append(f"AAMO advertising_context requires {key}")
 
     axes = context.get("axes")
     required_axes = {"traffic_scenario", "control_mode", "billing_mode", "optimization_goal"}
     if not isinstance(axes, dict) or not required_axes.issubset(axes):
-        errors.append("D09 requires all four advertising axes")
+        errors.append("AAMO requires all four advertising axes")
 
     maturity = context.get("maturity", {})
     for key in ("data", "tracking", "attribution", "orders"):
         if maturity.get(key) not in {"mature", "immature", "blocked", "unknown"}:
-            errors.append(f"D09 maturity requires valid {key} state")
+            errors.append(f"AAMO maturity requires valid {key} state")
 
     ledgers = context.get("ledgers", {})
     if not {"platform_attribution", "business_orders", "mature_contribution"}.issubset(ledgers):
-        errors.append("D09 requires three separate ledgers")
+        errors.append("AAMO requires three separate ledgers")
 
     action = payload.get("action", {})
     action_type = str(action.get("type", "")).lower()
@@ -55,21 +55,21 @@ def validate_d09(payload: dict) -> list[str]:
     if quantified:
         required = set(payload.get("required_calculation_ids", []))
         if not required:
-            errors.append("D09 quantified action requires deterministic calculation ids")
+            errors.append("AAMO quantified action requires deterministic calculation ids")
         if action.get("stop_condition") in (None, ""):
-            errors.append("D09 quantified action requires stop_condition")
+            errors.append("AAMO quantified action requires stop_condition")
         if action.get("rollback") in (None, ""):
-            errors.append("D09 quantified action requires rollback")
+            errors.append("AAMO quantified action requires rollback")
 
     forbidden = " ".join(map(str, payload.get("forbidden_claims", []))).lower()
     if context.get("incrementality_status") != "validated" and "platform roas is incremental" in forbidden:
         pass
     elif context.get("incrementality_status") != "validated" and payload.get("claims_incremental") is True:
-        errors.append("D09 cannot claim incrementality without validated design")
+        errors.append("AAMO cannot claim incrementality without validated design")
 
     if any(value != "mature" for value in maturity.values()) and action_type in {"scale", "stop"}:
         if action.get("status") not in {"proposed", "inconclusive", "blocked"}:
-            errors.append("D09 immature evidence cannot directly validate Scale/Stop")
+            errors.append("AAMO immature evidence cannot directly validate Scale/Stop")
     return errors
 
 
@@ -85,12 +85,12 @@ def main() -> int:
     if not isinstance(payload, dict):
         print("INVALID: root must be an object", file=sys.stderr)
         return 2
-    errors = CORE.validate(payload) + validate_d09(payload)
+    errors = CORE.validate(payload) + validate_aamo(payload)
     if errors:
         for error in errors:
             print(f"BLOCKED: {error}", file=sys.stderr)
         return 1
-    print("PASS: shared and D09-specific contracts are complete")
+    print("PASS: shared and AAMO-specific contracts are complete")
     return 0
 
 

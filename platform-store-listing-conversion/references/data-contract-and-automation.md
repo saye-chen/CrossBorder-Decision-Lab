@@ -1,4 +1,4 @@
-# D08 数据合同与自动化
+# PLCO 数据合同与自动化
 
 规范键为 `store × listing × sku/variant × offer × page_layer × device × traffic × page_version_id × as_of_time`。页面快照、产品事实、Offer、库存和漏斗分别保留来源；缺失、零值、不可见和 not_applicable 分开。
 

@@ -1,5 +1,5 @@
 {
-  "version":"D08-output-2026.01",
+  "version":"PLCO-output-2026.01",
   "contracts":[
     {"type":"decision_card","required":["object_version","gates","conclusion","evidence_counterevidence","root_cause","concrete_action","success_stop_rollback"]},
     {"type":"three_layer_diagnostic","required":["listing","image_set","detail_or_applicability","cross_layer_consistency","issues","concrete_optimization"]},

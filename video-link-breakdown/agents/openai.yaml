@@ -1,5 +1,4 @@
 interface:
   display_name: "内容创意与传播决策"
-  version: "VLB-2026.09"
   short_description: "拆解视频与多格式内容，形成创意策略、生产 Brief、实验矩阵、素材组合、疲劳刷新和跨平台/国家迁移决策。"
   default_prompt: "使用 $video-link-breakdown 分析这组内容，给出证据驱动的创意、生产、测试与传播决策。"

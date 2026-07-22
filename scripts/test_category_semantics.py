@@ -80,18 +80,23 @@ class EvidenceAndSellerTests(unittest.TestCase):
 class VersionTests(unittest.TestCase):
     def test_cidm_version_is_consistent(self):
         expected = "CIDM-2026.14"
-        files = [
+        runtime_sources = [
             CIDM / "SKILL.md",
-            CIDM / "agents" / "openai.yaml",
             CIDM / "references" / "scoring-model.md",
             CIDM / "references" / "report-template.md",
             ROOT / "README.md",
         ]
-        for path in files:
+        for path in runtime_sources:
             self.assertIn(expected, path.read_text(encoding="utf-8"), str(path))
 
+        # agents/openai.yaml is UI metadata only. Runtime identity belongs in
+        # SKILL.md and executable contracts, not in unsupported interface keys.
+        agent_metadata = (CIDM / "agents" / "openai.yaml").read_text(encoding="utf-8")
+        self.assertNotRegex(agent_metadata, r"^\s+runtime:", "agents/openai.yaml")
+        self.assertIn("$category-investment-decision", agent_metadata)
+
         stale = re.compile(r"CIDM-2026\.08")
-        for path in files:
+        for path in runtime_sources:
             self.assertIsNone(stale.search(path.read_text(encoding="utf-8")), str(path))
 
 

@@ -67,7 +67,7 @@ def run(d):
                     if old.get("status")=="executing" and a.get("status") in {"failed","stopped","superseded"}:
                         for key in ["recovery_action","remaining_exposure","owner","due_at"]:
                             if not a.get(key): errors.append(f"missing_action_recovery:{rid}:{aid}:{key}")
-                if a.get("owner_domain") and a.get("owner_domain")!="D07" and a.get("status") not in {"proposed","rejected"}: errors.append(f"cross_domain_self_approval:{rid}:{aid}")
+                if a.get("owner_domain") and a.get("owner_domain")!="LIFD" and a.get("status") not in {"proposed","rejected"}: errors.append(f"cross_domain_self_approval:{rid}:{aid}")
     visiting=set();done=set()
     def visit(rid):
         if rid in visiting: errors.append(f"lineage_cycle:{rid}");return
@@ -93,6 +93,6 @@ def run(d):
         for a in r.get("actions",[]):
             if a.get("status") in ["proposed","validated","executing"]: active_actions.append({"object_id":oid,**a})
     if expired and active_actions: errors.append("expired_evidence_supports_active_action")
-    return {"valid":not errors,"errors":sorted(set(errors)),"current_state":{k:v.get("report_id") for k,v in current.items()},"expired_evidence":expired,"active_actions":active_actions,"impact_map_version":"D07-impact-1.0"}
+    return {"valid":not errors,"errors":sorted(set(errors)),"current_state":{k:v.get("report_id") for k,v in current.items()},"expired_evidence":expired,"active_actions":active_actions,"impact_map_version":"LIFD-impact-1.0"}
 
 if __name__=="__main__": main(run)

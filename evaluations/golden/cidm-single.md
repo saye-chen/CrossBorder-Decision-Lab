@@ -1,7 +1,7 @@
 # CIDM 单 Skill Golden Report
 
 ## 执行摘要
-决策结论：`Test`。一句话理由：需求与VOC支持进入验证，但成熟贡献利润和合规文件尚未形成直接证据，因此不能进入Scale。主决策 Skill：`category-investment-decision`。
+决策结论：`Test`。一句话理由：需求与VOC支持进入验证，但成熟贡献利润和合规文件尚未形成直接证据，因此不能进入Scale。主决策 Skill：`category-investment-decision`；运行时：`CIDM-2026.14`。
 
 ## 对象与边界
 对象为美国 Amazon 宠物饮水机候选SKU，国家/平台：US/Amazon，生命周期：LC2验证前，适用范围为单SKU、单站点、8周；证据截止：2026-07-16。缺失数据：真实CPC、退货成熟、认证文件；决策影响为预算上限收紧。

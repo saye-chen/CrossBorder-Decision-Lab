@@ -13,7 +13,7 @@ class ProfessionalDepth(unittest.TestCase):
         for anchor in anchors:
             self.assertIn(anchor, text, f"{path}: missing {anchor}")
 
-    def test_d09_platform_cards_have_platform_dna(self):
+    def test_aamo_platform_cards_have_platform_dna(self):
         directory = ROOT / "advertising-analysis-measurement-optimization/references/platforms"
         excluded = {"platform-card-contract.md", "universal-platform-routing.md"}
         cards = [path for path in directory.glob("*.md") if path.name not in excluded]
@@ -28,6 +28,7 @@ class ProfessionalDepth(unittest.TestCase):
             "competitive-intelligence-monitoring": ["对象", "基线", "代理", "归因", "反事实", "结果"],
             "logistics-inventory-fulfillment-decision": ["对象", "守恒", "交期", "反事实", "停止", "退出"],
             "platform-store-listing-conversion": ["对象", "版本", "G1", "反事实", "具体方案", "回滚"],
+            "creator-affiliate-partnership-management": ["机制", "计算", "反事实", "失效模式", "动作", "退出"],
         }
         excluded = {"professional-depth-governance.md", "skill-integration-protocol.md", "data-contract-and-automation.md", "professional-report-delivery.md", "output-protocols.md"}
         for domain, anchors in groups.items():
@@ -39,7 +40,7 @@ class ProfessionalDepth(unittest.TestCase):
                     self.assertIn(f"## {path.stem} 专属决策内核", path.read_text(encoding="utf-8"), f"{path}: missing module-specific kernel")
 
     def test_module_specific_kernels_are_not_identical_padding(self):
-        domains = ["advertising-analysis-measurement-optimization", "consumer-insights-customer-growth", "competitive-intelligence-monitoring", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"]
+        domains = ["advertising-analysis-measurement-optimization", "consumer-insights-customer-growth", "competitive-intelligence-monitoring", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management"]
         kernels = []
         for domain in domains:
             for path in (ROOT / domain / "references").glob("*.md"):

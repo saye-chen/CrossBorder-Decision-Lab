@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import run_cli
+from plco_common import run_cli
 
 FIELDS=("product_name","model","quantity","unit","dimensions","materials","included_items","variant","price","currency","availability","delivery")
 def check(data):
@@ -9,4 +9,4 @@ def check(data):
         normalized={str(v).strip().casefold() for v in observed.values()}
         if len(normalized)>1: conflicts.append({"field":field,"values":observed})
     return {"status":"pass" if not conflicts else "fail","conflicts":conflicts,"checked_fields":list(FIELDS)}
-if __name__ == "__main__": run_cli(check,"D08-consistency-1")
+if __name__ == "__main__": run_cli(check,"PLCO-consistency-1")

@@ -1,5 +1,5 @@
 {
-  "version":"D08-platform-cards-2026.01",
+  "version":"PLCO-platform-cards-2026.01",
   "rule":"All dynamic fields require current official or authorized verification by country, surface and date.",
   "cards":[
     {"platform":"Amazon","archetype":"search_marketplace","objects":["marketplace/merchant","ASIN","parent-child","SKU","offer","page version"],"surfaces":["search tile","PDP","A+/brand content","store","cart"],"diagnostics":["browse/category and attributes","index/query relevance","title and bullets","main image and image sequence","variation integrity","offer/buyability","review/QA applicability","delivery promise"],"incidents":["suppression","index loss","content overwrite","variation split/pollution","offer or inventory mismatch"],"experiments":["controlled title/image/content version","traffic and device stratification","return and mature-margin guardrails"],"evidence":["official category and style rules","authorized catalog/brand/offer snapshot","query and funnel data","front/back comparison"],"forbidden":["universal title length","review inheritance across different products","Buy Box as universal object"]},

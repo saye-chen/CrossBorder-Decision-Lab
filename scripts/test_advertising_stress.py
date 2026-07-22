@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""D09 structural, platform-depth, sovereignty and deterministic-model stress tests."""
+"""AAMO structural, platform-depth, sovereignty and deterministic-model stress tests."""
 
 from __future__ import annotations
 
@@ -10,9 +10,9 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-D09 = ROOT / "advertising-analysis-measurement-optimization"
-SKILL = (D09 / "SKILL.md").read_text(encoding="utf-8")
-PLATFORMS = D09 / "references" / "platforms"
+AAMO = ROOT / "advertising-analysis-measurement-optimization"
+SKILL = (AAMO / "SKILL.md").read_text(encoding="utf-8")
+PLATFORMS = AAMO / "references" / "platforms"
 REQUIRED_CARDS = {
     "tiktok-shop.md", "amazon.md", "shopee.md", "shein.md", "temu.md",
     "mercado-libre.md", "google-search.md", "google-shopping-pmax.md",
@@ -25,7 +25,7 @@ def run_model(script: str, payload: object) -> dict | list:
         inp, out = Path(td) / "in.json", Path(td) / "out.json"
         inp.write_text(json.dumps(payload), encoding="utf-8")
         result = subprocess.run(
-            ["python3", str(D09 / "scripts" / script), "--input", str(inp), "--output", str(out)],
+            ["python3", str(AAMO / "scripts" / script), "--input", str(inp), "--output", str(out)],
             capture_output=True, text=True,
         )
         if result.returncode:
@@ -64,7 +64,7 @@ class AdvertisingStress(unittest.TestCase):
             self.assertIn(phrase, SKILL)
 
     def test_nine_layer_and_rollback_contract_is_present(self):
-        diagnosis = (D09 / "references" / "decision-and-nine-layer-diagnosis.md").read_text(encoding="utf-8")
+        diagnosis = (AAMO / "references" / "decision-and-nine-layer-diagnosis.md").read_text(encoding="utf-8")
         for phrase in ["账户", "交付", "流量", "创意", "承接", "转化", "经济", "增量", "运营", "反证", "替代解释"]:
             self.assertIn(phrase, diagnosis)
         for phrase in ["停止", "回滚", "缺失数据"]:

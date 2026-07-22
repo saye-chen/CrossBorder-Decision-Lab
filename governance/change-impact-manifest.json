@@ -10,7 +10,7 @@
     "decision-contract-core": {
       "owner": "repository",
       "authoritative_sources": ["category-investment-decision/scripts/validate_decision_contract.py", "scripts/validate_decision_contract.py"],
-      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management"],
       "validators": ["scripts/validate_decision_contract.py"],
       "tests": ["scripts/test_domain_stress.py", "scripts/test_cross_skill_integration.py", "scripts/test_expert_release.py"],
       "evaluations": ["evaluations/golden-reports", "evaluations/adversarial-cases"]
@@ -55,11 +55,27 @@
       "tests": ["scripts/test_domain_stress.py", "scripts/test_expert_release.py"],
       "evaluations": ["evaluations/golden/vlb-single.md", "evaluations/adversarial-cases/keyword-stuffed.md"]
     },
-    "seven-skill-governance-baseline": {
+    "cidm-vlb-production-handoff": {
+      "owner": "video-link-breakdown",
+      "authoritative_sources": ["category-investment-decision/references/skill-integration-protocol.md", "video-link-breakdown/references/selection-handoff-spec.md", "video-link-breakdown/references/brief-seed-spec.md", "video-link-breakdown/references/signal-attribution.md"],
+      "consumers": ["category-investment-decision", "video-link-breakdown", "video-link-breakdown/SKILL.md", "requirements-dev.txt", ".github/workflows/expert-release.yml"],
+      "validators": ["video-link-breakdown/scripts/validate_selection_handoff.py", "video-link-breakdown/scripts/validate_brief_seed.py"],
+      "tests": ["video-link-breakdown/scripts/test_handoff_contracts.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["evaluations/golden-reports/vlb-full.md"]
+    },
+    "eight-skill-governance-baseline": {
       "owner": "repository",
       "authoritative_sources": ["governance/required-skill-governance.md", "scripts/validate_governance_baseline.py"],
-      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management", ".github/workflows/expert-release.yml"],
       "validators": ["scripts/validate_governance_baseline.py", "scripts/validate_repo.py"],
+      "tests": ["scripts/test_governance.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["evaluations"]
+    },
+    "repository-release-governance": {
+      "owner": "repository",
+      "authoritative_sources": ["governance/change-impact-manifest.json", "scripts/analyze_change_impact.py", "scripts/validate_repo.py", ".github/workflows/expert-release.yml"],
+      "consumers": ["README.md", "RULES.md", "scripts/test_full_repository_audit.py"],
+      "validators": ["scripts/analyze_change_impact.py", "scripts/validate_repo.py"],
       "tests": ["scripts/test_governance.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations/golden", "evaluations/golden-reports", "evaluations/adversarial-cases"]
     },
@@ -79,29 +95,37 @@
       "tests": ["consumer-insights-customer-growth/scripts/test_growth.py", "scripts/test_cross_skill_integration.py", "scripts/test_domain_stress.py"],
       "evaluations": ["evaluations/golden/cig-single.md", "evaluations/golden-reports/cig-full.md"]
     },
-    "d09-runtime": {
+    "aamo-runtime": {
       "owner": "advertising-analysis-measurement-optimization",
       "authoritative_sources": ["advertising-analysis-measurement-optimization/SKILL.md", "advertising-analysis-measurement-optimization/references/skill-integration-protocol.md", "advertising-analysis-measurement-optimization/references/data-contract-and-automation.md"],
-      "consumers": ["advertising-analysis-measurement-optimization/agents/openai.yaml", "advertising-analysis-measurement-optimization/references/output-protocols/professional-report-delivery.md", "README.md", "category-investment-decision", "video-link-breakdown", "consumer-insights-customer-growth", "competitive-intelligence-monitoring", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"],
+      "consumers": ["advertising-analysis-measurement-optimization/agents/openai.yaml", "advertising-analysis-measurement-optimization/references/output-protocols/professional-report-delivery.md", "README.md", "category-investment-decision", "video-link-breakdown", "consumer-insights-customer-growth", "competitive-intelligence-monitoring", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management"],
       "validators": ["advertising-analysis-measurement-optimization/scripts/validate_decision_contract.py"],
       "tests": ["advertising-analysis-measurement-optimization/scripts/test_models.py", "scripts/test_advertising_stress.py", "scripts/test_cross_skill_integration.py"],
       "evaluations": ["evaluations/golden/d09-single.md"]
     },
-    "d07-runtime": {
+    "lifd-runtime": {
       "owner": "logistics-inventory-fulfillment-decision",
       "authoritative_sources": ["logistics-inventory-fulfillment-decision/SKILL.md", "logistics-inventory-fulfillment-decision/references/decision-contracts-and-output.md"],
-      "consumers": ["logistics-inventory-fulfillment-decision/agents/openai.yaml", "README.md", "RULES.md"],
+      "consumers": ["logistics-inventory-fulfillment-decision/agents/openai.yaml", "README.md", "RULES.md", "creator-affiliate-partnership-management"],
       "validators": ["logistics-inventory-fulfillment-decision/scripts/validate_decision_contract.py", "scripts/validate_repo.py"],
-      "tests": ["logistics-inventory-fulfillment-decision/scripts/test_models.py"],
+      "tests": ["logistics-inventory-fulfillment-decision/scripts/test_models.py", "scripts/test_logistics_stress.py"],
       "evaluations": ["logistics-inventory-fulfillment-decision/references/expert-scenarios.json", "evaluations/golden/d07-single.md", "evaluations/golden-reports/d07-full.md"]
     },
-    "d08-runtime": {
+    "plco-runtime": {
       "owner": "platform-store-listing-conversion",
       "authoritative_sources": ["platform-store-listing-conversion/SKILL.md", "platform-store-listing-conversion/references/input-evidence-and-gates.md", "platform-store-listing-conversion/references/skill-integration-protocol.md", "platform-store-listing-conversion/references/data-contract-and-automation.md"],
-      "consumers": ["platform-store-listing-conversion/agents/openai.yaml", "README.md", "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision"],
-      "validators": ["platform-store-listing-conversion/scripts/validate_d08_contract.py", "platform-store-listing-conversion/scripts/validate_decision_contract.py", "scripts/validate_governance_baseline.py"],
+      "consumers": ["platform-store-listing-conversion/agents/openai.yaml", "README.md", "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "creator-affiliate-partnership-management"],
+      "validators": ["platform-store-listing-conversion/scripts/validate_plco_contract.py", "platform-store-listing-conversion/scripts/validate_decision_contract.py", "scripts/validate_governance_baseline.py"],
       "tests": ["platform-store-listing-conversion/scripts/test_models.py", "scripts/test_listing_conversion_stress.py", "scripts/test_cross_skill_integration.py"],
       "evaluations": ["evaluations/golden/d08-single.md", "evaluations/golden-reports/d08-full.md", "evaluations/d08/output-goldens"]
+    },
+    "capm-runtime-and-contracts": {
+      "owner": "creator-affiliate-partnership-management",
+      "authoritative_sources": ["creator-affiliate-partnership-management/SKILL.md", "creator-affiliate-partnership-management/references/professional-depth-governance.md", "creator-affiliate-partnership-management/references/skill-integration-protocol.md", "creator-affiliate-partnership-management/references/data-contract-and-automation.md", "creator-affiliate-partnership-management/schemas/cross_skill_envelope.schema.json"],
+      "consumers": ["creator-affiliate-partnership-management/agents/openai.yaml", "README.md", "RULES.md", "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"],
+      "validators": ["creator-affiliate-partnership-management/scripts/evaluate_capm_decision.py", "creator-affiliate-partnership-management/scripts/validate_decision_contract.py", "creator-affiliate-partnership-management/scripts/validate_cross_skill_handoff.py", "creator-affiliate-partnership-management/scripts/validate_historical_replay.py", "creator-affiliate-partnership-management/scripts/decision_state.py", "creator-affiliate-partnership-management/scripts/validate_rights_contract.py", "creator-affiliate-partnership-management/scripts/validate_schema_instance.py", "scripts/evaluate_report_quality.py", "scripts/validate_repo.py"],
+      "tests": ["creator-affiliate-partnership-management/scripts/test_capm.py", "scripts/test_full_repository_audit.py", "scripts/test_cross_skill_integration.py", "scripts/test_professional_depth.py"],
+      "evaluations": ["creator-affiliate-partnership-management/evaluations/fixtures/evaluation-catalog.json", "creator-affiliate-partnership-management/evaluations/golden", "creator-affiliate-partnership-management/evaluations/historical-replay-template.json"]
     }
   }
 }

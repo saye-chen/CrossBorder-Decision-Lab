@@ -14,8 +14,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install locked validation dependencies
+        run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -33,7 +35,7 @@ jobs:
           python3 logistics-inventory-fulfillment-decision/scripts/test_multiturn_report.py
           python3 logistics-inventory-fulfillment-decision/scripts/test_historical_replay.py
           python3 scripts/test_logistics_stress.py
-      - name: Cross-domain and expert release tests
+      - name: Cross-domain and eight-skill expert release tests
         run: |
           python3 scripts/test_category_semantics.py
           python3 scripts/test_cross_skill_integration.py
@@ -42,5 +44,8 @@ jobs:
           python3 scripts/test_expert_release.py
           python3 scripts/test_governance.py
           python3 scripts/validate_repo.py
+          python3 scripts/test_listing_conversion_stress.py
+          python3 creator-affiliate-partnership-management/scripts/test_capm.py
+          python3 scripts/test_full_repository_audit.py
       - name: Reject whitespace errors
         run: git diff --check

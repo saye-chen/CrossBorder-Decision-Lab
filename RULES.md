@@ -2,6 +2,14 @@
 
 Maintenance conventions for this repository. This file is not loaded automatically when a Skill runs. Put every runtime-critical rule in the relevant `SKILL.md`.
 
+## 0. System-Wide Professionalism and Decision Sovereignty
+
+Every Skill must remain decision-usable when invoked alone or jointly, across rapid answers, full reports, demos, missing data, tool failure, repeated follow-ups, and extreme scenarios. Compression may shorten presentation, not research. Degradation may lower confidence or action scope, but it may not remove the object boundary, evidence and assumptions, counterevidence, commercial constraints, risks, actions, success and stop conditions, or the decision impact of missing data.
+
+Decision sovereignty is fixed: CIDM owns category investment, capital allocation, and final Go/No-Go; CIM owns external competitive facts, confirmed changes, and competitive attribution; VLB owns content observations, mechanisms, and transferability; CIG owns authorized customer evidence, customer state, and incremental validity; AAMO owns advertising architecture, internal budgets/bids, diagnosis, measurement, scaling, and stopping; LIFD owns logistics networks, routing, replenishment, inventory allocation, fulfillment capacity, reverse flow, incidents, and overseas-inventory disposition; PLCO owns platform, store, Listing, title, image, detail, landing-page, and conversion decisions; CAPM owns creator/affiliate diligence, commercial structures, use-specific content-rights evidence and ledgers, reconciliation, partner portfolios, renewal, and exit. CAPM does not replace qualified judgment on legal validity, tax, intellectual property, or regulation. A non-owning Skill may submit a structured proposal but may not directly rewrite an owner's conclusion, score, threshold, or historical report.
+
+Calculations that can change an investment conclusion must be deterministic. Cross-Skill adjustments follow `proposed → validated/rejected` and become effective only after the owning Skill accepts them and recomputes under its own model. Any threshold crossing requires two independent evidence fingerprints, direct target-object evidence, complete calculations, no unresolved redline, and an owner recomputation; a disclaimer cannot waive these gates.
+
 ## 1. Source of Truth
 
 Treat this repository as the single source of truth for Skill changes. Edit here first. The local Codex installation should point to these directories with symlinks.
@@ -94,6 +102,12 @@ ln -sfn "$PWD/advertising-analysis-measurement-optimization" \
 
 ln -sfn "$PWD/logistics-inventory-fulfillment-decision" \
   "${CODEX_HOME:-$HOME/.codex}/skills/logistics-inventory-fulfillment-decision"
+
+ln -sfn "$PWD/platform-store-listing-conversion" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/platform-store-listing-conversion"
+
+ln -sfn "$PWD/creator-affiliate-partnership-management" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/creator-affiliate-partnership-management"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.
@@ -109,49 +123,11 @@ for skill_dir in */; do
   python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "${skill_dir%/}"
 done
 
-# Run skill-specific test suites (only for skills that ship them)
-[ -f category-investment-decision/scripts/test_models.py ] && \
-  python3 category-investment-decision/scripts/test_models.py
-
-[ -f category-investment-decision/scripts/test_report_lineage.py ] && \
-  python3 category-investment-decision/scripts/test_report_lineage.py
-
-[ -f video-link-breakdown/scripts/test_prepare_video_link.py ] && \
-  python3 video-link-breakdown/scripts/test_prepare_video_link.py
-
-[ -f competitive-intelligence-monitoring/scripts/test_monitoring.py ] && \
-  python3 competitive-intelligence-monitoring/scripts/test_monitoring.py
-
-[ -f consumer-insights-customer-growth/scripts/test_growth.py ] && \
-  python3 consumer-insights-customer-growth/scripts/test_growth.py
-
-[ -f advertising-analysis-measurement-optimization/scripts/test_models.py ] && \
-  python3 advertising-analysis-measurement-optimization/scripts/test_models.py
-
-[ -f logistics-inventory-fulfillment-decision/scripts/test_models.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_models.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_executable_fixtures.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_executable_fixtures.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_decision_state.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_decision_state.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_cross_skill_complex.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_cross_skill_complex.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_multiturn_report.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_multiturn_report.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_historical_replay.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_historical_replay.py
-
-python3 scripts/test_cross_skill_integration.py
-
-python3 scripts/test_domain_stress.py
-
-python3 scripts/test_advertising_stress.py
-
-python3 scripts/test_logistics_stress.py
-
-python3 scripts/test_expert_release.py
-
-python3 scripts/validate_repo.py
+# Install the locked validator dependency, then run the authoritative gate.
+# The full audit discovers every */scripts/test_*.py and every root test_*.py,
+# excluding itself, and also runs repository and governance validators.
+python3 -m pip install -r requirements-dev.txt
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_full_repository_audit.py
 
 git diff --check
 git status --short
@@ -215,15 +191,17 @@ Rules: integration is opt-in, never auto-triggered; video analysis conclusions t
 
 **consumer-insights-customer-growth ↔ video-link-breakdown (optional, user-confirmed).** CIG provides de-identified audiences, lifecycle states, jobs, frictions, language, and content hypotheses. VLB returns content mechanisms, transferability, production plans, and test variants. VLB owns content analysis; only CIG experiments or credible quasi-experiments may claim incremental retention or profit. No historical report is silently overwritten and neither Skill executes contact automatically.
 
-**advertising-analysis-measurement-optimization ↔ category-investment-decision (optional, user-confirmed).** D09 returns advertising feasibility, measured CAC range, mature marginal profit, budget capacity, scaling and stop signals. CIDM alone owns category entry and capital-allocation decisions; advertising efficiency cannot silently change an investment conclusion.
+**advertising-analysis-measurement-optimization ↔ category-investment-decision (optional, user-confirmed).** AAMO returns advertising feasibility, measured CAC range, mature marginal profit, budget capacity, scaling and stop signals. CIDM alone owns category entry and capital-allocation decisions; advertising efficiency cannot silently change an investment conclusion.
 
-**advertising-analysis-measurement-optimization ↔ competitive-intelligence-monitoring (optional, user-confirmed).** CIM supplies confirmed competitor advertising events and snapshots; D09 tests their relevance to the user's advertising system and owns only advertising actions. A competitor signal is neither a verified auction mechanism nor proof that copying it will work.
+**advertising-analysis-measurement-optimization ↔ competitive-intelligence-monitoring (optional, user-confirmed).** CIM supplies confirmed competitor advertising events and snapshots; AAMO tests their relevance to the user's advertising system and owns only advertising actions. A competitor signal is neither a verified auction mechanism nor proof that copying it will work.
 
-**advertising-analysis-measurement-optimization ↔ video-link-breakdown (optional, user-confirmed).** VLB supplies observed content mechanisms, transferability and creative test variants; D09 owns paid delivery, advertising-internal budget and scaling. Paid performance does not prove a content mechanism, and a strong video score does not authorize budget.
+**advertising-analysis-measurement-optimization ↔ video-link-breakdown (optional, user-confirmed).** VLB supplies observed content mechanisms, transferability and creative test variants; AAMO owns paid delivery, advertising-internal budget and scaling. Paid performance does not prove a content mechanism, and a strong video score does not authorize budget.
 
-**advertising-analysis-measurement-optimization ↔ consumer-insights-customer-growth (optional, user-confirmed).** CIG supplies authorized customer value, lifecycle and credible incrementality evidence; D09 supplies exposure, cost and platform-attributed outcomes. D09 does not execute customer contact, and platform attribution cannot replace CIG's causal standard.
+**advertising-analysis-measurement-optimization ↔ consumer-insights-customer-growth (optional, user-confirmed).** CIG supplies authorized customer value, lifecycle and credible incrementality evidence; AAMO supplies exposure, cost and platform-attributed outcomes. AAMO does not execute customer contact, and platform attribution cannot replace CIG's causal standard.
 
-**logistics-inventory-fulfillment-decision ↔ all business-domain Skills (optional, user-confirmed).** D07 owns logistics networks, routes, replenishment, inventory allocation, fulfillment capacity, reverse logistics, incidents, and overseas-inventory disposition. It accepts supply constraints from D04, compliance gates from D05, cash/profit constraints from D06, channel plans from D08, demand scenarios from D09/D12, and returns/experience evidence from D13; it returns structured `proposed` capacity, inventory, route, recovery, and stop signals. It never changes capital, procurement, legal, price, advertising, listing, promotion, or customer-action conclusions directly.
+**logistics-inventory-fulfillment-decision ↔ all business-domain Skills (optional, user-confirmed).** LIFD owns logistics networks, routes, replenishment, inventory allocation, fulfillment capacity, reverse logistics, incidents, and overseas-inventory disposition. It accepts supply constraints from D04, compliance gates from D05, cash/profit constraints from D06, channel plans from PLCO, demand scenarios from AAMO/D12, and returns/experience evidence from D13; it returns structured `proposed` capacity, inventory, route, recovery, and stop signals. It never changes capital, procurement, legal, price, advertising, listing, promotion, or customer-action conclusions directly.
+
+**creator-affiliate-partnership-management ↔ CIDM/CIM/VLB/CIG/AAMO/LIFD/PLCO (optional, user-confirmed).** CAPM owns creator/affiliate diligence, commercial structures, commissions, delivery acceptance, content-use rights, affiliate reconciliation, partner portfolios, renewal and exit. It may receive capital boundaries from CIDM, competitive events from CIM, content mechanisms from VLB, de-identified customer evidence from CIG, paid-measurement results from AAMO, fulfillment capacity from LIFD and page breakpoints from PLCO. CAPM only sends versioned `proposed` business/rights/partner messages; each receiving Skill retains its own sovereignty. CAPM must still produce a bounded standalone result when any participant is unavailable, and only AAMO may activate paid media decisions.
 
 ### Rules for new cross-skill references
 
@@ -249,7 +227,7 @@ Rules: integration is opt-in, never auto-triggered; video analysis conclusions t
 
 所有 Skill 在单独调用、任意联合调用、快速交付、完整报告、demo、压测、缺数据、工具失败和极端场景下，都必须保持本域专业研究和决策可用性。压缩只作用于展示，不作用于研究；降级只作用于结论强度，不得删除对象边界、证据与假设、反例、商业约束、风险、动作、成功/停止条件和缺失数据影响。
 
-决策主权固定为：CIDM 拥有品类投资、资本配置和最终 Go/No-Go 主权；CIM 拥有外部竞争事实、变化确认与竞争归因主权；VLB 拥有视频观察、内容机制与迁移性主权；CIG 拥有授权客户证据、客户状态与增量有效性主权；D09 拥有广告架构、广告内部预算/出价、广告诊断/测量和放量/停投主权；D07 拥有物流网络、路线、补货、库存配置、履约能力、逆向、异常恢复和海外库存处置主权。非主权 Skill 只能提交结构化建议，不得直接改变主权 Skill 的正式结论、评分、门槛或历史报告。
+决策主权固定为：CIDM 拥有品类投资、资本配置和最终 Go/No-Go 主权；CIM 拥有外部竞争事实、变化确认与竞争归因主权；VLB 拥有视频观察、内容机制与迁移性主权；CIG 拥有授权客户证据、客户状态与增量有效性主权；AAMO 拥有广告架构、广告内部预算/出价、广告诊断/测量和放量/停投主权；LIFD 拥有物流网络、路线、补货、库存配置、履约能力、逆向、异常恢复和海外库存处置主权；PLCO 拥有平台、店铺、Listing、标题、图片、详情、落地页和转化承接主权；CAPM 拥有达人/联盟尽调、商务结构、用途级内容权利证据与台账、联盟对账、伙伴组合、续约和退出主权。CAPM 不替代适格主体对合同法律效力、税务、知识产权或监管合规的最终判断。非主权 Skill 只能提交结构化建议，不得直接改变主权 Skill 的正式结论、评分、门槛或历史报告。
 
 所有会改变投资结论的计算使用确定性脚本；跨 Skill 调整使用 `proposed → validated/rejected` 状态，只有主权 Skill 接受并按原模型重算后才能生效。任何跨档位变化必须有两个独立证据指纹、目标对象直接证据、完整计算、无未解决红线和主权 Skill重算。违反任一条件即阻断交付，不允许用自然语言免责声明绕过。
 
@@ -345,6 +323,12 @@ ln -sfn "$PWD/advertising-analysis-measurement-optimization" \
 
 ln -sfn "$PWD/logistics-inventory-fulfillment-decision" \
   "${CODEX_HOME:-$HOME/.codex}/skills/logistics-inventory-fulfillment-decision"
+
+ln -sfn "$PWD/platform-store-listing-conversion" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/platform-store-listing-conversion"
+
+ln -sfn "$PWD/creator-affiliate-partnership-management" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/creator-affiliate-partnership-management"
 ```
 
 不要使用 `cp -r` 更新 Skill；目标已存在时可能保留旧文件或产生嵌套目录。
@@ -360,53 +344,11 @@ for skill_dir in */; do
   python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "${skill_dir%/}"
 done
 
-# 运行 Skill 专属测试套件（仅对提供了测试的 Skill）
-[ -f category-investment-decision/scripts/test_models.py ] && \
-  python3 category-investment-decision/scripts/test_models.py
-
-[ -f category-investment-decision/scripts/test_decision_contract.py ] && \
-  python3 category-investment-decision/scripts/test_decision_contract.py
-
-[ -f category-investment-decision/scripts/test_report_lineage.py ] && \
-  python3 category-investment-decision/scripts/test_report_lineage.py
-
-[ -f video-link-breakdown/scripts/test_prepare_video_link.py ] && \
-  python3 video-link-breakdown/scripts/test_prepare_video_link.py
-
-[ -f competitive-intelligence-monitoring/scripts/test_monitoring.py ] && \
-  python3 competitive-intelligence-monitoring/scripts/test_monitoring.py
-
-[ -f consumer-insights-customer-growth/scripts/test_growth.py ] && \
-  python3 consumer-insights-customer-growth/scripts/test_growth.py
-
-[ -f advertising-analysis-measurement-optimization/scripts/test_models.py ] && \
-  python3 advertising-analysis-measurement-optimization/scripts/test_models.py
-
-[ -f logistics-inventory-fulfillment-decision/scripts/test_models.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_models.py
-
-[ -f logistics-inventory-fulfillment-decision/scripts/test_executable_fixtures.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_executable_fixtures.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_decision_state.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_decision_state.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_cross_skill_complex.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_cross_skill_complex.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_multiturn_report.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_multiturn_report.py
-[ -f logistics-inventory-fulfillment-decision/scripts/test_historical_replay.py ] && \
-  python3 logistics-inventory-fulfillment-decision/scripts/test_historical_replay.py
-
-python3 scripts/test_cross_skill_integration.py
-
-python3 scripts/test_domain_stress.py
-
-python3 scripts/test_advertising_stress.py
-
-python3 scripts/test_logistics_stress.py
-
-python3 scripts/test_expert_release.py
-
-python3 scripts/validate_repo.py
+# 安装锁定的校验依赖，再运行唯一权威发布门。
+# 全仓审计会自动发现每个 */scripts/test_*.py 和根目录 scripts/test_*.py
+#（排除自身），并执行仓库与治理校验器，避免新增 Skill 后漏列测试。
+python3 -m pip install -r requirements-dev.txt
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_full_repository_audit.py
 
 git diff --check
 git status --short
@@ -470,15 +412,17 @@ git push origin main
 
 **consumer-insights-customer-growth ↔ video-link-breakdown（可选、用户确认）。** CIG 提供已去识别人群、生命周期、任务、阻力、语言和内容假设；VLB 回传内容机制、迁移性、生产方案和测试变体。VLB 负责内容分析，只有 CIG 的实验或可信准实验可声称增量留存/利润。不静默覆盖历史，不自动执行触达。
 
-**advertising-analysis-measurement-optimization ↔ category-investment-decision（可选、用户确认）。** D09 回传广告可行性、测量后的 CAC 区间、成熟边际利润、预算容量、放量与停止信号；只有 CIDM 拥有品类准入和资本配置主权，广告效率不得静默改变投资结论。
+**advertising-analysis-measurement-optimization ↔ category-investment-decision（可选、用户确认）。** AAMO 回传广告可行性、测量后的 CAC 区间、成熟边际利润、预算容量、放量与停止信号；只有 CIDM 拥有品类准入和资本配置主权，广告效率不得静默改变投资结论。
 
-**advertising-analysis-measurement-optimization ↔ competitive-intelligence-monitoring（可选、用户确认）。** CIM 提供已确认的竞品广告事件与快照；D09 判断其对我方广告系统的相关性并只拥有广告动作主权。竞品信号不等于已验证的竞价机制，也不证明复制有效。
+**advertising-analysis-measurement-optimization ↔ competitive-intelligence-monitoring（可选、用户确认）。** CIM 提供已确认的竞品广告事件与快照；AAMO 判断其对我方广告系统的相关性并只拥有广告动作主权。竞品信号不等于已验证的竞价机制，也不证明复制有效。
 
-**advertising-analysis-measurement-optimization ↔ video-link-breakdown（可选、用户确认）。** VLB 提供内容机制、迁移性和创意测试变体；D09 负责付费交付、广告内部预算与放量。付费效果不能证明内容机制，视频高分也不自动授权预算。
+**advertising-analysis-measurement-optimization ↔ video-link-breakdown（可选、用户确认）。** VLB 提供内容机制、迁移性和创意测试变体；AAMO 负责付费交付、广告内部预算与放量。付费效果不能证明内容机制，视频高分也不自动授权预算。
 
-**advertising-analysis-measurement-optimization ↔ consumer-insights-customer-growth（可选、用户确认）。** CIG 提供授权客户价值、生命周期和可信增量证据；D09 提供曝光、成本和平台归因结果。D09 不执行客户触达，平台归因不能替代 CIG 的因果标准。
+**advertising-analysis-measurement-optimization ↔ consumer-insights-customer-growth（可选、用户确认）。** CIG 提供授权客户价值、生命周期和可信增量证据；AAMO 提供曝光、成本和平台归因结果。AAMO 不执行客户触达，平台归因不能替代 CIG 的因果标准。
 
-**logistics-inventory-fulfillment-decision ↔ 所有业务主域 Skill（可选、用户确认）。** D07 拥有物流网络、路线、补货、库存配置、履约能力、逆向、异常和海外库存处置主权；接收 D04 供应约束、D05 合规门、D06 现金利润边界、D08 渠道计划、D09/D12 需求情景和 D13 退货体验证据，并只回传结构化 `proposed` 容量、库存、路线、回收和停止信号。D07 不直接改变资本、采购、法律、价格、广告、Listing、促销或客户动作结论。
+**logistics-inventory-fulfillment-decision ↔ 所有业务主域 Skill（可选、用户确认）。** LIFD 拥有物流网络、路线、补货、库存配置、履约能力、逆向、异常和海外库存处置主权；接收 D04 供应约束、D05 合规门、D06 现金利润边界、PLCO 渠道计划、AAMO/D12 需求情景和 D13 退货体验证据，并只回传结构化 `proposed` 容量、库存、路线、回收和停止信号。LIFD 不直接改变资本、采购、法律、价格、广告、Listing、促销或客户动作结论。
+
+**creator-affiliate-partnership-management ↔ CIDM/CIM/VLB/CIG/AAMO/LIFD/PLCO（可选、用户确认）。** CAPM拥有达人/联盟尽调、商务结构、佣金、交付验收、内容使用权、联盟对账、伙伴组合、续约和退出主权；可读取CIDM资本边界、CIM竞争事件、VLB内容机制、CIG去识别客户证据、AAMO付费测量、LIFD履约容量和PLCO页面断点。CAPM只发送带版本的`proposed`商务/权利/伙伴消息，各接收Skill保留自身主权；任何参与域不可用时CAPM仍须给出受限的独立结果，且只有AAMO能生效付费媒体决策。
 
 ### 新增跨 Skill 引用的规则
 

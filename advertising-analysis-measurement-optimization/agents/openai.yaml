@@ -2,4 +2,3 @@ interface:
   display_name: "跨境广告分析、测量与优化"
   short_description: "跨平台广告可行性、根因诊断、测量归因、预算出价与放量决策"
   default_prompt: "使用 $advertising-analysis-measurement-optimization 诊断这项跨境广告业务，并给出可复算的预算、动作、停止和回滚方案。"
-  runtime: "D09-2026.07"

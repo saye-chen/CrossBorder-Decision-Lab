@@ -1,5 +1,5 @@
 {
-  "schema_version": "D07-historical-replay-2.0",
+  "schema_version": "LIFD-historical-replay-2.0",
   "minimum_authorized_cases": 3,
   "production_ready": false,
   "authorization_requirements": {

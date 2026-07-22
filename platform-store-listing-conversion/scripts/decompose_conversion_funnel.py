@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import integer, run_cli
+from plco_common import integer, run_cli
 
 STAGES=("qualified_exposure","visit","engage","add_to_cart","checkout","paid_order")
 def evaluate(data):
@@ -11,4 +11,4 @@ def evaluate(data):
     valid=not errors
     weakest=None if not valid else min(rates,key=rates.get)
     return {"status":"pass" if valid else "invalid","counts":counts,"rates":rates,"weakest_transition":weakest,"errors":errors}
-if __name__ == "__main__": run_cli(evaluate,"D08-funnel-1")
+if __name__ == "__main__": run_cli(evaluate,"PLCO-funnel-1")

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import GATES, fail, run_cli
+from plco_common import GATES, fail, run_cli
 
 VALID = {"pass", "conditional", "fail", "unknown"}
 ORDER = {"pass": 0, "conditional": 1, "unknown": 2, "fail": 3}
@@ -19,4 +19,4 @@ def evaluate(data):
     return {"status":"ok", "gates":normalized, "overall":worst, "action_limit":limit,
             "blocking_gates":[g for g,s in normalized.items() if s in {"fail","unknown"}]}
 
-if __name__ == "__main__": run_cli(evaluate, "D08-gates-1")
+if __name__ == "__main__": run_cli(evaluate, "PLCO-gates-1")

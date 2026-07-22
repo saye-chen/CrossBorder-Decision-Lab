@@ -88,11 +88,11 @@ class CrossDomainRedlines(unittest.TestCase):
     def minimal(self, decision_type: str, owner: str) -> dict:
         versions = {
             "category-investment-decision": "CIDM-2026.14",
-            "competitive-intelligence-monitoring": "CIM-2026.11",
-            "video-link-breakdown": "VLB-2026.13",
-            "consumer-insights-customer-growth": "CIG-2026.07",
-            "advertising-analysis-measurement-optimization": "D09-2026.03",
-            "logistics-inventory-fulfillment-decision": "D07-2026.03",
+            "competitive-intelligence-monitoring": "CIM-2026.10",
+            "video-link-breakdown": "VLB-2026.10",
+            "consumer-insights-customer-growth": "CIG-2026.09",
+            "advertising-analysis-measurement-optimization": "AAMO-2026.08",
+            "logistics-inventory-fulfillment-decision": "LIFD-2026.04",
         }
         return {
             "mode": "single", "decision_type": decision_type, "decision_owner": owner,
