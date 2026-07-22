@@ -1,7 +1,7 @@
 # CIG 单 Skill Golden Report
 
 ## 执行摘要
-决策结论：`Test`。一句话理由：高流失风险人群存在，但只有预测证据，尚不能声称优惠动作产生增量。主决策 Skill：`consumer-insights-customer-growth`。
+决策结论：`Test`。一句话理由：高流失风险人群存在，但只有预测证据，尚不能声称优惠动作产生增量。主决策 Skill：`consumer-insights-customer-growth`；运行时：`CIG-2026.09`。
 
 ## 对象与边界
 对象为US/Shopify已授权客户的去识别Cohort，国家/平台：US/Shopify，生命周期：复购窗口，适用范围为截至2026-07-16的90日数据；证据截止：2026-07-16。缺失数据：真实实验曝光；决策影响为禁止直接全量触达。

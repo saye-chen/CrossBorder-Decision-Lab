@@ -1,4 +1,4 @@
-# D08 Decision Card Golden
+# PLCO Decision Card Golden
 ## 对象与版本
 US/Amazon `OBJ-DC-01`、Listing `v1`、L4、移动自然搜索，证据截止2026-07-20。
 ## Gate与结论

@@ -1,7 +1,7 @@
 # VLB 单 Skill Golden Report
 
 ## 执行摘要
-决策结论：`Iterate`。一句话理由：产品证明节拍清晰但CTA与页面承诺不一致，适合先测试变体而非复制放量。主决策 Skill：`video-link-breakdown`。
+决策结论：`Iterate`。一句话理由：产品证明节拍清晰但CTA与页面承诺不一致，适合先测试变体而非复制放量。主决策 Skill：`video-link-breakdown`；运行时：`VLB-2026.10`。
 
 ## 对象与边界
 对象为美国TikTok Shop 32秒UGC视频，国家/平台：US/TikTok Shop，生命周期：素材验证，适用范围为该视频和目标商品；证据截止：2026-07-16。缺失数据：真实留存和转化；决策影响为只判断机制不判断效果。

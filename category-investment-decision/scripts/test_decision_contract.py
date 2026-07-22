@@ -16,7 +16,7 @@ from pathlib import Path
 SCRIPT = Path(__file__).with_name("validate_decision_contract.py")
 CIDM = "category-investment-decision"
 VLB = "video-link-breakdown"
-VERSIONS={CIDM:"CIDM-2026.14",VLB:"VLB-2026.09","competitive-intelligence-monitoring":"CIM-2026.10","consumer-insights-customer-growth":"CIG-2026.09","advertising-analysis-measurement-optimization":"D09-2026.07","logistics-inventory-fulfillment-decision":"D07-2026.03"}
+VERSIONS={CIDM:"CIDM-2026.14",VLB:"VLB-2026.10","competitive-intelligence-monitoring":"CIM-2026.10","consumer-insights-customer-growth":"CIG-2026.09","advertising-analysis-measurement-optimization":"AAMO-2026.08","logistics-inventory-fulfillment-decision":"LIFD-2026.04"}
 
 
 def valid_payload() -> dict:
@@ -25,7 +25,7 @@ def valid_payload() -> dict:
         "decision_type": "investment",
         "decision_owner": CIDM,
         "participating_skills": [CIDM, VLB],
-        "runtime_versions": {CIDM: "CIDM-2026.14", VLB: "VLB-2026.09"},
+        "runtime_versions": {CIDM: "CIDM-2026.14", VLB: "VLB-2026.10"},
         "participant_results": {CIDM:{"status":"contributed"},VLB:{"status":"contributed"}},
         "professional_core": {
             "object_boundary": "US Amazon indoor electronic pet fountain, LC-2",
@@ -164,7 +164,7 @@ class OwnershipAndWriteBackTests(unittest.TestCase):
         for phrase in ["invalid runtime version","evidence must contain","claims must contain"]: self.assertIn(phrase,stderr)
 
     def test_every_participant_must_report_success_or_failure(self):
-        payload=valid_payload();payload["participating_skills"].append("logistics-inventory-fulfillment-decision");payload["runtime_versions"]["logistics-inventory-fulfillment-decision"]="D07-2026.03"
+        payload=valid_payload();payload["participating_skills"].append("logistics-inventory-fulfillment-decision");payload["runtime_versions"]["logistics-inventory-fulfillment-decision"]="LIFD-2026.04"
         self.assertIn("missing participant results",run(payload).stderr)
 
     def test_wrong_decision_owner_is_blocked(self):

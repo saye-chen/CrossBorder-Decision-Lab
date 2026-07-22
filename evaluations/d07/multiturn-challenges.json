@@ -3,6 +3,6 @@
  {"id":"MT-02","question":"如果明天质检全部放行呢？","changed_fields":["inventory"],"must_answer":["重算","仓内能力","仍不等于可售"],"action_effect":"条件更新"},
  {"id":"MT-03","question":"如果包装能力也恢复呢？","changed_fields":["warehouse_capacity"],"must_answer":["P90","CTP","新增承诺上限"],"action_effect":"条件放开"},
  {"id":"MT-04","question":"为什么不直接空运加急？","changed_fields":["cost","route_capacity"],"must_answer":["不能解决包装瓶颈","贡献下界","路线容量"],"action_effect":"不自动放开"},
- {"id":"MT-05","question":"广告团队坚持放量怎么办？","changed_fields":["demand"],"must_answer":["D09","proposed","hard gate","保护库存"],"action_effect":"继续阻断"},
+ {"id":"MT-05","question":"广告团队坚持放量怎么办？","changed_fields":["demand"],"must_answer":["AAMO","proposed","hard gate","保护库存"],"action_effect":"继续阻断"},
  {"id":"MT-06","question":"如果质量失败且海外库存卖不掉？","changed_fields":["compliance","inventory","title"],"must_answer":["冻结新增暴露","退出瀑布","净回收NPV","最终流向"],"action_effect":"进入退出评估"}
 ]

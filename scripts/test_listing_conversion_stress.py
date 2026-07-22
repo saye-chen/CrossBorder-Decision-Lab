@@ -10,7 +10,7 @@ SKILL=ROOT/"platform-store-listing-conversion"
 SCRIPTS=SKILL/"scripts"
 sys.path.insert(0,str(SCRIPTS))
 
-from validate_d08_contract import validate as validate_contract
+from validate_plco_contract import validate as validate_contract
 from evaluate_hard_gates import evaluate as evaluate_gates
 from decompose_conversion_funnel import evaluate as evaluate_funnel
 from validate_page_lineage import validate as validate_lineage
@@ -29,8 +29,8 @@ class ListingConversionStress(unittest.TestCase):
         cls.outputs=json.loads(text(SKILL/"references/output-contracts.json"))
 
     def test_runtime_and_sovereignty(self):
-        self.assertIn("D08-2026.07",self.skill)
-        for owner in ("D01","D05","D06","D07","D09","D11","D12","D13"):
+        self.assertIn("PLCO-2026.08",self.skill)
+        for owner in ("D01","D05","D06","LIFD","AAMO","D11","D12","D13"):
             self.assertIn(owner,self.skill)
 
     def test_six_gates_are_noncompensatory(self):
@@ -62,7 +62,7 @@ class ListingConversionStress(unittest.TestCase):
         self.assertIn("不固化易变数字",self.platforms)
 
     def test_thirteen_deterministic_tools_exist_and_are_routed(self):
-        expected=("validate_d08_contract.py","validate_object_version.py","validate_evidence_ledger.py","evaluate_hard_gates.py","compare_page_versions.py","check_cross_layer_consistency.py","evaluate_task_coverage.py","evaluate_variant_structure.py","decompose_conversion_funnel.py","evaluate_listing_experiment.py","calculate_recoverable_value.py","rank_repair_actions.py","validate_page_lineage.py")
+        expected=("validate_plco_contract.py","validate_object_version.py","validate_evidence_ledger.py","evaluate_hard_gates.py","compare_page_versions.py","check_cross_layer_consistency.py","evaluate_task_coverage.py","evaluate_variant_structure.py","decompose_conversion_funnel.py","evaluate_listing_experiment.py","calculate_recoverable_value.py","rank_repair_actions.py","validate_page_lineage.py")
         for name in expected:
             self.assertTrue((SCRIPTS/name).is_file(),name); self.assertIn(name,self.skill)
 

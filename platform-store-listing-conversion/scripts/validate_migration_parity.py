@@ -8,7 +8,7 @@ def validate(repo,manifest):
   row["checks"]["source_anchors_exist"]=all((source/p).is_file() for p in item["source_anchors"])
   row["checks"]["target_anchors_exist"]=all((target/p).is_file() for p in item["target_anchors"])
   source_skill=(source/"SKILL.md").read_text(encoding="utf-8")
-  row["checks"]["source_routes_d08"]="platform-store-listing-conversion" in source_skill
+  row["checks"]["source_routes_plco"]="platform-store-listing-conversion" in source_skill
   row["checks"]["retained_owner_declared"]=bool(item.get("retained_owner"))
   row["checks"]["target_declares_source_domain"]=item["source_skill"] in (target/"references/cross-domain-and-migration.md").read_text(encoding="utf-8") or item["retained_owner"].split()[0] in (target/"references/cross-domain-and-migration.md").read_text(encoding="utf-8")
   row["status"]="pass" if all(row["checks"].values()) else "fail"; results.append(row)

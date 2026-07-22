@@ -12,7 +12,7 @@ from decompose_conversion_funnel import evaluate as funnel
 from evaluate_hard_gates import evaluate as gates
 from evaluate_listing_experiment import evaluate as experiment
 from evaluate_variant_structure import evaluate as variants
-from validate_d08_contract import validate as contract
+from validate_plco_contract import validate as contract
 from validate_page_lineage import validate as lineage
 
 ROOT=HERE.parent

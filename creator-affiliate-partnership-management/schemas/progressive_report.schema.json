@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/capm/progressive_report.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "parent_report_id", "object_id", "object_version", "changed_fields", "new_evidence_ids", "affected_claims", "affected_calculations", "preserved_constraints", "superseded_actions", "current_actions", "next_recompute_trigger"],
+  "properties": {
+    "report_id": {"type": "string", "minLength": 1},
+    "parent_report_id": {"type": ["string", "null"]},
+    "object_id": {"type": "string", "minLength": 1},
+    "object_version": {"type": "string", "minLength": 1},
+    "changed_fields": {"$ref": "#/$defs/strings"},
+    "new_evidence_ids": {"$ref": "#/$defs/strings"},
+    "affected_claims": {"$ref": "#/$defs/strings"},
+    "affected_calculations": {"$ref": "#/$defs/strings"},
+    "preserved_constraints": {"$ref": "#/$defs/strings"},
+    "superseded_actions": {"$ref": "#/$defs/strings"},
+    "current_actions": {"$ref": "#/$defs/strings"},
+    "next_recompute_trigger": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "new_object": {"type": "boolean", "default": false}
+  },
+  "$defs": {"strings": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}
+}

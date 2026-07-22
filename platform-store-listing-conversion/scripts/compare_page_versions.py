@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import fail, required, run_cli
+from plco_common import fail, required, run_cli
 
 def compare(data):
     required(data,("before","after")); a=data["before"]; b=data["after"]
@@ -10,4 +10,4 @@ def compare(data):
     for k in keys:
         if a["content"].get(k)!=b["content"].get(k): changes.append({"field":k,"before":a["content"].get(k),"after":b["content"].get(k)})
     return {"status":"ok","changed_fields":[x["field"] for x in changes],"changes":changes,"change_count":len(changes)}
-if __name__ == "__main__": run_cli(compare,"D08-version-1")
+if __name__ == "__main__": run_cli(compare,"PLCO-version-1")

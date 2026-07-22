@@ -1,7 +1,7 @@
 # CIM 单 Skill Golden Report
 
 ## 执行摘要
-决策结论：`Watch`。一句话理由：确认代表竞品连续降价，但没有足够证据证明行业价格战或销量影响。主决策 Skill：`competitive-intelligence-monitoring`。
+决策结论：`Watch`。一句话理由：确认代表竞品连续降价，但没有足够证据证明行业价格战或销量影响。主决策 Skill：`competitive-intelligence-monitoring`；运行时：`CIM-2026.10`。
 
 ## 对象与边界
 对象为US/Amazon同价带3个竞品，国家/平台：US/Amazon，生命周期：稳态监控，适用范围为30日价格和页面快照；证据截止：2026-07-16。缺失数据：真实销量和广告后台；决策影响为禁止竞争归因升级。

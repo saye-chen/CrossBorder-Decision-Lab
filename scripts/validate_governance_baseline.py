@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the seven-skill governance baseline and semantic anchors."""
+"""Validate the eight-skill governance baseline and semantic anchors."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,6 +9,7 @@ SKILLS = [
     "advertising-analysis-measurement-optimization",
     "logistics-inventory-fulfillment-decision",
     "platform-store-listing-conversion",
+    "creator-affiliate-partnership-management",
 ]
 FILES = [
     "professional-depth-governance.md", "skill-integration-protocol.md",
@@ -42,4 +43,4 @@ for skill in SKILLS:
 
 if errors:
     raise SystemExit("Governance baseline failed:\n- " + "\n- ".join(errors))
-print("Governance baseline passed for 7 skills.")
+print(f"Governance baseline passed for {len(SKILLS)} skills.")

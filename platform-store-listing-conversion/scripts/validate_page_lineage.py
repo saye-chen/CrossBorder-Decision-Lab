@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import fail, run_cli
+from plco_common import fail, run_cli
 
 def validate(data):
     nodes=data.get("nodes",[]); ids=[n.get("id") for n in nodes]
@@ -19,4 +19,4 @@ def validate(data):
     current=[n["id"] for n in nodes if n.get("current")]
     if len(current)!=1: errors.append("lineage must have exactly one current version")
     return {"status":"pass" if not errors else "fail","errors":errors,"topological_order":visited,"current":current}
-if __name__ == "__main__": run_cli(validate,"D08-lineage-1")
+if __name__ == "__main__": run_cli(validate,"PLCO-lineage-1")

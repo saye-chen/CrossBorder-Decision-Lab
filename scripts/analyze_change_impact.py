@@ -6,12 +6,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
+def normalize_path(path: str) -> str:
+    """Remove one explicit ./ prefix without corrupting dot-prefixed paths."""
+    return path[2:] if path.startswith("./") else path
+
+
 def analyze(paths: list[str]) -> dict:
     manifest = json.loads((ROOT / "governance/change-impact-manifest.json").read_text(encoding="utf-8"))
-    normalized = {str(Path(p)).lstrip("./") for p in paths}
+    normalized = {normalize_path(str(p)) for p in paths}
     affected = {}
     for contract_id, spec in manifest["contracts"].items():
-        watched = set(spec["authoritative_sources"] + spec.get("consumers", []))
+        watched = set()
+        for key in ("authoritative_sources", "consumers", "validators", "tests", "evaluations"):
+            watched.update(spec.get(key, []))
         matches = sorted(p for p in normalized if any(p == w or p.startswith(w.rstrip("/") + "/") for w in watched))
         if matches:
             affected[contract_id] = {"changed": matches, **spec}

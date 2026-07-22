@@ -30,7 +30,7 @@ class StateTests(unittest.TestCase):
   d=base();d["reports"][0]["actions"]=[{"action_id":"A1","status":"executing"}];d["reports"][1]["actions"]=[{"action_id":"A1","status":"stopped"}]
   self.assertEqual(sum("missing_action_recovery" in x for x in run(d)["errors"]),4)
  def test_cross_domain_action_cannot_self_approve(self):
-  d=base();d["reports"][1]["actions"]=[{"action_id":"AD","status":"validated","owner_domain":"D09"}]
+  d=base();d["reports"][1]["actions"]=[{"action_id":"AD","status":"validated","owner_domain":"AAMO"}]
   self.assertTrue(any("cross_domain_self_approval" in x for x in run(d)["errors"]))
  def test_parent_evidence_cannot_silently_disappear(self):
   d=base();d["reports"][0]["evidence"]=[{"evidence_id":"OLD"}];d["reports"][1]["evidence"]=[]

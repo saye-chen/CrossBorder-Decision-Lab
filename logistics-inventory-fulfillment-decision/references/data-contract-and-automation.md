@@ -1,4 +1,4 @@
-# D07 数据合同与自动化
+# LIFD 数据合同与自动化
 
 规范键为 `sku × lot × owner × country × node × channel × status × as_of_time`。数量必须带单位和状态；可售、隔离、锁定、欠单、在途和预计损失不得混池。缺失、零值和不可用状态分开。
 

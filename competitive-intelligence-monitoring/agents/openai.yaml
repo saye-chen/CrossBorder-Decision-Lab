@@ -2,4 +2,3 @@ interface:
   display_name: "竞品情报与持续监控"
   short_description: "一句话识别商品、发现竞品，并输出投资级分析与持续监控"
   default_prompt: "使用 $competitive-intelligence-monitoring 识别我的商品，在指定平台发现和分析竞品，输出竞争决策与可选专业报告。"
-  runtime: "CIM-2026.10"

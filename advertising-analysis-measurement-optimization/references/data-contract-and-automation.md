@@ -1,4 +1,4 @@
-# D09 数据合同与自动化
+# AAMO 数据合同与自动化
 
 规范键至少为 `account × campaign × ad_group/ad_set × ad/target/query × country × currency × timezone × as_of_time`。分开平台事件时间、回传时间、订单成熟时间和财务结账时间；缺失与零值分开。
 

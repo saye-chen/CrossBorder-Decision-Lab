@@ -1,0 +1,7 @@
+{
+  "runtime_version": "CAPM-2026.07",
+  "minimum_authorized_cases": 3,
+  "required_case_types": ["creator", "affiliate", "failure_or_exit"],
+  "production_ready": false,
+  "cases": []
+}

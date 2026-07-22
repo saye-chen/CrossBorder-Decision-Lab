@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import fail, integer, run_cli
+from plco_common import fail, integer, run_cli
 
 def evaluate(data):
     variants=data.get("variants",[]); seen=set(); issues=[]; total=0
@@ -15,4 +15,4 @@ def evaluate(data):
     signatures=[tuple(sorted(v.get("attributes",{}).items())) for v in variants]
     if len(signatures)!=len(set(signatures)): issues.append({"issue":"indistinguishable_variants"})
     return {"status":"pass" if not issues else "fail","issues":issues,"variant_count":len(variants),"total_inventory":total}
-if __name__ == "__main__": run_cli(evaluate,"D08-variant-1")
+if __name__ == "__main__": run_cli(evaluate,"PLCO-variant-1")

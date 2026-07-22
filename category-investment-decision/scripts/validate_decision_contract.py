@@ -44,6 +44,9 @@ OWNERS = {
     "page_conversion": "platform-store-listing-conversion",
     "listing_incident": "platform-store-listing-conversion",
     "listing_migration": "platform-store-listing-conversion",
+    "creator_affiliate": "creator-affiliate-partnership-management",
+    "creator_partnership": "creator-affiliate-partnership-management",
+    "affiliate_program": "creator-affiliate-partnership-management",
 }
 SKILLS = set(OWNERS.values())
 CLAIM_STATES = {"observed", "estimated", "hypothesis", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"}
@@ -52,8 +55,8 @@ CONFIDENCE_RANK = {"low": 0, "medium": 1, "high": 2}
 VERSION_PREFIX = {
     "category-investment-decision":"CIDM", "competitive-intelligence-monitoring":"CIM",
     "video-link-breakdown":"VLB", "consumer-insights-customer-growth":"CIG",
-    "advertising-analysis-measurement-optimization":"D09", "logistics-inventory-fulfillment-decision":"D07",
-    "platform-store-listing-conversion":"D08",
+    "advertising-analysis-measurement-optimization":"AAMO", "logistics-inventory-fulfillment-decision":"LIFD",
+    "platform-store-listing-conversion":"PLCO", "creator-affiliate-partnership-management":"CAPM",
 }
 PROFESSIONAL_FIELDS = (
     "object_boundary",

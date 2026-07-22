@@ -1,4 +1,4 @@
-# D07 对象状态、报告血缘与增量重算
+# LIFD 对象状态、报告血缘与增量重算
 
 ## 对象身份
 
@@ -14,7 +14,7 @@
 
 ## 动作续接与撤销
 
-动作状态只允许 `proposed → validated → executing → completed`，或转为 `stopped/superseded/failed`。撤销执行中动作必须记录恢复动作、剩余暴露、责任人和截止时间。跨域动作保持 proposed，不能因 D07 报告更新自动升级为 validated。
+动作状态只允许 `proposed → validated → executing → completed`，或转为 `stopped/superseded/failed`。撤销执行中动作必须记录恢复动作、剩余暴露、责任人和截止时间。跨域动作保持 proposed，不能因 LIFD 报告更新自动升级为 validated。
 
 ## 连续追问规则
 

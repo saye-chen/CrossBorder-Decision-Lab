@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate D08 authorized historical replays; synthetic fixtures never qualify."""
+"""Validate PLCO authorized historical replays; synthetic fixtures never qualify."""
 from __future__ import annotations
 
 import argparse

@@ -1,4 +1,4 @@
-# D09 专业报告交付
+# AAMO 专业报告交付
 
 Decision Card 用于单一可行性、异常或 Scale/Stop；Decision Memo 用于账户、渠道、预算或测量；Advertising Diligence 用于多平台、大预算、复杂归因或增量体系。
 

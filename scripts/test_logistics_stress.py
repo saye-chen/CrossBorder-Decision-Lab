@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import json,unittest
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];D07=ROOT/"logistics-inventory-fulfillment-decision"
+ROOT=Path(__file__).resolve().parents[1];LIFD=ROOT/"logistics-inventory-fulfillment-decision"
 class LogisticsStress(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.skill=(D07/"SKILL.md").read_text();cls.refs="\n".join(p.read_text() for p in (D07/"references").glob("*.md"));cls.scenarios=json.loads((D07/"references/expert-scenarios.json").read_text())
+        cls.skill=(LIFD/"SKILL.md").read_text();cls.refs="\n".join(p.read_text() for p in (LIFD/"references").glob("*.md"));cls.scenarios=json.loads((LIFD/"references/expert-scenarios.json").read_text())
     def test_runtime_and_sovereignty(self):
-        for term in ["D07-2026.03","D01资本进入/退出","D04供应商/采购/生产/质量","D06公司级资金和定价","D09广告动作","proposed"]: self.assertIn(term,self.skill)
+        for term in ["LIFD-2026.04","D01资本进入/退出","D04供应商/采购/生产/质量","D06公司级资金和定价","AAMO广告动作","proposed"]: self.assertIn(term,self.skill)
     def test_nine_layer_and_gates(self):
         for term in ["对象与时点","数据有效性","Hard gates","状态识别","根因分层","候选生成","确定性比较","动作设计","闭环"]: self.assertIn(term,self.skill)
     def test_full_chain_references(self):
@@ -19,7 +19,7 @@ class LogisticsStress(unittest.TestCase):
     def test_scripts_exist_and_routed(self):
         names=["logistics_economics.py","inventory_ledger.py","replenishment.py","network_routing.py","inventory_allocation.py","order_capacity.py","reverse_exit.py","cost_to_serve.py","traceability_recall.py","validate_decision_contract.py"]
         for name in names:
-            self.assertTrue((D07/"scripts"/name).exists());self.assertIn(name,self.skill)
+            self.assertTrue((LIFD/"scripts"/name).exists());self.assertIn(name,self.skill)
     def test_sixty_unique_scenarios(self):
         self.assertEqual(len(self.scenarios),60);self.assertEqual(len({x["id"] for x in self.scenarios}),60)
         domains={x["domain"] for x in self.scenarios}

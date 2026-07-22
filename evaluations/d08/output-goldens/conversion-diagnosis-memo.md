@@ -1,4 +1,4 @@
-# D08 Conversion Diagnosis Memo Golden
+# PLCO Conversion Diagnosis Memo Golden
 ## 对象与数据质量
 BR/Mercado Libre `OBJ-CV-01`、item `v2`、移动付费与自然分层；币种BRL，窗口和去重一致，证据截止2026-07-20。
 ## Gates

@@ -1,4 +1,4 @@
-# D08 Listing Experiment Memo Golden
+# PLCO Listing Experiment Memo Golden
 ## 对象与假设
 US/Shopify `OBJ-EX-01`，v1对v2；假设移动首屏重复入口承诺可减少理解断层，证据截止2026-07-20。
 ## 预注册

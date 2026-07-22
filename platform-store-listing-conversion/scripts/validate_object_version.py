@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import fail, fingerprint, required, run_cli
+from plco_common import fail, fingerprint, required, run_cli
 
 FIELDS=("platform","country","store_id","listing_id","page_version_id","as_of_time")
 def validate(data):
@@ -12,4 +12,4 @@ def validate(data):
         if len(versions)!=len(set(versions)): fail("duplicate page_version_id")
     object_id=fingerprint({k:data[k] for k in FIELDS[:4]})[:24]
     return {"status":"ok","object_id":object_id,"page_version_id":data["page_version_id"],"comparable":True}
-if __name__ == "__main__": run_cli(validate,"D08-object-1")
+if __name__ == "__main__": run_cli(validate,"PLCO-object-1")

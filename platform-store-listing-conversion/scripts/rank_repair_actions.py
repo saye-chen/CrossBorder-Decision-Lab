@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from d08_common import number, run_cli
+from plco_common import number, run_cli
 
 def rank(data):
     actions=[]
@@ -10,4 +10,4 @@ def rank(data):
         actions.append({**a,"blocked":blocked,"priority_score":score/denom})
     actions.sort(key=lambda x:(x["blocked"],-x["priority_score"],str(x.get("action_id",""))))
     return {"status":"ok","ranked_actions":actions,"action_order":[a.get("action_id") for a in actions if not a["blocked"]],"blocked_actions":[a.get("action_id") for a in actions if a["blocked"]]}
-if __name__ == "__main__": run_cli(rank,"D08-rank-1")
+if __name__ == "__main__": run_cli(rank,"PLCO-rank-1")

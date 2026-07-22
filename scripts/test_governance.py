@@ -20,9 +20,46 @@ class ImpactGovernance(unittest.TestCase):
         result = impact.analyze(["unknown/contract.md"])
         self.assertEqual(result["unmapped_paths"], ["unknown/contract.md"])
 
-    def test_all_seven_domain_entrypoints_execute_shared_contract(self):
+    def test_dot_prefixed_paths_are_preserved_and_exact_dot_slash_is_removed(self):
+        workflow = ".github/workflows/expert-release.yml"
+        result = impact.analyze([workflow, f"./{workflow}"])
+        self.assertEqual(result["changed_paths"], [workflow])
+        self.assertIn("repository-release-governance", result["affected_contracts"])
+        self.assertNotIn(workflow, result["unmapped_paths"])
+
+    def test_repository_release_governance_maps_its_release_chain(self):
+        paths = [
+            ".github/workflows/expert-release.yml",
+            "governance/change-impact-manifest.json",
+            "scripts/validate_repo.py",
+            "scripts/test_full_repository_audit.py",
+        ]
+        result = impact.analyze(paths)
+        contract = result["affected_contracts"]["repository-release-governance"]
+        self.assertEqual(contract["changed"], sorted(paths))
+
+    def test_tests_and_evaluations_are_watched_change_paths(self):
+        paths = ["scripts/test_domain_stress.py", "evaluations/golden-reports/cim-full.md"]
+        result = impact.analyze(paths)
+        self.assertIn("decision-contract-core", result["affected_contracts"])
+        self.assertIn("cim-monitoring-and-integration", result["affected_contracts"])
+        self.assertEqual(result["unmapped_paths"], [])
+
+    def test_runtime_and_vlb_handoff_consumers_include_new_release_dependencies(self):
+        manifest = json.loads((ROOT / "governance/change-impact-manifest.json").read_text(encoding="utf-8"))
+        contracts = manifest["contracts"]
+        capm = "creator-affiliate-partnership-management"
+        for contract_id in ("aamo-runtime", "lifd-runtime", "plco-runtime"):
+            self.assertIn(capm, contracts[contract_id]["consumers"])
+        workflow = ".github/workflows/expert-release.yml"
+        self.assertIn(workflow, contracts["eight-skill-governance-baseline"]["consumers"])
+        handoff_consumers = contracts["cidm-vlb-production-handoff"]["consumers"]
+        self.assertIn("requirements-dev.txt", handoff_consumers)
+        self.assertIn(workflow, handoff_consumers)
+
+    def test_all_eight_domain_entrypoints_execute_shared_contract(self):
         payload = {"mode":"single", "decision_type":"content_creative", "decision_owner":"video-link-breakdown",
-                   "participating_skills":["video-link-breakdown"], "runtime_versions":{"video-link-breakdown":"VLB-2026.09"},
+                   "participating_skills":["video-link-breakdown"], "runtime_versions":{"video-link-breakdown":"VLB-2026.10"},
                    "participant_results":{"video-link-breakdown":{"status":"contributed"}},
                    "professional_core":{"object_boundary":"o","conclusion":"Test","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["budget"],"risks_and_redlines":["risk"],"actions":["test"],"success_conditions":["pass"],"stop_conditions":["stop"],"limitations_and_missing_data":["missing"]},
                    "objects":[{"canonical_id":"o","country":"US","platform":"P","category":"C","lifecycle":"L"}],
@@ -30,7 +67,7 @@ class ImpactGovernance(unittest.TestCase):
                    "claims":[{"id":"C1","producer_skill":"video-link-breakdown","claim_domain":"content_creative","state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[],"required_calculation_ids":[],"unresolved_redlines":[],"adjustments":[]}
         with tempfile.TemporaryDirectory() as td:
             path = Path(td) / "contract.json"; path.write_text(json.dumps(payload), encoding="utf-8")
-            for skill in ["category-investment-decision","competitive-intelligence-monitoring","video-link-breakdown","consumer-insights-customer-growth","advertising-analysis-measurement-optimization","logistics-inventory-fulfillment-decision","platform-store-listing-conversion"]:
+            for skill in ["category-investment-decision","competitive-intelligence-monitoring","video-link-breakdown","consumer-insights-customer-growth","advertising-analysis-measurement-optimization","logistics-inventory-fulfillment-decision","platform-store-listing-conversion","creator-affiliate-partnership-management"]:
                 result = subprocess.run(["python3", str(ROOT/skill/"scripts/validate_decision_contract.py"), str(path)], capture_output=True, text=True)
                 self.assertEqual(result.returncode, 0, (skill, result.stderr))
 

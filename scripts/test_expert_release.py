@@ -43,7 +43,7 @@ def run_json(script: Path, payload: object, expect_ok: bool = True) -> subproces
 
 
 class GoldenReportGate(unittest.TestCase):
-    def test_all_seven_single_skill_golden_reports_score_100(self):
+    def test_all_core_seven_single_skill_golden_reports_score_100(self):
         files = sorted(GOLDEN.glob("*.md"))
         self.assertEqual(len(files), 7)
         for file in files:
@@ -114,7 +114,7 @@ class CrossSkillScenarioGate(unittest.TestCase):
         for scenario in SCENARIOS:
             self.assertNotIn(scenario["primary"], scenario["participants"], scenario["id"])
 
-    def test_all_seven_skills_are_exercised_and_inventory_conflict_routes_d07(self):
+    def test_all_core_seven_skills_are_exercised_and_inventory_conflict_routes_lifd(self):
         exercised = {s["primary"] for s in SCENARIOS}
         exercised |= {p for s in SCENARIOS for p in s["participants"]}
         self.assertEqual(exercised, set(SKILLS))
@@ -125,7 +125,7 @@ class CrossSkillScenarioGate(unittest.TestCase):
         self.assertTrue(any("failed" in scenario for scenario in SCENARIOS))
         self.assertGreaterEqual(sum("conflict" in scenario for scenario in SCENARIOS), 8)
 
-    def test_d09_routing_is_runtime_visible_in_all_other_skills(self):
+    def test_aamo_routing_is_runtime_visible_in_all_other_skills(self):
         for name, path in SKILLS.items():
             if name == "advertising-analysis-measurement-optimization":
                 continue
@@ -141,12 +141,12 @@ class CrossSkillScenarioGate(unittest.TestCase):
 
 
 class AdversarialModelGate(unittest.TestCase):
-    def test_d09_rejects_nonfinite_duplicate_and_invalid_inputs(self):
-        d09 = ROOT / "advertising-analysis-measurement-optimization" / "scripts"
-        run_json(d09 / "ad_economics.py", {"mode":"fixed","revenue":float("nan"),"pre_ad_cm_rate":.3,"fixed_cost":10}, False)
-        run_json(d09 / "marginal_analysis.py", [{"spend":100,"mature_revenue":200,"contribution_profit":20},{"spend":100,"mature_revenue":210,"contribution_profit":21}], False)
-        run_json(d09 / "evaluate_incrementality.py", {"treatment":{"n":10,"value":10,"variance":-1},"control":{"n":10,"value":8,"variance":1}}, False)
-        run_json(d09 / "allocate_budget.py", {"budget":-1,"candidates":[]}, False)
+    def test_aamo_rejects_nonfinite_duplicate_and_invalid_inputs(self):
+        aamo = ROOT / "advertising-analysis-measurement-optimization" / "scripts"
+        run_json(aamo / "ad_economics.py", {"mode":"fixed","revenue":float("nan"),"pre_ad_cm_rate":.3,"fixed_cost":10}, False)
+        run_json(aamo / "marginal_analysis.py", [{"spend":100,"mature_revenue":200,"contribution_profit":20},{"spend":100,"mature_revenue":210,"contribution_profit":21}], False)
+        run_json(aamo / "evaluate_incrementality.py", {"treatment":{"n":10,"value":10,"variance":-1},"control":{"n":10,"value":8,"variance":1}}, False)
+        run_json(aamo / "allocate_budget.py", {"budget":-1,"candidates":[]}, False)
 
     def test_cig_rejects_impossible_survival_and_experiment_counts(self):
         cig = ROOT / "consumer-insights-customer-growth" / "scripts"
@@ -157,7 +157,7 @@ class AdversarialModelGate(unittest.TestCase):
         script = ROOT / "competitive-intelligence-monitoring" / "scripts" / "detect_changes.py"
         run_json(script, [{"product_id":"A","snapshot_at":"2026-02-01","price":1},{"product_id":"B","snapshot_at":"2026-01-01","price":2}], False)
 
-    def test_order_invariance_for_d09_budget_candidates(self):
+    def test_order_invariance_for_aamo_budget_candidates(self):
         script = ROOT / "advertising-analysis-measurement-optimization" / "scripts" / "allocate_budget.py"
         payload = {"budget":200,"candidates":[{"id":"a","step":100,"max_budget":200,"marginal_contribution_per_currency":.2},{"id":"b","step":100,"max_budget":200,"marginal_contribution_per_currency":.1}]}
         with tempfile.TemporaryDirectory() as td:

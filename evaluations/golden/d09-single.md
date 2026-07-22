@@ -1,7 +1,7 @@
-# D09 单 Skill Golden Report
+# AAMO 单 Skill Golden Report
 
 ## 执行摘要
-决策结论：`Repair`。一句话理由：Google Shopping点击正常但转化价值回传与订单币种不一致，优化与放量结论不可信。主决策 Skill：`advertising-analysis-measurement-optimization`。
+决策结论：`Repair`。一句话理由：Google Shopping点击正常但转化价值回传与订单币种不一致，优化与放量结论不可信。主决策 Skill：`advertising-analysis-measurement-optimization`；运行时：`AAMO-2026.08`。
 
 ## 对象与边界
 对象为US/Google Shopping商品组，国家/平台：US/Google Ads，生命周期：稳态，适用范围为商品组×查询×设备×30日；证据截止：2026-07-16。缺失数据：修复后成熟窗口；决策影响为冻结新增预算。
