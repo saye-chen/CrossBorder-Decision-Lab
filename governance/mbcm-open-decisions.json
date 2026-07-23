@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "as_of_time": "2026-07-23T00:00:00+08:00",
+  "decisions": [
+    {"question":"Does MBCM own capital entry, final price or cash?","decision":"No. CIDM and D06 retain those sovereign decisions.","status":"resolved"},
+    {"question":"Does MBCM own ad bids, creator contracts, creative scripts, listing edits or customer contact?","decision":"No. MBCM owns channel roles and approved resource direction only.","status":"resolved"},
+    {"question":"Can attributed GMV prove campaign incrementality?","decision":"No. It remains attributed until a qualified counterfactual supports an incremental claim.","status":"resolved"},
+    {"question":"Can brand value justify unlimited negative contribution?","decision":"No. D06 loss and cash limits plus CIDM strategic approval and falsification are required.","status":"resolved"},
+    {"question":"Can platform or country constants be embedded permanently?","decision":"No. Dynamic facts require task-time official or authorized verification.","status":"resolved"},
+    {"question":"Can missing values use industry medians?","decision":"No. Missingness lowers evidence and action ceilings.","status":"resolved"},
+    {"question":"Can synthetic cases close L4?","decision":"No. L4 requires authorized mature real outcomes, hashes, heterogeneity, failure or exit and independent review.","status":"resolved"},
+    {"question":"Can MBCM auto-execute external changes?","decision":"No. This implementation emits decisions and named requests only.","status":"resolved"},
+    {"question":"Can a point estimate or high R-squared justify scale?","decision":"No. Identification diagnostics, uncertainty, business MDE, economics and risk gates must all pass.","status":"resolved"},
+    {"question":"Does MBCM own customer-level CLV and targeting?","decision":"No. CIG owns customer-level evidence and action; MBCM consumes versioned aggregate cohort economics only.","status":"resolved"},
+    {"question":"Can platform Offer qualifications and fees be permanently embedded?","decision":"No. Operation cards define mechanisms and required fields; current rules require task-time official or authorized verification.","status":"resolved"}
+  ]
+}

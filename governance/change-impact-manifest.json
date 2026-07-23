@@ -66,7 +66,7 @@
     "eight-skill-governance-baseline": {
       "owner": "repository",
       "authoritative_sources": ["governance/required-skill-governance.md", "governance/domain-maturity-status.json", "governance/historical-replay.schema.json", "scripts/validate_governance_baseline.py", "scripts/validate_domain_maturity.py"],
-      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management", ".github/workflows/expert-release.yml"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management", "marketing-brand-campaign-management", ".github/workflows/expert-release.yml"],
       "validators": ["scripts/validate_governance_baseline.py", "scripts/validate_domain_maturity.py", "scripts/validate_repo.py"],
       "tests": ["scripts/test_governance.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations"]
@@ -97,10 +97,10 @@
     },
     "aamo-runtime": {
       "owner": "advertising-analysis-measurement-optimization",
-      "authoritative_sources": ["advertising-analysis-measurement-optimization/SKILL.md", "advertising-analysis-measurement-optimization/references/skill-integration-protocol.md", "advertising-analysis-measurement-optimization/references/data-contract-and-automation.md"],
+      "authoritative_sources": ["advertising-analysis-measurement-optimization/SKILL.md", "advertising-analysis-measurement-optimization/references/skill-integration-protocol.md", "advertising-analysis-measurement-optimization/references/data-contract-and-automation.md", "advertising-analysis-measurement-optimization/references/incrementality-and-experimentation.md", "governance/shared-statistical-primitives.md"],
       "consumers": ["advertising-analysis-measurement-optimization/agents/openai.yaml", "advertising-analysis-measurement-optimization/references/output-protocols/professional-report-delivery.md", "README.md", "category-investment-decision", "video-link-breakdown", "consumer-insights-customer-growth", "competitive-intelligence-monitoring", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management"],
-      "validators": ["advertising-analysis-measurement-optimization/scripts/validate_decision_contract.py"],
-      "tests": ["advertising-analysis-measurement-optimization/scripts/test_models.py", "scripts/test_advertising_stress.py", "scripts/test_cross_skill_integration.py"],
+      "validators": ["advertising-analysis-measurement-optimization/scripts/validate_decision_contract.py", "scripts/validate_repo.py"],
+      "tests": ["advertising-analysis-measurement-optimization/scripts/test_models.py", "advertising-analysis-measurement-optimization/scripts/test_causal_measurement.py", "scripts/test_advertising_stress.py", "scripts/test_cross_skill_integration.py", "scripts/test_statistical_primitive_parity.py", "scripts/test_professional_depth.py", "scripts/test_homepage_integrity.py"],
       "evaluations": ["evaluations/golden/d09-single.md"]
     },
     "lifd-runtime": {
@@ -126,6 +126,14 @@
       "validators": ["creator-affiliate-partnership-management/scripts/evaluate_capm_decision.py", "creator-affiliate-partnership-management/scripts/validate_capm_contracts.py", "creator-affiliate-partnership-management/scripts/validate_decision_contract.py", "creator-affiliate-partnership-management/scripts/validate_cross_skill_handoff.py", "creator-affiliate-partnership-management/scripts/validate_historical_replay.py", "creator-affiliate-partnership-management/scripts/decision_state.py", "creator-affiliate-partnership-management/scripts/validate_rights_contract.py", "creator-affiliate-partnership-management/scripts/validate_schema_instance.py", "scripts/validate_capm_blueprint.py", "scripts/evaluate_report_quality.py", "scripts/validate_repo.py"],
       "tests": ["creator-affiliate-partnership-management/scripts/test_capm.py", "scripts/test_full_repository_audit.py", "scripts/test_cross_skill_integration.py", "scripts/test_professional_depth.py"],
       "evaluations": ["creator-affiliate-partnership-management/evaluations/fixtures/evaluation-catalog.json", "creator-affiliate-partnership-management/evaluations/golden", "creator-affiliate-partnership-management/evaluations/historical-replay-template.json"]
+    },
+    "mbcm-runtime-and-contracts": {
+      "owner": "marketing-brand-campaign-management",
+      "authoritative_sources": ["marketing-brand-campaign-management/SKILL.md", "governance/mbcm-blueprint-implementation-manifest.json", "governance/mbcm-marketing-science-remediation.json", "governance/mbcm-open-decisions.json", "marketing-brand-campaign-management/references/professional-depth-governance.md", "marketing-brand-campaign-management/references/measurement-design-and-causal-estimation.md", "marketing-brand-campaign-management/references/offer-demand-and-channel-response.md", "marketing-brand-campaign-management/references/brand-customer-economics.md", "marketing-brand-campaign-management/references/seasonality-competition-and-incident-quantification.md", "marketing-brand-campaign-management/references/skill-integration-protocol.md", "marketing-brand-campaign-management/references/data-contract-and-automation.md", "marketing-brand-campaign-management/references/modules"],
+      "consumers": ["marketing-brand-campaign-management/agents/openai.yaml", "README.md", "RULES.md", "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management"],
+      "validators": ["marketing-brand-campaign-management/scripts/validate_decision_contract.py", "marketing-brand-campaign-management/scripts/validate_handoff_packet.py", "marketing-brand-campaign-management/scripts/validate_evidence_claims.py", "marketing-brand-campaign-management/scripts/validate_incident.py", "marketing-brand-campaign-management/scripts/validate_historical_replay.py", "marketing-brand-campaign-management/scripts/decision_state.py", "scripts/validate_mbcm_blueprint.py", "scripts/validate_repo.py"],
+      "tests": ["marketing-brand-campaign-management/scripts/test_mbcm.py", "marketing-brand-campaign-management/scripts/test_marketing_science.py", "scripts/test_mbcm_integration.py", "scripts/test_full_repository_audit.py", "scripts/test_professional_depth.py"],
+      "evaluations": ["marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json", "marketing-brand-campaign-management/evaluations/golden", "marketing-brand-campaign-management/evaluations/historical-replay-template.json"]
     }
   }
 }

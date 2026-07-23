@@ -1,0 +1,41 @@
+{
+  "id": "AAMO-CAUSAL-DEPTH-2026-07-23",
+  "runtime": "AAMO-2026.08",
+  "status": "fixed",
+  "maturity": "controlled pilot",
+  "findings": [
+    {
+      "id": "AAMO-CD-01",
+      "finding": "Reference promised quasi-experimental depth beyond the executable two-arm ITT model.",
+      "resolution": "Added clustered design, cluster-level ITT, DiD parallel-trend gate and synthetic-control pre-fit diagnostics.",
+      "evidence": [
+        "advertising-analysis-measurement-optimization/scripts/design_incrementality_experiment.py",
+        "advertising-analysis-measurement-optimization/scripts/estimate_causal_incrementality.py",
+        "advertising-analysis-measurement-optimization/scripts/test_causal_measurement.py"
+      ]
+    },
+    {
+      "id": "AAMO-CD-02",
+      "finding": "Media response and MMM claims lacked an executable estimation and validation path.",
+      "resolution": "Added transparent adstock-Hill time-holdout estimation and explicitly made BSTS/full MMM unavailable without an approved external run.",
+      "evidence": [
+        "advertising-analysis-measurement-optimization/scripts/estimate_media_response.py",
+        "advertising-analysis-measurement-optimization/references/incrementality-and-experimentation.md"
+      ]
+    },
+    {
+      "id": "AAMO-CD-03",
+      "finding": "Cross-domain statistical primitives could drift or create runtime coupling.",
+      "resolution": "Defined CBSTAT-2026.01 formula parity while retaining standalone local implementations.",
+      "evidence": [
+        "governance/shared-statistical-primitives.md",
+        "scripts/test_statistical_primitive_parity.py"
+      ]
+    }
+  ],
+  "external_gate": {
+    "production_ready": false,
+    "authorized_real_replays": 0,
+    "reason": "Automated, synthetic and golden tests do not replace authorized mature historical replay."
+  }
+}

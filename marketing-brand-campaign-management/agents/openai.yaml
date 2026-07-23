@@ -1,0 +1,4 @@
+interface:
+  display_name: "市场营销、品牌与活动经营"
+  short_description: "跨境市场营销、品牌、Offer、活动与渠道编排专业决策"
+  default_prompt: "Use $marketing-brand-campaign-management to design and evaluate a cross-border marketing, brand, or campaign decision."

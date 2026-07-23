@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Executable 100-point release audit for all eight professional skills."""
+"""Executable release audit for all nine professional skills."""
 from __future__ import annotations
 import importlib.util
 import json
@@ -19,8 +19,9 @@ SKILLS={
  "logistics-inventory-fulfillment-decision":("logistics","LIFD-2026.04","d07"),
  "platform-store-listing-conversion":("listing_conversion","PLCO-2026.08","d08"),
  "creator-affiliate-partnership-management":("creator_affiliate","CAPM-2026.07","capm"),
+ "marketing-brand-campaign-management":("marketing_brand_campaign","MBCM-2026.01","mbcm"),
 }
-CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name != "creator-affiliate-partnership-management"}
+CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management"}}
 spec=importlib.util.spec_from_file_location("quality",ROOT/"scripts/evaluate_report_quality.py")
 quality=importlib.util.module_from_spec(spec); spec.loader.exec_module(quality)
 repo_spec=importlib.util.spec_from_file_location("repo_validation",ROOT/"scripts/validate_repo.py")
@@ -48,7 +49,7 @@ def shared_payload(skill,decision_type,runtime):
  return payload
 
 class FullRepositoryAudit(unittest.TestCase):
- def test_01_all_eight_skills_structurally_validate(self):
+ def test_01_all_nine_skills_structurally_validate(self):
   for name in SKILLS:
    self.assertEqual(structural_validation_errors(name),[],name)
 
@@ -67,7 +68,7 @@ class FullRepositoryAudit(unittest.TestCase):
     r=subprocess.run(["python3",str(test)],capture_output=True,text=True)
     self.assertEqual(r.returncode,0,(test,r.stdout[-2000:],r.stderr[-2000:]))
 
- def test_04_all_eight_single_report_contracts_score_exactly_100(self):
+ def test_04_existing_single_report_contracts_score_exactly_100_and_mbcm_is_specialized(self):
   for _,(_,runtime,prefix) in CORE_REPORT_SKILLS.items():
    p=ROOT/"evaluations/golden"/f"{prefix}-single.md"; self.assertTrue(p.is_file(),p)
    report=p.read_text(encoding="utf-8"); self.assertIn(runtime,report,p)
@@ -77,8 +78,11 @@ class FullRepositoryAudit(unittest.TestCase):
   report=p.read_text(encoding="utf-8"); self.assertIn("CAPM-2026.07",report,p)
   out=quality.score_report(report,"contract")
   self.assertEqual((out["result"],out["score"]),("PASS",100.0),out)
+  mbcm=sorted((ROOT/"marketing-brand-campaign-management/evaluations/golden").glob("*.md"))
+  self.assertEqual(len(mbcm),10)
+  self.assertEqual(len({next(x for x in p.read_text().splitlines() if x.startswith("专属机制：")) for p in mbcm}),10)
 
- def test_05_all_eight_full_reports_score_exactly_100(self):
+ def test_05_existing_full_reports_score_exactly_100_and_mbcm_has_ten_contracts(self):
   for _,(_,runtime,prefix) in CORE_REPORT_SKILLS.items():
    p=ROOT/"evaluations/golden-reports"/f"{prefix}-full.md"; self.assertTrue(p.is_file(),p)
    report=p.read_text(encoding="utf-8"); self.assertIn(runtime,report,p)
@@ -88,6 +92,9 @@ class FullRepositoryAudit(unittest.TestCase):
    report=p.read_text(encoding="utf-8"); self.assertIn("CAPM-2026.07",report,p)
    out=quality.score_report(report,"full")
    self.assertEqual((out["result"],out["score"]),("PASS",100.0),out)
+  for p in (ROOT/"marketing-brand-campaign-management/evaluations/golden").glob("*.md"):
+   report=p.read_text(); self.assertIn("MBCM-2026.01",report,p)
+   for marker in ("停止","回滚","controlled pilot"): self.assertIn(marker,report,p)
 
  def test_06_cross_skill_scenarios_cover_all_skills_and_conflicts(self):
   scenarios=json.loads((ROOT/"evaluations/cross-skill-scenarios.json").read_text())["scenarios"]
@@ -134,7 +141,7 @@ class FullRepositoryAudit(unittest.TestCase):
    if test.name==pathlib.Path(__file__).name: continue
    r=subprocess.run(["python3",str(test)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(test.name,r.stdout[-2000:],r.stderr[-2000:]))
-  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_domain_maturity.py","validate_capm_blueprint.py"):
+  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_domain_maturity.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py"):
    r=subprocess.run(["python3",str(ROOT/"scripts"/validator)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(validator,r.stdout[-2000:],r.stderr[-2000:]))
 
@@ -146,6 +153,23 @@ class FullRepositoryAudit(unittest.TestCase):
   replay=json.loads((ROOT/name/"evaluations/historical-replay-template.json").read_text())
   self.assertEqual(replay["production_ready"],False)
   self.assertEqual(replay["cases"],[])
+  self.assertIn(runtime,(ROOT/name/"SKILL.md").read_text())
+
+ def test_12_mbcm_depth_math_multiturn_and_controlled_pilot_execute(self):
+  name,runtime="marketing-brand-campaign-management","MBCM-2026.01"
+  self.assertEqual(structural_validation_errors(name),[],name)
+  tests=subprocess.run(["python3",str(ROOT/name/"scripts/test_mbcm.py")],capture_output=True,text=True)
+  self.assertEqual(tests.returncode,0,(tests.stdout[-3000:],tests.stderr[-3000:]))
+  science=subprocess.run(["python3",str(ROOT/name/"scripts/test_marketing_science.py")],capture_output=True,text=True)
+  self.assertEqual(science.returncode,0,(science.stdout[-3000:],science.stderr[-3000:]))
+  integration=subprocess.run(["python3",str(ROOT/"scripts/test_mbcm_integration.py")],capture_output=True,text=True)
+  self.assertEqual(integration.returncode,0,(integration.stdout[-3000:],integration.stderr[-3000:]))
+  catalog=json.loads((ROOT/name/"evaluations/fixtures/evaluation-catalog.json").read_text())
+  self.assertEqual(catalog["total"],120)
+  self.assertEqual(len(catalog["coverage"]["scenarios"]),13)
+  self.assertEqual(len(catalog["coverage"]["estimation_methods"]),10)
+  replay=json.loads((ROOT/name/"evaluations/historical-replay-template.json").read_text())
+  self.assertEqual((replay["production_ready"],replay["cases"]),(False,[]))
   self.assertIn(runtime,(ROOT/name/"SKILL.md").read_text())
 
 if __name__=="__main__": unittest.main(verbosity=2)

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Substantive depth gates that complement structural contract tests."""
 from pathlib import Path
+import json
+import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +22,19 @@ class ProfessionalDepth(unittest.TestCase):
         self.assertEqual(len(cards), 10)
         for card in cards:
             self.assert_semantics(card, ["竞价与交付", "优化反馈", "归因差异", "特有失败", "反事实"], 60)
+
+    def test_aamo_causal_claims_have_executable_estimators_and_limits(self):
+        base = ROOT / "advertising-analysis-measurement-optimization"
+        required = {"aamo_statistics.py", "design_incrementality_experiment.py",
+                    "estimate_causal_incrementality.py", "estimate_media_response.py",
+                    "test_causal_measurement.py"}
+        self.assertTrue(required.issubset({p.name for p in (base / "scripts").glob("*.py")}))
+        reference = (base / "references/incrementality-and-experimentation.md").read_text(encoding="utf-8")
+        for anchor in ("聚类 ITT", "平行趋势", "合成控制", "时间留出", "`unavailable`", "不得标注 MMM"):
+            self.assertIn(anchor, reference)
+        result = subprocess.run(["python3", str(base / "scripts/test_causal_measurement.py")],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, (result.stdout, result.stderr))
 
     def test_core_reference_semantics(self):
         groups = {
@@ -73,6 +88,58 @@ class ProfessionalDepth(unittest.TestCase):
             self.assertIn('"minimum_authorized_cases": 3', text)
             self.assertIn('"production_ready": false', text)
             self.assertIn('"cases": []', text)
+
+    def test_mbcm_six_axis_professional_depth(self):
+        base = ROOT / "marketing-brand-campaign-management"
+        modules = sorted((base / "references/modules").glob("s*.md"))
+        self.assertEqual(len(modules), 13)
+        mechanisms = []
+        for path in modules:
+            text = path.read_text(encoding="utf-8")
+            self.assertGreaterEqual(len(text.splitlines()), 14, path)
+            self.assertIn("专属机制", text, path)
+            self.assertIn("失败断言", text, path)
+            self.assertIn("停止/回滚", text, path)
+            self.assertIn("最小专业合同", text, path)
+            self.assertIn("翻转条件", text, path)
+            self.assertIn("跨域请求", text, path)
+            mechanisms.append(next(line for line in text.splitlines() if "专属机制" in line))
+        self.assertEqual(len(mechanisms), len(set(mechanisms)))
+        catalog = json.loads((base / "evaluations/fixtures/evaluation-catalog.json").read_text(encoding="utf-8"))
+        self.assertEqual(catalog["total"], 120)
+        self.assertEqual(len({case["mechanism"] for case in catalog["cases"]}), 120)
+        self.assertTrue(all(case.get("decision_input") and case.get("expected_assertions") for case in catalog["cases"]))
+        self.assertEqual(catalog["coverage"]["stress_levels"], ["T1","T2","T3","T4","T5","T6"])
+        self.assertEqual(len(catalog["coverage"]["estimation_methods"]), 10)
+        self.assertEqual(len(catalog["high_risk_combinations"]), 16)
+        model_names = {"campaign_economics.py","offer_economics.py","incrementality_bridge.py",
+            "pull_forward_cannibalization.py","resource_portfolio.py","brand_investment_scenarios.py",
+            "capacity_stress.py","risk_and_sensitivity.py","clearance_exit_economics.py",
+            "validate_units_currency_time.py"}
+        self.assertTrue(model_names.issubset({p.name for p in (base / "scripts").glob("*.py")}))
+        science_models={"experiment_design.py","causal_effects.py","uncertainty_engine.py",
+            "offer_response_optimization.py","channel_response.py","aggregate_customer_economics.py",
+            "channel_curve_estimation.py","brand_value_bridge.py","seasonality_competition.py",
+            "incident_recovery_quantification.py"}
+        self.assertTrue(science_models.issubset({p.name for p in (base / "scripts").glob("*.py")}))
+        platform_cards=sorted((base/"references/platforms").glob("*-marketing-operations.md"))
+        self.assertEqual(len(platform_cards),3)
+        for card in platform_cards:
+            text=card.read_text(encoding="utf-8")
+            self.assertGreaterEqual(len(text.splitlines()),30,card)
+            for anchor in ("证据与数据","专属识别风险","操作决策","停止条件"):
+                self.assertIn(anchor,text,(card,anchor))
+            self.assertTrue(any(anchor in text for anchor in ("动态","实时核验","随市场变化")),card)
+        skill=(base/"SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("按十层根因",skill)
+        routes={
+            "s05-offer.md":"offer_response_optimization.py",
+            "s07-channel.md":"channel_curve_estimation.py",
+            "s09-brand-health.md":"brand_value_bridge.py",
+            "s10-incrementality.md":"experiment_design.py",
+        }
+        for filename,tool in routes.items():
+            self.assertIn(tool,(base/"references/modules"/filename).read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

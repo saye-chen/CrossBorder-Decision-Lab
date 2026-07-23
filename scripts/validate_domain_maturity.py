@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the single-source eight-domain maturity ledger and replay claims."""
+"""Validate the single-source nine-domain maturity ledger and replay claims."""
 from __future__ import annotations
 import json
 import re
@@ -12,7 +12,7 @@ EXPECTED = {
     "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown",
     "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization",
     "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion",
-    "creator-affiliate-partnership-management",
+    "creator-affiliate-partnership-management", "marketing-brand-campaign-management",
 }
 
 def validate_replay(data: dict, expected_skill: str | None = None) -> dict:
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         found = validate_status()
         if found: raise SystemExit("Domain maturity validation failed:\n- " + "\n- ".join(found))
-        print("Domain maturity validation passed for 8 skills.")
+        print("Domain maturity validation passed for 9 skills.")
     else:
         path = Path(sys.argv[1]); expected = sys.argv[2] if len(sys.argv) > 2 else None
         result = validate_replay(json.loads(path.read_text(encoding="utf-8")), expected)

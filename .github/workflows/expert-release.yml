@@ -17,7 +17,7 @@ jobs:
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -28,14 +28,17 @@ jobs:
           python3 competitive-intelligence-monitoring/scripts/test_monitoring.py
           python3 consumer-insights-customer-growth/scripts/test_growth.py
           python3 advertising-analysis-measurement-optimization/scripts/test_models.py
+          python3 advertising-analysis-measurement-optimization/scripts/test_causal_measurement.py
           python3 logistics-inventory-fulfillment-decision/scripts/test_models.py
           python3 logistics-inventory-fulfillment-decision/scripts/test_executable_fixtures.py
           python3 logistics-inventory-fulfillment-decision/scripts/test_decision_state.py
           python3 logistics-inventory-fulfillment-decision/scripts/test_cross_skill_complex.py
           python3 logistics-inventory-fulfillment-decision/scripts/test_multiturn_report.py
           python3 logistics-inventory-fulfillment-decision/scripts/test_historical_replay.py
+          python3 marketing-brand-campaign-management/scripts/test_mbcm.py
+          python3 marketing-brand-campaign-management/scripts/test_marketing_science.py
           python3 scripts/test_logistics_stress.py
-      - name: Cross-domain and eight-skill expert release tests
+      - name: Cross-domain and nine-skill expert release tests
         run: |
           python3 scripts/test_category_semantics.py
           python3 scripts/test_cross_skill_integration.py
@@ -45,9 +48,12 @@ jobs:
           python3 scripts/test_governance.py
           python3 scripts/validate_domain_maturity.py
           python3 scripts/validate_capm_blueprint.py
+          python3 scripts/validate_mbcm_blueprint.py
           python3 scripts/validate_repo.py
           python3 scripts/test_listing_conversion_stress.py
           python3 creator-affiliate-partnership-management/scripts/test_capm.py
+          python3 scripts/test_mbcm_integration.py
+          python3 scripts/test_statistical_primitive_parity.py
           python3 scripts/test_full_repository_audit.py
       - name: Reject whitespace errors
         run: git diff --check

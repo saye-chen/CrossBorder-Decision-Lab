@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "as_of_time": "2026-07-22T00:00:00+08:00",
+  "as_of_time": "2026-07-23T00:00:00+08:00",
   "policy": {
     "authoritative_standard": "governance/required-skill-governance.md",
     "l4_minimum_authorized_cases": 3,
@@ -15,6 +15,7 @@
     {"skill":"advertising-analysis-measurement-optimization","runtime":"AAMO-2026.08","l1":"passed","l2":"passed","l3":"passed_automated_gate","l4":"not_passed","maturity":"controlled pilot","authorized_real_cases":0,"replay_manifest":"advertising-analysis-measurement-optimization/evaluations/historical-replay.json","blocking_reason":"No authorized mature historical replays are registered."},
     {"skill":"logistics-inventory-fulfillment-decision","runtime":"LIFD-2026.04","l1":"passed","l2":"passed","l3":"passed_automated_gate","l4":"not_passed","maturity":"controlled pilot","authorized_real_cases":0,"replay_manifest":"evaluations/d07/historical-replay-template.json","blocking_reason":"No authorized mature historical replays are registered."},
     {"skill":"platform-store-listing-conversion","runtime":"PLCO-2026.08","l1":"passed","l2":"passed","l3":"passed_automated_gate","l4":"not_passed","maturity":"controlled pilot","authorized_real_cases":0,"replay_manifest":"evaluations/d08/historical-replay-template.json","blocking_reason":"No authorized mature historical replays are registered."},
-    {"skill":"creator-affiliate-partnership-management","runtime":"CAPM-2026.07","l1":"passed","l2":"passed","l3":"passed_automated_gate","l4":"not_passed","maturity":"controlled pilot","authorized_real_cases":0,"replay_manifest":"creator-affiliate-partnership-management/evaluations/historical-replay-template.json","blocking_reason":"No authorized mature creator and affiliate replays are registered."}
+    {"skill":"creator-affiliate-partnership-management","runtime":"CAPM-2026.07","l1":"passed","l2":"passed","l3":"passed_automated_gate","l4":"not_passed","maturity":"controlled pilot","authorized_real_cases":0,"replay_manifest":"creator-affiliate-partnership-management/evaluations/historical-replay-template.json","blocking_reason":"No authorized mature creator and affiliate replays are registered."},
+    {"skill":"marketing-brand-campaign-management","runtime":"MBCM-2026.01","l1":"passed","l2":"passed","l3":"passed_automated_gate","l4":"not_passed","maturity":"controlled pilot","authorized_real_cases":0,"replay_manifest":"marketing-brand-campaign-management/evaluations/historical-replay-template.json","blocking_reason":"No authorized mature marketing, brand or campaign replays are registered."}
   ]
 }

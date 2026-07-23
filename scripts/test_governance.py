@@ -9,11 +9,11 @@ spec = importlib.util.spec_from_file_location("impact", ROOT / "scripts/analyze_
 impact = importlib.util.module_from_spec(spec); assert spec and spec.loader; spec.loader.exec_module(impact)
 
 class ImpactGovernance(unittest.TestCase):
-    def test_eight_domain_maturity_ledger_is_explicit_and_replays_are_blocked(self):
+    def test_nine_domain_maturity_ledger_is_explicit_and_replays_are_blocked(self):
         status = subprocess.run(["python3", str(ROOT/"scripts/validate_domain_maturity.py")], capture_output=True, text=True)
         self.assertEqual(status.returncode, 0, (status.stdout, status.stderr))
         ledger = json.loads((ROOT/"governance/domain-maturity-status.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(ledger["domains"]), 8)
+        self.assertEqual(len(ledger["domains"]), 9)
         self.assertTrue(all(d["maturity"] == "controlled pilot" and d["l4"] == "not_passed" and d["authorized_real_cases"] == 0 for d in ledger["domains"]))
         for domain in ledger["domains"][:5]:
             replay = ROOT/domain["replay_manifest"]
@@ -69,7 +69,7 @@ class ImpactGovernance(unittest.TestCase):
         self.assertIn("requirements-dev.txt", handoff_consumers)
         self.assertIn(workflow, handoff_consumers)
 
-    def test_all_eight_domain_entrypoints_execute_shared_contract(self):
+    def test_all_nine_domain_entrypoints_execute_shared_contract(self):
         payload = {"mode":"single", "decision_type":"content_creative", "decision_owner":"video-link-breakdown",
                    "participating_skills":["video-link-breakdown"], "runtime_versions":{"video-link-breakdown":"VLB-2026.10"},
                    "participant_results":{"video-link-breakdown":{"status":"contributed"}},
@@ -79,7 +79,7 @@ class ImpactGovernance(unittest.TestCase):
                    "claims":[{"id":"C1","producer_skill":"video-link-breakdown","claim_domain":"content_creative","state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[],"required_calculation_ids":[],"unresolved_redlines":[],"adjustments":[]}
         with tempfile.TemporaryDirectory() as td:
             path = Path(td) / "contract.json"; path.write_text(json.dumps(payload), encoding="utf-8")
-            for skill in ["category-investment-decision","competitive-intelligence-monitoring","video-link-breakdown","consumer-insights-customer-growth","advertising-analysis-measurement-optimization","logistics-inventory-fulfillment-decision","platform-store-listing-conversion","creator-affiliate-partnership-management"]:
+            for skill in ["category-investment-decision","competitive-intelligence-monitoring","video-link-breakdown","consumer-insights-customer-growth","advertising-analysis-measurement-optimization","logistics-inventory-fulfillment-decision","platform-store-listing-conversion","creator-affiliate-partnership-management","marketing-brand-campaign-management"]:
                 result = subprocess.run(["python3", str(ROOT/skill/"scripts/validate_decision_contract.py"), str(path)], capture_output=True, text=True)
                 self.assertEqual(result.returncode, 0, (skill, result.stderr))
 

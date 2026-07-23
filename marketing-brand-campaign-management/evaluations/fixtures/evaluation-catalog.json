@@ -1,0 +1,6457 @@
+{
+  "schema_version": "1.0",
+  "runtime": "MBCM-2026.01",
+  "counts": {
+    "standalone": 36,
+    "cross_skill": 28,
+    "multi_turn": 20,
+    "extreme": 16,
+    "property": 12,
+    "adversarial": 8
+  },
+  "total": 120,
+  "high_risk_combinations": [
+    "discount_without_incrementality",
+    "brand_spend_without_loss_boundary",
+    "launch_without_gtm_gate",
+    "campaign_without_capacity",
+    "attribution_as_causality",
+    "clearance_without_brand_redline",
+    "channel_conflict_without_owner",
+    "mixed_currency_aggregation",
+    "stale_version_execution",
+    "missing_rights_for_asset",
+    "inventory_shortfall_during_scale",
+    "fraud_signal_during_offer",
+    "negative_marginal_return_scale",
+    "unknown_platform_high_commitment",
+    "incident_with_external_write",
+    "exit_with_residual_liability"
+  ],
+  "coverage": {
+    "scenarios": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13"
+    ],
+    "questions": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13"
+    ],
+    "lifecycles": [
+      "L0",
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L6",
+      "L7",
+      "L8"
+    ],
+    "gates": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8"
+    ],
+    "platforms": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9"
+    ],
+    "categories": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9"
+    ],
+    "operating_modes": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8"
+    ],
+    "states": [
+      "escalate",
+      "hold",
+      "inconclusive",
+      "proceed",
+      "reduce",
+      "repair",
+      "stop",
+      "test"
+    ],
+    "stress_levels": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6"
+    ],
+    "estimation_methods": [
+      "adstock_saturation",
+      "bootstrap_monte_carlo",
+      "cohort_clv",
+      "did",
+      "incident_recovery",
+      "itt_cace",
+      "offer_elasticity",
+      "power_mde",
+      "seasonality_competition",
+      "synthetic_control"
+    ]
+  },
+  "cases": [
+    {
+      "id": "MBCM-ST-001",
+      "mode": "standalone",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M1",
+      "primary_gate": "G0",
+      "expected_state": "proceed",
+      "estimation_method": "power_mde",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L0:P1:C1:M1:G0:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-002",
+      "mode": "standalone",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M4",
+      "primary_gate": "G7",
+      "expected_state": "repair",
+      "estimation_method": "did",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L1:P3:C5:M4:G7:repair",
+      "decision_input": {
+        "object_id": "OBJECT-02",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-003",
+      "mode": "standalone",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M7",
+      "primary_gate": "G5",
+      "expected_state": "escalate",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L2:P5:C9:M7:G5:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-03",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-004",
+      "mode": "standalone",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M2",
+      "primary_gate": "G3",
+      "expected_state": "test",
+      "estimation_method": "itt_cace",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S04:Q03:L3:P7:C4:M2:G3:test",
+      "decision_input": {
+        "object_id": "OBJECT-04",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-005",
+      "mode": "standalone",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M5",
+      "primary_gate": "G1",
+      "expected_state": "reduce",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S05:Q08:L4:P9:C8:M5:G1:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-05",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-006",
+      "mode": "standalone",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M8",
+      "primary_gate": "G8",
+      "expected_state": "inconclusive",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S06:Q13:L5:P2:C3:M8:G8:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-06",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-007",
+      "mode": "standalone",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M3",
+      "primary_gate": "G6",
+      "expected_state": "hold",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S07:Q05:L6:P4:C7:M3:G6:hold",
+      "decision_input": {
+        "object_id": "OBJECT-07",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-008",
+      "mode": "standalone",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M6",
+      "primary_gate": "G4",
+      "expected_state": "stop",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S08:Q10:L7:P6:C2:M6:G4:stop",
+      "decision_input": {
+        "object_id": "OBJECT-08",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-009",
+      "mode": "standalone",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M1",
+      "primary_gate": "G2",
+      "expected_state": "proceed",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S09:Q02:L8:P8:C6:M1:G2:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-09",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-010",
+      "mode": "standalone",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M4",
+      "primary_gate": "G0",
+      "expected_state": "repair",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S10:Q07:L0:P1:C1:M4:G0:repair",
+      "decision_input": {
+        "object_id": "OBJECT-10",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-011",
+      "mode": "standalone",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M7",
+      "primary_gate": "G7",
+      "expected_state": "escalate",
+      "estimation_method": "power_mde",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S11:Q12:L1:P3:C5:M7:G7:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-11",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-012",
+      "mode": "standalone",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M2",
+      "primary_gate": "G5",
+      "expected_state": "test",
+      "estimation_method": "did",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S12:Q04:L2:P5:C9:M2:G5:test",
+      "decision_input": {
+        "object_id": "OBJECT-12",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-013",
+      "mode": "standalone",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M5",
+      "primary_gate": "G3",
+      "expected_state": "reduce",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S13:Q09:L3:P7:C4:M5:G3:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-13",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-014",
+      "mode": "standalone",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M8",
+      "primary_gate": "G1",
+      "expected_state": "inconclusive",
+      "estimation_method": "itt_cace",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L4:P9:C8:M8:G1:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-14",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-015",
+      "mode": "standalone",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M3",
+      "primary_gate": "G8",
+      "expected_state": "hold",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L5:P2:C3:M3:G8:hold",
+      "decision_input": {
+        "object_id": "OBJECT-15",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-016",
+      "mode": "standalone",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M6",
+      "primary_gate": "G6",
+      "expected_state": "stop",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L6:P4:C7:M6:G6:stop",
+      "decision_input": {
+        "object_id": "OBJECT-16",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-017",
+      "mode": "standalone",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M1",
+      "primary_gate": "G4",
+      "expected_state": "proceed",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S04:Q03:L7:P6:C2:M1:G4:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-17",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-018",
+      "mode": "standalone",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M4",
+      "primary_gate": "G2",
+      "expected_state": "repair",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S05:Q08:L8:P8:C6:M4:G2:repair",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-019",
+      "mode": "standalone",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M7",
+      "primary_gate": "G0",
+      "expected_state": "escalate",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S06:Q13:L0:P1:C1:M7:G0:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-02",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-020",
+      "mode": "standalone",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M2",
+      "primary_gate": "G7",
+      "expected_state": "test",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S07:Q05:L1:P3:C5:M2:G7:test",
+      "decision_input": {
+        "object_id": "OBJECT-03",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-021",
+      "mode": "standalone",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M5",
+      "primary_gate": "G5",
+      "expected_state": "reduce",
+      "estimation_method": "power_mde",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S08:Q10:L2:P5:C9:M5:G5:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-04",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-022",
+      "mode": "standalone",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M8",
+      "primary_gate": "G3",
+      "expected_state": "inconclusive",
+      "estimation_method": "did",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S09:Q02:L3:P7:C4:M8:G3:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-05",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-023",
+      "mode": "standalone",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M3",
+      "primary_gate": "G1",
+      "expected_state": "hold",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S10:Q07:L4:P9:C8:M3:G1:hold",
+      "decision_input": {
+        "object_id": "OBJECT-06",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-024",
+      "mode": "standalone",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M6",
+      "primary_gate": "G8",
+      "expected_state": "stop",
+      "estimation_method": "itt_cace",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S11:Q12:L5:P2:C3:M6:G8:stop",
+      "decision_input": {
+        "object_id": "OBJECT-07",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-025",
+      "mode": "standalone",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M1",
+      "primary_gate": "G6",
+      "expected_state": "proceed",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S12:Q04:L6:P4:C7:M1:G6:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-08",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-026",
+      "mode": "standalone",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M4",
+      "primary_gate": "G4",
+      "expected_state": "repair",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S13:Q09:L7:P6:C2:M4:G4:repair",
+      "decision_input": {
+        "object_id": "OBJECT-09",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-027",
+      "mode": "standalone",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M7",
+      "primary_gate": "G2",
+      "expected_state": "escalate",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L8:P8:C6:M7:G2:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-10",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-028",
+      "mode": "standalone",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M2",
+      "primary_gate": "G0",
+      "expected_state": "test",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L0:P1:C1:M2:G0:test",
+      "decision_input": {
+        "object_id": "OBJECT-11",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-029",
+      "mode": "standalone",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M5",
+      "primary_gate": "G7",
+      "expected_state": "reduce",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L1:P3:C5:M5:G7:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-12",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-030",
+      "mode": "standalone",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M8",
+      "primary_gate": "G5",
+      "expected_state": "inconclusive",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S04:Q03:L2:P5:C9:M8:G5:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-13",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-031",
+      "mode": "standalone",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M3",
+      "primary_gate": "G3",
+      "expected_state": "hold",
+      "estimation_method": "power_mde",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S05:Q08:L3:P7:C4:M3:G3:hold",
+      "decision_input": {
+        "object_id": "OBJECT-14",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-032",
+      "mode": "standalone",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M6",
+      "primary_gate": "G1",
+      "expected_state": "stop",
+      "estimation_method": "did",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S06:Q13:L4:P9:C8:M6:G1:stop",
+      "decision_input": {
+        "object_id": "OBJECT-15",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-033",
+      "mode": "standalone",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M1",
+      "primary_gate": "G8",
+      "expected_state": "proceed",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S07:Q05:L5:P2:C3:M1:G8:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-16",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-034",
+      "mode": "standalone",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M4",
+      "primary_gate": "G6",
+      "expected_state": "repair",
+      "estimation_method": "itt_cace",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S08:Q10:L6:P4:C7:M4:G6:repair",
+      "decision_input": {
+        "object_id": "OBJECT-17",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-035",
+      "mode": "standalone",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M7",
+      "primary_gate": "G4",
+      "expected_state": "escalate",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S09:Q02:L7:P6:C2:M7:G4:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-ST-036",
+      "mode": "standalone",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M2",
+      "primary_gate": "G2",
+      "expected_state": "test",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S10:Q07:L8:P8:C6:M2:G2:test",
+      "decision_input": {
+        "object_id": "OBJECT-02",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-001",
+      "mode": "cross_skill",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M5",
+      "primary_gate": "G0",
+      "expected_state": "reduce",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "participants": [
+        "CAPM",
+        "CIDM"
+      ],
+      "mechanism": "S11:Q12:L0:P1:C1:M5:G0:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-03",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-002",
+      "mode": "cross_skill",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M8",
+      "primary_gate": "G7",
+      "expected_state": "inconclusive",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIM",
+        "VLB"
+      ],
+      "mechanism": "S12:Q04:L1:P3:C5:M8:G7:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-04",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-003",
+      "mode": "cross_skill",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M3",
+      "primary_gate": "G5",
+      "expected_state": "hold",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIG",
+        "LIFD"
+      ],
+      "mechanism": "S13:Q09:L2:P5:C9:M3:G5:hold",
+      "decision_input": {
+        "object_id": "OBJECT-05",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-004",
+      "mode": "cross_skill",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M6",
+      "primary_gate": "G3",
+      "expected_state": "stop",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "participants": [
+        "D05",
+        "PLCO"
+      ],
+      "mechanism": "S01:Q01:L3:P7:C4:M6:G3:stop",
+      "decision_input": {
+        "object_id": "OBJECT-06",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-005",
+      "mode": "cross_skill",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M1",
+      "primary_gate": "G1",
+      "expected_state": "proceed",
+      "estimation_method": "power_mde",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "participants": [
+        "AAMO",
+        "D06"
+      ],
+      "mechanism": "S02:Q06:L4:P9:C8:M1:G1:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-07",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-006",
+      "mode": "cross_skill",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M4",
+      "primary_gate": "G8",
+      "expected_state": "repair",
+      "estimation_method": "did",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "participants": [
+        "CAPM",
+        "D14"
+      ],
+      "mechanism": "S03:Q11:L5:P2:C3:M4:G8:repair",
+      "decision_input": {
+        "object_id": "OBJECT-08",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-007",
+      "mode": "cross_skill",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M7",
+      "primary_gate": "G6",
+      "expected_state": "escalate",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "participants": [
+        "F01",
+        "VLB"
+      ],
+      "mechanism": "S04:Q03:L6:P4:C7:M7:G6:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-09",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-008",
+      "mode": "cross_skill",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M2",
+      "primary_gate": "G4",
+      "expected_state": "test",
+      "estimation_method": "itt_cace",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIDM",
+        "CIG"
+      ],
+      "mechanism": "S05:Q08:L7:P6:C2:M2:G4:test",
+      "decision_input": {
+        "object_id": "OBJECT-10",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-009",
+      "mode": "cross_skill",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M5",
+      "primary_gate": "G2",
+      "expected_state": "reduce",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIM",
+        "D05"
+      ],
+      "mechanism": "S06:Q13:L8:P8:C6:M5:G2:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-11",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-010",
+      "mode": "cross_skill",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M8",
+      "primary_gate": "G0",
+      "expected_state": "inconclusive",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "participants": [
+        "D06",
+        "LIFD"
+      ],
+      "mechanism": "S07:Q05:L0:P1:C1:M8:G0:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-12",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-011",
+      "mode": "cross_skill",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M3",
+      "primary_gate": "G7",
+      "expected_state": "hold",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "participants": [
+        "D14",
+        "PLCO"
+      ],
+      "mechanism": "S08:Q10:L1:P3:C5:M3:G7:hold",
+      "decision_input": {
+        "object_id": "OBJECT-13",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-012",
+      "mode": "cross_skill",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M6",
+      "primary_gate": "G5",
+      "expected_state": "stop",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "participants": [
+        "AAMO",
+        "F01"
+      ],
+      "mechanism": "S09:Q02:L2:P5:C9:M6:G5:stop",
+      "decision_input": {
+        "object_id": "OBJECT-14",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-013",
+      "mode": "cross_skill",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M1",
+      "primary_gate": "G3",
+      "expected_state": "proceed",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "participants": [
+        "CAPM",
+        "CIDM"
+      ],
+      "mechanism": "S10:Q07:L3:P7:C4:M1:G3:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-15",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-014",
+      "mode": "cross_skill",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M4",
+      "primary_gate": "G1",
+      "expected_state": "repair",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIM",
+        "VLB"
+      ],
+      "mechanism": "S11:Q12:L4:P9:C8:M4:G1:repair",
+      "decision_input": {
+        "object_id": "OBJECT-16",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-015",
+      "mode": "cross_skill",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M7",
+      "primary_gate": "G8",
+      "expected_state": "escalate",
+      "estimation_method": "power_mde",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIG",
+        "LIFD"
+      ],
+      "mechanism": "S12:Q04:L5:P2:C3:M7:G8:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-17",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-016",
+      "mode": "cross_skill",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M2",
+      "primary_gate": "G6",
+      "expected_state": "test",
+      "estimation_method": "did",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "participants": [
+        "D05",
+        "PLCO"
+      ],
+      "mechanism": "S13:Q09:L6:P4:C7:M2:G6:test",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-017",
+      "mode": "cross_skill",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M5",
+      "primary_gate": "G4",
+      "expected_state": "reduce",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "participants": [
+        "AAMO",
+        "D06"
+      ],
+      "mechanism": "S01:Q01:L7:P6:C2:M5:G4:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-02",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-018",
+      "mode": "cross_skill",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M8",
+      "primary_gate": "G2",
+      "expected_state": "inconclusive",
+      "estimation_method": "itt_cace",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "participants": [
+        "CAPM",
+        "D14"
+      ],
+      "mechanism": "S02:Q06:L8:P8:C6:M8:G2:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-03",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-019",
+      "mode": "cross_skill",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M3",
+      "primary_gate": "G0",
+      "expected_state": "hold",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "participants": [
+        "F01",
+        "VLB"
+      ],
+      "mechanism": "S03:Q11:L0:P1:C1:M3:G0:hold",
+      "decision_input": {
+        "object_id": "OBJECT-04",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-020",
+      "mode": "cross_skill",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M6",
+      "primary_gate": "G7",
+      "expected_state": "stop",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIDM",
+        "CIG"
+      ],
+      "mechanism": "S04:Q03:L1:P3:C5:M6:G7:stop",
+      "decision_input": {
+        "object_id": "OBJECT-05",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-021",
+      "mode": "cross_skill",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M1",
+      "primary_gate": "G5",
+      "expected_state": "proceed",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIM",
+        "D05"
+      ],
+      "mechanism": "S05:Q08:L2:P5:C9:M1:G5:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-06",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-022",
+      "mode": "cross_skill",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M4",
+      "primary_gate": "G3",
+      "expected_state": "repair",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "participants": [
+        "D06",
+        "LIFD"
+      ],
+      "mechanism": "S06:Q13:L3:P7:C4:M4:G3:repair",
+      "decision_input": {
+        "object_id": "OBJECT-07",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-023",
+      "mode": "cross_skill",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M7",
+      "primary_gate": "G1",
+      "expected_state": "escalate",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "participants": [
+        "D14",
+        "PLCO"
+      ],
+      "mechanism": "S07:Q05:L4:P9:C8:M7:G1:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-08",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-024",
+      "mode": "cross_skill",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M2",
+      "primary_gate": "G8",
+      "expected_state": "test",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "participants": [
+        "AAMO",
+        "F01"
+      ],
+      "mechanism": "S08:Q10:L5:P2:C3:M2:G8:test",
+      "decision_input": {
+        "object_id": "OBJECT-09",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-025",
+      "mode": "cross_skill",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M5",
+      "primary_gate": "G6",
+      "expected_state": "reduce",
+      "estimation_method": "power_mde",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "participants": [
+        "CAPM",
+        "CIDM"
+      ],
+      "mechanism": "S09:Q02:L6:P4:C7:M5:G6:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-10",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-026",
+      "mode": "cross_skill",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M8",
+      "primary_gate": "G4",
+      "expected_state": "inconclusive",
+      "estimation_method": "did",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIM",
+        "VLB"
+      ],
+      "mechanism": "S10:Q07:L7:P6:C2:M8:G4:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-11",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-027",
+      "mode": "cross_skill",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M3",
+      "primary_gate": "G2",
+      "expected_state": "hold",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "participants": [
+        "CIG",
+        "LIFD"
+      ],
+      "mechanism": "S11:Q12:L8:P8:C6:M3:G2:hold",
+      "decision_input": {
+        "object_id": "OBJECT-12",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-CR-028",
+      "mode": "cross_skill",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M6",
+      "primary_gate": "G0",
+      "expected_state": "stop",
+      "estimation_method": "itt_cace",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "participants": [
+        "D05",
+        "PLCO"
+      ],
+      "mechanism": "S12:Q04:L0:P1:C1:M6:G0:stop",
+      "decision_input": {
+        "object_id": "OBJECT-13",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      }
+    },
+    {
+      "id": "MBCM-MU-001",
+      "mode": "multi_turn",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M1",
+      "primary_gate": "G7",
+      "expected_state": "proceed",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S13:Q09:L1:P3:C5:M1:G7:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-14",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-002",
+      "mode": "multi_turn",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M4",
+      "primary_gate": "G5",
+      "expected_state": "repair",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L2:P5:C9:M4:G5:repair",
+      "decision_input": {
+        "object_id": "OBJECT-15",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-003",
+      "mode": "multi_turn",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M7",
+      "primary_gate": "G3",
+      "expected_state": "escalate",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L3:P7:C4:M7:G3:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-16",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-004",
+      "mode": "multi_turn",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M2",
+      "primary_gate": "G1",
+      "expected_state": "test",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L4:P9:C8:M2:G1:test",
+      "decision_input": {
+        "object_id": "OBJECT-17",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-005",
+      "mode": "multi_turn",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M5",
+      "primary_gate": "G8",
+      "expected_state": "reduce",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S04:Q03:L5:P2:C3:M5:G8:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-006",
+      "mode": "multi_turn",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M8",
+      "primary_gate": "G6",
+      "expected_state": "inconclusive",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S05:Q08:L6:P4:C7:M8:G6:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-02",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-007",
+      "mode": "multi_turn",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M3",
+      "primary_gate": "G4",
+      "expected_state": "hold",
+      "estimation_method": "power_mde",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S06:Q13:L7:P6:C2:M3:G4:hold",
+      "decision_input": {
+        "object_id": "OBJECT-03",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-008",
+      "mode": "multi_turn",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M6",
+      "primary_gate": "G2",
+      "expected_state": "stop",
+      "estimation_method": "did",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S07:Q05:L8:P8:C6:M6:G2:stop",
+      "decision_input": {
+        "object_id": "OBJECT-04",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-009",
+      "mode": "multi_turn",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M1",
+      "primary_gate": "G0",
+      "expected_state": "proceed",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S08:Q10:L0:P1:C1:M1:G0:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-05",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-010",
+      "mode": "multi_turn",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M4",
+      "primary_gate": "G7",
+      "expected_state": "repair",
+      "estimation_method": "itt_cace",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S09:Q02:L1:P3:C5:M4:G7:repair",
+      "decision_input": {
+        "object_id": "OBJECT-06",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-011",
+      "mode": "multi_turn",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M7",
+      "primary_gate": "G5",
+      "expected_state": "escalate",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S10:Q07:L2:P5:C9:M7:G5:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-07",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-012",
+      "mode": "multi_turn",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M2",
+      "primary_gate": "G3",
+      "expected_state": "test",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S11:Q12:L3:P7:C4:M2:G3:test",
+      "decision_input": {
+        "object_id": "OBJECT-08",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-013",
+      "mode": "multi_turn",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M5",
+      "primary_gate": "G1",
+      "expected_state": "reduce",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S12:Q04:L4:P9:C8:M5:G1:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-09",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-014",
+      "mode": "multi_turn",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M8",
+      "primary_gate": "G8",
+      "expected_state": "inconclusive",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S13:Q09:L5:P2:C3:M8:G8:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-10",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-015",
+      "mode": "multi_turn",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M3",
+      "primary_gate": "G6",
+      "expected_state": "hold",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L6:P4:C7:M3:G6:hold",
+      "decision_input": {
+        "object_id": "OBJECT-11",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-016",
+      "mode": "multi_turn",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M6",
+      "primary_gate": "G4",
+      "expected_state": "stop",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L7:P6:C2:M6:G4:stop",
+      "decision_input": {
+        "object_id": "OBJECT-12",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-017",
+      "mode": "multi_turn",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M1",
+      "primary_gate": "G2",
+      "expected_state": "proceed",
+      "estimation_method": "power_mde",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L8:P8:C6:M1:G2:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-13",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-018",
+      "mode": "multi_turn",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M4",
+      "primary_gate": "G0",
+      "expected_state": "repair",
+      "estimation_method": "did",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S04:Q03:L0:P1:C1:M4:G0:repair",
+      "decision_input": {
+        "object_id": "OBJECT-14",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-019",
+      "mode": "multi_turn",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M7",
+      "primary_gate": "G7",
+      "expected_state": "escalate",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S05:Q08:L1:P3:C5:M7:G7:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-15",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_5"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-MU-020",
+      "mode": "multi_turn",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M2",
+      "primary_gate": "G5",
+      "expected_state": "test",
+      "estimation_method": "itt_cace",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S06:Q13:L2:P5:C9:M2:G5:test",
+      "decision_input": {
+        "object_id": "OBJECT-16",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "change": "clarify_object",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_6"
+          ]
+        },
+        {
+          "turn": 2,
+          "change": "correct_price_or_cost",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_0"
+          ]
+        },
+        {
+          "turn": 3,
+          "change": "new_participant_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_1"
+          ]
+        },
+        {
+          "turn": 4,
+          "change": "execution_version_changes",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_2"
+          ]
+        },
+        {
+          "turn": 5,
+          "change": "early_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_3"
+          ]
+        },
+        {
+          "turn": 6,
+          "change": "mature_result_arrives",
+          "must_preserve": [
+            "object_id",
+            "constraints"
+          ],
+          "must_recompute": [
+            "node_4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MBCM-EX-001",
+      "mode": "extreme",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M5",
+      "primary_gate": "G3",
+      "expected_state": "reduce",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S07:Q05:L3:P7:C4:M5:G3:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-17",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I05"
+    },
+    {
+      "id": "MBCM-EX-002",
+      "mode": "extreme",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M8",
+      "primary_gate": "G1",
+      "expected_state": "inconclusive",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S08:Q10:L4:P9:C8:M8:G1:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I06"
+    },
+    {
+      "id": "MBCM-EX-003",
+      "mode": "extreme",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M3",
+      "primary_gate": "G8",
+      "expected_state": "hold",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S09:Q02:L5:P2:C3:M3:G8:hold",
+      "decision_input": {
+        "object_id": "OBJECT-02",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I07"
+    },
+    {
+      "id": "MBCM-EX-004",
+      "mode": "extreme",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M6",
+      "primary_gate": "G6",
+      "expected_state": "stop",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S10:Q07:L6:P4:C7:M6:G6:stop",
+      "decision_input": {
+        "object_id": "OBJECT-03",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I08"
+    },
+    {
+      "id": "MBCM-EX-005",
+      "mode": "extreme",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M1",
+      "primary_gate": "G4",
+      "expected_state": "proceed",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S11:Q12:L7:P6:C2:M1:G4:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-04",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I09"
+    },
+    {
+      "id": "MBCM-EX-006",
+      "mode": "extreme",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M4",
+      "primary_gate": "G2",
+      "expected_state": "repair",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S12:Q04:L8:P8:C6:M4:G2:repair",
+      "decision_input": {
+        "object_id": "OBJECT-05",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I10"
+    },
+    {
+      "id": "MBCM-EX-007",
+      "mode": "extreme",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M7",
+      "primary_gate": "G0",
+      "expected_state": "escalate",
+      "estimation_method": "power_mde",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S13:Q09:L0:P1:C1:M7:G0:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-06",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I01"
+    },
+    {
+      "id": "MBCM-EX-008",
+      "mode": "extreme",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M2",
+      "primary_gate": "G7",
+      "expected_state": "test",
+      "estimation_method": "did",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L1:P3:C5:M2:G7:test",
+      "decision_input": {
+        "object_id": "OBJECT-07",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I02"
+    },
+    {
+      "id": "MBCM-EX-009",
+      "mode": "extreme",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M5",
+      "primary_gate": "G5",
+      "expected_state": "reduce",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L2:P5:C9:M5:G5:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-08",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I03"
+    },
+    {
+      "id": "MBCM-EX-010",
+      "mode": "extreme",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M8",
+      "primary_gate": "G3",
+      "expected_state": "inconclusive",
+      "estimation_method": "itt_cace",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L3:P7:C4:M8:G3:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-09",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I04"
+    },
+    {
+      "id": "MBCM-EX-011",
+      "mode": "extreme",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M3",
+      "primary_gate": "G1",
+      "expected_state": "hold",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S04:Q03:L4:P9:C8:M3:G1:hold",
+      "decision_input": {
+        "object_id": "OBJECT-10",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I05"
+    },
+    {
+      "id": "MBCM-EX-012",
+      "mode": "extreme",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M6",
+      "primary_gate": "G8",
+      "expected_state": "stop",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S05:Q08:L5:P2:C3:M6:G8:stop",
+      "decision_input": {
+        "object_id": "OBJECT-11",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I06"
+    },
+    {
+      "id": "MBCM-EX-013",
+      "mode": "extreme",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M1",
+      "primary_gate": "G6",
+      "expected_state": "proceed",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S06:Q13:L6:P4:C7:M1:G6:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-12",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I07"
+    },
+    {
+      "id": "MBCM-EX-014",
+      "mode": "extreme",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M4",
+      "primary_gate": "G4",
+      "expected_state": "repair",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S07:Q05:L7:P6:C2:M4:G4:repair",
+      "decision_input": {
+        "object_id": "OBJECT-13",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I08"
+    },
+    {
+      "id": "MBCM-EX-015",
+      "mode": "extreme",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M7",
+      "primary_gate": "G2",
+      "expected_state": "escalate",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S08:Q10:L8:P8:C6:M7:G2:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-14",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I09"
+    },
+    {
+      "id": "MBCM-EX-016",
+      "mode": "extreme",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M2",
+      "primary_gate": "G0",
+      "expected_state": "test",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S09:Q02:L0:P1:C1:M2:G0:test",
+      "decision_input": {
+        "object_id": "OBJECT-15",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "incident": "I10"
+    },
+    {
+      "id": "MBCM-PR-001",
+      "mode": "property",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M5",
+      "primary_gate": "G7",
+      "expected_state": "reduce",
+      "estimation_method": "power_mde",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S10:Q07:L1:P3:C5:M5:G7:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-16",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "monotonicity"
+    },
+    {
+      "id": "MBCM-PR-002",
+      "mode": "property",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M8",
+      "primary_gate": "G5",
+      "expected_state": "inconclusive",
+      "estimation_method": "did",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S11:Q12:L2:P5:C9:M8:G5:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-17",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "conservation"
+    },
+    {
+      "id": "MBCM-PR-003",
+      "mode": "property",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M3",
+      "primary_gate": "G3",
+      "expected_state": "hold",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S12:Q04:L3:P7:C4:M3:G3:hold",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "unit_guard"
+    },
+    {
+      "id": "MBCM-PR-004",
+      "mode": "property",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M6",
+      "primary_gate": "G1",
+      "expected_state": "stop",
+      "estimation_method": "itt_cace",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S13:Q09:L4:P9:C8:M6:G1:stop",
+      "decision_input": {
+        "object_id": "OBJECT-02",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "version_invariance"
+    },
+    {
+      "id": "MBCM-PR-005",
+      "mode": "property",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M1",
+      "primary_gate": "G8",
+      "expected_state": "proceed",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L5:P2:C3:M1:G8:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-03",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "monotonicity"
+    },
+    {
+      "id": "MBCM-PR-006",
+      "mode": "property",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M4",
+      "primary_gate": "G6",
+      "expected_state": "repair",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L6:P4:C7:M4:G6:repair",
+      "decision_input": {
+        "object_id": "OBJECT-04",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C0",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "conservation"
+    },
+    {
+      "id": "MBCM-PR-007",
+      "mode": "property",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M7",
+      "primary_gate": "G4",
+      "expected_state": "escalate",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L7:P6:C2:M7:G4:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-05",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "unit_guard"
+    },
+    {
+      "id": "MBCM-PR-008",
+      "mode": "property",
+      "scenario": "S04",
+      "question": "Q03",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M2",
+      "primary_gate": "G2",
+      "expected_state": "test",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S04:Q03:L8:P8:C6:M2:G2:test",
+      "decision_input": {
+        "object_id": "OBJECT-06",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "version_invariance"
+    },
+    {
+      "id": "MBCM-PR-009",
+      "mode": "property",
+      "scenario": "S05",
+      "question": "Q08",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M5",
+      "primary_gate": "G0",
+      "expected_state": "reduce",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S05:Q08:L0:P1:C1:M5:G0:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-07",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C3",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "monotonicity"
+    },
+    {
+      "id": "MBCM-PR-010",
+      "mode": "property",
+      "scenario": "S06",
+      "question": "Q13",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M8",
+      "primary_gate": "G7",
+      "expected_state": "inconclusive",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S06:Q13:L1:P3:C5:M8:G7:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-08",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "conservation"
+    },
+    {
+      "id": "MBCM-PR-011",
+      "mode": "property",
+      "scenario": "S07",
+      "question": "Q05",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M3",
+      "primary_gate": "G5",
+      "expected_state": "hold",
+      "estimation_method": "power_mde",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S07:Q05:L2:P5:C9:M3:G5:hold",
+      "decision_input": {
+        "object_id": "OBJECT-09",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "unit_guard"
+    },
+    {
+      "id": "MBCM-PR-012",
+      "mode": "property",
+      "scenario": "S08",
+      "question": "Q10",
+      "lifecycle": "L3",
+      "platform_archetype": "P7",
+      "category_archetype": "C4",
+      "operating_mode": "M6",
+      "primary_gate": "G3",
+      "expected_state": "stop",
+      "estimation_method": "did",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G3 failure cannot be compensated by marketing score",
+      "mechanism": "S08:Q10:L3:P7:C4:M6:G3:stop",
+      "decision_input": {
+        "object_id": "OBJECT-10",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C1",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G3",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "property": "version_invariance"
+    },
+    {
+      "id": "MBCM-AD-001",
+      "mode": "adversarial",
+      "scenario": "S09",
+      "question": "Q02",
+      "lifecycle": "L4",
+      "platform_archetype": "P9",
+      "category_archetype": "C8",
+      "operating_mode": "M1",
+      "primary_gate": "G1",
+      "expected_state": "proceed",
+      "estimation_method": "synthetic_control",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G1 failure cannot be compensated by marketing score",
+      "mechanism": "S09:Q02:L4:P9:C8:M1:G1:proceed",
+      "decision_input": {
+        "object_id": "OBJECT-11",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C2",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "proceed",
+        "primary_gate": "G1",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "partial_failure"
+    },
+    {
+      "id": "MBCM-AD-002",
+      "mode": "adversarial",
+      "scenario": "S10",
+      "question": "Q07",
+      "lifecycle": "L5",
+      "platform_archetype": "P2",
+      "category_archetype": "C3",
+      "operating_mode": "M4",
+      "primary_gate": "G8",
+      "expected_state": "repair",
+      "estimation_method": "itt_cace",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G8 failure cannot be compensated by marketing score",
+      "mechanism": "S10:Q07:L5:P2:C3:M4:G8:repair",
+      "decision_input": {
+        "object_id": "OBJECT-12",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "repair",
+        "primary_gate": "G8",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "l4_fraud"
+    },
+    {
+      "id": "MBCM-AD-003",
+      "mode": "adversarial",
+      "scenario": "S11",
+      "question": "Q12",
+      "lifecycle": "L6",
+      "platform_archetype": "P4",
+      "category_archetype": "C7",
+      "operating_mode": "M7",
+      "primary_gate": "G6",
+      "expected_state": "escalate",
+      "estimation_method": "bootstrap_monte_carlo",
+      "stress_level": "T1",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G6 failure cannot be compensated by marketing score",
+      "mechanism": "S11:Q12:L6:P4:C7:M7:G6:escalate",
+      "decision_input": {
+        "object_id": "OBJECT-13",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C4",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "escalate",
+        "primary_gate": "G6",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "fabricated_data"
+    },
+    {
+      "id": "MBCM-AD-004",
+      "mode": "adversarial",
+      "scenario": "S12",
+      "question": "Q04",
+      "lifecycle": "L7",
+      "platform_archetype": "P6",
+      "category_archetype": "C2",
+      "operating_mode": "M2",
+      "primary_gate": "G4",
+      "expected_state": "test",
+      "estimation_method": "offer_elasticity",
+      "stress_level": "T2",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G4 failure cannot be compensated by marketing score",
+      "mechanism": "S12:Q04:L7:P6:C2:M2:G4:test",
+      "decision_input": {
+        "object_id": "OBJECT-14",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C0",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "test",
+        "primary_gate": "G4",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "sovereignty"
+    },
+    {
+      "id": "MBCM-AD-005",
+      "mode": "adversarial",
+      "scenario": "S13",
+      "question": "Q09",
+      "lifecycle": "L8",
+      "platform_archetype": "P8",
+      "category_archetype": "C6",
+      "operating_mode": "M5",
+      "primary_gate": "G2",
+      "expected_state": "reduce",
+      "estimation_method": "adstock_saturation",
+      "stress_level": "T3",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G2 failure cannot be compensated by marketing score",
+      "mechanism": "S13:Q09:L8:P8:C6:M5:G2:reduce",
+      "decision_input": {
+        "object_id": "OBJECT-15",
+        "object_version": "v1",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ0",
+        "claim_level": "C1",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "reduce",
+        "primary_gate": "G2",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "version_pollution"
+    },
+    {
+      "id": "MBCM-AD-006",
+      "mode": "adversarial",
+      "scenario": "S01",
+      "question": "Q01",
+      "lifecycle": "L0",
+      "platform_archetype": "P1",
+      "category_archetype": "C1",
+      "operating_mode": "M8",
+      "primary_gate": "G0",
+      "expected_state": "inconclusive",
+      "estimation_method": "cohort_clv",
+      "stress_level": "T4",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G0 failure cannot be compensated by marketing score",
+      "mechanism": "S01:Q01:L0:P1:C1:M8:G0:inconclusive",
+      "decision_input": {
+        "object_id": "OBJECT-16",
+        "object_version": "v2",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ1",
+        "claim_level": "C2",
+        "reversibility": "partially_reversible"
+      },
+      "expected_assertions": {
+        "state": "inconclusive",
+        "primary_gate": "G0",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "hallucinated_rule"
+    },
+    {
+      "id": "MBCM-AD-007",
+      "mode": "adversarial",
+      "scenario": "S02",
+      "question": "Q06",
+      "lifecycle": "L1",
+      "platform_archetype": "P3",
+      "category_archetype": "C5",
+      "operating_mode": "M3",
+      "primary_gate": "G7",
+      "expected_state": "hold",
+      "estimation_method": "seasonality_competition",
+      "stress_level": "T5",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G7 failure cannot be compensated by marketing score",
+      "mechanism": "S02:Q06:L1:P3:C5:M3:G7:hold",
+      "decision_input": {
+        "object_id": "OBJECT-17",
+        "object_version": "v3",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ2",
+        "claim_level": "C3",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "hold",
+        "primary_gate": "G7",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "partial_failure"
+    },
+    {
+      "id": "MBCM-AD-008",
+      "mode": "adversarial",
+      "scenario": "S03",
+      "question": "Q11",
+      "lifecycle": "L2",
+      "platform_archetype": "P5",
+      "category_archetype": "C9",
+      "operating_mode": "M6",
+      "primary_gate": "G5",
+      "expected_state": "stop",
+      "estimation_method": "incident_recovery",
+      "stress_level": "T6",
+      "must": [
+        "object_version",
+        "evidence_action_ceiling",
+        "action_stop_rollback"
+      ],
+      "forbidden": [
+        "sovereignty_overreach",
+        "attribution_equals_incrementality"
+      ],
+      "failure_assertion": "G5 failure cannot be compensated by marketing score",
+      "mechanism": "S03:Q11:L2:P5:C9:M6:G5:stop",
+      "decision_input": {
+        "object_id": "OBJECT-01",
+        "object_version": "v4",
+        "as_of_time": "2026-07-23T00:00:00+08:00",
+        "dq_level": "DQ3",
+        "claim_level": "C4",
+        "reversibility": "reversible"
+      },
+      "expected_assertions": {
+        "state": "stop",
+        "primary_gate": "G5",
+        "must_preserve_sovereignty": true,
+        "must_include_no_action_candidate": true,
+        "must_include_stop_and_rollback": true
+      },
+      "attack": "l4_fraud"
+    }
+  ]
+}
