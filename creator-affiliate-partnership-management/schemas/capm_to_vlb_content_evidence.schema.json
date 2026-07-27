@@ -1,1 +1,98 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["content_id","creator_id","collaboration_id","content_version","platform","country","published_at","brief_version","required_claims","prohibited_claims","delivery_acceptance","rights_id","performance_observations"],"properties":{"content_id":{"type":"string","minLength":1},"creator_id":{"type":"string","minLength":1},"collaboration_id":{"type":"string","minLength":1},"content_version":{"type":"string","minLength":1},"platform":{"type":"string","minLength":1},"country":{"type":"string","pattern":"^[A-Z]{2}$"},"published_at":{"type":"string","format":"date-time"},"brief_version":{"type":"string","minLength":1},"required_claims":{"type":"array","items":{"type":"string"}},"prohibited_claims":{"type":"array","items":{"type":"string"}},"delivery_acceptance":{"enum":["accepted","revision","rejected","inconclusive"]},"rights_id":{"type":"string","minLength":1},"performance_observations":{"type":"array","items":{"type":"object","required":["traffic_type"],"properties":{"traffic_type":{"enum":["organic","paid","mixed","unknown"]}},"additionalProperties":true}}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "content_id",
+    "creator_id",
+    "collaboration_id",
+    "content_version",
+    "platform",
+    "country",
+    "published_at",
+    "brief_version",
+    "required_claims",
+    "prohibited_claims",
+    "delivery_acceptance",
+    "rights_id",
+    "performance_observations"
+  ],
+  "properties": {
+    "content_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "creator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "collaboration_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "brief_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "required_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "delivery_acceptance": {
+      "enum": [
+        "accepted",
+        "revision",
+        "rejected",
+        "inconclusive"
+      ]
+    },
+    "rights_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "performance_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "traffic_type"
+        ],
+        "properties": {
+          "traffic_type": {
+            "enum": [
+              "organic",
+              "paid",
+              "mixed",
+              "unknown"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -70,6 +70,7 @@ MBCM最终决定：
 - 国家、品类与经营模式校准：[国家合同](references/countries/country-calibration-contract.md)、[品类原型](references/categories/category-archetypes.md)、[模式控制卡](references/operating-modes/operating-mode-control-cards.md)。
 
 需要模块级深挖时，分别读取：[S01](references/modules/s01-segmentation.md)、[S02](references/modules/s02-positioning.md)、[S03](references/modules/s03-brand-architecture.md)、[S04](references/modules/s04-gtm.md)、[S05](references/modules/s05-offer.md)、[S06](references/modules/s06-campaign-calendar.md)、[S07](references/modules/s07-channel.md)、[S08](references/modules/s08-resource.md)、[S09](references/modules/s09-brand-health.md)、[S10](references/modules/s10-incrementality.md)、[S11](references/modules/s11-localization.md)、[S12](references/modules/s12-incident.md)、[S13](references/modules/s13-exit.md)。
+- 任一模块给出数量、区间、压力场景或动作翻转时，同时读取[模块量化、校准与压力合同](references/modules/quantification-and-stress-contract.md)；公式定义不得替代参数来源、识别诊断和情景重算。
 - 对象、血缘、权限与外部写入：读[data-contract-and-automation.md](references/data-contract-and-automation.md)。
 - 报告类型和最低合同：读[professional-report-delivery.md](references/output-protocols/professional-report-delivery.md)。
 
@@ -130,3 +131,6 @@ MBCM最终决定：
 ## 发布门
 
 完成前运行skill quick validation、全部`test_*.py`、120个差异场景及coverage manifest、10类Golden、数学Oracle/性质/变异、多轮连续性、单Skill、真实八Skill包、主权、事故、对抗和全仓回归。自动化通过只称L3 automated gate；L4至少需要3个授权、脱敏、成熟且含实际结果/哈希的异质历史回放，覆盖失败或退出并独立复核，否则保持`controlled pilot`。
+## ERDG 共享治理接入
+
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/marketing-brand-campaign-management/adapter.json` 声明 MBCM 主权；ERDG 失败时不得形成生效动作。

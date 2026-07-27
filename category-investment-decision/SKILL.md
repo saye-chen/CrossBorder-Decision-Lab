@@ -392,3 +392,6 @@ VOC/竞品取证不是独立报告孤岛：高信号发现必须直接连接五�
 ## PLCO 页面执行路由
 
 本 Skill 保留品类/SKU/国家/平台资本姿态、市场需求和投资实验主权。用户进一步要求为我方商品制定或优化标题、主图/图组、详情、落地页、店铺结构、变体、索引或页面转化时，路由 `platform-store-listing-conversion`；可传递关键词、平台/国家、竞品/VOC和上市后证据，但不得把投资评分直接改写为页面方案或转化因果。
+## ERDG 共享治理接入
+
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/category-investment-decision/adapter.json` 声明 CIDM 主权；ERDG 失败时不得形成生效动作。

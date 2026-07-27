@@ -15,3 +15,11 @@
 - 翻转条件：成熟增量贡献下界转正且欺诈、投诉、老客公平通过。
 - 跨域请求：D06给价格/利润底线，CIG给资格，LIFD给容量，PLCO给展示。
 - 输出字段：offer_version、eligibility、full_cost、break_even_rate、abuse_guard、expiry。
+
+## 校准与参数化压力
+
+- 保本增量率必须由本次 Offer 的单位成熟贡献与全核销负担推导，不使用通用经验区间：`required_incremental_rate = total_offer_burden / (redeemed_orders × unit_mature_cm_before_offer)`。
+- 拉前按活动前后对称业务周期的需求缺口估计；蚕食按未促销 SKU/渠道/人群对照差额估计；两者均报告区间并禁止重复扣减。
+- 折扣弹性用同对象多档随机/准随机价格或历史网格估计，做时间外验证、单调性和弱识别检查。
+- T1 提高非增量核销率；T2 同时提高拉前/蚕食并降低单位 CM；T3 加入退款、服务和欺诈 P90；T4 价格/公平/权利 Gate 失败即停。
+- 推荐折扣必须在成熟增量贡献下界为正、最大损失可接受且相邻更深档边际贡献不更优时成立。

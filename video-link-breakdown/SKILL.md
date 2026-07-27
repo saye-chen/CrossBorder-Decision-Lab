@@ -217,3 +217,6 @@ python3 "<skill-dir>/scripts/prepare_video_link.py" "<video-url>" --out "$TASK_D
 ## PLCO 页面执行路由
 
 本 Skill 保留内容机制、脚本、镜头、素材组合、生产和传播判断主权。用户要求决定主图、图组、视频封面或详情素材在页面中的槽位、顺序、承接任务和转化实验时，路由 `platform-store-listing-conversion`；PLCO可产出页面级生产Brief，具体创意机制和素材生产继续由本 Skill 决定。
+## ERDG 共享治理接入
+
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/video-link-breakdown/adapter.json` 声明 VLB 主权；ERDG 失败时不得形成生效动作。

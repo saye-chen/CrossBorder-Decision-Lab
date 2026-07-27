@@ -2,7 +2,7 @@
 import json,subprocess,tempfile,unittest
 from pathlib import Path
 ROOT=Path(__file__).parent
-FIX=ROOT.parent.parent/"evaluations/d07/executable-fixtures.json"
+FIX=ROOT.parent.parent/"logistics-inventory-fulfillment-decision/evaluations/executable-fixtures.json"
 REG=ROOT.parent/"references/expert-scenarios.json"
 
 def pick(obj,path):

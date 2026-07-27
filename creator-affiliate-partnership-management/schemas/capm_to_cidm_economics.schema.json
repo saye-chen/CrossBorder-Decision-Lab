@@ -1,1 +1,60 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["partnership_id","object_version","mature_contribution_low","mature_contribution_mid","mature_contribution_high","cash_trough","causal_evidence_level","calculation_ids","forbidden_uses"],"properties":{"partnership_id":{"type":"string","minLength":1},"object_version":{"type":"string","minLength":1},"mature_contribution_low":{"type":"number"},"mature_contribution_mid":{"type":"number"},"mature_contribution_high":{"type":"number"},"cash_trough":{"type":"number"},"causal_evidence_level":{"enum":["C0","C1","C2","C3"]},"calculation_ids":{"type":"array","minItems":1,"items":{"type":"string"}},"forbidden_uses":{"type":"array","minItems":1,"items":{"type":"string"}}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "partnership_id",
+    "object_version",
+    "mature_contribution_low",
+    "mature_contribution_mid",
+    "mature_contribution_high",
+    "cash_trough",
+    "causal_evidence_level",
+    "calculation_ids",
+    "forbidden_uses"
+  ],
+  "properties": {
+    "partnership_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mature_contribution_low": {
+      "type": "number"
+    },
+    "mature_contribution_mid": {
+      "type": "number"
+    },
+    "mature_contribution_high": {
+      "type": "number"
+    },
+    "cash_trough": {
+      "type": "number"
+    },
+    "causal_evidence_level": {
+      "enum": [
+        "C0",
+        "C1",
+        "C2",
+        "C3"
+      ]
+    },
+    "calculation_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_uses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

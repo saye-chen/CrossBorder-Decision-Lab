@@ -1,1 +1,94 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["report_id","object_id","object_version","as_of_time","input_quality","gate_results","decision","allowed_actions","blocked_actions","success","stop","rollback","exit"],"properties":{"report_id":{"type":"string","minLength":1},"object_id":{"type":"string","minLength":1},"object_version":{"type":"string","minLength":1},"as_of_time":{"type":"string","format":"date-time"},"input_quality":{"enum":["Q0","Q1","Q2","Q3"]},"gate_results":{"type":"object","minProperties":7},"decision":{"type":"string","minLength":1},"allowed_actions":{"type":"array","items":{"type":"string"}},"blocked_actions":{"type":"array","items":{"type":"string"}},"success":{"type":"array","minItems":1,"items":{"type":"string"}},"stop":{"type":"array","minItems":1,"items":{"type":"string"}},"rollback":{"type":"array","minItems":1,"items":{"type":"string"}},"exit":{"type":"array","minItems":1,"items":{"type":"string"}}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "report_id",
+    "object_id",
+    "object_version",
+    "as_of_time",
+    "input_quality",
+    "gate_results",
+    "decision",
+    "allowed_actions",
+    "blocked_actions",
+    "success",
+    "stop",
+    "rollback",
+    "exit"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "as_of_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "input_quality": {
+      "enum": [
+        "Q0",
+        "Q1",
+        "Q2",
+        "Q3"
+      ]
+    },
+    "gate_results": {
+      "type": "object",
+      "minProperties": 7
+    },
+    "decision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "success": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "stop": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "rollback": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "exit": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

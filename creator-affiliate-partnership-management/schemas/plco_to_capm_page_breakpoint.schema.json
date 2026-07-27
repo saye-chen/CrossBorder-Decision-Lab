@@ -1,1 +1,98 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["page_id","page_version","sku","platform","country","traffic_source_context","creator_or_content_id","observation_window","funnel_step","breakpoint_type","diagnostic_status","confounders","evidence_ids","allowed_interpretation","prohibited_interpretation"],"properties":{"page_id":{"type":"string","minLength":1},"page_version":{"type":"string","minLength":1},"sku":{"type":"string","minLength":1},"platform":{"type":"string","minLength":1},"country":{"type":"string","pattern":"^[A-Z]{2}$"},"traffic_source_context":{"type":"string","minLength":1},"creator_or_content_id":{"type":"string","minLength":1},"observation_window":{"type":"object","minProperties":1},"funnel_step":{"type":"string","minLength":1},"breakpoint_type":{"type":"string","minLength":1},"diagnostic_status":{"enum":["validated","estimated","inconclusive","blocked"]},"confounders":{"type":"array","items":{"type":"string"}},"evidence_ids":{"type":"array","minItems":1,"items":{"type":"string"}},"allowed_interpretation":{"type":"array","items":{"type":"string"}},"prohibited_interpretation":{"type":"array","minItems":1,"items":{"type":"string"}}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "page_id",
+    "page_version",
+    "sku",
+    "platform",
+    "country",
+    "traffic_source_context",
+    "creator_or_content_id",
+    "observation_window",
+    "funnel_step",
+    "breakpoint_type",
+    "diagnostic_status",
+    "confounders",
+    "evidence_ids",
+    "allowed_interpretation",
+    "prohibited_interpretation"
+  ],
+  "properties": {
+    "page_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "page_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sku": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "traffic_source_context": {
+      "type": "string",
+      "minLength": 1
+    },
+    "creator_or_content_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observation_window": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "funnel_step": {
+      "type": "string",
+      "minLength": 1
+    },
+    "breakpoint_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "diagnostic_status": {
+      "enum": [
+        "validated",
+        "estimated",
+        "inconclusive",
+        "blocked"
+      ]
+    },
+    "confounders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_interpretation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_interpretation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,21 @@
+{
+  "contract": "ERDG-CAPACITY-1.0",
+  "environment_class": "single-process CI reference",
+  "cash": {
+    "accepted_events": 100000,
+    "hard_event_limit": 100000,
+    "samples": 3,
+    "p95_seconds_max": 5.0,
+    "peak_memory_mib_max": 192.0
+  },
+  "lineage": {
+    "accepted_nodes": 1000,
+    "hard_node_limit": 10000,
+    "hard_edge_limit": 50000,
+    "samples": 5,
+    "p95_seconds_max": 1.0,
+    "peak_memory_mib_max": 32.0
+  },
+  "failure_policy": "fail_closed",
+  "production_slo_claim": false
+}

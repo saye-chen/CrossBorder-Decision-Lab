@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/handoff-envelope/1.0.0",
+  "type": "object",
+  "required": ["message_id", "message_version", "source_domain", "target_domain", "decision_question", "object_ref", "runtime_versions", "allowed_uses", "forbidden_uses", "participant_status", "lineage"],
+  "properties": {
+    "message_id": {"type": "string", "minLength": 1},
+    "message_version": {"type": "string", "minLength": 1},
+    "source_domain": {"type": "string", "minLength": 1},
+    "target_domain": {"type": "string", "minLength": 1},
+    "decision_question": {"type": "string", "minLength": 1},
+    "object_ref": {"type": "object", "required": ["object_id", "object_version"], "properties": {"object_id": {"type": "string", "minLength": 1}, "object_version": {"type": "string", "minLength": 1}}, "additionalProperties": false},
+    "runtime_versions": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "allowed_uses": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "forbidden_uses": {"type": "array", "items": {"type": "string"}},
+    "participant_status": {"enum": ["contributed", "blocked", "inconclusive", "not_required"]},
+    "failure_reason": {"type": "string", "minLength": 1},
+    "lineage": {"type": "object", "required": ["input_hash"], "properties": {"input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}, "additionalProperties": false},
+    "extensions": {"type": "object", "patternProperties": {"^[a-z0-9_-]+:": {}}, "additionalProperties": false}
+  },
+  "additionalProperties": false
+}

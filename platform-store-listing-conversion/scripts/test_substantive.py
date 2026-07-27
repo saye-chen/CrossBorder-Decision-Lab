@@ -20,9 +20,9 @@ from validate_historical_replay import validate as historical
 
 class SubstantivePLCO(unittest.TestCase):
  def test_historical_template_blocks_production(self):
-  p=ROOT/"evaluations/d08/historical-replay-template.json";d=json.loads(p.read_text());r=historical(d,p.parent);self.assertFalse(r["valid"]);self.assertFalse(r["production_ready"]);self.assertIn("authorized_cases_below_minimum:0<3",r["errors"])
+  p=ROOT/"platform-store-listing-conversion/evaluations/historical-replay-template.json";d=json.loads(p.read_text());r=historical(d,p.parent);self.assertFalse(r["valid"]);self.assertFalse(r["production_ready"]);self.assertIn("authorized_cases_below_minimum:0<3",r["errors"])
  def test_100_semantically_named_scenarios(self):
-  with (ROOT/"evaluations/d08/expert-scenarios.tsv").open(encoding="utf-8",newline="") as fh: rows=list(csv.DictReader(fh,delimiter="\t"))
+  with (ROOT/"platform-store-listing-conversion/evaluations/expert-scenarios.tsv").open(encoding="utf-8",newline="") as fh: rows=list(csv.DictReader(fh,delimiter="\t"))
   self.assertEqual(len(rows),100); self.assertEqual(len({r["id"] for r in rows}),100); self.assertEqual({r["group"] for r in rows},{f"S{i:02}" for i in range(1,15)})
   self.assertTrue({"standard","boundary","failure","adversarial"}<={r["mode"] for r in rows}); self.assertEqual(len({r["case"] for r in rows}),100)
  def test_12_platform_cards_have_expert_depth(self):
@@ -30,7 +30,7 @@ class SubstantivePLCO(unittest.TestCase):
   self.assertEqual(len(cards),12)
   for c in cards:
    for f in ("objects","surfaces","diagnostics","incidents","experiments","evidence","forbidden"): self.assertGreaterEqual(len(c[f]),3,(c["platform"],f))
- def test_8_output_goldens(self): self.assertEqual(output_goldens(ROOT/"evaluations/d08/output-goldens")["status"],"pass")
+ def test_8_output_goldens(self): self.assertEqual(output_goldens(ROOT/"platform-store-listing-conversion/evaluations/output-goldens")["status"],"pass")
  def test_6_skill_migration_parity(self): self.assertEqual(migration(ROOT,ROOT/"platform-store-listing-conversion/references/migration-manifest.json")["status"],"pass")
  def test_contract_and_deletion_gate(self):
   x=json.loads((ROOT/"platform-store-listing-conversion/references/golden-expert-report.json").read_text()); self.assertEqual(contract(x)["status"],"pass"); del x["optimization_units"][0]["exact_copy"]; self.assertEqual(contract(x)["status"],"fail")

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/parameter/1.0.0",
+  "type": "object",
+  "required": ["parameter_id", "parameter_type", "owner_domain", "value_or_formula", "scope", "effective_from", "version", "calibration_status", "approval"],
+  "properties": {
+    "parameter_id": {"type": "string", "minLength": 1},
+    "parameter_type": {"enum": ["threshold", "weight", "formula", "redline"]},
+    "owner_domain": {"type": "string", "minLength": 1},
+    "value_or_formula": {},
+    "scope": {"enum": ["global", "combination", "partial", "policy_override"]},
+    "effective_from": {"type": "string", "format": "date-time"},
+    "effective_to": {"type": ["string", "null"], "format": "date-time"},
+    "version": {"type": "string", "minLength": 1},
+    "calibration_status": {"enum": ["default", "synthetic", "real_calibrated", "policy_override"]},
+    "approval": {"type": "object", "required": ["status"], "properties": {"status": {"enum": ["approved", "rejected", "pending"]}, "approver": {"type": "string"}, "approved_at": {"type": "string", "format": "date-time"}}, "additionalProperties": false},
+    "rollback_version": {"type": ["string", "null"]},
+    "maximum_exposure": {"type": ["string", "integer", "null"]},
+    "evidence_level": {"type": ["string", "null"]},
+    "country": {"type": ["string", "null"]},
+    "platform": {"type": ["string", "null"]},
+    "category": {"type": ["string", "null"]},
+    "lifecycle": {"type": ["string", "null"]},
+    "seller_type": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

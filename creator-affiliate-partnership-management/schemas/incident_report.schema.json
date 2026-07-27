@@ -1,1 +1,79 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["incident_id","object_id","severity","detected_at","freeze_scope","uncontested_obligations","evidence_preservation","recovery_sequence","rollback","closure_evidence"],"properties":{"incident_id":{"type":"string","minLength":1},"object_id":{"type":"string","minLength":1},"severity":{"enum":["P0","P1","P2","P3"]},"detected_at":{"type":"string","format":"date-time"},"freeze_scope":{"type":"array","minItems":1,"items":{"type":"string"}},"uncontested_obligations":{"type":"array","items":{"type":"string"}},"evidence_preservation":{"type":"array","minItems":1,"items":{"type":"string"}},"recovery_sequence":{"type":"array","minItems":1,"items":{"type":"string"}},"rollback":{"type":"array","minItems":1,"items":{"type":"string"}},"closure_evidence":{"type":"array","items":{"type":"string"}}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "incident_id",
+    "object_id",
+    "severity",
+    "detected_at",
+    "freeze_scope",
+    "uncontested_obligations",
+    "evidence_preservation",
+    "recovery_sequence",
+    "rollback",
+    "closure_evidence"
+  ],
+  "properties": {
+    "incident_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "detected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "freeze_scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "uncontested_obligations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_preservation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "recovery_sequence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "rollback": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "closure_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

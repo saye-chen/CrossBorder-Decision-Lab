@@ -1,2 +1,3 @@
 # Tested dependency for YAML-form CIDM/VLB handoff fixtures and validators.
 PyYAML==6.0.3
+jsonschema[format]==4.25.1

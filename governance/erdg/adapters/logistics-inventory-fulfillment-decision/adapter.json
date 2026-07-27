@@ -1,0 +1,1 @@
+{"adapter":"logistics-inventory-fulfillment-decision-erdg","version":"1.0.0","runtime_prefix":"LIFD","owned_decision_types":["logistics","inventory","replenishment","fulfillment","reverse_logistics","logistics_incident"],"contract":"ERDG-CONTRACT-2026.01","external_write":false}

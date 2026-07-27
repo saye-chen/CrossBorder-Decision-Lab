@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/object-version/1.0.0",
+  "type": "object",
+  "required": ["object_id", "object_version", "valid_from", "as_of_time", "attributes_hash", "current"],
+  "properties": {
+    "object_id": {"type": "string", "minLength": 1},
+    "object_version": {"type": "string", "minLength": 1},
+    "valid_from": {"type": "string", "format": "date-time"},
+    "valid_to": {"type": ["string", "null"], "format": "date-time"},
+    "as_of_time": {"type": "string", "format": "date-time"},
+    "attributes_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "current": {"type": "boolean"},
+    "supersedes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

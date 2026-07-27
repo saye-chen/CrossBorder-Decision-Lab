@@ -21,7 +21,17 @@ class ProfessionalDepth(unittest.TestCase):
         cards = [path for path in directory.glob("*.md") if path.name not in excluded]
         self.assertEqual(len(cards), 10)
         for card in cards:
-            self.assert_semantics(card, ["竞价与交付", "优化反馈", "归因差异", "特有失败", "反事实"], 60)
+            self.assert_semantics(
+                card,
+                [
+                    "竞价与交付", "优化反馈", "归因差异", "特有失败", "反事实",
+                    "机制边界", "可控输入", "可观测代理", "证伪路径", "竞争反馈",
+                ],
+                30,
+            )
+            self.assertNotIn("## 模块执行协议", card.read_text(encoding="utf-8"))
+        shared = (directory / "platform-card-contract.md").read_text(encoding="utf-8")
+        self.assertEqual(shared.count("## 模块执行协议"), 1)
 
     def test_aamo_causal_claims_have_executable_estimators_and_limits(self):
         base = ROOT / "advertising-analysis-measurement-optimization"
@@ -34,6 +44,17 @@ class ProfessionalDepth(unittest.TestCase):
             self.assertIn(anchor, reference)
         result = subprocess.run(["python3", str(base / "scripts/test_causal_measurement.py")],
                                 capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, (result.stdout, result.stderr))
+
+    def test_aamo_official_mechanism_evidence_is_routed(self):
+        base = ROOT / "advertising-analysis-measurement-optimization"
+        skill = (base / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("official-mechanism-evidence.json", skill)
+        result = subprocess.run(
+            ["python3", str(base / "scripts/test_official_mechanism_evidence.py")],
+            capture_output=True,
+            text=True,
+        )
         self.assertEqual(result.returncode, 0, (result.stdout, result.stderr))
 
     def test_core_reference_semantics(self):
@@ -83,7 +104,7 @@ class ProfessionalDepth(unittest.TestCase):
         self.assertTrue(required.issubset(names))
 
     def test_historical_replay_remains_honest(self):
-        for rel in ["evaluations/d07/historical-replay-template.json", "evaluations/d08/historical-replay-template.json"]:
+        for rel in ["logistics-inventory-fulfillment-decision/evaluations/historical-replay-template.json", "platform-store-listing-conversion/evaluations/historical-replay-template.json"]:
             text = (ROOT / rel).read_text(encoding="utf-8")
             self.assertIn('"minimum_authorized_cases": 3', text)
             self.assertIn('"production_ready": false', text)

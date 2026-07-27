@@ -3,7 +3,7 @@ import json,unittest
 from pathlib import Path
 from decision_state import impacted
 ROOT=Path(__file__).parent.parent.parent
-CH=ROOT/"evaluations/d07/multiturn-challenges.json";REPORTS=[ROOT/"evaluations/golden-reports/d07-full.md",ROOT/"evaluations/golden/d07-single.md"]
+CH=ROOT/"logistics-inventory-fulfillment-decision/evaluations/multiturn-challenges.json";REPORTS=[ROOT/"evaluations/golden-reports/d07-full.md",ROOT/"evaluations/golden/d07-single.md"]
 
 class MultiTurnReport(unittest.TestCase):
  @classmethod

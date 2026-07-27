@@ -2,7 +2,7 @@
 import json,unittest
 from pathlib import Path
 from decision_state import impacted
-P=Path(__file__).parent.parent.parent/"evaluations/d07/cross-skill-complex-scenarios.json"
+P=Path(__file__).parent.parent.parent/"logistics-inventory-fulfillment-decision/evaluations/cross-skill-complex-scenarios.json"
 
 class CrossSkill(unittest.TestCase):
  @classmethod

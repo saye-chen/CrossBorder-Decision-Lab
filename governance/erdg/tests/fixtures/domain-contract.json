@@ -1,0 +1,29 @@
+{
+  "mode": "single",
+  "decision_type": "investment",
+  "decision_owner": "category-investment-decision",
+  "participating_skills": ["category-investment-decision"],
+  "runtime_versions": {"category-investment-decision": "CIDM-2026.14"},
+  "participant_results": {"category-investment-decision": {"status": "contributed"}},
+  "professional_core": {
+    "object_boundary": "one canonical operating object",
+    "conclusion": "controlled decision",
+    "evidence_summary": ["E1"],
+    "counterevidence": ["alternative"],
+    "commercial_constraints": ["profit and cash"],
+    "risks_and_redlines": ["redline"],
+    "actions": ["test"],
+    "success_conditions": ["pass"],
+    "stop_conditions": ["stop"],
+    "limitations_and_missing_data": ["real replay"]
+  },
+  "objects": [{"canonical_id": "O1", "country": "US", "platform": "fixture", "category": "fixture", "lifecycle": "test"}],
+  "evidence": [{"id": "E1", "source_skill": "category-investment-decision", "evidence_type": "authorized_fixture", "evidence_class": "direct", "source_ref": "fixture:E1", "observed_at": "2026-07-27", "fingerprint": "f03-E1"}],
+  "claims": [{"id": "C1", "producer_skill": "category-investment-decision", "claim_domain": "investment", "state": "validated", "object_id": "O1", "evidence_ids": ["E1"], "allowed_uses": ["decision_support"], "forbidden_uses": [], "effective_now": true}],
+  "calculations": [{"id": "CAL1", "calculator": "fixture", "input_hash": "sha256:input", "output_hash": "sha256:output", "status": "complete"}],
+  "required_calculation_ids": ["CAL1"],
+  "unresolved_redlines": [],
+  "adjustments": [],
+  "erdg_contract": "ERDG-CONTRACT-2026.01",
+  "external_write": false
+}

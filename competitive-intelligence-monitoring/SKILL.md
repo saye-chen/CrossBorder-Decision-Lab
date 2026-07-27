@@ -135,3 +135,6 @@ description: 默认用中文执行跨境电商竞品发现、建档、投资级�
 ## PLCO 页面执行路由
 
 本 Skill 保留竞品发现、外部页面事实、变化确认与归因主权。用户要求把竞品快照或变化转化为我方标题、主图、详情、落地页或店铺转化的具体修改与实验时，向 `platform-store-listing-conversion` 交接对象、快照、时间、证据ID、指纹、可见/不可见边界和禁止用途；不得直接复制竞品表达或把公开代理信号写成我方因果结论。
+## ERDG 共享治理接入
+
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/competitive-intelligence-monitoring/adapter.json` 声明 CIM 主权；ERDG 失败时不得形成生效动作。

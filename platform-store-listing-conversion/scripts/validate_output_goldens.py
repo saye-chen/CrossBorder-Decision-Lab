@@ -24,5 +24,5 @@ def validate(root):
  return {"status":"pass" if not errors else "fail","reports":results,"errors":errors}
 
 if __name__=="__main__":
- root=sys.argv[1] if len(sys.argv)>1 else pathlib.Path(__file__).resolve().parents[2]/"evaluations/d08/output-goldens"
+ root=sys.argv[1] if len(sys.argv)>1 else pathlib.Path(__file__).resolve().parents[2]/"platform-store-listing-conversion/evaluations/output-goldens"
  out=validate(root); print(json.dumps(out,ensure_ascii=False,sort_keys=True)); raise SystemExit(0 if out["status"]=="pass" else 2)

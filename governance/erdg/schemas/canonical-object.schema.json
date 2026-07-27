@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/canonical-object/1.0.0",
+  "type": "object",
+  "required": ["object_id", "object_type", "country", "platform"],
+  "properties": {
+    "object_id": {"type": "string", "minLength": 1},
+    "object_type": {"type": "string", "minLength": 1},
+    "parent_object_id": {"type": ["string", "null"]},
+    "relationship_type": {"type": ["string", "null"]},
+    "country": {"type": "string", "minLength": 2},
+    "platform": {"type": "string", "minLength": 1},
+    "legal_entity": {"type": ["string", "null"]},
+    "business_scope": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}
