@@ -1,12 +1,12 @@
 # CrossBorder Decision Lab
 
-[中文首页](README.md) · [Skill Directory](#skill-directory) · [System Architecture](#system-architecture) · [How to Use](#how-to-use)
+[中文首页](README.md) · [Skill Directory](#skill-directory) · [ERDG Governance](#shared-decision-infrastructure) · [System Architecture](#system-architecture) · [How to Use](#how-to-use)
 
 > Professional decision infrastructure for cross-border commerce—turning experience-dependent judgment into evidence-based, model-backed, actionable, and compounding decision assets.
 
 CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It is not a generic prompt collection. It connects category investment, competitive intelligence, content, customers, advertising, fulfillment, conversion, partnerships, and marketing into nine professional domains that can operate independently and collaborate under shared decision contracts.
 
-The current system includes complete core workflows, deterministic and statistical models, evidence and counterevidence rules, multi-turn continuity, single- and cross-Skill execution, pressure scenarios, stopping and exit mechanisms, and repository-wide quality governance.
+The current system includes nine professional domains plus ERDG (Economic, Risk & Decision Governance): complete core workflows, deterministic and statistical models, evidence and counterevidence rules, multi-turn continuity, single- and cross-Skill execution, pressure scenarios, stopping and exit mechanisms, and shared economic, risk, and decision governance.
 
 ## System Value and Long-Term Defensibility
 
@@ -68,11 +68,11 @@ This moves the system from “answering professional questions” toward “cont
 
 ## System Architecture
 
-### Three-layer value architecture
+### Four-layer value architecture
 
 ```mermaid
 flowchart TB
-    U["Cross-border business decision"] --> D["Nine professional decision domains"]
+    U["Cross-border business decision"] --> D["Nine professional decision domains<br/>Business judgment and final ownership"]
 
     D --> CIDM["CIDM<br/>Category and capital"]
     D --> CIM["CIM<br/>Competitive intelligence"]
@@ -84,16 +84,23 @@ flowchart TB
     D --> CAPM["CAPM<br/>Creator and affiliate"]
     D --> MBCM["MBCM<br/>Marketing and brand"]
 
-    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM --> E["Shared evidence, calculation, ownership, versioning, and governance"]
-    E --> O["Executable decisions, experiments, stopping rules, and outcome feedback"]
+    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM --> E["ERDG governance foundation<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"]
+    E --> G{"Contract and redline validation"}
+    G -->|"Pass"| O["Executable decisions, experiments, stopping rules, and outcome feedback"]
+    G -->|"Missing evidence, conflict, or boundary breach"| B["Block, degrade, or request evidence"]
+    B -.-> D
     O --> A["Compounding decision assets and operating benchmarks"]
+    A -.->|"Calibrate parameters, counterexamples, and gates"| E
 ```
+
+The first layer routes the question, the second preserves final ownership in the nine professional domains, the third applies ERDG contracts and deterministic shared calculations, and the fourth turns validated judgments into actions and compounding assets. ERDG does not make domain business decisions.
 
 ### Nine-Skill collaboration map
 
 ```mermaid
 flowchart TB
     U["Cross-border decision"] --> R{"Which domain owns the decision?"}
+    E["ERDG<br/>Economic, Risk & Decision Governance"]
     R --> CIDM["CIDM<br/>Category investment"]
     R --> CIM["CIM<br/>Competitive intelligence"]
     R --> VLB["VLB<br/>Content decisions"]
@@ -145,9 +152,12 @@ flowchart TB
     PLCO <-->|"Links and landing rights"| CAPM
     PLCO <-->|"Offer and campaign delivery"| MBCM
     CAPM <-->|"Partner portfolio and brand programs"| MBCM
+
+    R -.->|"Create the shared decision contract"| E
+    E -.->|"Versioned evidence, calculations, and redlines"| R
 ```
 
-Connections exchange versioned evidence and constraints; they do not transfer final decision ownership.
+Solid connections exchange professional evidence and constraints without transferring final decision ownership. Dashed ERDG connections show governance across routing and handoffs; ERDG does not own business conclusions.
 
 ## Skill Directory
 
@@ -169,7 +179,7 @@ Detailed platform coverage, models, workflows, inputs, outputs, and failure boun
 
 ## Shared Decision Infrastructure
 
-The nine domains share:
+The nine domains share [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
 
 1. evidence and counterevidence discipline;
 2. auditable economics and statistical estimation;
