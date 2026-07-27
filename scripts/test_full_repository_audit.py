@@ -6,6 +6,7 @@ import json
 import os
 import pathlib
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -35,7 +36,7 @@ def structural_validation_errors(skill_name):
  candidates.append(codex_home/"skills/.system/skill-creator/scripts/quick_validate.py")
  validator=next((path for path in candidates if path.is_file()),None)
  if validator:
-  result=subprocess.run(["python3",str(validator),str(ROOT/skill_name)],capture_output=True,text=True)
+  result=subprocess.run([sys.executable,str(validator),str(ROOT/skill_name)],capture_output=True,text=True)
   return [] if result.returncode==0 else [result.stdout,result.stderr]
  # GitHub runners do not install the local system Skill package. Fall back to
  # the repository-owned structural contract; test_10 still runs every full
@@ -43,7 +44,7 @@ def structural_validation_errors(skill_name):
  return repo_validation.validate_skill(ROOT/skill_name)
 
 def shared_payload(skill,decision_type,runtime):
- payload={"mode":"single","decision_type":decision_type,"decision_owner":skill,"participating_skills":[skill],"runtime_versions":{skill:runtime},"participant_results":{skill:{"status":"contributed"}},"professional_core":{"object_boundary":"one canonical object and version","conclusion":"Controlled decision","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["profit and capacity"],"risks_and_redlines":["P0/P1"],"actions":["controlled test"],"success_conditions":["mature pass"],"stop_conditions":["guardrail"],"limitations_and_missing_data":["real replay"]},"objects":[{"canonical_id":"o","country":"US","platform":"fixture","category":"fixture","lifecycle":"test"}],"evidence":[{"id":"E1","source_skill":skill,"evidence_type":"authorized_fixture","evidence_class":"direct","source_ref":"fixture:E1","observed_at":"2026-07-20","fingerprint":f"{skill}-E1"}],"claims":[{"id":"C1","producer_skill":skill,"claim_domain":decision_type,"state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[{"id":"CAL1","calculator":"audit_fixture.py","input_hash":"sha256:audit-in","output_hash":"sha256:audit-out","status":"complete"}],"required_calculation_ids":["CAL1"],"unresolved_redlines":[],"adjustments":[]}
+ payload={"erdg_contract":"ERDG-CONTRACT-2026.01","mode":"single","decision_type":decision_type,"decision_owner":skill,"participating_skills":[skill],"runtime_versions":{skill:runtime},"participant_results":{skill:{"status":"contributed"}},"professional_core":{"object_boundary":"one canonical object and version","conclusion":"Controlled decision","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["profit and capacity"],"risks_and_redlines":["P0/P1"],"actions":["controlled test"],"success_conditions":["mature pass"],"stop_conditions":["guardrail"],"limitations_and_missing_data":["real replay"]},"objects":[{"canonical_id":"o","country":"US","platform":"fixture","category":"fixture","lifecycle":"test"}],"evidence":[{"id":"E1","source_skill":skill,"evidence_type":"authorized_fixture","evidence_class":"direct","source_ref":"fixture:E1","observed_at":"2026-07-20","fingerprint":f"{skill}-E1"}],"claims":[{"id":"C1","producer_skill":skill,"claim_domain":decision_type,"state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[{"id":"CAL1","calculator":"audit_fixture.py","input_hash":"sha256:audit-in","output_hash":"sha256:audit-out","status":"complete"}],"required_calculation_ids":["CAL1"],"unresolved_redlines":[],"adjustments":[]}
  if skill=="advertising-analysis-measurement-optimization":
   payload["advertising_context"]={"country":"US","platform":"fixture","as_of_time":"2026-07-20","lifecycle":"validation","axes":{"traffic_scenario":"paid","control_mode":"manual","billing_mode":"cpc","optimization_goal":"contribution"},"maturity":{"data":"mature","tracking":"mature","attribution":"mature","orders":"mature"},"ledgers":{"platform_attribution":{},"business_orders":{},"mature_contribution":{}},"incrementality_status":"not_claimed"}
  return payload
@@ -57,15 +58,29 @@ class FullRepositoryAudit(unittest.TestCase):
   with tempfile.TemporaryDirectory() as td:
    for name,(dtype,runtime,_) in SKILLS.items():
     p=pathlib.Path(td)/f"{name}.json"; p.write_text(json.dumps(shared_payload(name,dtype,runtime)),encoding="utf-8")
-    r=subprocess.run(["python3",str(ROOT/name/"scripts/validate_decision_contract.py"),str(p)],capture_output=True,text=True)
+    r=subprocess.run([sys.executable,str(ROOT/name/"scripts/validate_decision_contract.py"),str(p)],capture_output=True,text=True)
     self.assertEqual(r.returncode,0,(name,r.stdout,r.stderr))
+
+ def test_02b_each_skill_really_enforces_erdg_fail_closed_rules(self):
+  with tempfile.TemporaryDirectory() as td:
+   for name,(dtype,runtime,_) in SKILLS.items():
+    payload=shared_payload(name,dtype,runtime)
+    payload["production_ready"]=True
+    payload["external_write"]=True
+    p=pathlib.Path(td)/f"{name}-unsafe.json"
+    p.write_text(json.dumps(payload),encoding="utf-8")
+    r=subprocess.run([sys.executable,str(ROOT/name/"scripts/validate_decision_contract.py"),str(p)],capture_output=True,text=True)
+    combined=(r.stdout+r.stderr).lower()
+    self.assertNotEqual(r.returncode,0,(name,r.stdout,r.stderr))
+    self.assertIn("erdg",combined,(name,r.stdout,r.stderr))
+    self.assertTrue("production_ready" in combined or "external write" in combined,(name,r.stdout,r.stderr))
 
  def test_03_each_skill_local_test_suite_executes(self):
   for name in SKILLS:
    tests=sorted((ROOT/name/"scripts").glob("test_*.py"))
    self.assertTrue(tests,name)
    for test in tests:
-    r=subprocess.run(["python3",str(test)],capture_output=True,text=True)
+    r=subprocess.run([sys.executable,str(test)],capture_output=True,text=True)
     self.assertEqual(r.returncode,0,(test,r.stdout[-2000:],r.stderr[-2000:]))
 
  def test_04_existing_single_report_contracts_score_exactly_100_and_mbcm_is_specialized(self):
@@ -119,8 +134,8 @@ class FullRepositoryAudit(unittest.TestCase):
   self.assertEqual(len([x for x in capm["cases"] if x["mode"]=="extreme"]),20)
 
  def test_08_multiturn_preserves_state_and_forbids_shortcuts(self):
-  plco_challenges=json.loads((ROOT/"evaluations/d08/multiturn-challenges.json").read_text())
-  lifd_challenges=json.loads((ROOT/"evaluations/d07/multiturn-challenges.json").read_text())
+  plco_challenges=json.loads((ROOT/"platform-store-listing-conversion/evaluations/multiturn-challenges.json").read_text())
+  lifd_challenges=json.loads((ROOT/"logistics-inventory-fulfillment-decision/evaluations/multiturn-challenges.json").read_text())
   self.assertGreaterEqual(len(plco_challenges),12); self.assertGreaterEqual(len(lifd_challenges),6)
   for x in plco_challenges:
    for field in ("changed_fields","must_preserve","must_answer","forbidden","action_effect"): self.assertIn(field,x)
@@ -132,23 +147,23 @@ class FullRepositoryAudit(unittest.TestCase):
   self.assertEqual(len(multi),24); self.assertTrue(all(len(x["turns"])>=4 for x in multi))
 
  def test_09_plco_concrete_optimization_cannot_regress(self):
-  r=subprocess.run(["python3",str(ROOT/"scripts/test_listing_conversion_stress.py")],capture_output=True,text=True)
+  r=subprocess.run([sys.executable,str(ROOT/"scripts/test_listing_conversion_stress.py")],capture_output=True,text=True)
   self.assertEqual(r.returncode,0,(r.stdout,r.stderr))
 
  def test_10_repository_and_release_gates_pass(self):
   root_tests=sorted((ROOT/"scripts").glob("test_*.py"))
   for test in root_tests:
    if test.name==pathlib.Path(__file__).name: continue
-   r=subprocess.run(["python3",str(test)],capture_output=True,text=True)
+   r=subprocess.run([sys.executable,str(test)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(test.name,r.stdout[-2000:],r.stderr[-2000:]))
   for validator in ("validate_repo.py","validate_governance_baseline.py","validate_domain_maturity.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py"):
-   r=subprocess.run(["python3",str(ROOT/"scripts"/validator)],capture_output=True,text=True)
+   r=subprocess.run([sys.executable,str(ROOT/"scripts"/validator)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(validator,r.stdout[-2000:],r.stderr[-2000:]))
 
  def test_11_capm_controlled_pilot_executes(self):
   name,runtime="creator-affiliate-partnership-management","CAPM-2026.07"
   self.assertEqual(structural_validation_errors(name),[],name)
-  tests=subprocess.run(["python3",str(ROOT/name/"scripts/test_capm.py")],capture_output=True,text=True)
+  tests=subprocess.run([sys.executable,str(ROOT/name/"scripts/test_capm.py")],capture_output=True,text=True)
   self.assertEqual(tests.returncode,0,(tests.stdout[-3000:],tests.stderr[-3000:]))
   replay=json.loads((ROOT/name/"evaluations/historical-replay-template.json").read_text())
   self.assertEqual(replay["production_ready"],False)
@@ -158,11 +173,11 @@ class FullRepositoryAudit(unittest.TestCase):
  def test_12_mbcm_depth_math_multiturn_and_controlled_pilot_execute(self):
   name,runtime="marketing-brand-campaign-management","MBCM-2026.01"
   self.assertEqual(structural_validation_errors(name),[],name)
-  tests=subprocess.run(["python3",str(ROOT/name/"scripts/test_mbcm.py")],capture_output=True,text=True)
+  tests=subprocess.run([sys.executable,str(ROOT/name/"scripts/test_mbcm.py")],capture_output=True,text=True)
   self.assertEqual(tests.returncode,0,(tests.stdout[-3000:],tests.stderr[-3000:]))
-  science=subprocess.run(["python3",str(ROOT/name/"scripts/test_marketing_science.py")],capture_output=True,text=True)
+  science=subprocess.run([sys.executable,str(ROOT/name/"scripts/test_marketing_science.py")],capture_output=True,text=True)
   self.assertEqual(science.returncode,0,(science.stdout[-3000:],science.stderr[-3000:]))
-  integration=subprocess.run(["python3",str(ROOT/"scripts/test_mbcm_integration.py")],capture_output=True,text=True)
+  integration=subprocess.run([sys.executable,str(ROOT/"scripts/test_mbcm_integration.py")],capture_output=True,text=True)
   self.assertEqual(integration.returncode,0,(integration.stdout[-3000:],integration.stderr[-3000:]))
   catalog=json.loads((ROOT/name/"evaluations/fixtures/evaluation-catalog.json").read_text())
   self.assertEqual(catalog["total"],120)
@@ -171,5 +186,19 @@ class FullRepositoryAudit(unittest.TestCase):
   replay=json.loads((ROOT/name/"evaluations/historical-replay-template.json").read_text())
   self.assertEqual((replay["production_ready"],replay["cases"]),(False,[]))
   self.assertIn(runtime,(ROOT/name/"SKILL.md").read_text())
+
+ def test_13_erdg_economic_risk_decision_governance_executes(self):
+  test=ROOT/"governance/erdg/tests/test_erdg.py"
+  self.assertTrue(test.is_file())
+  result=subprocess.run([sys.executable,str(test)],capture_output=True,text=True)
+  self.assertEqual(result.returncode,0,(result.stdout[-4000:],result.stderr[-4000:]))
+  version=json.loads((ROOT/"governance/erdg/contract-version.json").read_text())
+  self.assertEqual(version["owner"],"repository-governance")
+  self.assertEqual((version["production_ready"],version["l4"]),(False,"not_passed"))
+
+ def test_14_erdg_reports_recompute_and_capacity_gate_executes(self):
+  for script in ("validate_report_recomputation.py","validate_erdg_capacity.py"):
+   result=subprocess.run([sys.executable,str(ROOT/"governance/erdg/scripts"/script)],capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,(script,result.stdout,result.stderr))
 
 if __name__=="__main__": unittest.main(verbosity=2)

@@ -1,0 +1,111 @@
+{
+  "runtime": "ERDG-2026.01",
+  "contract": "ERDG-REPORT-RECOMPUTATION-1.0",
+  "checks": [
+    {
+      "id": "ERDG-RC-SINGLE",
+      "mode": "single_skill",
+      "report": "golden/single-skill-economic-review.md",
+      "case_ids": ["ERDG-S01", "ERDG-S02"],
+      "runner": "economic",
+      "input": {
+        "currency": "USD",
+        "tax_basis": "tax_exclusive",
+        "as_of_time": "2026-07-27T00:00:00Z",
+        "economic_mode": "average",
+        "amounts": {
+          "gross_sales": "1000.00",
+          "discounts": "20.00",
+          "refunds": "50.00",
+          "taxes_and_withholding": "10.00",
+          "product_cost": "320.00",
+          "freight_cost": "70.00",
+          "platform_fees": "100.00",
+          "advertising_cost": "150.00",
+          "customer_service_cost": "10.00",
+          "expected_risk_loss": "5.00"
+        }
+      },
+      "expected": {"E0": "1000", "E1": "920", "E2": "600", "E3": "530", "E4": "430", "E5": "280", "E6": "270", "E7": "265", "E8": "265"}
+    },
+    {
+      "id": "ERDG-RC-CROSS",
+      "mode": "cross_skill",
+      "report": "golden/cross-skill-conflict.md",
+      "case_ids": ["ERDG-X01", "ERDG-X02"],
+      "runner": "lineage",
+      "input": {
+        "nodes": [{"id": "advertising_claim"}, {"id": "inventory_claim"}, {"id": "budget_decision"}, {"id": "purchase_decision"}],
+        "edges": [{"from": "advertising_claim", "to": "budget_decision"}, {"from": "inventory_claim", "to": "budget_decision"}, {"from": "inventory_claim", "to": "purchase_decision"}],
+        "changed_ids": ["inventory_claim"]
+      },
+      "expected": {"affected_ids": ["inventory_claim", "budget_decision", "purchase_decision"]}
+    },
+    {
+      "id": "ERDG-RC-COMPOSITE",
+      "mode": "composite",
+      "report": "golden/composite-launch.md",
+      "case_ids": ["ERDG-C01", "ERDG-C02"],
+      "runner": "risk",
+      "input": {
+        "risks": [
+          {"risk_id": "product_version_mismatch", "risk_type": "legal", "redline": true, "status": "open"},
+          {"risk_id": "demand_tail", "risk_type": "demand", "redline": false, "status": "open", "probability": "0.20", "impact": "100"}
+        ]
+      },
+      "expected": {"status": "blocked", "blocked_redlines": ["product_version_mismatch"], "expected_loss": "20"}
+    },
+    {
+      "id": "ERDG-RC-MULTITURN",
+      "mode": "multi_turn",
+      "report": "golden/multi-turn-recalculation.md",
+      "case_ids": ["ERDG-M01", "ERDG-M02"],
+      "runner": "lineage",
+      "input": {
+        "nodes": [{"id": "freight"}, {"id": "E3"}, {"id": "E4"}, {"id": "E5"}, {"id": "E6"}, {"id": "E7"}, {"id": "E8"}, {"id": "cash"}, {"id": "decision"}, {"id": "product_fact"}],
+        "edges": [{"from": "freight", "to": "E3"}, {"from": "E3", "to": "E4"}, {"from": "E4", "to": "E5"}, {"from": "E5", "to": "E6"}, {"from": "E6", "to": "E7"}, {"from": "E7", "to": "E8"}, {"from": "E8", "to": "cash"}, {"from": "cash", "to": "decision"}],
+        "changed_ids": ["freight"]
+      },
+      "expected": {"affected_ids": ["freight", "E3", "E4", "E5", "E6", "E7", "E8", "cash", "decision"], "unaffected_ids": ["product_fact"]}
+    },
+    {
+      "id": "ERDG-RC-COMPLEX",
+      "mode": "complex",
+      "report": "golden/complex-multi-entity.md",
+      "case_ids": ["ERDG-K01", "ERDG-K02"],
+      "runner": "cash",
+      "input": {
+        "currency": "USD",
+        "opening_cash": "100",
+        "entries": [
+          {"entry_id": "pay-supplier", "occurred_at": "2026-07-01T00:00:00Z", "direction": "outflow", "amount": "250"},
+          {"entry_id": "platform-settlement", "occurred_at": "2026-07-05T00:00:00Z", "direction": "inflow", "amount": "300"}
+        ]
+      },
+      "expected": {"ending_cash": "150", "minimum_cash": "-150", "peak_funding_required": "150"}
+    },
+    {
+      "id": "ERDG-RC-EXTREME",
+      "mode": "extreme",
+      "report": "golden/extreme-safety-recall.md",
+      "case_ids": ["ERDG-E01", "ERDG-E02"],
+      "runner": "risk",
+      "input": {
+        "risks": [
+          {"risk_id": "official_recall", "risk_type": "safety", "redline": true, "status": "open"},
+          {"risk_id": "lost_margin", "risk_type": "commercial", "redline": false, "status": "open", "probability": "1", "impact": "265"}
+        ]
+      },
+      "expected": {"status": "blocked", "blocked_redlines": ["official_recall"], "expected_loss": "265"}
+    },
+    {
+      "id": "ERDG-RC-STRESS",
+      "mode": "stress",
+      "report": "golden/stress-lineage.md",
+      "case_ids": ["ERDG-P01", "ERDG-P02"],
+      "runner": "stress",
+      "input": {"cash_events": 100000, "lineage_nodes": 1000, "changed_node": 900},
+      "expected": {"ending_cash": "0", "affected_count": 100, "unaffected_count": 900}
+    }
+  ]
+}

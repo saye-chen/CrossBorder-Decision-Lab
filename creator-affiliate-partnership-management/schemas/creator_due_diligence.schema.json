@@ -1,1 +1,82 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["creator_id","object_version","checked_at","identity","audience","brand_safety","commercial_density","fulfillment_reliability","counterevidence","decision"],"properties":{"creator_id":{"type":"string","minLength":1},"object_version":{"type":"string","minLength":1},"checked_at":{"type":"string","format":"date-time"},"identity":{"enum":["validated","inconclusive","blocked"]},"audience":{"enum":["validated","estimated","inconclusive"]},"brand_safety":{"enum":["pass","review","blocked"]},"commercial_density":{"enum":["measured","estimated","unavailable"]},"fulfillment_reliability":{"enum":["measured","estimated","unavailable"]},"counterevidence":{"type":"array","items":{"type":"string"}},"decision":{"enum":["contact","test","negotiate","hold","blocked","exit"]}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "creator_id",
+    "object_version",
+    "checked_at",
+    "identity",
+    "audience",
+    "brand_safety",
+    "commercial_density",
+    "fulfillment_reliability",
+    "counterevidence",
+    "decision"
+  ],
+  "properties": {
+    "creator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "identity": {
+      "enum": [
+        "validated",
+        "inconclusive",
+        "blocked"
+      ]
+    },
+    "audience": {
+      "enum": [
+        "validated",
+        "estimated",
+        "inconclusive"
+      ]
+    },
+    "brand_safety": {
+      "enum": [
+        "pass",
+        "review",
+        "blocked"
+      ]
+    },
+    "commercial_density": {
+      "enum": [
+        "measured",
+        "estimated",
+        "unavailable"
+      ]
+    },
+    "fulfillment_reliability": {
+      "enum": [
+        "measured",
+        "estimated",
+        "unavailable"
+      ]
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "enum": [
+        "contact",
+        "test",
+        "negotiate",
+        "hold",
+        "blocked",
+        "exit"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -54,6 +54,7 @@ jobs:
           python3 creator-affiliate-partnership-management/scripts/test_capm.py
           python3 scripts/test_mbcm_integration.py
           python3 scripts/test_statistical_primitive_parity.py
+          python3 scripts/test_qoderwork_skill_installation.py
           python3 scripts/test_full_repository_audit.py
       - name: Reject whitespace errors
         run: git diff --check

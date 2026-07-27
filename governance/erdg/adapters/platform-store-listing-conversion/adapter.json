@@ -1,0 +1,1 @@
+{"adapter":"platform-store-listing-conversion-erdg","version":"1.0.0","runtime_prefix":"PLCO","owned_decision_types":["listing_conversion","page_conversion","listing_incident","listing_migration"],"contract":"ERDG-CONTRACT-2026.01","external_write":false}

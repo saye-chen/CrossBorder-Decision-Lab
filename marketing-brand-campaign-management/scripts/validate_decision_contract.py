@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
-"""Validate MBCM decision contract."""
+"""Validate MBCM decisions through ERDG plus MBCM-owned invariants."""
+from __future__ import annotations
+import importlib.util
+from pathlib import Path
 from mbcm_common import require, text, run_cli, ModelError
+
+ROOT=Path(__file__).resolve().parents[2]
+CORE_PATH=ROOT/"governance/erdg/scripts/validate_contract.py"
+SPEC=importlib.util.spec_from_file_location("erdg_decision_contract",CORE_PATH)
+CORE=importlib.util.module_from_spec(SPEC)
+assert SPEC and SPEC.loader
+SPEC.loader.exec_module(CORE)
+
 QUESTIONS={f"Q{i:02d}" for i in range(1,14)}
 STAGES={f"L{i}" for i in range(9)}
 def validate(d):
     if "mode" in d and "decision_owner" in d:
-        require(d,"mode","decision_type","decision_owner","participating_skills","runtime_versions",
-                "participant_results","professional_core","objects","evidence","claims","calculations",
-                "required_calculation_ids","unresolved_redlines","adjustments")
-        if not d["objects"] or not d["evidence"] or not d["claims"]:
-            raise ModelError("shared_contract:objects_evidence_claims_required")
-        return {"valid":True,"contract_type":"shared","decision_owner":d["decision_owner"]}
+        errors=CORE.validate(d)
+        if errors:
+            raise ModelError("erdg:"+("|".join(errors)))
+        return {"valid":True,"contract_type":"erdg_shared","decision_owner":d["decision_owner"],
+                "erdg_contract":"ERDG-CONTRACT-2026.01"}
     require(d,"decision_id","decision_version","question_type","intent","primary_object","scope",
             "lifecycle_stage","business_objective","authority","constraints","evidence_cutoff",
             "decision_deadline","reversibility")

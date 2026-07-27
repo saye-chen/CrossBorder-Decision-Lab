@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/evidence/1.0.0",
+  "type": "object",
+  "required": ["evidence_id", "source_type", "processing_status", "source_ref", "observed_at", "fingerprint"],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "source_type": {"enum": ["observed_public", "authorized_first_party", "authorized_third_party", "official_rule", "professional_opinion", "benchmark", "synthetic_fixture", "user_assertion"]},
+    "processing_status": {"enum": ["raw", "normalized", "verified", "conflicted", "stale", "invalid"]},
+    "source_ref": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "fingerprint": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

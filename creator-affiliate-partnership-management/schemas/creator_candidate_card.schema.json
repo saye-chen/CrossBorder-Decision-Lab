@@ -1,1 +1,75 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["creator_id","object_version","platform","country","as_of_time","identity_status","source_evidence_level","allowed_actions","blocked_actions"],"properties":{"creator_id":{"type":"string","minLength":1},"object_version":{"type":"string","minLength":1},"platform":{"type":"string","minLength":1},"country":{"type":"string","pattern":"^[A-Z]{2}$"},"as_of_time":{"type":"string","format":"date-time"},"identity_status":{"enum":["validated","inconclusive","blocked"]},"source_evidence_level":{"enum":["S0","S1","S2","S3","S4"]},"allowed_actions":{"type":"array","items":{"type":"string"},"uniqueItems":true},"blocked_actions":{"type":"array","items":{"type":"string"},"uniqueItems":true},"evidence_ids":{"type":"array","items":{"type":"string"},"uniqueItems":true}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "creator_id",
+    "object_version",
+    "platform",
+    "country",
+    "as_of_time",
+    "identity_status",
+    "source_evidence_level",
+    "allowed_actions",
+    "blocked_actions"
+  ],
+  "properties": {
+    "creator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "as_of_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "identity_status": {
+      "enum": [
+        "validated",
+        "inconclusive",
+        "blocked"
+      ]
+    },
+    "source_evidence_level": {
+      "enum": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "blocked_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

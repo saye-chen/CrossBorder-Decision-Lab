@@ -1,0 +1,204 @@
+{
+  "contract": "AAMO-OFFICIAL-MECHANISM-EVIDENCE-1.0",
+  "snapshot_date": "2026-07-27",
+  "execution_rule": "Re-verify every dynamic platform fact against a current official source or authorized interface before using it in a decision.",
+  "records": [
+    {
+      "platform_id": "amazon",
+      "scope": "paid_ad_auction",
+      "evidence_status": "official_public_mechanism",
+      "official_sources": [
+        "https://advertising.amazon.com/en-us/library/guides/sponsored-products-best-practices/",
+        "https://advertising.amazon.com/library/guides/targeting-with-sponsored-products/"
+      ],
+      "published_mechanism": [
+        "Sponsored Products are cost-per-click ads using keyword, product or automatic targeting.",
+        "Bid strategy can use fixed bids or dynamic adjustments based on real-time signals.",
+        "Product availability, targeting relevance, placements and adjusted bids are observable parts of delivery."
+      ],
+      "undisclosed": [
+        "No official fixed A9, COSMOS or ad-ranking factor weights are registered.",
+        "The complete auction and relevance model is not observable."
+      ],
+      "forbidden_inferences": [
+        "Do not write A9 or COSMOS weights as an advertising auction formula.",
+        "Do not treat suggested bids, attributed sales or New-to-brand as causal incrementality."
+      ],
+      "execution_refresh": "Verify marketplace, product, placement, bidding controls and retail eligibility in the current console."
+    },
+    {
+      "platform_id": "google-search",
+      "scope": "paid_search_ad_auction",
+      "evidence_status": "official_public_mechanism",
+      "official_sources": [
+        "https://support.google.com/google-ads/answer/1752122?hl=en",
+        "https://support.google.com/google-ads/answer/7634668?hl=en",
+        "https://support.google.com/google-ads/answer/6167118?hl=en-AU"
+      ],
+      "published_mechanism": [
+        "Ad Rank uses bid, auction-time ad and landing-page quality, thresholds, auction competitiveness, search context and expected asset or format impact.",
+        "Ad Rank is calculated for eligibility and again for ranking relative to other eligible ads.",
+        "The visible 1-10 Quality Score is a diagnostic tool and is not an auction input."
+      ],
+      "undisclosed": [
+        "Google does not publish a fixed multiplicative Ad Rank equation or factor weights.",
+        "Auction-time quality and automated-bidding model internals are not fully observable."
+      ],
+      "forbidden_inferences": [
+        "Do not state Ad Rank = bid x Quality Score x ad format impact.",
+        "Do not optimize or aggregate visible Quality Score as if it were the auction score."
+      ],
+      "execution_refresh": "Verify current matching, bidding, experiment, asset and reporting behavior in official help and the authorized account."
+    },
+    {
+      "platform_id": "google-shopping-pmax",
+      "scope": "paid_shopping_and_cross_channel_delivery",
+      "evidence_status": "official_public_mechanism",
+      "official_sources": [
+        "https://support.google.com/google-ads/answer/2454022?hl=en",
+        "https://support.google.com/google-ads/answer/1752122?hl=en",
+        "https://support.google.com/merchants/answer/7380908?hl=en"
+      ],
+      "published_mechanism": [
+        "Shopping ads use Merchant Center product data rather than keywords to match products with searches.",
+        "Product data, campaign settings, landing pages, images and other signals can affect eligibility, matching and ad construction.",
+        "For eligible Search and Performance Max candidates, Google publicly describes Ad Rank as a multi-factor auction-time mechanism."
+      ],
+      "undisclosed": [
+        "Cross-channel allocation weights and the full Performance Max decision logic are not public.",
+        "Visible channel or asset reports are not the complete delivery model."
+      ],
+      "forbidden_inferences": [
+        "Do not infer fixed channel weights from reported slices.",
+        "Do not attribute feed repair, brand demand and budget changes to one mechanism when changed together."
+      ],
+      "execution_refresh": "Verify Merchant Center eligibility, product-data version and account-visible Performance Max controls."
+    },
+    {
+      "platform_id": "meta-ads",
+      "scope": "paid_social_ad_auction",
+      "evidence_status": "official_public_mechanism",
+      "official_sources": [
+        "https://www.facebook.com/help/447278887528796",
+        "https://www.facebook.com/business/ads/ad-auction"
+      ],
+      "published_mechanism": [
+        "Meta describes auction total value using advertiser bid, estimated action rate and ad quality.",
+        "Audience selection determines which ads can enter an auction for a person.",
+        "Delivery learns from new information and narrows toward people estimated to be more likely to take the optimized action."
+      ],
+      "undisclosed": [
+        "Meta does not publish stable factor weights or the complete estimated-action-rate model.",
+        "Account diagnostics and learning labels are not the auction formula."
+      ],
+      "forbidden_inferences": [
+        "Do not convert the three published components into invented fixed weights.",
+        "Do not equate platform-attributed conversions or learning completion with causal incrementality."
+      ],
+      "execution_refresh": "Verify current objective, bidding, attribution, automation and measurement controls in the authorized account."
+    },
+    {
+      "platform_id": "tiktok-ads-dtc",
+      "scope": "paid_social_ad_auction",
+      "evidence_status": "official_public_mechanism",
+      "official_sources": [
+        "https://ads.tiktok.com/help/article/auction-ads-best-practices?lang=en",
+        "https://ads.tiktok.com/help/article/bidding-interface?lang=en",
+        "https://newsroom.tiktok.com/how-tiktok-recommends-videos-for-you?lang=en"
+      ],
+      "published_mechanism": [
+        "TikTok states that auction performance can depend on bidding strategy, creative, audience settings and account structure.",
+        "Maximum Delivery and Cost Cap are exposed bidding-control families for supported objectives and campaign types.",
+        "TikTok separately publishes organic For You recommendation signals such as interactions, video information and device or account settings."
+      ],
+      "undisclosed": [
+        "TikTok does not publish a fixed paid-auction ranking equation or cold-start pool size.",
+        "Organic For You recommendation factors are not a paid-ad auction formula."
+      ],
+      "forbidden_inferences": [
+        "Do not use organic For You signals as proof of paid-auction weighting.",
+        "Do not invent a cold-start pool size, paid ranking weight or deterministic creative score."
+      ],
+      "execution_refresh": "Verify objective, market, bid control, optimization event, attribution and Spark authorization in Ads Manager."
+    },
+    {
+      "platform_id": "tiktok-shop",
+      "scope": "paid_shop_ads_and_commerce_distribution",
+      "evidence_status": "current_interface_required",
+      "official_sources": [
+        "https://newsroom.tiktok.com/how-tiktok-recommends-videos-for-you?lang=en"
+      ],
+      "published_mechanism": [
+        "TikTok publicly describes organic recommendation signals, but this evidence is adjacent context rather than a Shop paid-delivery formula."
+      ],
+      "undisclosed": [
+        "The complete interaction among paid Shop delivery, organic recommendation, live traffic and commerce distribution is not public."
+      ],
+      "forbidden_inferences": [
+        "Do not transfer organic For You factors into GMV Max or Shop Ads weights.",
+        "Do not merge natural, creator and paid GMV without an authorized attribution and order ledger."
+      ],
+      "execution_refresh": "Require current official Shop documentation and an authorized market-specific interface before naming controls or mechanism claims."
+    },
+    {
+      "platform_id": "shopee",
+      "scope": "paid_marketplace_ads",
+      "evidence_status": "current_interface_required",
+      "official_sources": [],
+      "published_mechanism": [],
+      "undisclosed": [
+        "No cross-market official fixed auction formula is registered in this repository snapshot."
+      ],
+      "forbidden_inferences": [
+        "Do not copy another Shopee market's controls, fields or thresholds.",
+        "Do not merge ads, vouchers, flash sales, free shipping or subsidies into one attributed mechanism."
+      ],
+      "execution_refresh": "Obtain current market-specific official help or authorized Seller Centre evidence before mechanism claims."
+    },
+    {
+      "platform_id": "shein",
+      "scope": "merchant_mode_dependent_distribution",
+      "evidence_status": "current_interface_required",
+      "official_sources": [],
+      "published_mechanism": [],
+      "undisclosed": [
+        "A standard self-service merchant advertising auction cannot be assumed across cooperation modes and markets."
+      ],
+      "forbidden_inferences": [
+        "Do not import CPC auction mechanics from Amazon, Meta or Google.",
+        "Do not create ROAS when no verifiable advertising report and cost ledger exist."
+      ],
+      "execution_refresh": "Classify cooperation mode and obtain current contract, official help, console and settlement evidence."
+    },
+    {
+      "platform_id": "temu",
+      "scope": "merchant_mode_dependent_distribution",
+      "evidence_status": "current_interface_required",
+      "official_sources": [],
+      "published_mechanism": [],
+      "undisclosed": [
+        "Merchant-controllable advertising and platform-controlled pricing, events or distribution are not assumed to be the same mechanism."
+      ],
+      "forbidden_inferences": [
+        "Do not invent budget, bid or target-ROAS controls.",
+        "Do not describe price verification or event eligibility as an advertising traffic button."
+      ],
+      "execution_refresh": "Verify country, merchant mode, current official documentation, authorized controls and settlement evidence."
+    },
+    {
+      "platform_id": "mercado-libre",
+      "scope": "paid_marketplace_ads",
+      "evidence_status": "current_interface_required",
+      "official_sources": [],
+      "published_mechanism": [],
+      "undisclosed": [
+        "No single cross-country fixed ranking equation is registered; products and reporting can differ by market."
+      ],
+      "forbidden_inferences": [
+        "Do not copy target ROAS, controls or attribution fields across countries.",
+        "Do not interpret nominal growth without currency, inflation, reputation and delivery controls."
+      ],
+      "execution_refresh": "Obtain current country-specific official help and authorized advertising, reputation and delivery evidence."
+    }
+  ]
+}

@@ -230,6 +230,7 @@ flowchart TB
 | 九个专业 Skill 目录 | 各专业域的入口、工作流、模型、参考资料和测试 |
 | [`evaluations/`](evaluations/) | 单 Skill、跨 Skill、连续追问、对抗与极端场景 |
 | [`governance/`](governance/) | 主权、成熟度、变更影响与共享治理合同 |
+| [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG 经济、风险、证据、状态、参数、血缘与跨域决策治理底座 |
 | [`scripts/`](scripts/) | 全仓校验、质量评分、集成与发布门禁 |
 | [`.github/workflows/expert-release.yml`](.github/workflows/expert-release.yml) | 自动化发布质量门 |
 | [`requirements-dev.txt`](requirements-dev.txt) | 本地与自动化校验使用的锁定依赖 |

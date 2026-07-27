@@ -343,8 +343,15 @@ def validate_domain_contract_entrypoints() -> list[str]:
         entry = skill_dir / "scripts/validate_decision_contract.py"
         if not entry.exists():
             errors.append(f"{skill_dir.name}: missing decision contract validator")
-        elif "validate_decision_contract.py" not in (skill_dir / "SKILL.md").read_text(encoding="utf-8"):
-            errors.append(f"{skill_dir.name}: decision contract validator is not routed")
+        else:
+            skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
+            if "validate_decision_contract.py" not in skill_text:
+                errors.append(f"{skill_dir.name}: decision contract validator is not routed")
+            if "ERDG-CONTRACT-2026.01" not in skill_text:
+                errors.append(f"{skill_dir.name}: ERDG contract is not routed from SKILL.md")
+            adapter = f"governance/erdg/adapters/{skill_dir.name}/adapter.json"
+            if adapter not in skill_text:
+                errors.append(f"{skill_dir.name}: ERDG adapter is not routed from SKILL.md")
     return errors
 
 
@@ -358,6 +365,131 @@ def validate_vlb_handoff_entrypoints() -> list[str]:
             errors.append(f"video-link-breakdown: missing {name}")
         if name.startswith("validate_") and name not in skill_text:
             errors.append(f"video-link-breakdown: {name} is not routed from SKILL.md")
+    return errors
+
+
+def validate_erdg_baseline() -> list[str]:
+    errors: list[str] = []
+    root = ROOT / "governance/erdg"
+    required = [
+        "ERDG.md", "contract-version.json", "parameter-registry.json", "migration-manifest.json", "implementation-manifest.json",
+        "scripts/validate_contract.py", "scripts/calculate_economic_layers.py", "scripts/calculate_cash_flow.py",
+        "scripts/evaluate_risk_and_redlines.py", "scripts/validate_units_currency_tax_time.py",
+        "scripts/validate_state_transition.py", "scripts/resolve_parameters.py", "scripts/hash_lineage.py",
+        "scripts/compute_impact_closure.py", "scripts/migrate_contract.py",
+        "scripts/validate_schema_instance.py", "scripts/validate_erdg_depth.py",
+        "scripts/validate_report_recomputation.py", "scripts/validate_erdg_capacity.py",
+        "capacity-contract.json",
+        "tests/test_erdg.py",
+    ]
+    for relative in required:
+        if not (root / relative).is_file():
+            errors.append(f"ERDG authoritative path governance/erdg: missing {relative}")
+    if not root.is_dir():
+        return errors or ["ERDG authoritative path governance/erdg is required"]
+    schemas = sorted((root / "schemas").glob("*.schema.json"))
+    if len(schemas) < 13:
+        errors.append("ERDG: at least 13 normative schemas are required")
+    adapters = {path.parent.name for path in (root / "adapters").glob("*/adapter.json")}
+    skills = {path.parent.name for path in ROOT.glob("*/SKILL.md")}
+    if adapters != skills:
+        errors.append(f"ERDG: adapter coverage mismatch missing={sorted(skills-adapters)} extra={sorted(adapters-skills)}")
+    try:
+        version = json.loads((root / "contract-version.json").read_text(encoding="utf-8"))
+        if version.get("production_ready") is not False or version.get("l4") != "not_passed":
+            errors.append("ERDG: L4 must remain closed without real replay")
+        if version.get("owner") != "repository-governance":
+            errors.append("ERDG: owner must be repository-governance")
+        migration = json.loads((root / "migration-manifest.json").read_text(encoding="utf-8"))
+        if migration.get("authoritative_source") != "governance/erdg/scripts/validate_contract.py":
+            errors.append("ERDG: authoritative contract source is not switched")
+        if migration.get("retired_path") != "governance/f03" or migration.get("retired_path_allowed") is not False:
+            errors.append("ERDG: retired f03 path is not explicitly closed")
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"ERDG: invalid governance JSON: {exc}")
+    forbidden = ("governance/f03", "test_f03.py", "f03_common.py")
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or ".git" in path.parts:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        relative = path.relative_to(ROOT).as_posix()
+        if relative in {
+            "governance/erdg/migration-manifest.json",
+            "governance/erdg/ERDG.md",
+            "governance/erdg/tests/test_erdg.py",
+            "scripts/validate_repo.py",
+        }:
+            continue
+        for marker in forbidden:
+            if marker in text:
+                errors.append(f"ERDG: retired identity {marker!r} found in {relative}")
+    return errors
+
+
+def validate_depth_remediation_invariants() -> list[str]:
+    errors: list[str] = []
+
+    # Platform cards contain platform delta only; the shared protocol has one owner.
+    platform_root = ROOT / "advertising-analysis-measurement-optimization/references/platforms"
+    platform_cards = [
+        "amazon.md", "google-search.md", "google-shopping-pmax.md", "meta-ads.md",
+        "tiktok-shop.md", "tiktok-ads-dtc.md", "shopee.md", "shein.md", "temu.md",
+        "mercado-libre.md",
+    ]
+    for name in platform_cards:
+        text = (platform_root / name).read_text(encoding="utf-8")
+        if "## 模块执行协议" in text:
+            errors.append(f"AAMO platform card {name}: duplicated shared execution protocol")
+        for marker in ("## 可验证机制与诊断", "机制边界", "可控输入", "可观测代理", "证伪路径", "竞争反馈"):
+            if marker not in text:
+                errors.append(f"AAMO platform card {name}: missing mechanism marker {marker}")
+
+    # High-risk domains must expose executable governance at the routed entrypoint.
+    governance_markers = {
+        "advertising-analysis-measurement-optimization": ("Hard Gates", "失败断言", "结果回填"),
+        "logistics-inventory-fulfillment-decision": ("Hard Gates", "失败断言", "回填"),
+        "platform-store-listing-conversion": ("Hard Gates", "失败断言", "结果回填"),
+    }
+    for skill, markers in governance_markers.items():
+        for filename in ("professional-depth-governance.md", "skill-integration-protocol.md", "data-contract-and-automation.md"):
+            path = ROOT / skill / "references" / filename
+            text = path.read_text(encoding="utf-8")
+            if len(text.splitlines()) < 20:
+                errors.append(f"{skill}/{filename}: governance entrypoint is too thin")
+        depth_text = (ROOT / skill / "references/professional-depth-governance.md").read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in depth_text:
+                errors.append(f"{skill}: professional governance missing {marker}")
+
+    # Domain evaluations must survive standalone packaging.
+    for skill in ("logistics-inventory-fulfillment-decision", "platform-store-listing-conversion"):
+        replay = ROOT / skill / "evaluations/historical-replay-template.json"
+        if not replay.is_file():
+            errors.append(f"{skill}: missing domain-local historical replay template")
+    if (ROOT / "evaluations/d07").exists() or (ROOT / "evaluations/d08").exists():
+        errors.append("deprecated top-level d07/d08 evaluation directories must not return")
+
+    # MBCM cards must bind definitions to calibration and parameterized stress.
+    module_root = ROOT / "marketing-brand-campaign-management/references/modules"
+    for path in sorted(module_root.glob("s*.md")):
+        text = path.read_text(encoding="utf-8")
+        for marker in ("## 校准与参数化压力", "T1", "T2", "T3", "T4"):
+            if marker not in text:
+                errors.append(f"MBCM module {path.name}: missing {marker}")
+
+    # CAPM schemas are review artifacts as well as machine contracts.
+    for path in sorted((ROOT / "creator-affiliate-partnership-management/schemas").glob("*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            errors.append(f"CAPM schema {path.name}: invalid JSON {exc}")
+            continue
+        expected = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
+        if path.read_text(encoding="utf-8") != expected:
+            errors.append(f"CAPM schema {path.name}: must use canonical two-space review format")
     return errors
 
 
@@ -391,6 +523,8 @@ def main() -> int:
     errors.extend(validate_change_impact_manifest())
     errors.extend(validate_domain_contract_entrypoints())
     errors.extend(validate_vlb_handoff_entrypoints())
+    errors.extend(validate_erdg_baseline())
+    errors.extend(validate_depth_remediation_invariants())
 
     if errors:
         print("\n".join(f"ERROR: {error}" for error in errors), file=sys.stderr)

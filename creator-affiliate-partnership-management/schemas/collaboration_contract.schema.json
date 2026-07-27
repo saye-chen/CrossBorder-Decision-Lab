@@ -1,1 +1,72 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["collaboration_id","contract_version","creator_id","brand_entity","payee_entity","currency","deliverables","rights_id","payment_terms","termination","effective_at","expires_at"],"properties":{"collaboration_id":{"type":"string","minLength":1},"contract_version":{"type":"string","minLength":1},"creator_id":{"type":"string","minLength":1},"brand_entity":{"type":"string","minLength":1},"payee_entity":{"type":"string","minLength":1},"currency":{"type":"string","pattern":"^[A-Z]{3}$"},"deliverables":{"type":"array","minItems":1,"items":{"type":"string"}},"rights_id":{"type":"string","minLength":1},"payment_terms":{"type":"object","minProperties":1},"termination":{"type":"object","minProperties":1},"effective_at":{"type":"string","format":"date-time"},"expires_at":{"type":"string","format":"date-time"}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "collaboration_id",
+    "contract_version",
+    "creator_id",
+    "brand_entity",
+    "payee_entity",
+    "currency",
+    "deliverables",
+    "rights_id",
+    "payment_terms",
+    "termination",
+    "effective_at",
+    "expires_at"
+  ],
+  "properties": {
+    "collaboration_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "creator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brand_entity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payee_entity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "deliverables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "rights_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payment_terms": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "termination": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "effective_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

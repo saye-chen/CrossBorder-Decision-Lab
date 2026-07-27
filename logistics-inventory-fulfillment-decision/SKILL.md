@@ -171,3 +171,6 @@ Hard gates与阻断项
 缺少下列任一项，不得标记为完整决策：数据质量、hard gates、替代方案、不行动基线、可复算计算、敏感性、反对证据、下行情景、责任与时间、成功/停止/回滚/退出、跨域确认、实际结果回填。
 
 不得把Golden Case或合成fixture当成真实效果证明。正式生产发布前至少回放3个经授权、已脱敏、具有实际结果和证据哈希的历史案例；未满足时只允许`controlled pilot`，不得标记`production ready`。
+## ERDG 共享治理接入
+
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/logistics-inventory-fulfillment-decision/adapter.json` 声明 LIFD 主权；ERDG 失败时不得形成生效动作。

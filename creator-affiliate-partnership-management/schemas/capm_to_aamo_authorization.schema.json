@@ -1,1 +1,85 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["content_id","rights_id","platform","country","valid_from","expires_at","allowed_paid_uses","forbidden_uses","edit_rights","identity_use","attribution_required","rights_fee","status"],"properties":{"content_id":{"type":"string","minLength":1},"rights_id":{"type":"string","minLength":1},"platform":{"type":"string","minLength":1},"country":{"type":"string","pattern":"^[A-Z]{2}$"},"valid_from":{"type":"string","format":"date-time"},"expires_at":{"type":"string","format":"date-time"},"allowed_paid_uses":{"type":"array","items":{"type":"string"}},"forbidden_uses":{"type":"array","items":{"type":"string"}},"edit_rights":{"type":"array","items":{"type":"string"}},"identity_use":{"type":"array","items":{"type":"string"}},"attribution_required":{"type":"boolean"},"rights_fee":{"type":"number","minimum":0},"status":{"enum":["proposed","validated","blocked","inconclusive"]}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "content_id",
+    "rights_id",
+    "platform",
+    "country",
+    "valid_from",
+    "expires_at",
+    "allowed_paid_uses",
+    "forbidden_uses",
+    "edit_rights",
+    "identity_use",
+    "attribution_required",
+    "rights_fee",
+    "status"
+  ],
+  "properties": {
+    "content_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rights_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "allowed_paid_uses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_uses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "edit_rights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "identity_use": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attribution_required": {
+      "type": "boolean"
+    },
+    "rights_fee": {
+      "type": "number",
+      "minimum": 0
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "validated",
+        "blocked",
+        "inconclusive"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

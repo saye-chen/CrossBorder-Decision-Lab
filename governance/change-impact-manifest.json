@@ -9,11 +9,19 @@
   "contracts": {
     "decision-contract-core": {
       "owner": "repository",
-      "authoritative_sources": ["category-investment-decision/scripts/validate_decision_contract.py", "scripts/validate_decision_contract.py"],
-      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management"],
-      "validators": ["scripts/validate_decision_contract.py"],
-      "tests": ["scripts/test_domain_stress.py", "scripts/test_cross_skill_integration.py", "scripts/test_expert_release.py"],
-      "evaluations": ["evaluations/golden-reports", "evaluations/adversarial-cases"]
+      "authoritative_sources": ["governance/erdg/ERDG.md", "governance/erdg/contract-version.json", "governance/erdg/scripts/validate_contract.py", "governance/erdg/schemas"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management", "marketing-brand-campaign-management"],
+      "validators": ["governance/erdg/scripts/validate_contract.py", "scripts/validate_decision_contract.py"],
+      "tests": ["governance/erdg/tests/test_erdg.py", "scripts/test_domain_stress.py", "scripts/test_cross_skill_integration.py", "scripts/test_expert_release.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["governance/erdg/tests/fixtures", "evaluations/golden-reports", "evaluations/adversarial-cases"]
+    },
+    "erdg-economic-risk-and-decision-governance": {
+      "owner": "repository",
+      "authoritative_sources": ["governance/erdg/ERDG.md", "governance/erdg/references", "governance/erdg/schemas", "governance/erdg/scripts", "governance/erdg/parameter-registry.json", "governance/erdg/capacity-contract.json", "governance/erdg/migration-manifest.json", "governance/erdg/implementation-manifest.json", "requirements-dev.txt", "governance/erdg/adapters/category-investment-decision/adapter.json", "governance/erdg/adapters/competitive-intelligence-monitoring/adapter.json", "governance/erdg/adapters/video-link-breakdown/adapter.json", "governance/erdg/adapters/consumer-insights-customer-growth/adapter.json", "governance/erdg/adapters/advertising-analysis-measurement-optimization/adapter.json", "governance/erdg/adapters/logistics-inventory-fulfillment-decision/adapter.json", "governance/erdg/adapters/platform-store-listing-conversion/adapter.json", "governance/erdg/adapters/creator-affiliate-partnership-management/adapter.json", "governance/erdg/adapters/marketing-brand-campaign-management/adapter.json"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management", "marketing-brand-campaign-management"],
+      "validators": ["governance/erdg/scripts/validate_contract.py", "governance/erdg/scripts/validate_units_currency_tax_time.py", "governance/erdg/scripts/validate_state_transition.py", "governance/erdg/scripts/validate_schema_instance.py", "governance/erdg/scripts/validate_erdg_depth.py", "governance/erdg/scripts/validate_report_recomputation.py", "governance/erdg/scripts/validate_erdg_capacity.py", "scripts/validate_repo.py"],
+      "tests": ["governance/erdg/tests/test_erdg.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["governance/erdg/tests/fixtures", "evaluations/erdg", "evaluations/erdg/report-recomputation-manifest.json"]
     },
     "cidm-scoring": {
       "owner": "category-investment-decision",
@@ -97,10 +105,10 @@
     },
     "aamo-runtime": {
       "owner": "advertising-analysis-measurement-optimization",
-      "authoritative_sources": ["advertising-analysis-measurement-optimization/SKILL.md", "advertising-analysis-measurement-optimization/references/skill-integration-protocol.md", "advertising-analysis-measurement-optimization/references/data-contract-and-automation.md", "advertising-analysis-measurement-optimization/references/incrementality-and-experimentation.md", "governance/shared-statistical-primitives.md"],
+      "authoritative_sources": ["advertising-analysis-measurement-optimization/SKILL.md", "advertising-analysis-measurement-optimization/references/skill-integration-protocol.md", "advertising-analysis-measurement-optimization/references/data-contract-and-automation.md", "advertising-analysis-measurement-optimization/references/incrementality-and-experimentation.md", "advertising-analysis-measurement-optimization/references/platforms/official-mechanism-evidence.json", "governance/shared-statistical-primitives.md"],
       "consumers": ["advertising-analysis-measurement-optimization/agents/openai.yaml", "advertising-analysis-measurement-optimization/references/output-protocols/professional-report-delivery.md", "README.md", "category-investment-decision", "video-link-breakdown", "consumer-insights-customer-growth", "competitive-intelligence-monitoring", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management"],
       "validators": ["advertising-analysis-measurement-optimization/scripts/validate_decision_contract.py", "scripts/validate_repo.py"],
-      "tests": ["advertising-analysis-measurement-optimization/scripts/test_models.py", "advertising-analysis-measurement-optimization/scripts/test_causal_measurement.py", "scripts/test_advertising_stress.py", "scripts/test_cross_skill_integration.py", "scripts/test_statistical_primitive_parity.py", "scripts/test_professional_depth.py", "scripts/test_homepage_integrity.py"],
+      "tests": ["advertising-analysis-measurement-optimization/scripts/test_models.py", "advertising-analysis-measurement-optimization/scripts/test_causal_measurement.py", "advertising-analysis-measurement-optimization/scripts/test_official_mechanism_evidence.py", "scripts/test_advertising_stress.py", "scripts/test_cross_skill_integration.py", "scripts/test_statistical_primitive_parity.py", "scripts/test_professional_depth.py", "scripts/test_homepage_integrity.py"],
       "evaluations": ["evaluations/golden/d09-single.md"]
     },
     "lifd-runtime": {
@@ -117,7 +125,7 @@
       "consumers": ["platform-store-listing-conversion/agents/openai.yaml", "README.md", "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "creator-affiliate-partnership-management"],
       "validators": ["platform-store-listing-conversion/scripts/validate_plco_contract.py", "platform-store-listing-conversion/scripts/validate_decision_contract.py", "scripts/validate_governance_baseline.py"],
       "tests": ["platform-store-listing-conversion/scripts/test_models.py", "scripts/test_listing_conversion_stress.py", "scripts/test_cross_skill_integration.py"],
-      "evaluations": ["evaluations/golden/d08-single.md", "evaluations/golden-reports/d08-full.md", "evaluations/d08/output-goldens"]
+      "evaluations": ["evaluations/golden/d08-single.md", "evaluations/golden-reports/d08-full.md", "platform-store-listing-conversion/evaluations/output-goldens"]
     },
     "capm-runtime-and-contracts": {
       "owner": "creator-affiliate-partnership-management",

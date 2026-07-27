@@ -1,0 +1,20 @@
+{
+  "registry_version": "parameter-set/2026.01",
+  "parameters": [
+    {
+      "parameter_id": "ERDG.NON_RELAXABLE.REDLINE",
+      "parameter_type": "redline",
+      "owner_domain": "repository-governance",
+      "value_or_formula": true,
+      "scope": "global",
+      "effective_from": "2026-07-27T00:00:00+08:00",
+      "effective_to": null,
+      "version": "1.0.0",
+      "calibration_status": "default",
+      "approval": {"status": "approved", "approved_at": "2026-07-27T00:00:00+08:00"},
+      "rollback_version": null
+    }
+  ],
+  "production_thresholds": [],
+  "note": "No production business threshold, weight or formula is asserted before real-case calibration."
+}

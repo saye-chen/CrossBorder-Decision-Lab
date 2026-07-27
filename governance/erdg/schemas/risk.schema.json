@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/risk/1.0.0",
+  "type": "object",
+  "required": ["risk_id", "risk_type", "object_id", "redline", "status", "owner"],
+  "properties": {
+    "risk_id": {"type": "string", "minLength": 1},
+    "risk_type": {"type": "string", "minLength": 1},
+    "object_id": {"type": "string", "minLength": 1},
+    "redline": {"type": "boolean"},
+    "probability": {"type": ["string", "null"], "pattern": "^(0(\\.\\d+)?|1(\\.0+)?)$"},
+    "impact": {"type": ["string", "null"], "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "status": {"enum": ["open", "mitigated", "accepted", "blocked", "closed"]},
+    "owner": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

@@ -1,1 +1,78 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["campaign_id","sku","country","platform","window_start","window_end","demand_low","demand_mid","demand_high","confidence","evidence_ids","allowed_interpretation"],"properties":{"campaign_id":{"type":"string","minLength":1},"sku":{"type":"string","minLength":1},"country":{"type":"string","pattern":"^[A-Z]{2}$"},"platform":{"type":"string","minLength":1},"window_start":{"type":"string","format":"date-time"},"window_end":{"type":"string","format":"date-time"},"demand_low":{"type":"number","minimum":0},"demand_mid":{"type":"number","minimum":0},"demand_high":{"type":"number","minimum":0},"confidence":{"enum":["low","medium","high"]},"evidence_ids":{"type":"array","minItems":1,"items":{"type":"string"}},"allowed_interpretation":{"type":"array","minItems":1,"items":{"type":"string"}}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "sku",
+    "country",
+    "platform",
+    "window_start",
+    "window_end",
+    "demand_low",
+    "demand_mid",
+    "demand_high",
+    "confidence",
+    "evidence_ids",
+    "allowed_interpretation"
+  ],
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sku": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "window_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "window_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "demand_low": {
+      "type": "number",
+      "minimum": 0
+    },
+    "demand_mid": {
+      "type": "number",
+      "minimum": 0
+    },
+    "demand_high": {
+      "type": "number",
+      "minimum": 0
+    },
+    "confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "evidence_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_interpretation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

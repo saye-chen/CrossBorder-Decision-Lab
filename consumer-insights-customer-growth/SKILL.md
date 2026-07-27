@@ -140,3 +140,6 @@ description: 默认用中文执行跨境电商消费者洞察、客户增长、�
 - 连续动作、跨渠道或家庭/店铺干扰不得用单次独立处理假设解释；必须调整实验单位或降级因果结论。
 - 策略与模型分别治理；模型指标稳定不能证明频控、权益和下一动作策略仍产生长期净增量价值。
 - 授权、身份、事件、收入、实验分配或真实曝光的关键门槛失败时，必须降级分析层级，不让模型吸收数据异常。
+## ERDG 共享治理接入
+
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/consumer-insights-customer-growth/adapter.json` 声明 CIG 主权；ERDG 失败时不得形成生效动作。

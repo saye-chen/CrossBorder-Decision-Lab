@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/economic-ledger/1.0.0",
+  "type": "object",
+  "required": ["currency", "tax_basis", "as_of_time", "amounts"],
+  "properties": {
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "tax_basis": {"enum": ["tax_inclusive", "tax_exclusive", "tax_not_applicable"]},
+    "as_of_time": {"type": "string", "format": "date-time"},
+    "amounts": {
+      "type": "object",
+      "required": ["gross_sales"],
+      "additionalProperties": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"}
+    }
+  },
+  "additionalProperties": false
+}

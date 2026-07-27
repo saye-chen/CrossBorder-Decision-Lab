@@ -81,6 +81,7 @@ description: 默认用中文执行专家级跨境广告分析、测量与优化�
 平台专项文件位于 `references/platforms/`：
 
 - 所有平台卡先读取 [platform-card-contract.md](references/platforms/platform-card-contract.md)，统一执行对象、测量、根因、利润、动作和禁止推断六组契约。
+- 解释平台公开机制时同时读取 [official-mechanism-evidence.json](references/platforms/official-mechanism-evidence.json)，区分官方公开、未公开与执行时需刷新部分；不得把自然推荐机制冒充付费广告拍卖，也不得把诊断分写成固定排序公式。
 - `tiktok-shop.md`、`amazon.md`、`shopee.md`、`shein.md`、`temu.md`、`mercado-libre.md`
 - `google-search.md`、`google-shopping-pmax.md`、`meta-ads.md`、`tiktok-ads-dtc.md`
 - 未覆盖平台读取 `universal-platform-routing.md`
@@ -141,3 +142,6 @@ description: 默认用中文执行专家级跨境广告分析、测量与优化�
 9. 是否守住 D01、D06—D13 的主权边界。
 10. 因果结论是否有可执行估计器、识别诊断、区间和动作上限；BSTS/完整 MMM 未实际运行时是否标为 unavailable。
 11. 正式交付前是否运行适用脚本测试并清理本任务临时文件。
+## ERDG 共享治理接入
+
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/advertising-analysis-measurement-optimization/adapter.json` 声明 AAMO 主权；ERDG 失败时不得形成生效动作。

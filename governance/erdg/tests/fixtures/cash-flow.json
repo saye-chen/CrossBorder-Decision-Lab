@@ -1,0 +1,1 @@
+{"currency":"USD","opening_cash":"100.00","entries":[{"entry_id":"E1","occurred_at":"2026-07-01T00:00:00+00:00","direction":"outflow","amount":"250.00"},{"entry_id":"E2","occurred_at":"2026-07-10T00:00:00+00:00","direction":"inflow","amount":"400.00"}]}

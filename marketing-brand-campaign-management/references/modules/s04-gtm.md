@@ -14,3 +14,10 @@
 - 跨域请求：CIDM、D05、D06、LIFD、PLCO及适用渠道域分别签署状态。
 - 压力场景：临上市库存下降、规则变化或追踪失效触发选择性重算。
 - 输出字段：launch_unit_id、critical_path、gate_ledger、latest_safe_date、rollback_version。
+
+## 校准与参数化压力
+
+- 最早可承诺日期取关键路径各依赖完成时间的联合分位数，不用平均完成率；并计算每个依赖延迟对上市日的敏感度。
+- 经济门按单位成熟贡献、固定启动成本、峰值现金和保本量重算；容量门使用 LIFD 的 P90/P95 能力。
+- T1 延迟最长依赖；T2 同时降低需求并提高单位成本；T3 叠加库存/追踪/规则变化；T4 任一不可补偿 Gate 失效即 hold/stop。
+- 只有所有必要 Gate 同版本 `validated` 且 T2 仍不越界，才能从 hold 升级 test；scale 另行决策。

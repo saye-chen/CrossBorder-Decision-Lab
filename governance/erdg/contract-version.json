@@ -1,0 +1,15 @@
+{
+  "runtime": "ERDG-2026.01",
+  "contract": "ERDG-CONTRACT-2026.01",
+  "schema_version": "1.0.0",
+  "economics_version": "economics/1.0.0",
+  "parameter_set_version": "parameter-set/2026.01",
+  "status": "controlled_pilot",
+  "l1": "implemented",
+  "l2": "implemented",
+  "l3": "implemented_automated_gate",
+  "l4": "not_passed",
+  "production_ready": false,
+  "owner": "repository-governance",
+  "external_write": "forbidden"
+}

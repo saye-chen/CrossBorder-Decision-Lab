@@ -1,1 +1,89 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["partner_id","object_version","program_id","platform","country","payee_status","commission_basis","attribution_status","settlement_status","fraud_status","lifecycle"],"properties":{"partner_id":{"type":"string","minLength":1},"object_version":{"type":"string","minLength":1},"program_id":{"type":"string","minLength":1},"platform":{"type":"string","minLength":1},"country":{"type":"string","pattern":"^[A-Z]{2}$"},"payee_status":{"enum":["validated","inconclusive","blocked"]},"commission_basis":{"enum":["mature_net_revenue","eligible_order_value","item_revenue"]},"attribution_status":{"enum":["attributed","estimated","incremental","inconclusive"]},"settlement_status":{"enum":["pending","reconciled","disputed","paid","held"]},"fraud_status":{"enum":["clear","review","confirmed"]},"lifecycle":{"enum":["candidate","recruited","activated","productive","dormant","suspended","exited"]}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "partner_id",
+    "object_version",
+    "program_id",
+    "platform",
+    "country",
+    "payee_status",
+    "commission_basis",
+    "attribution_status",
+    "settlement_status",
+    "fraud_status",
+    "lifecycle"
+  ],
+  "properties": {
+    "partner_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "program_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "payee_status": {
+      "enum": [
+        "validated",
+        "inconclusive",
+        "blocked"
+      ]
+    },
+    "commission_basis": {
+      "enum": [
+        "mature_net_revenue",
+        "eligible_order_value",
+        "item_revenue"
+      ]
+    },
+    "attribution_status": {
+      "enum": [
+        "attributed",
+        "estimated",
+        "incremental",
+        "inconclusive"
+      ]
+    },
+    "settlement_status": {
+      "enum": [
+        "pending",
+        "reconciled",
+        "disputed",
+        "paid",
+        "held"
+      ]
+    },
+    "fraud_status": {
+      "enum": [
+        "clear",
+        "review",
+        "confirmed"
+      ]
+    },
+    "lifecycle": {
+      "enum": [
+        "candidate",
+        "recruited",
+        "activated",
+        "productive",
+        "dormant",
+        "suspended",
+        "exited"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -15,3 +15,10 @@
 - 翻转条件：下界超过机会成本和最小经营差异后才允许更高动作。
 - 跨域请求：AAMO/CIG保有各自因果测量主权，MBCM只汇总活动结论。
 - 输出字段：estimand、counterfactual_method、interval、maturity_window、falsifier。
+
+## 校准与参数化压力
+
+- 先定义 estimand、分配单位、干预/曝光、ITT 或 CACE、成熟窗、MDE、功效、聚类设计效应和最小集群数，再选择估计器。
+- DiD 必须通过预趋势门；合成控制报告 pre-fit、donor 权重和 placebo；CACE 必须有有效工具变量和单调性假设。
+- T1 使用效果区间下界；T2 加入污染/溢出上界；T3 同时提高增量成本、退款和拉前/蚕食；T4 分配、版本或测量失效即降级 `inconclusive`。
+- 动作翻转要求成熟增量贡献下界同时超过零、机会成本和预注册最小经营差异。

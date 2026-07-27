@@ -1,1 +1,58 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["memo","objects","evidence_ledger","calculations","stress_tests","cross_skill_status","review"],"properties":{"memo":{"type":"object","minProperties":1},"objects":{"type":"array","minItems":1,"items":{"type":"object"}},"evidence_ledger":{"type":"array","minItems":1,"items":{"type":"object"}},"calculations":{"type":"array","minItems":1,"items":{"type":"object"}},"stress_tests":{"type":"array","minItems":1,"items":{"type":"object"}},"cross_skill_status":{"type":"array","items":{"type":"object"}},"review":{"type":"object","minProperties":1}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "memo",
+    "objects",
+    "evidence_ledger",
+    "calculations",
+    "stress_tests",
+    "cross_skill_status",
+    "review"
+  ],
+  "properties": {
+    "memo": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence_ledger": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "calculations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "stress_tests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "cross_skill_status": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "review": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "additionalProperties": false
+}

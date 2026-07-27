@@ -1,1 +1,84 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["creator_id","content_id","claim_id","claim_hash","promise_type","product_sku","audience","platform","country","exposure_window","consent_and_privacy_basis","deidentification_status","evidence_ids","prohibited_interpretation"],"properties":{"creator_id":{"type":"string","minLength":1},"content_id":{"type":"string","minLength":1},"claim_id":{"type":"string","minLength":1},"claim_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},"promise_type":{"type":"string","minLength":1},"product_sku":{"type":"string","minLength":1},"audience":{"type":"string","minLength":1},"platform":{"type":"string","minLength":1},"country":{"type":"string","pattern":"^[A-Z]{2}$"},"exposure_window":{"type":"object","minProperties":1},"consent_and_privacy_basis":{"type":"string","minLength":1},"deidentification_status":{"const":"deidentified"},"evidence_ids":{"type":"array","minItems":1,"items":{"type":"string"}},"prohibited_interpretation":{"type":"array","minItems":1,"items":{"type":"string"}}},"additionalProperties":false}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "creator_id",
+    "content_id",
+    "claim_id",
+    "claim_hash",
+    "promise_type",
+    "product_sku",
+    "audience",
+    "platform",
+    "country",
+    "exposure_window",
+    "consent_and_privacy_basis",
+    "deidentification_status",
+    "evidence_ids",
+    "prohibited_interpretation"
+  ],
+  "properties": {
+    "creator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "promise_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "product_sku": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "exposure_window": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "consent_and_privacy_basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deidentification_status": {
+      "const": "deidentified"
+    },
+    "evidence_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_interpretation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
