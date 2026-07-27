@@ -31,10 +31,21 @@ class HomepageIntegrity(unittest.TestCase):
             self.assertNotIn(stale, self.zh)
 
     def test_investor_value_and_both_architecture_views_exist(self):
-        for anchor in ("## 系统价值与长期壁垒", "### 三层价值结构",
-                       "### 九 Skill 双向协同结构", "决策资产", "经营基准"):
+        for anchor in ("## 系统价值与长期壁垒", "### 四层价值结构",
+                       "### 九 Skill 双向协同结构", "ERDG 治理底座",
+                       "决策资产", "经营基准"):
             self.assertIn(anchor, self.zh)
         self.assertGreaterEqual(self.zh.count("```mermaid"), 2)
+
+    def test_erdg_is_visible_without_taking_business_ownership(self):
+        for page in (self.zh, self.en):
+            self.assertIn("ERDG-CONTRACT-2026.01", page)
+            self.assertIn("governance/erdg/ERDG.md", page)
+        architecture = self.zh.split("### 四层价值结构", 1)[1].split("```", 2)[1]
+        for term in ("对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘",
+                     "合同与红线校验", "阻断、降级或请求补充"):
+            self.assertIn(term, architecture)
+        self.assertIn("ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论", self.zh)
 
     def test_all_nine_skills_have_one_quick_route_and_current_runtime(self):
         table = self.zh.split("## Skill 快速定位", 1)[1].split("## 统一决策基础设施", 1)[0]
@@ -60,7 +71,7 @@ class HomepageIntegrity(unittest.TestCase):
             ("## 系统价值与长期壁垒", "## System Value and Long-Term Defensibility"),
             ("### 为什么它不容易被更强的通用模型替代", "### Why stronger general-purpose models do not replace it"),
             ("### 面向长期使用的复利机制", "### The compounding mechanism of long-term use"),
-            ("### 三层价值结构", "### Three-layer value architecture"),
+            ("### 四层价值结构", "### Four-layer value architecture"),
             ("### 九 Skill 双向协同结构", "### Nine-Skill collaboration map"),
             ("## Skill 快速定位", "## Skill Directory"),
             ("## 统一决策基础设施", "## Shared Decision Infrastructure"),
