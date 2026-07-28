@@ -1,0 +1,98 @@
+{
+  "contract_version": "PPFC-CONSUMER-ADAPTER-2026.01",
+  "external_write": false,
+  "adapters": [
+    {
+      "domain": "CIDM",
+      "source_runtime": "CIDM-2026.14",
+      "source_calculator": "category-investment-decision/scripts/profit_model.py",
+      "status": "dual_run_equivalent",
+      "exact_equivalence_fixture": "CIDM-EQ-001",
+      "source_fields": ["price", "product", "commission_rate", "ad_rate"],
+      "ppfc_fields": ["price", "product_cogs", "fees.platform.rate", "ad_spend"],
+      "shared_outputs": ["pre_ad_contribution", "operating_profit"],
+      "retained_sovereignty": ["capital_entry", "capital_add", "capital_shrink", "capital_exit"],
+      "forbidden_writeback": ["investment_posture", "portfolio_allocation"]
+    },
+    {
+      "domain": "AAMO",
+      "source_runtime": "AAMO-2026.08",
+      "source_calculator": "advertising-analysis-measurement-optimization/scripts/ad_economics.py",
+      "status": "dual_run_equivalent",
+      "exact_equivalence_fixture": "AAMO-EQ-001",
+      "source_fields": ["revenue", "pre_ad_cm_rate", "ad_spend"],
+      "ppfc_fields": ["recognized_net_revenue", "pre_ad_contribution", "ad_spend"],
+      "shared_outputs": ["operating_profit", "break_even_roas"],
+      "retained_sovereignty": ["account_structure", "budget_allocation", "bid", "scale", "stop"],
+      "forbidden_writeback": ["budget", "bid", "campaign_status"]
+    },
+    {
+      "domain": "CIG",
+      "source_runtime": "CIG-2026.09",
+      "source_calculator": "consumer-insights-customer-growth/scripts/calculate_clv.py",
+      "status": "dual_run_equivalent",
+      "exact_equivalence_fixture": "CIG-EQ-001",
+      "source_fields": ["expected_contribution_margins", "survival", "cac"],
+      "ppfc_fields": ["period_contribution", "retention_rate", "acquisition_cost"],
+      "shared_outputs": ["contribution_clv", "net_after_cac"],
+      "retained_sovereignty": ["customer_identity", "cohort", "retention", "clv_fact", "customer_action"],
+      "forbidden_writeback": ["customer_state", "crm_action", "contact"]
+    },
+    {
+      "domain": "LIFD",
+      "source_runtime": "LIFD-2026.04",
+      "source_calculator": "logistics-inventory-fulfillment-decision/scripts/logistics_economics.py",
+      "status": "dual_run_equivalent",
+      "exact_equivalence_fixture": "LIFD-EQ-001",
+      "difference_class": "business_model",
+      "difference_reason": "The shared financial boundary is equivalent; LIFD still owns route and inventory facts and actions.",
+      "source_fields": ["landed_cost_per_unit", "fulfillment_cost_per_order", "total_relevant_cost"],
+      "ppfc_fields": ["cost_components", "freight_route", "parameter_snapshot"],
+      "shared_outputs": ["financial_cost_fact"],
+      "retained_sovereignty": ["route", "warehouse", "inventory", "replenishment", "fulfillment", "exit_action"],
+      "forbidden_writeback": ["route", "inventory", "purchase_order", "fulfillment_action"]
+    },
+    {
+      "domain": "CAPM",
+      "source_runtime": "CAPM-2026.07",
+      "source_calculator": "creator-affiliate-partnership-management/scripts/partnership_economics.py",
+      "status": "dual_run_equivalent",
+      "exact_equivalence_fixture": "CAPM-EQ-001",
+      "difference_class": "definition",
+      "difference_reason": "The generic commission ceiling is equivalent; CAPM still owns partner-specific commercial terms and actions.",
+      "source_fields": ["mature_net_revenue", "commission_base", "target_profit", "non_commission_costs"],
+      "ppfc_fields": ["recognized_net_revenue", "cost_components", "required_profit"],
+      "shared_outputs": ["commission_financial_ceiling"],
+      "retained_sovereignty": ["partner_selection", "quote", "commission_offer", "contract", "renew", "exit"],
+      "forbidden_writeback": ["commission", "contract", "sample", "partner_status"]
+    },
+    {
+      "domain": "MBCM",
+      "source_runtime": "MBCM-2026.01",
+      "source_calculator": "marketing-brand-campaign-management/scripts/offer_economics.py",
+      "status": "dual_run_equivalent",
+      "exact_equivalence_fixture": "MBCM-EQ-001",
+      "difference_class": "definition",
+      "difference_reason": "The promotion financial boundary is equivalent; MBCM still owns campaign and offer actions.",
+      "source_fields": ["incremental_orders", "incremental_cm_per_order", "offer_costs", "pull_forward_loss", "cannibalization_loss"],
+      "ppfc_fields": ["incremental_evidence", "promotion_cost_components", "required_profit"],
+      "shared_outputs": ["promotion_financial_boundary"],
+      "retained_sovereignty": ["positioning", "campaign", "offer_direction", "channel_orchestration"],
+      "forbidden_writeback": ["campaign", "offer", "calendar", "resource_direction"]
+    },
+    {
+      "domain": "PLCO",
+      "source_runtime": "PLCO-2026.08",
+      "source_calculator": "platform-store-listing-conversion/scripts/calculate_recoverable_value.py",
+      "status": "dual_run_equivalent",
+      "exact_equivalence_fixture": "PLCO-EQ-001",
+      "difference_class": "business_model",
+      "difference_reason": "The recoverable contribution range is equivalent; PLCO still owns page facts, design and experiments.",
+      "source_fields": ["qualified_visits", "conversion_gap", "recoverable_share", "mature_contribution_per_order"],
+      "ppfc_fields": ["accepted_price_boundary", "accepted_contribution_boundary"],
+      "shared_outputs": ["recoverable_contribution_range"],
+      "retained_sovereignty": ["store", "listing", "page", "offer_display", "experiment"],
+      "forbidden_writeback": ["listing", "page", "offer_display", "experiment"]
+    }
+  ]
+}

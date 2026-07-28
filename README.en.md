@@ -4,9 +4,9 @@
 
 > Professional decision infrastructure for cross-border commerce—turning experience-dependent judgment into evidence-based, model-backed, actionable, and compounding decision assets.
 
-CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It is not a generic prompt collection. It connects category investment, competitive intelligence, content, customers, advertising, fulfillment, conversion, partnerships, and marketing into nine professional domains that can operate independently and collaborate under shared decision contracts.
+CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It is not a generic prompt collection. It connects category investment, competitive intelligence, content, customers, advertising, fulfillment, conversion, partnerships, marketing, and pricing finance into ten professional domains that can operate independently and collaborate under shared decision contracts.
 
-The current system includes nine professional domains plus ERDG (Economic, Risk & Decision Governance): complete core workflows, deterministic and statistical models, evidence and counterevidence rules, multi-turn continuity, single- and cross-Skill execution, pressure scenarios, stopping and exit mechanisms, and shared economic, risk, and decision governance.
+The current system includes ten professional domains plus ERDG (Economic, Risk & Decision Governance), with complete core workflows and completed L1–L3 construction: deterministic and statistical models, evidence and counterevidence rules, multi-turn continuity, single- and cross-Skill execution, pressure scenarios, stopping and exit mechanisms, and shared economic, risk, and decision governance. Every domain remains L4 `controlled pilot` pending later unified calibration with authorized real cases.
 
 ## System Value and Long-Term Defensibility
 
@@ -72,7 +72,7 @@ This moves the system from “answering professional questions” toward “cont
 
 ```mermaid
 flowchart TB
-    U["Cross-border business decision"] --> D["Nine professional decision domains<br/>Business judgment and final ownership"]
+    U["Cross-border business decision"] --> D["Ten professional decision domains<br/>Business judgment and final ownership"]
 
     D --> CIDM["CIDM<br/>Category and capital"]
     D --> CIM["CIM<br/>Competitive intelligence"]
@@ -83,8 +83,9 @@ flowchart TB
     D --> PLCO["PLCO<br/>Page conversion"]
     D --> CAPM["CAPM<br/>Creator and affiliate"]
     D --> MBCM["MBCM<br/>Marketing and brand"]
+    D --> PPFC["PPFC<br/>Pricing and finance"]
 
-    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM --> E["ERDG governance foundation<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"]
+    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM & PPFC --> E["ERDG governance foundation<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"]
     E --> G{"Contract and redline validation"}
     G -->|"Pass"| O["Executable decisions, experiments, stopping rules, and outcome feedback"]
     G -->|"Missing evidence, conflict, or boundary breach"| B["Block, degrade, or request evidence"]
@@ -93,9 +94,9 @@ flowchart TB
     A -.->|"Calibrate parameters, counterexamples, and gates"| E
 ```
 
-The first layer routes the question, the second preserves final ownership in the nine professional domains, the third applies ERDG contracts and deterministic shared calculations, and the fourth turns validated judgments into actions and compounding assets. ERDG does not make domain business decisions.
+The first layer routes the question, the second preserves final ownership in the ten professional domains, the third applies ERDG contracts and deterministic shared calculations, and the fourth turns validated judgments into actions and compounding assets. ERDG does not make domain business decisions.
 
-### Nine-Skill collaboration map
+### Ten-Skill collaboration map
 
 ```mermaid
 flowchart TB
@@ -110,6 +111,7 @@ flowchart TB
     R --> PLCO["PLCO<br/>Platform and conversion"]
     R --> CAPM["CAPM<br/>Creator and affiliate"]
     R --> MBCM["MBCM<br/>Marketing and brand"]
+    R --> PPFC["PPFC<br/>Pricing, profit, and cash flow"]
 
     CIDM <-->|"Opportunity and capital posture"| CIM
     CIDM <-->|"Content viability"| VLB
@@ -152,6 +154,15 @@ flowchart TB
     PLCO <-->|"Links and landing rights"| CAPM
     PLCO <-->|"Offer and campaign delivery"| MBCM
     CAPM <-->|"Partner portfolio and brand programs"| MBCM
+    PPFC <-->|"Pricing, profit, and cash boundaries"| CIDM
+    PPFC <-->|"Competitive price facts and financial impact"| CIM
+    PPFC <-->|"Content sample investment and marginal value"| VLB
+    PPFC <-->|"CLV, CAC, and customer contribution"| CIG
+    PPFC <-->|"Break-even metrics and advertising finance"| AAMO
+    PPFC <-->|"Logistics cost, inventory value, and cash"| LIFD
+    PPFC <-->|"Price display and recoverable contribution"| PLCO
+    PPFC <-->|"Commission, samples, and partner economics"| CAPM
+    PPFC <-->|"Promotion, campaign, and brand economics"| MBCM
 
     R -.->|"Create the shared decision contract"| E
     E -.->|"Versioned evidence, calculations, and redlines"| R
@@ -174,12 +185,13 @@ Choose the primary Skill by the decision that must be made. Platform coverage, p
 | PLCO | `PLCO-2026.08` | Diagnose and improve stores, listings, pages, and funnels | [Platform and Conversion](platform-store-listing-conversion/SKILL.md) |
 | CAPM | `CAPM-2026.07` | Select, price, contract, operate, renew, or exit partners | [Creator and Affiliate](creator-affiliate-partnership-management/SKILL.md) |
 | MBCM | `MBCM-2026.01` | Segment, position, launch, build brands, and orchestrate campaigns | [Marketing and Brand](marketing-brand-campaign-management/SKILL.md) |
+| PPFC | `PPFC-2026.01` | Calculate and adjust price, profit, contribution, break-even metrics, financial constraints, and cash risk | [Pricing, Profit, Finance, and Cash Flow](pricing-profit-finance-cashflow-decision/SKILL.md) |
 
 Detailed platform coverage, models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
 
 ## Shared Decision Infrastructure
 
-The nine domains share [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
+The ten domains share [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
 
 1. evidence and counterevidence discipline;
 2. auditable economics and statistical estimation;
@@ -192,7 +204,7 @@ The nine domains share [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md). ERDG 
 
 ## Current Capabilities
 
-The current version provides nine professional decision Skills that can operate independently and collaborate across domains. It includes:
+The current version provides ten professional decision Skills that can operate independently and collaborate across domains. It includes:
 
 - professional scenario and lifecycle coverage;
 - deterministic economics and statistical estimation tools;
@@ -219,6 +231,7 @@ Examples:
 - “How should we rewrite this Listing and rebuild its image set?”
 - “Is this creator worth sampling and contracting?”
 - “How should we position, launch, and market this new product?”
+- “How should price, profit, and break-even ROAS change when platform fees and land, sea, or air freight change?”
 
 ### 2. Let the primary Skill make the professional judgment
 
@@ -236,7 +249,7 @@ Operating actions and results update benchmarks, parameters, counterexamples, an
 
 | Location | Purpose |
 |---|---|
-| Nine Skill directories | Professional workflows, models, references, and tests |
+| Ten Skill directories | Professional workflows, models, references, and tests |
 | [`evaluations/`](evaluations/) | Single-Skill, cross-Skill, multi-turn, adversarial, and extreme scenarios |
 | [`governance/`](governance/) | Ownership, maturity, change-impact, and shared contracts |
 | [`scripts/`](scripts/) | Repository validation, scoring, integration, and release gates |

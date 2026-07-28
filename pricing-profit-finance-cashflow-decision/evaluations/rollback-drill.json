@@ -1,0 +1,15 @@
+{
+  "contract_version": "PPFC-ROLLBACK-DRILL-2026.01",
+  "release_unit": "skill_adapter_contract_consumers_governance_tests",
+  "drill_type": "non_production_simulation",
+  "external_write": false,
+  "drills": [
+    {"drill_id":"RB-CIDM-001","domain":"CIDM","status":"passed","source_reader_retained":true,"previous_contract_readable":true,"previous_result_recomputed":true,"new_result_invalidated":true,"business_action_unchanged":true,"lineage_preserved":true},
+    {"drill_id":"RB-AAMO-001","domain":"AAMO","status":"passed","source_reader_retained":true,"previous_contract_readable":true,"previous_result_recomputed":true,"new_result_invalidated":true,"business_action_unchanged":true,"lineage_preserved":true},
+    {"drill_id":"RB-CIG-001","domain":"CIG","status":"passed","source_reader_retained":true,"previous_contract_readable":true,"previous_result_recomputed":true,"new_result_invalidated":true,"business_action_unchanged":true,"lineage_preserved":true},
+    {"drill_id":"RB-LIFD-001","domain":"LIFD","status":"passed","source_reader_retained":true,"previous_contract_readable":true,"previous_result_recomputed":true,"new_result_invalidated":true,"business_action_unchanged":true,"lineage_preserved":true},
+    {"drill_id":"RB-CAPM-001","domain":"CAPM","status":"passed","source_reader_retained":true,"previous_contract_readable":true,"previous_result_recomputed":true,"new_result_invalidated":true,"business_action_unchanged":true,"lineage_preserved":true},
+    {"drill_id":"RB-MBCM-001","domain":"MBCM","status":"passed","source_reader_retained":true,"previous_contract_readable":true,"previous_result_recomputed":true,"new_result_invalidated":true,"business_action_unchanged":true,"lineage_preserved":true},
+    {"drill_id":"RB-PLCO-001","domain":"PLCO","status":"passed","source_reader_retained":true,"previous_contract_readable":true,"previous_result_recomputed":true,"new_result_invalidated":true,"business_action_unchanged":true,"lineage_preserved":true}
+  ]
+}

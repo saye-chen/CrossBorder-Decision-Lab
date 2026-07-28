@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ppfc/cross-domain-envelope.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "message_id", "message_version", "correlation_id", "idempotency_key", "sender", "receiver", "object_ref", "scope", "payload_type", "status", "claims", "evidence_ids", "calculations", "allowed_uses", "forbidden_uses", "blocked_actions", "accepted_by_receiver", "validity", "lineage"],
+  "properties": {
+    "contract": {"const": "PPFC-XDOMAIN-2026.01"},
+    "message_id": {"type": "string", "minLength": 1},
+    "message_version": {"type": "string", "pattern": "^PPFC-XMSG-20[0-9]{2}\\.[0-9]{2}$"},
+    "correlation_id": {"type": "string", "minLength": 1},
+    "idempotency_key": {"type": "string", "minLength": 8},
+    "sender": {"$ref": "#/$defs/domain"},
+    "receiver": {"$ref": "#/$defs/domain"},
+    "object_ref": {
+      "type": "object", "additionalProperties": false,
+      "required": ["object_id", "object_version", "object_type"],
+      "properties": {"object_id": {"type": "string", "minLength": 1}, "object_version": {"type": "string", "minLength": 1}, "object_type": {"type": "string", "minLength": 1}}
+    },
+    "scope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["country", "platform", "currency", "tax_basis", "as_of_time"],
+      "properties": {"country": {"type": "string", "minLength": 2}, "platform": {"type": "string", "minLength": 1}, "currency": {"type": "string", "pattern": "^[A-Z]{3}$"}, "tax_basis": {"type": "string", "minLength": 1}, "as_of_time": {"type": "string", "format": "date-time"}}
+    },
+    "payload_type": {"enum": ["input_fact", "economic_constraint", "recompute_request", "acceptance", "rejection", "result_observation"]},
+    "status": {"enum": ["proposed", "validated", "blocked", "inconclusive", "superseded"]},
+    "claims": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "calculations": {"type": "array", "items": {"type": "object"}},
+    "allowed_uses": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "forbidden_uses": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "blocked_actions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "accepted_by_receiver": {"type": "boolean"},
+    "validity": {
+      "type": "object", "additionalProperties": false, "required": ["valid_from", "recorded_at"],
+      "properties": {"valid_from": {"type": "string", "format": "date-time"}, "valid_to": {"type": ["string", "null"], "format": "date-time"}, "recorded_at": {"type": "string", "format": "date-time"}}
+    },
+    "lineage": {
+      "type": "object", "additionalProperties": false, "required": ["input_hash", "parameter_snapshot_id", "runtime_version"],
+      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "output_hash": {"type": ["string", "null"]}, "parameter_snapshot_id": {"type": "string", "minLength": 1}, "runtime_version": {"const": "PPFC-2026.01"}, "supersedes": {"type": ["string", "null"]}}
+    }
+  },
+  "$defs": {
+    "domain": {"enum": ["pricing-profit-finance-cashflow-decision", "category-investment-decision", "competitive-intelligence-monitoring", "video-link-breakdown", "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "creator-affiliate-partnership-management", "marketing-brand-campaign-management"]}
+  }
+}

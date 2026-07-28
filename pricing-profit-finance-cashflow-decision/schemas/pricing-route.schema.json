@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ppfc/pricing-route.schema.json",
+  "title": "PPFC Pricing Model Route Input",
+  "type": "object",
+  "required": ["merchant_archetype", "objective", "lifecycle", "price_object", "constraints", "evidence_capabilities"],
+  "properties": {
+    "merchant_archetype": {"enum": ["marketplace_standard", "content_commerce", "dtc_brand", "wholesale_distribution", "subscription", "custom_preorder", "seasonal_inventory", "premium_innovation", "low_price_volume", "refurbished_secondhand", "usage_capacity", "unknown"]},
+    "objective": {"type": "string", "minLength": 1},
+    "lifecycle": {"enum": ["concept", "cold_start", "growth", "mature", "seasonal_peak", "decline", "clearance", "exit"]},
+    "price_object": {"enum": ["unit", "variant", "bundle", "customer_tier", "order", "contract", "region", "time_slot", "capacity", "usage"]},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "evidence_capabilities": {"type": "array", "uniqueItems": true, "items": {"enum": ["cost", "competitor", "wtp", "historical_response", "experiment", "incrementality", "retention", "capacity", "inventory"]}}
+  },
+  "additionalProperties": false
+}

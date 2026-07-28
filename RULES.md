@@ -111,6 +111,11 @@ ln -sfn "$PWD/creator-affiliate-partnership-management" \
 
 ln -sfn "$PWD/marketing-brand-campaign-management" \
   "${CODEX_HOME:-$HOME/.codex}/skills/marketing-brand-campaign-management"
+
+# PPFC is installed as the tenth governed Skill; L1-L3 pass,
+# while L4 remains controlled pilot until authorized real replay.
+ln -sfn "$PWD/pricing-profit-finance-cashflow-decision" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/pricing-profit-finance-cashflow-decision"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.
@@ -169,6 +174,8 @@ git push origin main
 Skills in this repository are **independent and self-contained by default**. Do not design implicit data flows or call chains between Skills unless explicitly documented here.
 
 ### Current relationships
+
+**pricing-profit-finance-cashflow-decision (PPFC).** Work packages 2–10 establish the sovereignty and object model, reconciliation, 18-family routing, dynamic rules, ERDG adapter, localization, continuous decisions, mixed-batch evaluation, 55-case execution, seven consumer dual runs, and seven rollback drills. Shared financial fields have 7/7 computed technical compatibility acceptance while every business domain retains action sovereignty. Technical acceptance requires no human signature and does not approve business execution or legacy retirement. L3 Expert passes substantive evidence review; L4 stays `controlled pilot`, and material finance or production decisions escalate to the finance/audit owner.
 
 **video-link-breakdown → category-investment-decision (optional, unidirectional)**
 
@@ -390,6 +397,8 @@ git push origin main
 本仓库的 Skill 默认**独立自包含**。不要设计隐式数据流或调用链，除非在此处显式记录。
 
 ### 当前关系
+
+**pricing-profit-finance-cashflow-decision（PPFC）。** 工作包 2—10 已建立主权骨架、核心模型、动态规则、跨域与本地化合同、连续追问、混合批次、55 场景、七域真实双轨及七次回滚演练。共享财务字段已完成 7/7 自动计算的技术兼容验收，各业务域继续保留动作主权。技术验收不需要人工签名，也不批准业务执行或旧实现退役；L3 Expert 已通过实质证据评审，L4 保持 `controlled pilot`，重大财务判断或生产放行升级给财务/审计责任人。
 
 **video-link-breakdown → category-investment-decision（可选、单向）**
 

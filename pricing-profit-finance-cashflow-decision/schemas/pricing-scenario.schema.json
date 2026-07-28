@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ppfc/pricing-scenario.schema.json",
+  "title": "PPFC Pricing Scenario",
+  "type": "object",
+  "required": ["currency", "price", "quantity", "discount_rate", "pass_through_tax_rate", "refund_rate", "product_cogs", "fulfillment_cost", "fees"],
+  "properties": {
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "price": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "quantity": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "discount_rate": {"type": "string", "pattern": "^(0(\\.[0-9]+)?|1(\\.0+)?)$"},
+    "pass_through_tax_rate": {"type": "string", "pattern": "^(0(\\.[0-9]+)?|1(\\.0+)?)$"},
+    "refund_rate": {"type": "string", "pattern": "^(0(\\.[0-9]+)?|1(\\.0+)?)$"},
+    "other_reversals": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "product_cogs": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "fulfillment_cost": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "expected_return_cost": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "variable_marketing_cost": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "variable_service_cost": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "avoidable_period_cost": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "allocated_operating_expense": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "ad_spend": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "required_profit": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "risk_buffer": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "fees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fee_id", "type", "basis"],
+        "properties": {
+          "fee_id": {"type": "string", "minLength": 1},
+          "type": {"enum": ["amount", "rate", "fixed_plus_rate"]},
+          "basis": {"enum": ["gross_revenue", "tax_exclusive_revenue", "recognized_net_revenue"]},
+          "fixed": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "rate": {"type": "string", "pattern": "^(0(\\.[0-9]+)?|1(\\.0+)?)$"},
+          "minimum": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "maximum": {"type": ["string", "null"], "pattern": "^[0-9]+(\\.[0-9]+)?$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "target_profit_margin": {"type": "string", "pattern": "^(0(\\.[0-9]+)?|1(\\.0+)?)$"},
+    "search_low": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "search_high": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "iterations": {"type": "integer", "minimum": 10, "maximum": 500}
+  },
+  "additionalProperties": false
+}

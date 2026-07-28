@@ -1,0 +1,26 @@
+{
+  "scenario_id": "mixed-10pct-golden",
+  "currency": "USD",
+  "batch": {"batch_id": "b1", "initial_quantity": 100, "sample": 10, "test": 5, "initial_defect": 2, "after_sales_reserve": 3, "safety_stock": 10, "sellable_open": 70},
+  "sample_policy": {"rate": "0.10", "rounding": "half_up", "minimum": 1, "maximum": 20, "posted": 8, "rights_verified": 8},
+  "orders": [{"order_id": "o1", "gross_revenue": "100", "refund": "0", "paid": true, "fulfilled_units": 2}],
+  "channel_claims": [
+    {"order_id": "o1", "channel": "shelf", "claimed_revenue": "100", "attribution_weight": "0.2"},
+    {"order_id": "o1", "channel": "ads", "claimed_revenue": "100", "attribution_weight": "0.2"},
+    {"order_id": "o1", "channel": "creator", "claimed_revenue": "100", "attribution_weight": "0.2"},
+    {"order_id": "o1", "channel": "video", "claimed_revenue": "100", "attribution_weight": "0.2"},
+    {"order_id": "o1", "channel": "live", "claimed_revenue": "100", "attribution_weight": "0.2"}
+  ],
+  "costs": [
+    {"deduplication_key": "proc-1", "category": "cogs", "amount": "40"},
+    {"deduplication_key": "sample-1", "category": "sample_landed", "amount": "10"},
+    {"deduplication_key": "ad-1", "category": "paid_amplification", "amount": "15"}
+  ],
+  "cash_events": [
+    {"event_id": "c1", "occurred_at": "2026-07-01T00:00:00Z", "amount": "-120"},
+    {"event_id": "c2", "occurred_at": "2026-08-01T00:00:00Z", "amount": "150"}
+  ],
+  "ending_inventory_nrv": "20",
+  "cash_limit": "150",
+  "incrementality_status": "attributed_only"
+}

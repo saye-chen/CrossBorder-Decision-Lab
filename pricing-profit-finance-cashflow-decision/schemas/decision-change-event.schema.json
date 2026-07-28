@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ppfc/decision-change-event.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "turn_id", "event_type", "occurred_at", "changed_ids", "old_input_hash", "new_input_hash", "reason", "actor", "idempotency_key"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "turn_id": {"type": "string", "minLength": 1},
+    "event_type": {"enum": ["clarification", "evidence_update", "parameter_refresh", "scope_change", "scenario_override", "accept", "reject", "execute", "observe", "rollback"]},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "changed_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "old_input_hash": {"type": "string", "pattern": "^sha256:"},
+    "new_input_hash": {"type": "string", "pattern": "^sha256:"},
+    "reason": {"type": "string", "minLength": 1},
+    "actor": {"type": "string", "minLength": 1},
+    "idempotency_key": {"type": "string", "minLength": 8},
+    "target_version": {"type": ["string", "null"]}
+  }
+}

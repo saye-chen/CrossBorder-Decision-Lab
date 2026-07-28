@@ -1,0 +1,18 @@
+{
+  "contract_version": "PPFC-CONSUMER-TECHNICAL-ACCEPTANCE-2026.02",
+  "runtime_version": "PPFC-2026.01",
+  "acceptance_kind": "computed_technical_compatibility",
+  "business_execution_acceptance": false,
+  "finance_audit_escalation": "material_financial_judgment_or_production_release_only",
+  "retirement_allowed": false,
+  "external_write": false,
+  "acceptances": [
+    {"domain":"CIDM","status":"technically_accepted","scope":["pre_ad_contribution","operating_profit"],"dual_run_fixture":"CIDM-EQ-001","dual_run_status":"equivalent","sovereignty_check":"passed","retained_sovereignty":["capital_entry","capital_add","capital_shrink","capital_exit"],"rollback_drill":"RB-CIDM-001"},
+    {"domain":"AAMO","status":"technically_accepted","scope":["operating_profit","break_even_roas"],"dual_run_fixture":"AAMO-EQ-001","dual_run_status":"equivalent","sovereignty_check":"passed","retained_sovereignty":["account_structure","budget_allocation","bid","scale","stop"],"rollback_drill":"RB-AAMO-001"},
+    {"domain":"CIG","status":"technically_accepted","scope":["contribution_clv","net_after_cac"],"dual_run_fixture":"CIG-EQ-001","dual_run_status":"equivalent","sovereignty_check":"passed","retained_sovereignty":["customer_identity","cohort","retention","clv_fact","customer_action"],"rollback_drill":"RB-CIG-001"},
+    {"domain":"LIFD","status":"technically_accepted","scope":["landed_cost_per_unit","fulfillment_cost_per_order","total_relevant_cost","contribution"],"dual_run_fixture":"LIFD-EQ-001","dual_run_status":"equivalent","sovereignty_check":"passed","retained_sovereignty":["route","warehouse","inventory","replenishment","fulfillment","exit_action"],"rollback_drill":"RB-LIFD-001"},
+    {"domain":"CAPM","status":"technically_accepted","scope":["max_commission_rate","available_for_commission"],"dual_run_fixture":"CAPM-EQ-001","dual_run_status":"equivalent","sovereignty_check":"passed","retained_sovereignty":["partner_selection","quote","commission_offer","contract","renew","exit"],"rollback_drill":"RB-CAPM-001"},
+    {"domain":"MBCM","status":"technically_accepted","scope":["total_offer_burden","incremental_offer_contribution","break_even_incremental_order_rate"],"dual_run_fixture":"MBCM-EQ-001","dual_run_status":"equivalent","sovereignty_check":"passed","retained_sovereignty":["positioning","campaign","offer_direction","channel_orchestration"],"rollback_drill":"RB-MBCM-001"},
+    {"domain":"PLCO","status":"technically_accepted","scope":["recoverable_orders","contribution_range"],"dual_run_fixture":"PLCO-EQ-001","dual_run_status":"equivalent","sovereignty_check":"passed","retained_sovereignty":["store","listing","page","offer_display","experiment"],"rollback_drill":"RB-PLCO-001"}
+  ]
+}

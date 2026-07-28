@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Executable release audit for all nine professional skills."""
+"""Executable release audit for ten completed L1-L3 skills."""
 from __future__ import annotations
 import importlib.util
 import json
@@ -21,8 +21,9 @@ SKILLS={
  "platform-store-listing-conversion":("listing_conversion","PLCO-2026.08","d08"),
  "creator-affiliate-partnership-management":("creator_affiliate","CAPM-2026.07","capm"),
  "marketing-brand-campaign-management":("marketing_brand_campaign","MBCM-2026.01","mbcm"),
+ "pricing-profit-finance-cashflow-decision":("pricing_profit","PPFC-2026.01","ppfc"),
 }
-CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management"}}
+CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision"}}
 spec=importlib.util.spec_from_file_location("quality",ROOT/"scripts/evaluate_report_quality.py")
 quality=importlib.util.module_from_spec(spec); spec.loader.exec_module(quality)
 repo_spec=importlib.util.spec_from_file_location("repo_validation",ROOT/"scripts/validate_repo.py")
@@ -50,9 +51,27 @@ def shared_payload(skill,decision_type,runtime):
  return payload
 
 class FullRepositoryAudit(unittest.TestCase):
- def test_01_all_nine_skills_structurally_validate(self):
+ def test_01_all_ten_skills_structurally_validate(self):
   for name in SKILLS:
    self.assertEqual(structural_validation_errors(name),[],name)
+
+ def test_01b_ppfc_is_governed_without_production_claim(self):
+  name,runtime="pricing-profit-finance-cashflow-decision","PPFC-2026.01"
+  ledger=json.loads((ROOT/"governance/domain-maturity-status.json").read_text())
+  row=next(item for item in ledger["domains"] if item["skill"]==name)
+  self.assertEqual((row["l3"],row["l4"],row["maturity"]),("passed_automated_gate","not_passed","controlled pilot"))
+  r=subprocess.run([sys.executable,str(ROOT/name/"scripts/validate_structure_contract.py")],capture_output=True,text=True)
+  self.assertEqual(r.returncode,0,(r.stdout,r.stderr))
+  payload=shared_payload(name,"pricing_profit",runtime)
+  with tempfile.TemporaryDirectory() as td:
+   p=pathlib.Path(td)/"ppfc-shared.json"; p.write_text(json.dumps(payload),encoding="utf-8")
+   entry=ROOT/name/"scripts/validate_decision_contract.py"
+   accepted=subprocess.run([sys.executable,str(entry),str(p)],capture_output=True,text=True)
+   self.assertEqual(accepted.returncode,0,(accepted.stdout,accepted.stderr))
+   payload["external_write"]=True; payload["production_ready"]=True
+   p.write_text(json.dumps(payload),encoding="utf-8")
+   rejected=subprocess.run([sys.executable,str(entry),str(p)],capture_output=True,text=True)
+   self.assertNotEqual(rejected.returncode,0,(rejected.stdout,rejected.stderr))
 
  def test_02_each_skill_independently_accepts_its_owned_contract(self):
   with tempfile.TemporaryDirectory() as td:

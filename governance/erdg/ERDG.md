@@ -6,7 +6,7 @@ Contract version: `ERDG-CONTRACT-2026.01`
 
 Maturity: `controlled pilot`. L1—L3 automated gates may pass; L4 requires authorized, deidentified real replays and independent review.
 
-All nine professional Skill entrypoints consume `ERDG-CONTRACT-2026.01` through their local decision-contract validator and registered adapter. Draft 2020-12 schemas are executed with format checking. Golden reports must carry valid deterministic recomputation bindings. Reference capacity is governed by `capacity-contract.json`; exceeding a hard limit fails closed and the reference gate does not claim a production SLO.
+All registered professional Skill entrypoints consume `ERDG-CONTRACT-2026.01` through their local decision-contract validator and registered adapter. Nine domains are completed; PPFC is a staged participant whose outbound economic constraints remain `proposed`. Draft 2020-12 schemas are executed with format checking. Golden reports must carry valid deterministic recomputation bindings. Reference capacity is governed by `capacity-contract.json`; exceeding a hard limit fails closed and the reference gate does not claim a production SLO.
 
 ## Charter
 

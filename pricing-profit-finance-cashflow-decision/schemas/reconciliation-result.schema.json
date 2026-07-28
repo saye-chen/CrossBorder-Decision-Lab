@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ppfc/reconciliation-result.schema.json",
+  "title": "PPFC Reconciliation Result",
+  "type": "object",
+  "required": ["reconciliation_id", "subject_id", "status", "data_quality", "action_ceiling", "computed_totals", "inventory_bridge", "differences", "blocking_errors", "warnings", "missing_evidence", "input_hash", "result_hash"],
+  "properties": {
+    "reconciliation_id": {"type": "string"},
+    "subject_id": {"type": "string"},
+    "status": {"enum": ["reconciled", "reconciled_with_warnings", "inconclusive", "blocked"]},
+    "data_quality": {"enum": ["DQ0", "DQ1", "DQ2", "DQ3"]},
+    "action_ceiling": {"enum": ["evidence_request_only", "hypothesis_only", "scenario_comparison", "submit_for_acceptance"]},
+    "computed_totals": {"type": "object"},
+    "inventory_bridge": {
+      "type": "object",
+      "required": ["computed_closing", "reported_closing", "difference"],
+      "properties": {
+        "computed_closing": {"type": "string"},
+        "reported_closing": {"type": "string"},
+        "difference": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "differences": {"type": "object"},
+    "blocking_errors": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}},
+    "input_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "result_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": false
+}
