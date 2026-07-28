@@ -1,0 +1,36 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "cannibalized_demand"
+    ],
+    "value": "900"
+  },
+  "execution": {
+    "engine": "evaluate_product_models.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "cannibalized_demand"
+      ],
+      "value": "900"
+    },
+    "operation": "model",
+    "payload": {
+      "cannibalized_demand": "250",
+      "complexity_demand_equivalent": "150",
+      "hard_gates": [],
+      "incremental_demand": "1000",
+      "model": "variant_portfolio"
+    }
+  },
+  "expected_status": "proposed",
+  "id": "G-5",
+  "input_hash": "97b4c929db601c77948e2553be049bf7df3f5c0424e10bec49877f61a3f7d65a",
+  "name": "variant-cannibalization",
+  "object_version": "v1",
+  "platform": "Amazon",
+  "plc": "PLC4",
+  "primary_mechanism": "model",
+  "region": "US"
+}

@@ -1,0 +1,56 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "specifications",
+      1,
+      "value"
+    ],
+    "value": "82"
+  },
+  "execution": {
+    "engine": "evaluate_product_models.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "specifications",
+        1,
+        "value"
+      ],
+      "value": "82"
+    },
+    "operation": "model",
+    "payload": {
+      "dependencies": [],
+      "hard_gates": [],
+      "model": "constraint_feasibility",
+      "mutually_exclusive": [],
+      "selected_features": [],
+      "specifications": [
+        {
+          "id": "mean-strength",
+          "max": "110",
+          "min": "90",
+          "unit": "N",
+          "value": "100"
+        },
+        {
+          "id": "p01-tail-strength",
+          "max": "110",
+          "min": "80",
+          "unit": "N",
+          "value": "72"
+        }
+      ]
+    }
+  },
+  "expected_status": "blocked",
+  "id": "G-8",
+  "input_hash": "ed99d6cea18f1172f282dcb614cddae3f2ba452eecbf0e7bdb457afcf0ceaff6",
+  "name": "critical-tail-failure",
+  "object_version": "v1",
+  "platform": "unknown",
+  "plc": "PLC7",
+  "primary_mechanism": "model",
+  "region": "ZZ"
+}

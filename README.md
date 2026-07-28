@@ -1,12 +1,12 @@
 # CrossBorder Decision Lab
 
-[English](README.en.md) · [十个专业 Skill](#skill-快速定位) · [ERDG 治理底座](#统一决策基础设施) · [系统结构](#系统结构) · [使用方式](#如何使用) · [维护规则](RULES.md)
+[English](README.en.md) · [十一个专业 Skill](#skill-快速定位) · [ERDG 治理底座](#统一决策基础设施) · [系统结构](#系统结构) · [使用方式](#如何使用) · [维护规则](RULES.md)
 
 > 面向跨境商业的专业决策基础设施，把依赖个人经验的经营判断转化为有证据、有模型、有边界、有动作、有停止规则、可持续积累的决策资产。
 
 CrossBorder Decision Lab 服务于跨境电商经营者、品牌团队、投资决策者与专业服务团队。它不是一组通用提示词，也不是把十类业务知识简单放进同一个目录，而是把品类投资、竞争情报、内容、客户、广告、履约、页面、达人合作、营销品牌与定价财务连接成一套可以独立运行、跨域协同和持续进化的专业决策系统。
 
-系统当前已完成十个专业决策域和 ERDG（Economic, Risk & Decision Governance）治理底座的 L1—L3 核心建设，覆盖专业工作流、数学模型、证据与反证、连续追问、单 Skill 执行、跨 Skill 联动、异常与压力场景、停止与退出机制，以及统一的经济、风险和决策治理。所有域的 L4 均保持 `controlled pilot`，等待后续真实案例统一校准。
+系统当前包含十一个已完成 L1—L3 专家级仓库建设的专业决策域，以及 ERDG（Economic, Risk & Decision Governance）治理底座。新增的 D03/PIPM 已通过专业深度复审，具备八类确定性产品模型、九类专业输出、101个评测案例、10个案例自有Golden、404项正反执行断言、连续决策、极限压力、十个业务消费者与ERDG的本域适配、双轨迁移和回滚证据。独立Owner权威切换仍保持关闭；所有域的 L4 均为 `controlled pilot`。
 
 ## 系统价值与长期壁垒
 
@@ -70,7 +70,7 @@ CrossBorder Decision Lab 将跨境经营中分散、隐性的个人经验，转�
 
 ```mermaid
 flowchart TB
-    U["跨境商业决策问题"] --> D["十个专业决策域<br/>业务判断与最终主权"]
+    U["跨境商业决策问题"] --> D["十一个完成 L1—L3 专家级仓库门的专业决策域<br/>业务判断与最终主权"]
 
     D --> CIDM["CIDM<br/>品类与资本"]
     D --> CIM["CIM<br/>竞争情报"]
@@ -82,8 +82,9 @@ flowchart TB
     D --> CAPM["CAPM<br/>达人联盟"]
     D --> MBCM["MBCM<br/>营销品牌"]
     D --> PPFC["PPFC<br/>定价财务"]
+    D --> PIPM["PIPM<br/>产品创新"]
 
-    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM & PPFC --> E["ERDG 治理底座<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"]
+    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM & PPFC & PIPM --> E["ERDG 治理底座<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"]
     E --> G{"合同与红线校验"}
     G -->|"通过"| O["可执行决策、实验、停止规则与结果回填"]
     G -->|"缺证据、冲突或越界"| B["阻断、降级或请求补充"]
@@ -92,9 +93,9 @@ flowchart TB
     A -.->|"校准参数、反例与门槛"| E
 ```
 
-第一层路由业务问题，第二层由十个专业域保留最终判断主权，第三层由 ERDG 统一对象、证据、计算、经济、风险、状态、参数和血缘合同，第四层把通过校验的判断转化为动作、结果和可持续积累的经营资产。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
+第一层路由业务问题，第二层由十一个专业域保留最终判断主权，第三层由 ERDG 统一对象、证据、计算、经济、风险、状态、参数和血缘合同，第四层把通过校验的判断转化为动作、结果和可持续积累的经营资产。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
 
-### 十 Skill 双向协同结构
+### 十一 Skill 双向协同结构
 
 ```mermaid
 flowchart TB
@@ -111,6 +112,7 @@ flowchart TB
     R --> CAPM["CAPM<br/>达人与联盟经营"]
     R --> MBCM["MBCM<br/>营销、品牌与活动"]
     R --> PPFC["PPFC<br/>定价、利润与现金流"]
+    R --> PIPM["PIPM<br/>产品创新与产品管理"]
 
     CIDM <-->|"市场机会、竞争证据与资本姿态"| CIM
     CIDM <-->|"内容可传播性与商业假设"| VLB
@@ -187,10 +189,11 @@ flowchart TB
 | **CAPM** | `CAPM-2026.07` | 找谁合作、如何报价、寄样、签约、购买权利、经营联盟和退出？ | [达人与联盟经营](creator-affiliate-partnership-management/SKILL.md) |
 | **MBCM** | `MBCM-2026.01` | 如何分层、定位、上市、建设品牌、组织活动和编排营销资源？ | [营销、品牌与活动](marketing-brand-campaign-management/SKILL.md) |
 | **PPFC** | `PPFC-2026.01` | 售价、利润、贡献、保本指标、财务约束和现金风险应该如何计算与调整？ | [定价、利润、财务与现金流](pricing-profit-finance-cashflow-decision/SKILL.md) |
+| **PIPM** | `PIPM-2026.01` | 产品机会如何转化为可验证的产品定义、规格、MVP和路线图？ | [产品创新与产品管理](product-innovation-product-management/SKILL.md) |
 
 ## 统一决策基础设施
 
-十个专业域通过 [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
+十一个专业域通过 [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
 
 1. **证据与反证**：观察、用户输入、授权数据、外部基准、推断和假设分开记录。
 2. **数学与守恒**：利润、增量、容量、组合和风险通过可复算模型计算。
@@ -203,7 +206,7 @@ flowchart TB
 
 ## 当前能力
 
-当前版本已经形成十个可独立运行、可跨域联动的专业决策 Skill，并完成：
+当前版本已经形成十一个可独立运行、可跨域联动的专业决策 Skill，并完成：
 
 - 专业场景与生命周期覆盖；
 - 确定性经济模型与统计估计工具；
@@ -248,7 +251,7 @@ flowchart TB
 
 | 位置 | 内容 |
 |---|---|
-| 十个专业 Skill 目录 | 各专业域的入口、工作流、模型、参考资料和测试 |
+| 十一个专业 Skill 目录 | 各专业域的入口、工作流、模型、参考资料和测试 |
 | [`evaluations/`](evaluations/) | 单 Skill、跨 Skill、连续追问、对抗与极端场景 |
 | [`governance/`](governance/) | 主权、成熟度、变更影响与共享治理合同 |
 | [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG 经济、风险、证据、状态、参数、血缘与跨域决策治理底座 |

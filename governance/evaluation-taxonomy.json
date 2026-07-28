@@ -1,0 +1,37 @@
+{
+  "version": "EVAL-TAXONOMY-2026.01",
+  "canonical_categories": [
+    "golden",
+    "standard",
+    "boundary",
+    "failure",
+    "adversarial",
+    "property",
+    "cross_domain",
+    "multi_turn",
+    "extreme"
+  ],
+  "aliases": {
+    "cross_skill": "cross_domain",
+    "multiturn": "multi_turn"
+  },
+  "required_case_fields": [
+    "id",
+    "category"
+  ],
+  "extended_fields": [
+    "mode",
+    "mechanism",
+    "mutation_class",
+    "counterexample"
+  ],
+  "mutation_classes": [
+    "authorization_boundary",
+    "evidence_degradation",
+    "version_conflict",
+    "numerical_boundary",
+    "dependency_failure",
+    "lineage_tamper",
+    "sovereignty_violation"
+  ]
+}

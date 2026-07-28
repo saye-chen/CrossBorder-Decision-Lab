@@ -14,6 +14,7 @@ EXPECTED = {
     "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion",
     "creator-affiliate-partnership-management", "marketing-brand-campaign-management",
     "pricing-profit-finance-cashflow-decision",
+    "product-innovation-product-management",
 }
 
 def validate_replay(data: dict, expected_skill: str | None = None) -> dict:
@@ -62,7 +63,7 @@ def validate_status() -> list[str]:
     if len(domains) != len(names): errors.append("duplicate_domain")
     for domain in domains:
         skill = domain.get("skill"); cases = domain.get("authorized_real_cases")
-        if domain.get("l1") != "passed" or domain.get("l2") != "passed" or domain.get("l3") not in {"passed_automated_gate", "not_passed"}: errors.append(f"{skill}:invalid_l1_l3_state")
+        if domain.get("l1") != "passed" or domain.get("l2") not in {"passed","wp2_passed","wp3_passed","wp4_passed","wp5_passed","wp6_passed","wp7_passed","wp8_passed","wp9_passed"} or domain.get("l3") not in {"passed_automated_gate", "not_passed"}: errors.append(f"{skill}:invalid_l1_l3_state")
         if domain.get("l4") != "passed":
             if domain.get("maturity") != "controlled pilot": errors.append(f"{skill}:non_l4_must_be_controlled_pilot")
             if cases != 0: errors.append(f"{skill}:unverified_nonzero_case_count")
@@ -82,7 +83,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         found = validate_status()
         if found: raise SystemExit("Domain maturity validation failed:\n- " + "\n- ".join(found))
-        print("Domain maturity validation passed for 10 skills.")
+        print(f"Domain maturity validation passed for {len(EXPECTED)} skills.")
     else:
         path = Path(sys.argv[1]); expected = sys.argv[2] if len(sys.argv) > 2 else None
         result = validate_replay(json.loads(path.read_text(encoding="utf-8")), expected)

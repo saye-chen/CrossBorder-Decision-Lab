@@ -1,0 +1,76 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "claims",
+      0
+    ],
+    "value": {
+      "id": "CLAIM-1",
+      "specification_id": "SPEC-1",
+      "verification_ids": [
+        "VER-1"
+      ]
+    }
+  },
+  "execution": {
+    "engine": "evaluate_product_models.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "claims",
+        0
+      ],
+      "value": {
+        "id": "CLAIM-1",
+        "specification_id": "SPEC-1",
+        "verification_ids": [
+          "VER-1"
+        ]
+      }
+    },
+    "operation": "model",
+    "payload": {
+      "claims": [
+        {
+          "id": "CLAIM-1",
+          "specification_id": "MISSING",
+          "verification_ids": []
+        }
+      ],
+      "hard_gates": [],
+      "model": "traceability",
+      "requirements": [
+        {
+          "id": "REQ-1",
+          "specification_ids": [
+            "SPEC-1"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "id": "SPEC-1",
+          "requirement_id": "REQ-1",
+          "verification_ids": [
+            "VER-1"
+          ]
+        }
+      ],
+      "verifications": [
+        {
+          "id": "VER-1"
+        }
+      ]
+    }
+  },
+  "expected_status": "blocked",
+  "id": "G-7",
+  "input_hash": "ed0eae5415edc25697d6fe98ee2b9c776202b3964a9b73457bbc02fb24ad33f1",
+  "name": "unsupported-claim",
+  "object_version": "v1",
+  "platform": "Shopify/DTC",
+  "plc": "PLC6",
+  "primary_mechanism": "model",
+  "region": "SG"
+}

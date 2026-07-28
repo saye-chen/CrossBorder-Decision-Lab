@@ -1,0 +1,97 @@
+{
+  "archetypes": [
+    "apparel",
+    "commodity",
+    "connected_device",
+    "consumable",
+    "durable",
+    "electronics",
+    "oem_odm",
+    "regulated"
+  ],
+  "events": [
+    "action_update",
+    "clarification",
+    "cross_domain_accept",
+    "cross_domain_reject",
+    "evidence_update",
+    "incident_or_recall",
+    "product_fact_change",
+    "retire",
+    "rollback",
+    "scenario_override",
+    "scope_change",
+    "validation_result"
+  ],
+  "mode_counts": {
+    "adversarial": 12,
+    "boundary": 12,
+    "cross_skill": 16,
+    "extreme": 12,
+    "failure": 15,
+    "multi_turn": 12,
+    "property": 12,
+    "standard": 10
+  },
+  "participants": [
+    "advertising-analysis-measurement-optimization",
+    "category-investment-decision",
+    "competitive-intelligence-monitoring",
+    "consumer-insights-customer-growth",
+    "creator-affiliate-partnership-management",
+    "future-d04",
+    "future-d05",
+    "governance/erdg",
+    "logistics-inventory-fulfillment-decision",
+    "marketing-brand-campaign-management",
+    "platform-store-listing-conversion",
+    "pricing-profit-finance-cashflow-decision",
+    "video-link-breakdown"
+  ],
+  "platforms": [
+    "Amazon",
+    "Shopify/DTC",
+    "TikTok Shop",
+    "unknown"
+  ],
+  "plcs": [
+    "PLC0",
+    "PLC1",
+    "PLC2",
+    "PLC3",
+    "PLC4",
+    "PLC5",
+    "PLC6",
+    "PLC7",
+    "PLC8"
+  ],
+  "regions": [
+    "DE",
+    "SG",
+    "US",
+    "ZZ"
+  ],
+  "reports": [
+    "mvp_decision",
+    "product_change_impact_report",
+    "product_definition",
+    "product_opportunity_brief",
+    "product_roadmap",
+    "product_specification_decision",
+    "product_stop_retire_decision",
+    "product_validation_report",
+    "variant_packaging_decision"
+  ],
+  "risks": [
+    "cash",
+    "claim",
+    "negative_profit",
+    "regulated",
+    "retirement",
+    "safety",
+    "tool_failure",
+    "unfulfillable",
+    "unmanufacturable",
+    "version_pollution"
+  ]
+}

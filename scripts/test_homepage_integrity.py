@@ -16,6 +16,7 @@ SKILLS = {
     "CAPM": ("CAPM-2026.07", "creator-affiliate-partnership-management/SKILL.md"),
     "MBCM": ("MBCM-2026.01", "marketing-brand-campaign-management/SKILL.md"),
     "PPFC": ("PPFC-2026.01", "pricing-profit-finance-cashflow-decision/SKILL.md"),
+    "PIPM": ("PIPM-2026.01", "product-innovation-product-management/SKILL.md"),
 }
 
 
@@ -33,7 +34,7 @@ class HomepageIntegrity(unittest.TestCase):
 
     def test_investor_value_and_both_architecture_views_exist(self):
         for anchor in ("## 系统价值与长期壁垒", "### 四层价值结构",
-                       "### 十 Skill 双向协同结构", "ERDG 治理底座",
+                       "### 十一 Skill 双向协同结构", "ERDG 治理底座",
                        "决策资产", "经营基准"):
             self.assertIn(anchor, self.zh)
         self.assertGreaterEqual(self.zh.count("```mermaid"), 2)
@@ -48,7 +49,7 @@ class HomepageIntegrity(unittest.TestCase):
             self.assertIn(term, architecture)
         self.assertIn("ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论", self.zh)
 
-    def test_all_ten_skills_have_one_quick_route_and_current_runtime(self):
+    def test_all_registered_skills_have_one_quick_route_and_current_runtime(self):
         table = self.zh.split("## Skill 快速定位", 1)[1].split("## 统一决策基础设施", 1)[0]
         for skill, (runtime, path) in SKILLS.items():
             self.assertEqual(len(re.findall(rf"^\| \*\*{skill}\*\* \|", table, re.M)), 1, skill)
@@ -56,12 +57,12 @@ class HomepageIntegrity(unittest.TestCase):
             self.assertIn(path, table)
 
     def test_collaboration_graph_has_no_missing_or_duplicate_root_nodes(self):
-        graph = self.zh.split("### 十 Skill 双向协同结构", 1)[1].split("```", 2)[1]
+        graph = self.zh.split("### 十一 Skill 双向协同结构", 1)[1].split("```", 2)[1]
         for skill in SKILLS:
             self.assertEqual(len(re.findall(rf"^\s+R --> {skill}\[", graph, re.M)), 1, skill)
 
     def test_homepage_uses_completed_capability_and_long_term_calibration_language(self):
-        self.assertIn("已经形成十个可独立运行、可跨域联动的专业决策 Skill", self.zh)
+        self.assertIn("已经形成十一个可独立运行、可跨域联动的专业决策 Skill", self.zh)
         self.assertIn("随着持续使用", self.zh)
         for forbidden in ("当前尚未完成：真实授权", "需数据验证", "等待真实授权"):
             self.assertNotIn(forbidden, self.zh)
@@ -73,7 +74,7 @@ class HomepageIntegrity(unittest.TestCase):
             ("### 为什么它不容易被更强的通用模型替代", "### Why stronger general-purpose models do not replace it"),
             ("### 面向长期使用的复利机制", "### The compounding mechanism of long-term use"),
             ("### 四层价值结构", "### Four-layer value architecture"),
-            ("### 十 Skill 双向协同结构", "### Ten-Skill collaboration map"),
+            ("### 十一 Skill 双向协同结构", "### Eleven-Skill collaboration map"),
             ("## Skill 快速定位", "## Skill Directory"),
             ("## 统一决策基础设施", "## Shared Decision Infrastructure"),
             ("## 当前能力", "## Current Capabilities"),

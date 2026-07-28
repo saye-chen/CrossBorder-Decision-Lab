@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/evidence-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "object_id", "source_type", "processing_status", "source_ref", "observed_at", "fingerprint", "allowed_uses", "forbidden_uses"],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "object_id": {"type": "string", "minLength": 1},
+    "source_type": {"enum": ["observed_public", "authorized_first_party", "authorized_third_party", "official_rule", "professional_opinion", "benchmark", "synthetic_fixture", "user_assertion"]},
+    "processing_status": {"enum": ["raw", "normalized", "verified", "conflicted", "stale", "invalid"]},
+    "source_ref": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "allowed_uses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "forbidden_uses": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+  }
+}

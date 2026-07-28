@@ -1,0 +1,72 @@
+{
+  "adapter_version": "PIPM-CONSUMER-2026.01",
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "blocked_actions": [
+    "consumer_execution_until_accepted"
+  ],
+  "consumer": "logistics-inventory-fulfillment-decision",
+  "contract": "PIPM-CONSUMER-2026.01",
+  "external_write": false,
+  "field_mapping": {
+    "dimensions": "pipm.dimensions",
+    "hazard_candidate": "pipm.hazard_candidate",
+    "packaging": "pipm.packaging",
+    "sku_variant": "pipm.sku_variant",
+    "weight": "pipm.weight"
+  },
+  "forbidden_fields": [
+    "external_write",
+    "production_ready"
+  ],
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "forbidden_writeback": [
+    "route",
+    "inventory",
+    "replenishment",
+    "fulfillment"
+  ],
+  "ignored_fields": [
+    "internal_reasoning"
+  ],
+  "independent_owner_accepted": false,
+  "legacy_reader": "legacy-product-fields-v1",
+  "mapping_classification": {
+    "dimensions": "lossless",
+    "hazard_candidate": "lossless",
+    "packaging": "lossless",
+    "sku_variant": "lossless",
+    "weight": "lossless"
+  },
+  "optional_fields": [
+    "evidence_ids",
+    "validity"
+  ],
+  "preserved_results": [
+    "consumer_owned_facts"
+  ],
+  "reaccept_triggers": [
+    "object_version_change",
+    "evidence_expiry",
+    "claim_change",
+    "contract_version_change"
+  ],
+  "required_fields": [
+    "sku_variant",
+    "packaging",
+    "dimensions",
+    "weight",
+    "hazard_candidate"
+  ],
+  "retained_sovereignty": [
+    "route",
+    "inventory",
+    "replenishment",
+    "fulfillment"
+  ],
+  "runtime": "LIFD-2026.04",
+  "status": "automated_contract_accepted"
+}

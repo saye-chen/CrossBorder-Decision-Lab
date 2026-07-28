@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "domain": "product-innovation-product-management",
+  "runtime": "PIPM-2026.01",
+  "blueprint": {
+    "source_name": "D03_产品创新与产品管理_Skill蓝图评审稿_2026-07-28.md",
+    "baseline": "v0.2-second-review-candidate",
+    "review_record": "D03_产品创新与产品管理_Skill蓝图_第二轮复审记录_2026-07-28.md"
+  },
+  "status_semantics": {
+    "fixed": "Normative mechanism and executable failure assertions exist.",
+    "open": "The work package is not yet implemented.",
+    "controlled_external_gate": "Authorized mature real outcomes and independent review are required."
+  },
+  "work_packages": [
+    {
+      "id": "D03-WP2",
+      "capability": "Skill structure, sovereignty, canonical product identity, PLC lifecycle and ERDG adapter",
+      "status": "fixed",
+      "evidence": [
+        "product-innovation-product-management/SKILL.md",
+        "product-innovation-product-management/references/charter-and-sovereignty.md",
+        "product-innovation-product-management/references/canonical-object-and-lifecycle.md",
+        "product-innovation-product-management/schemas/canonical-product-object.schema.json",
+        "product-innovation-product-management/schemas/product-lifecycle-state.schema.json",
+        "governance/erdg/adapters/product-innovation-product-management/adapter.json"
+      ],
+      "tests": [
+        "product-innovation-product-management/scripts/test_wp2_contracts.py",
+        "product-innovation-product-management/scripts/validate_wp2_structure.py",
+        "governance/erdg/tests/test_erdg.py",
+        "scripts/test_full_repository_audit.py"
+      ]
+    },
+    {
+      "id": "D03-WP3",
+      "capability": "Input levels, missing semantics, orthogonal evidence claim calculation contracts and complete decision skeleton",
+      "status": "fixed",
+      "evidence": ["product-innovation-product-management/references/input-evidence-and-decision-skeleton.md", "product-innovation-product-management/schemas/input-envelope.schema.json", "product-innovation-product-management/schemas/evidence-record.schema.json", "product-innovation-product-management/schemas/claim-record.schema.json", "product-innovation-product-management/schemas/calculation-record.schema.json", "product-innovation-product-management/schemas/decision-skeleton.schema.json"],
+      "tests": ["product-innovation-product-management/scripts/test_wp3_package.py", "product-innovation-product-management/scripts/validate_wp3_package.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D03-WP4",
+      "capability": "Deterministic unmet need, opportunity interval, constraint, MVP, variant, packaging, roadmap and traceability models",
+      "status": "fixed",
+      "evidence": ["product-innovation-product-management/references/professional-models-and-calculation.md", "product-innovation-product-management/scripts/evaluate_product_models.py"],
+      "tests": ["product-innovation-product-management/scripts/test_product_models.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D03-WP5",
+      "capability": "D06 selective recomputation, field-level acceptance, partial failure, idempotency and additive legacy-compatible cross-domain contracts",
+      "status": "fixed",
+      "evidence": ["product-innovation-product-management/references/d06-recomputation-and-cross-domain.md", "product-innovation-product-management/schemas/cross-domain-envelope.schema.json", "product-innovation-product-management/schemas/recomputation-impact.schema.json", "pricing-profit-finance-cashflow-decision/schemas/cross-domain-envelope-v2.schema.json", "product-innovation-product-management/scripts/compute_product_change_impact.py", "product-innovation-product-management/scripts/validate_cross_domain_envelope.py"],
+      "tests": ["product-innovation-product-management/scripts/test_wp5_cross_domain.py", "pricing-profit-finance-cashflow-decision/scripts/test_cross_domain_contract.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D03-WP6",
+      "capability": "Expert D04/D05 temporary handoffs, engineering quality semantics, professional-opinion provenance, four-layer localization and fail-closed formal-contract migration",
+      "status": "fixed",
+      "evidence": ["product-innovation-product-management/references/d04-d05-localization-professional-contracts.md", "product-innovation-product-management/schemas/manufacturing-quality-handoff.schema.json", "product-innovation-product-management/schemas/market-access-review-request.schema.json", "product-innovation-product-management/schemas/professional-opinion.schema.json", "product-innovation-product-management/schemas/localization-profile.schema.json", "product-innovation-product-management/schemas/temporary-contract-migration.schema.json", "product-innovation-product-management/scripts/validate_wp6_contracts.py", "product-innovation-product-management/scripts/evaluate_temporary_contract_migration.py"],
+      "tests": ["product-innovation-product-management/scripts/test_wp6_expert_contracts.py", "product-innovation-product-management/scripts/test_wp5_cross_domain.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D03-WP7",
+      "capability": "Nine specialized professional outputs, immutable continuous decisions, optimistic concurrency, typed impact closure, orthogonal state axes and compensating rollback",
+      "status": "fixed",
+      "evidence": ["product-innovation-product-management/references/professional-output-continuity-and-rollback.md", "product-innovation-product-management/schemas/professional-report.schema.json", "product-innovation-product-management/schemas/product-decision-event.schema.json", "product-innovation-product-management/schemas/continuous-product-decision-state.schema.json", "product-innovation-product-management/schemas/product-rollback-plan.schema.json", "product-innovation-product-management/scripts/update_continuous_product_decision.py", "product-innovation-product-management/scripts/compute_decision_impact_closure.py", "product-innovation-product-management/scripts/validate_professional_report.py"],
+      "tests": ["product-innovation-product-management/scripts/test_wp7_continuity_and_reports.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D03-WP8",
+      "capability": "Executable expert evaluation catalog, Golden reports, multi-turn chains, cross-skill coverage, adversarial mutations and extreme stress",
+      "status": "fixed",
+      "evidence": ["product-innovation-product-management/evaluations/fixtures/evaluation-catalog.json", "product-innovation-product-management/evaluations/fixtures/evaluation-execution-map.json", "product-innovation-product-management/evaluations/coverage-matrix.json", "product-innovation-product-management/evaluations/golden", "product-innovation-product-management/evaluations/golden-execution-results.json", "product-innovation-product-management/evaluations/multiturn-challenges.json", "product-innovation-product-management/evaluations/extreme-scenarios.json", "product-innovation-product-management/scripts/build_wp8_evaluations.py", "product-innovation-product-management/scripts/execute_golden_professional_chains.py", "product-innovation-product-management/scripts/run_golden_evaluations.py", "product-innovation-product-management/scripts/run_wp8_evaluations.py", "product-innovation-product-management/scripts/validate_wp8_coverage.py", "governance/evaluation-taxonomy.json"],
+      "tests": ["product-innovation-product-management/scripts/test_wp8_evaluations.py", "product-innovation-product-management/scripts/test_wp8_execution_bindings.py", "product-innovation-product-management/scripts/validate_wp8_execution_bindings.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D03-WP9",
+      "capability": "Field-level migration inventory, eleven consumer adapters, dual-run classification, automated contract acceptance and full-unit rollback",
+      "status": "fixed",
+      "evidence": ["product-innovation-product-management/references/consumer-migration-and-acceptance.md", "product-innovation-product-management/evaluations/migration/consumer-adapters.json", "product-innovation-product-management/evaluations/migration/source-inventory.json", "product-innovation-product-management/evaluations/migration/dual-run-results.json", "product-innovation-product-management/evaluations/migration/consumer-acceptance.json", "product-innovation-product-management/evaluations/migration/migration-state.json", "product-innovation-product-management/evaluations/migration/rollback-manifest.json", "product-innovation-product-management/scripts/validate_pipm_consumer_migration.py"],
+      "tests": ["product-innovation-product-management/scripts/test_wp9_migration.py", "scripts/test_full_repository_audit.py"],
+      "condition": "independent_owner_accepted remains false pending WP10"
+    },
+    {
+      "id": "D03-WP10",
+      "capability": "Independent review, full regression and release",
+      "status": "controlled_external_gate",
+      "evidence": [
+        "product-innovation-product-management/evaluations/review-package/evidence-index.json",
+        "product-innovation-product-management/evaluations/review-package/independent-signoff.json",
+        "product-innovation-product-management/evaluations/review-package/review-checklist.json"
+      ],
+      "tests": [
+        "product-innovation-product-management/scripts/test_wp10_review_package.py",
+        "product-innovation-product-management/scripts/validate_wp10_review_package.py",
+        "scripts/test_full_repository_audit.py"
+      ],
+      "condition": "Three independent reviewer roles must sign the frozen evidence index before WP10 can be fixed."
+    },
+    {
+      "id": "D03-L4",
+      "capability": "Authorized deidentified mature real replays and independent production review",
+      "status": "controlled_external_gate",
+      "evidence": ["product-innovation-product-management/evaluations/historical-replay-template.json"]
+    }
+  ],
+  "summary": {
+    "fixed": 8,
+    "open": 0,
+    "controlled_external_gate": 2
+  }
+}

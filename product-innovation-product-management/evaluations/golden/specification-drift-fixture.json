@@ -1,0 +1,49 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "formal_snapshot_id"
+    ],
+    "value": "SPEC-v2"
+  },
+  "execution": {
+    "engine": "evaluate_temporary_contract_migration.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "formal_snapshot_id"
+      ],
+      "value": "SPEC-v2"
+    },
+    "operation": "migration",
+    "payload": {
+      "consumer_acceptance": [
+        {
+          "consumer": "D06",
+          "status": "accepted"
+        }
+      ],
+      "differences": [],
+      "formal_snapshot_id": "SPEC-v1",
+      "legacy_read_preserved": true,
+      "mappings": [
+        {
+          "classification": "lossless",
+          "criticality": "safety_critical",
+          "source_field": "specification",
+          "target_field": "specification"
+        }
+      ],
+      "temporary_snapshot_id": "SPEC-v2"
+    }
+  },
+  "expected_status": "rollback",
+  "id": "G-9",
+  "input_hash": "4f92e6b0d73373c3da23f16535b295023351ea3fcec953f77831591c3b6e94a8",
+  "name": "specification-drift",
+  "object_version": "v1",
+  "platform": "Amazon",
+  "plc": "PLC8",
+  "primary_mechanism": "migration",
+  "region": "US"
+}

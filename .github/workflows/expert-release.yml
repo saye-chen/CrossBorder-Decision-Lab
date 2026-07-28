@@ -17,7 +17,7 @@ jobs:
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -54,8 +54,19 @@ jobs:
           python3 pricing-profit-finance-cashflow-decision/scripts/validate_l3_audit.py
           python3 pricing-profit-finance-cashflow-decision/scripts/test_historical_replay.py
           python3 pricing-profit-finance-cashflow-decision/scripts/validate_structure_contract.py
+          python3 product-innovation-product-management/scripts/validate_wp2_structure.py
+          python3 product-innovation-product-management/scripts/test_wp2_contracts.py
+          python3 product-innovation-product-management/scripts/test_wp3_package.py
+          python3 product-innovation-product-management/scripts/test_product_models.py
+          python3 product-innovation-product-management/scripts/test_wp5_cross_domain.py
+          python3 product-innovation-product-management/scripts/test_wp6_expert_contracts.py
+          python3 product-innovation-product-management/scripts/test_wp7_continuity_and_reports.py
+          python3 product-innovation-product-management/scripts/test_wp8_evaluations.py
+          python3 product-innovation-product-management/scripts/validate_wp8_coverage.py
+          python3 product-innovation-product-management/scripts/test_wp9_migration.py
+          python3 product-innovation-product-management/scripts/validate_pipm_consumer_migration.py
           python3 scripts/test_logistics_stress.py
-      - name: Cross-domain and ten-skill expert release tests
+      - name: Cross-domain and eleven-skill expert release tests
         run: |
           python3 scripts/test_category_semantics.py
           python3 scripts/test_cross_skill_integration.py

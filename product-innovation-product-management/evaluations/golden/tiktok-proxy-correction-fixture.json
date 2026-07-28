@@ -1,0 +1,37 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "support_weight"
+    ],
+    "value": "8"
+  },
+  "execution": {
+    "engine": "evaluate_product_models.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "support_weight"
+      ],
+      "value": "8"
+    },
+    "operation": "model",
+    "payload": {
+      "conflict_weight": "3",
+      "hard_gates": [],
+      "importance": "0.85",
+      "model": "unmet_need",
+      "satisfaction": "0.35",
+      "support_weight": "2"
+    }
+  },
+  "expected_status": "inconclusive",
+  "id": "G-2",
+  "input_hash": "99c5c29a59f11ce5b4842a09b9b36cd716cf38fdd1645220f5435b474698538b",
+  "name": "tiktok-proxy-correction",
+  "object_version": "v1",
+  "platform": "TikTok Shop",
+  "plc": "PLC1",
+  "primary_mechanism": "model",
+  "region": "DE"
+}

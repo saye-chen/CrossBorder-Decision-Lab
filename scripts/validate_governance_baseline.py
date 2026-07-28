@@ -12,6 +12,7 @@ SKILLS = [
     "creator-affiliate-partnership-management",
     "marketing-brand-campaign-management",
     "pricing-profit-finance-cashflow-decision",
+    "product-innovation-product-management",
 ]
 FILES = [
     "professional-depth-governance.md", "skill-integration-protocol.md",

@@ -116,6 +116,11 @@ ln -sfn "$PWD/marketing-brand-campaign-management" \
 # while L4 remains controlled pilot until authorized real replay.
 ln -sfn "$PWD/pricing-profit-finance-cashflow-decision" \
   "${CODEX_HOME:-$HOME/.codex}/skills/pricing-profit-finance-cashflow-decision"
+
+# PIPM passes the expert-level L1-L3 repository gate; independent-owner
+# authoritative migration remains closed and L4 remains controlled pilot.
+ln -sfn "$PWD/product-innovation-product-management" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/product-innovation-product-management"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.
@@ -176,6 +181,8 @@ Skills in this repository are **independent and self-contained by default**. Do 
 ### Current relationships
 
 **pricing-profit-finance-cashflow-decision (PPFC).** Work packages 2–10 establish the sovereignty and object model, reconciliation, 18-family routing, dynamic rules, ERDG adapter, localization, continuous decisions, mixed-batch evaluation, 55-case execution, seven consumer dual runs, and seven rollback drills. Shared financial fields have 7/7 computed technical compatibility acceptance while every business domain retains action sovereignty. Technical acceptance requires no human signature and does not approve business execution or legacy retirement. L3 Expert passes substantive evidence review; L4 stays `controlled pilot`, and material finance or production decisions escalate to the finance/audit owner.
+
+**product-innovation-product-management (PIPM).** Work packages 2–10 establish D03 sovereignty, canonical product identity, PLC0—PLC8 lifecycle separation, eight deterministic product models, D04/D05/D06 handoffs, nine specialized outputs, continuous decisions, 101 evaluation cases, ten scenario-owned Goldens, 404 positive/counterexample assertions, eleven consumer adapters, dual-run migration and rollback. D03 owns product opportunity, definition, specification, validation scope, roadmap and retirement recommendations; it does not own capital entry, pricing and cash, suppliers and production release, legal access, inventory, listing, content, or external execution. L3 Expert passes the repository and substantive depth gate; independent-owner authoritative migration remains closed and L4 stays `controlled pilot`.
 
 **video-link-breakdown → category-investment-decision (optional, unidirectional)**
 

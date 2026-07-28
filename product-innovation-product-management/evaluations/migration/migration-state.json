@@ -1,0 +1,8 @@
+{
+  "allowed_next_stage": "independent_owner_accepted",
+  "authoritative": false,
+  "external_write": false,
+  "legacy_reader_active": true,
+  "stage": "automated_contract_accepted",
+  "unaccepted_consumers": []
+}

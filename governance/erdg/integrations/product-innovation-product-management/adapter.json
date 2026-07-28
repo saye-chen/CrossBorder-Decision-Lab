@@ -1,0 +1,66 @@
+{
+  "adapter_version": "PIPM-CONSUMER-2026.01",
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "blocked_actions": [
+    "consumer_execution_until_accepted"
+  ],
+  "consumer": "governance/erdg",
+  "contract": "PIPM-CONSUMER-2026.01",
+  "external_write": false,
+  "field_mapping": {
+    "contract": "pipm.contract",
+    "impact_closure": "pipm.impact_closure",
+    "lineage": "pipm.lineage",
+    "risk": "pipm.risk",
+    "state": "pipm.state"
+  },
+  "forbidden_fields": [
+    "external_write",
+    "production_ready"
+  ],
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "forbidden_writeback": [
+    "structural_governance"
+  ],
+  "ignored_fields": [
+    "internal_reasoning"
+  ],
+  "independent_owner_accepted": false,
+  "legacy_reader": "legacy-product-fields-v1",
+  "mapping_classification": {
+    "contract": "lossless",
+    "impact_closure": "lossless",
+    "lineage": "lossless",
+    "risk": "lossless",
+    "state": "lossless"
+  },
+  "optional_fields": [
+    "evidence_ids",
+    "validity"
+  ],
+  "preserved_results": [
+    "consumer_owned_facts"
+  ],
+  "reaccept_triggers": [
+    "object_version_change",
+    "evidence_expiry",
+    "claim_change",
+    "contract_version_change"
+  ],
+  "required_fields": [
+    "contract",
+    "risk",
+    "state",
+    "lineage",
+    "impact_closure"
+  ],
+  "retained_sovereignty": [
+    "structural_governance"
+  ],
+  "runtime": "ERDG-CONTRACT-2026.01",
+  "status": "automated_contract_accepted"
+}

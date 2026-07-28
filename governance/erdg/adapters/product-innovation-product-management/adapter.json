@@ -1,0 +1,8 @@
+{
+  "adapter": "product-innovation-product-management-erdg",
+  "version": "1.0.0",
+  "runtime_prefix": "PIPM",
+  "owned_decision_types": ["product_opportunity", "product_definition", "product_specification", "product_validation", "product_roadmap"],
+  "contract": "ERDG-CONTRACT-2026.01",
+  "external_write": false
+}

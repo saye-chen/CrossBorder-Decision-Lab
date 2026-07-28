@@ -1,0 +1,105 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-7",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "unsupported-claim: blocked from evaluate_product_models.py",
+  "decision_id": "D-7",
+  "decision_state": "blocked",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:ed0eae5415edc25697d6fe98ee2b9c776202b3964a9b73457bbc02fb24ad33f1",
+    "report_hash": "sha256:6ecc91458553a2edfb31176510a55d201814c667b2108fe4403043c867476a8a",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-7",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-7",
+  "report_type": "product_change_impact_report",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "US",
+    "platform": "Amazon"
+  },
+  "specific_content": {
+    "effective_time": "unsupported-claim:effective_time",
+    "execution_binding": {
+      "decision_status": "blocked",
+      "engine": "evaluate_product_models.py",
+      "input_hash": "sha256:ed0eae5415edc25697d6fe98ee2b9c776202b3964a9b73457bbc02fb24ad33f1",
+      "mechanism_output_hash": "sha256:64e87907b818b0d42ce5586fd40b579f283ffe821f9c01ef33100cf9e7b8fafb",
+      "operation": "model"
+    },
+    "expired": "unsupported-claim:expired",
+    "impact_closure": "unsupported-claim:impact_closure",
+    "old_new_values": "unsupported-claim:old_new_values",
+    "preserved": "unsupported-claim:preserved",
+    "reacceptance": "unsupported-claim:reacceptance"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

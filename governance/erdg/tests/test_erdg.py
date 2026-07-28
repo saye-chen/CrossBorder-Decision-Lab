@@ -21,6 +21,7 @@ EXPECTED_SKILLS = {
     "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion",
     "creator-affiliate-partnership-management", "marketing-brand-campaign-management",
     "pricing-profit-finance-cashflow-decision",
+    "product-innovation-product-management",
 }
 sys.path.insert(0, str(SCRIPTS))
 

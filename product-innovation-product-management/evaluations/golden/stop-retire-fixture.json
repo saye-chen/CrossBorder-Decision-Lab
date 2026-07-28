@@ -1,0 +1,94 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "event",
+      "expected_revision"
+    ],
+    "value": 99
+  },
+  "execution": {
+    "engine": "update_continuous_product_decision.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "event",
+        "expected_revision"
+      ],
+      "value": 99
+    },
+    "operation": "continuity",
+    "payload": {
+      "event": {
+        "changed_node_ids": [
+          "SPEC-1"
+        ],
+        "event_id": "E-GOLDEN",
+        "event_type": "retire",
+        "expected_revision": 0,
+        "external_write": false,
+        "idempotency_key": "golden-event-0001",
+        "new_input_hash": "sha256:new",
+        "object_id": "P-GOLDEN",
+        "object_version": "p1",
+        "occurred_at": "2026-07-28T01:00:00Z",
+        "old_input_hash": "sha256:old",
+        "recorded_at": "2026-07-28T01:01:00Z",
+        "sequence": 1,
+        "turn_id": "T-GOLDEN"
+      },
+      "new_decision": {
+        "created_at": "2026-07-28T01:01:00Z",
+        "decision_id": "D-v2",
+        "input_hash": "sha256:new",
+        "object_version": "p1",
+        "status": "proposed",
+        "version": "v2"
+      },
+      "state": {
+        "acceptance_state": "accepted",
+        "action_state": "proposed",
+        "chain_id": "GOLDEN-CHAIN",
+        "chain_revision": 0,
+        "current_decision_id": "D-v1",
+        "current_version": "v1",
+        "decision_state": "proposed",
+        "dependencies": {},
+        "events": [],
+        "history": [
+          {
+            "created_at": "2026-07-28T00:00:00Z",
+            "decision_id": "D-v1",
+            "input_hash": "sha256:old",
+            "is_current": true,
+            "object_version": "p1",
+            "status": "proposed",
+            "supersedes": null,
+            "version": "v1"
+          }
+        ],
+        "lineage": {
+          "runtime_version": "PIPM-2026.01",
+          "state_hash": "sha256:old"
+        },
+        "next_sequence": 1,
+        "object_ref": {
+          "object_id": "P-GOLDEN",
+          "object_version": "p1"
+        },
+        "pending_acceptance": [],
+        "product_lifecycle_stage": "PLC7",
+        "unresolved_items": []
+      }
+    }
+  },
+  "expected_status": "retired",
+  "id": "G-10",
+  "input_hash": "e9d13aeb7f9311d186c225ec5bea171c7dac1636f44b7d1750c71d0e291702f7",
+  "name": "stop-retire",
+  "object_version": "v1",
+  "platform": "TikTok Shop",
+  "plc": "PLC0",
+  "primary_mechanism": "continuity",
+  "region": "DE"
+}

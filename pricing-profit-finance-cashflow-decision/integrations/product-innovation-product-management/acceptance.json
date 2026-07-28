@@ -1,0 +1,14 @@
+{
+  "adapter_hash": "c5efefa8fcd88db15d9630a6215aa1920a4968843b05f94720195c9936d102e2",
+  "automated_contract_accepted": true,
+  "checks": {
+    "external_execution_blocks": true,
+    "forbidden_writeback_blocks": true,
+    "missing_required_blocks": true,
+    "valid_accepts": true,
+    "version_mismatch_blocks": true
+  },
+  "consumer": "pricing-profit-finance-cashflow-decision",
+  "evidence_scope": "consumer_local_executable_contract",
+  "independent_owner_accepted": false
+}

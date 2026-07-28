@@ -1,0 +1,9 @@
+{
+  "blocking_rule": "any unresolved P0/P1 or missing required role blocks WP10",
+  "complex_extreme_and_pressure": "pending_reviewer",
+  "consumer_owned_acceptance": "pending_reviewer",
+  "continuous_follow_up_state": "pending_reviewer",
+  "cross_skill_sovereignty_and_failure": "pending_reviewer",
+  "maturity_claim_accuracy": "pending_reviewer",
+  "single_skill_depth": "pending_reviewer"
+}

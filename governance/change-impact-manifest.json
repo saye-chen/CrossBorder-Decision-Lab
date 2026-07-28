@@ -175,6 +175,52 @@
       "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_acceptance_and_release.py", "scripts/test_full_repository_audit.py", "scripts/test_homepage_integrity.py"],
       "evaluations": ["pricing-profit-finance-cashflow-decision/evaluations/consumer-acceptance.json", "pricing-profit-finance-cashflow-decision/evaluations/rollback-drill.json", "pricing-profit-finance-cashflow-decision/evaluations/l3-review-package.json"]
     },
+    "pipm-wp2-foundation": {
+      "owner": "product-innovation-product-management",
+      "authoritative_sources": ["product-innovation-product-management/SKILL.md", "product-innovation-product-management/references/professional-models-and-calculation.md", "product-innovation-product-management/scripts/evaluate_product_models.py", "product-innovation-product-management/references/charter-and-sovereignty.md", "product-innovation-product-management/references/canonical-object-and-lifecycle.md", "product-innovation-product-management/references/input-evidence-and-decision-skeleton.md", "product-innovation-product-management/references/d06-recomputation-and-cross-domain.md", "product-innovation-product-management/references/d04-d05-localization-professional-contracts.md", "product-innovation-product-management/references/professional-output-continuity-and-rollback.md", "product-innovation-product-management/schemas/canonical-product-object.schema.json", "product-innovation-product-management/schemas/product-lifecycle-state.schema.json", "product-innovation-product-management/schemas/input-envelope.schema.json", "product-innovation-product-management/schemas/evidence-record.schema.json", "product-innovation-product-management/schemas/claim-record.schema.json", "product-innovation-product-management/schemas/calculation-record.schema.json", "product-innovation-product-management/schemas/decision-skeleton.schema.json", "product-innovation-product-management/schemas/cross-domain-envelope.schema.json", "product-innovation-product-management/schemas/recomputation-impact.schema.json", "product-innovation-product-management/schemas/manufacturing-quality-handoff.schema.json", "product-innovation-product-management/schemas/market-access-review-request.schema.json", "product-innovation-product-management/schemas/professional-opinion.schema.json", "product-innovation-product-management/schemas/localization-profile.schema.json", "product-innovation-product-management/schemas/temporary-contract-migration.schema.json", "product-innovation-product-management/schemas/product-decision-event.schema.json", "product-innovation-product-management/schemas/continuous-product-decision-state.schema.json", "product-innovation-product-management/schemas/product-rollback-plan.schema.json", "product-innovation-product-management/schemas/professional-report.schema.json", "product-innovation-product-management/scripts/compute_product_change_impact.py", "product-innovation-product-management/scripts/evaluate_temporary_contract_migration.py", "product-innovation-product-management/scripts/update_continuous_product_decision.py", "product-innovation-product-management/scripts/compute_decision_impact_closure.py", "pricing-profit-finance-cashflow-decision/schemas/cross-domain-envelope-v2.schema.json", "governance/erdg/adapters/product-innovation-product-management/adapter.json"],
+      "consumers": ["product-innovation-product-management/agents/openai.yaml", "README.md", "README.en.md", "RULES.md", "governance/domain-maturity-status.json", "governance/erdg/scripts/validate_domain_contract_compat.py"],
+      "validators": ["product-innovation-product-management/scripts/validate_wp2_contracts.py", "product-innovation-product-management/scripts/validate_wp2_structure.py", "product-innovation-product-management/scripts/validate_wp3_package.py", "product-innovation-product-management/scripts/validate_cross_domain_envelope.py", "product-innovation-product-management/scripts/validate_wp6_contracts.py", "product-innovation-product-management/scripts/validate_professional_report.py", "product-innovation-product-management/scripts/validate_wp8_coverage.py", "product-innovation-product-management/scripts/run_wp8_evaluations.py", "product-innovation-product-management/scripts/validate_pipm_consumer_migration.py", "product-innovation-product-management/scripts/validate_decision_contract.py", "scripts/validate_repo.py", "scripts/validate_domain_maturity.py"],
+      "tests": ["product-innovation-product-management/scripts/test_wp2_contracts.py", "product-innovation-product-management/scripts/test_wp3_package.py", "product-innovation-product-management/scripts/test_product_models.py", "product-innovation-product-management/scripts/test_wp5_cross_domain.py", "product-innovation-product-management/scripts/test_wp6_expert_contracts.py", "product-innovation-product-management/scripts/test_wp7_continuity_and_reports.py", "product-innovation-product-management/scripts/test_wp8_evaluations.py", "product-innovation-product-management/scripts/test_wp9_migration.py", "pricing-profit-finance-cashflow-decision/scripts/test_cross_domain_contract.py", "governance/erdg/tests/test_erdg.py", "scripts/test_governance.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["product-innovation-product-management/evaluations/fixtures/evaluation-catalog.json", "product-innovation-product-management/evaluations/fixtures/evaluation-execution-map.json", "product-innovation-product-management/evaluations/coverage-matrix.json", "product-innovation-product-management/evaluations/golden", "product-innovation-product-management/evaluations/multiturn-challenges.json", "product-innovation-product-management/evaluations/extreme-scenarios.json", "product-innovation-product-management/evaluations/migration", "product-innovation-product-management/evaluations/historical-replay-template.json"]
+    },
+    "pipm-expert-depth-remediation": {
+      "owner": "product-innovation-product-management",
+      "authoritative_sources": [
+        "product-innovation-product-management/references/professional-models-and-calculation.md",
+        "product-innovation-product-management/references/professional-depth-governance.md",
+        "product-innovation-product-management/references/skill-integration-protocol.md",
+        "product-innovation-product-management/references/data-contract-and-automation.md",
+        "product-innovation-product-management/references/output-protocols/professional-report-delivery.md",
+        "product-innovation-product-management/scripts/execute_golden_professional_chains.py",
+        "governance/evaluation-taxonomy.json"
+      ],
+      "consumers": [
+        "product-innovation-product-management/SKILL.md",
+        "product-innovation-product-management/evaluations/golden",
+        "product-innovation-product-management/evaluations/golden-execution-results.json",
+        "product-innovation-product-management/evaluations/fixtures/evaluation-catalog.json",
+        "governance/pipm-blueprint-implementation-manifest.json",
+        "README.md",
+        "README.en.md"
+      ],
+      "validators": [
+        "product-innovation-product-management/scripts/run_golden_evaluations.py",
+        "product-innovation-product-management/scripts/validate_wp8_coverage.py",
+        "product-innovation-product-management/scripts/validate_wp8_execution_bindings.py",
+        "scripts/validate_governance_baseline.py",
+        "scripts/validate_evaluation_taxonomy.py",
+        "scripts/validate_qoderwork_skill_installation.py"
+      ],
+      "tests": [
+        "product-innovation-product-management/scripts/test_wp8_evaluations.py",
+        "product-innovation-product-management/scripts/test_wp8_execution_bindings.py",
+        "scripts/test_full_repository_audit.py"
+      ],
+      "evaluations": [
+        "product-innovation-product-management/evaluations/golden-execution-results.json",
+        "product-innovation-product-management/evaluations/review-package"
+      ]
+    },
     "mbcm-runtime-and-contracts": {
       "owner": "marketing-brand-campaign-management",
       "authoritative_sources": ["marketing-brand-campaign-management/SKILL.md", "governance/mbcm-blueprint-implementation-manifest.json", "governance/mbcm-marketing-science-remediation.json", "governance/mbcm-open-decisions.json", "marketing-brand-campaign-management/references/professional-depth-governance.md", "marketing-brand-campaign-management/references/measurement-design-and-causal-estimation.md", "marketing-brand-campaign-management/references/offer-demand-and-channel-response.md", "marketing-brand-campaign-management/references/brand-customer-economics.md", "marketing-brand-campaign-management/references/seasonality-competition-and-incident-quantification.md", "marketing-brand-campaign-management/references/skill-integration-protocol.md", "marketing-brand-campaign-management/references/data-contract-and-automation.md", "marketing-brand-campaign-management/references/modules"],

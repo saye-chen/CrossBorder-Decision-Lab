@@ -1,0 +1,253 @@
+{
+  "difference_classes": [
+    "equivalent",
+    "expected_change",
+    "error",
+    "incomparable"
+  ],
+  "error_count": 0,
+  "results": [
+    {
+      "case_id": "category-investment-decision-EQ",
+      "consumer": "category-investment-decision",
+      "difference_class": "equivalent",
+      "new_hash": "912be7a2642d8cfd318b3056c4daed96d7c17cf50d212b7e89aea1547785c7c0",
+      "object_version": "v1",
+      "old_hash": "912be7a2642d8cfd318b3056c4daed96d7c17cf50d212b7e89aea1547785c7c0",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "category-investment-decision-FAIL",
+      "consumer": "category-investment-decision",
+      "difference_class": "incomparable",
+      "new_hash": "7136b74d069f8a03d5cc83525890ba301148f50b0cbc8a76c9a2e4cf48bd3637",
+      "object_version": "v2",
+      "old_hash": "912be7a2642d8cfd318b3056c4daed96d7c17cf50d212b7e89aea1547785c7c0",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "competitive-intelligence-monitoring-EQ",
+      "consumer": "competitive-intelligence-monitoring",
+      "difference_class": "equivalent",
+      "new_hash": "ae70a39a61a4360b533005190b1c769129b3443d9c08b0f096cdac8272d24809",
+      "object_version": "v1",
+      "old_hash": "ae70a39a61a4360b533005190b1c769129b3443d9c08b0f096cdac8272d24809",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "competitive-intelligence-monitoring-FAIL",
+      "consumer": "competitive-intelligence-monitoring",
+      "difference_class": "incomparable",
+      "new_hash": "69c086f23edd9df72462d7b0404afd036438f9021ec6bf28884b699c6fda0cf7",
+      "object_version": "v2",
+      "old_hash": "ae70a39a61a4360b533005190b1c769129b3443d9c08b0f096cdac8272d24809",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "video-link-breakdown-EQ",
+      "consumer": "video-link-breakdown",
+      "difference_class": "equivalent",
+      "new_hash": "20ff748e5e1b332fe97551638d0b7260e209fd476ec8a3af211eaea1b5afa90a",
+      "object_version": "v1",
+      "old_hash": "20ff748e5e1b332fe97551638d0b7260e209fd476ec8a3af211eaea1b5afa90a",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "video-link-breakdown-FAIL",
+      "consumer": "video-link-breakdown",
+      "difference_class": "incomparable",
+      "new_hash": "8fb624be231d737a4b703fb0f1e90ea714d5ca72b405f6cfe7d6168f9cfcedab",
+      "object_version": "v2",
+      "old_hash": "20ff748e5e1b332fe97551638d0b7260e209fd476ec8a3af211eaea1b5afa90a",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "consumer-insights-customer-growth-EQ",
+      "consumer": "consumer-insights-customer-growth",
+      "difference_class": "equivalent",
+      "new_hash": "25f96bb34176cd6c9e1b6a24177bfef3ff631f1747ed2a829376f939d8bb09f4",
+      "object_version": "v1",
+      "old_hash": "25f96bb34176cd6c9e1b6a24177bfef3ff631f1747ed2a829376f939d8bb09f4",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "consumer-insights-customer-growth-FAIL",
+      "consumer": "consumer-insights-customer-growth",
+      "difference_class": "incomparable",
+      "new_hash": "8331bcc8e619173fdc6dcf9220cb402c4fd415514a8a9141452b4934f9eece96",
+      "object_version": "v2",
+      "old_hash": "25f96bb34176cd6c9e1b6a24177bfef3ff631f1747ed2a829376f939d8bb09f4",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "advertising-analysis-measurement-optimization-EQ",
+      "consumer": "advertising-analysis-measurement-optimization",
+      "difference_class": "equivalent",
+      "new_hash": "cd4dbadb3ec9184171f8e16dbc3f288db5825ba368b6a21f2bd98b36992147b3",
+      "object_version": "v1",
+      "old_hash": "cd4dbadb3ec9184171f8e16dbc3f288db5825ba368b6a21f2bd98b36992147b3",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "advertising-analysis-measurement-optimization-FAIL",
+      "consumer": "advertising-analysis-measurement-optimization",
+      "difference_class": "incomparable",
+      "new_hash": "21e8451d9f8edd43a8f9f80718c8ad5e47cbbdba4fcc4bd5bfeedf76f1c2d070",
+      "object_version": "v2",
+      "old_hash": "cd4dbadb3ec9184171f8e16dbc3f288db5825ba368b6a21f2bd98b36992147b3",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "logistics-inventory-fulfillment-decision-EQ",
+      "consumer": "logistics-inventory-fulfillment-decision",
+      "difference_class": "equivalent",
+      "new_hash": "4b456d9f01c9d8a5411f3354534f5cd168bd6e6b7e50fa693ab1597d5b78d0c7",
+      "object_version": "v1",
+      "old_hash": "4b456d9f01c9d8a5411f3354534f5cd168bd6e6b7e50fa693ab1597d5b78d0c7",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "logistics-inventory-fulfillment-decision-FAIL",
+      "consumer": "logistics-inventory-fulfillment-decision",
+      "difference_class": "incomparable",
+      "new_hash": "cf48572df64e1c810bca209a564a8f41fb954c586ffc7f3267f5cbd7026db61c",
+      "object_version": "v2",
+      "old_hash": "4b456d9f01c9d8a5411f3354534f5cd168bd6e6b7e50fa693ab1597d5b78d0c7",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "platform-store-listing-conversion-EQ",
+      "consumer": "platform-store-listing-conversion",
+      "difference_class": "equivalent",
+      "new_hash": "7c3612492ebec64561c1ac5083a62e48b066566ebecd9a6edb318627f99955c4",
+      "object_version": "v1",
+      "old_hash": "7c3612492ebec64561c1ac5083a62e48b066566ebecd9a6edb318627f99955c4",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "platform-store-listing-conversion-FAIL",
+      "consumer": "platform-store-listing-conversion",
+      "difference_class": "incomparable",
+      "new_hash": "52813dd816026dc0dd4e2c4bfb0a662b7adf88f99917387c61f622a36416bc6d",
+      "object_version": "v2",
+      "old_hash": "7c3612492ebec64561c1ac5083a62e48b066566ebecd9a6edb318627f99955c4",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "creator-affiliate-partnership-management-EQ",
+      "consumer": "creator-affiliate-partnership-management",
+      "difference_class": "equivalent",
+      "new_hash": "0ec81abc1ef7fa9368b92b3da730cbfa7942ea4cf01e0c2cb026d4450033d726",
+      "object_version": "v1",
+      "old_hash": "0ec81abc1ef7fa9368b92b3da730cbfa7942ea4cf01e0c2cb026d4450033d726",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "creator-affiliate-partnership-management-FAIL",
+      "consumer": "creator-affiliate-partnership-management",
+      "difference_class": "incomparable",
+      "new_hash": "d94f20fe6b4c44c1bffb09e93753dd4d6f852ba2904897612588898e5bbeaf80",
+      "object_version": "v2",
+      "old_hash": "0ec81abc1ef7fa9368b92b3da730cbfa7942ea4cf01e0c2cb026d4450033d726",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "marketing-brand-campaign-management-EQ",
+      "consumer": "marketing-brand-campaign-management",
+      "difference_class": "equivalent",
+      "new_hash": "c691e571c219bd1fe480cca63b736fd71861d914103e61138ab1ce4d75ef39e1",
+      "object_version": "v1",
+      "old_hash": "c691e571c219bd1fe480cca63b736fd71861d914103e61138ab1ce4d75ef39e1",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "marketing-brand-campaign-management-FAIL",
+      "consumer": "marketing-brand-campaign-management",
+      "difference_class": "incomparable",
+      "new_hash": "d446f33d55b87fe16a1e778014a1a8c580c91396132be2e6a1d2ffd31554a495",
+      "object_version": "v2",
+      "old_hash": "c691e571c219bd1fe480cca63b736fd71861d914103e61138ab1ce4d75ef39e1",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "pricing-profit-finance-cashflow-decision-EQ",
+      "consumer": "pricing-profit-finance-cashflow-decision",
+      "difference_class": "equivalent",
+      "new_hash": "e0c6687613a4a6b97fb7c5a8876d20e9ed65aed977e12118ba5b9a4cfdfad34a",
+      "object_version": "v1",
+      "old_hash": "e0c6687613a4a6b97fb7c5a8876d20e9ed65aed977e12118ba5b9a4cfdfad34a",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "pricing-profit-finance-cashflow-decision-FAIL",
+      "consumer": "pricing-profit-finance-cashflow-decision",
+      "difference_class": "incomparable",
+      "new_hash": "ce39424687ac4bfdc950233402592ac81634ee260cd4409428db6b7901c876f8",
+      "object_version": "v2",
+      "old_hash": "e0c6687613a4a6b97fb7c5a8876d20e9ed65aed977e12118ba5b9a4cfdfad34a",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "governance/erdg-EQ",
+      "consumer": "governance/erdg",
+      "difference_class": "equivalent",
+      "new_hash": "57f67a1c89accc376359bf079355b4720411d93c26b107425b438f664ed30e93",
+      "object_version": "v1",
+      "old_hash": "57f67a1c89accc376359bf079355b4720411d93c26b107425b438f664ed30e93",
+      "reason": "same canonical object and lossless mapped fields",
+      "result": "pass",
+      "snapshot_id": "S1"
+    },
+    {
+      "case_id": "governance/erdg-FAIL",
+      "consumer": "governance/erdg",
+      "difference_class": "incomparable",
+      "new_hash": "380ae94979d288fe9171e7749176ff06c6411f29bbe705037f4838f44dd5ab62",
+      "object_version": "v2",
+      "old_hash": "57f67a1c89accc376359bf079355b4720411d93c26b107425b438f664ed30e93",
+      "reason": "version mismatch must block",
+      "result": "blocked",
+      "snapshot_id": "S1"
+    }
+  ]
+}

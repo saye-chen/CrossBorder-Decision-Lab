@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/product-rollback-plan.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rollback_id", "restore_from_decision_id", "restore_from_version", "reason", "trigger_evidence_ids", "affected_nodes", "executed_actions", "irreversible_items", "residual_exposure", "compensating_actions", "success_conditions", "stop_conditions", "external_write"],
+  "properties": {
+    "rollback_id": {"type": "string"}, "restore_from_decision_id": {"type": "string"}, "restore_from_version": {"type": "string"}, "reason": {"type": "string"},
+    "trigger_evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "affected_nodes": {"type": "array", "items": {"type": "string"}},
+    "executed_actions": {"type": "array", "items": {"type": "string"}},
+    "irreversible_items": {"type": "array", "items": {"type": "string"}},
+    "residual_exposure": {"type": "array", "items": {"type": "string"}},
+    "compensating_actions": {"type": "array", "items": {"type": "object", "required": ["action", "owner", "deadline", "status"], "properties": {"action": {"type": "string"}, "owner": {"type": "string"}, "deadline": {"type": "string", "format": "date-time"}, "status": {"enum": ["proposed", "approved", "executing", "completed", "stopped", "failed"]}}}},
+    "success_conditions": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "stop_conditions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "external_write": {"const": false}
+  }
+}

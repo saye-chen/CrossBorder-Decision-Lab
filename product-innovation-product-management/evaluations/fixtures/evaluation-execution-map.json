@@ -1,0 +1,2336 @@
+{
+  "assertion_semantics": {
+    "counterexample_per_case": 2,
+    "decision_assertions": 202,
+    "positive_per_case": 2,
+    "professional_engine_assertions": 202,
+    "total_assertions": 404
+  },
+  "bindings": [
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-ST-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-ST-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-ST-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-ST-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-ST-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-ST-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-ST-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-ST-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-ST-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-ST-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-BO-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-BO-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-BO-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-BO-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-BO-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-BO-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-BO-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-BO-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-BO-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-BO-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-BO-11",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-BO-12",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-FA-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-FA-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-FA-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-FA-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-FA-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-FA-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-FA-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-FA-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-FA-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-FA-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-FA-11",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-FA-12",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-FA-13",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-FA-14",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-FA-15",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-AD-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-AD-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-AD-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-AD-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-AD-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-AD-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-AD-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-AD-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-AD-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-AD-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-AD-11",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-AD-12",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-PR-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-PR-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-PR-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-PR-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-PR-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-PR-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-PR-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-PR-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-PR-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-PR-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-PR-11",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-PR-12",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-CR-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-CR-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-CR-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-CR-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-CR-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-CR-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-CR-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-CR-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-CR-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-CR-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-CR-11",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-CR-12",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-CR-13",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-CR-14",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-CR-15",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-CR-16",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-MU-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-MU-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-MU-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-MU-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-MU-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-MU-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-MU-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-MU-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-MU-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-MU-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-MU-11",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-MU-12",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-EX-01",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-EX-02",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-EX-03",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_cross_domain_envelope.py",
+      "id": "PIPM-EX-04",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_product_change_impact.py",
+      "id": "PIPM-EX-05",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp6_contracts.py",
+      "id": "PIPM-EX-06",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_temporary_contract_migration.py",
+      "id": "PIPM-EX-07",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "update_continuous_product_decision.py",
+      "id": "PIPM-EX-08",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "compute_decision_impact_closure.py",
+      "id": "PIPM-EX-09",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_professional_report.py",
+      "id": "PIPM-EX-10",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "inconclusive",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "evaluate_product_models.py",
+      "id": "PIPM-EX-11",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    },
+    {
+      "counterexample": {
+        "decision_call": "execute(case, mutation=True)",
+        "engine_call": "engine_pass(mutation)",
+        "expected_decision_status": "blocked",
+        "expected_engine_assertion": "rejected_or_blocked",
+        "mutation": {
+          "expected_status": "blocked",
+          "field": "external_write",
+          "value": true
+        },
+        "mutation_class": "authorization_boundary"
+      },
+      "engine": "validate_wp3_package.py",
+      "id": "PIPM-EX-12",
+      "positive": {
+        "decision_call": "execute(case)",
+        "engine_call": "engine_pass(valid)",
+        "expected_decision_status": "proposed",
+        "expected_engine_assertion": "accepted"
+      },
+      "runner": "scripts/run_wp8_evaluations.py"
+    }
+  ],
+  "catalog": "evaluation-catalog.json",
+  "version": "PIPM-EXEC-2026.02"
+}
