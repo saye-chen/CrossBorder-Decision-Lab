@@ -1,0 +1,80 @@
+{
+  "audit_version": "PPFC-L3-AUDIT-2026.01",
+  "scope": "synthetic_and_deterministic_only",
+  "real_case_calibration_deferred": true,
+  "production_claim_allowed": false,
+  "report_types": [
+    {"type":"pricing_memo","artifact":"evaluations/golden/single-skill-pricing-report.json"},
+    {"type":"financial_risk_brief","artifact":"evaluations/golden/multi-skill-complex-report.json"},
+    {"type":"parameter_change_impact","artifact":"evaluations/golden/continuous-pressure-report.json"}
+  ],
+  "dimensions": [
+    {
+      "id": "single_skill",
+      "required": true,
+      "scenarios": ["AUD-S01", "AUD-S02"],
+      "evidence": ["scripts/test_pricing_models.py", "evaluations/golden/single-skill-pricing-report.json"]
+    },
+    {
+      "id": "multi_skill",
+      "required": true,
+      "scenarios": ["AUD-X01", "AUD-X02"],
+      "evidence": ["scripts/test_consumer_adapters.py", "evaluations/golden/multi-skill-complex-report.json"]
+    },
+    {
+      "id": "report_depth",
+      "required": true,
+      "scenarios": ["AUD-R01", "AUD-R02", "AUD-R03"],
+      "evidence": ["scripts/validate_professional_report.py", "evaluations/golden/single-skill-pricing-report.json", "evaluations/golden/multi-skill-complex-report.json", "evaluations/golden/continuous-pressure-report.json"]
+    },
+    {
+      "id": "scenario_breadth",
+      "required": true,
+      "scenarios": ["AUD-B01"],
+      "evidence": ["evaluations/fixtures/evaluation-catalog.json", "scripts/validate_evaluation_execution.py"]
+    },
+    {
+      "id": "complex_scenario",
+      "required": true,
+      "scenarios": ["AUD-C01"],
+      "evidence": ["scripts/test_mixed_batch_economics.py", "evaluations/golden/multi-skill-complex-report.json"]
+    },
+    {
+      "id": "continuous_challenge",
+      "required": true,
+      "scenarios": ["AUD-T01", "AUD-T02", "AUD-T03"],
+      "evidence": ["scripts/test_output_continuity.py", "evaluations/golden/continuous-pressure-report.json"]
+    },
+    {
+      "id": "extreme_scenario",
+      "required": true,
+      "scenarios": ["AUD-E01", "AUD-E02"],
+      "evidence": ["scripts/test_business_model_scenarios.py", "scripts/test_mixed_batch_economics.py"]
+    },
+    {
+      "id": "stress_test",
+      "required": true,
+      "scenarios": ["AUD-P01", "AUD-P02", "AUD-P03"],
+      "evidence": ["scripts/test_l3_audit_matrix.py"]
+    }
+  ],
+  "scenarios": [
+    {"id":"AUD-S01","type":"single_skill","question":"Marketplace SKU repricing after fee change","expected_control":"recompute price-dependent fees and break-even metrics"},
+    {"id":"AUD-S02","type":"single_skill","question":"Unknown business model with incomplete fee basis","expected_control":"degrade to inconclusive and request evidence"},
+    {"id":"AUD-X01","type":"multi_skill","question":"LIFD cost and AAMO break-even boundary change together","expected_control":"PPFC recomputes finance fields without changing route or budget"},
+    {"id":"AUD-X02","type":"multi_skill","question":"One consumer domain fails while valid financial ledger remains","expected_control":"preserve independent valid result and block contaminated action"},
+    {"id":"AUD-R01","type":"report_depth","question":"Single-Skill decision memo","expected_control":"baseline, scenarios, economics, sensitivity, stop, rollback and lineage"},
+    {"id":"AUD-R02","type":"report_depth","question":"Cross-domain complex memo","expected_control":"domain ownership, partial failure and proposed-only actions"},
+    {"id":"AUD-R03","type":"report_depth","question":"Continuous pressure update memo","expected_control":"one current conclusion, supersession and recompute triggers"},
+    {"id":"AUD-B01","type":"scenario_breadth","question":"All 55 registered evaluation cases","expected_control":"positive and counterexample assertions execute"},
+    {"id":"AUD-C01","type":"complex_scenario","question":"Mixed batch with samples, refunds, overlap, inventory NRV and cash","expected_control":"unique revenue, cost deduplication, capacity and cash gates"},
+    {"id":"AUD-T01","type":"continuous_challenge","question":"Fee changed after initial recommendation","expected_control":"expire old conclusion and selectively recompute"},
+    {"id":"AUD-T02","type":"continuous_challenge","question":"User insists revenue growth overrides negative marginal contribution","expected_control":"retain block and expose flip condition"},
+    {"id":"AUD-T03","type":"continuous_challenge","question":"User repeats the same update","expected_control":"idempotent replay without duplicate history"},
+    {"id":"AUD-E01","type":"extreme_scenario","question":"Positive accounting profit but funding peak exceeds limit","expected_control":"cash gate blocks"},
+    {"id":"AUD-E02","type":"extreme_scenario","question":"Spreadsheet errors and non-finite authoritative values","expected_control":"fail closed, never coerce to zero"},
+    {"id":"AUD-P01","type":"stress_test","question":"Joint CVR, refund, fee and cost shock","expected_control":"joint recomputation, not one-factor substitution"},
+    {"id":"AUD-P02","type":"stress_test","question":"Equal-specificity dynamic rules conflict","expected_control":"order-independent ambiguity block"},
+    {"id":"AUD-P03","type":"stress_test","question":"Repeated fee shocks approach decimal boundary","expected_control":"deterministic exact arithmetic and stable status"}
+  ]
+}

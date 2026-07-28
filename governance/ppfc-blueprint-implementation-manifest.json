@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.0",
+  "blueprint": {
+    "source_name": "D06_定价利润财务与现金流_Skill蓝图评审稿_2026-07-28.md",
+    "baseline": "v1.3-fourth-review",
+    "review_record": "D06_定价利润财务与现金流_Skill蓝图_第四轮正式复审记录_2026-07-28.md"
+  },
+  "status_semantics": {
+    "fixed": "Normative mechanism and executable failure assertions exist.",
+    "partial": "Implementation exists but later work packages remain required.",
+    "open": "No decision-grade implementation evidence exists.",
+    "controlled_external_gate": "Completion requires authorized mature real outcomes and independent review."
+  },
+  "requirements": [
+    {
+      "id": "D06-WP2-R01",
+      "capability": "skill trigger, charter, sovereignty and fail-closed workflow skeleton",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/SKILL.md"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP2-R02",
+      "capability": "economic subject identity, scope, hierarchy and version schema",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/economic-subject.schema.json", "pricing-profit-finance-cashflow-decision/references/object-lifecycle-and-state.md"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP2-R03",
+      "capability": "dynamic parameter and rule identity, scope, bitemporal and provenance schema",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/dynamic-parameter-rule.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP2-R04",
+      "capability": "decision-time resolved parameter snapshot and unresolved status schema",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/parameter-snapshot.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP2-R05",
+      "capability": "L0-L8 lifecycle, decision states, action ceiling and recomputation triggers",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/decision-state.schema.json", "pricing-profit-finance-cashflow-decision/references/object-lifecycle-and-state.md"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP3-R01",
+      "capability": "minimum standard and ideal input envelope with accounting view currency tax unit time source and assumption boundaries",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/input-evidence-and-reconciliation.md", "pricing-profit-finance-cashflow-decision/schemas/input-envelope.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_reconciliation.py", "pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP3-R02",
+      "capability": "E0-E7 evidence provenance use restrictions conflict staleness and fingerprint contract",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/input-evidence-and-reconciliation.md", "pricing-profit-finance-cashflow-decision/schemas/evidence-record.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_reconciliation.py", "pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP3-R03",
+      "capability": "unique order revenue reversal cost inventory and cash reconciliation",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/economic-reconciliation.schema.json", "pricing-profit-finance-cashflow-decision/scripts/reconcile_economic_ledger.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_reconciliation.py"]
+    },
+    {
+      "id": "D06-WP3-R04",
+      "capability": "DQ0-DQ3 action ceiling differences blocking errors missing evidence and deterministic lineage output",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/reconciliation-result.schema.json", "pricing-profit-finance-cashflow-decision/scripts/reconcile_economic_ledger.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_reconciliation.py"]
+    },
+    {
+      "id": "D06-WP4-R01",
+      "capability": "six-dimensional route eleven merchant archetypes eighteen pricing model families and unknown degradation",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/pricing-model-routing-and-archetypes.md", "pricing-profit-finance-cashflow-decision/schemas/pricing-route.schema.json", "pricing-profit-finance-cashflow-decision/scripts/route_pricing_model.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_pricing_models.py"]
+    },
+    {
+      "id": "D06-WP4-R02",
+      "capability": "dynamic parameter scope bitemporal approval specificity ambiguity and snapshot resolution",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/dynamic-parameter-and-freight-rules.md", "pricing-profit-finance-cashflow-decision/schemas/dynamic-parameter-rule.schema.json", "pricing-profit-finance-cashflow-decision/scripts/resolve_dynamic_parameters.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_pricing_models.py"]
+    },
+    {
+      "id": "D06-WP4-R03",
+      "capability": "independent candidate price recalculation revenue bridge fee bases profit layers and target margin solver",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/unit-economics-roas-and-price-recalculation.md", "pricing-profit-finance-cashflow-decision/schemas/pricing-scenario.schema.json", "pricing-profit-finance-cashflow-decision/scripts/calculate_pricing_economics.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_pricing_models.py"]
+    },
+    {
+      "id": "D06-WP4-R04",
+      "capability": "registered profit ROAS ACOS allowable ad spend and break-even propagation",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/unit-economics-roas-and-price-recalculation.md", "pricing-profit-finance-cashflow-decision/scripts/calculate_pricing_economics.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_pricing_models.py"]
+    },
+    {
+      "id": "D06-WP4-R05",
+      "capability": "land sea air rail warehouse last-mile and reverse freight segments with volumetric weight tiers minimums surcharges and tax",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/dynamic-parameter-and-freight-rules.md", "pricing-profit-finance-cashflow-decision/schemas/freight-route.schema.json", "pricing-profit-finance-cashflow-decision/scripts/calculate_dynamic_freight.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_pricing_models.py"]
+    },
+    {
+      "id": "D06-WP5-R01",
+      "capability": "field-level bidirectional contracts across nine completed domains with explicit sovereignty and acceptance",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/cross-domain-contract-and-exception-tree.md", "pricing-profit-finance-cashflow-decision/schemas/cross-domain-envelope.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_cross_domain_contract.py"]
+    },
+    {
+      "id": "D06-WP5-R02",
+      "capability": "identity unit currency tax time parameter reconciliation cash attribution tool and partial-domain exception tree",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/cross-domain-contract-and-exception-tree.md", "pricing-profit-finance-cashflow-decision/schemas/exception-report.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_cross_domain_contract.py", "pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP5-R03",
+      "capability": "ERDG registration and authoritative shared-contract validation without external write or production assertion",
+      "status": "fixed",
+      "evidence": ["governance/erdg/adapters/pricing-profit-finance-cashflow-decision/adapter.json", "pricing-profit-finance-cashflow-decision/scripts/validate_decision_contract.py"],
+      "tests": ["governance/erdg/tests/test_erdg.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D06-WP5-R04",
+      "capability": "proposed-only PPFC outbound constraints, explicit receiver acceptance, retained valid outputs and fail-closed external actions",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/scripts/validate_cross_domain_envelope.py", "pricing-profit-finance-cashflow-decision/schemas/cross-domain-envelope.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_cross_domain_contract.py"]
+    },
+    {
+      "id": "D06-WP6-R01",
+      "capability": "temporary F02 localization contract for country platform currency tax unit timezone settlement and dynamic-rule validity",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/localization-temporary-contract.md", "pricing-profit-finance-cashflow-decision/schemas/localization-temporary-contract.schema.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_localization_contract.py", "pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP6-R02",
+      "capability": "expiry evidence and unknown-market degradation without silent stale rate reuse",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/scripts/validate_localization_contract.py", "pricing-profit-finance-cashflow-decision/references/localization-temporary-contract.md"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_localization_contract.py"]
+    },
+    {
+      "id": "D06-WP6-R03",
+      "capability": "F02 field mapping same-snapshot dual run difference explanation explicit acceptance cutover and rollback",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/localization-migration.schema.json", "pricing-profit-finance-cashflow-decision/scripts/validate_localization_contract.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_localization_contract.py"]
+    },
+    {
+      "id": "D06-WP7-R01",
+      "capability": "eight professional output types with mandatory conclusion history economics metrics action stop rollback exit and lineage fields",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/professional-output-and-continuity.md", "pricing-profit-finance-cashflow-decision/schemas/professional-report.schema.json", "pricing-profit-finance-cashflow-decision/scripts/validate_professional_report.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_output_continuity.py", "pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py"]
+    },
+    {
+      "id": "D06-WP7-R02",
+      "capability": "immutable multi-turn events, one current conclusion, supersession history, idempotency and acceptance state",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/continuous-decision-state.schema.json", "pricing-profit-finance-cashflow-decision/schemas/decision-change-event.schema.json", "pricing-profit-finance-cashflow-decision/scripts/update_continuous_decision.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_output_continuity.py"]
+    },
+    {
+      "id": "D06-WP7-R03",
+      "capability": "deterministic selective recomputation closure with affected unaffected expire recompute reaccept and rollback-review sets",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/professional-output-and-continuity.md", "pricing-profit-finance-cashflow-decision/scripts/compute_parameter_change_impact.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_output_continuity.py"]
+    },
+    {
+      "id": "D06-WP8-R01",
+      "capability": "deterministic mixed shelf ads creator video live batch economics with capacity order attribution cost inventory profit and cash separation",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/mixed-batch-evaluation-contract.md", "pricing-profit-finance-cashflow-decision/schemas/mixed-batch-scenario.schema.json", "pricing-profit-finance-cashflow-decision/scripts/evaluate_mixed_batch_scenario.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_mixed_batch_economics.py"]
+    },
+    {
+      "id": "D06-WP8-R02",
+      "capability": "ten-percent sample five-touchpoint duplicate claims zero-post rights ATP refund cost-idempotency partial-failure and cash-breach executable counterexamples",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/scripts/evaluate_mixed_batch_scenario.py", "pricing-profit-finance-cashflow-decision/evaluations/golden/mixed-batch-10pct.input.json", "pricing-profit-finance-cashflow-decision/evaluations/golden/mixed-batch-10pct.expected.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_mixed_batch_economics.py", "pricing-profit-finance-cashflow-decision/scripts/test_evaluation_catalog.py"]
+    },
+    {
+      "id": "D06-WP8-R03",
+      "capability": "blueprint 55-case golden failure adversarial property cross-domain and extreme evaluation catalog",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/evaluations/fixtures/evaluation-catalog.json", "pricing-profit-finance-cashflow-decision/evaluations/fixtures/evaluation-execution-map.json", "pricing-profit-finance-cashflow-decision/scripts/evaluate_business_model_scenario.py", "pricing-profit-finance-cashflow-decision/scripts/validate_evaluation_execution.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_evaluation_catalog.py", "pricing-profit-finance-cashflow-decision/scripts/test_business_model_scenarios.py", "pricing-profit-finance-cashflow-decision/scripts/test_evaluation_execution.py"]
+    },
+    {
+      "id": "D06-WP9-R01",
+      "capability": "authoritative owner consumer and duplicate implementation migration inventory",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/migration-compatibility-and-rollback.md", "pricing-profit-finance-cashflow-decision/evaluations/migration-compatibility.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_migration_compatibility.py"]
+    },
+    {
+      "id": "D06-WP9-R02",
+      "capability": "same subject unit currency tax time snapshot and model version deterministic equivalence comparison",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/scripts/validate_migration_compatibility.py", "pricing-profit-finance-cashflow-decision/evaluations/migration-compatibility.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_migration_compatibility.py"]
+    },
+    {
+      "id": "D06-WP9-R03",
+      "capability": "consumer acceptance staged retirement block difference classification and whole-release rollback contract",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/references/migration-compatibility-and-rollback.md", "pricing-profit-finance-cashflow-decision/evaluations/consumer-acceptance.json", "pricing-profit-finance-cashflow-decision/evaluations/rollback-drill.json", "pricing-profit-finance-cashflow-decision/scripts/validate_acceptance_and_release.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_migration_compatibility.py", "pricing-profit-finance-cashflow-decision/scripts/test_acceptance_and_release.py"]
+    },
+    {
+      "id": "D06-WP9-R04",
+      "capability": "seven business consumer field adapters with exact dual runs for each shared financial boundary and retained business sovereignty",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/evaluations/consumer-adapters.json", "pricing-profit-finance-cashflow-decision/scripts/evaluate_consumer_financial_boundaries.py", "pricing-profit-finance-cashflow-decision/scripts/validate_consumer_adapters.py"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_consumer_financial_boundaries.py", "pricing-profit-finance-cashflow-decision/scripts/test_consumer_adapters.py"]
+    },
+    {
+      "id": "D06-WP10",
+      "capability": "consumer migration, independent review, maturity ledger and release gates after full executable catalog coverage",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/evaluations/l3-review-package.json", "pricing-profit-finance-cashflow-decision/evaluations/l3-audit-matrix.json", "pricing-profit-finance-cashflow-decision/evaluations/historical-replay-template.json", "pricing-profit-finance-cashflow-decision/scripts/validate_acceptance_and_release.py", "pricing-profit-finance-cashflow-decision/scripts/validate_l3_audit.py", ".github/workflows/expert-release.yml"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_acceptance_and_release.py", "pricing-profit-finance-cashflow-decision/scripts/test_l3_audit_matrix.py", "pricing-profit-finance-cashflow-decision/scripts/test_historical_replay.py", "scripts/test_full_repository_audit.py"]
+    },
+    {
+      "id": "D06-L4",
+      "capability": "authorized deidentified mature heterogeneous historical replay and independent review",
+      "status": "controlled_external_gate",
+      "evidence": ["pricing-profit-finance-cashflow-decision/evaluations/historical-replay-template.json"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/validate_historical_replay.py", "pricing-profit-finance-cashflow-decision/scripts/test_historical_replay.py"]
+    }
+  ]
+}

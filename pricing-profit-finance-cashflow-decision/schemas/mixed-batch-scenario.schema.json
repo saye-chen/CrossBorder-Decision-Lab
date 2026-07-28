@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ppfc/mixed-batch-scenario.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scenario_id", "currency", "batch", "sample_policy", "orders", "channel_claims", "costs", "cash_events", "ending_inventory_nrv", "cash_limit", "incrementality_status"],
+  "properties": {
+    "scenario_id": {"type": "string", "minLength": 1},
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "batch": {
+      "type": "object", "additionalProperties": false,
+      "required": ["batch_id", "initial_quantity", "sample", "test", "initial_defect", "after_sales_reserve", "safety_stock", "sellable_open"],
+      "properties": {
+        "batch_id": {"type": "string"}, "initial_quantity": {"type": "integer", "minimum": 0},
+        "sample": {"type": "integer", "minimum": 0}, "test": {"type": "integer", "minimum": 0},
+        "initial_defect": {"type": "integer", "minimum": 0}, "after_sales_reserve": {"type": "integer", "minimum": 0},
+        "safety_stock": {"type": "integer", "minimum": 0}, "sellable_open": {"type": "integer", "minimum": 0}
+      }
+    },
+    "sample_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["rate", "rounding", "minimum", "maximum", "posted", "rights_verified"],
+      "properties": {
+        "rate": {"type": "string", "pattern": "^(0(\\.[0-9]+)?|1(\\.0+)?)$"},
+        "rounding": {"enum": ["floor", "ceil", "half_up"]}, "minimum": {"type": "integer", "minimum": 0},
+        "maximum": {"type": "integer", "minimum": 0}, "posted": {"type": "integer", "minimum": 0},
+        "rights_verified": {"type": "integer", "minimum": 0}
+      }
+    },
+    "orders": {"type": "array", "items": {"type": "object"}},
+    "channel_claims": {"type": "array", "items": {"type": "object"}},
+    "costs": {"type": "array", "items": {"type": "object"}},
+    "cash_events": {"type": "array", "items": {"type": "object"}},
+    "ending_inventory_nrv": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+    "cash_limit": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "incrementality_status": {"enum": ["not_claimed", "attributed_only", "experiment_validated", "joint_model_accepted"]}
+  }
+}

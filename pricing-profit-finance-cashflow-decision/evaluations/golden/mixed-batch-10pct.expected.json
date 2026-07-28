@@ -1,0 +1,21 @@
+{
+  "allocated_attributed_revenue": "100",
+  "batch_cash_result": "30",
+  "batch_economic_profit": "55",
+  "blockers": [],
+  "cash_recovery_time": "2026-08-01T00:00:00Z",
+  "deduplicated_total_cost": "65",
+  "ending_inventory_nrv": "20",
+  "fulfilled_units": 2,
+  "incremental_contribution": null,
+  "input_hash": "sha256:c03e91fac10374731ce17c55b64774ac87ace07a5e01961b61a1fbb4f9b7fb94",
+  "peak_funding_required": "120",
+  "raw_claimed_revenue": "500",
+  "refund_total": "0",
+  "sample_investment": "25",
+  "sample_target": 10,
+  "sellable_open": 70,
+  "status": "validated",
+  "unique_net_revenue": "100",
+  "unique_orders": 1
+}

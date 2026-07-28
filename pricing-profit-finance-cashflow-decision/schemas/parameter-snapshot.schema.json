@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ppfc/parameter-snapshot.schema.json",
+  "title": "PPFC Parameter Snapshot",
+  "type": "object",
+  "required": ["snapshot_id", "decision_id", "subject_id", "scenario_id", "business_as_of_time", "knowledge_as_of_time", "resolution_context", "resolved_parameters", "unresolved_parameters", "model_version", "created_at", "content_hash"],
+  "properties": {
+    "snapshot_id": {"type": "string", "minLength": 1},
+    "decision_id": {"type": "string", "minLength": 1},
+    "subject_id": {"type": "string", "minLength": 1},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "business_as_of_time": {"type": "string", "format": "date-time"},
+    "knowledge_as_of_time": {"type": "string", "format": "date-time"},
+    "resolution_context": {"type": "object", "minProperties": 1},
+    "resolved_parameters": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["semantic_code", "parameter_id", "parameter_version", "resolved_value", "unit", "calculation_basis", "source_id"],
+        "properties": {
+          "semantic_code": {"type": "string"},
+          "parameter_id": {"type": "string"},
+          "parameter_version": {"type": "string"},
+          "resolved_value": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+          "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
+          "unit": {"type": "string"},
+          "calculation_basis": {"type": "string"},
+          "source_id": {"type": "string"},
+          "override_id": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "unresolved_parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["semantic_code", "status", "critical"],
+        "properties": {
+          "semantic_code": {"type": "string"},
+          "status": {"enum": ["MISSING_PARAMETER", "EXPIRED_PARAMETER", "BLOCKED_AMBIGUOUS_RULE", "BLOCKED_INVALID_BASIS"]},
+          "critical": {"type": "boolean"},
+          "candidate_rule_ids": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "model_version": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "supersedes_snapshot_id": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

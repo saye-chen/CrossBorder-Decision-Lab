@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ppfc/economic-reconciliation.schema.json",
+  "title": "PPFC Economic Reconciliation Input",
+  "type": "object",
+  "required": ["reconciliation_id", "subject_id", "as_of_time", "currency", "tax_basis", "quantity_unit", "order_lines", "cost_components", "inventory", "cash_events", "reported_totals", "evidence_ids", "evidence_records"],
+  "properties": {
+    "reconciliation_id": {"type": "string", "minLength": 1},
+    "subject_id": {"type": "string", "minLength": 1},
+    "as_of_time": {"type": "string", "format": "date-time"},
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "tax_basis": {"enum": ["tax_inclusive", "tax_exclusive", "pass_through_excluded"]},
+    "quantity_unit": {"type": "string", "minLength": 1},
+    "order_lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["order_id", "order_line_id", "state_version", "state", "quantity", "fulfilled_quantity", "refunded_quantity", "gross_sales", "discounts", "pass_through_tax", "refunds", "other_reversals", "currency", "evidence_id"],
+        "properties": {
+          "order_id": {"type": "string", "minLength": 1},
+          "order_line_id": {"type": "string", "minLength": 1},
+          "state_version": {"type": "string", "minLength": 1},
+          "state": {"enum": ["paid", "fulfilled", "partially_refunded", "refunded", "cancelled", "payment_failed"]},
+          "quantity": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "fulfilled_quantity": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "refunded_quantity": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "gross_sales": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+          "discounts": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "pass_through_tax": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "refunds": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "other_reversals": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+          "evidence_id": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "cost_components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cost_id", "deduplication_key", "cost_nature", "behavior", "decision_relevance", "recognition", "calculation_basis", "allocation_basis", "amount", "currency", "evidence_id"],
+        "properties": {
+          "cost_id": {"type": "string", "minLength": 1},
+          "deduplication_key": {"type": "string", "minLength": 1},
+          "cost_nature": {"enum": ["product", "logistics", "platform", "payment", "tax", "marketing", "service", "labor", "inventory", "capital", "other"]},
+          "behavior": {"enum": ["fixed", "revenue_rate", "per_order", "per_unit", "per_weight", "tiered", "time_based", "probability_loss"]},
+          "decision_relevance": {"enum": ["sunk", "unavoidable", "avoidable", "marginal"]},
+          "recognition": {"enum": ["inventory_asset", "cogs", "period_expense", "cash_only", "pass_through"]},
+          "calculation_basis": {"type": "string", "minLength": 1},
+          "allocation_basis": {"type": "string", "minLength": 1},
+          "amount": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+          "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+          "evidence_id": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "inventory": {
+      "type": "object",
+      "required": ["opening", "inbound", "released_reserve", "return_resellable", "fulfilled", "sample_allocated", "new_reserve", "writeoff", "reported_closing"],
+      "properties": {
+        "opening": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "inbound": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "released_reserve": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "return_resellable": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "fulfilled": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "sample_allocated": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "new_reserve": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "writeoff": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "reported_closing": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"}
+      },
+      "additionalProperties": false
+    },
+    "cash_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cash_event_id", "occurred_at", "direction", "event_type", "amount", "currency", "settlement_status", "evidence_id"],
+        "properties": {
+          "cash_event_id": {"type": "string", "minLength": 1},
+          "occurred_at": {"type": "string", "format": "date-time"},
+          "direction": {"enum": ["inflow", "outflow"]},
+          "event_type": {"enum": ["procurement", "transport", "warehouse", "platform_settlement", "payment_settlement", "marketing", "refund", "tax", "deposit", "financing", "recovery", "other"]},
+          "amount": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+          "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+          "settlement_status": {"enum": ["scheduled", "pending", "settled", "reversed", "failed"]},
+          "evidence_id": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "reported_totals": {
+      "type": "object",
+      "required": ["gross_sales", "discounts", "pass_through_tax", "refunds", "other_reversals", "recognized_net_revenue", "total_cost", "cash_inflows", "cash_outflows"],
+      "additionalProperties": false,
+      "properties": {
+        "gross_sales": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+        "discounts": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "pass_through_tax": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "refunds": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "other_reversals": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "recognized_net_revenue": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+        "total_cost": {"type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+        "cash_inflows": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+        "cash_outflows": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"}
+      }
+    },
+    "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "evidence_records": {"type": "array", "minItems": 1, "items": {"$ref": "evidence-record.schema.json"}},
+    "rounding_tolerance": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"}
+  },
+  "additionalProperties": false
+}

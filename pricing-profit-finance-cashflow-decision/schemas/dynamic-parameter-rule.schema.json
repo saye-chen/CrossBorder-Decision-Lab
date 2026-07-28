@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ppfc/dynamic-parameter-rule.schema.json",
+  "title": "PPFC Dynamic Parameter Rule",
+  "type": "object",
+  "required": ["parameter_id", "semantic_code", "parameter_type", "version", "calculation_basis", "scope", "valid_from", "recorded_at", "source", "evidence_grade", "approval_status", "priority", "refresh_policy"],
+  "properties": {
+    "parameter_id": {"type": "string", "minLength": 1},
+    "semantic_code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,127}$"},
+    "parameter_type": {"enum": ["amount", "rate", "fixed_plus_rate", "tiered", "piecewise", "minimum", "maximum", "conditional", "probability", "fx", "tax", "threshold", "formula_reference"]},
+    "version": {"type": "string", "minLength": 1},
+    "value": {"type": ["string", "null"], "pattern": "^-?[0-9]+(\\.[0-9]+)?$"},
+    "rule_expression": {"type": ["string", "null"], "minLength": 1},
+    "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
+    "unit": {"type": "string", "minLength": 1},
+    "calculation_basis": {"enum": ["gross_price", "tax_inclusive_revenue", "tax_exclusive_revenue", "recognized_net_revenue", "order", "unit", "shipment", "actual_weight", "volumetric_weight", "chargeable_weight", "volume", "distance", "time", "custom"]},
+    "scope": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "country_code": {"type": ["string", "null"], "pattern": "^[A-Z]{2}$"},
+        "platform_id": {"type": ["string", "null"]},
+        "contract_id": {"type": ["string", "null"]},
+        "store_id": {"type": ["string", "null"]},
+        "category_id": {"type": ["string", "null"]},
+        "product_id": {"type": ["string", "null"]},
+        "sku_id": {"type": ["string", "null"]},
+        "channel_id": {"type": ["string", "null"]},
+        "campaign_id": {"type": ["string", "null"]},
+        "fulfillment_mode": {"type": ["string", "null"]},
+        "carrier_id": {"type": ["string", "null"]},
+        "service_id": {"type": ["string", "null"]},
+        "route_id": {"type": ["string", "null"]},
+        "zone_id": {"type": ["string", "null"]},
+        "transport_mode": {"enum": ["land", "sea", "air", "rail", "multimodal", "warehouse", "last_mile", "reverse", null]},
+        "cargo_type": {"type": ["string", "null"]},
+        "payment_method": {"type": ["string", "null"]},
+        "settlement_plan": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "exclusion_conditions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "stacking_mode": {"enum": ["stackable", "exclusive", "conditional", "not_applicable"]},
+    "mutual_exclusion_group": {"type": ["string", "null"]},
+    "valid_from": {"type": "string", "format": "date-time"},
+    "valid_to": {"type": ["string", "null"], "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "superseded_at": {"type": ["string", "null"], "format": "date-time"},
+    "source": {
+      "type": "object",
+      "required": ["source_id", "source_type", "verified_at", "content_fingerprint"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "source_type": {"enum": ["contract", "official_schedule", "authorized_internal", "public_reference", "approved_assumption"]},
+        "verified_at": {"type": "string", "format": "date-time"},
+        "content_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "evidence_grade": {"enum": ["E0", "E1", "E2", "E3", "E4"]},
+    "approval_status": {"enum": ["draft", "proposed", "approved", "rejected", "expired", "retired"]},
+    "priority": {"type": "integer", "minimum": 0},
+    "refresh_policy": {
+      "type": "object",
+      "required": ["trigger", "max_staleness_seconds", "failure_state"],
+      "properties": {
+        "trigger": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["source_update", "expiry", "contract_change", "fee_schedule_change", "fx_threshold", "route_change", "fuel_surcharge", "peak_surcharge", "manual_review"]}},
+        "max_staleness_seconds": {"type": "integer", "minimum": 0},
+        "failure_state": {"enum": ["inconclusive", "blocked", "expired"]}
+      },
+      "additionalProperties": false
+    },
+    "supersedes_parameter_id": {"type": ["string", "null"]},
+    "rollback_parameter_id": {"type": ["string", "null"]}
+  },
+  "oneOf": [
+    {"required": ["value"], "properties": {"value": {"type": "string"}, "rule_expression": {"type": "null"}}},
+    {"required": ["rule_expression"], "properties": {"rule_expression": {"type": "string"}, "value": {"type": "null"}}}
+  ],
+  "additionalProperties": false
+}

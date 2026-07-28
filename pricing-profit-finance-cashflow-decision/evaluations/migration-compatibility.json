@@ -1,0 +1,111 @@
+{
+  "contract_version": "PPFC-MIGRATION-2026.01",
+  "status": "compatibility_adapters_only",
+  "retirement_allowed": false,
+  "comparison_dimensions": [
+    "subject_id",
+    "currency",
+    "tax_basis",
+    "quantity_unit",
+    "business_as_of_time",
+    "parameter_snapshot_version",
+    "model_version"
+  ],
+  "allowed_difference_classes": [
+    "definition",
+    "precision",
+    "parameter",
+    "business_model",
+    "defect"
+  ],
+  "consumers": [
+    {"domain": "ERDG", "authority": "shared economic layers, units, risk and contract validation", "ppfc_role": "consumer", "migration_status": "adapter_registered", "retirement_allowed": false},
+    {"domain": "CIDM", "authority": "capital portfolio and enter-add-shrink-exit decisions", "ppfc_role": "proposed financial boundary provider", "migration_status": "dual_run_equivalent", "retirement_allowed": false},
+    {"domain": "AAMO", "authority": "advertising architecture, allocation, bid, scale and stop", "ppfc_role": "break-even metric authority", "migration_status": "dual_run_equivalent", "retirement_allowed": false},
+    {"domain": "LIFD", "authority": "route, inventory, replenishment, fulfillment and exit actions", "ppfc_role": "financial conclusion consumer of logistics facts", "migration_status": "dual_run_equivalent", "retirement_allowed": false},
+    {"domain": "CIG", "authority": "customer identity, cohort, retention and contribution CLV facts", "ppfc_role": "versioned cohort economics consumer", "migration_status": "dual_run_equivalent", "retirement_allowed": false},
+    {"domain": "CAPM", "authority": "creator and affiliate commercial actions", "ppfc_role": "partnership financial boundary authority", "migration_status": "dual_run_equivalent", "retirement_allowed": false},
+    {"domain": "MBCM", "authority": "marketing, brand and campaign actions", "ppfc_role": "promotion economics and loss boundary authority", "migration_status": "dual_run_equivalent", "retirement_allowed": false},
+    {"domain": "PLCO", "authority": "store, listing, offer display and execution", "ppfc_role": "allowed price and promotion boundary provider", "migration_status": "dual_run_equivalent", "retirement_allowed": false}
+  ],
+  "equivalence_cases": [
+    {
+      "case_id": "EQ-PRICE-001",
+      "subject_id": "SKU-1",
+      "currency": "USD",
+      "tax_basis": "pass_through_excluded",
+      "quantity_unit": "piece",
+      "business_as_of_time": "2026-07-28T00:00:00Z",
+      "parameter_snapshot_version": "SNAP-1",
+      "model_version": "PPFC-2026.01",
+      "input": {
+        "currency": "USD",
+        "price": "100",
+        "quantity": "1",
+        "discount_rate": "0.1",
+        "pass_through_tax_rate": "0.1",
+        "refund_rate": "0",
+        "other_reversals": "0",
+        "product_cogs": "30",
+        "fulfillment_cost": "10",
+        "expected_return_cost": "0",
+        "variable_marketing_cost": "0",
+        "variable_service_cost": "0",
+        "avoidable_period_cost": "0",
+        "allocated_operating_expense": "0",
+        "ad_spend": "10",
+        "required_profit": "0",
+        "risk_buffer": "0",
+        "fees": [{"fee_id": "platform", "type": "rate", "basis": "recognized_net_revenue", "rate": "0.1"}]
+      },
+      "expected": {
+        "recognized_net_revenue": "81",
+        "platform_fee": "8.1",
+        "pre_ad_contribution": "32.9",
+        "operating_profit": "22.9"
+      }
+    },
+    {
+      "case_id": "EQ-PRICE-RECALC-002",
+      "subject_id": "SKU-1",
+      "currency": "USD",
+      "tax_basis": "pass_through_excluded",
+      "quantity_unit": "piece",
+      "business_as_of_time": "2026-07-28T00:00:00Z",
+      "parameter_snapshot_version": "SNAP-1",
+      "model_version": "PPFC-2026.01",
+      "input": {
+        "currency": "USD",
+        "price": "200",
+        "quantity": "1",
+        "discount_rate": "0.1",
+        "pass_through_tax_rate": "0.1",
+        "refund_rate": "0",
+        "other_reversals": "0",
+        "product_cogs": "30",
+        "fulfillment_cost": "10",
+        "expected_return_cost": "0",
+        "variable_marketing_cost": "0",
+        "variable_service_cost": "0",
+        "avoidable_period_cost": "0",
+        "allocated_operating_expense": "0",
+        "ad_spend": "10",
+        "required_profit": "0",
+        "risk_buffer": "0",
+        "fees": [{"fee_id": "platform", "type": "rate", "basis": "recognized_net_revenue", "rate": "0.1"}]
+      },
+      "expected": {
+        "recognized_net_revenue": "162",
+        "platform_fee": "16.2",
+        "pre_ad_contribution": "105.8",
+        "operating_profit": "95.8"
+      }
+    }
+  ],
+  "rollback": {
+    "release_unit": "skill_adapter_contract_consumers_governance_tests",
+    "trigger_on_unclassified_difference": true,
+    "preserve_old_reader": true,
+    "external_write": false
+  }
+}

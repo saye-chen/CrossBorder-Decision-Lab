@@ -20,6 +20,7 @@ EXPECTED_SKILLS = {
     "consumer-insights-customer-growth", "advertising-analysis-measurement-optimization",
     "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion",
     "creator-affiliate-partnership-management", "marketing-brand-campaign-management",
+    "pricing-profit-finance-cashflow-decision",
 }
 sys.path.insert(0, str(SCRIPTS))
 
@@ -70,7 +71,7 @@ class ERDGTests(unittest.TestCase):
             self.assertEqual(schema["type"], "object", path)
             self.assertIsInstance(schema.get("properties"), dict, path)
 
-    def test_03_all_nine_adapters_are_registered_and_non_writing(self):
+    def test_03_all_registered_adapters_are_non_writing(self):
         adapters = {path.parent.name: json.loads(path.read_text()) for path in (ERDG_DIR / "adapters").glob("*/adapter.json")}
         self.assertEqual(set(adapters), EXPECTED_SKILLS)
         for skill, adapter in adapters.items():

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ppfc/continuous-decision-state.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["chain_id", "current_decision_id", "current_version", "object_ref", "history", "turns", "dependencies", "pending_acceptance", "unresolved_items", "lineage"],
+  "properties": {
+    "chain_id": {"type": "string", "minLength": 1},
+    "current_decision_id": {"type": "string", "minLength": 1},
+    "current_version": {"type": "string", "minLength": 1},
+    "object_ref": {"type": "object"},
+    "history": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["decision_id", "version", "status", "is_current", "input_hash", "parameter_snapshot_id", "model_version", "conclusion", "created_at"],
+        "properties": {
+          "decision_id": {"type": "string"}, "version": {"type": "string"}, "status": {"type": "string"},
+          "is_current": {"type": "boolean"}, "input_hash": {"type": "string", "pattern": "^sha256:"},
+          "parameter_snapshot_id": {"type": "string"}, "model_version": {"type": "string"},
+          "conclusion": {"type": "string"}, "created_at": {"type": "string", "format": "date-time"},
+          "supersedes": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "turns": {"type": "array", "items": {"type": "object"}},
+    "dependencies": {"type": "object"},
+    "pending_acceptance": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "unresolved_items": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "lineage": {
+      "type": "object", "additionalProperties": false, "required": ["state_hash", "runtime_version"],
+      "properties": {"state_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.01"}}
+    }
+  }
+}

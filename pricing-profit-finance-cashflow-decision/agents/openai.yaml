@@ -1,0 +1,4 @@
+interface:
+  display_name: "定价利润财务与现金流决策"
+  short_description: "跨境定价、单位经济、利润、财务约束与现金流专业决策"
+  default_prompt: "使用 $pricing-profit-finance-cashflow-decision 分析跨境定价、利润、财务预算或现金流问题，给出可复算的价格区间、经济边界、风险与停止条件。"

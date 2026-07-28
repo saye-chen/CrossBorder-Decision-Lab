@@ -1,0 +1,42 @@
+{
+  "report_id": "PPFC-GOLDEN-XDOMAIN-001",
+  "report_version": "PPFC-REPORT-2026.01.1",
+  "report_type": "financial_risk_brief",
+  "decision_id": "PPFC-D-XDOMAIN-001",
+  "decision_version": "v1",
+  "status": "proposed",
+  "is_current": true,
+  "object_ref": {"object_id":"BATCH-US-001","object_version":"2026-07-28"},
+  "scope": {"country":"US","platform":"multi_channel","currency":"USD","tax_basis":"mixed_reconciled"},
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "current_conclusion": "Financially preserve the valid ledger, block the cash-breaching scale scenario, and return proposed boundaries to sovereign domains.",
+  "history_refs": [],
+  "evidence": ["E4: reconciled batch ledger", "E4: seven-domain dual-run equivalence"],
+  "counterevidence": ["Creator incrementality is unproven.", "Live-channel demand exceeds current ATP in stress."],
+  "conflicts": ["AAMO scale request conflicts with the PPFC cash ceiling."],
+  "missing_data": ["Authorized mature outcome replay."],
+  "baseline": {"batch_units":"1000","sample_units":"100","sellable_units":"900","unique_recognized_orders":"640"},
+  "candidates": [
+    {"name":"no_action","contribution":"11800","peak_funding":"42000","action_ceiling":"observe_only"},
+    {"name":"controlled_mix","contribution":"13950","peak_funding":"48500","action_ceiling":"submit_for_acceptance"},
+    {"name":"scale_stress","contribution":"8200","peak_funding":"71000","action_ceiling":"blocked"}
+  ],
+  "calculations": [{"id":"mixed-batch-ledger","method":"unique_order_and_cost_deduplication"},{"id":"joint-stress","method":"cvr_refund_fee_cash_recompute"}],
+  "parameter_snapshot_id": "PPFC-PS-XDOMAIN-001",
+  "economics": {"revenue_rule":"one financial order recognized once","inventory_rule":"ending inventory carried at NRV","cash_rule":"ordered event peak"},
+  "metrics": [{"code":"PEAK_FUNDING","value":"71000","evidence_level":"E4"},{"code":"MARGINAL_CONTRIBUTION","value":"-5750","evidence_level":"E4"}],
+  "sensitivity": {"weakest_assumption":"creator post rate","flip_condition":"ATP or cash ceiling breach","maximum_modeled_loss":"71000"},
+  "attribution_incrementality": {"status":"proposed_only","reason":"Attribution weights reconcile but do not establish incrementality."},
+  "actions": [
+    {"action":"return cash ceiling","owner":"PPFC","status":"proposed","reversibility":"high"},
+    {"action":"choose logistics route","owner":"LIFD","status":"not_owned","reversibility":"domain_controlled"},
+    {"action":"change ad budget","owner":"AAMO","status":"not_owned","reversibility":"domain_controlled"}
+  ],
+  "success_conditions": ["Unique-order revenue and cost identities reconcile.", "Peak funding stays within the approved limit."],
+  "stop_conditions": ["ATP is exceeded.", "Incremental contribution is negative.", "Any critical domain fact is stale or conflicting."],
+  "rollback_conditions": ["Adapter equivalence breaks.", "A parameter version changes.", "A consumer rejects the proposed boundary."],
+  "exit_conditions": ["Ending inventory NRV becomes negative.", "No scenario satisfies both contribution and cash gates."],
+  "allowed_uses": ["decision_support", "cross_domain_proposed_boundary"],
+  "forbidden_uses": ["external_write", "change_price", "change_budget", "place_order", "release_funds"],
+  "lineage": {"input_hash":"sha256:xdomain-input","output_hash":"sha256:xdomain-output","model_version":"PPFC-MODEL-2026.01","runtime_version":"PPFC-2026.01","supersedes":null}
+}

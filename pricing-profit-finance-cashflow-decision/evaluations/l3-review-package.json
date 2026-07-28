@@ -1,0 +1,48 @@
+{
+  "package_version": "PPFC-L3-SUBSTANTIVE-REVIEW-2026.02",
+  "runtime_version": "PPFC-2026.01",
+  "review_status": "passed",
+  "review_method": "isolated_substantive_evidence_review",
+  "human_signature_required": false,
+  "owner_escalation_policy": "material_financial_judgment_or_production_release_only",
+  "automated_evidence": {
+    "structure_contract": "passed",
+    "domain_tests": "passed",
+    "evaluation_cases": 55,
+    "positive_and_counterexample_assertions": 110,
+    "consumer_dual_runs": 7,
+    "rollback_drills": 7,
+    "audit_dimensions": 8,
+    "standalone_golden_reports": 3,
+    "audit_scenarios": 17,
+    "repository_validation": "passed",
+    "full_repository_audit": "passed"
+  },
+  "required_review_dimensions": [
+    "pricing_model_selection_and_unknown_degradation",
+    "accounting_view_and_profit_cash_inventory_separation",
+    "roas_acos_cac_roi_semantics",
+    "dynamic_parameter_and_freight_validity",
+    "mixed_batch_capacity_attribution_and_cost_deduplication",
+    "cross_domain_sovereignty_and_partial_failure",
+    "consumer_migration_equivalence_and_rollback",
+    "professional_output_and_multi_turn_recomputation"
+  ],
+  "substantive_review": {
+    "status": "passed",
+    "evidence_isolated_from_claim": true,
+    "dimensions_reviewed": 8,
+    "findings": [
+      {
+        "severity": "controlled_external_gate",
+        "finding": "Authorized outcome-bearing historical replay is not present.",
+        "disposition": "Keep L4 controlled pilot; do not block L3."
+      }
+    ],
+    "p0_open": 0,
+    "p1_open": 0,
+    "decision": "approved_for_l3_controlled_pilot"
+  },
+  "l3_passed": true,
+  "l4_status": "controlled pilot"
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "PPFC-historical-replay-1.0",
+  "runtime_version": "PPFC-2026.01",
+  "minimum_authorized_cases": 3,
+  "required_case_types": ["pricing", "cash_or_financial_risk", "failure_or_exit"],
+  "production_ready": false,
+  "cases": []
+}

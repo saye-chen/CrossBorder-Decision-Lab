@@ -50,6 +50,11 @@ OWNERS = {
     "marketing_brand_campaign": "marketing-brand-campaign-management",
     "marketing_strategy": "marketing-brand-campaign-management",
     "campaign_management": "marketing-brand-campaign-management",
+    "pricing": "pricing-profit-finance-cashflow-decision",
+    "pricing_profit": "pricing-profit-finance-cashflow-decision",
+    "unit_economics": "pricing-profit-finance-cashflow-decision",
+    "financial_constraint": "pricing-profit-finance-cashflow-decision",
+    "cashflow": "pricing-profit-finance-cashflow-decision",
 }
 SKILLS = set(OWNERS.values())
 CLAIM_STATES = {"observed", "estimated", "hypothesis", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"}
@@ -61,6 +66,7 @@ VERSION_PREFIX = {
     "advertising-analysis-measurement-optimization":"AAMO", "logistics-inventory-fulfillment-decision":"LIFD",
     "platform-store-listing-conversion":"PLCO", "creator-affiliate-partnership-management":"CAPM",
     "marketing-brand-campaign-management":"MBCM",
+    "pricing-profit-finance-cashflow-decision":"PPFC",
 }
 PROFESSIONAL_FIELDS = (
     "object_boundary",
