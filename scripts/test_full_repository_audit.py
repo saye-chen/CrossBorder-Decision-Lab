@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Executable release audit for ten completed L1-L3 skills."""
+"""Executable release audit for eleven expert-level L1-L3 repository skills."""
 from __future__ import annotations
 import importlib.util
 import json
@@ -22,8 +22,9 @@ SKILLS={
  "creator-affiliate-partnership-management":("creator_affiliate","CAPM-2026.07","capm"),
  "marketing-brand-campaign-management":("marketing_brand_campaign","MBCM-2026.01","mbcm"),
  "pricing-profit-finance-cashflow-decision":("pricing_profit","PPFC-2026.01","ppfc"),
+ "product-innovation-product-management":("product_definition","PIPM-2026.01","pipm"),
 }
-CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision"}}
+CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision","product-innovation-product-management"}}
 spec=importlib.util.spec_from_file_location("quality",ROOT/"scripts/evaluate_report_quality.py")
 quality=importlib.util.module_from_spec(spec); spec.loader.exec_module(quality)
 repo_spec=importlib.util.spec_from_file_location("repo_validation",ROOT/"scripts/validate_repo.py")
@@ -51,7 +52,7 @@ def shared_payload(skill,decision_type,runtime):
  return payload
 
 class FullRepositoryAudit(unittest.TestCase):
- def test_01_all_ten_skills_structurally_validate(self):
+ def test_01_all_registered_skills_structurally_validate(self):
   for name in SKILLS:
    self.assertEqual(structural_validation_errors(name),[],name)
 
@@ -72,6 +73,14 @@ class FullRepositoryAudit(unittest.TestCase):
    p.write_text(json.dumps(payload),encoding="utf-8")
    rejected=subprocess.run([sys.executable,str(entry),str(p)],capture_output=True,text=True)
    self.assertNotEqual(rejected.returncode,0,(rejected.stdout,rejected.stderr))
+
+ def test_01c_pipm_passes_expert_repository_gate_without_l4_claim(self):
+  name="product-innovation-product-management"
+  ledger=json.loads((ROOT/"governance/domain-maturity-status.json").read_text())
+  row=next(item for item in ledger["domains"] if item["skill"]==name)
+  self.assertEqual((row["l2"],row["l3"],row["l4"],row["maturity"]),("wp9_passed","passed_automated_gate","not_passed","controlled pilot"))
+  result=subprocess.run([sys.executable,str(ROOT/name/"scripts/validate_wp2_structure.py")],capture_output=True,text=True)
+  self.assertEqual(result.returncode,0,(result.stdout,result.stderr))
 
  def test_02_each_skill_independently_accepts_its_owned_contract(self):
   with tempfile.TemporaryDirectory() as td:
@@ -175,7 +184,7 @@ class FullRepositoryAudit(unittest.TestCase):
    if test.name==pathlib.Path(__file__).name: continue
    r=subprocess.run([sys.executable,str(test)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(test.name,r.stdout[-2000:],r.stderr[-2000:]))
-  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_domain_maturity.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py"):
+  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_evaluation_taxonomy.py","validate_domain_maturity.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py"):
    r=subprocess.run([sys.executable,str(ROOT/"scripts"/validator)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(validator,r.stdout[-2000:],r.stderr[-2000:]))
 

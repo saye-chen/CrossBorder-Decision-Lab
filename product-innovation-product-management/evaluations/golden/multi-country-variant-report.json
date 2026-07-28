@@ -1,0 +1,104 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-4",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "multi-country-variant: blocked from evaluate_product_models.py",
+  "decision_id": "D-4",
+  "decision_state": "blocked",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:a97fab49dc8a4c73e52c0bffd721b6da6f92423ffdd3ec1f926442559664e1a2",
+    "report_hash": "sha256:504500622d7d2eb35c86304bd29799a0229f2ec5745801b1f12dcdf39b5940ac",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-4",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-4",
+  "report_type": "product_specification_decision",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "US",
+    "platform": "Amazon"
+  },
+  "specific_content": {
+    "ctqs": "multi-country-variant:ctqs",
+    "execution_binding": {
+      "decision_status": "blocked",
+      "engine": "evaluate_product_models.py",
+      "input_hash": "sha256:a97fab49dc8a4c73e52c0bffd721b6da6f92423ffdd3ec1f926442559664e1a2",
+      "mechanism_output_hash": "sha256:20d55d8e5882cd4675a50201cc84ed221d2d7f7f1a4980c50934bb68f058d419",
+      "operation": "model"
+    },
+    "interfaces": "multi-country-variant:interfaces",
+    "traceability": "multi-country-variant:traceability",
+    "units_and_tolerances": "multi-country-variant:units_and_tolerances",
+    "verification_methods": "multi-country-variant:verification_methods"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

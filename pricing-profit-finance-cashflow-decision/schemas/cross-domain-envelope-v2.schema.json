@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ppfc/cross-domain-envelope-v2.schema.json",
+  "title": "PPFC reader alias for the additive PIPM/D06 contract",
+  "$ref": "../../product-innovation-product-management/schemas/cross-domain-envelope.schema.json"
+}

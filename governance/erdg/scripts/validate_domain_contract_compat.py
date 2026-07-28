@@ -55,6 +55,11 @@ OWNERS = {
     "unit_economics": "pricing-profit-finance-cashflow-decision",
     "financial_constraint": "pricing-profit-finance-cashflow-decision",
     "cashflow": "pricing-profit-finance-cashflow-decision",
+    "product_opportunity": "product-innovation-product-management",
+    "product_definition": "product-innovation-product-management",
+    "product_specification": "product-innovation-product-management",
+    "product_validation": "product-innovation-product-management",
+    "product_roadmap": "product-innovation-product-management",
 }
 SKILLS = set(OWNERS.values())
 CLAIM_STATES = {"observed", "estimated", "hypothesis", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"}
@@ -67,6 +72,7 @@ VERSION_PREFIX = {
     "platform-store-listing-conversion":"PLCO", "creator-affiliate-partnership-management":"CAPM",
     "marketing-brand-campaign-management":"MBCM",
     "pricing-profit-finance-cashflow-decision":"PPFC",
+    "product-innovation-product-management":"PIPM",
 }
 PROFESSIONAL_FIELDS = (
     "object_boundary",

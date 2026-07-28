@@ -1,0 +1,72 @@
+{
+  "adapter_version": "PIPM-CONSUMER-2026.01",
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "blocked_actions": [
+    "consumer_execution_until_accepted"
+  ],
+  "consumer": "platform-store-listing-conversion",
+  "contract": "PIPM-CONSUMER-2026.01",
+  "external_write": false,
+  "field_mapping": {
+    "claim": "pipm.claim",
+    "product_definition": "pipm.product_definition",
+    "product_version": "pipm.product_version",
+    "specification": "pipm.specification",
+    "variant": "pipm.variant"
+  },
+  "forbidden_fields": [
+    "external_write",
+    "production_ready"
+  ],
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "forbidden_writeback": [
+    "store",
+    "listing",
+    "offer_display",
+    "experiment"
+  ],
+  "ignored_fields": [
+    "internal_reasoning"
+  ],
+  "independent_owner_accepted": false,
+  "legacy_reader": "legacy-product-fields-v1",
+  "mapping_classification": {
+    "claim": "lossless",
+    "product_definition": "lossless",
+    "product_version": "lossless",
+    "specification": "lossless",
+    "variant": "lossless"
+  },
+  "optional_fields": [
+    "evidence_ids",
+    "validity"
+  ],
+  "preserved_results": [
+    "consumer_owned_facts"
+  ],
+  "reaccept_triggers": [
+    "object_version_change",
+    "evidence_expiry",
+    "claim_change",
+    "contract_version_change"
+  ],
+  "required_fields": [
+    "product_definition",
+    "specification",
+    "variant",
+    "claim",
+    "product_version"
+  ],
+  "retained_sovereignty": [
+    "store",
+    "listing",
+    "offer_display",
+    "experiment"
+  ],
+  "runtime": "PLCO-2026.08",
+  "status": "automated_contract_accepted"
+}

@@ -1,0 +1,63 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "dependencies",
+      "market_access"
+    ],
+    "value": [
+      "material"
+    ]
+  },
+  "execution": {
+    "engine": "compute_product_change_impact.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "dependencies",
+        "market_access"
+      ],
+      "value": [
+        "material"
+      ]
+    },
+    "operation": "product_change",
+    "payload": {
+      "all_fields": [
+        "material",
+        "weight",
+        "packaging",
+        "landed_cost",
+        "claim",
+        "market_access"
+      ],
+      "changed_fields": [
+        "material"
+      ],
+      "dependencies": {
+        "claim": [],
+        "landed_cost": [],
+        "market_access": [],
+        "material": [
+          "weight",
+          "claim",
+          "market_access"
+        ],
+        "packaging": [],
+        "weight": [
+          "packaging",
+          "landed_cost"
+        ]
+      }
+    }
+  },
+  "expected_status": "proposed",
+  "id": "G-6",
+  "input_hash": "97b9c53ac618fd52d5f5bf6a6b953780f86e01dc93bb3dd4fee3d0bce16f1769",
+  "name": "material-change-multidomain",
+  "object_version": "v1",
+  "platform": "TikTok Shop",
+  "plc": "PLC5",
+  "primary_mechanism": "product_change",
+  "region": "DE"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/product-decision-event.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "turn_id", "sequence", "expected_revision", "idempotency_key", "event_type", "occurred_at", "recorded_at", "object_id", "object_version", "old_input_hash", "new_input_hash", "changed_node_ids", "external_write"],
+  "properties": {
+    "event_id": {"type": "string"}, "turn_id": {"type": "string"}, "sequence": {"type": "integer", "minimum": 1}, "expected_revision": {"type": "integer", "minimum": 0}, "idempotency_key": {"type": "string", "minLength": 8},
+    "event_type": {"enum": ["clarification", "evidence_update", "product_fact_change", "scope_change", "scenario_override", "validation_result", "cross_domain_accept", "cross_domain_reject", "action_update", "incident_or_recall", "rollback", "retire"]},
+    "occurred_at": {"type": "string", "format": "date-time"}, "recorded_at": {"type": "string", "format": "date-time"},
+    "object_id": {"type": "string"}, "object_version": {"type": "string"},
+    "old_input_hash": {"type": "string", "pattern": "^sha256:"}, "new_input_hash": {"type": "string", "pattern": "^sha256:"},
+    "changed_node_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "external_write": {"const": false}
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-6",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "material-change-multidomain: proposed from compute_product_change_impact.py",
+  "decision_id": "D-6",
+  "decision_state": "proposed",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:97b9c53ac618fd52d5f5bf6a6b953780f86e01dc93bb3dd4fee3d0bce16f1769",
+    "report_hash": "sha256:8bbf6c10db99723d00e674152949c3e974f0f85f7fa4c311d605cbdd2db98c54",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-6",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-6",
+  "report_type": "product_validation_report",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "SG",
+    "platform": "Shopify/DTC"
+  },
+  "specific_content": {
+    "applicability": "material-change-multidomain:applicability",
+    "bias": "material-change-multidomain:bias",
+    "execution_binding": {
+      "decision_status": "proposed",
+      "engine": "compute_product_change_impact.py",
+      "input_hash": "sha256:97b9c53ac618fd52d5f5bf6a6b953780f86e01dc93bb3dd4fee3d0bce16f1769",
+      "mechanism_output_hash": "sha256:259fce7bad24645e43e330faf682917430d6a55021bd2808ceb2f53b9cff080a",
+      "operation": "product_change"
+    },
+    "failure_modes": "material-change-multidomain:failure_modes",
+    "heterogeneity": "material-change-multidomain:heterogeneity",
+    "protocol": "material-change-multidomain:protocol",
+    "sample": "material-change-multidomain:sample"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

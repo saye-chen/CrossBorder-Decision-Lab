@@ -1,0 +1,104 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-3",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "dtc-return-redesign: proposed from evaluate_product_models.py",
+  "decision_id": "D-3",
+  "decision_state": "proposed",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:f18706d33e4144177f50b0cd847d16253797176f855842d8e99ff95e01c4228e",
+    "report_hash": "sha256:9f76e8aebeb8644e82ce01fdffc587c8038ceba576450f7edce5864548cf7355",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-3",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-3",
+  "report_type": "mvp_decision",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "SG",
+    "platform": "Shopify/DTC"
+  },
+  "specific_content": {
+    "excluded_scope": "dtc-return-redesign:excluded_scope",
+    "execution_binding": {
+      "decision_status": "proposed",
+      "engine": "evaluate_product_models.py",
+      "input_hash": "sha256:f18706d33e4144177f50b0cd847d16253797176f855842d8e99ff95e01c4228e",
+      "mechanism_output_hash": "sha256:5092f5b63398dde31c33e28c9e1b44830a814f9369cc39d9dae46bf1826e13c5",
+      "operation": "model"
+    },
+    "learning_goal": "dtc-return-redesign:learning_goal",
+    "minimum_scope": "dtc-return-redesign:minimum_scope",
+    "thresholds": "dtc-return-redesign:thresholds",
+    "validation_design": "dtc-return-redesign:validation_design"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

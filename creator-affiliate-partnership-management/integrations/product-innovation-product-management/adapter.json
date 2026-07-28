@@ -1,0 +1,66 @@
+{
+  "adapter_version": "PIPM-CONSUMER-2026.01",
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "blocked_actions": [
+    "consumer_execution_until_accepted"
+  ],
+  "consumer": "creator-affiliate-partnership-management",
+  "contract": "PIPM-CONSUMER-2026.01",
+  "external_write": false,
+  "field_mapping": {
+    "claim_allowed_use": "pipm.claim_allowed_use",
+    "product_fact": "pipm.product_fact",
+    "sample_version": "pipm.sample_version"
+  },
+  "forbidden_fields": [
+    "external_write",
+    "production_ready"
+  ],
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "forbidden_writeback": [
+    "partner_selection",
+    "quote",
+    "contract",
+    "sample_action"
+  ],
+  "ignored_fields": [
+    "internal_reasoning"
+  ],
+  "independent_owner_accepted": false,
+  "legacy_reader": "legacy-product-fields-v1",
+  "mapping_classification": {
+    "claim_allowed_use": "lossless",
+    "product_fact": "lossless",
+    "sample_version": "lossless"
+  },
+  "optional_fields": [
+    "evidence_ids",
+    "validity"
+  ],
+  "preserved_results": [
+    "consumer_owned_facts"
+  ],
+  "reaccept_triggers": [
+    "object_version_change",
+    "evidence_expiry",
+    "claim_change",
+    "contract_version_change"
+  ],
+  "required_fields": [
+    "product_fact",
+    "sample_version",
+    "claim_allowed_use"
+  ],
+  "retained_sovereignty": [
+    "partner_selection",
+    "quote",
+    "contract",
+    "sample_action"
+  ],
+  "runtime": "CAPM-2026.07",
+  "status": "automated_contract_accepted"
+}

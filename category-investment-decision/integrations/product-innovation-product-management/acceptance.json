@@ -1,0 +1,14 @@
+{
+  "adapter_hash": "8665de1eb3f6a6c017997914764e4e4dbbb37dc8a80762e9546ab1a889e1e8b1",
+  "automated_contract_accepted": true,
+  "checks": {
+    "external_execution_blocks": true,
+    "forbidden_writeback_blocks": true,
+    "missing_required_blocks": true,
+    "valid_accepts": true,
+    "version_mismatch_blocks": true
+  },
+  "consumer": "category-investment-decision",
+  "evidence_scope": "consumer_local_executable_contract",
+  "independent_owner_accepted": false
+}

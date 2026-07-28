@@ -1,0 +1,14 @@
+{
+  "adapter_hash": "b0c09038ecd73dcc11a1fde8df12087fb91476931b89280afcbc1077e5846dd7",
+  "automated_contract_accepted": true,
+  "checks": {
+    "external_execution_blocks": true,
+    "forbidden_writeback_blocks": true,
+    "missing_required_blocks": true,
+    "valid_accepts": true,
+    "version_mismatch_blocks": true
+  },
+  "consumer": "logistics-inventory-fulfillment-decision",
+  "evidence_scope": "consumer_local_executable_contract",
+  "independent_owner_accepted": false
+}

@@ -1,0 +1,104 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-1",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "amazon-opportunity-mvp: proposed from evaluate_product_models.py",
+  "decision_id": "D-1",
+  "decision_state": "proposed",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:88d0321468f90c8c89507faa9ae16140a7357373d0bfdb77771b382755c98af3",
+    "report_hash": "sha256:b7a228ba70242bcb7b5d121c98132937f3a1b9cd30e870e44c9186ee4bcc08d5",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-1",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-1",
+  "report_type": "product_opportunity_brief",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "US",
+    "platform": "Amazon"
+  },
+  "specific_content": {
+    "evidence_plan": "amazon-opportunity-mvp:evidence_plan",
+    "execution_binding": {
+      "decision_status": "proposed",
+      "engine": "evaluate_product_models.py",
+      "input_hash": "sha256:88d0321468f90c8c89507faa9ae16140a7357373d0bfdb77771b382755c98af3",
+      "mechanism_output_hash": "sha256:c669168f20374a7553ced831e81a8471489781f876eb2eefc08f4c8801440fa6",
+      "operation": "model"
+    },
+    "opportunity_interval": "amazon-opportunity-mvp:opportunity_interval",
+    "unmet_need": "amazon-opportunity-mvp:unmet_need",
+    "user_job": "amazon-opportunity-mvp:user_job",
+    "weakest_assumption": "amazon-opportunity-mvp:weakest_assumption"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

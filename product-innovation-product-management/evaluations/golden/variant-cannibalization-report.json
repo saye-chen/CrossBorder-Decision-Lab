@@ -1,0 +1,104 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-5",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "variant-cannibalization: proposed from evaluate_product_models.py",
+  "decision_id": "D-5",
+  "decision_state": "proposed",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:97b4c929db601c77948e2553be049bf7df3f5c0424e10bec49877f61a3f7d65a",
+    "report_hash": "sha256:c4e906041f13c202401fcaecd7006b285e4b4103a54f7d358d5343009598e04f",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-5",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-5",
+  "report_type": "variant_packaging_decision",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "DE",
+    "platform": "TikTok Shop"
+  },
+  "specific_content": {
+    "cannibalization": "variant-cannibalization:cannibalization",
+    "complexity": "variant-cannibalization:complexity",
+    "execution_binding": {
+      "decision_status": "proposed",
+      "engine": "evaluate_product_models.py",
+      "input_hash": "sha256:97b4c929db601c77948e2553be049bf7df3f5c0424e10bec49877f61a3f7d65a",
+      "mechanism_output_hash": "sha256:03dc330416d1252e0764cd99181f574dda9d044456a1c19f3b1bdab5c7e22315",
+      "operation": "model"
+    },
+    "exit_rules": "variant-cannibalization:exit_rules",
+    "packaging_levels": "variant-cannibalization:packaging_levels",
+    "variant_roles": "variant-cannibalization:variant_roles"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

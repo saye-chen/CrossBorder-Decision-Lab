@@ -1,0 +1,4833 @@
+{
+  "cases": [
+    {
+      "archetype": "commodity",
+      "category": "standard",
+      "event_type": "clarification",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-01",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC0",
+      "primary_mechanism": "product_model",
+      "region": "US",
+      "report_type": "product_opportunity_brief",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|commodity|PLC0|safety|0"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "standard",
+      "event_type": "evidence_update",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-02",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC1",
+      "primary_mechanism": "evidence_gate",
+      "region": "DE",
+      "report_type": "product_definition",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|oem_odm|PLC1|regulated|1"
+    },
+    {
+      "archetype": "electronics",
+      "category": "standard",
+      "event_type": "product_fact_change",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-03",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC2",
+      "primary_mechanism": "continuity",
+      "region": "SG",
+      "report_type": "mvp_decision",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|electronics|PLC2|negative_profit|2"
+    },
+    {
+      "archetype": "regulated",
+      "category": "standard",
+      "event_type": "scope_change",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-04",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC3",
+      "primary_mechanism": "cross_domain",
+      "region": "ZZ",
+      "report_type": "product_specification_decision",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|regulated|PLC3|cash|3"
+    },
+    {
+      "archetype": "consumable",
+      "category": "standard",
+      "event_type": "scenario_override",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-05",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC4",
+      "primary_mechanism": "rollback",
+      "region": "US",
+      "report_type": "variant_packaging_decision",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|consumable|PLC4|unmanufacturable|4"
+    },
+    {
+      "archetype": "apparel",
+      "category": "standard",
+      "event_type": "validation_result",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-06",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC5",
+      "primary_mechanism": "product_model",
+      "region": "DE",
+      "report_type": "product_validation_report",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|apparel|PLC5|unfulfillable|5"
+    },
+    {
+      "archetype": "durable",
+      "category": "standard",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-07",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC6",
+      "primary_mechanism": "evidence_gate",
+      "region": "SG",
+      "report_type": "product_change_impact_report",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|durable|PLC6|claim|6"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "standard",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-ST-08",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC7",
+      "primary_mechanism": "continuity",
+      "region": "ZZ",
+      "report_type": "product_roadmap",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|connected_device|PLC7|version_pollution|7"
+    },
+    {
+      "archetype": "commodity",
+      "category": "standard",
+      "event_type": "action_update",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-ST-09",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC8",
+      "primary_mechanism": "cross_domain",
+      "region": "US",
+      "report_type": "product_stop_retire_decision",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|commodity|PLC8|tool_failure|8"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "standard",
+      "event_type": "incident_or_recall",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-ST-10",
+      "mode": "standard",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC0",
+      "primary_mechanism": "rollback",
+      "region": "DE",
+      "report_type": "product_opportunity_brief",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "standard|oem_odm|PLC0|retirement|9"
+    },
+    {
+      "archetype": "electronics",
+      "category": "boundary",
+      "event_type": "rollback",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-01",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC1",
+      "primary_mechanism": "product_model",
+      "region": "SG",
+      "report_type": "product_definition",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|electronics|PLC1|safety|10"
+    },
+    {
+      "archetype": "regulated",
+      "category": "boundary",
+      "event_type": "retire",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-02",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC2",
+      "primary_mechanism": "evidence_gate",
+      "region": "ZZ",
+      "report_type": "mvp_decision",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|regulated|PLC2|regulated|11"
+    },
+    {
+      "archetype": "consumable",
+      "category": "boundary",
+      "event_type": "clarification",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "missing",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-03",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC3",
+      "primary_mechanism": "continuity",
+      "region": "US",
+      "report_type": "product_specification_decision",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|consumable|PLC3|negative_profit|12"
+    },
+    {
+      "archetype": "apparel",
+      "category": "boundary",
+      "event_type": "evidence_update",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-04",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC4",
+      "primary_mechanism": "cross_domain",
+      "region": "DE",
+      "report_type": "variant_packaging_decision",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|apparel|PLC4|cash|13"
+    },
+    {
+      "archetype": "durable",
+      "category": "boundary",
+      "event_type": "product_fact_change",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-05",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC5",
+      "primary_mechanism": "rollback",
+      "region": "SG",
+      "report_type": "product_validation_report",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|durable|PLC5|unmanufacturable|14"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "boundary",
+      "event_type": "scope_change",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-06",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC6",
+      "primary_mechanism": "product_model",
+      "region": "ZZ",
+      "report_type": "product_change_impact_report",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|connected_device|PLC6|unfulfillable|15"
+    },
+    {
+      "archetype": "commodity",
+      "category": "boundary",
+      "event_type": "scenario_override",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "missing",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-07",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC7",
+      "primary_mechanism": "evidence_gate",
+      "region": "US",
+      "report_type": "product_roadmap",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|commodity|PLC7|claim|16"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "boundary",
+      "event_type": "validation_result",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-BO-08",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC8",
+      "primary_mechanism": "continuity",
+      "region": "DE",
+      "report_type": "product_stop_retire_decision",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|oem_odm|PLC8|version_pollution|17"
+    },
+    {
+      "archetype": "electronics",
+      "category": "boundary",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-BO-09",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC0",
+      "primary_mechanism": "cross_domain",
+      "region": "SG",
+      "report_type": "product_opportunity_brief",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|electronics|PLC0|tool_failure|18"
+    },
+    {
+      "archetype": "regulated",
+      "category": "boundary",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-10",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC1",
+      "primary_mechanism": "rollback",
+      "region": "ZZ",
+      "report_type": "product_definition",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|regulated|PLC1|retirement|19"
+    },
+    {
+      "archetype": "consumable",
+      "category": "boundary",
+      "event_type": "action_update",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "missing",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-11",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC2",
+      "primary_mechanism": "product_model",
+      "region": "US",
+      "report_type": "mvp_decision",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|consumable|PLC2|safety|20"
+    },
+    {
+      "archetype": "apparel",
+      "category": "boundary",
+      "event_type": "incident_or_recall",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-BO-12",
+      "mode": "boundary",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC3",
+      "primary_mechanism": "evidence_gate",
+      "region": "DE",
+      "report_type": "product_specification_decision",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "boundary|apparel|PLC3|regulated|21"
+    },
+    {
+      "archetype": "durable",
+      "category": "failure",
+      "event_type": "rollback",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-01",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC4",
+      "primary_mechanism": "continuity",
+      "region": "SG",
+      "report_type": "variant_packaging_decision",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|durable|PLC4|negative_profit|22"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "failure",
+      "event_type": "retire",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-02",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC5",
+      "primary_mechanism": "cross_domain",
+      "region": "ZZ",
+      "report_type": "product_validation_report",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|connected_device|PLC5|cash|23"
+    },
+    {
+      "archetype": "commodity",
+      "category": "failure",
+      "event_type": "clarification",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "missing",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-03",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC6",
+      "primary_mechanism": "rollback",
+      "region": "US",
+      "report_type": "product_change_impact_report",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|commodity|PLC6|unmanufacturable|24"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "failure",
+      "event_type": "evidence_update",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-04",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC7",
+      "primary_mechanism": "product_model",
+      "region": "DE",
+      "report_type": "product_roadmap",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|oem_odm|PLC7|unfulfillable|25"
+    },
+    {
+      "archetype": "electronics",
+      "category": "failure",
+      "event_type": "product_fact_change",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-05",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC8",
+      "primary_mechanism": "evidence_gate",
+      "region": "SG",
+      "report_type": "product_stop_retire_decision",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|electronics|PLC8|claim|26"
+    },
+    {
+      "archetype": "regulated",
+      "category": "failure",
+      "event_type": "scope_change",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-FA-06",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC0",
+      "primary_mechanism": "continuity",
+      "region": "ZZ",
+      "report_type": "product_opportunity_brief",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|regulated|PLC0|version_pollution|27"
+    },
+    {
+      "archetype": "consumable",
+      "category": "failure",
+      "event_type": "scenario_override",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "missing",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-FA-07",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC1",
+      "primary_mechanism": "cross_domain",
+      "region": "US",
+      "report_type": "product_definition",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|consumable|PLC1|tool_failure|28"
+    },
+    {
+      "archetype": "apparel",
+      "category": "failure",
+      "event_type": "validation_result",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-08",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC2",
+      "primary_mechanism": "rollback",
+      "region": "DE",
+      "report_type": "mvp_decision",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|apparel|PLC2|retirement|29"
+    },
+    {
+      "archetype": "durable",
+      "category": "failure",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-09",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC3",
+      "primary_mechanism": "product_model",
+      "region": "SG",
+      "report_type": "product_specification_decision",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|durable|PLC3|safety|30"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "failure",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-10",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC4",
+      "primary_mechanism": "evidence_gate",
+      "region": "ZZ",
+      "report_type": "variant_packaging_decision",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|connected_device|PLC4|regulated|31"
+    },
+    {
+      "archetype": "commodity",
+      "category": "failure",
+      "event_type": "action_update",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "missing",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-11",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC5",
+      "primary_mechanism": "continuity",
+      "region": "US",
+      "report_type": "product_validation_report",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|commodity|PLC5|negative_profit|32"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "failure",
+      "event_type": "incident_or_recall",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-12",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC6",
+      "primary_mechanism": "cross_domain",
+      "region": "DE",
+      "report_type": "product_change_impact_report",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|oem_odm|PLC6|cash|33"
+    },
+    {
+      "archetype": "electronics",
+      "category": "failure",
+      "event_type": "rollback",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-13",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC7",
+      "primary_mechanism": "rollback",
+      "region": "SG",
+      "report_type": "product_roadmap",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|electronics|PLC7|unmanufacturable|34"
+    },
+    {
+      "archetype": "regulated",
+      "category": "failure",
+      "event_type": "retire",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-14",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC8",
+      "primary_mechanism": "product_model",
+      "region": "ZZ",
+      "report_type": "product_stop_retire_decision",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|regulated|PLC8|unfulfillable|35"
+    },
+    {
+      "archetype": "consumable",
+      "category": "failure",
+      "event_type": "clarification",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "missing",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-FA-15",
+      "mode": "failure",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC0",
+      "primary_mechanism": "evidence_gate",
+      "region": "US",
+      "report_type": "product_opportunity_brief",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "failure|consumable|PLC0|claim|36"
+    },
+    {
+      "archetype": "apparel",
+      "category": "adversarial",
+      "event_type": "evidence_update",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "conflict",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-AD-01",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC1",
+      "primary_mechanism": "continuity",
+      "region": "DE",
+      "report_type": "product_definition",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|apparel|PLC1|version_pollution|37"
+    },
+    {
+      "archetype": "durable",
+      "category": "adversarial",
+      "event_type": "product_fact_change",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-AD-02",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC2",
+      "primary_mechanism": "cross_domain",
+      "region": "SG",
+      "report_type": "mvp_decision",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|durable|PLC2|tool_failure|38"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "adversarial",
+      "event_type": "scope_change",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-03",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC3",
+      "primary_mechanism": "rollback",
+      "region": "ZZ",
+      "report_type": "product_specification_decision",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|connected_device|PLC3|retirement|39"
+    },
+    {
+      "archetype": "commodity",
+      "category": "adversarial",
+      "event_type": "scenario_override",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-04",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC4",
+      "primary_mechanism": "product_model",
+      "region": "US",
+      "report_type": "variant_packaging_decision",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|commodity|PLC4|safety|40"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "adversarial",
+      "event_type": "validation_result",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "conflict",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-05",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC5",
+      "primary_mechanism": "evidence_gate",
+      "region": "DE",
+      "report_type": "product_validation_report",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|oem_odm|PLC5|regulated|41"
+    },
+    {
+      "archetype": "electronics",
+      "category": "adversarial",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-06",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC6",
+      "primary_mechanism": "continuity",
+      "region": "SG",
+      "report_type": "product_change_impact_report",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|electronics|PLC6|negative_profit|42"
+    },
+    {
+      "archetype": "regulated",
+      "category": "adversarial",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-07",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC7",
+      "primary_mechanism": "cross_domain",
+      "region": "ZZ",
+      "report_type": "product_roadmap",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|regulated|PLC7|cash|43"
+    },
+    {
+      "archetype": "consumable",
+      "category": "adversarial",
+      "event_type": "action_update",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-08",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC8",
+      "primary_mechanism": "rollback",
+      "region": "US",
+      "report_type": "product_stop_retire_decision",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|consumable|PLC8|unmanufacturable|44"
+    },
+    {
+      "archetype": "apparel",
+      "category": "adversarial",
+      "event_type": "incident_or_recall",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "conflict",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-09",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC0",
+      "primary_mechanism": "product_model",
+      "region": "DE",
+      "report_type": "product_opportunity_brief",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|apparel|PLC0|unfulfillable|45"
+    },
+    {
+      "archetype": "durable",
+      "category": "adversarial",
+      "event_type": "rollback",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-AD-10",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC1",
+      "primary_mechanism": "evidence_gate",
+      "region": "SG",
+      "report_type": "product_definition",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|durable|PLC1|claim|46"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "adversarial",
+      "event_type": "retire",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-AD-11",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC2",
+      "primary_mechanism": "continuity",
+      "region": "ZZ",
+      "report_type": "mvp_decision",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|connected_device|PLC2|version_pollution|47"
+    },
+    {
+      "archetype": "commodity",
+      "category": "adversarial",
+      "event_type": "clarification",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-AD-12",
+      "mode": "adversarial",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC3",
+      "primary_mechanism": "cross_domain",
+      "region": "US",
+      "report_type": "product_specification_decision",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "adversarial|commodity|PLC3|tool_failure|48"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "property",
+      "event_type": "evidence_update",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-01",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC4",
+      "primary_mechanism": "rollback",
+      "region": "DE",
+      "report_type": "variant_packaging_decision",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|oem_odm|PLC4|retirement|49"
+    },
+    {
+      "archetype": "electronics",
+      "category": "property",
+      "event_type": "product_fact_change",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-02",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC5",
+      "primary_mechanism": "product_model",
+      "region": "SG",
+      "report_type": "product_validation_report",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|electronics|PLC5|safety|50"
+    },
+    {
+      "archetype": "regulated",
+      "category": "property",
+      "event_type": "scope_change",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-03",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC6",
+      "primary_mechanism": "evidence_gate",
+      "region": "ZZ",
+      "report_type": "product_change_impact_report",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|regulated|PLC6|regulated|51"
+    },
+    {
+      "archetype": "consumable",
+      "category": "property",
+      "event_type": "scenario_override",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-04",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC7",
+      "primary_mechanism": "continuity",
+      "region": "US",
+      "report_type": "product_roadmap",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|consumable|PLC7|negative_profit|52"
+    },
+    {
+      "archetype": "apparel",
+      "category": "property",
+      "event_type": "validation_result",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-05",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC8",
+      "primary_mechanism": "cross_domain",
+      "region": "DE",
+      "report_type": "product_stop_retire_decision",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|apparel|PLC8|cash|53"
+    },
+    {
+      "archetype": "durable",
+      "category": "property",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-06",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC0",
+      "primary_mechanism": "rollback",
+      "region": "SG",
+      "report_type": "product_opportunity_brief",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|durable|PLC0|unmanufacturable|54"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "property",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-07",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC1",
+      "primary_mechanism": "product_model",
+      "region": "ZZ",
+      "report_type": "product_definition",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|connected_device|PLC1|unfulfillable|55"
+    },
+    {
+      "archetype": "commodity",
+      "category": "property",
+      "event_type": "action_update",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-08",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC2",
+      "primary_mechanism": "evidence_gate",
+      "region": "US",
+      "report_type": "mvp_decision",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|commodity|PLC2|claim|56"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "property",
+      "event_type": "incident_or_recall",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-PR-09",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC3",
+      "primary_mechanism": "continuity",
+      "region": "DE",
+      "report_type": "product_specification_decision",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|oem_odm|PLC3|version_pollution|57"
+    },
+    {
+      "archetype": "electronics",
+      "category": "property",
+      "event_type": "rollback",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-PR-10",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC4",
+      "primary_mechanism": "cross_domain",
+      "region": "SG",
+      "report_type": "variant_packaging_decision",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|electronics|PLC4|tool_failure|58"
+    },
+    {
+      "archetype": "regulated",
+      "category": "property",
+      "event_type": "retire",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-11",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC5",
+      "primary_mechanism": "rollback",
+      "region": "ZZ",
+      "report_type": "product_validation_report",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|regulated|PLC5|retirement|59"
+    },
+    {
+      "archetype": "consumable",
+      "category": "property",
+      "event_type": "clarification",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-PR-12",
+      "mode": "property",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC6",
+      "primary_mechanism": "product_model",
+      "region": "US",
+      "report_type": "product_change_impact_report",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "property|consumable|PLC6|safety|60"
+    },
+    {
+      "archetype": "apparel",
+      "category": "cross_domain",
+      "event_type": "evidence_update",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-01",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "advertising-analysis-measurement-optimization",
+        "governance/erdg"
+      ],
+      "platform": "TikTok Shop",
+      "plc": "PLC7",
+      "primary_mechanism": "evidence_gate",
+      "region": "DE",
+      "report_type": "product_roadmap",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|apparel|PLC7|regulated|61"
+    },
+    {
+      "archetype": "durable",
+      "category": "cross_domain",
+      "event_type": "product_fact_change",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-02",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "creator-affiliate-partnership-management",
+        "pricing-profit-finance-cashflow-decision"
+      ],
+      "platform": "Shopify/DTC",
+      "plc": "PLC8",
+      "primary_mechanism": "continuity",
+      "region": "SG",
+      "report_type": "product_stop_retire_decision",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|durable|PLC8|negative_profit|62"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "cross_domain",
+      "event_type": "scope_change",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-03",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "marketing-brand-campaign-management",
+        "future-d04"
+      ],
+      "platform": "unknown",
+      "plc": "PLC0",
+      "primary_mechanism": "cross_domain",
+      "region": "ZZ",
+      "report_type": "product_opportunity_brief",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|connected_device|PLC0|cash|63"
+    },
+    {
+      "archetype": "commodity",
+      "category": "cross_domain",
+      "event_type": "scenario_override",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-04",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "governance/erdg",
+        "future-d05"
+      ],
+      "platform": "Amazon",
+      "plc": "PLC1",
+      "primary_mechanism": "rollback",
+      "region": "US",
+      "report_type": "product_definition",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|commodity|PLC1|unmanufacturable|64"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "cross_domain",
+      "event_type": "validation_result",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-05",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "pricing-profit-finance-cashflow-decision",
+        "category-investment-decision"
+      ],
+      "platform": "TikTok Shop",
+      "plc": "PLC2",
+      "primary_mechanism": "product_model",
+      "region": "DE",
+      "report_type": "mvp_decision",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|oem_odm|PLC2|unfulfillable|65"
+    },
+    {
+      "archetype": "electronics",
+      "category": "cross_domain",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-06",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "future-d04",
+        "competitive-intelligence-monitoring"
+      ],
+      "platform": "Shopify/DTC",
+      "plc": "PLC3",
+      "primary_mechanism": "evidence_gate",
+      "region": "SG",
+      "report_type": "product_specification_decision",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|electronics|PLC3|claim|66"
+    },
+    {
+      "archetype": "regulated",
+      "category": "cross_domain",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-CR-07",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "future-d05",
+        "video-link-breakdown"
+      ],
+      "platform": "unknown",
+      "plc": "PLC4",
+      "primary_mechanism": "continuity",
+      "region": "ZZ",
+      "report_type": "variant_packaging_decision",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|regulated|PLC4|version_pollution|67"
+    },
+    {
+      "archetype": "consumable",
+      "category": "cross_domain",
+      "event_type": "action_update",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-CR-08",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "category-investment-decision",
+        "consumer-insights-customer-growth"
+      ],
+      "platform": "Amazon",
+      "plc": "PLC5",
+      "primary_mechanism": "cross_domain",
+      "region": "US",
+      "report_type": "product_validation_report",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|consumable|PLC5|tool_failure|68"
+    },
+    {
+      "archetype": "apparel",
+      "category": "cross_domain",
+      "event_type": "incident_or_recall",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-09",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "competitive-intelligence-monitoring",
+        "logistics-inventory-fulfillment-decision"
+      ],
+      "platform": "TikTok Shop",
+      "plc": "PLC6",
+      "primary_mechanism": "rollback",
+      "region": "DE",
+      "report_type": "product_change_impact_report",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|apparel|PLC6|retirement|69"
+    },
+    {
+      "archetype": "durable",
+      "category": "cross_domain",
+      "event_type": "rollback",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-10",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "video-link-breakdown",
+        "platform-store-listing-conversion"
+      ],
+      "platform": "Shopify/DTC",
+      "plc": "PLC7",
+      "primary_mechanism": "product_model",
+      "region": "SG",
+      "report_type": "product_roadmap",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|durable|PLC7|safety|70"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "cross_domain",
+      "event_type": "retire",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-11",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "consumer-insights-customer-growth",
+        "advertising-analysis-measurement-optimization"
+      ],
+      "platform": "unknown",
+      "plc": "PLC8",
+      "primary_mechanism": "evidence_gate",
+      "region": "ZZ",
+      "report_type": "product_stop_retire_decision",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|connected_device|PLC8|regulated|71"
+    },
+    {
+      "archetype": "commodity",
+      "category": "cross_domain",
+      "event_type": "clarification",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-12",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "logistics-inventory-fulfillment-decision",
+        "creator-affiliate-partnership-management"
+      ],
+      "platform": "Amazon",
+      "plc": "PLC0",
+      "primary_mechanism": "continuity",
+      "region": "US",
+      "report_type": "product_opportunity_brief",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|commodity|PLC0|negative_profit|72"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "cross_domain",
+      "event_type": "evidence_update",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-13",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "platform-store-listing-conversion",
+        "marketing-brand-campaign-management"
+      ],
+      "platform": "TikTok Shop",
+      "plc": "PLC1",
+      "primary_mechanism": "cross_domain",
+      "region": "DE",
+      "report_type": "product_definition",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|oem_odm|PLC1|cash|73"
+    },
+    {
+      "archetype": "electronics",
+      "category": "cross_domain",
+      "event_type": "product_fact_change",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-14",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "advertising-analysis-measurement-optimization",
+        "governance/erdg"
+      ],
+      "platform": "Shopify/DTC",
+      "plc": "PLC2",
+      "primary_mechanism": "rollback",
+      "region": "SG",
+      "report_type": "mvp_decision",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|electronics|PLC2|unmanufacturable|74"
+    },
+    {
+      "archetype": "regulated",
+      "category": "cross_domain",
+      "event_type": "scope_change",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-15",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "creator-affiliate-partnership-management",
+        "pricing-profit-finance-cashflow-decision"
+      ],
+      "platform": "unknown",
+      "plc": "PLC3",
+      "primary_mechanism": "product_model",
+      "region": "ZZ",
+      "report_type": "product_specification_decision",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|regulated|PLC3|unfulfillable|75"
+    },
+    {
+      "archetype": "consumable",
+      "category": "cross_domain",
+      "event_type": "scenario_override",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-CR-16",
+      "mode": "cross_skill",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "marketing-brand-campaign-management",
+        "future-d04"
+      ],
+      "platform": "Amazon",
+      "plc": "PLC4",
+      "primary_mechanism": "evidence_gate",
+      "region": "US",
+      "report_type": "variant_packaging_decision",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "cross_skill|consumable|PLC4|claim|76"
+    },
+    {
+      "archetype": "apparel",
+      "category": "multi_turn",
+      "event_type": "validation_result",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-MU-01",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC5",
+      "primary_mechanism": "continuity",
+      "region": "DE",
+      "report_type": "product_validation_report",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|apparel|PLC5|version_pollution|77"
+    },
+    {
+      "archetype": "durable",
+      "category": "multi_turn",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-MU-02",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC6",
+      "primary_mechanism": "cross_domain",
+      "region": "SG",
+      "report_type": "product_change_impact_report",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|durable|PLC6|tool_failure|78"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "multi_turn",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-03",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC7",
+      "primary_mechanism": "rollback",
+      "region": "ZZ",
+      "report_type": "product_roadmap",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|connected_device|PLC7|retirement|79"
+    },
+    {
+      "archetype": "commodity",
+      "category": "multi_turn",
+      "event_type": "action_update",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-04",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC8",
+      "primary_mechanism": "product_model",
+      "region": "US",
+      "report_type": "product_stop_retire_decision",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|commodity|PLC8|safety|80"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "multi_turn",
+      "event_type": "incident_or_recall",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-05",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC0",
+      "primary_mechanism": "evidence_gate",
+      "region": "DE",
+      "report_type": "product_opportunity_brief",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|oem_odm|PLC0|regulated|81"
+    },
+    {
+      "archetype": "electronics",
+      "category": "multi_turn",
+      "event_type": "rollback",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-06",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC1",
+      "primary_mechanism": "continuity",
+      "region": "SG",
+      "report_type": "product_definition",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|electronics|PLC1|negative_profit|82"
+    },
+    {
+      "archetype": "regulated",
+      "category": "multi_turn",
+      "event_type": "retire",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-07",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC2",
+      "primary_mechanism": "cross_domain",
+      "region": "ZZ",
+      "report_type": "mvp_decision",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|regulated|PLC2|cash|83"
+    },
+    {
+      "archetype": "consumable",
+      "category": "multi_turn",
+      "event_type": "clarification",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-08",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC3",
+      "primary_mechanism": "rollback",
+      "region": "US",
+      "report_type": "product_specification_decision",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|consumable|PLC3|unmanufacturable|84"
+    },
+    {
+      "archetype": "apparel",
+      "category": "multi_turn",
+      "event_type": "evidence_update",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-09",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "TikTok Shop",
+      "plc": "PLC4",
+      "primary_mechanism": "product_model",
+      "region": "DE",
+      "report_type": "variant_packaging_decision",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|apparel|PLC4|unfulfillable|85"
+    },
+    {
+      "archetype": "durable",
+      "category": "multi_turn",
+      "event_type": "product_fact_change",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-MU-10",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Shopify/DTC",
+      "plc": "PLC5",
+      "primary_mechanism": "evidence_gate",
+      "region": "SG",
+      "report_type": "product_validation_report",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|durable|PLC5|claim|86"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "multi_turn",
+      "event_type": "scope_change",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-MU-11",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "unknown",
+      "plc": "PLC6",
+      "primary_mechanism": "continuity",
+      "region": "ZZ",
+      "report_type": "product_change_impact_report",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|connected_device|PLC6|version_pollution|87"
+    },
+    {
+      "archetype": "commodity",
+      "category": "multi_turn",
+      "event_type": "scenario_override",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-MU-12",
+      "mode": "multi_turn",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [],
+      "platform": "Amazon",
+      "plc": "PLC7",
+      "primary_mechanism": "cross_domain",
+      "region": "US",
+      "report_type": "product_roadmap",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "multi_turn|commodity|PLC7|tool_failure|88"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "extreme",
+      "event_type": "validation_result",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "conflict",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-01",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "marketing-brand-campaign-management",
+        "future-d04"
+      ],
+      "platform": "TikTok Shop",
+      "plc": "PLC8",
+      "primary_mechanism": "rollback",
+      "region": "DE",
+      "report_type": "product_stop_retire_decision",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|oem_odm|PLC8|retirement|89"
+    },
+    {
+      "archetype": "electronics",
+      "category": "extreme",
+      "event_type": "cross_domain_accept",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-02",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "governance/erdg",
+        "future-d05"
+      ],
+      "platform": "Shopify/DTC",
+      "plc": "PLC0",
+      "primary_mechanism": "product_model",
+      "region": "SG",
+      "report_type": "product_opportunity_brief",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|electronics|PLC0|safety|90"
+    },
+    {
+      "archetype": "regulated",
+      "category": "extreme",
+      "event_type": "cross_domain_reject",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-03",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "pricing-profit-finance-cashflow-decision",
+        "category-investment-decision"
+      ],
+      "platform": "unknown",
+      "plc": "PLC1",
+      "primary_mechanism": "evidence_gate",
+      "region": "ZZ",
+      "report_type": "product_definition",
+      "risk": "regulated",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|regulated|PLC1|regulated|91"
+    },
+    {
+      "archetype": "consumable",
+      "category": "extreme",
+      "event_type": "action_update",
+      "exercised_script": "validate_cross_domain_envelope.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-04",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "future-d04",
+        "competitive-intelligence-monitoring"
+      ],
+      "platform": "Amazon",
+      "plc": "PLC2",
+      "primary_mechanism": "continuity",
+      "region": "US",
+      "report_type": "mvp_decision",
+      "risk": "negative_profit",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|consumable|PLC2|negative_profit|92"
+    },
+    {
+      "archetype": "apparel",
+      "category": "extreme",
+      "event_type": "incident_or_recall",
+      "exercised_script": "compute_product_change_impact.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "conflict",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-05",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "future-d05",
+        "video-link-breakdown"
+      ],
+      "platform": "TikTok Shop",
+      "plc": "PLC3",
+      "primary_mechanism": "cross_domain",
+      "region": "DE",
+      "report_type": "product_specification_decision",
+      "risk": "cash",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|apparel|PLC3|cash|93"
+    },
+    {
+      "archetype": "durable",
+      "category": "extreme",
+      "event_type": "rollback",
+      "exercised_script": "validate_wp6_contracts.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-06",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "category-investment-decision",
+        "consumer-insights-customer-growth"
+      ],
+      "platform": "Shopify/DTC",
+      "plc": "PLC4",
+      "primary_mechanism": "rollback",
+      "region": "SG",
+      "report_type": "variant_packaging_decision",
+      "risk": "unmanufacturable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|durable|PLC4|unmanufacturable|94"
+    },
+    {
+      "archetype": "connected_device",
+      "category": "extreme",
+      "event_type": "retire",
+      "exercised_script": "evaluate_temporary_contract_migration.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-07",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "competitive-intelligence-monitoring",
+        "logistics-inventory-fulfillment-decision"
+      ],
+      "platform": "unknown",
+      "plc": "PLC5",
+      "primary_mechanism": "product_model",
+      "region": "ZZ",
+      "report_type": "product_validation_report",
+      "risk": "unfulfillable",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|connected_device|PLC5|unfulfillable|95"
+    },
+    {
+      "archetype": "commodity",
+      "category": "extreme",
+      "event_type": "clarification",
+      "exercised_script": "update_continuous_product_decision.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-08",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "video-link-breakdown",
+        "platform-store-listing-conversion"
+      ],
+      "platform": "Amazon",
+      "plc": "PLC6",
+      "primary_mechanism": "evidence_gate",
+      "region": "US",
+      "report_type": "product_change_impact_report",
+      "risk": "claim",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|commodity|PLC6|claim|96"
+    },
+    {
+      "archetype": "oem_odm",
+      "category": "extreme",
+      "event_type": "evidence_update",
+      "exercised_script": "compute_decision_impact_closure.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "conflict",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": false
+      },
+      "id": "PIPM-EX-09",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "consumer-insights-customer-growth",
+        "advertising-analysis-measurement-optimization"
+      ],
+      "platform": "TikTok Shop",
+      "plc": "PLC7",
+      "primary_mechanism": "continuity",
+      "region": "DE",
+      "report_type": "product_roadmap",
+      "risk": "version_pollution",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|oem_odm|PLC7|version_pollution|97"
+    },
+    {
+      "archetype": "electronics",
+      "category": "extreme",
+      "event_type": "product_fact_change",
+      "exercised_script": "validate_professional_report.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "inconclusive"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "partial",
+        "version_match": true
+      },
+      "id": "PIPM-EX-10",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "logistics-inventory-fulfillment-decision",
+        "creator-affiliate-partnership-management"
+      ],
+      "platform": "Shopify/DTC",
+      "plc": "PLC8",
+      "primary_mechanism": "cross_domain",
+      "region": "SG",
+      "report_type": "product_stop_retire_decision",
+      "risk": "tool_failure",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|electronics|PLC8|tool_failure|98"
+    },
+    {
+      "archetype": "regulated",
+      "category": "extreme",
+      "event_type": "scope_change",
+      "exercised_script": "evaluate_product_models.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "blocked"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": true,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-11",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "platform-store-listing-conversion",
+        "marketing-brand-campaign-management"
+      ],
+      "platform": "unknown",
+      "plc": "PLC0",
+      "primary_mechanism": "rollback",
+      "region": "ZZ",
+      "report_type": "product_opportunity_brief",
+      "risk": "retirement",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|regulated|PLC0|retirement|99"
+    },
+    {
+      "archetype": "consumable",
+      "category": "extreme",
+      "event_type": "scenario_override",
+      "exercised_script": "validate_wp3_package.py",
+      "expected": {
+        "forbidden": [
+          "external_write",
+          "redline_compensation",
+          "synthetic_l4"
+        ],
+        "maturity": "controlled pilot",
+        "must": [
+          "object_version",
+          "primary_mechanism",
+          "stop_rollback_exit",
+          "lineage"
+        ],
+        "status": "proposed"
+      },
+      "fixture": {
+        "evidence_state": "verified",
+        "external_write": false,
+        "hard_gate_failed": false,
+        "tool_state": "ok",
+        "version_match": true
+      },
+      "id": "PIPM-EX-12",
+      "mode": "extreme",
+      "mutation": {
+        "expected_status": "blocked",
+        "field": "external_write",
+        "value": true
+      },
+      "mutation_class": "authorization_boundary",
+      "owner_skill": "product-innovation-product-management",
+      "participants": [
+        "advertising-analysis-measurement-optimization",
+        "governance/erdg"
+      ],
+      "platform": "Amazon",
+      "plc": "PLC1",
+      "primary_mechanism": "product_model",
+      "region": "US",
+      "report_type": "product_definition",
+      "risk": "safety",
+      "runner": "scripts/run_wp8_evaluations.py",
+      "scenario_signature": "extreme|consumable|PLC1|safety|100"
+    }
+  ],
+  "catalog_version": "PIPM-EVAL-2026.01",
+  "count": 101,
+  "coverage": {
+    "archetypes": [
+      "apparel",
+      "commodity",
+      "connected_device",
+      "consumable",
+      "durable",
+      "electronics",
+      "oem_odm",
+      "regulated"
+    ],
+    "events": [
+      "action_update",
+      "clarification",
+      "cross_domain_accept",
+      "cross_domain_reject",
+      "evidence_update",
+      "incident_or_recall",
+      "product_fact_change",
+      "retire",
+      "rollback",
+      "scenario_override",
+      "scope_change",
+      "validation_result"
+    ],
+    "mode_counts": {
+      "adversarial": 12,
+      "boundary": 12,
+      "cross_skill": 16,
+      "extreme": 12,
+      "failure": 15,
+      "multi_turn": 12,
+      "property": 12,
+      "standard": 10
+    },
+    "participants": [
+      "advertising-analysis-measurement-optimization",
+      "category-investment-decision",
+      "competitive-intelligence-monitoring",
+      "consumer-insights-customer-growth",
+      "creator-affiliate-partnership-management",
+      "future-d04",
+      "future-d05",
+      "governance/erdg",
+      "logistics-inventory-fulfillment-decision",
+      "marketing-brand-campaign-management",
+      "platform-store-listing-conversion",
+      "pricing-profit-finance-cashflow-decision",
+      "video-link-breakdown"
+    ],
+    "platforms": [
+      "Amazon",
+      "Shopify/DTC",
+      "TikTok Shop",
+      "unknown"
+    ],
+    "plcs": [
+      "PLC0",
+      "PLC1",
+      "PLC2",
+      "PLC3",
+      "PLC4",
+      "PLC5",
+      "PLC6",
+      "PLC7",
+      "PLC8"
+    ],
+    "regions": [
+      "DE",
+      "SG",
+      "US",
+      "ZZ"
+    ],
+    "reports": [
+      "mvp_decision",
+      "product_change_impact_report",
+      "product_definition",
+      "product_opportunity_brief",
+      "product_roadmap",
+      "product_specification_decision",
+      "product_stop_retire_decision",
+      "product_validation_report",
+      "variant_packaging_decision"
+    ],
+    "risks": [
+      "cash",
+      "claim",
+      "negative_profit",
+      "regulated",
+      "retirement",
+      "safety",
+      "tool_failure",
+      "unfulfillable",
+      "unmanufacturable",
+      "version_pollution"
+    ]
+  }
+}

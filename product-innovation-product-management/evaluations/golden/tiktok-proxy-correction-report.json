@@ -1,0 +1,104 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-2",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "tiktok-proxy-correction: inconclusive from evaluate_product_models.py",
+  "decision_id": "D-2",
+  "decision_state": "inconclusive",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:99c5c29a59f11ce5b4842a09b9b36cd716cf38fdd1645220f5435b474698538b",
+    "report_hash": "sha256:4908ec879c2b9e82a90c8884d0223a9a7d512f8378d39b9efcd27de27b7dc10a",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-2",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-2",
+  "report_type": "product_definition",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "DE",
+    "platform": "TikTok Shop"
+  },
+  "specific_content": {
+    "execution_binding": {
+      "decision_status": "inconclusive",
+      "engine": "evaluate_product_models.py",
+      "input_hash": "sha256:99c5c29a59f11ce5b4842a09b9b36cd716cf38fdd1645220f5435b474698538b",
+      "mechanism_output_hash": "sha256:f15511a6e992597a5405b4bfcafe27bd22dd3a5d96170d6d91cac0387453445b",
+      "operation": "model"
+    },
+    "non_goals": "tiktok-proxy-correction:non_goals",
+    "requirements": "tiktok-proxy-correction:requirements",
+    "target_user": "tiktok-proxy-correction:target_user",
+    "use_context": "tiktok-proxy-correction:use_context",
+    "value_proposition": "tiktok-proxy-correction:value_proposition"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

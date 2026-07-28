@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/professional-report.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "report_type", "chain_id", "decision_id", "is_current", "object_ref", "scope", "as_of_time", "recorded_at", "decision_state", "current_conclusion", "history_refs", "evidence", "counterevidence", "conflicts", "missing_and_expired", "calculations", "no_action", "candidates", "dependencies", "actions", "success_conditions", "stop_conditions", "rollback", "exit_conditions", "allowed_uses", "forbidden_uses", "specific_content", "lineage", "maturity", "external_write"],
+  "properties": {
+    "report_id": {"type": "string"}, "report_type": {"enum": ["product_opportunity_brief", "product_definition", "mvp_decision", "product_specification_decision", "variant_packaging_decision", "product_validation_report", "product_change_impact_report", "product_roadmap", "product_stop_retire_decision"]},
+    "chain_id": {"type": "string"}, "decision_id": {"type": "string"}, "is_current": {"type": "boolean"},
+    "object_ref": {"type": "object", "required": ["object_id", "object_version"], "properties": {"object_id": {"type": "string"}, "object_version": {"type": "string"}}},
+    "scope": {"type": "object", "minProperties": 1}, "as_of_time": {"type": "string", "format": "date-time"}, "recorded_at": {"type": "string", "format": "date-time"},
+    "decision_state": {"enum": ["draft", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded", "retired"]},
+    "current_conclusion": {"type": "string"}, "history_refs": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array"}, "counterevidence": {"type": "array"}, "conflicts": {"type": "array"}, "missing_and_expired": {"type": "array"}, "calculations": {"type": "array"},
+    "no_action": {"type": "object", "minProperties": 1}, "candidates": {"type": "array", "minItems": 1}, "dependencies": {"type": "array"}, "actions": {"type": "array"},
+    "success_conditions": {"type": "array", "minItems": 1}, "stop_conditions": {"type": "array", "minItems": 1}, "rollback": {"type": "object", "minProperties": 1}, "exit_conditions": {"type": "array", "minItems": 1},
+    "allowed_uses": {"type": "array", "minItems": 1}, "forbidden_uses": {"type": "array", "minItems": 1},
+    "specific_content": {"type": "object", "minProperties": 1},
+    "lineage": {"type": "object", "required": ["input_hash", "report_hash", "runtime_version"], "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "report_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PIPM-2026.01"}}},
+    "maturity": {"const": "controlled pilot"}, "external_write": {"const": false}
+  }
+}

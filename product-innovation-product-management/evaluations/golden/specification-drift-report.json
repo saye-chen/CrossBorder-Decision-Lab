@@ -1,0 +1,105 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-9",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "specification-drift: rollback from evaluate_temporary_contract_migration.py",
+  "decision_id": "D-9",
+  "decision_state": "inconclusive",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:4f92e6b0d73373c3da23f16535b295023351ea3fcec953f77831591c3b6e94a8",
+    "report_hash": "sha256:6696e71f9b9c431c68be7833a8c4c20c9d84baed74d8a0e736b6e900bede1b22",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-9",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-9",
+  "report_type": "product_stop_retire_decision",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "SG",
+    "platform": "Shopify/DTC"
+  },
+  "specific_content": {
+    "customer_commitments": "specification-drift:customer_commitments",
+    "execution_binding": {
+      "decision_status": "rollback",
+      "engine": "evaluate_temporary_contract_migration.py",
+      "input_hash": "sha256:4f92e6b0d73373c3da23f16535b295023351ea3fcec953f77831591c3b6e94a8",
+      "mechanism_output_hash": "sha256:665c00254da4d95d1368bd60760576fc49f5cd49392f548c72a27d9e4e962034",
+      "operation": "migration"
+    },
+    "inventory_dependencies": "specification-drift:inventory_dependencies",
+    "reactivation_rule": "specification-drift:reactivation_rule",
+    "stop_reason": "specification-drift:stop_reason",
+    "substitutes": "specification-drift:substitutes",
+    "support_dependencies": "specification-drift:support_dependencies"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

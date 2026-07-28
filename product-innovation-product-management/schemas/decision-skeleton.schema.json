@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/decision-skeleton.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision_id", "owner_domain", "object_id", "object_version", "decision_question", "state", "version", "evidence_ids", "claim_ids", "calculation_ids", "hard_gates", "no_action", "candidates", "actions", "success_conditions", "stop_conditions", "rollback", "external_write"],
+  "properties": {
+    "decision_id": {"type": "string", "minLength": 1},
+    "owner_domain": {"const": "product-innovation-product-management"},
+    "object_id": {"type": "string", "minLength": 1},
+    "object_version": {"type": "string", "minLength": 1},
+    "decision_question": {"type": "string", "minLength": 1},
+    "state": {"enum": ["draft", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"]},
+    "version": {"type": "string", "minLength": 1},
+    "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "claim_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "calculation_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "hard_gates": {"type": "array", "items": {"type": "object", "required": ["gate_id", "status"], "properties": {"gate_id": {"type": "string"}, "status": {"enum": ["passed", "open", "failed", "unknown"]}}, "additionalProperties": false}},
+    "no_action": {"type": "object", "minProperties": 1},
+    "candidates": {"type": "array", "minItems": 1, "items": {"type": "object", "minProperties": 1}},
+    "actions": {"type": "array", "items": {"type": "object", "minProperties": 1}},
+    "success_conditions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "stop_conditions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "rollback": {"type": "object", "minProperties": 1},
+    "external_write": {"const": false}
+  }
+}

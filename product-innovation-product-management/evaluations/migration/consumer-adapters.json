@@ -1,0 +1,727 @@
+{
+  "adapters": [
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "category-investment-decision",
+      "external_write": false,
+      "field_mapping": {
+        "product_definition": "pipm.product_definition",
+        "product_opportunity": "pipm.product_opportunity",
+        "product_version": "pipm.product_version"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "capital_entry",
+        "portfolio_allocation"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "product_definition": "lossless",
+        "product_opportunity": "lossless",
+        "product_version": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_opportunity",
+        "product_definition",
+        "product_version"
+      ],
+      "retained_sovereignty": [
+        "capital_entry",
+        "portfolio_allocation"
+      ],
+      "runtime": "CIDM-2026.14",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "competitive-intelligence-monitoring",
+      "external_write": false,
+      "field_mapping": {
+        "claim_scope": "pipm.claim_scope",
+        "product_identity": "pipm.product_identity",
+        "specification": "pipm.specification",
+        "variant": "pipm.variant"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "competitor_identity",
+        "competitive_attribution"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "claim_scope": "lossless",
+        "product_identity": "lossless",
+        "specification": "lossless",
+        "variant": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_identity",
+        "specification",
+        "variant",
+        "claim_scope"
+      ],
+      "retained_sovereignty": [
+        "competitor_identity",
+        "competitive_attribution"
+      ],
+      "runtime": "CIM-2026.10",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "video-link-breakdown",
+      "external_write": false,
+      "field_mapping": {
+        "claim_allowed_use": "pipm.claim_allowed_use",
+        "product_fact": "pipm.product_fact",
+        "use_context": "pipm.use_context"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "creative_mechanism",
+        "content_expression"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "claim_allowed_use": "lossless",
+        "product_fact": "lossless",
+        "use_context": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_fact",
+        "claim_allowed_use",
+        "use_context"
+      ],
+      "retained_sovereignty": [
+        "creative_mechanism",
+        "content_expression"
+      ],
+      "runtime": "VLB-2026.10",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "consumer-insights-customer-growth",
+      "external_write": false,
+      "field_mapping": {
+        "product_version": "pipm.product_version",
+        "target_user": "pipm.target_user",
+        "user_job": "pipm.user_job"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "customer_identity",
+        "retention",
+        "clv"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "product_version": "lossless",
+        "target_user": "lossless",
+        "user_job": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_version",
+        "target_user",
+        "user_job"
+      ],
+      "retained_sovereignty": [
+        "customer_identity",
+        "retention",
+        "clv"
+      ],
+      "runtime": "CIG-2026.09",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "advertising-analysis-measurement-optimization",
+      "external_write": false,
+      "field_mapping": {
+        "claim_allowed_use": "pipm.claim_allowed_use",
+        "product_change": "pipm.product_change",
+        "product_version": "pipm.product_version"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "account_structure",
+        "budget",
+        "bid"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "claim_allowed_use": "lossless",
+        "product_change": "lossless",
+        "product_version": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_version",
+        "claim_allowed_use",
+        "product_change"
+      ],
+      "retained_sovereignty": [
+        "account_structure",
+        "budget",
+        "bid"
+      ],
+      "runtime": "AAMO-2026.08",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "logistics-inventory-fulfillment-decision",
+      "external_write": false,
+      "field_mapping": {
+        "dimensions": "pipm.dimensions",
+        "hazard_candidate": "pipm.hazard_candidate",
+        "packaging": "pipm.packaging",
+        "sku_variant": "pipm.sku_variant",
+        "weight": "pipm.weight"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "route",
+        "inventory",
+        "replenishment",
+        "fulfillment"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "dimensions": "lossless",
+        "hazard_candidate": "lossless",
+        "packaging": "lossless",
+        "sku_variant": "lossless",
+        "weight": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "sku_variant",
+        "packaging",
+        "dimensions",
+        "weight",
+        "hazard_candidate"
+      ],
+      "retained_sovereignty": [
+        "route",
+        "inventory",
+        "replenishment",
+        "fulfillment"
+      ],
+      "runtime": "LIFD-2026.04",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "platform-store-listing-conversion",
+      "external_write": false,
+      "field_mapping": {
+        "claim": "pipm.claim",
+        "product_definition": "pipm.product_definition",
+        "product_version": "pipm.product_version",
+        "specification": "pipm.specification",
+        "variant": "pipm.variant"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "store",
+        "listing",
+        "offer_display",
+        "experiment"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "claim": "lossless",
+        "product_definition": "lossless",
+        "product_version": "lossless",
+        "specification": "lossless",
+        "variant": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_definition",
+        "specification",
+        "variant",
+        "claim",
+        "product_version"
+      ],
+      "retained_sovereignty": [
+        "store",
+        "listing",
+        "offer_display",
+        "experiment"
+      ],
+      "runtime": "PLCO-2026.08",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "creator-affiliate-partnership-management",
+      "external_write": false,
+      "field_mapping": {
+        "claim_allowed_use": "pipm.claim_allowed_use",
+        "product_fact": "pipm.product_fact",
+        "sample_version": "pipm.sample_version"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "partner_selection",
+        "quote",
+        "contract",
+        "sample_action"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "claim_allowed_use": "lossless",
+        "product_fact": "lossless",
+        "sample_version": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_fact",
+        "sample_version",
+        "claim_allowed_use"
+      ],
+      "retained_sovereignty": [
+        "partner_selection",
+        "quote",
+        "contract",
+        "sample_action"
+      ],
+      "runtime": "CAPM-2026.07",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "marketing-brand-campaign-management",
+      "external_write": false,
+      "field_mapping": {
+        "claim": "pipm.claim",
+        "lifecycle": "pipm.lifecycle",
+        "positioning_constraint": "pipm.positioning_constraint",
+        "product_definition": "pipm.product_definition"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "brand",
+        "gtm",
+        "campaign",
+        "offer_direction"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "claim": "lossless",
+        "lifecycle": "lossless",
+        "positioning_constraint": "lossless",
+        "product_definition": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "product_definition",
+        "positioning_constraint",
+        "claim",
+        "lifecycle"
+      ],
+      "retained_sovereignty": [
+        "brand",
+        "gtm",
+        "campaign",
+        "offer_direction"
+      ],
+      "runtime": "MBCM-2026.01",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "pricing-profit-finance-cashflow-decision",
+      "external_write": false,
+      "field_mapping": {
+        "material": "pipm.material",
+        "packaging": "pipm.packaging",
+        "product_change": "pipm.product_change",
+        "specification": "pipm.specification",
+        "variant": "pipm.variant"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "price",
+        "profit",
+        "cashflow"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "material": "lossless",
+        "packaging": "lossless",
+        "product_change": "lossless",
+        "specification": "lossless",
+        "variant": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "specification",
+        "material",
+        "packaging",
+        "variant",
+        "product_change"
+      ],
+      "retained_sovereignty": [
+        "price",
+        "profit",
+        "cashflow"
+      ],
+      "runtime": "PPFC-2026.01",
+      "status": "automated_contract_accepted"
+    },
+    {
+      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "allowed_uses": [
+        "decision_support"
+      ],
+      "blocked_actions": [
+        "consumer_execution_until_accepted"
+      ],
+      "consumer": "governance/erdg",
+      "external_write": false,
+      "field_mapping": {
+        "contract": "pipm.contract",
+        "impact_closure": "pipm.impact_closure",
+        "lineage": "pipm.lineage",
+        "risk": "pipm.risk",
+        "state": "pipm.state"
+      },
+      "forbidden_fields": [
+        "external_write",
+        "production_ready"
+      ],
+      "forbidden_uses": [
+        "external_execution"
+      ],
+      "forbidden_writeback": [
+        "structural_governance"
+      ],
+      "ignored_fields": [
+        "internal_reasoning"
+      ],
+      "independent_owner_accepted": false,
+      "legacy_reader": "legacy-product-fields-v1",
+      "mapping_classification": {
+        "contract": "lossless",
+        "impact_closure": "lossless",
+        "lineage": "lossless",
+        "risk": "lossless",
+        "state": "lossless"
+      },
+      "optional_fields": [
+        "evidence_ids",
+        "validity"
+      ],
+      "preserved_results": [
+        "consumer_owned_facts"
+      ],
+      "reaccept_triggers": [
+        "object_version_change",
+        "evidence_expiry",
+        "claim_change",
+        "contract_version_change"
+      ],
+      "required_fields": [
+        "contract",
+        "risk",
+        "state",
+        "lineage",
+        "impact_closure"
+      ],
+      "retained_sovereignty": [
+        "structural_governance"
+      ],
+      "runtime": "ERDG-CONTRACT-2026.01",
+      "status": "automated_contract_accepted"
+    }
+  ],
+  "contract": "PIPM-CONSUMER-2026.01",
+  "external_write": false
+}

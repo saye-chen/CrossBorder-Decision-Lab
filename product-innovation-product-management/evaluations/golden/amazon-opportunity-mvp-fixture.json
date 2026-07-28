@@ -1,0 +1,56 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "assumptions",
+      1,
+      "coverage"
+    ],
+    "value": "0.2"
+  },
+  "execution": {
+    "engine": "evaluate_product_models.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "assumptions",
+        1,
+        "coverage"
+      ],
+      "value": "0.2"
+    },
+    "operation": "model",
+    "payload": {
+      "assumptions": [
+        {
+          "coverage": "1",
+          "critical": true,
+          "id": "A-demand",
+          "threshold": "0.8"
+        },
+        {
+          "coverage": "0.9",
+          "critical": true,
+          "id": "A-use",
+          "threshold": "0.8"
+        }
+      ],
+      "hard_gates": [
+        {
+          "id": "amazon-policy",
+          "status": "passed"
+        }
+      ],
+      "model": "mvp_coverage"
+    }
+  },
+  "expected_status": "proposed",
+  "id": "G-1",
+  "input_hash": "88d0321468f90c8c89507faa9ae16140a7357373d0bfdb77771b382755c98af3",
+  "name": "amazon-opportunity-mvp",
+  "object_version": "v1",
+  "platform": "Amazon",
+  "plc": "PLC0",
+  "primary_mechanism": "model",
+  "region": "US"
+}

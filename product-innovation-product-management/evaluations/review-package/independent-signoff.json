@@ -1,0 +1,42 @@
+{
+  "overall_status": "pending_independent_review",
+  "package_version": "PIPM-WP10-REVIEW-2026.01",
+  "prohibited_shortcuts": [
+    "self_review_as_independent",
+    "automated_pass_as_l3_signoff",
+    "synthetic_fixture_as_l4_proof",
+    "unsigned_consumer_owner_acceptance"
+  ],
+  "required_roles": [
+    {
+      "conflict_of_interest": null,
+      "decision": "pending",
+      "evidence_index_hash": "sha256:e399604398da673bf7bef8e2bad2971daaf3cb779e16dd69974ab4dca9194b80",
+      "findings": [],
+      "independent_of_implementation": null,
+      "reviewer_id": null,
+      "role": "independent_product_reviewer",
+      "signed_at": null
+    },
+    {
+      "conflict_of_interest": null,
+      "decision": "pending",
+      "evidence_index_hash": "sha256:e399604398da673bf7bef8e2bad2971daaf3cb779e16dd69974ab4dca9194b80",
+      "findings": [],
+      "independent_of_implementation": null,
+      "reviewer_id": null,
+      "role": "independent_engineering_or_data_reviewer",
+      "signed_at": null
+    },
+    {
+      "conflict_of_interest": null,
+      "decision": "pending",
+      "evidence_index_hash": "sha256:e399604398da673bf7bef8e2bad2971daaf3cb779e16dd69974ab4dca9194b80",
+      "findings": [],
+      "independent_of_implementation": null,
+      "reviewer_id": null,
+      "role": "consumer_domain_owner_reviewer",
+      "signed_at": null
+    }
+  ]
+}

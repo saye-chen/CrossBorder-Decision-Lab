@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/canonical-product-object.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["object_id", "object_type", "object_version", "country", "platform", "valid_from", "as_of_time", "recorded_at", "attributes_hash"],
+  "properties": {
+    "object_id": {"type": "string", "minLength": 1},
+    "object_type": {"enum": ["enterprise", "brand", "product_family", "product", "market_product", "sku_variant", "sample_batch"]},
+    "object_version": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "parent_object_id": {"type": ["string", "null"]},
+    "country": {"type": "string", "pattern": "^[A-Z]{2}$"},
+    "platform": {"type": "string", "minLength": 1},
+    "legal_entity_id": {"type": ["string", "null"]},
+    "brand_id": {"type": ["string", "null"]},
+    "product_family_id": {"type": ["string", "null"]},
+    "product_id": {"type": ["string", "null"]},
+    "sku_id": {"type": ["string", "null"]},
+    "valid_from": {"type": "string", "format": "date-time"},
+    "valid_to": {"type": ["string", "null"], "format": "date-time"},
+    "as_of_time": {"type": "string", "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "attributes_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "supersedes": {"type": ["string", "null"]}
+  }
+}

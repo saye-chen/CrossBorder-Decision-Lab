@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/recomputation-impact.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "changed_fields", "recompute_fields", "preserved_fields", "expired_claim_ids", "reaccept_claim_ids"],
+  "properties": {
+    "status": {"enum": ["complete", "partial", "blocked"]},
+    "changed_fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "recompute_fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "preserved_fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "expired_claim_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "reaccept_claim_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "blocked_reason": {"type": ["string", "null"]}
+  }
+}

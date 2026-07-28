@@ -1,0 +1,104 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-10",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "stop-retire: retired from update_continuous_product_decision.py",
+  "decision_id": "D-10",
+  "decision_state": "inconclusive",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:e9d13aeb7f9311d186c225ec5bea171c7dac1636f44b7d1750c71d0e291702f7",
+    "report_hash": "sha256:a93d0d4fb9bb568c355c558e1f0fb7f7917eb50216adc35ca9d7ef819f14d840",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-10",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-10",
+  "report_type": "product_opportunity_brief",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "US",
+    "platform": "Amazon"
+  },
+  "specific_content": {
+    "evidence_plan": "stop-retire:evidence_plan",
+    "execution_binding": {
+      "decision_status": "retired",
+      "engine": "update_continuous_product_decision.py",
+      "input_hash": "sha256:e9d13aeb7f9311d186c225ec5bea171c7dac1636f44b7d1750c71d0e291702f7",
+      "mechanism_output_hash": "sha256:5c54695fe70c493687708ce00c25089c1664ba58e9cac0725fddd8a3098233e5",
+      "operation": "continuity"
+    },
+    "opportunity_interval": "stop-retire:opportunity_interval",
+    "unmet_need": "stop-retire:unmet_need",
+    "user_job": "stop-retire:user_job",
+    "weakest_assumption": "stop-retire:weakest_assumption"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

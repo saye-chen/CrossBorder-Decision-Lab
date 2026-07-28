@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/continuous-product-decision-state.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["chain_id", "chain_revision", "next_sequence", "current_decision_id", "current_version", "object_ref", "product_lifecycle_stage", "decision_state", "acceptance_state", "action_state", "history", "events", "dependencies", "pending_acceptance", "unresolved_items", "lineage"],
+  "properties": {
+    "chain_id": {"type": "string"}, "chain_revision": {"type": "integer", "minimum": 0}, "next_sequence": {"type": "integer", "minimum": 1},
+    "current_decision_id": {"type": "string"}, "current_version": {"type": "string"},
+    "object_ref": {"type": "object", "required": ["object_id", "object_version"], "properties": {"object_id": {"type": "string"}, "object_version": {"type": "string"}}},
+    "product_lifecycle_stage": {"enum": ["PLC0", "PLC1", "PLC2", "PLC3", "PLC4", "PLC5", "PLC6", "PLC7", "PLC8"]},
+    "decision_state": {"enum": ["draft", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded", "retired"]},
+    "acceptance_state": {"enum": ["not_requested", "pending", "accepted", "partially_accepted", "rejected", "expired"]},
+    "action_state": {"enum": ["proposed", "approved", "executing", "completed", "stopped", "superseded", "failed"]},
+    "history": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["decision_id", "version", "status", "is_current", "object_version", "input_hash", "created_at"], "properties": {"decision_id": {"type": "string"}, "version": {"type": "string"}, "status": {"type": "string"}, "is_current": {"type": "boolean"}, "object_version": {"type": "string"}, "input_hash": {"type": "string", "pattern": "^sha256:"}, "created_at": {"type": "string", "format": "date-time"}, "supersedes": {"type": ["string", "null"]}}}},
+    "events": {"type": "array", "items": {"type": "object"}},
+    "dependencies": {"type": "object"},
+    "pending_acceptance": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "unresolved_items": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "lineage": {"type": "object", "required": ["state_hash", "runtime_version"], "properties": {"state_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PIPM-2026.01"}}}
+  }
+}

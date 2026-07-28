@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/market-access-review-request.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "request_id", "object_ref", "scope", "status", "intended_use", "foreseeable_misuse", "users", "product_facts", "claims", "review_questions", "blocked_actions", "external_write"],
+  "properties": {
+    "contract": {"const": "PIPM-D05-TEMP-2026.01"},
+    "request_id": {"type": "string"},
+    "object_ref": {"type": "object", "required": ["object_id", "object_version"], "properties": {"object_id": {"type": "string"}, "object_version": {"type": "string"}}},
+    "scope": {"type": "object", "required": ["jurisdiction", "country", "platform", "sales_model", "business_time"], "properties": {"jurisdiction": {"type": "string"}, "country": {"type": "string", "pattern": "^[A-Z]{2}$"}, "platform": {"type": "string"}, "sales_model": {"type": "string"}, "business_time": {"type": "string", "format": "date-time"}}},
+    "status": {"enum": ["proposed", "blocked", "inconclusive", "superseded"]},
+    "intended_use": {"type": "string"},
+    "foreseeable_misuse": {"type": "array", "items": {"type": "string"}},
+    "users": {"type": "object", "required": ["age_scope", "contact_scenarios"], "properties": {"age_scope": {"type": "string"}, "contact_scenarios": {"type": "array", "items": {"type": "string"}}}},
+    "product_facts": {"type": "object", "required": ["materials", "energy", "connectivity", "packaging"], "properties": {"materials": {"type": "array"}, "energy": {}, "connectivity": {}, "packaging": {}}},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "text", "language", "medium", "object_version", "evidence_ids", "state", "allowed_uses"],
+        "properties": {
+          "claim_id": {"type": "string"},
+          "text": {"type": "string"},
+          "language": {"type": "string"},
+          "medium": {"type": "string"},
+          "object_version": {"type": "string"},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "state": {"enum": ["proposed", "blocked", "inconclusive", "rejected"]},
+          "allowed_uses": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "review_questions": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["question_id", "topic", "source_ref", "rule_version", "verified_at", "expires_at", "state"], "properties": {"question_id": {"type": "string"}, "topic": {"enum": ["classification", "market_access", "certification", "testing", "ip", "tax", "label", "warning", "professional_liability"]}, "source_ref": {"type": ["string", "null"]}, "rule_version": {"type": ["string", "null"]}, "verified_at": {"type": ["string", "null"], "format": "date-time"}, "expires_at": {"type": ["string", "null"], "format": "date-time"}, "state": {"enum": ["proposed", "blocked", "inconclusive"]}}}},
+    "blocked_actions": {"type": "array", "items": {"type": "string"}},
+    "external_write": {"const": false}
+  }
+}

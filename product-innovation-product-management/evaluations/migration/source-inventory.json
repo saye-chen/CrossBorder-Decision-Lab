@@ -1,0 +1,137 @@
+{
+  "all_legacy_readers_preserved": true,
+  "inventory": [
+    {
+      "consumer": "category-investment-decision",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->category-investment-decision->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "competitive-intelligence-monitoring",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->competitive-intelligence-monitoring->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "video-link-breakdown",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->video-link-breakdown->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "consumer-insights-customer-growth",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->consumer-insights-customer-growth->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "advertising-analysis-measurement-optimization",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->advertising-analysis-measurement-optimization->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "logistics-inventory-fulfillment-decision",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->logistics-inventory-fulfillment-decision->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "platform-store-listing-conversion",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->platform-store-listing-conversion->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "creator-affiliate-partnership-management",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->creator-affiliate-partnership-management->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "marketing-brand-campaign-management",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->marketing-brand-campaign-management->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "pricing-profit-finance-cashflow-decision",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->pricing-profit-finance-cashflow-decision->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    },
+    {
+      "consumer": "governance/erdg",
+      "duplicated_logic": [
+        "product_identity_or_fact_placeholder"
+      ],
+      "legacy_sources": [
+        "legacy-product-fields-v1"
+      ],
+      "retirement_allowed": false,
+      "retirement_candidate": true,
+      "source_to_consumer_to_test": "PIPM->governance/erdg->integrations/product-innovation-product-management/adapter.json->validate_consumer_side_adapter.py->test_wp9_migration.py"
+    }
+  ]
+}

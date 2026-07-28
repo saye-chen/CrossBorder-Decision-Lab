@@ -1,0 +1,519 @@
+{
+  "actual_professional_engine_execution": true,
+  "artifact_role": "executed_result_not_registry",
+  "executed_at": "2026-07-28T11:42:18.784186+00:00",
+  "passed": true,
+  "results": [
+    {
+      "actual_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "critical_coverage": "1",
+          "failed_gates": [],
+          "status": "proposed",
+          "uncovered_critical": []
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "proposed",
+      "engine": "evaluate_product_models.py",
+      "execution_hash": "sha256:5baade6f1ea027259f7537f891db9ff4eac4ea91931f41c51dee7276feceba32",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:aa713de6fc66ac54c0100a1225939ed7b375f9ea95876e774f49f6b4a45e8589",
+      "golden_id": "G-1",
+      "golden_name": "amazon-opportunity-mvp",
+      "mutation_decision_status": "blocked",
+      "mutation_output": {
+        "decision_status": "blocked",
+        "execution_state": "completed",
+        "output": {
+          "critical_coverage": "0.5",
+          "failed_gates": [],
+          "status": "blocked",
+          "uncovered_critical": [
+            "A-use"
+          ]
+        }
+      },
+      "operation": "model",
+      "oracle_hash": "sha256:d3f4a495aae577e5ad91875783fb7cf705e59f29ba3da48338fdc480ce34a268",
+      "passed": true,
+      "report_hash": "sha256:c7e9e1973e32af058145a4ec5a04362713eb87a199ca141ffb019081ac080624"
+    },
+    {
+      "actual_output": {
+        "decision_status": "blocked",
+        "execution_state": "completed",
+        "output": {
+          "failed_gates": [],
+          "feasible": false,
+          "status": "blocked",
+          "violations": [
+            "p01-tail-strength"
+          ]
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "blocked",
+      "engine": "evaluate_product_models.py",
+      "execution_hash": "sha256:ae5c4ac5b462ff35393d9d34d6d00b50be35bcdbbc67928504e43c25766ef94f",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:a65203626f0a4af6def2b4ebb67928e7f644862429e8816ed1237188347407a0",
+      "golden_id": "G-8",
+      "golden_name": "critical-tail-failure",
+      "mutation_decision_status": "proposed",
+      "mutation_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "failed_gates": [],
+          "feasible": true,
+          "status": "proposed",
+          "violations": []
+        }
+      },
+      "operation": "model",
+      "oracle_hash": "sha256:ae953f9e2578287bfd548d114c3d84aab105ea3e89f29f213cf568e0c325bf64",
+      "passed": true,
+      "report_hash": "sha256:85c19f34b01790f1177ea1caee50d467280f83f98d4035bfb14a471f468eb600"
+    },
+    {
+      "actual_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "dimensional_weight_kg": "1.2",
+          "failed_gates": [],
+          "status": "proposed",
+          "volume_cm3": "6000"
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "proposed",
+      "engine": "evaluate_product_models.py",
+      "execution_hash": "sha256:ade4554677517e39b4733fb11f063d0aa9ca8ea6e23dc7405d059a379c9c7515",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:b1ebd900cca977790cc2842895356b494523aec9ded65d281fe65a214a599057",
+      "golden_id": "G-3",
+      "golden_name": "dtc-return-redesign",
+      "mutation_decision_status": "blocked",
+      "mutation_output": {
+        "decision_status": "blocked",
+        "execution_state": "completed",
+        "output": {
+          "dimensional_weight_kg": "1.2",
+          "failed_gates": [
+            "packaging_protection"
+          ],
+          "status": "blocked",
+          "volume_cm3": "6000"
+        }
+      },
+      "operation": "model",
+      "oracle_hash": "sha256:96e7ca6e54f6fb6aa5bbab7ea0ee99902b7232ee0a0a716a3d1a53a51ff561aa",
+      "passed": true,
+      "report_hash": "sha256:821ee475f34ab01f0b41c3b24e53fafac7686823f6848a7fdca9b51ab6210d0f"
+    },
+    {
+      "actual_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "blocked_reason": null,
+          "changed_fields": [
+            "material"
+          ],
+          "expired_claim_ids": [],
+          "preserved_fields": [],
+          "reaccept_claim_ids": [],
+          "recompute_fields": [
+            "claim",
+            "landed_cost",
+            "market_access",
+            "packaging",
+            "weight"
+          ],
+          "status": "complete"
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "proposed",
+      "engine": "compute_product_change_impact.py",
+      "execution_hash": "sha256:1e509521a43535d0441c4291f62aaa2702f1e8a10daa85cfddf6f94fcf444806",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:c62bc907310259df6b7212e7fce209d0f6de8f60474f0829524814da8343dd82",
+      "golden_id": "G-6",
+      "golden_name": "material-change-multidomain",
+      "mutation_decision_status": "blocked",
+      "mutation_output": {
+        "decision_status": "blocked",
+        "execution_state": "blocked",
+        "output": {
+          "error": "dependency cycle at market_access",
+          "error_type": "ImpactError"
+        }
+      },
+      "operation": "product_change",
+      "oracle_hash": "sha256:b444e6f414573ed6a4c4d4fe5e61dde9e5334ff7d977276b9e4efc26965b35e9",
+      "passed": true,
+      "report_hash": "sha256:20dcc5d4bddaf678d9adec0dcea720cc884af9fb92be610e622c50ba9619bb09"
+    },
+    {
+      "actual_output": {
+        "decision_status": "blocked",
+        "execution_state": "completed",
+        "output": {
+          "failed_gates": [],
+          "feasible": false,
+          "status": "blocked",
+          "violations": [
+            "dependency:dual-voltage:country-label-set"
+          ]
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "blocked",
+      "engine": "evaluate_product_models.py",
+      "execution_hash": "sha256:65b1e095386b1b92da0434e9e7236a0d7f2692df670a9e27e5c399d93e0d0e1c",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:05e65569ff5f9e935bf680243de0d1600b4a9b97a37626ba897992c57b4eb04e",
+      "golden_id": "G-4",
+      "golden_name": "multi-country-variant",
+      "mutation_decision_status": "proposed",
+      "mutation_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "failed_gates": [],
+          "feasible": true,
+          "status": "proposed",
+          "violations": []
+        }
+      },
+      "operation": "model",
+      "oracle_hash": "sha256:f0bdf10c83f7007dc68eeb83c0ec3465c5214db33cc210070389d610efdbcfce",
+      "passed": true,
+      "report_hash": "sha256:2658dc07f8917498742dfaab18fc3febbf141fe44c7963d2bb2d8eeef679ee91"
+    },
+    {
+      "actual_output": {
+        "decision_status": "rollback",
+        "execution_state": "completed",
+        "output": {
+          "blockers": [
+            "snapshot_mismatch"
+          ],
+          "differences": [],
+          "status": "rollback"
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "rollback",
+      "engine": "evaluate_temporary_contract_migration.py",
+      "execution_hash": "sha256:72aba75900d3fe268d730fcc220e26a8d972878c280471d808cbc4f8b805de85",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:0508bf189a3aa8345fe00eb17206c0ab0fc04084e3df79c72237c5bdfc941b02",
+      "golden_id": "G-9",
+      "golden_name": "specification-drift",
+      "mutation_decision_status": "accept",
+      "mutation_output": {
+        "decision_status": "accept",
+        "execution_state": "completed",
+        "output": {
+          "blockers": [],
+          "differences": [],
+          "status": "accept"
+        }
+      },
+      "operation": "migration",
+      "oracle_hash": "sha256:4914284cd966de7542d70612751dbac3763d6615eb3a893249d4f3f1cc7f2873",
+      "passed": true,
+      "report_hash": "sha256:36d84b481832e96d1218993029c8edbdb7efef5cf8fc15beae953cf9955f9994"
+    },
+    {
+      "actual_output": {
+        "decision_status": "retired",
+        "execution_state": "completed",
+        "output": {
+          "idempotent_replay": false,
+          "requires_recompute": true,
+          "state": {
+            "acceptance_state": "accepted",
+            "action_state": "stopped",
+            "chain_id": "GOLDEN-CHAIN",
+            "chain_revision": 1,
+            "current_decision_id": "D-v2",
+            "current_version": "v2",
+            "decision_state": "retired",
+            "dependencies": {},
+            "events": [
+              {
+                "changed_node_ids": [
+                  "SPEC-1"
+                ],
+                "event_id": "E-GOLDEN",
+                "event_type": "retire",
+                "expected_revision": 0,
+                "external_write": false,
+                "idempotency_key": "golden-event-0001",
+                "late_arrival": false,
+                "new_input_hash": "sha256:new",
+                "object_id": "P-GOLDEN",
+                "object_version": "p1",
+                "occurred_at": "2026-07-28T01:00:00Z",
+                "old_input_hash": "sha256:old",
+                "recorded_at": "2026-07-28T01:01:00Z",
+                "sequence": 1,
+                "turn_id": "T-GOLDEN"
+              }
+            ],
+            "history": [
+              {
+                "created_at": "2026-07-28T00:00:00Z",
+                "decision_id": "D-v1",
+                "input_hash": "sha256:old",
+                "is_current": false,
+                "object_version": "p1",
+                "status": "superseded",
+                "supersedes": null,
+                "version": "v1"
+              },
+              {
+                "created_at": "2026-07-28T01:01:00Z",
+                "decision_id": "D-v2",
+                "input_hash": "sha256:new",
+                "is_current": true,
+                "object_version": "p1",
+                "status": "proposed",
+                "supersedes": "D-v1@v1",
+                "version": "v2"
+              }
+            ],
+            "lineage": {
+              "runtime_version": "PIPM-2026.01",
+              "state_hash": "sha256:d4c16883f892d3d232e6d99a6374f795862545d402f5157386c30ffa19e6b8aa"
+            },
+            "next_sequence": 2,
+            "object_ref": {
+              "object_id": "P-GOLDEN",
+              "object_version": "p1"
+            },
+            "pending_acceptance": [],
+            "product_lifecycle_stage": "PLC8",
+            "unresolved_items": []
+          }
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "retired",
+      "engine": "update_continuous_product_decision.py",
+      "execution_hash": "sha256:c05f108e91d13899d55a3ce8ff479fe9e5521906f061b37208889d48a32aaa46",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:d069ea6d08c241a2f2765e4c0b63f6e255519715c171b7bebe301882a8b8aca6",
+      "golden_id": "G-10",
+      "golden_name": "stop-retire",
+      "mutation_decision_status": "blocked",
+      "mutation_output": {
+        "decision_status": "blocked",
+        "execution_state": "blocked",
+        "output": {
+          "error": "revision conflict",
+          "error_type": "StateError"
+        }
+      },
+      "operation": "continuity",
+      "oracle_hash": "sha256:158e4e383c3fa382cd7b0712ef733dc2c172a1ecfd00a949206ddd80c1606fc3",
+      "passed": true,
+      "report_hash": "sha256:2c4f44bede852368aef7340317f2fd869ec8843e0238f0e343021f3db3d26b2b"
+    },
+    {
+      "actual_output": {
+        "decision_status": "inconclusive",
+        "execution_state": "completed",
+        "output": {
+          "evidence_consistency": "0.4",
+          "failed_gates": [],
+          "status": "inconclusive",
+          "unmet_score": "0.5525"
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "inconclusive",
+      "engine": "evaluate_product_models.py",
+      "execution_hash": "sha256:a59112fbb207a35768b1185f65d6a87e0acd16110c3ae2ed2748aa17b47e49a1",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:83749cd3b5630e3f78ce6bb3c6623ace99bda2bd62fe74b8f6e1ba2c4262a993",
+      "golden_id": "G-2",
+      "golden_name": "tiktok-proxy-correction",
+      "mutation_decision_status": "proposed",
+      "mutation_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "evidence_consistency": "0.7272727272727272727272727273",
+          "failed_gates": [],
+          "status": "proposed",
+          "unmet_score": "0.5525"
+        }
+      },
+      "operation": "model",
+      "oracle_hash": "sha256:932bb83032a06cd7100a120b982e6080a60a0ff768cb2bbab5659a7e1895c181",
+      "passed": true,
+      "report_hash": "sha256:53c25ee632480bbf22a50680b05f032b02f6a28e52eac72c27962dd7555fd8c8"
+    },
+    {
+      "actual_output": {
+        "decision_status": "blocked",
+        "execution_state": "completed",
+        "output": {
+          "failed_gates": [],
+          "freeze_eligible": false,
+          "status": "blocked",
+          "untraced": [
+            "claim:CLAIM-1"
+          ]
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "blocked",
+      "engine": "evaluate_product_models.py",
+      "execution_hash": "sha256:e0b6a06c919ff6b7441c957740655f40a89db277c31e1307d287967111ab8afe",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:9f00a32632922774b0584f0be62e345e4a9a08da37803d355d77b35cd2a9226c",
+      "golden_id": "G-7",
+      "golden_name": "unsupported-claim",
+      "mutation_decision_status": "proposed",
+      "mutation_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "failed_gates": [],
+          "freeze_eligible": true,
+          "status": "proposed",
+          "untraced": []
+        }
+      },
+      "operation": "model",
+      "oracle_hash": "sha256:28f7d25d970a4426f7b0dccf8c976d40aead0ddec5a3545d0518d02539872863",
+      "passed": true,
+      "report_hash": "sha256:76d843a524758c372681c0b952ae83f7bd7c223559276a8c456dada6a4ce6d47"
+    },
+    {
+      "actual_output": {
+        "decision_status": "proposed",
+        "execution_state": "completed",
+        "output": {
+          "cannibalization_rate": "0.25",
+          "failed_gates": [],
+          "net_incremental_demand": "600",
+          "status": "proposed"
+        }
+      },
+      "checks": {
+        "expected_output_matches": true,
+        "mutation_changes_result": true,
+        "mutation_output_matches": true,
+        "professional_engine_executed": true,
+        "report_contract_valid": true,
+        "report_mechanism_bound": true,
+        "scenario_owned_input": true
+      },
+      "decision_status": "proposed",
+      "engine": "evaluate_product_models.py",
+      "execution_hash": "sha256:55fec39ca37fa4bae8389f87ac8d3a24c0827038e32a63013110473c603b0897",
+      "execution_source": "scenario_owned_fixture",
+      "fixture_hash": "sha256:45b2e677b89dce1d2778191db231ad09476cf04999c0d3b457f2afbcb64b095d",
+      "golden_id": "G-5",
+      "golden_name": "variant-cannibalization",
+      "mutation_decision_status": "rejected",
+      "mutation_output": {
+        "decision_status": "rejected",
+        "execution_state": "completed",
+        "output": {
+          "cannibalization_rate": "0.9",
+          "failed_gates": [],
+          "net_incremental_demand": "-50",
+          "status": "rejected"
+        }
+      },
+      "operation": "model",
+      "oracle_hash": "sha256:0b28e028154fcbc842ea20c60ee635ed3a07cf6c5a37c98eeeaea471e9ca3fdc",
+      "passed": true,
+      "report_hash": "sha256:53b14b39300df1b5c38e2cfd0116b891fb731ea123caeab7fb39ffe266b81e6d"
+    }
+  ],
+  "version": "PIPM-GOLDEN-EXEC-2026.02"
+}

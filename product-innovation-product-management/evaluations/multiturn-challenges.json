@@ -1,0 +1,890 @@
+[
+  {
+    "id": "PIPM-MT-01",
+    "object_id": "P-1",
+    "turns": [
+      {
+        "event_type": "product_fact_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "scope_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "scenario_override",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "validation_result",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-02",
+    "object_id": "P-2",
+    "turns": [
+      {
+        "event_type": "scope_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "scenario_override",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "validation_result",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "cross_domain_accept",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-03",
+    "object_id": "P-3",
+    "turns": [
+      {
+        "event_type": "scenario_override",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "validation_result",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "cross_domain_accept",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "cross_domain_reject",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-04",
+    "object_id": "P-4",
+    "turns": [
+      {
+        "event_type": "validation_result",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "cross_domain_accept",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "cross_domain_reject",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "action_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-05",
+    "object_id": "P-5",
+    "turns": [
+      {
+        "event_type": "cross_domain_accept",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "cross_domain_reject",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "action_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "incident_or_recall",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-06",
+    "object_id": "P-6",
+    "turns": [
+      {
+        "event_type": "cross_domain_reject",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "action_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "incident_or_recall",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "rollback",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-07",
+    "object_id": "P-7",
+    "turns": [
+      {
+        "event_type": "action_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "incident_or_recall",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "rollback",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "retire",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-08",
+    "object_id": "P-8",
+    "turns": [
+      {
+        "event_type": "incident_or_recall",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "rollback",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "retire",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "clarification",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-09",
+    "object_id": "P-9",
+    "turns": [
+      {
+        "event_type": "rollback",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "retire",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "clarification",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "evidence_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-10",
+    "object_id": "P-10",
+    "turns": [
+      {
+        "event_type": "retire",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "clarification",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "evidence_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "product_fact_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-11",
+    "object_id": "P-11",
+    "turns": [
+      {
+        "event_type": "clarification",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "evidence_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "product_fact_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "scope_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  },
+  {
+    "id": "PIPM-MT-12",
+    "object_id": "P-12",
+    "turns": [
+      {
+        "event_type": "evidence_update",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 1
+      },
+      {
+        "event_type": "product_fact_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 2
+      },
+      {
+        "event_type": "scope_change",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 3
+      },
+      {
+        "event_type": "scenario_override",
+        "forbidden": [
+          "silent_overwrite",
+          "second_current"
+        ],
+        "must_answer": [
+          "changed",
+          "preserved",
+          "action_effect"
+        ],
+        "must_preserve": [
+          "object_id",
+          "history"
+        ],
+        "sequence": 4
+      }
+    ]
+  }
+]

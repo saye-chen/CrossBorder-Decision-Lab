@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/localization-profile.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile_id", "object_ref", "country", "platform", "locale", "status", "market_facts", "adaptation_requirements", "cultural_usage_hypotheses", "regulated_policy_questions", "translation_complete", "localization_complete", "evidence_gaps", "blocked_actions"],
+  "properties": {
+    "profile_id": {"type": "string"},
+    "object_ref": {"type": "object", "required": ["object_id", "object_version"], "properties": {"object_id": {"type": "string"}, "object_version": {"type": "string"}}},
+    "country": {"type": "string", "pattern": "^[A-Z]{2}$"},
+    "platform": {"type": "string"},
+    "locale": {"type": "string"},
+    "status": {"enum": ["proposed", "blocked", "inconclusive", "superseded"]},
+    "market_facts": {"type": "array", "items": {"$ref": "#/$defs/local_item"}},
+    "adaptation_requirements": {"type": "array", "items": {"$ref": "#/$defs/local_item"}},
+    "cultural_usage_hypotheses": {"type": "array", "items": {"$ref": "#/$defs/local_item"}},
+    "regulated_policy_questions": {"type": "array", "items": {"$ref": "#/$defs/local_item"}},
+    "translation_complete": {"type": "boolean"},
+    "localization_complete": {"const": false},
+    "evidence_gaps": {"type": "array", "items": {"type": "string"}},
+    "blocked_actions": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {"local_item": {"type": "object", "required": ["item_id", "topic", "value_state", "source_ref", "verified_at", "expires_at", "refresh_trigger", "owner_domain", "state"], "properties": {"item_id": {"type": "string"}, "topic": {"type": "string"}, "value_state": {"enum": ["observed", "missing", "unknown", "not_applicable"]}, "source_ref": {"type": ["string", "null"]}, "verified_at": {"type": ["string", "null"], "format": "date-time"}, "expires_at": {"type": ["string", "null"], "format": "date-time"}, "refresh_trigger": {"type": "string"}, "owner_domain": {"type": "string"}, "state": {"enum": ["proposed", "blocked", "inconclusive"]}}}}
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/manufacturing-quality-handoff.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "handoff_id", "object_ref", "bom_version", "packaging_version", "status", "specifications", "ctqs", "materials", "reliability_requests", "open_questions", "blocked_actions", "preserved_results", "external_write"],
+  "properties": {
+    "contract": {"const": "PIPM-D04-TEMP-2026.01"},
+    "handoff_id": {"type": "string", "minLength": 1},
+    "object_ref": {"type": "object", "required": ["object_id", "object_version", "object_type", "sample_batch_id"], "properties": {"object_id": {"type": "string"}, "object_version": {"type": "string"}, "object_type": {"enum": ["product", "market_product", "sku_variant"]}, "sample_batch_id": {"type": "string"}}},
+    "bom_version": {"type": "string", "minLength": 1},
+    "packaging_version": {"type": "string", "minLength": 1},
+    "status": {"enum": ["proposed", "blocked", "inconclusive", "superseded"]},
+    "specifications": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["field_id", "nominal", "lsl", "usl", "unit", "measurement_method", "method_version", "owner_domain", "criticality", "depends_on", "evidence_ids", "state"], "properties": {"field_id": {"type": "string"}, "nominal": {"type": ["string", "null"]}, "lsl": {"type": ["string", "null"]}, "usl": {"type": ["string", "null"]}, "unit": {"type": "string"}, "measurement_method": {"type": "string"}, "method_version": {"type": "string"}, "owner_domain": {"const": "product-innovation-product-management"}, "criticality": {"enum": ["noncritical", "major", "safety_critical"]}, "depends_on": {"type": "array", "items": {"type": "string"}}, "evidence_ids": {"type": "array", "items": {"type": "string"}}, "state": {"enum": ["proposed", "blocked", "inconclusive", "superseded"]}}}},
+    "ctqs": {"type": "array", "items": {"type": "object", "required": ["ctq_id", "source", "failure_effect", "sample_plan", "acceptance_rule", "measurement_system_status", "state"], "properties": {"ctq_id": {"type": "string"}, "source": {"type": "string"}, "failure_effect": {"type": "string"}, "sample_plan": {"type": "string"}, "acceptance_rule": {"type": "string"}, "measurement_system_status": {"enum": ["qualified", "requested", "not_computable"]}, "state": {"enum": ["proposed", "blocked", "inconclusive"]}}}},
+    "materials": {"type": "array", "items": {"type": "object", "required": ["material_id", "version", "substitution", "revalidation_scope"], "properties": {"material_id": {"type": "string"}, "version": {"type": "string"}, "substitution": {"enum": ["not_allowed", "candidate", "unknown"]}, "revalidation_scope": {"type": "array", "items": {"type": "string"}}}}},
+    "reliability_requests": {"type": "array", "items": {"type": "object"}},
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "blocked_actions": {"type": "array", "items": {"type": "string"}},
+    "preserved_results": {"type": "array", "items": {"type": "string"}},
+    "external_write": {"const": false}
+  }
+}

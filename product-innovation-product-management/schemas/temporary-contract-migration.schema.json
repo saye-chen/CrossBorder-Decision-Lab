@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/temporary-contract-migration.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["migration_id", "temporary_contract", "formal_contract", "snapshot_id", "object_version", "mappings", "consumer_acceptance", "rollback_deadline", "legacy_read_preserved"],
+  "properties": {
+    "migration_id": {"type": "string"},
+    "temporary_contract": {"enum": ["PIPM-D04-TEMP-2026.01", "PIPM-D05-TEMP-2026.01"]},
+    "formal_contract": {"type": "string"},
+    "snapshot_id": {"type": "string"},
+    "object_version": {"type": "string"},
+    "mappings": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source_field", "target_field", "classification", "criticality"], "properties": {"source_field": {"type": "string"}, "target_field": {"type": ["string", "null"]}, "classification": {"enum": ["lossless", "lossy", "unmapped"]}, "criticality": {"enum": ["noncritical", "major", "safety_critical"]}}}},
+    "consumer_acceptance": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["consumer", "status"], "properties": {"consumer": {"type": "string"}, "status": {"enum": ["accepted", "rejected", "pending"]}}}},
+    "rollback_deadline": {"type": "string", "format": "date-time"},
+    "legacy_read_preserved": {"const": true}
+  }
+}

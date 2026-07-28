@@ -1,0 +1,92 @@
+{
+  "acceptances": [
+    {
+      "acceptance_path": "category-investment-decision/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "8665de1eb3f6a6c017997914764e4e4dbbb37dc8a80762e9546ab1a889e1e8b1",
+      "adapter_path": "category-investment-decision/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "category-investment-decision",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "competitive-intelligence-monitoring/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "7748e227114bc60e281b6622463a9557152deb9115a4a06f963f5992a05d7c42",
+      "adapter_path": "competitive-intelligence-monitoring/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "competitive-intelligence-monitoring",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "video-link-breakdown/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "98762b6afaa1217bd4546f8b0cdfea84ee9423baa768ec76bd810b0700ccad05",
+      "adapter_path": "video-link-breakdown/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "video-link-breakdown",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "consumer-insights-customer-growth/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "c01264bca9008c5dc37584eb71c630c43924ab8c334e6c4ef26fba0d5303b7a3",
+      "adapter_path": "consumer-insights-customer-growth/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "consumer-insights-customer-growth",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "advertising-analysis-measurement-optimization/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "601e6120125e9e402d991db5ce0f99cd2b0c1e522c883cc2b4c491dd429eb223",
+      "adapter_path": "advertising-analysis-measurement-optimization/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "advertising-analysis-measurement-optimization",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "logistics-inventory-fulfillment-decision/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "b0c09038ecd73dcc11a1fde8df12087fb91476931b89280afcbc1077e5846dd7",
+      "adapter_path": "logistics-inventory-fulfillment-decision/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "logistics-inventory-fulfillment-decision",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "platform-store-listing-conversion/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "93a92bc685443c07ebd7e7da285bc2e8335fde84fbb8c9b2a87c6d51c015bddb",
+      "adapter_path": "platform-store-listing-conversion/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "platform-store-listing-conversion",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "creator-affiliate-partnership-management/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "85f25e2ccac075a66c2cfc83f4047551bf8dc69a846fe9ae495ff1301805a8e5",
+      "adapter_path": "creator-affiliate-partnership-management/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "creator-affiliate-partnership-management",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "marketing-brand-campaign-management/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "31fa61c85c792167ce25386da385401f2a93cf32eb7c60fc2cbb69a1490a892b",
+      "adapter_path": "marketing-brand-campaign-management/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "marketing-brand-campaign-management",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "pricing-profit-finance-cashflow-decision/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "c5efefa8fcd88db15d9630a6215aa1920a4968843b05f94720195c9936d102e2",
+      "adapter_path": "pricing-profit-finance-cashflow-decision/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "pricing-profit-finance-cashflow-decision",
+      "independent_owner_accepted": false
+    },
+    {
+      "acceptance_path": "governance/erdg/integrations/product-innovation-product-management/acceptance.json",
+      "adapter_hash": "2f0d9b8eaf583188ae738bf31d910a9b9d9ac8d55d3e15fc3d29a3cc363ceb8f",
+      "adapter_path": "governance/erdg/integrations/product-innovation-product-management/adapter.json",
+      "automated_contract_accepted": true,
+      "consumer": "governance/erdg",
+      "independent_owner_accepted": false
+    }
+  ]
+}

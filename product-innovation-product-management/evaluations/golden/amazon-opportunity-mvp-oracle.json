@@ -1,0 +1,18 @@
+{
+  "expected_execution_state": "completed",
+  "expected_output_hash": "sha256:c669168f20374a7553ced831e81a8471489781f876eb2eefc08f4c8801440fa6",
+  "expected_status": "proposed",
+  "mutation": {
+    "expected_execution_state": "completed",
+    "expected_output_hash": "sha256:3b8fca72ef2997f5cedd982475bfc59ad72be601665e0aa944054fb5f5d2fdae",
+    "expected_status": "blocked",
+    "must_differ": true
+  },
+  "required_assertions": [
+    "lineage",
+    "hard_gate",
+    "stop_rollback_exit",
+    "scenario_owned_input",
+    "mechanism_output_binding"
+  ]
+}

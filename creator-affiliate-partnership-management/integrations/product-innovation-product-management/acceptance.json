@@ -1,0 +1,14 @@
+{
+  "adapter_hash": "85f25e2ccac075a66c2cfc83f4047551bf8dc69a846fe9ae495ff1301805a8e5",
+  "automated_contract_accepted": true,
+  "checks": {
+    "external_execution_blocks": true,
+    "forbidden_writeback_blocks": true,
+    "missing_required_blocks": true,
+    "valid_accepts": true,
+    "version_mismatch_blocks": true
+  },
+  "consumer": "creator-affiliate-partnership-management",
+  "evidence_scope": "consumer_local_executable_contract",
+  "independent_owner_accepted": false
+}

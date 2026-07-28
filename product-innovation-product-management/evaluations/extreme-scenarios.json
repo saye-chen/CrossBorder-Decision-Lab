@@ -1,0 +1,250 @@
+[
+  {
+    "failed": [],
+    "failure_injection": "timeout",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-01",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "safety multi-domain extreme",
+    "participants": [
+      "pricing-profit-finance-cashflow-decision",
+      "category-investment-decision"
+    ]
+  },
+  {
+    "failed": [],
+    "failure_injection": "stale_evidence",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-02",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "regulated multi-domain extreme",
+    "participants": [
+      "future-d04",
+      "competitive-intelligence-monitoring"
+    ]
+  },
+  {
+    "failed": [
+      "platform-store-listing-conversion"
+    ],
+    "failure_injection": "version_conflict",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-03",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "negative_profit multi-domain extreme",
+    "participants": [
+      "future-d05",
+      "video-link-breakdown"
+    ]
+  },
+  {
+    "failed": [],
+    "failure_injection": "irreversible_action",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-04",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "cash multi-domain extreme",
+    "participants": [
+      "category-investment-decision",
+      "consumer-insights-customer-growth"
+    ]
+  },
+  {
+    "failed": [],
+    "failure_injection": "timeout",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-05",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "unmanufacturable multi-domain extreme",
+    "participants": [
+      "competitive-intelligence-monitoring",
+      "logistics-inventory-fulfillment-decision"
+    ]
+  },
+  {
+    "failed": [
+      "marketing-brand-campaign-management"
+    ],
+    "failure_injection": "stale_evidence",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-06",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "unfulfillable multi-domain extreme",
+    "participants": [
+      "video-link-breakdown",
+      "platform-store-listing-conversion"
+    ]
+  },
+  {
+    "failed": [],
+    "failure_injection": "version_conflict",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-07",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "claim multi-domain extreme",
+    "participants": [
+      "consumer-insights-customer-growth",
+      "advertising-analysis-measurement-optimization"
+    ]
+  },
+  {
+    "failed": [],
+    "failure_injection": "irreversible_action",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-08",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "version_pollution multi-domain extreme",
+    "participants": [
+      "logistics-inventory-fulfillment-decision",
+      "creator-affiliate-partnership-management"
+    ]
+  },
+  {
+    "failed": [
+      "future-d04"
+    ],
+    "failure_injection": "timeout",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-09",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "tool_failure multi-domain extreme",
+    "participants": [
+      "platform-store-listing-conversion",
+      "marketing-brand-campaign-management"
+    ]
+  },
+  {
+    "failed": [],
+    "failure_injection": "stale_evidence",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-10",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "retirement multi-domain extreme",
+    "participants": [
+      "advertising-analysis-measurement-optimization",
+      "governance/erdg"
+    ]
+  },
+  {
+    "failed": [],
+    "failure_injection": "version_conflict",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-11",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "safety multi-domain extreme",
+    "participants": [
+      "creator-affiliate-partnership-management",
+      "pricing-profit-finance-cashflow-decision"
+    ]
+  },
+  {
+    "failed": [
+      "competitive-intelligence-monitoring"
+    ],
+    "failure_injection": "irreversible_action",
+    "forbidden": [
+      "majority_vote",
+      "redline_compensation"
+    ],
+    "id": "PIPM-EX-12",
+    "must": [
+      "hard_gate",
+      "partial_failure",
+      "residual_exposure",
+      "rollback_or_exit"
+    ],
+    "name": "regulated multi-domain extreme",
+    "participants": [
+      "marketing-brand-campaign-management",
+      "future-d04"
+    ]
+  }
+]

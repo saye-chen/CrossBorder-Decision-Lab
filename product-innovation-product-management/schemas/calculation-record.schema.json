@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/calculation-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["calculation_id", "calculator", "calculator_version", "input_ids", "input_hash", "output_hash", "status"],
+  "properties": {
+    "calculation_id": {"type": "string", "minLength": 1},
+    "calculator": {"type": "string", "minLength": 1},
+    "calculator_version": {"type": "string", "minLength": 1},
+    "input_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "output_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "status": {"enum": ["complete", "failed", "inconclusive", "superseded"]},
+    "units": {"type": "object"},
+    "result": {}
+  }
+}

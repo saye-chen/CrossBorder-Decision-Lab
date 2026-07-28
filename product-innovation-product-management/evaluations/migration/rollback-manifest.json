@@ -1,0 +1,39 @@
+{
+  "drill_id": "PIPM-RB-2026.01",
+  "external_write": false,
+  "legacy_reader_verified": true,
+  "new_messages_audit_only": true,
+  "release_units": [
+    {
+      "restore_hash": "sha256:304aeb6aeb9281204cf0b2723b2d0d855d70719de14de5aa270752aa275e307b",
+      "restored": true,
+      "unit": "contract"
+    },
+    {
+      "restore_hash": "sha256:03be40e9ee0f61af536771520187496555e205856ac022ab80d7a11dea79f4f9",
+      "restored": true,
+      "unit": "routing"
+    },
+    {
+      "restore_hash": "sha256:4622a8206c24cf141e55e9806fc6a8dd5ada1e5123537fe60668162db3c1ebd0",
+      "restored": true,
+      "unit": "schemas"
+    },
+    {
+      "restore_hash": "sha256:785688ec70bde47f66452250d7734d61b79df5bc0fa2e10feb431e1162a207c3",
+      "restored": true,
+      "unit": "validators"
+    },
+    {
+      "restore_hash": "sha256:12ea5e22b2603f39d9541c790c8c28f30d35adf7df422773762948cfaae4b4a5",
+      "restored": true,
+      "unit": "catalog"
+    },
+    {
+      "restore_hash": "sha256:7bc1aa5597dec8d72b5445992015e0890edf50196545a8554da7d36162c5f230",
+      "restored": true,
+      "unit": "evaluations"
+    }
+  ],
+  "status": "passed"
+}

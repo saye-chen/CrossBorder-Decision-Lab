@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品创新与产品管理"
+  short_description: "把产品机会转化为可验证、可追溯的产品定义、规格与路线图"
+  default_prompt: "使用 $product-innovation-product-management 评估产品机会并形成可验证的产品定义。"

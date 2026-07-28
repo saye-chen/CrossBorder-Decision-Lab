@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/product-lifecycle-state.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["object_id", "object_version", "product_lifecycle_stage", "decision_state", "maturity_l1", "maturity_l2", "maturity_l3", "maturity_l4", "external_write"],
+  "properties": {
+    "object_id": {"type": "string", "minLength": 1},
+    "object_version": {"type": "string", "minLength": 1},
+    "product_lifecycle_stage": {"enum": ["PLC0", "PLC1", "PLC2", "PLC3", "PLC4", "PLC5", "PLC6", "PLC7", "PLC8"]},
+    "decision_state": {"enum": ["draft", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded", "retired"]},
+    "maturity_l1": {"enum": ["passed", "not_passed"]},
+    "maturity_l2": {"enum": ["passed", "not_passed"]},
+    "maturity_l3": {"enum": ["passed_automated_gate", "not_passed"]},
+    "maturity_l4": {"enum": ["passed", "not_passed"]},
+    "external_write": {"const": false}
+  }
+}

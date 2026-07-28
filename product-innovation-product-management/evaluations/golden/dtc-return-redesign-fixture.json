@@ -1,0 +1,39 @@
+{
+  "counterexample": {
+    "path": [
+      "payload",
+      "protection_score"
+    ],
+    "value": "0.6"
+  },
+  "execution": {
+    "engine": "evaluate_product_models.py",
+    "mutation": {
+      "path": [
+        "payload",
+        "protection_score"
+      ],
+      "value": "0.6"
+    },
+    "operation": "model",
+    "payload": {
+      "dimensional_divisor_cm3_per_kg": "5000",
+      "hard_gates": [],
+      "height_cm": "10",
+      "length_cm": "30",
+      "minimum_protection_score": "0.85",
+      "model": "packaging_impact",
+      "protection_score": "0.92",
+      "width_cm": "20"
+    }
+  },
+  "expected_status": "proposed",
+  "id": "G-3",
+  "input_hash": "f18706d33e4144177f50b0cd847d16253797176f855842d8e99ff95e01c4228e",
+  "name": "dtc-return-redesign",
+  "object_version": "v1",
+  "platform": "Shopify/DTC",
+  "plc": "PLC2",
+  "primary_mechanism": "model",
+  "region": "SG"
+}

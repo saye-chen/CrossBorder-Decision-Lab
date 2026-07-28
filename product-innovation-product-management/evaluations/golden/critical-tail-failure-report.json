@@ -1,0 +1,105 @@
+{
+  "actions": [
+    {
+      "owner": "product",
+      "state": "proposed"
+    }
+  ],
+  "allowed_uses": [
+    "decision_support"
+  ],
+  "as_of_time": "2026-07-28T00:00:00Z",
+  "calculations": [
+    {
+      "id": "K1",
+      "unit": "index",
+      "value": "1"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "conservative"
+    },
+    {
+      "id": "recommended"
+    },
+    {
+      "id": "stress"
+    }
+  ],
+  "chain_id": "CH-8",
+  "conflicts": [],
+  "counterevidence": [
+    {
+      "id": "E2"
+    }
+  ],
+  "current_conclusion": "critical-tail-failure: blocked from evaluate_product_models.py",
+  "decision_id": "D-8",
+  "decision_state": "blocked",
+  "dependencies": [
+    "D06"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "state": "verified"
+    }
+  ],
+  "exit_conditions": [
+    "retire if falsified"
+  ],
+  "external_write": false,
+  "forbidden_uses": [
+    "external_execution"
+  ],
+  "history_refs": [
+    "baseline@v0"
+  ],
+  "is_current": true,
+  "lineage": {
+    "input_hash": "sha256:ed99d6cea18f1172f282dcb614cddae3f2ba452eecbf0e7bdb457afcf0ceaff6",
+    "report_hash": "sha256:7a201a3d192a5f926ef28ce3f972522099e2d3a3678aeb719a90b1d960bc8adb",
+    "runtime_version": "PIPM-2026.01"
+  },
+  "maturity": "controlled pilot",
+  "missing_and_expired": [],
+  "no_action": {
+    "effect": "learning delayed"
+  },
+  "object_ref": {
+    "object_id": "P-8",
+    "object_version": "v1"
+  },
+  "recorded_at": "2026-07-28T01:00:00Z",
+  "report_id": "G-8",
+  "report_type": "product_roadmap",
+  "rollback": {
+    "restore": "baseline@v0"
+  },
+  "scope": {
+    "country": "DE",
+    "platform": "TikTok Shop"
+  },
+  "specific_content": {
+    "delay_cost": "critical-tail-failure:delay_cost",
+    "dependencies": "critical-tail-failure:dependencies",
+    "execution_binding": {
+      "decision_status": "blocked",
+      "engine": "evaluate_product_models.py",
+      "input_hash": "sha256:ed99d6cea18f1172f282dcb614cddae3f2ba452eecbf0e7bdb457afcf0ceaff6",
+      "mechanism_output_hash": "sha256:9002cfa0c7fee0d7d9e37f3ec9faca6b6f025ceae351df41105efa945766734a",
+      "operation": "model"
+    },
+    "exit_rules": "critical-tail-failure:exit_rules",
+    "option_value": "critical-tail-failure:option_value",
+    "resource_constraints": "critical-tail-failure:resource_constraints",
+    "stage_gates": "critical-tail-failure:stage_gates"
+  },
+  "stop_conditions": [
+    "hard gate fails"
+  ],
+  "success_conditions": [
+    "registered validation passes"
+  ]
+}

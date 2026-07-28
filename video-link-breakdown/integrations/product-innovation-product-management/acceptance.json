@@ -1,0 +1,14 @@
+{
+  "adapter_hash": "98762b6afaa1217bd4546f8b0cdfea84ee9423baa768ec76bd810b0700ccad05",
+  "automated_contract_accepted": true,
+  "checks": {
+    "external_execution_blocks": true,
+    "forbidden_writeback_blocks": true,
+    "missing_required_blocks": true,
+    "valid_accepts": true,
+    "version_mismatch_blocks": true
+  },
+  "consumer": "video-link-breakdown",
+  "evidence_scope": "consumer_local_executable_contract",
+  "independent_owner_accepted": false
+}

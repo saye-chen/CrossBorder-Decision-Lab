@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/pipm/claim-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claim_id", "owner_domain", "object_id", "state", "grade", "evidence_ids", "allowed_uses", "forbidden_uses"],
+  "properties": {
+    "claim_id": {"type": "string", "minLength": 1},
+    "owner_domain": {"const": "product-innovation-product-management"},
+    "object_id": {"type": "string", "minLength": 1},
+    "state": {"enum": ["hypothesis", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"]},
+    "grade": {"enum": ["descriptive", "associational", "predictive", "attributed", "causal", "decision_grade"]},
+    "evidence_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "allowed_uses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "forbidden_uses": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "weakest_assumption": {"type": ["string", "null"]},
+    "falsification_condition": {"type": ["string", "null"]}
+  }
+}
