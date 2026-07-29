@@ -7,11 +7,11 @@
   "evidence": [
     {
       "path": "governance/pipm-blueprint-implementation-manifest.json",
-      "sha256": "sha256:8f0d020a234feea9fb141734df55067ba77e6ae3bbcedf4b79df1d56f18ffeb0"
+      "sha256": "sha256:18f0077166395da61e6233c6185fc3bac765e8759920f172695e137d41f4ab13"
     },
     {
       "path": "product-innovation-product-management/SKILL.md",
-      "sha256": "sha256:9cb9c4ff22c7a5e3a2158e4dbf2873b6b71facb081ca961920117ebc03bc5982"
+      "sha256": "sha256:2db98003fae3bf3d47c51d6f8bb277112a7f0145f39cab058244f87051116389"
     },
     {
       "path": "product-innovation-product-management/evaluations/review-package/REVIEW_GUIDE.md",
@@ -19,11 +19,11 @@
     },
     {
       "path": "product-innovation-product-management/evaluations/fixtures/evaluation-catalog.json",
-      "sha256": "sha256:75f69bab853aba12fdcf47afa4fcc643f2c414c89dd96630203392233d5b76fc"
+      "sha256": "sha256:15ea3dbe06ff9f780ce7dd6a0803eafc4059ecb23bd6d792b9033875d5194ee9"
     },
     {
       "path": "product-innovation-product-management/evaluations/golden-execution-results.json",
-      "sha256": "sha256:5e5f6a51d57b0443ba277124992c1a8acffd2aa37e8e0d32e3ae9b61d65a2a99"
+      "sha256": "sha256:89ce4afd0fe287ce3abdb62bf7266eed2b41f19b915e31141afd540e8a083e9d"
     },
     {
       "path": "product-innovation-product-management/evaluations/multiturn-challenges.json",
@@ -35,7 +35,7 @@
     },
     {
       "path": "product-innovation-product-management/evaluations/migration/consumer-acceptance.json",
-      "sha256": "sha256:be6b8bc55fdcc9aac781d5f3c3895d65f141cae356470d6a05c3b05e2238e6e2"
+      "sha256": "sha256:b7a53db9b8ec933383fdb53cad8db120a8d886a1df49d947d96a567bc40c6277"
     },
     {
       "path": "product-innovation-product-management/evaluations/migration/dual-run-results.json",
@@ -43,7 +43,7 @@
     },
     {
       "path": "product-innovation-product-management/evaluations/migration/rollback-manifest.json",
-      "sha256": "sha256:ca2f114fa8272dd5cdc15d9efc5526af58ff8bfeecdcde433aca82528d4f9831"
+      "sha256": "sha256:8a4d24e82c9265b00808377d4eedf51f6e0ec66f45510158b6606694ab9cb6e5"
     },
     {
       "path": "product-innovation-product-management/scripts/run_wp8_evaluations.py",
@@ -63,7 +63,7 @@
     },
     {
       "path": "scripts/test_full_repository_audit.py",
-      "sha256": "sha256:1a904e2afe344bd7c585534471730de2721c7e42a6feefc9f13e9b2b42521e2b"
+      "sha256": "sha256:3e862b2d0c7af6924ba02bb8518ddd6b12f9e11b665a80a9aed3f2548deccc47"
     }
   ],
   "generated_at": "2026-07-28T00:00:00Z",
@@ -73,5 +73,5 @@
     "l3": "not_passed_until_independent_signoff",
     "l4": "controlled_pilot"
   },
-  "package_version": "PIPM-WP10-REVIEW-2026.01"
+  "package_version": "PIPM-WP10-REVIEW-2026.07"
 }

@@ -35,7 +35,7 @@ def state() -> dict:
         "object_ref": {"object_id": "sku-1", "object_version": "v1"},
         "history": [{"decision_id": "d1", "version": "v1", "status": "validated", "is_current": True, "input_hash": "sha256:old", "parameter_snapshot_id": "ps1", "model_version": "m1", "conclusion": "price 20", "created_at": "2026-07-28T00:00:00Z", "supersedes": None}],
         "turns": [], "dependencies": {}, "pending_acceptance": [], "unresolved_items": [],
-        "lineage": {"state_hash": "sha256:state1", "runtime_version": "PPFC-2026.01"},
+        "lineage": {"state_hash": "sha256:state1", "runtime_version": "PPFC-2026.07"},
     }
 
 
@@ -50,7 +50,7 @@ def new_decision() -> dict:
 def report() -> dict:
     external = ["external_write", "change_price", "change_budget", "place_order", "release_funds"]
     return {
-        "report_id": "r1", "report_version": "PPFC-REPORT-2026.01.1", "report_type": "decision_card",
+        "report_id": "r1", "report_version": "PPFC-REPORT-2026.07.1", "report_type": "decision_card",
         "decision_id": "d1", "decision_version": "v2", "status": "proposed", "is_current": True,
         "object_ref": {"object_id": "sku-1"}, "scope": {"country": "US"}, "as_of_time": "2026-07-29T00:00:00Z",
         "current_conclusion": "controlled price candidate", "history_refs": ["d1@v1"], "evidence": ["E1"],
@@ -61,7 +61,7 @@ def report() -> dict:
         "actions": [{"action": "controlled_test"}], "success_conditions": ["contribution positive"],
         "stop_conditions": ["cash breach"], "rollback_conditions": ["fee changes"], "exit_conditions": ["negative NRV"],
         "allowed_uses": ["decision_support"], "forbidden_uses": external,
-        "lineage": {"input_hash": "sha256:new", "output_hash": "sha256:out", "model_version": "m1", "runtime_version": "PPFC-2026.01", "supersedes": "r0"},
+        "lineage": {"input_hash": "sha256:new", "output_hash": "sha256:out", "model_version": "m1", "runtime_version": "PPFC-2026.07", "supersedes": "r0"},
     }
 
 

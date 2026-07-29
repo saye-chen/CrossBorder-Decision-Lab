@@ -1,7 +1,7 @@
 # LIFD 单 Skill Golden Report
 
 ## 执行摘要
-决策结论：`Repair`。一句话理由：US/Amazon SKU 的系统库存含未质检在途且入仓吞吐已满，当前不能按表面库存继续承诺或放量。主决策 Skill：`logistics-inventory-fulfillment-decision`；运行时：`LIFD-2026.04`。
+决策结论：`Repair`。一句话理由：US/Amazon SKU 的系统库存含未质检在途且入仓吞吐已满，当前不能按表面库存继续承诺或放量。主决策 Skill：`logistics-inventory-fulfillment-decision`；运行时：`LIFD-2026.07`。
 
 ## 对象与边界
 对象为 SKU-LIFD-US-01，国家/平台：US/Amazon，生命周期：新品爬坡，适用范围为单SKU×平台仓×未来六周；证据截止：2026-07-17。缺失数据：质检放行日和平台仓新增预约；决策影响为ATP只计可售库存并冻结新增补货承诺。
@@ -14,8 +14,8 @@ C1 使用 `inventory_ledger.py`，输入：可售100、未放行在途100、资�
 
 | 计算ID | 模型版本 | 输入指纹 | 输出指纹 | 状态 |
 |---|---|---|---|---|
-| C1 | LIFD-2026.04/inventory_ledger | sha256:d07-single-c1-in | sha256:d07-single-c1-out | complete |
-| C2 | LIFD-2026.04/order_capacity | sha256:d07-single-c2-in | sha256:d07-single-c2-out | complete |
+| C1 | LIFD-2026.07/inventory_ledger | sha256:d07-single-c1-in | sha256:d07-single-c1-out | complete |
+| C2 | LIFD-2026.07/order_capacity | sha256:d07-single-c2-in | sha256:d07-single-c2-out | complete |
 
 ## 根因
 根因是库存状态和入仓吞吐，而不是需求或广告不足。平台显示数量是反证但不能覆盖质检和仓内能力。推翻条件为E2完成放行且E3出现可信可用产能。

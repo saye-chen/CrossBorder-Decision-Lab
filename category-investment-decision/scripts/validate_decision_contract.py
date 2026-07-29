@@ -8,7 +8,7 @@ from pathlib import Path
 
 # One-release introspection compatibility for consumers that audit ownership
 # registration from this historical entrypoint. The normative registry now
-# lives in governance/erdg/scripts/validate_domain_contract_compat.py.
+# lives in governance/erdg/scripts/validate_domain_contract.py.
 COMPATIBILITY_OWNERS = {
     "advertising": "advertising-analysis-measurement-optimization",
     "advertising_measurement": "advertising-analysis-measurement-optimization",

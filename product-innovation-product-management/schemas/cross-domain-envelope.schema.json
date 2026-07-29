@@ -5,9 +5,9 @@
   "additionalProperties": false,
   "required": ["contract", "message_id", "message_version", "correlation_id", "idempotency_key", "sender", "receiver", "object_ref", "scope", "payload_type", "status", "claims", "claim_acceptance", "changed_fields", "recomputation", "allowed_uses", "forbidden_uses", "external_write", "validity", "lineage"],
   "properties": {
-    "contract": {"const": "PIPM-XDOMAIN-2026.01"},
+    "contract": {"const": "PIPM-XDOMAIN-2026.07"},
     "message_id": {"type": "string", "minLength": 1},
-    "message_version": {"const": "PIPM-XMSG-2026.01"},
+    "message_version": {"const": "PIPM-XMSG-2026.07"},
     "correlation_id": {"type": "string", "minLength": 1},
     "idempotency_key": {"type": "string", "minLength": 8},
     "sender": {"enum": ["product-innovation-product-management", "pricing-profit-finance-cashflow-decision"]},
@@ -47,6 +47,6 @@
     "forbidden_uses": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
     "external_write": {"const": false},
     "validity": {"type": "object", "required": ["valid_from", "recorded_at"], "properties": {"valid_from": {"type": "string", "format": "date-time"}, "valid_to": {"type": ["string", "null"], "format": "date-time"}, "recorded_at": {"type": "string", "format": "date-time"}}},
-    "lineage": {"type": "object", "required": ["input_hash", "parameter_snapshot_id", "runtime_version"], "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "parameter_snapshot_id": {"type": "string"}, "runtime_version": {"enum": ["PIPM-2026.01", "PPFC-2026.01"]}, "supersedes": {"type": ["string", "null"]}}}
+    "lineage": {"type": "object", "required": ["input_hash", "parameter_snapshot_id", "runtime_version"], "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "parameter_snapshot_id": {"type": "string"}, "runtime_version": {"enum": ["PIPM-2026.07", "PPFC-2026.07"]}, "supersedes": {"type": ["string", "null"]}}}
   }
 }

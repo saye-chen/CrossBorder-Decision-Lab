@@ -5,7 +5,7 @@
   "additionalProperties": false,
   "required": ["contract", "handoff_id", "object_ref", "bom_version", "packaging_version", "status", "specifications", "ctqs", "materials", "reliability_requests", "open_questions", "blocked_actions", "preserved_results", "external_write"],
   "properties": {
-    "contract": {"const": "PIPM-D04-TEMP-2026.01"},
+    "contract": {"const": "PIPM-D04-TEMP-2026.07"},
     "handoff_id": {"type": "string", "minLength": 1},
     "object_ref": {"type": "object", "required": ["object_id", "object_version", "object_type", "sample_batch_id"], "properties": {"object_id": {"type": "string"}, "object_version": {"type": "string"}, "object_type": {"enum": ["product", "market_product", "sku_variant"]}, "sample_batch_id": {"type": "string"}}},
     "bom_version": {"type": "string", "minLength": 1},

@@ -5,7 +5,7 @@ description: 默认用中文执行专家级跨境市场营销、品牌与活动�
 
 # MBCM 市场营销、品牌与活动经营
 
-运行时版本：`MBCM-2026.01`。
+运行时版本：`MBCM-2026.07`。
 
 成熟度：`controlled pilot`；授权真实历史回放门通过前不得声明`production ready`。
 
@@ -133,4 +133,4 @@ MBCM最终决定：
 完成前运行skill quick validation、全部`test_*.py`、120个差异场景及coverage manifest、10类Golden、数学Oracle/性质/变异、多轮连续性、单Skill、真实八Skill包、主权、事故、对抗和全仓回归。自动化通过只称L3 automated gate；L4至少需要3个授权、脱敏、成熟且含实际结果/哈希的异质历史回放，覆盖失败或退出并独立复核，否则保持`controlled pilot`。
 ## ERDG 共享治理接入
 
-正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/marketing-brand-campaign-management/adapter.json` 声明 MBCM 主权；ERDG 失败时不得形成生效动作。
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/marketing-brand-campaign-management/adapter.json` 声明 MBCM 主权；ERDG 失败时不得形成生效动作。

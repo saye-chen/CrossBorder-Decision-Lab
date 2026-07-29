@@ -1,6 +1,6 @@
 {
   "id": "AAMO-CAUSAL-DEPTH-2026-07-23",
-  "runtime": "AAMO-2026.08",
+  "runtime": "AAMO-2026.07",
   "status": "fixed",
   "maturity": "controlled pilot",
   "findings": [
@@ -26,7 +26,7 @@
     {
       "id": "AAMO-CD-03",
       "finding": "Cross-domain statistical primitives could drift or create runtime coupling.",
-      "resolution": "Defined CBSTAT-2026.01 formula parity while retaining standalone local implementations.",
+      "resolution": "Defined CBSTAT-2026.07 formula parity while retaining standalone local implementations.",
       "evidence": [
         "governance/shared-statistical-primitives.md",
         "scripts/test_statistical_primitive_parity.py"

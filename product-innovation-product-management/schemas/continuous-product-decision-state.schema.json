@@ -17,6 +17,6 @@
     "dependencies": {"type": "object"},
     "pending_acceptance": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "unresolved_items": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "lineage": {"type": "object", "required": ["state_hash", "runtime_version"], "properties": {"state_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PIPM-2026.01"}}}
+    "lineage": {"type": "object", "required": ["state_hash", "runtime_version"], "properties": {"state_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PIPM-2026.07"}}}
   }
 }

@@ -54,7 +54,7 @@
     },
     "lineage": {
       "type": "object", "additionalProperties": false, "required": ["input_hash", "runtime_version", "evidence_ids"],
-      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.01"}, "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}}
+      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.07"}, "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}}
     },
     "external_write": {"const": false}
   }

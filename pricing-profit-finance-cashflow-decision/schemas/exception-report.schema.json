@@ -21,7 +21,7 @@
     "resolve_by": {"type": ["string", "null"], "format": "date-time"},
     "lineage": {
       "type": "object", "additionalProperties": false, "required": ["input_hash", "runtime_version"],
-      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.01"}, "supersedes": {"type": ["string", "null"]}}
+      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.07"}, "supersedes": {"type": ["string", "null"]}}
     }
   }
 }

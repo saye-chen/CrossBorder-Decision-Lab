@@ -67,7 +67,7 @@ def run(write: bool = False) -> dict[str, Any]:
         trace["execution_hash"] = digest(trace)
         results.append(trace)
     payload = {
-        "version": "PIPM-GOLDEN-EXEC-2026.02",
+        "version": "PIPM-GOLDEN-EXEC-2026.07",
         "artifact_role": "executed_result_not_registry",
         "actual_professional_engine_execution": True,
         "executed_at": datetime.now(timezone.utc).isoformat() if write else None,

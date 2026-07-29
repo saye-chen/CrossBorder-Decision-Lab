@@ -111,7 +111,7 @@ def update(payload: dict) -> dict:
     state.setdefault("events", []).append(event)
     state["chain_revision"] += 1
     state["next_sequence"] += 1
-    state["lineage"] = {"state_hash": canonical_hash({k: v for k, v in state.items() if k != "lineage"}), "runtime_version": "PIPM-2026.01"}
+    state["lineage"] = {"state_hash": canonical_hash({k: v for k, v in state.items() if k != "lineage"}), "runtime_version": "PIPM-2026.07"}
     validate_state(state)
     return {"state": state, "idempotent_replay": False, "requires_recompute": requires}
 

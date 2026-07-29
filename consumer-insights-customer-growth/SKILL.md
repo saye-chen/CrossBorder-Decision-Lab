@@ -5,7 +5,7 @@ description: 默认用中文执行跨境电商消费者洞察、客户增长、�
 
 # 消费者洞察与客户增长
 
-运行时版本：`CIG-2026.09`。
+运行时版本：`CIG-2026.07`。
 
 成熟度：`controlled pilot`；授权真实历史回放门未通过，不得声明 `production ready`。
 
@@ -142,4 +142,4 @@ description: 默认用中文执行跨境电商消费者洞察、客户增长、�
 - 授权、身份、事件、收入、实验分配或真实曝光的关键门槛失败时，必须降级分析层级，不让模型吸收数据异常。
 ## ERDG 共享治理接入
 
-正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/consumer-insights-customer-growth/adapter.json` 声明 CIG 主权；ERDG 失败时不得形成生效动作。
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/consumer-insights-customer-growth/adapter.json` 声明 CIG 主权；ERDG 失败时不得形成生效动作。

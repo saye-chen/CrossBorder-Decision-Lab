@@ -32,7 +32,7 @@ def validate(report: dict[str, Any]) -> dict[str, Any]:
     if not EXTERNAL <= set(report["forbidden_uses"]):
         raise PPFCError("external actions must remain forbidden")
     lineage = report["lineage"]
-    if lineage.get("runtime_version") != "PPFC-2026.01": raise PPFCError("runtime version mismatch")
+    if lineage.get("runtime_version") != "PPFC-2026.07": raise PPFCError("runtime version mismatch")
     for key in ("input_hash", "output_hash"):
         if not str(lineage.get(key, "")).startswith("sha256:"): raise PPFCError(f"lineage.{key} required")
     if report["status"] in {"validated", "accepted", "executed", "observed", "closed"} and report["missing_data"]:

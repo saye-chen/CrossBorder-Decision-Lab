@@ -1,6 +1,6 @@
 {
   "report_id": "PPFC-GOLDEN-SINGLE-001",
-  "report_version": "PPFC-REPORT-2026.01.1",
+  "report_version": "PPFC-REPORT-2026.07.1",
   "report_type": "pricing_memo",
   "decision_id": "PPFC-D-SINGLE-001",
   "decision_version": "v2",
@@ -34,5 +34,5 @@
   "exit_conditions": ["NRV is negative and no compliant recovery route remains."],
   "allowed_uses": ["decision_support", "scenario_comparison"],
   "forbidden_uses": ["external_write", "change_price", "change_budget", "place_order", "release_funds"],
-  "lineage": {"input_hash":"sha256:single-input","output_hash":"sha256:single-output","model_version":"PPFC-MODEL-2026.01","runtime_version":"PPFC-2026.01","supersedes":"PPFC-GOLDEN-SINGLE-000"}
+  "lineage": {"input_hash":"sha256:single-input","output_hash":"sha256:single-output","model_version":"PPFC-MODEL-2026.07","runtime_version":"PPFC-2026.07","supersedes":"PPFC-GOLDEN-SINGLE-000"}
 }

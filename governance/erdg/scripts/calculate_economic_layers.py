@@ -53,7 +53,7 @@ def calculate(payload: dict[str, Any]) -> dict[str, Any]:
     if not isinstance(scale, int):
         raise ValueError("scale must be an integer")
     return {
-        "contract": "ERDG-CONTRACT-2026.01",
+        "contract": "ERDG-CONTRACT-2026.07",
         "currency": currency,
         "tax_basis": payload.get("tax_basis"),
         "layers_exact": {key: decimal_string(value) for key, value in layers.items()},

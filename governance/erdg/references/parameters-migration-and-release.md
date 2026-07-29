@@ -7,7 +7,7 @@ Resolution first applies non-relaxable global redlines, then an approved full-co
 Migration proceeds through inventory, neutral specification, adapters and shadow dual-read, authoritative switch, time-bounded compatibility and retirement. Unexplained dual-read differences block authority switching. Historical reports retain old-version recomputation. Breaking changes require new major versions, migration and rollback.
 
 L1 structure, L2 contract and L3 expert gates are automated. L4 remains closed until authorized, deidentified, outcome-bearing real replays pass independent review, bias/calibration, incident/rollback and drift gates.
-## Release gates added in ERDG-2026.01
+## Release gates added in ERDG-2026.07
 
 - every professional Skill routes its formal decision entrypoint through ERDG and independently rejects ERDG-only violations;
 - every normative schema is executed with complete Draft 2020-12 semantics and format checking;

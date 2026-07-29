@@ -1,6 +1,6 @@
 # Offer机制决策
 
-运行时：`MBCM-2026.01`；成熟度：`controlled pilot`。
+运行时：`MBCM-2026.07`；成熟度：`controlled pilot`。
 
 专属机制：全核销成本、非增量核销、保本增量率、提前购买与SKU蚕食。
 

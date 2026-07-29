@@ -58,9 +58,9 @@
   ],
   "is_current": true,
   "lineage": {
-    "input_hash": "sha256:e9d13aeb7f9311d186c225ec5bea171c7dac1636f44b7d1750c71d0e291702f7",
-    "report_hash": "sha256:a93d0d4fb9bb568c355c558e1f0fb7f7917eb50216adc35ca9d7ef819f14d840",
-    "runtime_version": "PIPM-2026.01"
+    "input_hash": "sha256:d68cc9d87896d3a046cbdaee333924e0aa292c58416a2c05b42d248dd0821955",
+    "report_hash": "sha256:516c8181bdb43e40902c96ee3d2ffe1c1283a45a2349463d41b86b8744defdbc",
+    "runtime_version": "PIPM-2026.07"
   },
   "maturity": "controlled pilot",
   "missing_and_expired": [],
@@ -86,8 +86,8 @@
     "execution_binding": {
       "decision_status": "retired",
       "engine": "update_continuous_product_decision.py",
-      "input_hash": "sha256:e9d13aeb7f9311d186c225ec5bea171c7dac1636f44b7d1750c71d0e291702f7",
-      "mechanism_output_hash": "sha256:5c54695fe70c493687708ce00c25089c1664ba58e9cac0725fddd8a3098233e5",
+      "input_hash": "sha256:d68cc9d87896d3a046cbdaee333924e0aa292c58416a2c05b42d248dd0821955",
+      "mechanism_output_hash": "sha256:177537fa6bac14ccfa075886623e9952dddb9bd143064dd4cb6e585d2cc61d0f",
       "operation": "continuity"
     },
     "opportunity_interval": "stop-retire:opportunity_interval",

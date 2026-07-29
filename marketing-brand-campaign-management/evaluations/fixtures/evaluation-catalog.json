@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "runtime": "MBCM-2026.01",
+  "runtime": "MBCM-2026.07",
   "counts": {
     "standalone": 36,
     "cross_skill": 28,

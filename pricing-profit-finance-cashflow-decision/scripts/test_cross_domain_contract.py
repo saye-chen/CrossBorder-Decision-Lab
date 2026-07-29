@@ -10,8 +10,8 @@ from validate_cross_domain_envelope import validate
 
 def fixture() -> dict:
     return {
-        "contract": "PPFC-XDOMAIN-2026.01", "message_id": "m1",
-        "message_version": "PPFC-XMSG-2026.01", "correlation_id": "c1",
+        "contract": "PPFC-XDOMAIN-2026.07", "message_id": "m1",
+        "message_version": "PPFC-XMSG-2026.07", "correlation_id": "c1",
         "idempotency_key": "idem-0001", "sender": "pricing-profit-finance-cashflow-decision",
         "receiver": "advertising-analysis-measurement-optimization",
         "object_ref": {"object_id": "batch-1", "object_version": "v1", "object_type": "batch"},
@@ -22,7 +22,7 @@ def fixture() -> dict:
         "allowed_uses": ["decision_support"], "forbidden_uses": sorted({"external_write", "change_price", "change_budget", "place_order", "send_sample", "sign_contract", "release_funds"}),
         "blocked_actions": [], "accepted_by_receiver": False,
         "validity": {"valid_from": "2026-07-28T09:00:00+08:00", "valid_to": "2026-08-01T09:00:00+08:00", "recorded_at": "2026-07-28T10:00:00+08:00"},
-        "lineage": {"input_hash": "sha256:abc", "output_hash": "sha256:def", "parameter_snapshot_id": "ps-1", "runtime_version": "PPFC-2026.01", "supersedes": None},
+        "lineage": {"input_hash": "sha256:abc", "output_hash": "sha256:def", "parameter_snapshot_id": "ps-1", "runtime_version": "PPFC-2026.07", "supersedes": None},
     }
 
 

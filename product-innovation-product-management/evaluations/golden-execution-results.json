@@ -1,7 +1,7 @@
 {
   "actual_professional_engine_execution": true,
   "artifact_role": "executed_result_not_registry",
-  "executed_at": "2026-07-28T11:42:18.784186+00:00",
+  "executed_at": "2026-07-29T03:26:11.089786+00:00",
   "passed": true,
   "results": [
     {
@@ -26,7 +26,7 @@
       },
       "decision_status": "proposed",
       "engine": "evaluate_product_models.py",
-      "execution_hash": "sha256:5baade6f1ea027259f7537f891db9ff4eac4ea91931f41c51dee7276feceba32",
+      "execution_hash": "sha256:5a6647359591809044f4549c5ba47dbd817fe1e8c391be8b2deed12f2090b688",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:aa713de6fc66ac54c0100a1225939ed7b375f9ea95876e774f49f6b4a45e8589",
       "golden_id": "G-1",
@@ -47,7 +47,7 @@
       "operation": "model",
       "oracle_hash": "sha256:d3f4a495aae577e5ad91875783fb7cf705e59f29ba3da48338fdc480ce34a268",
       "passed": true,
-      "report_hash": "sha256:c7e9e1973e32af058145a4ec5a04362713eb87a199ca141ffb019081ac080624"
+      "report_hash": "sha256:1aa08410ce8a62cdd76a407a7eaa99c759e7a763763b10fdc6655d9ed25576b1"
     },
     {
       "actual_output": {
@@ -73,7 +73,7 @@
       },
       "decision_status": "blocked",
       "engine": "evaluate_product_models.py",
-      "execution_hash": "sha256:ae5c4ac5b462ff35393d9d34d6d00b50be35bcdbbc67928504e43c25766ef94f",
+      "execution_hash": "sha256:090b739a72bf2955f59bc659dbe44fad9809b287584dae313f5fe93d573ddb51",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:a65203626f0a4af6def2b4ebb67928e7f644862429e8816ed1237188347407a0",
       "golden_id": "G-8",
@@ -92,7 +92,7 @@
       "operation": "model",
       "oracle_hash": "sha256:ae953f9e2578287bfd548d114c3d84aab105ea3e89f29f213cf568e0c325bf64",
       "passed": true,
-      "report_hash": "sha256:85c19f34b01790f1177ea1caee50d467280f83f98d4035bfb14a471f468eb600"
+      "report_hash": "sha256:573315f909d68bd4435e4379644c55ffbaf414822c051c8c5ad7f9ff9d0a9ca7"
     },
     {
       "actual_output": {
@@ -116,7 +116,7 @@
       },
       "decision_status": "proposed",
       "engine": "evaluate_product_models.py",
-      "execution_hash": "sha256:ade4554677517e39b4733fb11f063d0aa9ca8ea6e23dc7405d059a379c9c7515",
+      "execution_hash": "sha256:a72116ee97f870d65ecd0c88e7f1ba856cd13427a272e91faf1df492bed61c13",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:b1ebd900cca977790cc2842895356b494523aec9ded65d281fe65a214a599057",
       "golden_id": "G-3",
@@ -137,7 +137,7 @@
       "operation": "model",
       "oracle_hash": "sha256:96e7ca6e54f6fb6aa5bbab7ea0ee99902b7232ee0a0a716a3d1a53a51ff561aa",
       "passed": true,
-      "report_hash": "sha256:821ee475f34ab01f0b41c3b24e53fafac7686823f6848a7fdca9b51ab6210d0f"
+      "report_hash": "sha256:015fb35f65040ea9c1ac670e6bd5837fe9ec9f2a4a33a5172b6ee4c55a0737fd"
     },
     {
       "actual_output": {
@@ -172,7 +172,7 @@
       },
       "decision_status": "proposed",
       "engine": "compute_product_change_impact.py",
-      "execution_hash": "sha256:1e509521a43535d0441c4291f62aaa2702f1e8a10daa85cfddf6f94fcf444806",
+      "execution_hash": "sha256:1046179e3ea00c976b5da1a111f17626d9d816d4946a12460b3a04ea43a3c62d",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:c62bc907310259df6b7212e7fce209d0f6de8f60474f0829524814da8343dd82",
       "golden_id": "G-6",
@@ -189,7 +189,7 @@
       "operation": "product_change",
       "oracle_hash": "sha256:b444e6f414573ed6a4c4d4fe5e61dde9e5334ff7d977276b9e4efc26965b35e9",
       "passed": true,
-      "report_hash": "sha256:20dcc5d4bddaf678d9adec0dcea720cc884af9fb92be610e622c50ba9619bb09"
+      "report_hash": "sha256:efe0e5e7350686678d4435e6b890cc5e36d5ba0b3289baa053b2568d397da366"
     },
     {
       "actual_output": {
@@ -215,7 +215,7 @@
       },
       "decision_status": "blocked",
       "engine": "evaluate_product_models.py",
-      "execution_hash": "sha256:65b1e095386b1b92da0434e9e7236a0d7f2692df670a9e27e5c399d93e0d0e1c",
+      "execution_hash": "sha256:ffc74f00e34896652d805c6f3872a66b21397955e0c3d0644573f84bd5f25ac6",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:05e65569ff5f9e935bf680243de0d1600b4a9b97a37626ba897992c57b4eb04e",
       "golden_id": "G-4",
@@ -234,7 +234,7 @@
       "operation": "model",
       "oracle_hash": "sha256:f0bdf10c83f7007dc68eeb83c0ec3465c5214db33cc210070389d610efdbcfce",
       "passed": true,
-      "report_hash": "sha256:2658dc07f8917498742dfaab18fc3febbf141fe44c7963d2bb2d8eeef679ee91"
+      "report_hash": "sha256:b274cf99026d91cdf5b12e47fdbe8e519d43552b5d547c8a2e47bd362beb6f5e"
     },
     {
       "actual_output": {
@@ -259,7 +259,7 @@
       },
       "decision_status": "rollback",
       "engine": "evaluate_temporary_contract_migration.py",
-      "execution_hash": "sha256:72aba75900d3fe268d730fcc220e26a8d972878c280471d808cbc4f8b805de85",
+      "execution_hash": "sha256:82c0c94337e1021496ef882207628b6683988b863ea3a3e9bbedf47862cc5911",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:0508bf189a3aa8345fe00eb17206c0ab0fc04084e3df79c72237c5bdfc941b02",
       "golden_id": "G-9",
@@ -277,7 +277,7 @@
       "operation": "migration",
       "oracle_hash": "sha256:4914284cd966de7542d70612751dbac3763d6615eb3a893249d4f3f1cc7f2873",
       "passed": true,
-      "report_hash": "sha256:36d84b481832e96d1218993029c8edbdb7efef5cf8fc15beae953cf9955f9994"
+      "report_hash": "sha256:e83b883c7c6b965e303454290402d2ee23d17ef907a9d28065bfaa8b06c0ac40"
     },
     {
       "actual_output": {
@@ -339,7 +339,7 @@
               }
             ],
             "lineage": {
-              "runtime_version": "PIPM-2026.01",
+              "runtime_version": "PIPM-2026.07",
               "state_hash": "sha256:d4c16883f892d3d232e6d99a6374f795862545d402f5157386c30ffa19e6b8aa"
             },
             "next_sequence": 2,
@@ -364,9 +364,9 @@
       },
       "decision_status": "retired",
       "engine": "update_continuous_product_decision.py",
-      "execution_hash": "sha256:c05f108e91d13899d55a3ce8ff479fe9e5521906f061b37208889d48a32aaa46",
+      "execution_hash": "sha256:e6b308d7b2b4978beff5d7b291a859a67d3df3297915992d265c88d645768aa1",
       "execution_source": "scenario_owned_fixture",
-      "fixture_hash": "sha256:d069ea6d08c241a2f2765e4c0b63f6e255519715c171b7bebe301882a8b8aca6",
+      "fixture_hash": "sha256:466909258e9659c29b65a84c0e6efd2d33eeafdb2e525ed097667b9cc39fa2b0",
       "golden_id": "G-10",
       "golden_name": "stop-retire",
       "mutation_decision_status": "blocked",
@@ -379,9 +379,9 @@
         }
       },
       "operation": "continuity",
-      "oracle_hash": "sha256:158e4e383c3fa382cd7b0712ef733dc2c172a1ecfd00a949206ddd80c1606fc3",
+      "oracle_hash": "sha256:70037f6570405793bd7ea99880d570896ec84e481eab828a5c107d5fff7a9350",
       "passed": true,
-      "report_hash": "sha256:2c4f44bede852368aef7340317f2fd869ec8843e0238f0e343021f3db3d26b2b"
+      "report_hash": "sha256:1ee4d40f91cff1565fe2f43a79357d0e2e74ad841d4701e084e22325951a86b2"
     },
     {
       "actual_output": {
@@ -405,7 +405,7 @@
       },
       "decision_status": "inconclusive",
       "engine": "evaluate_product_models.py",
-      "execution_hash": "sha256:a59112fbb207a35768b1185f65d6a87e0acd16110c3ae2ed2748aa17b47e49a1",
+      "execution_hash": "sha256:e1e062a5580b1c332ee8e571d9234d51d10d4c4eebfd467871b3b1ed393f3af9",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:83749cd3b5630e3f78ce6bb3c6623ace99bda2bd62fe74b8f6e1ba2c4262a993",
       "golden_id": "G-2",
@@ -424,7 +424,7 @@
       "operation": "model",
       "oracle_hash": "sha256:932bb83032a06cd7100a120b982e6080a60a0ff768cb2bbab5659a7e1895c181",
       "passed": true,
-      "report_hash": "sha256:53c25ee632480bbf22a50680b05f032b02f6a28e52eac72c27962dd7555fd8c8"
+      "report_hash": "sha256:fb215c9a05c89714710b1599e436481872e5e352666cd6a02e3a4c1e044ec6ff"
     },
     {
       "actual_output": {
@@ -450,7 +450,7 @@
       },
       "decision_status": "blocked",
       "engine": "evaluate_product_models.py",
-      "execution_hash": "sha256:e0b6a06c919ff6b7441c957740655f40a89db277c31e1307d287967111ab8afe",
+      "execution_hash": "sha256:8a3f848eac60c203de2c9bcb7e43b8a636f09a120f6a60e8dc2f4c772c2cdc49",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:9f00a32632922774b0584f0be62e345e4a9a08da37803d355d77b35cd2a9226c",
       "golden_id": "G-7",
@@ -469,7 +469,7 @@
       "operation": "model",
       "oracle_hash": "sha256:28f7d25d970a4426f7b0dccf8c976d40aead0ddec5a3545d0518d02539872863",
       "passed": true,
-      "report_hash": "sha256:76d843a524758c372681c0b952ae83f7bd7c223559276a8c456dada6a4ce6d47"
+      "report_hash": "sha256:42754a16e130c1b922a1e11cb37ce71fc5f9b758acd966244b7f8df0e65f9b35"
     },
     {
       "actual_output": {
@@ -493,7 +493,7 @@
       },
       "decision_status": "proposed",
       "engine": "evaluate_product_models.py",
-      "execution_hash": "sha256:55fec39ca37fa4bae8389f87ac8d3a24c0827038e32a63013110473c603b0897",
+      "execution_hash": "sha256:f7832e924aa74f723287651c52f65359ea7e894dcd7f214dcc8a228c3c3ac132",
       "execution_source": "scenario_owned_fixture",
       "fixture_hash": "sha256:45b2e677b89dce1d2778191db231ad09476cf04999c0d3b457f2afbcb64b095d",
       "golden_id": "G-5",
@@ -512,8 +512,8 @@
       "operation": "model",
       "oracle_hash": "sha256:0b28e028154fcbc842ea20c60ee635ed3a07cf6c5a37c98eeeaea471e9ca3fdc",
       "passed": true,
-      "report_hash": "sha256:53b14b39300df1b5c38e2cfd0116b891fb731ea123caeab7fb39ffe266b81e6d"
+      "report_hash": "sha256:83e78f2dd45a5a15c81ff09736d108a4eed4ea4e128d0057a8ef1420d8310be2"
     }
   ],
-  "version": "PIPM-GOLDEN-EXEC-2026.02"
+  "version": "PIPM-GOLDEN-EXEC-2026.07"
 }

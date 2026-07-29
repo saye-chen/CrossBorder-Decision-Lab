@@ -1,6 +1,6 @@
 # 营销事故与品牌恢复
 
-运行时：`MBCM-2026.01`；成熟度：`controlled pilot`。
+运行时：`MBCM-2026.07`；成熟度：`controlled pilot`。
 
 专属机制：I01—I10、S0—S4、IR0—IR7和十项恢复门。
 

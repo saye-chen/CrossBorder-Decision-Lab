@@ -1,6 +1,6 @@
 {
   "report_id": "PPFC-GOLDEN-XDOMAIN-001",
-  "report_version": "PPFC-REPORT-2026.01.1",
+  "report_version": "PPFC-REPORT-2026.07.1",
   "report_type": "financial_risk_brief",
   "decision_id": "PPFC-D-XDOMAIN-001",
   "decision_version": "v1",
@@ -38,5 +38,5 @@
   "exit_conditions": ["Ending inventory NRV becomes negative.", "No scenario satisfies both contribution and cash gates."],
   "allowed_uses": ["decision_support", "cross_domain_proposed_boundary"],
   "forbidden_uses": ["external_write", "change_price", "change_budget", "place_order", "release_funds"],
-  "lineage": {"input_hash":"sha256:xdomain-input","output_hash":"sha256:xdomain-output","model_version":"PPFC-MODEL-2026.01","runtime_version":"PPFC-2026.01","supersedes":null}
+  "lineage": {"input_hash":"sha256:xdomain-input","output_hash":"sha256:xdomain-output","model_version":"PPFC-MODEL-2026.07","runtime_version":"PPFC-2026.07","supersedes":null}
 }

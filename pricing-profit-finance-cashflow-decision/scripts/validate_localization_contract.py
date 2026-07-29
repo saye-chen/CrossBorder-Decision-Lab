@@ -52,7 +52,7 @@ def validate_localization(payload: dict[str, Any], as_of: str | None = None) -> 
     valid_until = parse_time(validity["valid_until"], "validity.valid_until")
     recorded = parse_time(validity["recorded_at"], "validity.recorded_at")
     require(valid_until > valid_from and recorded >= valid_from, "invalid bitemporal validity")
-    require(payload["lineage"]["runtime_version"] == "PPFC-2026.01", "runtime version mismatch")
+    require(payload["lineage"]["runtime_version"] == "PPFC-2026.07", "runtime version mismatch")
     require(str(payload["lineage"]["input_hash"]).startswith("sha256:"), "input hash required")
     status = payload["localization_status"]
     require(status in {"proposed", "validated", "inconclusive", "blocked", "expired", "superseded", "retired"}, "invalid status")

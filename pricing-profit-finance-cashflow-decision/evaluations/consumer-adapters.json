@@ -1,10 +1,10 @@
 {
-  "contract_version": "PPFC-CONSUMER-ADAPTER-2026.01",
+  "contract_version": "PPFC-CONSUMER-ADAPTER-2026.07",
   "external_write": false,
   "adapters": [
     {
       "domain": "CIDM",
-      "source_runtime": "CIDM-2026.14",
+      "source_runtime": "CIDM-2026.07",
       "source_calculator": "category-investment-decision/scripts/profit_model.py",
       "status": "dual_run_equivalent",
       "exact_equivalence_fixture": "CIDM-EQ-001",
@@ -16,7 +16,7 @@
     },
     {
       "domain": "AAMO",
-      "source_runtime": "AAMO-2026.08",
+      "source_runtime": "AAMO-2026.07",
       "source_calculator": "advertising-analysis-measurement-optimization/scripts/ad_economics.py",
       "status": "dual_run_equivalent",
       "exact_equivalence_fixture": "AAMO-EQ-001",
@@ -28,7 +28,7 @@
     },
     {
       "domain": "CIG",
-      "source_runtime": "CIG-2026.09",
+      "source_runtime": "CIG-2026.07",
       "source_calculator": "consumer-insights-customer-growth/scripts/calculate_clv.py",
       "status": "dual_run_equivalent",
       "exact_equivalence_fixture": "CIG-EQ-001",
@@ -40,7 +40,7 @@
     },
     {
       "domain": "LIFD",
-      "source_runtime": "LIFD-2026.04",
+      "source_runtime": "LIFD-2026.07",
       "source_calculator": "logistics-inventory-fulfillment-decision/scripts/logistics_economics.py",
       "status": "dual_run_equivalent",
       "exact_equivalence_fixture": "LIFD-EQ-001",
@@ -68,7 +68,7 @@
     },
     {
       "domain": "MBCM",
-      "source_runtime": "MBCM-2026.01",
+      "source_runtime": "MBCM-2026.07",
       "source_calculator": "marketing-brand-campaign-management/scripts/offer_economics.py",
       "status": "dual_run_equivalent",
       "exact_equivalence_fixture": "MBCM-EQ-001",
@@ -82,7 +82,7 @@
     },
     {
       "domain": "PLCO",
-      "source_runtime": "PLCO-2026.08",
+      "source_runtime": "PLCO-2026.07",
       "source_calculator": "platform-store-listing-conversion/scripts/calculate_recoverable_value.py",
       "status": "dual_run_equivalent",
       "exact_equivalence_fixture": "PLCO-EQ-001",

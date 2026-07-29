@@ -39,7 +39,7 @@ def validate(payload: dict[str, Any]) -> dict[str, Any]:
     }
     missing = sorted(required - set(payload))
     require(not missing, f"missing required fields: {missing}")
-    require(payload["contract"] == "PPFC-XDOMAIN-2026.01", "unsupported contract")
+    require(payload["contract"] == "PPFC-XDOMAIN-2026.07", "unsupported contract")
     require(payload["sender"] in DOMAINS and payload["receiver"] in DOMAINS, "unknown domain")
     require(payload["sender"] != payload["receiver"], "sender and receiver must differ")
     require(payload["payload_type"] in PAYLOAD_TYPES, "invalid payload_type")
@@ -62,7 +62,7 @@ def validate(payload: dict[str, Any]) -> dict[str, Any]:
         require(parse_time(validity["valid_to"], "validity.valid_to") > valid_from, "valid_to must follow valid_from")
     require(recorded_at >= valid_from, "recorded_at cannot precede valid_from")
     lineage = payload["lineage"]
-    require(lineage.get("runtime_version") == "PPFC-2026.01", "runtime version mismatch")
+    require(lineage.get("runtime_version") == "PPFC-2026.07", "runtime version mismatch")
     require(str(lineage.get("input_hash", "")).startswith("sha256:"), "lineage.input_hash is required")
     require(lineage.get("parameter_snapshot_id"), "parameter snapshot is required")
     if payload["sender"] == PPFC:

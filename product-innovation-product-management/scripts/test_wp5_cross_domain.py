@@ -29,9 +29,9 @@ def envelope(sender="product-innovation-product-management", receiver="pricing-p
         {"claim_id": "C-PACK", "field": "packaging_dimensions", "value": "20x10x5cm"},
     ]
     return {
-        "contract": "PIPM-XDOMAIN-2026.01",
+        "contract": "PIPM-XDOMAIN-2026.07",
         "message_id": "M-001",
-        "message_version": "PIPM-XMSG-2026.01",
+        "message_version": "PIPM-XMSG-2026.07",
         "correlation_id": "COR-001",
         "idempotency_key": "idem-0001",
         "sender": sender,
@@ -48,7 +48,7 @@ def envelope(sender="product-innovation-product-management", receiver="pricing-p
         "forbidden_uses": ["external_write", "change_price", "release_funds", "place_order", "publish_listing"],
         "external_write": False,
         "validity": {"valid_from": "2026-07-28T00:00:00Z", "valid_to": None, "recorded_at": "2026-07-28T00:01:00Z"},
-        "lineage": {"input_hash": "sha256:abc", "parameter_snapshot_id": "PS-1", "runtime_version": "PIPM-2026.01", "supersedes": None},
+        "lineage": {"input_hash": "sha256:abc", "parameter_snapshot_id": "PS-1", "runtime_version": "PIPM-2026.07", "supersedes": None},
     }
 
 
@@ -59,7 +59,7 @@ class WP5Tests(unittest.TestCase):
     def test_d06_constraint_and_partial_claim_acceptance(self):
         value = envelope("pricing-profit-finance-cashflow-decision", "product-innovation-product-management")
         value["payload_type"] = "acceptance"
-        value["lineage"]["runtime_version"] = "PPFC-2026.01"
+        value["lineage"]["runtime_version"] = "PPFC-2026.07"
         value["claim_acceptance"] = [
             {"claim_id": "C-COST", "decision": "accepted", "reason": None},
             {"claim_id": "C-PACK", "decision": "rejected", "reason": "dimension basis stale"},
@@ -107,7 +107,7 @@ class WP5Tests(unittest.TestCase):
 
     def test_legacy_ppfc_contract_is_unchanged_and_still_passes(self):
         schema = json.loads((ROOT / "pricing-profit-finance-cashflow-decision/schemas/cross-domain-envelope.schema.json").read_text())
-        self.assertEqual(schema["properties"]["contract"]["const"], "PPFC-XDOMAIN-2026.01")
+        self.assertEqual(schema["properties"]["contract"]["const"], "PPFC-XDOMAIN-2026.07")
         test = subprocess.run([sys.executable, str(ROOT / "pricing-profit-finance-cashflow-decision/scripts/test_cross_domain_contract.py")], capture_output=True, text=True)
         self.assertEqual(test.returncode, 0, (test.stdout, test.stderr))
 

@@ -70,7 +70,7 @@ def update(payload: dict[str, Any]) -> dict[str, Any]:
         "occurred_at": event["occurred_at"], "idempotency_key": event["idempotency_key"],
         "changed_ids": changed,
     })
-    state["lineage"] = {"state_hash": "sha256:" + canonical_hash({k: v for k, v in state.items() if k != "lineage"}), "runtime_version": "PPFC-2026.01"}
+    state["lineage"] = {"state_hash": "sha256:" + canonical_hash({k: v for k, v in state.items() if k != "lineage"}), "runtime_version": "PPFC-2026.07"}
     validate_state(state)
     return {"state": state, "idempotent_replay": False, "requires_recompute": requires_recompute}
 

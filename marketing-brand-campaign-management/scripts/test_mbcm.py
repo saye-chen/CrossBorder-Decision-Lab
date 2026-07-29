@@ -173,7 +173,7 @@ class CoverageAndDepth(unittest.TestCase):
         self.assertEqual(len(files),10)
         markers=set()
         for p in files:
-            t=p.read_text(); self.assertIn("MBCM-2026.01",t); self.assertIn("controlled pilot",t)
+            t=p.read_text(); self.assertIn("MBCM-2026.07",t); self.assertIn("controlled pilot",t)
             self.assertIn("停止",t); self.assertIn("回滚",t)
             markers.add(next(x for x in t.splitlines() if x.startswith("专属机制：")))
         self.assertEqual(len(markers),10)

@@ -2,7 +2,7 @@
 
 ## 执行摘要
 
-决策结论：`Reduce and Repair`。一句话理由：账户平均 ROAS 为正，但成熟边际贡献为负且点击到达率异常；先降量修复追踪和页面承接，不允许用平均效率继续 Scale。主决策 Skill：`advertising-analysis-measurement-optimization`；运行时 `AAMO-2026.08`；置信度中。
+决策结论：`Reduce and Repair`。一句话理由：账户平均 ROAS 为正，但成熟边际贡献为负且点击到达率异常；先降量修复追踪和页面承接，不允许用平均效率继续 Scale。主决策 Skill：`advertising-analysis-measurement-optimization`；运行时 `AAMO-2026.07`；置信度中。
 
 本报告使用封闭测试输入，不代表当前平台数据或推荐阈值。
 

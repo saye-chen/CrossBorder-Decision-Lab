@@ -2,7 +2,7 @@
 
 ## 执行摘要
 
-当前唯一有效决策结论：`Conditional Fit / Boutique Venture Test`，最大动作到 G4 测款，不批准采购大货或多国铺开。主决策 Skill：`category-investment-decision`；运行时 `CIDM-2026.14`；报告 `CIDM-R-017 v3.0`，父版本 `v2.0`，证据截止 2026-07-17，状态 `current`。
+当前唯一有效决策结论：`Conditional Fit / Boutique Venture Test`，最大动作到 G4 测款，不批准采购大货或多国铺开。主决策 Skill：`category-investment-decision`；运行时 `CIDM-2026.07`；报告 `CIDM-R-017 v3.0`，父版本 `v2.0`，证据截止 2026-07-17，状态 `current`。
 
 一句话理由：首版在卖家未知时只能给产品基础 Observe；随后确认精品组织和独家供应链触发 Rebase 与 Recalculation，当前成本路径转为条件正贡献；新提出的德国站仍是独立待验证对象，不自动继承美国结论。
 

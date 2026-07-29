@@ -31,7 +31,7 @@
     },
     "lineage": {
       "type": "object", "additionalProperties": false, "required": ["input_hash", "runtime_version"],
-      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.01"}}
+      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.07"}}
     }
   }
 }

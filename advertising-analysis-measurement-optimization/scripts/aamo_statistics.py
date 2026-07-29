@@ -3,7 +3,7 @@
 from __future__ import annotations
 import math
 
-STATISTICS_CONTRACT_VERSION="CBSTAT-2026.01"
+STATISTICS_CONTRACT_VERSION="CBSTAT-2026.07"
 
 def finite(value,name="value"):
     try: out=float(value)

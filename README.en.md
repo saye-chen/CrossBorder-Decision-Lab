@@ -4,6 +4,8 @@
 
 > Professional decision infrastructure for cross-border commerce—turning experience-dependent judgment into evidence-based, model-backed, actionable, and compounding decision assets.
 
+Current release train: `2026.07`; target architecture: `CBDS-ARCH-2026.07`; shared contract: `ERDG-CONTRACT-2026.07`.
+
 CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It is not a generic prompt collection. It connects category investment, competitive intelligence, content, customers, advertising, fulfillment, conversion, partnerships, marketing, and pricing finance into eleven professional domains that can operate independently and collaborate under shared decision contracts.
 
 The system includes eleven professional domains with complete core workflows whose expert-level repository gates through L1–L3 are complete, plus ERDG. The new D03/PIPM domain has passed substantive depth review and includes eight deterministic product models, nine specialized outputs, 101 evaluation cases, ten scenario-owned Goldens, 404 positive/counterexample execution assertions, continuous decisions, extreme pressure tests, consumer-owned adapters, dual-run migration, and rollback evidence. Independent-owner authoritative migration remains closed, and every domain remains L4 `controlled pilot`.
@@ -68,109 +70,100 @@ This moves the system from “answering professional questions” toward “cont
 
 ## System Architecture
 
-### Four-layer value architecture
+### D01-D14 target architecture
 
 ```mermaid
 flowchart TB
-    U["Cross-border business decision"] --> D["Eleven professional decision domains<br/>Business judgment and final ownership"]
-
-    D --> CIDM["CIDM<br/>Category and capital"]
-    D --> CIM["CIM<br/>Competitive intelligence"]
-    D --> VLB["VLB<br/>Content creative"]
-    D --> CIG["CIG<br/>Customer growth"]
-    D --> AAMO["AAMO<br/>Advertising measurement"]
-    D --> LIFD["LIFD<br/>Inventory and fulfillment"]
-    D --> PLCO["PLCO<br/>Page conversion"]
-    D --> CAPM["CAPM<br/>Creator and affiliate"]
-    D --> MBCM["MBCM<br/>Marketing and brand"]
-    D --> PPFC["PPFC<br/>Pricing and finance"]
-    D --> PIPM["PIPM<br/>Product innovation"]
-
-    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM & PPFC & PIPM --> E["ERDG governance foundation<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"]
-    E --> G{"Contract and redline validation"}
-    G -->|"Pass"| O["Executable decisions, experiments, stopping rules, and outcome feedback"]
-    G -->|"Missing evidence, conflict, or boundary breach"| B["Block, degrade, or request evidence"]
-    B -.-> D
-    O --> A["Compounding decision assets and operating benchmarks"]
-    A -.->|"Calibrate parameters, counterexamples, and gates"| E
+    U["Operating question · event · new evidence"] --> D14["D14 operating posture and orchestration<br/>Planned"]
+    D14 --> D01["D01 CIDM<br/>Capital and portfolio"]
+    D14 --> D02["D02 CIM<br/>Competitive facts"]
+    D14 --> D03["D03 PIPM<br/>Product definition"]
+    D14 --> D05["D05 compliance and market access<br/>Planned"]
+    D14 --> D06["D06 PPFC<br/>Pricing, profit, and cash"]
+    D01 --> D03 --> D04["D04 supply, procurement, production, and quality<br/>Next build"] --> D07["D07 LIFD<br/>Logistics, inventory, and fulfillment"]
+    D07 --> D12["D12 MBCM<br/>Marketing, brand, and campaigns"]
+    D12 --> D11["D11 VLB<br/>Content creative"]
+    D12 --> D10["D10 CAPM<br/>Creator and affiliate"]
+    D11 --> D08["D08 PLCO<br/>Platform and conversion"]
+    D11 --> D09["D09 AAMO<br/>Advertising measurement"]
+    D10 --> D08
+    D10 --> D09
+    D08 --> D13["D13 CIG<br/>Customer, experience, and growth"]
+    D09 --> D13
+    D02 -.facts and continuous monitoring.-> D01
+    D05 -.access and continuous compliance.-> D04
+    D06 -.economic and cash boundaries.-> D04
+    D13 --> O["Actions, customer, and operating outcomes"]
+    O --> D06 --> D01 --> D14
+    O -.quality, competition, rules, and customer feedback.-> D02
+    O -.quality, competition, rules, and customer feedback.-> D04
+    O -.quality, competition, rules, and customer feedback.-> D05
+    E["ERDG governance control plane<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"] -.governs.-> D14
+    E -.contract and redline validation.-> D01
+    E -.contract and redline validation.-> D04
+    E -.contract and redline validation.-> D12
+    O -.replay and parameter calibration.-> E
+    classDef planned stroke-dasharray:6 5
+    class D05,D14 planned
 ```
 
-The first layer routes the question, the second preserves final ownership in the eleven professional domains, the third applies ERDG contracts and deterministic shared calculations, and the fourth turns validated judgments into actions and compounding assets. ERDG does not make domain business decisions.
+Eleven domains are currently runnable; D04 is the next build, while D05 and D14 are planned and are blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. D14 orchestrates only, and ERDG performs neutral governance and deterministic shared calculations without making domain business decisions.
 
-### Eleven-Skill collaboration map
+### Continuous D01-D14 decision loop
 
 ```mermaid
-flowchart TB
-    U["Cross-border decision"] --> R{"Which domain owns the decision?"}
-    E["ERDG<br/>Economic, Risk & Decision Governance"]
-    R --> CIDM["CIDM<br/>Category investment"]
-    R --> CIM["CIM<br/>Competitive intelligence"]
-    R --> VLB["VLB<br/>Content decisions"]
-    R --> CIG["CIG<br/>Customer growth"]
-    R --> AAMO["AAMO<br/>Advertising"]
-    R --> LIFD["LIFD<br/>Inventory and fulfillment"]
-    R --> PLCO["PLCO<br/>Platform and conversion"]
-    R --> CAPM["CAPM<br/>Creator and affiliate"]
-    R --> MBCM["MBCM<br/>Marketing and brand"]
-    R --> PPFC["PPFC<br/>Pricing, profit, and cash flow"]
-    R --> PIPM["PIPM<br/>Product innovation and management"]
-
-    CIDM <-->|"Opportunity and capital posture"| CIM
-    CIDM <-->|"Content viability"| VLB
-    CIDM <-->|"Customer value"| CIG
-    CIDM <-->|"Media economics"| AAMO
-    CIDM <-->|"Inventory and exit"| LIFD
-    CIDM <-->|"Conversion readiness"| PLCO
-    CIDM <-->|"Partnership economics"| CAPM
-    CIDM <-->|"Positioning and GTM"| MBCM
-
-    CIM <-->|"Creative changes"| VLB
-    CIM <-->|"Market and customer signals"| CIG
-    CIM <-->|"Competitive media"| AAMO
-    CIM <-->|"Supply signals"| LIFD
-    CIM <-->|"Page changes"| PLCO
-    CIM <-->|"Partner activity"| CAPM
-    CIM <-->|"Brand posture"| MBCM
-
-    VLB <-->|"VOC and response"| CIG
-    VLB <-->|"Creative testing"| AAMO
-    VLB <-->|"Promise constraints"| LIFD
-    VLB <-->|"Page assets"| PLCO
-    VLB <-->|"Creator content rights"| CAPM
-    VLB <-->|"Brand expression"| MBCM
-
-    CIG <-->|"Incrementality and attribution"| AAMO
-    CIG <-->|"Service and returns"| LIFD
-    CIG <-->|"Journey friction"| PLCO
-    CIG <-->|"Referral quality"| CAPM
-    CIG <-->|"Segmentation and brand health"| MBCM
-
-    AAMO <-->|"Demand and capacity"| LIFD
-    AAMO <-->|"Traffic and conversion"| PLCO
-    AAMO <-->|"Creator amplification"| CAPM
-    AAMO <-->|"Campaign and channel roles"| MBCM
-
-    LIFD <-->|"Availability and promises"| PLCO
-    LIFD <-->|"Samples and fulfillment"| CAPM
-    LIFD <-->|"Launch and campaign capacity"| MBCM
-    PLCO <-->|"Links and landing rights"| CAPM
-    PLCO <-->|"Offer and campaign delivery"| MBCM
-    CAPM <-->|"Partner portfolio and brand programs"| MBCM
-    PPFC <-->|"Pricing, profit, and cash boundaries"| CIDM
-    PPFC <-->|"Competitive price facts and financial impact"| CIM
-    PPFC <-->|"Content sample investment and marginal value"| VLB
-    PPFC <-->|"CLV, CAC, and customer contribution"| CIG
-    PPFC <-->|"Break-even metrics and advertising finance"| AAMO
-    PPFC <-->|"Logistics cost, inventory value, and cash"| LIFD
-    PPFC <-->|"Price display and recoverable contribution"| PLCO
-    PPFC <-->|"Commission, samples, and partner economics"| CAPM
-    PPFC <-->|"Promotion, campaign, and brand economics"| MBCM
-
-    R -.->|"Create the shared decision contract"| E
-    E -.->|"Versioned evidence, calculations, and redlines"| R
+sequenceDiagram
+    actor U as User/operating event
+    participant D14 as D14 orchestration (planned)
+    participant D02 as D02 CIM
+    participant D13 as D13 CIG
+    participant D01 as D01 CIDM
+    participant D03 as D03 PIPM
+    participant D04 as D04 supply (next build)
+    participant D05 as D05 compliance (planned)
+    participant D06 as D06 PPFC
+    participant D07 as D07 LIFD
+    participant M as D12/D11/D10/D08/D09 market domains
+    participant E as ERDG
+    U->>D14: Question, event, or new evidence
+    par Facts and constraints
+      D14->>D02: Competitive facts
+      D14->>D13: Customer evidence
+      D14->>D06: Economic and cash boundaries
+      D14->>D05: Compliance and market access
+    end
+    D14->>E: G0 evidence qualification
+    E-->>D14: Pass / degrade / block
+    D14->>D01: Capital posture
+    D01-->>D14: Budget, stop, and exit boundaries
+    D14->>D03: Product definition
+    D03-->>D14: Product Definition Packet
+    par Product realization
+      D14->>D04: Supplier, sample, capacity, and quality
+      D14->>D06: Product economics recomputation
+      D14->>D05: Formal product access
+    end
+    D14->>E: G2 product-supply-economics-access
+    E-->>D14: Pass / partially accept / block
+    D04->>D07: Qualified batch, capacity, and lead time
+    D07-->>D14: ATP/CTP, fulfillment, and reverse plan
+    D14->>M: Parallel positioning, content, creator, page, and media work
+    M-->>D13: Conversion, acquisition, service, and partner outcomes
+    D13-->>D14: Outcome Packet
+    par Operating review
+      D14->>D06: Actual economics
+      D14->>D02: Competitive change review
+      D14->>D04: Quality and supplier recovery
+      D14->>D05: Continuous compliance review
+    end
+    D14->>E: G5 lineage closure and selective recomputation
+    E-->>D14: Child cycle and impact closure
+    D14->>D01: Actual operating results
+    D01-->>D14: Add / hold / reduce / exit
+    D14-->>U: New current effective operating posture
 ```
 
-Solid connections exchange professional evidence and constraints without transferring final decision ownership. Dashed ERDG connections show governance across routing and handoffs; ERDG does not own business conclusions.
+The sequence shows the cross-phase spine only. The five market Skills keep separate sovereignty and exchange standard packets. The authoritative D01-D14 registry is [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json). The whole system now uses v2 handoffs and Decision Cycle; the old v1 runtime path is retired.
 
 ## Skill Directory
 
@@ -178,23 +171,23 @@ Choose the primary Skill by the decision that must be made. Platform coverage, p
 
 | Skill | Runtime | Decision owned | Entry |
 |---|---|---|---|
-| CIDM | `CIDM-2026.14` | Enter, invest, test, scale, reduce, or exit | [Category Investment](category-investment-decision/SKILL.md) |
-| CIM | `CIM-2026.10` | Identify competitors, detect change, interpret impact, and respond | [Competitive Intelligence](competitive-intelligence-monitoring/SKILL.md) |
-| VLB | `VLB-2026.10` | Explain, adapt, produce, test, and scale content mechanisms | [Content Creative](video-link-breakdown/SKILL.md) |
-| CIG | `CIG-2026.09` | Understand customers, friction, incremental value, and growth | [Customer Growth](consumer-insights-customer-growth/SKILL.md) |
-| AAMO | `AAMO-2026.08` | Diagnose, measure, budget, scale, or stop advertising | [Advertising](advertising-analysis-measurement-optimization/SKILL.md) |
-| LIFD | `LIFD-2026.04` | Route, replenish, allocate, fulfill, recover, or exit | [Logistics and Inventory](logistics-inventory-fulfillment-decision/SKILL.md) |
-| PLCO | `PLCO-2026.08` | Diagnose and improve stores, listings, pages, and funnels | [Platform and Conversion](platform-store-listing-conversion/SKILL.md) |
+| CIDM | `CIDM-2026.07` | Enter, invest, test, scale, reduce, or exit | [Category Investment](category-investment-decision/SKILL.md) |
+| CIM | `CIM-2026.07` | Identify competitors, detect change, interpret impact, and respond | [Competitive Intelligence](competitive-intelligence-monitoring/SKILL.md) |
+| VLB | `VLB-2026.07` | Explain, adapt, produce, test, and scale content mechanisms | [Content Creative](video-link-breakdown/SKILL.md) |
+| CIG | `CIG-2026.07` | Understand customers, friction, incremental value, and growth | [Customer Growth](consumer-insights-customer-growth/SKILL.md) |
+| AAMO | `AAMO-2026.07` | Diagnose, measure, budget, scale, or stop advertising | [Advertising](advertising-analysis-measurement-optimization/SKILL.md) |
+| LIFD | `LIFD-2026.07` | Route, replenish, allocate, fulfill, recover, or exit | [Logistics and Inventory](logistics-inventory-fulfillment-decision/SKILL.md) |
+| PLCO | `PLCO-2026.07` | Diagnose and improve stores, listings, pages, and funnels | [Platform and Conversion](platform-store-listing-conversion/SKILL.md) |
 | CAPM | `CAPM-2026.07` | Select, price, contract, operate, renew, or exit partners | [Creator and Affiliate](creator-affiliate-partnership-management/SKILL.md) |
-| MBCM | `MBCM-2026.01` | Segment, position, launch, build brands, and orchestrate campaigns | [Marketing and Brand](marketing-brand-campaign-management/SKILL.md) |
-| PPFC | `PPFC-2026.01` | Calculate and adjust price, profit, contribution, break-even metrics, financial constraints, and cash risk | [Pricing, Profit, Finance, and Cash Flow](pricing-profit-finance-cashflow-decision/SKILL.md) |
-| PIPM | `PIPM-2026.01` | Turn opportunities into traceable product definitions, specifications, MVPs, and roadmaps | [Product Innovation and Product Management](product-innovation-product-management/SKILL.md) |
+| MBCM | `MBCM-2026.07` | Segment, position, launch, build brands, and orchestrate campaigns | [Marketing and Brand](marketing-brand-campaign-management/SKILL.md) |
+| PPFC | `PPFC-2026.07` | Calculate and adjust price, profit, contribution, break-even metrics, financial constraints, and cash risk | [Pricing, Profit, Finance, and Cash Flow](pricing-profit-finance-cashflow-decision/SKILL.md) |
+| PIPM | `PIPM-2026.07` | Turn opportunities into traceable product definitions, specifications, MVPs, and roadmaps | [Product Innovation and Product Management](product-innovation-product-management/SKILL.md) |
 
 Detailed platform coverage, models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
 
 ## Shared Decision Infrastructure
 
-The eleven domains share [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
+The eleven domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
 
 1. evidence and counterevidence discipline;
 2. auditable economics and statistical estimation;

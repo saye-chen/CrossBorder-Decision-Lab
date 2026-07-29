@@ -3,7 +3,7 @@
 from __future__ import annotations
 import datetime, hashlib, json, math, pathlib, sys
 
-RUNTIME="MBCM-2026.01"
+RUNTIME="MBCM-2026.07"
 
 class ModelError(ValueError): pass
 

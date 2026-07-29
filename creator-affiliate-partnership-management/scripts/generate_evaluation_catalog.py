@@ -243,7 +243,7 @@ def build() -> dict:
                               "forbidden":["silent_coercion","score_compensation"]},family,gate,"blocked"))
     coverage={mode:sum(c["mode"]==mode for c in cases) for mode in ("solo","cross_skill","multi_turn","extreme","property")}
     distributions={key:{value:sum(c[key]==value for c in cases) for value in sorted({c[key] for c in cases})} for key in ("primary_gate","capability_group","outcome_class","lifecycle_phase")}
-    return {"catalog_version": "CAPM-EVAL-2026.03", "count": len(cases), "coverage": coverage, "distributions":distributions, "cases": cases}
+    return {"catalog_version": "CAPM-EVAL-2026.07", "count": len(cases), "coverage": coverage, "distributions":distributions, "cases": cases}
 
 
 if __name__ == "__main__":

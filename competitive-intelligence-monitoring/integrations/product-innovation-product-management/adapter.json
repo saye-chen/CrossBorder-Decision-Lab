@@ -1,5 +1,5 @@
 {
-  "adapter_version": "PIPM-CONSUMER-2026.01",
+  "adapter_version": "PIPM-CONSUMER-2026.07",
   "allowed_uses": [
     "decision_support"
   ],
@@ -7,7 +7,7 @@
     "consumer_execution_until_accepted"
   ],
   "consumer": "competitive-intelligence-monitoring",
-  "contract": "PIPM-CONSUMER-2026.01",
+  "contract": "PIPM-CONSUMER-2026.07",
   "external_write": false,
   "field_mapping": {
     "claim_scope": "pipm.claim_scope",
@@ -60,6 +60,6 @@
     "competitor_identity",
     "competitive_attribution"
   ],
-  "runtime": "CIM-2026.10",
+  "runtime": "CIM-2026.07",
   "status": "automated_contract_accepted"
 }

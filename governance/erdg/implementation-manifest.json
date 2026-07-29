@@ -1,7 +1,7 @@
 {
-  "baseline": "ERDG-BP-2026.01-approved.1",
-  "runtime": "ERDG-2026.01",
-  "contract": "ERDG-CONTRACT-2026.01",
+  "baseline": "ERDG-BP-2026.07-approved.1",
+  "runtime": "ERDG-2026.07",
+  "contract": "ERDG-CONTRACT-2026.07",
   "implemented_at": "2026-07-27",
   "status_definitions": {
     "fixed": "Normative source, executable mechanism and independent failure assertion exist.",
@@ -22,7 +22,7 @@
     {"id":"R12","capability":"scoped versioned parameter resolution","status":"fixed","evidence":["governance/erdg/scripts/resolve_parameters.py","governance/erdg/parameter-registry.json"],"tests":["governance/erdg/tests/test_erdg.py"]},
     {"id":"R13","capability":"canonical SHA-256 lineage and selective recomputation","status":"fixed","evidence":["governance/erdg/scripts/canonicalize_payload.py","governance/erdg/scripts/hash_lineage.py","governance/erdg/scripts/compute_impact_closure.py"],"tests":["governance/erdg/tests/test_erdg.py"]},
     {"id":"R14","capability":"missing uncertainty and confidence semantics","status":"fixed","evidence":["governance/erdg/references/object-evidence-and-claims.md"],"tests":["governance/erdg/tests/test_erdg.py"]},
-    {"id":"R15","capability":"dual-read authority switch compatibility migration and rollback","status":"fixed","evidence":["governance/erdg/migration-manifest.json","governance/erdg/scripts/migrate_contract.py","category-investment-decision/scripts/validate_decision_contract.py","scripts/validate_decision_contract.py"],"tests":["governance/erdg/tests/test_erdg.py","scripts/test_full_repository_audit.py"]},
+    {"id":"R15","capability":"single-authority v2 cutover with retired v1 and dual-track paths blocked","status":"fixed","evidence":["governance/erdg/contract-version.json","governance/erdg/schemas/handoff-envelope.schema.json","scripts/validate_domain_architecture.py"],"tests":["governance/erdg/tests/test_erdg.py","scripts/test_domain_architecture.py","scripts/test_full_repository_audit.py"]},
     {"id":"R16","capability":"automation cannot approve or externally write","status":"fixed","evidence":["governance/erdg/ERDG.md","governance/erdg/schemas/action.schema.json"],"tests":["governance/erdg/tests/test_erdg.py"]},
     {"id":"R17","capability":"versioned release and impact closure","status":"fixed","evidence":["governance/erdg/contract-version.json","governance/change-impact-manifest.json"],"tests":["scripts/validate_repo.py","scripts/test_full_repository_audit.py"]},
     {"id":"R18","capability":"authorized real replay L4 gate","status":"controlled_external_gate","evidence":["governance/erdg/contract-version.json","governance/erdg/schemas/replay.schema.json"],"tests":["governance/erdg/tests/test_erdg.py"]}
@@ -31,7 +31,9 @@
     ,{"id":"ERDG-XSCHEMA","capability":"complete JSON Schema Draft 2020-12 and format validation","status":"fixed","evidence":["governance/erdg/schemas","governance/erdg/scripts/validate_schema_instance.py","requirements-dev.txt"],"tests":["governance/erdg/tests/test_erdg.py"]}
     ,{"id":"ERDG-XRECOMPUTE","capability":"all seven Golden reports bind cases deterministic inputs and recomputed output hashes","status":"fixed","evidence":["evaluations/erdg/report-recomputation-manifest.json","evaluations/erdg/golden","governance/erdg/scripts/validate_report_recomputation.py"],"tests":["governance/erdg/tests/test_erdg.py","scripts/test_full_repository_audit.py"]}
     ,{"id":"ERDG-XCAPACITY","capability":"reference latency memory determinism and hard input capacity gates","status":"fixed","evidence":["governance/erdg/capacity-contract.json","governance/erdg/scripts/validate_erdg_capacity.py"],"tests":["governance/erdg/tests/test_erdg.py","scripts/test_full_repository_audit.py"]}
+    ,{"id":"ERDG-XREGISTRY","capability":"registry-driven D01-D14 identity sovereignty dependency and availability gates","status":"fixed","evidence":["governance/domain-architecture-registry.json","governance/domain-architecture-registry.schema.json","governance/erdg/scripts/validate_domain_contract.py"],"tests":["scripts/validate_domain_architecture.py","scripts/test_domain_architecture.py","scripts/test_full_repository_audit.py"]}
+    ,{"id":"ERDG-XHANDOFFV2","capability":"sole authoritative v2 handoff and semantically governed continuous decision cycle","status":"fixed","evidence":["governance/erdg/schemas/handoff-envelope.schema.json","governance/erdg/schemas/decision-cycle.schema.json","governance/erdg/scripts/validate_handoff.py","governance/erdg/scripts/validate_decision_cycle.py"],"tests":["scripts/test_domain_architecture.py","scripts/test_full_repository_audit.py"]}
   ],
-  "summary": {"fixed":22,"controlled_external_gate":1,"partial":0,"missing":0},
+  "summary": {"fixed":24,"controlled_external_gate":1,"partial":0,"missing":0},
   "production_ready": false
 }

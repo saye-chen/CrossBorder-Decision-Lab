@@ -61,7 +61,7 @@ def main():
     cases=[]; offset=0
     for mode,count in COUNTS.items():
         cases.extend(case(mode,n,offset) for n in range(count)); offset+=count
-    manifest={"schema_version":"1.0","runtime":"MBCM-2026.01","counts":COUNTS,"total":len(cases),
+    manifest={"schema_version":"1.0","runtime":"MBCM-2026.07","counts":COUNTS,"total":len(cases),
       "high_risk_combinations":HIGH_RISK_COMBINATIONS,
       "coverage":{"scenarios":sorted({x["scenario"] for x in cases}),"questions":sorted({x["question"] for x in cases}),
         "lifecycles":sorted({x["lifecycle"] for x in cases}),"gates":sorted({x["primary_gate"] for x in cases}),

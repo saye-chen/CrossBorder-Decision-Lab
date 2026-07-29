@@ -347,7 +347,7 @@ def validate_domain_contract_entrypoints() -> list[str]:
             skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
             if "validate_decision_contract.py" not in skill_text:
                 errors.append(f"{skill_dir.name}: decision contract validator is not routed")
-            if "ERDG-CONTRACT-2026.01" not in skill_text:
+            if "ERDG-CONTRACT-2026.07" not in skill_text:
                 errors.append(f"{skill_dir.name}: ERDG contract is not routed from SKILL.md")
             adapter = f"governance/erdg/adapters/{skill_dir.name}/adapter.json"
             if adapter not in skill_text:
@@ -372,13 +372,15 @@ def validate_erdg_baseline() -> list[str]:
     errors: list[str] = []
     root = ROOT / "governance/erdg"
     required = [
-        "ERDG.md", "contract-version.json", "parameter-registry.json", "migration-manifest.json", "implementation-manifest.json",
+        "ERDG.md", "contract-version.json", "parameter-registry.json", "implementation-manifest.json",
         "scripts/validate_contract.py", "scripts/calculate_economic_layers.py", "scripts/calculate_cash_flow.py",
         "scripts/evaluate_risk_and_redlines.py", "scripts/validate_units_currency_tax_time.py",
         "scripts/validate_state_transition.py", "scripts/resolve_parameters.py", "scripts/hash_lineage.py",
-        "scripts/compute_impact_closure.py", "scripts/migrate_contract.py",
+        "scripts/compute_impact_closure.py",
         "scripts/validate_schema_instance.py", "scripts/validate_erdg_depth.py",
         "scripts/validate_report_recomputation.py", "scripts/validate_erdg_capacity.py",
+        "scripts/validate_handoff.py",
+        "scripts/validate_decision_cycle.py",
         "capacity-contract.json",
         "tests/test_erdg.py",
     ]
@@ -400,11 +402,11 @@ def validate_erdg_baseline() -> list[str]:
             errors.append("ERDG: L4 must remain closed without real replay")
         if version.get("owner") != "repository-governance":
             errors.append("ERDG: owner must be repository-governance")
-        migration = json.loads((root / "migration-manifest.json").read_text(encoding="utf-8"))
-        if migration.get("authoritative_source") != "governance/erdg/scripts/validate_contract.py":
-            errors.append("ERDG: authoritative contract source is not switched")
-        if migration.get("retired_path") != "governance/f03" or migration.get("retired_path_allowed") is not False:
-            errors.append("ERDG: retired f03 path is not explicitly closed")
+        if version.get("contract") != "ERDG-CONTRACT-2026.07" or version.get("schema_version") != "2.0.0":
+            errors.append("ERDG: sole authoritative contract must be v2")
+        for retired in ("migration-manifest.json", "scripts/migrate_contract.py", "schemas/handoff-envelope-v2.schema.json"):
+            if (root / retired).exists():
+                errors.append(f"ERDG: retired dual-track artifact still exists: {retired}")
     except (OSError, json.JSONDecodeError) as exc:
         errors.append(f"ERDG: invalid governance JSON: {exc}")
     forbidden = ("governance/f03", "test_f03.py", "f03_common.py")
@@ -417,7 +419,6 @@ def validate_erdg_baseline() -> list[str]:
             continue
         relative = path.relative_to(ROOT).as_posix()
         if relative in {
-            "governance/erdg/migration-manifest.json",
             "governance/erdg/ERDG.md",
             "governance/erdg/tests/test_erdg.py",
             "scripts/validate_repo.py",

@@ -20,7 +20,7 @@ def validate(d):
         if errors:
             raise ModelError("erdg:"+("|".join(errors)))
         return {"valid":True,"contract_type":"erdg_shared","decision_owner":d["decision_owner"],
-                "erdg_contract":"ERDG-CONTRACT-2026.01"}
+                "erdg_contract":"ERDG-CONTRACT-2026.07"}
     require(d,"decision_id","decision_version","question_type","intent","primary_object","scope",
             "lifecycle_stage","business_objective","authority","constraints","evidence_cutoff",
             "decision_deadline","reversibility")

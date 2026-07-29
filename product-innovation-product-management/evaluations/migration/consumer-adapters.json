@@ -1,7 +1,7 @@
 {
   "adapters": [
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -58,11 +58,11 @@
         "capital_entry",
         "portfolio_allocation"
       ],
-      "runtime": "CIDM-2026.14",
+      "runtime": "CIDM-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -122,11 +122,11 @@
         "competitor_identity",
         "competitive_attribution"
       ],
-      "runtime": "CIM-2026.10",
+      "runtime": "CIM-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -183,11 +183,11 @@
         "creative_mechanism",
         "content_expression"
       ],
-      "runtime": "VLB-2026.10",
+      "runtime": "VLB-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -246,11 +246,11 @@
         "retention",
         "clv"
       ],
-      "runtime": "CIG-2026.09",
+      "runtime": "CIG-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -309,11 +309,11 @@
         "budget",
         "bid"
       ],
-      "runtime": "AAMO-2026.08",
+      "runtime": "AAMO-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -380,11 +380,11 @@
         "replenishment",
         "fulfillment"
       ],
-      "runtime": "LIFD-2026.04",
+      "runtime": "LIFD-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -451,11 +451,11 @@
         "offer_display",
         "experiment"
       ],
-      "runtime": "PLCO-2026.08",
+      "runtime": "PLCO-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -520,7 +520,7 @@
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -584,11 +584,11 @@
         "campaign",
         "offer_direction"
       ],
-      "runtime": "MBCM-2026.01",
+      "runtime": "MBCM-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -653,11 +653,11 @@
         "profit",
         "cashflow"
       ],
-      "runtime": "PPFC-2026.01",
+      "runtime": "PPFC-2026.07",
       "status": "automated_contract_accepted"
     },
     {
-      "adapter_version": "PIPM-CONSUMER-2026.01",
+      "adapter_version": "PIPM-CONSUMER-2026.07",
       "allowed_uses": [
         "decision_support"
       ],
@@ -718,10 +718,10 @@
       "retained_sovereignty": [
         "structural_governance"
       ],
-      "runtime": "ERDG-CONTRACT-2026.01",
+      "runtime": "ERDG-CONTRACT-2026.07",
       "status": "automated_contract_accepted"
     }
   ],
-  "contract": "PIPM-CONSUMER-2026.01",
+  "contract": "PIPM-CONSUMER-2026.07",
   "external_write": false
 }

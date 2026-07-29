@@ -1,5 +1,5 @@
 {
-  "runtime": "ERDG-2026.01",
+  "runtime": "ERDG-2026.07",
   "maturity": "controlled_pilot",
   "modes": ["single_skill", "cross_skill", "composite", "multi_turn", "complex", "extreme", "stress"],
   "cases": [

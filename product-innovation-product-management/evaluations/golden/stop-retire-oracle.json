@@ -1,6 +1,6 @@
 {
   "expected_execution_state": "completed",
-  "expected_output_hash": "sha256:5c54695fe70c493687708ce00c25089c1664ba58e9cac0725fddd8a3098233e5",
+  "expected_output_hash": "sha256:177537fa6bac14ccfa075886623e9952dddb9bd143064dd4cb6e585d2cc61d0f",
   "expected_status": "retired",
   "mutation": {
     "expected_execution_state": "blocked",

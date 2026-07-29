@@ -5,7 +5,7 @@
   "additionalProperties": false,
   "required": ["contract", "request_id", "object_ref", "scope", "status", "intended_use", "foreseeable_misuse", "users", "product_facts", "claims", "review_questions", "blocked_actions", "external_write"],
   "properties": {
-    "contract": {"const": "PIPM-D05-TEMP-2026.01"},
+    "contract": {"const": "PIPM-D05-TEMP-2026.07"},
     "request_id": {"type": "string"},
     "object_ref": {"type": "object", "required": ["object_id", "object_version"], "properties": {"object_id": {"type": "string"}, "object_version": {"type": "string"}}},
     "scope": {"type": "object", "required": ["jurisdiction", "country", "platform", "sales_model", "business_time"], "properties": {"jurisdiction": {"type": "string"}, "country": {"type": "string", "pattern": "^[A-Z]{2}$"}, "platform": {"type": "string"}, "sales_model": {"type": "string"}, "business_time": {"type": "string", "format": "date-time"}}},

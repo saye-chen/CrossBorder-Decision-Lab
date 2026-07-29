@@ -2,13 +2,13 @@
   "objects": [{"object_id":"OBJ-US-AMZ-P1","kind":"product-market"}],
   "reports": [
     {
-      "report_id":"CIDM-R-017-v1","report_version":"v1.0","object_id":"OBJ-US-AMZ-P1","parent_report_ids":[],"runtime_version":"CIDM-2026.14","evidence_cutoff":"2026-07-16","information_state":"sha256:state-v1","status":"historical","change_class":"Revision",
+      "report_id":"CIDM-R-017-v1","report_version":"v1.0","object_id":"OBJ-US-AMZ-P1","parent_report_ids":[],"runtime_version":"CIDM-2026.07","evidence_cutoff":"2026-07-16","information_state":"sha256:state-v1","status":"historical","change_class":"Revision",
       "impact_set":{"recalculate":[],"review":["seller_fit"],"inherit":[],"unaffected":["market_demand"]},
       "transition_matrix":[{"item":"seller_profile","state":"unknown"}],"modules":{"object_boundary":"complete","market_demand":"complete","economics":"assumption"},"actions":[],"calculations":[],"changed_inputs":[],"required_calculation_ids":[],
       "depth_metrics":{"decisive_modules":8,"evidence_count":6,"counterevidence_count":2,"assumption_count":4,"calculation_count":0,"action_contract_count":0},"effective_conclusion":"Observe"
     },
     {
-      "report_id":"CIDM-R-017-v2","report_version":"v2.0","object_id":"OBJ-US-AMZ-P1","parent_report_ids":["CIDM-R-017-v1"],"runtime_version":"CIDM-2026.14","evidence_cutoff":"2026-07-17","information_state":"sha256:state-v2","status":"current","change_class":"Rebase",
+      "report_id":"CIDM-R-017-v2","report_version":"v2.0","object_id":"OBJ-US-AMZ-P1","parent_report_ids":["CIDM-R-017-v1"],"runtime_version":"CIDM-2026.07","evidence_cutoff":"2026-07-17","information_state":"sha256:state-v2","status":"current","change_class":"Rebase",
       "impact_set":{"recalculate":["economics","capital_and_inventory"],"review":["seller_fit","risk_and_compliance","action_plan"],"inherit":["market_demand","competition"],"unaffected":["object_boundary"]},
       "transition_matrix":[{"item":"seller_profile","state":"replaced"},{"item":"conclusion","state":"changed"},{"item":"old_actions","state":"revoked"}],
       "modules":{"object_boundary":"complete","market_demand":"inherited","competition":"inherited","economics":"recalculated","seller_fit":"rebased","action_plan":"rebased"},

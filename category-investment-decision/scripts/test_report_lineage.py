@@ -15,7 +15,7 @@ def action(status="planned", aid="A1"):
     return {"action_id":aid,"status":status,"owner":"owner","deadline":"2026-08-01","success":"pass","stop":"stop","rollback":"rollback"}
 
 def report(rid="R1", status="current", parents=None, change="Revision", obj="O1"):
-    return {"report_id":rid,"report_version":"v1","object_id":obj,"parent_report_ids":parents or [],"runtime_version":"CIDM-2026.14",
+    return {"report_id":rid,"report_version":"v1","object_id":obj,"parent_report_ids":parents or [],"runtime_version":"CIDM-2026.07",
             "evidence_cutoff":"2026-07-17","information_state":f"hash-{rid}","status":status,"change_class":change,
             "impact_set":{"recalculate":[],"review":["risk"],"inherit":["market"],"unaffected":[]},
             "transition_matrix":[{"item":"conclusion","state":"confirmed"}],"modules":{"market":"complete"},

@@ -156,8 +156,8 @@ def validate_structure() -> None:
         if ":" in line
     }
     require(keys == {"name", "description"}, f"frontmatter keys must be name and description: {keys}")
-    require("PPFC-2026.01" in skill, "runtime version is missing")
-    require("ERDG-CONTRACT-2026.01" in skill, "ERDG contract is missing")
+    require("PPFC-2026.07" in skill, "runtime version is missing")
+    require("ERDG-CONTRACT-2026.07" in skill, "ERDG contract is missing")
     for relative in REQUIRED_FILES:
         if relative.endswith((".md", ".json")) and relative != "SKILL.md":
             require(relative in skill, f"SKILL.md does not route {relative}")

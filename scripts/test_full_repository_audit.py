@@ -12,17 +12,17 @@ import unittest
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 SKILLS={
- "category-investment-decision":("investment","CIDM-2026.14","cidm"),
- "competitive-intelligence-monitoring":("competition","CIM-2026.10","cim"),
- "video-link-breakdown":("content_creative","VLB-2026.10","vlb"),
- "consumer-insights-customer-growth":("customer_growth","CIG-2026.09","cig"),
- "advertising-analysis-measurement-optimization":("advertising","AAMO-2026.08","d09"),
- "logistics-inventory-fulfillment-decision":("logistics","LIFD-2026.04","d07"),
- "platform-store-listing-conversion":("listing_conversion","PLCO-2026.08","d08"),
+ "category-investment-decision":("investment","CIDM-2026.07","cidm"),
+ "competitive-intelligence-monitoring":("competition","CIM-2026.07","cim"),
+ "video-link-breakdown":("content_creative","VLB-2026.07","vlb"),
+ "consumer-insights-customer-growth":("customer_growth","CIG-2026.07","cig"),
+ "advertising-analysis-measurement-optimization":("advertising","AAMO-2026.07","d09"),
+ "logistics-inventory-fulfillment-decision":("logistics","LIFD-2026.07","d07"),
+ "platform-store-listing-conversion":("listing_conversion","PLCO-2026.07","d08"),
  "creator-affiliate-partnership-management":("creator_affiliate","CAPM-2026.07","capm"),
- "marketing-brand-campaign-management":("marketing_brand_campaign","MBCM-2026.01","mbcm"),
- "pricing-profit-finance-cashflow-decision":("pricing_profit","PPFC-2026.01","ppfc"),
- "product-innovation-product-management":("product_definition","PIPM-2026.01","pipm"),
+ "marketing-brand-campaign-management":("marketing_brand_campaign","MBCM-2026.07","mbcm"),
+ "pricing-profit-finance-cashflow-decision":("pricing_profit","PPFC-2026.07","ppfc"),
+ "product-innovation-product-management":("product_definition","PIPM-2026.07","pipm"),
 }
 CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision","product-innovation-product-management"}}
 spec=importlib.util.spec_from_file_location("quality",ROOT/"scripts/evaluate_report_quality.py")
@@ -46,7 +46,7 @@ def structural_validation_errors(skill_name):
  return repo_validation.validate_skill(ROOT/skill_name)
 
 def shared_payload(skill,decision_type,runtime):
- payload={"erdg_contract":"ERDG-CONTRACT-2026.01","mode":"single","decision_type":decision_type,"decision_owner":skill,"participating_skills":[skill],"runtime_versions":{skill:runtime},"participant_results":{skill:{"status":"contributed"}},"professional_core":{"object_boundary":"one canonical object and version","conclusion":"Controlled decision","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["profit and capacity"],"risks_and_redlines":["P0/P1"],"actions":["controlled test"],"success_conditions":["mature pass"],"stop_conditions":["guardrail"],"limitations_and_missing_data":["real replay"]},"objects":[{"canonical_id":"o","country":"US","platform":"fixture","category":"fixture","lifecycle":"test"}],"evidence":[{"id":"E1","source_skill":skill,"evidence_type":"authorized_fixture","evidence_class":"direct","source_ref":"fixture:E1","observed_at":"2026-07-20","fingerprint":f"{skill}-E1"}],"claims":[{"id":"C1","producer_skill":skill,"claim_domain":decision_type,"state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[{"id":"CAL1","calculator":"audit_fixture.py","input_hash":"sha256:audit-in","output_hash":"sha256:audit-out","status":"complete"}],"required_calculation_ids":["CAL1"],"unresolved_redlines":[],"adjustments":[]}
+ payload={"erdg_contract":"ERDG-CONTRACT-2026.07","mode":"single","decision_type":decision_type,"decision_owner":skill,"participating_skills":[skill],"runtime_versions":{skill:runtime},"participant_results":{skill:{"status":"contributed"}},"professional_core":{"object_boundary":"one canonical object and version","conclusion":"Controlled decision","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["profit and capacity"],"risks_and_redlines":["P0/P1"],"actions":["controlled test"],"success_conditions":["mature pass"],"stop_conditions":["guardrail"],"limitations_and_missing_data":["real replay"]},"objects":[{"canonical_id":"o","country":"US","platform":"fixture","category":"fixture","lifecycle":"test"}],"evidence":[{"id":"E1","source_skill":skill,"evidence_type":"authorized_fixture","evidence_class":"direct","source_ref":"fixture:E1","observed_at":"2026-07-20","fingerprint":f"{skill}-E1"}],"claims":[{"id":"C1","producer_skill":skill,"claim_domain":decision_type,"state":"validated","object_id":"o","evidence_ids":["E1"],"allowed_uses":["decision_support"],"forbidden_uses":[],"effective_now":True}],"calculations":[{"id":"CAL1","calculator":"audit_fixture.py","input_hash":"sha256:audit-in","output_hash":"sha256:audit-out","status":"complete"}],"required_calculation_ids":["CAL1"],"unresolved_redlines":[],"adjustments":[]}
  if skill=="advertising-analysis-measurement-optimization":
   payload["advertising_context"]={"country":"US","platform":"fixture","as_of_time":"2026-07-20","lifecycle":"validation","axes":{"traffic_scenario":"paid","control_mode":"manual","billing_mode":"cpc","optimization_goal":"contribution"},"maturity":{"data":"mature","tracking":"mature","attribution":"mature","orders":"mature"},"ledgers":{"platform_attribution":{},"business_orders":{},"mature_contribution":{}},"incrementality_status":"not_claimed"}
  return payload
@@ -57,7 +57,7 @@ class FullRepositoryAudit(unittest.TestCase):
    self.assertEqual(structural_validation_errors(name),[],name)
 
  def test_01b_ppfc_is_governed_without_production_claim(self):
-  name,runtime="pricing-profit-finance-cashflow-decision","PPFC-2026.01"
+  name,runtime="pricing-profit-finance-cashflow-decision","PPFC-2026.07"
   ledger=json.loads((ROOT/"governance/domain-maturity-status.json").read_text())
   row=next(item for item in ledger["domains"] if item["skill"]==name)
   self.assertEqual((row["l3"],row["l4"],row["maturity"]),("passed_automated_gate","not_passed","controlled pilot"))
@@ -136,7 +136,7 @@ class FullRepositoryAudit(unittest.TestCase):
    out=quality.score_report(report,"full")
    self.assertEqual((out["result"],out["score"]),("PASS",100.0),out)
   for p in (ROOT/"marketing-brand-campaign-management/evaluations/golden").glob("*.md"):
-   report=p.read_text(); self.assertIn("MBCM-2026.01",report,p)
+   report=p.read_text(); self.assertIn("MBCM-2026.07",report,p)
    for marker in ("停止","回滚","controlled pilot"): self.assertIn(marker,report,p)
 
  def test_06_cross_skill_scenarios_cover_all_skills_and_conflicts(self):
@@ -184,7 +184,7 @@ class FullRepositoryAudit(unittest.TestCase):
    if test.name==pathlib.Path(__file__).name: continue
    r=subprocess.run([sys.executable,str(test)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(test.name,r.stdout[-2000:],r.stderr[-2000:]))
-  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_evaluation_taxonomy.py","validate_domain_maturity.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py"):
+  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_evaluation_taxonomy.py","validate_domain_maturity.py","validate_domain_architecture.py","validate_system_release.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py"):
    r=subprocess.run([sys.executable,str(ROOT/"scripts"/validator)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(validator,r.stdout[-2000:],r.stderr[-2000:]))
 
@@ -199,7 +199,7 @@ class FullRepositoryAudit(unittest.TestCase):
   self.assertIn(runtime,(ROOT/name/"SKILL.md").read_text())
 
  def test_12_mbcm_depth_math_multiturn_and_controlled_pilot_execute(self):
-  name,runtime="marketing-brand-campaign-management","MBCM-2026.01"
+  name,runtime="marketing-brand-campaign-management","MBCM-2026.07"
   self.assertEqual(structural_validation_errors(name),[],name)
   tests=subprocess.run([sys.executable,str(ROOT/name/"scripts/test_mbcm.py")],capture_output=True,text=True)
   self.assertEqual(tests.returncode,0,(tests.stdout[-3000:],tests.stderr[-3000:]))

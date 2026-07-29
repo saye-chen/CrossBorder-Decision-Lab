@@ -46,7 +46,7 @@ def evaluate(payload: dict[str, Any]) -> dict[str, Any]:
             raise ValueError(f"risks[{index}].impact must be a non-negative loss magnitude")
         expected_loss += p * loss
     return {
-        "contract": "ERDG-CONTRACT-2026.01",
+        "contract": "ERDG-CONTRACT-2026.07",
         "status": "blocked" if blocked else ("inconclusive" if unknown_probability else "comparable"),
         "blocked_redlines": blocked,
         "unknown_probability": unknown_probability,

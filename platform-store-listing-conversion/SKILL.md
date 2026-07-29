@@ -5,7 +5,7 @@ description: 默认用中文执行专家级跨境平台、店铺、Listing 与�
 
 # 平台、店铺、Listing 与转化
 
-运行时版本：`PLCO-2026.08`。
+运行时版本：`PLCO-2026.07`。
 
 成熟度：`controlled pilot`；真实历史回放未完成。
 
@@ -149,4 +149,4 @@ G1—G6、P0/P1、允许动作上限
 不得把蓝图、静态评分、Golden Case 或合成 fixture 当作真实效果证明。发布前必须：13 类工具通过；至少100个正常/边界/失败/对抗/性质测试通过；8类输出有黄金样例；完成3个经授权、脱敏、含实际结果和证据哈希的历史回放；100/100且无P0/P1；全仓回归通过。未完成真实回放时最多标记 `controlled pilot`。
 ## ERDG 共享治理接入
 
-正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/platform-store-listing-conversion/adapter.json` 声明 PLCO 主权；ERDG 失败时不得形成生效动作。
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/platform-store-listing-conversion/adapter.json` 声明 PLCO 主权；ERDG 失败时不得形成生效动作。

@@ -21,7 +21,7 @@
 ```yaml
 selection_handoff_package:
   meta:
-    cidm_version: string           # CIDM 评估版本（如 CIDM-2026.14）
+    cidm_version: string           # CIDM 评估版本（如 CIDM-2026.07）
     assessment_date: string
     confidence_level: enum [high, medium, low]
     lifecycle_stage: enum [LC-1, LC-2, LC-3, LC-4, LC-5, LC-6]
@@ -114,7 +114,7 @@ VLB 接收到 Handoff Package 后，按以下规则锚定拆解方向：
 ```yaml
 selection_handoff_package:
   meta:
-    cidm_version: "CIDM-2026.14"
+    cidm_version: "CIDM-2026.07"
     assessment_date: "2026-07-15"
     confidence_level: high
     lifecycle_stage: LC-3
