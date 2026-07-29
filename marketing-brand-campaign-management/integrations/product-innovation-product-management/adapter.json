@@ -1,5 +1,5 @@
 {
-  "adapter_version": "PIPM-CONSUMER-2026.01",
+  "adapter_version": "PIPM-CONSUMER-2026.07",
   "allowed_uses": [
     "decision_support"
   ],
@@ -7,7 +7,7 @@
     "consumer_execution_until_accepted"
   ],
   "consumer": "marketing-brand-campaign-management",
-  "contract": "PIPM-CONSUMER-2026.01",
+  "contract": "PIPM-CONSUMER-2026.07",
   "external_write": false,
   "field_mapping": {
     "claim": "pipm.claim",
@@ -64,6 +64,6 @@
     "campaign",
     "offer_direction"
   ],
-  "runtime": "MBCM-2026.01",
+  "runtime": "MBCM-2026.07",
   "status": "automated_contract_accepted"
 }

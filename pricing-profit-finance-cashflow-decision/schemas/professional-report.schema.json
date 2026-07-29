@@ -39,7 +39,7 @@
     "lineage": {
       "type": "object", "additionalProperties": false,
       "required": ["input_hash", "output_hash", "model_version", "runtime_version"],
-      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "output_hash": {"type": "string", "pattern": "^sha256:"}, "model_version": {"type": "string", "minLength": 1}, "runtime_version": {"const": "PPFC-2026.01"}, "supersedes": {"type": ["string", "null"]}}
+      "properties": {"input_hash": {"type": "string", "pattern": "^sha256:"}, "output_hash": {"type": "string", "pattern": "^sha256:"}, "model_version": {"type": "string", "minLength": 1}, "runtime_version": {"const": "PPFC-2026.07"}, "supersedes": {"type": ["string", "null"]}}
     }
   }
 }

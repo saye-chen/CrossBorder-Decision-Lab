@@ -1,6 +1,6 @@
 {
-  "contract_version": "PPFC-CONSUMER-TECHNICAL-ACCEPTANCE-2026.02",
-  "runtime_version": "PPFC-2026.01",
+  "contract_version": "PPFC-CONSUMER-TECHNICAL-ACCEPTANCE-2026.07",
+  "runtime_version": "PPFC-2026.07",
   "acceptance_kind": "computed_technical_compatibility",
   "business_execution_acceptance": false,
   "finance_audit_escalation": "material_financial_judgment_or_production_release_only",

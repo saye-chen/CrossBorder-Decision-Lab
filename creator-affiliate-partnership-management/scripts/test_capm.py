@@ -36,7 +36,7 @@ def hashes() -> dict:
 def envelope(**updates) -> dict:
     data = {"contract_id": "CAPM_to_AAMO_authorization", "contract_version": "1.0.0", "message_id": "m1", "idempotency_key": "capm-content-1-paid-v1",
             "correlation_id": "c1", "sender": {"skill": "creator-affiliate-partnership-management", "runtime_version": "CAPM-2026.07"},
-            "receiver": {"skill": "advertising-analysis-measurement-optimization", "runtime_version": "AAMO-2026.08"},
+            "receiver": {"skill": "advertising-analysis-measurement-optimization", "runtime_version": "AAMO-2026.07"},
             "object": {"canonical_id": "content-1", "object_type": "content", "object_version": "v1"},
             "scope": {"platform": "tiktok", "country": "US", "currency": "USD", "timezone": "America/New_York", "as_of_time": "2026-07-22T00:00:00Z"},
             "status": "proposed", "source_evidence_level": "S3", "causal_evidence_level": "C0",

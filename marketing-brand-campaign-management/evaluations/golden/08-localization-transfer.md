@@ -1,6 +1,6 @@
 # 多国与未知平台迁移决策
 
-运行时：`MBCM-2026.01`；成熟度：`controlled pilot`。
+运行时：`MBCM-2026.07`；成熟度：`controlled pilot`。
 
 专属机制：K0—K6校准、P1—P9未知路由和T0—T4迁移等级。
 

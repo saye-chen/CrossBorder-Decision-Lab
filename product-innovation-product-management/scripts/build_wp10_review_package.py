@@ -52,7 +52,7 @@ def build() -> None:
     if missing:
         raise SystemExit("missing review evidence: " + ",".join(missing))
     index = {
-        "package_version": "PIPM-WP10-REVIEW-2026.01",
+        "package_version": "PIPM-WP10-REVIEW-2026.07",
         "generated_at": "2026-07-28T00:00:00Z",
         "evidence": [
             {"path": path, "sha256": file_hash(REPO / path)}

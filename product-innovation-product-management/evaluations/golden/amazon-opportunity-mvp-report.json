@@ -59,8 +59,8 @@
   "is_current": true,
   "lineage": {
     "input_hash": "sha256:88d0321468f90c8c89507faa9ae16140a7357373d0bfdb77771b382755c98af3",
-    "report_hash": "sha256:b7a228ba70242bcb7b5d121c98132937f3a1b9cd30e870e44c9186ee4bcc08d5",
-    "runtime_version": "PIPM-2026.01"
+    "report_hash": "sha256:8ca8a6c3f042ce25cf2da505aa77b7bd0aeae4229a201bb71e1ebe38c54e190a",
+    "runtime_version": "PIPM-2026.07"
   },
   "maturity": "controlled pilot",
   "missing_and_expired": [],

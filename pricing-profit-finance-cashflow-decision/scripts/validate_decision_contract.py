@@ -20,12 +20,12 @@ SPEC.loader.exec_module(CORE)
 
 
 def validate(payload: dict) -> dict:
-    if payload.get("contract") == "PPFC-XDOMAIN-2026.01":
+    if payload.get("contract") == "PPFC-XDOMAIN-2026.07":
         return validate_envelope(payload)
     errors = CORE.validate(payload)
     if errors:
         raise PPFCError("erdg:" + "|".join(errors))
-    return {"valid": True, "contract_type": "erdg_shared", "decision_owner": payload["decision_owner"], "erdg_contract": "ERDG-CONTRACT-2026.01"}
+    return {"valid": True, "contract_type": "erdg_shared", "decision_owner": payload["decision_owner"], "erdg_contract": "ERDG-CONTRACT-2026.07"}
 
 
 def main() -> int:

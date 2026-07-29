@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ERDG compatibility validator for established domain decision contracts.
+"""ERDG professional-core validator for registered domain decisions.
 
 The validator protects decision ownership, professional completeness, evidence
 lineage, score write-back state, transferability, and threshold crossings.  It
@@ -16,63 +16,27 @@ import sys
 from pathlib import Path
 
 
-OWNERS = {
-    "investment": "category-investment-decision",
-    "capital_portfolio": "category-investment-decision",
-    "lifecycle_capital": "category-investment-decision",
-    "competition": "competitive-intelligence-monitoring",
-    "competitive_intelligence": "competitive-intelligence-monitoring",
-    "content": "video-link-breakdown",
-    "content_creative": "video-link-breakdown",
-    "content_migration": "video-link-breakdown",
-    "customer_growth": "consumer-insights-customer-growth",
-    "customer_experience": "consumer-insights-customer-growth",
-    "service_recovery": "consumer-insights-customer-growth",
-    "loyalty": "consumer-insights-customer-growth",
-    "reputation": "consumer-insights-customer-growth",
-    "crm_orchestration": "consumer-insights-customer-growth",
-    "advertising": "advertising-analysis-measurement-optimization",
-    "advertising_measurement": "advertising-analysis-measurement-optimization",
-    "advertising_scaling": "advertising-analysis-measurement-optimization",
-    "logistics": "logistics-inventory-fulfillment-decision",
-    "inventory": "logistics-inventory-fulfillment-decision",
-    "replenishment": "logistics-inventory-fulfillment-decision",
-    "fulfillment": "logistics-inventory-fulfillment-decision",
-    "reverse_logistics": "logistics-inventory-fulfillment-decision",
-    "logistics_incident": "logistics-inventory-fulfillment-decision",
-    "listing_conversion": "platform-store-listing-conversion",
-    "page_conversion": "platform-store-listing-conversion",
-    "listing_incident": "platform-store-listing-conversion",
-    "listing_migration": "platform-store-listing-conversion",
-    "creator_affiliate": "creator-affiliate-partnership-management",
-    "creator_partnership": "creator-affiliate-partnership-management",
-    "affiliate_program": "creator-affiliate-partnership-management",
-    "marketing_brand_campaign": "marketing-brand-campaign-management",
-    "marketing_strategy": "marketing-brand-campaign-management",
-    "campaign_management": "marketing-brand-campaign-management",
-    "pricing": "pricing-profit-finance-cashflow-decision",
-    "pricing_profit": "pricing-profit-finance-cashflow-decision",
-    "unit_economics": "pricing-profit-finance-cashflow-decision",
-    "financial_constraint": "pricing-profit-finance-cashflow-decision",
-    "cashflow": "pricing-profit-finance-cashflow-decision",
-    "product_opportunity": "product-innovation-product-management",
-    "product_definition": "product-innovation-product-management",
-    "product_specification": "product-innovation-product-management",
-    "product_validation": "product-innovation-product-management",
-    "product_roadmap": "product-innovation-product-management",
+ROOT = Path(__file__).resolve().parents[3]
+REGISTRY = json.loads((ROOT / "governance/domain-architecture-registry.json").read_text(encoding="utf-8"))
+DOMAINS_BY_SKILL = {item["skill"]: item for item in REGISTRY["domains"]}
+REGISTERED_OWNERS = {
+    decision_type: item["skill"]
+    for item in REGISTRY["domains"]
+    for decision_type in item["owned_decision_types"]
 }
-SKILLS = set(OWNERS.values())
+OWNERS = {
+    decision_type: skill
+    for decision_type, skill in REGISTERED_OWNERS.items()
+    if DOMAINS_BY_SKILL[skill]["availability"] == "current"
+}
+SKILLS = {item["skill"] for item in REGISTRY["domains"] if item["availability"] == "current"}
 CLAIM_STATES = {"observed", "estimated", "hypothesis", "proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"}
 ADJUSTMENT_STATES = {"proposed", "validated", "rejected"}
 CONFIDENCE_RANK = {"low": 0, "medium": 1, "high": 2}
 VERSION_PREFIX = {
-    "category-investment-decision":"CIDM", "competitive-intelligence-monitoring":"CIM",
-    "video-link-breakdown":"VLB", "consumer-insights-customer-growth":"CIG",
-    "advertising-analysis-measurement-optimization":"AAMO", "logistics-inventory-fulfillment-decision":"LIFD",
-    "platform-store-listing-conversion":"PLCO", "creator-affiliate-partnership-management":"CAPM",
-    "marketing-brand-campaign-management":"MBCM",
-    "pricing-profit-finance-cashflow-decision":"PPFC",
-    "product-innovation-product-management":"PIPM",
+    item["skill"]: item["runtime_prefix"]
+    for item in REGISTRY["domains"]
+    if item["availability"] == "current"
 }
 PROFESSIONAL_FIELDS = (
     "object_boundary",
@@ -105,7 +69,11 @@ def validate(payload: dict) -> list[str]:
     decision_type = payload.get("decision_type")
     expected_owner = OWNERS.get(decision_type)
     owner = payload.get("decision_owner")
-    if expected_owner is None:
+    if decision_type in REGISTERED_OWNERS and expected_owner is None:
+        registered_owner = REGISTERED_OWNERS[decision_type]
+        availability = DOMAINS_BY_SKILL[registered_owner]["availability"]
+        errors.append(f"decision_type {decision_type!r} belongs to unavailable {availability} domain {registered_owner!r}")
+    elif expected_owner is None:
         errors.append(f"unknown decision_type: {decision_type!r}")
     elif owner != expected_owner:
         errors.append(f"decision_owner must be {expected_owner!r} for {decision_type!r}")

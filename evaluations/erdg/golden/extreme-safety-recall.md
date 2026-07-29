@@ -1,13 +1,13 @@
 # ERDG 极端场景专家报告：安全召回与高利润冲突
 
-运行时：`ERDG-2026.01`；成熟度：`controlled pilot`。
+运行时：`ERDG-2026.07`；成熟度：`controlled pilot`。
 
 ## 可复算绑定
 
 recomputation_id: `ERDG-RC-EXTREME`
 case_ids: `ERDG-E01, ERDG-E02`
 input_hash: `4395e7ebab0077b50bb67e5064a2208f2a821ae0f309e8289a10bccc1b066f86`
-output_hash: `8f14451dc8a3d375ba315c7fec5273e0c981860b10e32eff16c39b7f7b1c5e66`
+output_hash: `949bfb333b9f54011923f18d5c2f167bcef10c4a3a969b3cabfc5408dc3b93ee`
 
 ## 事故摘要
 

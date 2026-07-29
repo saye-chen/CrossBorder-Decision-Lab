@@ -4,7 +4,7 @@ from __future__ import annotations
 import math
 from mbcm_common import ModelError, finite, sequence
 
-STATISTICS_CONTRACT_VERSION="CBSTAT-2026.01"
+STATISTICS_CONTRACT_VERSION="CBSTAT-2026.07"
 
 def mean(values,name="values"):
     xs=[finite(x,f"{name}[{i}]") for i,x in enumerate(sequence(values,name,allow_empty=False))]

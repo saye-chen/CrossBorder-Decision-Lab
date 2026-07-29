@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "domain": "product-innovation-product-management",
-  "runtime": "PIPM-2026.01",
+  "runtime": "PIPM-2026.07",
   "blueprint": {
     "source_name": "D03_产品创新与产品管理_Skill蓝图评审稿_2026-07-28.md",
     "baseline": "v0.2-second-review-candidate",

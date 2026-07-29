@@ -51,7 +51,7 @@ def calculate(payload: dict[str, Any]) -> dict[str, Any]:
         minimum = min(minimum, balance)
         timeline.append({"date": day, "net_cash": decimal_string(daily[day]), "closing_cash": decimal_string(balance)})
     return {
-        "contract": "ERDG-CONTRACT-2026.01",
+        "contract": "ERDG-CONTRACT-2026.07",
         "currency": currency,
         "timeline": timeline,
         "ending_cash": decimal_string(balance),

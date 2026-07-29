@@ -1,7 +1,7 @@
 {
-  "runtime": "ERDG-2026.01",
-  "contract": "ERDG-CONTRACT-2026.01",
-  "schema_version": "1.0.0",
+  "runtime": "ERDG-2026.07",
+  "contract": "ERDG-CONTRACT-2026.07",
+  "schema_version": "2.0.0",
   "economics_version": "economics/1.0.0",
   "parameter_set_version": "parameter-set/2026.01",
   "status": "controlled_pilot",

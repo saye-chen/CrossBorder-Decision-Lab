@@ -1,5 +1,5 @@
 {
-  "contract_version": "PPFC-MIGRATION-2026.01",
+  "contract_version": "PPFC-MIGRATION-2026.07",
   "status": "compatibility_adapters_only",
   "retirement_allowed": false,
   "comparison_dimensions": [
@@ -37,7 +37,7 @@
       "quantity_unit": "piece",
       "business_as_of_time": "2026-07-28T00:00:00Z",
       "parameter_snapshot_version": "SNAP-1",
-      "model_version": "PPFC-2026.01",
+      "model_version": "PPFC-2026.07",
       "input": {
         "currency": "USD",
         "price": "100",
@@ -73,7 +73,7 @@
       "quantity_unit": "piece",
       "business_as_of_time": "2026-07-28T00:00:00Z",
       "parameter_snapshot_version": "SNAP-1",
-      "model_version": "PPFC-2026.01",
+      "model_version": "PPFC-2026.07",
       "input": {
         "currency": "USD",
         "price": "200",

@@ -87,14 +87,15 @@ class UpgradedDomainCoverage(unittest.TestCase):
 class CrossDomainRedlines(unittest.TestCase):
     def minimal(self, decision_type: str, owner: str) -> dict:
         versions = {
-            "category-investment-decision": "CIDM-2026.14",
-            "competitive-intelligence-monitoring": "CIM-2026.10",
-            "video-link-breakdown": "VLB-2026.10",
-            "consumer-insights-customer-growth": "CIG-2026.09",
-            "advertising-analysis-measurement-optimization": "AAMO-2026.08",
-            "logistics-inventory-fulfillment-decision": "LIFD-2026.04",
+            "category-investment-decision": "CIDM-2026.07",
+            "competitive-intelligence-monitoring": "CIM-2026.07",
+            "video-link-breakdown": "VLB-2026.07",
+            "consumer-insights-customer-growth": "CIG-2026.07",
+            "advertising-analysis-measurement-optimization": "AAMO-2026.07",
+            "logistics-inventory-fulfillment-decision": "LIFD-2026.07",
         }
         return {
+            "erdg_contract": "ERDG-CONTRACT-2026.07",
             "mode": "single", "decision_type": decision_type, "decision_owner": owner,
             "participating_skills": [owner], "runtime_versions": {owner: versions[owner]},
             "participant_results": {owner: {"status": "contributed"}},

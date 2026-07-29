@@ -2,7 +2,7 @@
 
 ## 执行摘要
 
-决策结论：`No-contact control + Test`。一句话理由：授权客户样本显示补货提醒候选人群价值较高，但真实曝光和因果增量尚未建立；只批准随机实验，并把不触达作为正式动作。主决策 Skill：`consumer-insights-customer-growth`；运行时 `CIG-2026.09`；置信度中低。
+决策结论：`No-contact control + Test`。一句话理由：授权客户样本显示补货提醒候选人群价值较高，但真实曝光和因果增量尚未建立；只批准随机实验，并把不触达作为正式动作。主决策 Skill：`consumer-insights-customer-growth`；运行时 `CIG-2026.07`；置信度中低。
 
 本报告使用去识别封闭测试数据，不包含真实个人信息。
 

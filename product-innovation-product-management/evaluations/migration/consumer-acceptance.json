@@ -2,7 +2,7 @@
   "acceptances": [
     {
       "acceptance_path": "category-investment-decision/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "8665de1eb3f6a6c017997914764e4e4dbbb37dc8a80762e9546ab1a889e1e8b1",
+      "adapter_hash": "ef83b8b229c258532d088baa65875362242df29a4e05e71b4d8326a701b750fd",
       "adapter_path": "category-investment-decision/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "category-investment-decision",
@@ -10,7 +10,7 @@
     },
     {
       "acceptance_path": "competitive-intelligence-monitoring/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "7748e227114bc60e281b6622463a9557152deb9115a4a06f963f5992a05d7c42",
+      "adapter_hash": "4eef7a8b1de320731a6c4b69d7f49da32c936ff70659c89cf9aa3a36f9f9e815",
       "adapter_path": "competitive-intelligence-monitoring/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "competitive-intelligence-monitoring",
@@ -18,7 +18,7 @@
     },
     {
       "acceptance_path": "video-link-breakdown/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "98762b6afaa1217bd4546f8b0cdfea84ee9423baa768ec76bd810b0700ccad05",
+      "adapter_hash": "95aa4dd2dbe799d06b744126fbcda4d4aadc8f6c5f40e528b337ca574db881ae",
       "adapter_path": "video-link-breakdown/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "video-link-breakdown",
@@ -26,7 +26,7 @@
     },
     {
       "acceptance_path": "consumer-insights-customer-growth/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "c01264bca9008c5dc37584eb71c630c43924ab8c334e6c4ef26fba0d5303b7a3",
+      "adapter_hash": "bb4515f6ebf8f0e653cc546d9c9a95cf58ac38edab8422dfb9340bd939ae540f",
       "adapter_path": "consumer-insights-customer-growth/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "consumer-insights-customer-growth",
@@ -34,7 +34,7 @@
     },
     {
       "acceptance_path": "advertising-analysis-measurement-optimization/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "601e6120125e9e402d991db5ce0f99cd2b0c1e522c883cc2b4c491dd429eb223",
+      "adapter_hash": "f0712bd3c99562722d071c116c07c353c659fb43f28505e3999a4b43963fba72",
       "adapter_path": "advertising-analysis-measurement-optimization/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "advertising-analysis-measurement-optimization",
@@ -42,7 +42,7 @@
     },
     {
       "acceptance_path": "logistics-inventory-fulfillment-decision/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "b0c09038ecd73dcc11a1fde8df12087fb91476931b89280afcbc1077e5846dd7",
+      "adapter_hash": "d705bd5eed0b15ee152a45526272e179bfc12a7bbe0a523e60799b583d6d3a2e",
       "adapter_path": "logistics-inventory-fulfillment-decision/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "logistics-inventory-fulfillment-decision",
@@ -50,7 +50,7 @@
     },
     {
       "acceptance_path": "platform-store-listing-conversion/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "93a92bc685443c07ebd7e7da285bc2e8335fde84fbb8c9b2a87c6d51c015bddb",
+      "adapter_hash": "4dcfa66f58d7f63af4aa1c1ca903c2c9679cbb3641f7ec390460c3e7f42ada1d",
       "adapter_path": "platform-store-listing-conversion/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "platform-store-listing-conversion",
@@ -58,7 +58,7 @@
     },
     {
       "acceptance_path": "creator-affiliate-partnership-management/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "85f25e2ccac075a66c2cfc83f4047551bf8dc69a846fe9ae495ff1301805a8e5",
+      "adapter_hash": "7084f3f6adbf5554f6043e83f3787032022af91441128a12c2960714be4d43a0",
       "adapter_path": "creator-affiliate-partnership-management/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "creator-affiliate-partnership-management",
@@ -66,7 +66,7 @@
     },
     {
       "acceptance_path": "marketing-brand-campaign-management/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "31fa61c85c792167ce25386da385401f2a93cf32eb7c60fc2cbb69a1490a892b",
+      "adapter_hash": "86f7437876aa9f6d60b8340d256f6d1d6c5d7c7343b6646c40b2e7766d36e89c",
       "adapter_path": "marketing-brand-campaign-management/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "marketing-brand-campaign-management",
@@ -74,7 +74,7 @@
     },
     {
       "acceptance_path": "pricing-profit-finance-cashflow-decision/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "c5efefa8fcd88db15d9630a6215aa1920a4968843b05f94720195c9936d102e2",
+      "adapter_hash": "3834616d1d3b62ff7849d77c6a7e0943b666677a191e0fb55b944f69ac4ba6db",
       "adapter_path": "pricing-profit-finance-cashflow-decision/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "pricing-profit-finance-cashflow-decision",
@@ -82,7 +82,7 @@
     },
     {
       "acceptance_path": "governance/erdg/integrations/product-innovation-product-management/acceptance.json",
-      "adapter_hash": "2f0d9b8eaf583188ae738bf31d910a9b9d9ac8d55d3e15fc3d29a3cc363ceb8f",
+      "adapter_hash": "3c6b88fdecacfd8d7e6d3b62cc79dc36e4863b9b34f751291d182d24141f577e",
       "adapter_path": "governance/erdg/integrations/product-innovation-product-management/adapter.json",
       "automated_contract_accepted": true,
       "consumer": "governance/erdg",

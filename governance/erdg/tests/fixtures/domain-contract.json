@@ -3,7 +3,7 @@
   "decision_type": "investment",
   "decision_owner": "category-investment-decision",
   "participating_skills": ["category-investment-decision"],
-  "runtime_versions": {"category-investment-decision": "CIDM-2026.14"},
+  "runtime_versions": {"category-investment-decision": "CIDM-2026.07"},
   "participant_results": {"category-investment-decision": {"status": "contributed"}},
   "professional_core": {
     "object_boundary": "one canonical operating object",
@@ -24,6 +24,6 @@
   "required_calculation_ids": ["CAL1"],
   "unresolved_redlines": [],
   "adjustments": [],
-  "erdg_contract": "ERDG-CONTRACT-2026.01",
+  "erdg_contract": "ERDG-CONTRACT-2026.07",
   "external_write": false
 }

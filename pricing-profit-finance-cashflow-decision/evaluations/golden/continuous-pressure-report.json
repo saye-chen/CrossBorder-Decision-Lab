@@ -1,6 +1,6 @@
 {
   "report_id": "PPFC-GOLDEN-CONTINUOUS-002",
-  "report_version": "PPFC-REPORT-2026.01.2",
+  "report_version": "PPFC-REPORT-2026.07.2",
   "report_type": "parameter_change_impact",
   "decision_id": "PPFC-D-CONTINUOUS-001",
   "decision_version": "v2",
@@ -34,5 +34,5 @@
   "exit_conditions": ["No price in the permitted corridor clears both marginal and cash gates."],
   "allowed_uses": ["decision_support", "recompute_request"],
   "forbidden_uses": ["external_write", "change_price", "change_budget", "place_order", "release_funds"],
-  "lineage": {"input_hash":"sha256:continuous-input-v2","output_hash":"sha256:continuous-output-v2","model_version":"PPFC-MODEL-2026.01","runtime_version":"PPFC-2026.01","supersedes":"PPFC-GOLDEN-CONTINUOUS-001"}
+  "lineage": {"input_hash":"sha256:continuous-input-v2","output_hash":"sha256:continuous-output-v2","model_version":"PPFC-MODEL-2026.07","runtime_version":"PPFC-2026.07","supersedes":"PPFC-GOLDEN-CONTINUOUS-001"}
 }

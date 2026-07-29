@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "erdg/decision-cycle/2.0.0",
+  "type": "object",
+  "required": ["cycle_id", "cycle_version", "architecture_version", "decision_object", "orchestration_mode", "current_phase", "participants", "stages", "gates", "current_effective_decisions", "lineage"],
+  "properties": {
+    "cycle_id": {"type": "string", "minLength": 1},
+    "cycle_version": {"const": "v2"},
+    "parent_cycle_id": {"type": "string", "minLength": 1},
+    "architecture_version": {"type": "string", "minLength": 1},
+    "decision_object": {
+      "type": "object",
+      "required": ["object_id", "object_version", "country", "platform", "category"],
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "object_version": {"type": "string", "minLength": 1},
+        "country": {"type": "string", "minLength": 1},
+        "platform": {"type": "string", "minLength": 1},
+        "category": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "orchestration_mode": {"enum": ["single_domain", "sequential", "parallel", "hybrid", "conflict_escalation"]},
+    "current_phase": {"enum": ["sense", "frame", "invest", "define", "source", "produce", "qualify", "fulfill", "launch", "acquire", "convert", "serve", "learn", "recover", "exit", "completed", "blocked"]},
+    "participants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["domain_id", "role", "availability", "status"],
+        "properties": {
+          "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"},
+          "role": {"enum": ["decision_owner", "evidence_provider", "constraint_provider", "operator", "orchestrator", "reviewer"]},
+          "availability": {"enum": ["current", "next_build", "planned"]},
+          "status": {"enum": ["pending", "running", "contributed", "blocked", "inconclusive", "not_required", "completed"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["stage_id", "phase", "dependencies", "participant_domains", "status", "required_packet_types"],
+        "properties": {
+          "stage_id": {"type": "string", "minLength": 1},
+          "phase": {"type": "string", "minLength": 1},
+          "dependencies": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "participant_domains": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"}},
+          "status": {"enum": ["pending", "ready", "running", "partially_completed", "completed", "blocked", "skipped"]},
+          "required_packet_types": {"type": "array", "uniqueItems": true, "items": {"enum": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"]}},
+          "completion_conditions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "stop_conditions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "rollback_ref": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["gate_id", "status", "required_stage_ids", "blocking_reasons", "recovery_requirements"],
+        "properties": {
+          "gate_id": {"enum": ["G0_EVIDENCE", "G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"]},
+          "status": {"enum": ["not_evaluated", "passed", "partially_passed", "blocked", "not_applicable"]},
+          "required_stage_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "blocking_reasons": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "recovery_requirements": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "current_effective_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["decision_id", "owner_domain_id", "decision_type", "state", "version"],
+        "properties": {
+          "decision_id": {"type": "string", "minLength": 1},
+          "owner_domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"},
+          "decision_type": {"type": "string", "minLength": 1},
+          "state": {"enum": ["proposed", "validated", "rejected", "blocked", "inconclusive", "superseded"]},
+          "version": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "partial_failure": {
+      "type": "object",
+      "required": ["failed_domains", "affected_claims", "preserved_results", "recovery_plan"],
+      "properties": {
+        "failed_domains": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"}},
+        "affected_claims": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "preserved_results": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "recovery_plan": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "lineage": {
+      "type": "object",
+      "required": ["cycle_input_hash", "cycle_state_hash"],
+      "properties": {
+        "cycle_input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "cycle_state_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "parent_cycle_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

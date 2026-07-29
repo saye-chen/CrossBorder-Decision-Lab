@@ -5,8 +5,8 @@ description: 默认用中文执行专家级跨境定价、利润、财务约束�
 
 # 定价、利润、财务与现金流决策
 
-运行时版本：`PPFC-2026.01`。
-目标合同：`ERDG-CONTRACT-2026.01`、`PPFC-CONTRACT-2026.01`、`PPFC-XDOMAIN-2026.01`、`F02-temporary-localization-contract-v1`；已注册 ERDG 适配器，但不等于完成域或生产就绪。
+运行时版本：`PPFC-2026.07`。
+目标合同：`ERDG-CONTRACT-2026.07`、`PPFC-CONTRACT-2026.07`、`PPFC-XDOMAIN-2026.07`、`F02-temporary-localization-contract-v1`；已注册 ERDG 适配器，但不等于完成域或生产就绪。
 成熟度：工作包 10；L1 已通过，L2 已通过，L3 Expert 已通过，L4 `controlled pilot`
 
 ## 执行原则

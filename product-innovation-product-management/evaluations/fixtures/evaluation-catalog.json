@@ -4731,7 +4731,7 @@
       "scenario_signature": "extreme|consumable|PLC1|safety|100"
     }
   ],
-  "catalog_version": "PIPM-EVAL-2026.01",
+  "catalog_version": "PIPM-EVAL-2026.07",
   "count": 101,
   "coverage": {
     "archetypes": [

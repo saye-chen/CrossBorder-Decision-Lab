@@ -4,6 +4,8 @@
 
 > 面向跨境商业的专业决策基础设施，把依赖个人经验的经营判断转化为有证据、有模型、有边界、有动作、有停止规则、可持续积累的决策资产。
 
+当前统一发布列车：`2026.07`；目标架构：`CBDS-ARCH-2026.07`；共享合同：`ERDG-CONTRACT-2026.07`。
+
 CrossBorder Decision Lab 服务于跨境电商经营者、品牌团队、投资决策者与专业服务团队。它不是一组通用提示词，也不是把十类业务知识简单放进同一个目录，而是把品类投资、竞争情报、内容、客户、广告、履约、页面、达人合作、营销品牌与定价财务连接成一套可以独立运行、跨域协同和持续进化的专业决策系统。
 
 系统当前包含十一个已完成 L1—L3 专家级仓库建设的专业决策域，以及 ERDG（Economic, Risk & Decision Governance）治理底座。新增的 D03/PIPM 已通过专业深度复审，具备八类确定性产品模型、九类专业输出、101个评测案例、10个案例自有Golden、404项正反执行断言、连续决策、极限压力、十个业务消费者与ERDG的本域适配、双轨迁移和回滚证据。独立Owner权威切换仍保持关闭；所有域的 L4 均为 `controlled pilot`。
@@ -66,112 +68,100 @@ CrossBorder Decision Lab 将跨境经营中分散、隐性的个人经验，转�
 
 ## 系统结构
 
-### 四层价值结构
+### D01—D14 目标架构
 
 ```mermaid
 flowchart TB
-    U["跨境商业决策问题"] --> D["十一个完成 L1—L3 专家级仓库门的专业决策域<br/>业务判断与最终主权"]
-
-    D --> CIDM["CIDM<br/>品类与资本"]
-    D --> CIM["CIM<br/>竞争情报"]
-    D --> VLB["VLB<br/>内容创意"]
-    D --> CIG["CIG<br/>客户增长"]
-    D --> AAMO["AAMO<br/>广告测量"]
-    D --> LIFD["LIFD<br/>库存履约"]
-    D --> PLCO["PLCO<br/>页面转化"]
-    D --> CAPM["CAPM<br/>达人联盟"]
-    D --> MBCM["MBCM<br/>营销品牌"]
-    D --> PPFC["PPFC<br/>定价财务"]
-    D --> PIPM["PIPM<br/>产品创新"]
-
-    CIDM & CIM & VLB & CIG & AAMO & LIFD & PLCO & CAPM & MBCM & PPFC & PIPM --> E["ERDG 治理底座<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"]
-    E --> G{"合同与红线校验"}
-    G -->|"通过"| O["可执行决策、实验、停止规则与结果回填"]
-    G -->|"缺证据、冲突或越界"| B["阻断、降级或请求补充"]
-    B -.-> D
-    O --> A["持续积累的决策资产与经营基准"]
-    A -.->|"校准参数、反例与门槛"| E
+    U["经营问题 · 事件 · 新证据"] --> D14["D14 跨域经营姿态与决策编排<br/>规划中"]
+    D14 --> D01["D01 CIDM<br/>资本与组合决策"]
+    D14 --> D02["D02 CIM<br/>竞争事实"]
+    D14 --> D03["D03 PIPM<br/>产品定义"]
+    D14 --> D05["D05 合规与市场准入<br/>规划中"]
+    D14 --> D06["D06 PPFC<br/>定价、利润与现金"]
+    D01 --> D03 --> D04["D04 供应采购生产质量<br/>下一建设域"] --> D07["D07 LIFD<br/>物流、库存与履约"]
+    D07 --> D12["D12 MBCM<br/>营销、品牌与活动"]
+    D12 --> D11["D11 VLB<br/>内容创意"]
+    D12 --> D10["D10 CAPM<br/>达人联盟"]
+    D11 --> D08["D08 PLCO<br/>平台与转化"]
+    D11 --> D09["D09 AAMO<br/>广告测量"]
+    D10 --> D08
+    D10 --> D09
+    D08 --> D13["D13 CIG<br/>客户、体验与增长"]
+    D09 --> D13
+    D02 -.事实与持续监测.-> D01
+    D05 -.准入与持续合规.-> D04
+    D06 -.经济与现金边界.-> D04
+    D13 --> O["动作、客户与经营结果"]
+    O --> D06 --> D01 --> D14
+    O -.质量、竞争、规则与客户反馈.-> D02
+    O -.质量、竞争、规则与客户反馈.-> D04
+    O -.质量、竞争、规则与客户反馈.-> D05
+    E["ERDG 治理控制面<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"] -.治理.-> D14
+    E -.合同与红线校验.-> D01
+    E -.合同与红线校验.-> D04
+    E -.合同与红线校验.-> D12
+    O -.回放与参数校准.-> E
+    classDef planned stroke-dasharray:6 5
+    class D05,D14 planned
 ```
 
-第一层路由业务问题，第二层由十一个专业域保留最终判断主权，第三层由 ERDG 统一对象、证据、计算、经济、风险、状态、参数和血缘合同，第四层把通过校验的判断转化为动作、结果和可持续积累的经营资产。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
+图中十一域为当前可运行能力；D04 为下一建设域，D05 与 D14 为规划域，注册表和校验器禁止它们提前进入执行。各专业域继续保留最终专业主权；D14 只负责编排，ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
 
-### 十一 Skill 双向协同结构
+### D01—D14 连续决策闭环
 
 ```mermaid
-flowchart TB
-    U["跨境商业决策问题"] --> R{"主决策属于哪个专业域？"}
-    E["ERDG<br/>经济、风险与决策治理"]
-
-    R --> CIDM["CIDM<br/>品类投资决策"]
-    R --> CIM["CIM<br/>竞品情报监控"]
-    R --> VLB["VLB<br/>内容创意决策"]
-    R --> CIG["CIG<br/>消费者与客户增长"]
-    R --> AAMO["AAMO<br/>广告分析与优化"]
-    R --> LIFD["LIFD<br/>物流库存与履约"]
-    R --> PLCO["PLCO<br/>平台、店铺与转化"]
-    R --> CAPM["CAPM<br/>达人与联盟经营"]
-    R --> MBCM["MBCM<br/>营销、品牌与活动"]
-    R --> PPFC["PPFC<br/>定价、利润与现金流"]
-    R --> PIPM["PIPM<br/>产品创新与产品管理"]
-
-    CIDM <-->|"市场机会、竞争证据与资本姿态"| CIM
-    CIDM <-->|"内容可传播性与商业假设"| VLB
-    CIDM <-->|"客户价值、留存与增长证据"| CIG
-    CIDM <-->|"广告经济、增量与预算边界"| AAMO
-    CIDM <-->|"库存、履约、资金占用与退出"| LIFD
-    CIDM <-->|"渠道承接与页面转化能力"| PLCO
-    CIDM <-->|"合作经济、权利与组合风险"| CAPM
-    CIDM <-->|"定位、GTM、品牌与活动方向"| MBCM
-
-    CIM <-->|"竞品内容变化与传播机制"| VLB
-    CIM <-->|"外部口碑与内部客户结果"| CIG
-    CIM <-->|"竞争投放、份额与成本变化"| AAMO
-    CIM <-->|"竞品供给、配送与库存信号"| LIFD
-    CIM <-->|"竞品页面与转化变化"| PLCO
-    CIM <-->|"达人、联盟与合作动态"| CAPM
-    CIM <-->|"竞争姿态、声量与品牌动作"| MBCM
-
-    VLB <-->|"人群任务、VOC与内容反馈"| CIG
-    VLB <-->|"素材测试、疲劳与投放结果"| AAMO
-    VLB <-->|"内容承诺与履约约束"| LIFD
-    VLB <-->|"素材资产与页面制作 Brief"| PLCO
-    VLB <-->|"达人内容、交付与使用权"| CAPM
-    VLB <-->|"品牌表达、活动主题与内容组合"| MBCM
-
-    CIG <-->|"客户增量、触达与广告归因"| AAMO
-    CIG <-->|"需求、服务、退货与体验结果"| LIFD
-    CIG <-->|"VOC、旅程阻力与页面预期"| PLCO
-    CIG <-->|"推荐、联盟客户与关系质量"| CAPM
-    CIG <-->|"分层、品牌健康与客户经济"| MBCM
-
-    AAMO <-->|"需求节奏、库存与履约容量"| LIFD
-    AAMO <-->|"流量质量、页面与转化实验"| PLCO
-    AAMO <-->|"付费使用权、达人投流与增量"| CAPM
-    AAMO <-->|"活动节奏、渠道角色与预算方向"| MBCM
-
-    LIFD <-->|"ATP、交期、退货与页面承诺"| PLCO
-    LIFD <-->|"寄样、货盘与峰值履约门"| CAPM
-    LIFD <-->|"上市节奏、活动容量与退出"| MBCM
-
-    PLCO <-->|"挂链、落地页、权利与合作承接"| CAPM
-    PLCO <-->|"定位表达、Offer与活动承接"| MBCM
-
-    CAPM <-->|"伙伴组合、品牌合作与活动机制"| MBCM
-    PPFC <-->|"价格、利润与现金边界"| CIDM
-    PPFC <-->|"竞争价格事实与财务影响"| CIM
-    PPFC <-->|"内容样品投资与边际价值"| VLB
-    PPFC <-->|"CLV、CAC与客户贡献"| CIG
-    PPFC <-->|"保本指标与广告财务边界"| AAMO
-    PPFC <-->|"物流成本、库存价值与资金占用"| LIFD
-    PPFC <-->|"价格展示与可恢复贡献"| PLCO
-    PPFC <-->|"佣金、样品与合作经济"| CAPM
-    PPFC <-->|"促销、活动与品牌经济"| MBCM
-
-    R -.->|"建立统一决策合同"| E
-    E -.->|"版本化证据、计算与红线"| R
+sequenceDiagram
+    actor U as 用户/经营事件
+    participant D14 as D14 编排（规划）
+    participant D02 as D02 CIM
+    participant D13 as D13 CIG
+    participant D01 as D01 CIDM
+    participant D03 as D03 PIPM
+    participant D04 as D04 供应（下一建设）
+    participant D05 as D05 合规（规划）
+    participant D06 as D06 PPFC
+    participant D07 as D07 LIFD
+    participant M as D12/D11/D10/D08/D09 市场域
+    participant E as ERDG
+    U->>D14: 问题、事件或新证据
+    par 事实与约束
+      D14->>D02: 竞争事实
+      D14->>D13: 客户证据
+      D14->>D06: 经济与现金边界
+      D14->>D05: 合规与准入
+    end
+    D14->>E: Gate G0 证据资格
+    E-->>D14: 通过 / 降级 / 阻断
+    D14->>D01: 资本姿态
+    D01-->>D14: 预算、停止与退出边界
+    D14->>D03: 产品定义
+    D03-->>D14: Product Definition Packet
+    par 产品落地
+      D14->>D04: 供应、样品、产能与质量
+      D14->>D06: 产品经济重算
+      D14->>D05: 产品正式准入
+    end
+    D14->>E: Gate G2 产品—供应—经济—准入
+    E-->>D14: 通过 / 部分接受 / 阻断
+    D04->>D07: 合格批次、产能与交期
+    D07-->>D14: ATP/CTP、履约与逆向计划
+    D14->>M: 定位、内容、达人、页面与广告并行协作
+    M-->>D13: 转化、获客、服务与伙伴结果
+    D13-->>D14: Outcome Packet
+    par 经营复盘
+      D14->>D06: 实际经济重算
+      D14->>D02: 竞争变化复盘
+      D14->>D04: 质量与供应恢复
+      D14->>D05: 持续合规复盘
+    end
+    D14->>E: Gate G5 血缘闭合与选择性重算
+    E-->>D14: child cycle 与影响闭包
+    D14->>D01: 实际经营结果
+    D01-->>D14: 追加 / 维持 / 收缩 / 退出
+    D14-->>U: 新的当前有效经营姿态
 ```
 
-业务域之间的双向连线代表专业证据、约束和建议可以互相承接，不代表任何 Skill 可以覆盖另一个 Skill 的最终主权。ERDG 虚线表示治理合同贯穿路由与交接，但不拥有业务结论。每次跨域协作都保留来源、版本、结论、置信度、允许用途和停止条件。
+连续时序只展示跨阶段主链；市场域组中的五个 Skill 仍各自拥有主权，并通过标准 Packet 交接。完整 D01—D14 注册表位于 [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json)。全系统统一使用 v2 交接与 Decision Cycle；旧 v1 运行主链已经退役。
 
 ## Skill 快速定位
 
@@ -179,21 +169,21 @@ flowchart TB
 
 | Skill | Runtime | 主要解决的问题 | 专业入口 |
 |---|---|---|---|
-| **CIDM** | `CIDM-2026.14` | 什么值得进入、投资、测试、放量、收缩或退出？ | [品类投资决策](category-investment-decision/SKILL.md) |
-| **CIM** | `CIM-2026.10` | 竞品是谁、发生了什么变化、为什么重要、如何响应？ | [竞品情报监控](competitive-intelligence-monitoring/SKILL.md) |
-| **VLB** | `VLB-2026.10` | 内容为什么有效、能否迁移、如何生产、测试和规模化？ | [内容创意与传播](video-link-breakdown/SKILL.md) |
-| **CIG** | `CIG-2026.09` | 客户是谁、需求和阻力是什么、什么是真增量、如何增长？ | [消费者洞察与客户增长](consumer-insights-customer-growth/SKILL.md) |
-| **AAMO** | `AAMO-2026.08` | 广告能否投、问题在哪里、真实增量多少、如何配置和停止？ | [广告分析、测量与优化](advertising-analysis-measurement-optimization/SKILL.md) |
-| **LIFD** | `LIFD-2026.04` | 走什么路线和仓、何时补货、库存怎么分、如何履约和退出？ | [物流、库存与履约](logistics-inventory-fulfillment-decision/SKILL.md) |
-| **PLCO** | `PLCO-2026.08` | 店铺和页面能否承接，标题、主图、详情或落地页具体怎么改？ | [平台、店铺与转化](platform-store-listing-conversion/SKILL.md) |
+| **CIDM** | `CIDM-2026.07` | 什么值得进入、投资、测试、放量、收缩或退出？ | [品类投资决策](category-investment-decision/SKILL.md) |
+| **CIM** | `CIM-2026.07` | 竞品是谁、发生了什么变化、为什么重要、如何响应？ | [竞品情报监控](competitive-intelligence-monitoring/SKILL.md) |
+| **VLB** | `VLB-2026.07` | 内容为什么有效、能否迁移、如何生产、测试和规模化？ | [内容创意与传播](video-link-breakdown/SKILL.md) |
+| **CIG** | `CIG-2026.07` | 客户是谁、需求和阻力是什么、什么是真增量、如何增长？ | [消费者洞察与客户增长](consumer-insights-customer-growth/SKILL.md) |
+| **AAMO** | `AAMO-2026.07` | 广告能否投、问题在哪里、真实增量多少、如何配置和停止？ | [广告分析、测量与优化](advertising-analysis-measurement-optimization/SKILL.md) |
+| **LIFD** | `LIFD-2026.07` | 走什么路线和仓、何时补货、库存怎么分、如何履约和退出？ | [物流、库存与履约](logistics-inventory-fulfillment-decision/SKILL.md) |
+| **PLCO** | `PLCO-2026.07` | 店铺和页面能否承接，标题、主图、详情或落地页具体怎么改？ | [平台、店铺与转化](platform-store-listing-conversion/SKILL.md) |
 | **CAPM** | `CAPM-2026.07` | 找谁合作、如何报价、寄样、签约、购买权利、经营联盟和退出？ | [达人与联盟经营](creator-affiliate-partnership-management/SKILL.md) |
-| **MBCM** | `MBCM-2026.01` | 如何分层、定位、上市、建设品牌、组织活动和编排营销资源？ | [营销、品牌与活动](marketing-brand-campaign-management/SKILL.md) |
-| **PPFC** | `PPFC-2026.01` | 售价、利润、贡献、保本指标、财务约束和现金风险应该如何计算与调整？ | [定价、利润、财务与现金流](pricing-profit-finance-cashflow-decision/SKILL.md) |
-| **PIPM** | `PIPM-2026.01` | 产品机会如何转化为可验证的产品定义、规格、MVP和路线图？ | [产品创新与产品管理](product-innovation-product-management/SKILL.md) |
+| **MBCM** | `MBCM-2026.07` | 如何分层、定位、上市、建设品牌、组织活动和编排营销资源？ | [营销、品牌与活动](marketing-brand-campaign-management/SKILL.md) |
+| **PPFC** | `PPFC-2026.07` | 售价、利润、贡献、保本指标、财务约束和现金风险应该如何计算与调整？ | [定价、利润、财务与现金流](pricing-profit-finance-cashflow-decision/SKILL.md) |
+| **PIPM** | `PIPM-2026.07` | 产品机会如何转化为可验证的产品定义、规格、MVP和路线图？ | [产品创新与产品管理](product-innovation-product-management/SKILL.md) |
 
 ## 统一决策基础设施
 
-十一个专业域通过 [`ERDG-CONTRACT-2026.01`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
+十一个专业域通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
 
 1. **证据与反证**：观察、用户输入、授权数据、外部基准、推断和假设分开记录。
 2. **数学与守恒**：利润、增量、容量、组合和风险通过可复算模型计算。

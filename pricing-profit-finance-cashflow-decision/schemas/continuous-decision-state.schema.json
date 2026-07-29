@@ -29,7 +29,7 @@
     "unresolved_items": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "lineage": {
       "type": "object", "additionalProperties": false, "required": ["state_hash", "runtime_version"],
-      "properties": {"state_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.01"}}
+      "properties": {"state_hash": {"type": "string", "pattern": "^sha256:"}, "runtime_version": {"const": "PPFC-2026.07"}}
     }
   }
 }

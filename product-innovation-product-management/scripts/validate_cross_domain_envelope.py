@@ -31,8 +31,8 @@ def parse_time(value: str, field: str) -> datetime:
 def validate(payload: dict, seen: set[tuple[str, str]] | None = None) -> dict:
     required = {"contract", "message_id", "message_version", "correlation_id", "idempotency_key", "sender", "receiver", "object_ref", "scope", "payload_type", "status", "claims", "claim_acceptance", "changed_fields", "recomputation", "allowed_uses", "forbidden_uses", "external_write", "validity", "lineage"}
     require(not (required - set(payload)), f"missing required fields: {sorted(required-set(payload))}")
-    require(payload["contract"] == "PIPM-XDOMAIN-2026.01", "unsupported contract")
-    require(payload["message_version"] == "PIPM-XMSG-2026.01", "unsupported message version")
+    require(payload["contract"] == "PIPM-XDOMAIN-2026.07", "unsupported contract")
+    require(payload["message_version"] == "PIPM-XMSG-2026.07", "unsupported message version")
     require({payload["sender"], payload["receiver"]} == {PIPM, PPFC}, "route must be D03-D06")
     require(payload["status"] in {"proposed", "blocked", "inconclusive", "superseded"}, "receiver-owned result cannot self-validate")
     require(payload["external_write"] is False, "external_write must be false")
@@ -67,7 +67,7 @@ def validate(payload: dict, seen: set[tuple[str, str]] | None = None) -> dict:
     ref = payload["object_ref"]
     require(all(ref.get(k) for k in ("object_id", "object_version", "object_type")), "incomplete object identity/version")
     lineage = payload["lineage"]
-    require(lineage.get("runtime_version") == ("PIPM-2026.01" if payload["sender"] == PIPM else "PPFC-2026.01"), "runtime/sender mismatch")
+    require(lineage.get("runtime_version") == ("PIPM-2026.07" if payload["sender"] == PIPM else "PPFC-2026.07"), "runtime/sender mismatch")
     require(str(lineage.get("input_hash", "")).startswith("sha256:"), "missing input hash")
     require(bool(lineage.get("parameter_snapshot_id")), "missing parameter snapshot")
     impact = payload["recomputation"]

@@ -1,6 +1,6 @@
 {
-  "package_version": "PPFC-L3-SUBSTANTIVE-REVIEW-2026.02",
-  "runtime_version": "PPFC-2026.01",
+  "package_version": "PPFC-L3-SUBSTANTIVE-REVIEW-2026.07",
+  "runtime_version": "PPFC-2026.07",
   "review_status": "passed",
   "review_method": "isolated_substantive_evidence_review",
   "human_signature_required": false,

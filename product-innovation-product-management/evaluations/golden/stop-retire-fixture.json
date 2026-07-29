@@ -68,7 +68,7 @@
           }
         ],
         "lineage": {
-          "runtime_version": "PIPM-2026.01",
+          "runtime_version": "PIPM-2026.07",
           "state_hash": "sha256:old"
         },
         "next_sequence": 1,
@@ -84,7 +84,7 @@
   },
   "expected_status": "retired",
   "id": "G-10",
-  "input_hash": "e9d13aeb7f9311d186c225ec5bea171c7dac1636f44b7d1750c71d0e291702f7",
+  "input_hash": "d68cc9d87896d3a046cbdaee333924e0aa292c58416a2c05b42d248dd0821955",
   "name": "stop-retire",
   "object_version": "v1",
   "platform": "TikTok Shop",

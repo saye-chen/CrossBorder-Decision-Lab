@@ -1,6 +1,6 @@
 # ERDG 压力测试专家报告：十万现金事件与千节点血缘
 
-运行时：`ERDG-2026.01`；成熟度：`controlled pilot`。
+运行时：`ERDG-2026.07`；成熟度：`controlled pilot`。
 
 ## 可复算绑定
 

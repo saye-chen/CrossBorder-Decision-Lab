@@ -1,12 +1,12 @@
 # ERDG Economic, Risk & Decision Governance
 
-Runtime version: `ERDG-2026.01`
+Runtime version: `ERDG-2026.07`
 
-Contract version: `ERDG-CONTRACT-2026.01`
+Contract version: `ERDG-CONTRACT-2026.07`
 
 Maturity: `controlled pilot`. L1—L3 automated gates may pass; L4 requires authorized, deidentified real replays and independent review.
 
-All registered professional Skill entrypoints consume `ERDG-CONTRACT-2026.01` through their local decision-contract validator and registered adapter. Nine domains are completed; PPFC is a staged participant whose outbound economic constraints remain `proposed`. Draft 2020-12 schemas are executed with format checking. Golden reports must carry valid deterministic recomputation bindings. Reference capacity is governed by `capacity-contract.json`; exceeding a hard limit fails closed and the reference gate does not claim a production SLO.
+All eleven current professional Skill entrypoints consume `ERDG-CONTRACT-2026.07` through their local decision-contract validator and registered adapter. The D01—D14 target topology and lifecycle state are authoritative in `../domain-architecture-registry.json`: D04 is `next_build`, while D05 and D14 are `planned`; unavailable domains must fail closed and cannot emit executable decisions. Draft 2020-12 schemas are executed with format checking. Golden reports must carry valid deterministic recomputation bindings. Reference capacity is governed by `capacity-contract.json`; exceeding a hard limit fails closed and the reference gate does not claim a production SLO.
 
 ## Charter
 
@@ -31,6 +31,14 @@ ERDG does not own business decisions, choose production thresholds, infer causal
 - `scripts/validate_state_transition.py`: claim, decision, action and replay state machines.
 - `scripts/resolve_parameters.py`: scoped, versioned parameter resolution.
 - `scripts/canonicalize_payload.py` and `scripts/hash_lineage.py`: canonical JSON and SHA-256 lineage.
+- `scripts/validate_handoff.py`: registry-driven source, target, packet, authority and execution-gate validation.
+- `scripts/validate_decision_cycle.py`: registry-driven participants, ownership, stage dependencies, gate completion and partial-failure validation.
+
+`schemas/handoff-envelope.schema.json` is the sole authoritative v2 handoff
+contract. `schemas/decision-cycle.schema.json` defines the continuous
+decision-cycle identity. The eleven current domains use this boundary directly;
+no v1 runtime path or dual-read mode remains. Schema acceptance never promotes
+a planned domain, approves an external action or transfers decision sovereignty.
 
 All external actions are out of scope. Missing values are never converted to zero. Financial authority uses decimal strings; binary floating-point values are rejected from authoritative economic ledgers.
 
@@ -44,7 +52,7 @@ contract and may not fork its semantics.
 
 Every change requires contract version review, authoritative-source and consumer impact closure, schema tests, Golden tests, adversarial tests, property tests, adapter parity, migration evidence, full repository audit and a tested rollback path.
 
-The `f03` path migration is complete in `ERDG-2026.01`. Release validation must
+The `f03` path migration is complete in `ERDG-2026.07`. Release validation must
 fail if an active repository file reintroduces `governance/f03`, `test_f03.py`
 or `f03_common.py`. Rollback means reverting the release as one Git unit; it
 does not restore a second authoritative physical namespace.

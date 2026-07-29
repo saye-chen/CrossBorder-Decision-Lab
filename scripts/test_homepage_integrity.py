@@ -6,17 +6,17 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = {
-    "CIDM": ("CIDM-2026.14", "category-investment-decision/SKILL.md"),
-    "CIM": ("CIM-2026.10", "competitive-intelligence-monitoring/SKILL.md"),
-    "VLB": ("VLB-2026.10", "video-link-breakdown/SKILL.md"),
-    "CIG": ("CIG-2026.09", "consumer-insights-customer-growth/SKILL.md"),
-    "AAMO": ("AAMO-2026.08", "advertising-analysis-measurement-optimization/SKILL.md"),
-    "LIFD": ("LIFD-2026.04", "logistics-inventory-fulfillment-decision/SKILL.md"),
-    "PLCO": ("PLCO-2026.08", "platform-store-listing-conversion/SKILL.md"),
+    "CIDM": ("CIDM-2026.07", "category-investment-decision/SKILL.md"),
+    "CIM": ("CIM-2026.07", "competitive-intelligence-monitoring/SKILL.md"),
+    "VLB": ("VLB-2026.07", "video-link-breakdown/SKILL.md"),
+    "CIG": ("CIG-2026.07", "consumer-insights-customer-growth/SKILL.md"),
+    "AAMO": ("AAMO-2026.07", "advertising-analysis-measurement-optimization/SKILL.md"),
+    "LIFD": ("LIFD-2026.07", "logistics-inventory-fulfillment-decision/SKILL.md"),
+    "PLCO": ("PLCO-2026.07", "platform-store-listing-conversion/SKILL.md"),
     "CAPM": ("CAPM-2026.07", "creator-affiliate-partnership-management/SKILL.md"),
-    "MBCM": ("MBCM-2026.01", "marketing-brand-campaign-management/SKILL.md"),
-    "PPFC": ("PPFC-2026.01", "pricing-profit-finance-cashflow-decision/SKILL.md"),
-    "PIPM": ("PIPM-2026.01", "product-innovation-product-management/SKILL.md"),
+    "MBCM": ("MBCM-2026.07", "marketing-brand-campaign-management/SKILL.md"),
+    "PPFC": ("PPFC-2026.07", "pricing-profit-finance-cashflow-decision/SKILL.md"),
+    "PIPM": ("PIPM-2026.07", "product-innovation-product-management/SKILL.md"),
 }
 
 
@@ -33,19 +33,21 @@ class HomepageIntegrity(unittest.TestCase):
             self.assertNotIn(stale, self.zh)
 
     def test_investor_value_and_both_architecture_views_exist(self):
-        for anchor in ("## 系统价值与长期壁垒", "### 四层价值结构",
-                       "### 十一 Skill 双向协同结构", "ERDG 治理底座",
+        for anchor in ("## 系统价值与长期壁垒", "### D01—D14 目标架构",
+                       "### D01—D14 连续决策闭环", "ERDG 治理控制面",
                        "决策资产", "经营基准"):
             self.assertIn(anchor, self.zh)
         self.assertGreaterEqual(self.zh.count("```mermaid"), 2)
 
     def test_erdg_is_visible_without_taking_business_ownership(self):
         for page in (self.zh, self.en):
-            self.assertIn("ERDG-CONTRACT-2026.01", page)
+            self.assertIn("ERDG-CONTRACT-2026.07", page)
             self.assertIn("governance/erdg/ERDG.md", page)
-        architecture = self.zh.split("### 四层价值结构", 1)[1].split("```", 2)[1]
+        self.assertIn("旧 v1 运行主链已经退役", self.zh)
+        self.assertIn("old v1 runtime path is retired", self.en)
+        architecture = self.zh.split("### D01—D14 目标架构", 1)[1].split("```", 2)[1]
         for term in ("对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘",
-                     "合同与红线校验", "阻断、降级或请求补充"):
+                     "合同与红线校验", "D14 跨域经营姿态与决策编排"):
             self.assertIn(term, architecture)
         self.assertIn("ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论", self.zh)
 
@@ -57,9 +59,13 @@ class HomepageIntegrity(unittest.TestCase):
             self.assertIn(path, table)
 
     def test_collaboration_graph_has_no_missing_or_duplicate_root_nodes(self):
-        graph = self.zh.split("### 十一 Skill 双向协同结构", 1)[1].split("```", 2)[1]
-        for skill in SKILLS:
-            self.assertEqual(len(re.findall(rf"^\s+R --> {skill}\[", graph, re.M)), 1, skill)
+        graph = self.zh.split("### D01—D14 目标架构", 1)[1].split("```", 2)[1]
+        for index in range(1, 15):
+            domain_id = f"D{index:02d}"
+            self.assertEqual(len(re.findall(rf"\b{domain_id}\[", graph)), 1, domain_id)
+        self.assertIn("D04 供应采购生产质量", graph)
+        self.assertIn("D05 合规与市场准入", graph)
+        self.assertIn("D14 跨域经营姿态与决策编排", graph)
 
     def test_homepage_uses_completed_capability_and_long_term_calibration_language(self):
         self.assertIn("已经形成十一个可独立运行、可跨域联动的专业决策 Skill", self.zh)
@@ -73,8 +79,8 @@ class HomepageIntegrity(unittest.TestCase):
             ("## 系统价值与长期壁垒", "## System Value and Long-Term Defensibility"),
             ("### 为什么它不容易被更强的通用模型替代", "### Why stronger general-purpose models do not replace it"),
             ("### 面向长期使用的复利机制", "### The compounding mechanism of long-term use"),
-            ("### 四层价值结构", "### Four-layer value architecture"),
-            ("### 十一 Skill 双向协同结构", "### Eleven-Skill collaboration map"),
+            ("### D01—D14 目标架构", "### D01-D14 target architecture"),
+            ("### D01—D14 连续决策闭环", "### Continuous D01-D14 decision loop"),
             ("## Skill 快速定位", "## Skill Directory"),
             ("## 统一决策基础设施", "## Shared Decision Infrastructure"),
             ("## 当前能力", "## Current Capabilities"),

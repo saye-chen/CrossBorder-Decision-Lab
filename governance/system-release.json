@@ -1,0 +1,33 @@
+{
+  "release_train": "2026.07",
+  "architecture_version": "CBDS-ARCH-2026.07",
+  "erdg_runtime": "ERDG-2026.07",
+  "erdg_contract": "ERDG-CONTRACT-2026.07",
+  "handoff_version": "v2",
+  "decision_cycle_version": "v2",
+  "adapter_semver": "2.0.0",
+  "schema_semver": "2.0.0",
+  "domain_runtimes": {
+    "D01": "CIDM-2026.07",
+    "D02": "CIM-2026.07",
+    "D03": "PIPM-2026.07",
+    "D04": "SPPQ-2026.07",
+    "D05": "LTMA-2026.07",
+    "D06": "PPFC-2026.07",
+    "D07": "LIFD-2026.07",
+    "D08": "PLCO-2026.07",
+    "D09": "AAMO-2026.07",
+    "D10": "CAPM-2026.07",
+    "D11": "VLB-2026.07",
+    "D12": "MBCM-2026.07",
+    "D13": "CIG-2026.07",
+    "D14": "COPO-2026.07"
+  },
+  "historical_snapshot_exceptions": [
+    "evaluations/erdg/expert-substantive-audit-2026-07-27.md",
+    "evaluations/full-repository-expert-audit-2026-07-20.md",
+    "logistics-inventory-fulfillment-decision/evaluations/expert-substantive-audit-2026-07-17.md"
+  ],
+  "production_ready": false,
+  "maturity": "controlled pilot"
+}

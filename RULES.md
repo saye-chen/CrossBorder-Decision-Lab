@@ -10,6 +10,14 @@ Decision sovereignty is fixed: CIDM owns category investment, capital allocation
 
 Calculations that can change an investment conclusion must be deterministic. Cross-Skill adjustments follow `proposed → validated/rejected` and become effective only after the owning Skill accepts them and recomputes under its own model. Any threshold crossing requires two independent evidence fingerprints, direct target-object evidence, complete calculations, no unresolved redline, and an owner recomputation; a disclaimer cannot waive these gates.
 
+## 0b. Target Architecture and Deployment Boundary
+
+`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. Current domains remain independently owned modules inside a microservice-ready modular monolith. D04 is the next build; D05 and D14 are planned. A planned or next-build domain may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
+
+Module boundaries use versioned handoff packets, stable decision-type identifiers and Decision Cycle identity. Cross-domain calls must not import another domain's private implementation or rewrite its conclusions. ERDG validates structure, evidence, state, lineage and deterministic shared calculations; D14 may eventually orchestrate dependencies and escalation, but neither ERDG nor D14 acquires professional decision sovereignty.
+
+Extraction into a network microservice requires observed independent scaling, isolation, deployment or organizational ownership need; a stable versioned contract; idempotency, retry and timeout semantics; observability; consumer migration evidence; and a tested rollback path. Directory count alone is never a reason to create a service.
+
 ## 1. Source of Truth
 
 Treat this repository as the single source of truth for Skill changes. Edit here first. The local Codex installation should point to these directories with symlinks.
@@ -346,6 +354,17 @@ ln -sfn "$PWD/platform-store-listing-conversion" \
 
 ln -sfn "$PWD/creator-affiliate-partnership-management" \
   "${CODEX_HOME:-$HOME/.codex}/skills/creator-affiliate-partnership-management"
+
+ln -sfn "$PWD/marketing-brand-campaign-management" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/marketing-brand-campaign-management"
+
+# PPFC 已完成 L1—L3 仓库门，L4 仍等待授权真实回放。
+ln -sfn "$PWD/pricing-profit-finance-cashflow-decision" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/pricing-profit-finance-cashflow-decision"
+
+# PIPM 已完成 L1—L3 仓库门；独立 Owner 权威切换和 L4 仍保持关闭。
+ln -sfn "$PWD/product-innovation-product-management" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/product-innovation-product-management"
 ```
 
 不要使用 `cp -r` 更新 Skill；目标已存在时可能保留旧文件或产生嵌套目录。

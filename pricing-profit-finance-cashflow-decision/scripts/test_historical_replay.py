@@ -21,7 +21,7 @@ def replay(case_id: str, case_type: str) -> dict:
         "decision_as_of_time": "2026-01-01T00:00:00Z",
         "input_hash": "sha256:" + case_id[-1].lower() * 64,
         "result_hash": "sha256:" + chr(ord(case_id[-1].lower()) + 3) * 64,
-        "model_version": "PPFC-2026.01",
+        "model_version": "PPFC-2026.07",
         "parameter_snapshot_version": "SNAP-1",
         "actual_outcome": {"measures": [{"metric": "contribution", "value": "1"}]},
         "matured_at": "2026-06-01T00:00:00Z",

@@ -1,5 +1,5 @@
 {
-  "version":"EXPERT-EXTREME-2026.01",
+  "version":"EXPERT-EXTREME-2026.07",
   "scenarios":[
     {"id":"EC-01","name":"高ROAS高页面分但负成熟利润且零ATP","primary":"category-investment-decision","participants":["advertising-analysis-measurement-optimization","platform-store-listing-conversion","logistics-inventory-fulfillment-decision"],"must":["利润红线","ATP Gate","停止扩量","页面分不可补偿"],"forbidden":["多数投票","高分覆盖红线"]},
     {"id":"EC-02","name":"不同产品非法合并继承评论并要求全平台复制","primary":"platform-store-listing-conversion","participants":["consumer-insights-customer-growth","competitive-intelligence-monitoring"],"must":["对象同一性","评论适用性","权利Gate","合法替代"],"forbidden":["评论操纵","非法合并"]},

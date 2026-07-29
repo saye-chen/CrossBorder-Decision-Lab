@@ -79,7 +79,7 @@ class EvidenceAndSellerTests(unittest.TestCase):
 
 class VersionTests(unittest.TestCase):
     def test_cidm_version_is_consistent(self):
-        expected = "CIDM-2026.14"
+        expected = "CIDM-2026.07"
         runtime_sources = [
             CIDM / "SKILL.md",
             CIDM / "references" / "scoring-model.md",

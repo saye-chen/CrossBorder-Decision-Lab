@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "crossborder/domain-architecture-registry/1.0.0",
+  "type": "object",
+  "required": ["schema_version", "architecture_version", "domains", "governance_plane"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "architecture_version": {"type": "string", "minLength": 1},
+    "domains": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {"$ref": "#/$defs/domain"}
+    },
+    "governance_plane": {
+      "type": "object",
+      "required": ["id", "contract", "owns_business_decisions", "capabilities"],
+      "properties": {
+        "id": {"const": "ERDG"},
+        "contract": {"type": "string", "minLength": 1},
+        "owns_business_decisions": {"const": false},
+        "capabilities": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "domain": {
+      "type": "object",
+      "required": [
+        "domain_id", "skill", "runtime_prefix", "availability",
+        "architecture_roles", "owned_decision_types", "decision_authorities",
+        "provides", "requires", "hard_dependencies", "optional_dependencies",
+        "lifecycle_stages", "accepted_packet_types", "blocking_gates",
+        "external_write_authority"
+      ],
+      "properties": {
+        "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"},
+        "skill": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)+$"},
+        "runtime_prefix": {"type": "string", "pattern": "^[A-Z][A-Z0-9]{1,7}$"},
+        "availability": {"enum": ["current", "next_build", "planned", "retired"]},
+        "architecture_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["portfolio_decision", "orchestration", "foundational_decision_service", "lifecycle_operation", "market_operation", "outcome_and_learning"]}
+        },
+        "owned_decision_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}},
+        "decision_authorities": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "provides": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "requires": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "hard_dependencies": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"}},
+        "optional_dependencies": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"}},
+        "lifecycle_stages": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": ["sense", "frame", "invest", "define", "source", "produce", "qualify", "fulfill", "launch", "acquire", "convert", "serve", "learn", "recover", "exit"]}
+        },
+        "accepted_packet_types": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"]}
+        },
+        "blocking_gates": {
+          "type": "array", "uniqueItems": true,
+          "items": {"enum": ["G0_EVIDENCE", "G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"]}
+        },
+        "external_write_authority": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

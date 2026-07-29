@@ -29,7 +29,7 @@ class ListingConversionStress(unittest.TestCase):
         cls.outputs=json.loads(text(SKILL/"references/output-contracts.json"))
 
     def test_runtime_and_sovereignty(self):
-        self.assertIn("PLCO-2026.08",self.skill)
+        self.assertIn("PLCO-2026.07",self.skill)
         for owner in ("D01","D05","D06","LIFD","AAMO","D11","D12","D13"):
             self.assertIn(owner,self.skill)
 

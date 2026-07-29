@@ -1,6 +1,6 @@
 # ERDG 单能力专家报告：多币种单位经济重述
 
-运行时：`ERDG-2026.01`；成熟度：`controlled pilot`。
+运行时：`ERDG-2026.07`；成熟度：`controlled pilot`。
 
 ## 可复算绑定
 

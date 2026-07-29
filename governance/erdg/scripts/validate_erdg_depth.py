@@ -26,7 +26,7 @@ CASE_FIELDS = {
     "actions", "success_stop_rollback", "forbidden",
 }
 COMMON_MARKERS = (
-    "ERDG-2026.01", "controlled pilot", "对象", "版本", "证据", "反证", "冲突",
+    "ERDG-2026.07", "controlled pilot", "对象", "版本", "证据", "反证", "冲突",
     "主权", "计算", "风险", "候选", "不行动", "动作", "成功", "停止", "回滚",
     "状态", "血缘", "L4",
 )
@@ -44,7 +44,7 @@ MODE_MARKERS = {
 def validate() -> list[str]:
     errors: list[str] = []
     catalog = json.loads((EVAL / "evaluation-catalog.json").read_text(encoding="utf-8"))
-    if catalog.get("runtime") != "ERDG-2026.01":
+    if catalog.get("runtime") != "ERDG-2026.07":
         errors.append("catalog runtime mismatch")
     cases = catalog.get("cases", [])
     ids = [case.get("id") for case in cases]

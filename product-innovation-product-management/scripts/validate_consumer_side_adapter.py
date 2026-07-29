@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-CONTRACT = "PIPM-CONSUMER-2026.01"
+CONTRACT = "PIPM-CONSUMER-2026.07"
 
 
 def canonical_hash(value: dict[str, Any]) -> str:

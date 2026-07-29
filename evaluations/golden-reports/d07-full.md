@@ -2,7 +2,7 @@
 
 ## 执行摘要
 
-决策结论：`Repair`，禁止新增承诺和广告放量。一句话理由：US/Amazon 测试SKU的系统库存把未质检在途计为可用，同时平台仓包装吞吐未来两周满载，表面库存无法支撑真实履约。主决策 Skill：`logistics-inventory-fulfillment-decision`；运行时 `LIFD-2026.04`；整体置信度：中高。
+决策结论：`Repair`，禁止新增承诺和广告放量。一句话理由：US/Amazon 测试SKU的系统库存把未质检在途计为可用，同时平台仓包装吞吐未来两周满载，表面库存无法支撑真实履约。主决策 Skill：`logistics-inventory-fulfillment-decision`；运行时 `LIFD-2026.07`；整体置信度：中高。
 
 本报告仅使用封闭测试输入，不代表现实平台规则、运费或库存事实。
 
@@ -57,7 +57,7 @@ C1运行`inventory_ledger.py`：可售100、在途100×资格0、确认订单80�
 
 C2运行`order_capacity.py`：ATP=0；仓内包装为最小能力节点，当前CTP不足以承诺新增订单；输入哈希`sha256:d07-c2-in`，输出哈希`sha256:d07-c2-out`。
 
-C3运行`logistics_economics.py`：基准单位贡献仍为正，但加急和失败履约会使下界转负。所有计算币种USD，可复算：是；计算器版本LIFD-2026.04。
+C3运行`logistics_economics.py`：基准单位贡献仍为正，但加急和失败履约会使下界转负。所有计算币种USD，可复算：是；计算器版本LIFD-2026.07。
 
 ## 计算台账
 

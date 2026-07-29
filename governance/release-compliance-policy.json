@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "repository_license": {
+    "path": "LICENSE",
+    "model": "all-rights-reserved",
+    "owner_review_required_for_external_distribution": true
+  },
+  "direct_dependencies": [
+    {
+      "requirement": "PyYAML==6.0.3",
+      "declared_license": "MIT",
+      "source": "https://github.com/yaml/pyyaml",
+      "legal_conclusion": false
+    },
+    {
+      "requirement": "jsonschema[format]==4.25.1",
+      "declared_license": "MIT",
+      "source": "https://github.com/python-jsonschema/jsonschema",
+      "legal_conclusion": false
+    }
+  ],
+  "data_privacy": {
+    "repository_must_not_contain_raw_personal_data": true,
+    "real_replay_requires_authorization_reference": true,
+    "real_replay_requires_deidentification": true,
+    "public_competitor_data_must_not_be_person_matched_to_first_party_customers": true,
+    "external_write_default": false,
+    "owner_review_status": "controlled_external_gate"
+  },
+  "automated_gate_scope": [
+    "license_file_presence",
+    "direct_dependency_pin_and_declaration",
+    "raw_secret_and_absolute_user_path_scan",
+    "tracked_cache_and_permission_scan",
+    "replay_authorization_and_deidentification_contract",
+    "external_write_default_false"
+  ],
+  "limitations": [
+    "Automated checks are not legal advice or a freedom-to-operate opinion.",
+    "Dependency metadata does not prove all transitive obligations are satisfied.",
+    "Privacy authorization and external distribution require an accountable owner review."
+  ]
+}

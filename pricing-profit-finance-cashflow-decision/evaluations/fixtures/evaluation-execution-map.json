@@ -1,5 +1,5 @@
 {
-  "version": "PPFC-EVAL-EXEC-2026.01",
+  "version": "PPFC-EVAL-EXEC-2026.07",
   "catalog": "evaluations/fixtures/evaluation-catalog.json",
   "bindings": [
     {"id":"PPFC-E01","positive":"test_pricing_models.PricingModelTests.test_price_scenario_recomputes_percentage_fee","counterexample":"test_pricing_models.PricingModelTests.test_no_pre_ad_contribution_blocks_finite_roas"},

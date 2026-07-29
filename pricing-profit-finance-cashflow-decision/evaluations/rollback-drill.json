@@ -1,5 +1,5 @@
 {
-  "contract_version": "PPFC-ROLLBACK-DRILL-2026.01",
+  "contract_version": "PPFC-ROLLBACK-DRILL-2026.07",
   "release_unit": "skill_adapter_contract_consumers_governance_tests",
   "drill_type": "non_production_simulation",
   "external_write": false,

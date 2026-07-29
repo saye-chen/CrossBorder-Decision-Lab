@@ -42,7 +42,7 @@ def _state_payload(event_type: str) -> dict[str, Any]:
         }],
         "events": [], "dependencies": {}, "pending_acceptance": [],
         "unresolved_items": [],
-        "lineage": {"state_hash": "sha256:old", "runtime_version": "PIPM-2026.01"},
+        "lineage": {"state_hash": "sha256:old", "runtime_version": "PIPM-2026.07"},
     }
     event = {
         "event_id": "E-GOLDEN", "turn_id": "T-GOLDEN", "sequence": 1,

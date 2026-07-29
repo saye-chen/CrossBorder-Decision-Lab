@@ -1,7 +1,7 @@
 # PLCO 单 Skill Golden Report
 
 ## 执行摘要
-决策结论：`Repair / Controlled test`。一句话理由：US/Amazon 示例Listing的标题未表达已验证的兼容任务，主图图组也未提供选择证据，但产品、Offer、库存和测量Gate允许小范围可回滚修复。主决策 Skill：`platform-store-listing-conversion`，运行时`PLCO-2026.08`。
+决策结论：`Repair / Controlled test`。一句话理由：US/Amazon 示例Listing的标题未表达已验证的兼容任务，主图图组也未提供选择证据，但产品、Offer、库存和测量Gate允许小范围可回滚修复。主决策 Skill：`platform-store-listing-conversion`，运行时`PLCO-2026.07`。
 
 ## 对象与边界
 对象`PLCO-US-AMZ-001`，国家/平台：US/Amazon，生命周期：L4学习优化，适用范围：单Listing、桌面和移动、自然搜索与已标记广告到达，page_version=`v1`，证据截止：2026-07-20。缺失数据：当前平台后台索引明细及成熟退货；决策影响：只允许受控页面实验，不允许声称增量利润或直接放量。

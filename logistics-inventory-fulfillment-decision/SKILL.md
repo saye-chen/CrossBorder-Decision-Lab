@@ -5,7 +5,7 @@ description: 默认用中文执行专家级跨境物流、库存与履约决策�
 
 # 物流、库存与履约决策
 
-运行时版本：`LIFD-2026.04`。
+运行时版本：`LIFD-2026.07`。
 
 成熟度：`controlled pilot`；授权真实历史回放门未通过，不得声明 `production ready`。
 
@@ -173,4 +173,4 @@ Hard gates与阻断项
 不得把Golden Case或合成fixture当成真实效果证明。正式生产发布前至少回放3个经授权、已脱敏、具有实际结果和证据哈希的历史案例；未满足时只允许`controlled pilot`，不得标记`production ready`。
 ## ERDG 共享治理接入
 
-正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/logistics-inventory-fulfillment-decision/adapter.json` 声明 LIFD 主权；ERDG 失败时不得形成生效动作。
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/logistics-inventory-fulfillment-decision/adapter.json` 声明 LIFD 主权；ERDG 失败时不得形成生效动作。

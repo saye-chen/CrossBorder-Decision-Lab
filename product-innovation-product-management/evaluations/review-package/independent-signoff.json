@@ -1,6 +1,6 @@
 {
   "overall_status": "pending_independent_review",
-  "package_version": "PIPM-WP10-REVIEW-2026.01",
+  "package_version": "PIPM-WP10-REVIEW-2026.07",
   "prohibited_shortcuts": [
     "self_review_as_independent",
     "automated_pass_as_l3_signoff",
@@ -11,7 +11,7 @@
     {
       "conflict_of_interest": null,
       "decision": "pending",
-      "evidence_index_hash": "sha256:e399604398da673bf7bef8e2bad2971daaf3cb779e16dd69974ab4dca9194b80",
+      "evidence_index_hash": "sha256:06a82a010c6ed9389c874e0bf11845bfa4205755c195048872314f795916de6a",
       "findings": [],
       "independent_of_implementation": null,
       "reviewer_id": null,
@@ -21,7 +21,7 @@
     {
       "conflict_of_interest": null,
       "decision": "pending",
-      "evidence_index_hash": "sha256:e399604398da673bf7bef8e2bad2971daaf3cb779e16dd69974ab4dca9194b80",
+      "evidence_index_hash": "sha256:06a82a010c6ed9389c874e0bf11845bfa4205755c195048872314f795916de6a",
       "findings": [],
       "independent_of_implementation": null,
       "reviewer_id": null,
@@ -31,7 +31,7 @@
     {
       "conflict_of_interest": null,
       "decision": "pending",
-      "evidence_index_hash": "sha256:e399604398da673bf7bef8e2bad2971daaf3cb779e16dd69974ab4dca9194b80",
+      "evidence_index_hash": "sha256:06a82a010c6ed9389c874e0bf11845bfa4205755c195048872314f795916de6a",
       "findings": [],
       "independent_of_implementation": null,
       "reviewer_id": null,

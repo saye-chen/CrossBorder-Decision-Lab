@@ -1,13 +1,13 @@
 # ERDG 复杂场景专家报告：多主体多币种多平台组合
 
-运行时：`ERDG-2026.01`；成熟度：`controlled pilot`。
+运行时：`ERDG-2026.07`；成熟度：`controlled pilot`。
 
 ## 可复算绑定
 
 recomputation_id: `ERDG-RC-COMPLEX`
 case_ids: `ERDG-K01, ERDG-K02`
 input_hash: `d45b419698160a87e0958fbfae70bc803a7b784a006acbb35be967e585c5b31d`
-output_hash: `4c8d394b8b3e070373660318c8855f436b66fb0cc14a8091a555376a765f1705`
+output_hash: `c8aef9aaf093e4ef41f9afc51b06f96dfac25570f2a1c92e7f24d9c0cdb59fb5`
 
 ## 决策对象与范围
 

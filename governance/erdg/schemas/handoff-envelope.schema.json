@@ -1,22 +1,107 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "erdg/handoff-envelope/1.0.0",
+  "$id": "erdg/handoff-envelope/2.0.0",
   "type": "object",
-  "required": ["message_id", "message_version", "source_domain", "target_domain", "decision_question", "object_ref", "runtime_versions", "allowed_uses", "forbidden_uses", "participant_status", "lineage"],
+  "required": ["message_id", "message_version", "contract_version", "decision_cycle_id", "packet_type", "decision_phase", "source", "target", "decision_question", "object_ref", "runtime_versions", "authority", "allowed_uses", "forbidden_uses", "participant_status", "gate_binding", "impact", "lineage"],
   "properties": {
     "message_id": {"type": "string", "minLength": 1},
-    "message_version": {"type": "string", "minLength": 1},
-    "source_domain": {"type": "string", "minLength": 1},
-    "target_domain": {"type": "string", "minLength": 1},
+    "message_version": {"const": "v2"},
+    "contract_version": {"const": "ERDG-CONTRACT-2026.07"},
+    "decision_cycle_id": {"type": "string", "minLength": 1},
+    "parent_message_id": {"type": "string", "minLength": 1},
+    "packet_type": {"enum": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"]},
+    "decision_phase": {"enum": ["sense", "frame", "invest", "define", "source", "produce", "qualify", "fulfill", "launch", "acquire", "convert", "serve", "learn", "recover", "exit"]},
+    "source": {"$ref": "#/$defs/endpoint"},
+    "target": {"$ref": "#/$defs/endpoint"},
     "decision_question": {"type": "string", "minLength": 1},
-    "object_ref": {"type": "object", "required": ["object_id", "object_version"], "properties": {"object_id": {"type": "string", "minLength": 1}, "object_version": {"type": "string", "minLength": 1}}, "additionalProperties": false},
+    "object_ref": {
+      "type": "object",
+      "required": ["object_id", "object_version"],
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "object_version": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
     "runtime_versions": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
-    "allowed_uses": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "forbidden_uses": {"type": "array", "items": {"type": "string"}},
-    "participant_status": {"enum": ["contributed", "blocked", "inconclusive", "not_required"]},
+    "authority": {
+      "type": "object",
+      "required": ["source_authority", "target_authority", "ownership_transfer"],
+      "properties": {
+        "source_authority": {"type": "string", "minLength": 1},
+        "target_authority": {"type": "string", "minLength": 1},
+        "ownership_transfer": {"const": false},
+        "requested_response": {"enum": ["accept", "reject", "partially_accept", "request_evidence", "contribute", "validate", "recompute"]}
+      },
+      "additionalProperties": false
+    },
+    "evidence_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "claim_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "calculation_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "decision_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "prerequisite_message_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "constraints": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "allowed_uses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "forbidden_uses": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "participant_status": {"enum": ["contributed", "blocked", "inconclusive", "not_required", "partially_contributed"]},
     "failure_reason": {"type": "string", "minLength": 1},
-    "lineage": {"type": "object", "required": ["input_hash"], "properties": {"input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}, "additionalProperties": false},
+    "gate_binding": {
+      "type": "object",
+      "required": ["gate_id", "gate_status"],
+      "properties": {
+        "gate_id": {"enum": ["G0_EVIDENCE", "G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"]},
+        "gate_status": {"enum": ["not_evaluated", "passed", "partially_passed", "blocked", "not_applicable"]},
+        "blocking_reasons": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "recovery_requirements": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "impact": {
+      "type": "object",
+      "required": ["affected_domains", "affected_claims", "preserved_results"],
+      "properties": {
+        "affected_domains": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"}},
+        "affected_claims": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "preserved_results": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "recompute_scope": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "deadline": {"type": "string", "format": "date-time"},
+    "lineage": {
+      "type": "object",
+      "required": ["input_hash", "packet_hash"],
+      "properties": {
+        "input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "packet_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "parent_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "outcome_binding_id": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
     "extensions": {"type": "object", "patternProperties": {"^[a-z0-9_-]+:": {}}, "additionalProperties": false}
   },
-  "additionalProperties": false
+  "allOf": [
+    {
+      "if": {"properties": {"participant_status": {"enum": ["blocked", "inconclusive", "partially_contributed"]}}},
+      "then": {"required": ["failure_reason"]}
+    },
+    {
+      "if": {"properties": {"packet_type": {"const": "action_request"}}},
+      "then": {"properties": {"gate_binding": {"properties": {"gate_id": {"const": "G4_ACTION_QUALIFICATION"}}, "required": ["gate_id", "gate_status"]}}}
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "endpoint": {
+      "type": "object",
+      "required": ["domain_id", "skill", "availability"],
+      "properties": {
+        "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"},
+        "skill": {"type": "string", "minLength": 1},
+        "availability": {"enum": ["current", "next_build", "planned"]}
+      },
+      "additionalProperties": false
+    }
+  }
 }

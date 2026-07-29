@@ -14,7 +14,7 @@ class MBCMIntegration(unittest.TestCase):
         for forbidden in ("广告内部预算","达人筛选","个人客户"):
             self.assertIn(forbidden,skill)
     def test_validated_packet_is_actionable_but_proposed_is_not(self):
-        base={"packet_id":"P1","packet_version":"v1","source_domain":"AAMO","source_runtime":"AAMO-2026.08",
+        base={"packet_id":"P1","packet_version":"v1","source_domain":"AAMO","source_runtime":"AAMO-2026.07",
           "target_domain":"MBCM","object":{"object_id":"O1"},"status":"validated","evidence":[],"calculations":[],
           "allowed_uses":["channel_direction"],"forbidden_uses":["ad_bid"],"lineage":{"decision_id":"D1"}}
         with tempfile.TemporaryDirectory() as td:
@@ -47,7 +47,7 @@ class MBCMIntegration(unittest.TestCase):
     def test_maturity_is_controlled_pilot_with_zero_replays(self):
         ledger=json.loads((ROOT/"governance/domain-maturity-status.json").read_text())
         row=next(x for x in ledger["domains"] if x["skill"]=="marketing-brand-campaign-management")
-        self.assertEqual((row["runtime"],row["maturity"],row["authorized_real_cases"]),("MBCM-2026.01","controlled pilot",0))
+        self.assertEqual((row["runtime"],row["maturity"],row["authorized_real_cases"]),("MBCM-2026.07","controlled pilot",0))
         replay=json.loads((MBCM/"evaluations/historical-replay-template.json").read_text())
         self.assertFalse(replay["production_ready"]); self.assertEqual(replay["cases"],[])
 

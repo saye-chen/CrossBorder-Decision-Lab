@@ -6,7 +6,7 @@
   "required": ["migration_id", "temporary_contract", "formal_contract", "snapshot_id", "object_version", "mappings", "consumer_acceptance", "rollback_deadline", "legacy_read_preserved"],
   "properties": {
     "migration_id": {"type": "string"},
-    "temporary_contract": {"enum": ["PIPM-D04-TEMP-2026.01", "PIPM-D05-TEMP-2026.01"]},
+    "temporary_contract": {"enum": ["PIPM-D04-TEMP-2026.07", "PIPM-D05-TEMP-2026.07"]},
     "formal_contract": {"type": "string"},
     "snapshot_id": {"type": "string"},
     "object_version": {"type": "string"},

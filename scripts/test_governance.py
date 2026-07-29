@@ -57,6 +57,12 @@ class ImpactGovernance(unittest.TestCase):
         self.assertIn("cim-monitoring-and-integration", result["affected_contracts"])
         self.assertEqual(result["unmapped_paths"], [])
 
+    def test_retired_source_deletion_remains_change_mapped(self):
+        retired = "governance/erdg/migration-manifest.json"
+        result = impact.analyze([retired])
+        self.assertEqual(result["unmapped_paths"], [])
+        self.assertIn("erdg-economic-risk-and-decision-governance", result["affected_contracts"])
+
     def test_runtime_and_vlb_handoff_consumers_include_new_release_dependencies(self):
         manifest = json.loads((ROOT / "governance/change-impact-manifest.json").read_text(encoding="utf-8"))
         contracts = manifest["contracts"]
@@ -70,8 +76,8 @@ class ImpactGovernance(unittest.TestCase):
         self.assertIn(workflow, handoff_consumers)
 
     def test_all_ten_domain_entrypoints_execute_shared_contract(self):
-        payload = {"mode":"single", "decision_type":"content_creative", "decision_owner":"video-link-breakdown",
-                   "participating_skills":["video-link-breakdown"], "runtime_versions":{"video-link-breakdown":"VLB-2026.10"},
+        payload = {"erdg_contract":"ERDG-CONTRACT-2026.07", "mode":"single", "decision_type":"content_creative", "decision_owner":"video-link-breakdown",
+                   "participating_skills":["video-link-breakdown"], "runtime_versions":{"video-link-breakdown":"VLB-2026.07"},
                    "participant_results":{"video-link-breakdown":{"status":"contributed"}},
                    "professional_core":{"object_boundary":"o","conclusion":"Test","evidence_summary":["E1"],"counterevidence":["E2"],"commercial_constraints":["budget"],"risks_and_redlines":["risk"],"actions":["test"],"success_conditions":["pass"],"stop_conditions":["stop"],"limitations_and_missing_data":["missing"]},
                    "objects":[{"canonical_id":"o","country":"US","platform":"P","category":"C","lifecycle":"L"}],

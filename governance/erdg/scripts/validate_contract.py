@@ -10,53 +10,38 @@ import sys
 from pathlib import Path
 from typing import Any
 
-_compat_path = Path(__file__).with_name("validate_domain_contract_compat.py")
-_spec = importlib.util.spec_from_file_location("erdg_compat", _compat_path)
+_domain_path = Path(__file__).with_name("validate_domain_contract.py")
+_spec = importlib.util.spec_from_file_location("erdg_domain_contract", _domain_path)
 if _spec is None or _spec.loader is None:
-    raise RuntimeError(f"cannot load compatibility validator: {_compat_path}")
-_compat = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_compat)
-PROFESSIONAL_FIELDS = _compat.PROFESSIONAL_FIELDS
-OWNERS = _compat.OWNERS
-CLAIM_STATES = _compat.CLAIM_STATES
+    raise RuntimeError(f"cannot load domain validator: {_domain_path}")
+_domain = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_domain)
+PROFESSIONAL_FIELDS = _domain.PROFESSIONAL_FIELDS
+OWNERS = _domain.OWNERS
+CLAIM_STATES = _domain.CLAIM_STATES
+
+_handoff_path = Path(__file__).with_name("validate_handoff.py")
+_handoff_spec = importlib.util.spec_from_file_location("erdg_handoff", _handoff_path)
+if _handoff_spec is None or _handoff_spec.loader is None:
+    raise RuntimeError(f"cannot load handoff validator: {_handoff_path}")
+_handoff = importlib.util.module_from_spec(_handoff_spec)
+_handoff_spec.loader.exec_module(_handoff)
 
 
 def _erdg_errors(payload: dict[str, Any]) -> list[str]:
     errors = []
-    active_contract = payload.get("erdg_contract", payload.get("erdg_contract"))
-    if active_contract not in {None, "ERDG-CONTRACT-2026.01", "F03-CONTRACT-2026.01"}:
-        errors.append("unsupported erdg_contract")
+    active_contract = payload.get("erdg_contract")
+    if active_contract != "ERDG-CONTRACT-2026.07":
+        errors.append("erdg_contract must be ERDG-CONTRACT-2026.07")
     envelopes = payload.get("handoff_envelopes", [])
     if not isinstance(envelopes, list):
         errors.append("handoff_envelopes must be a list")
         envelopes = []
     for index, envelope in enumerate(envelopes):
-        prefix = f"handoff_envelopes[{index}]"
         if not isinstance(envelope, dict):
-            errors.append(f"{prefix} must be an object")
+            errors.append(f"handoff_envelopes[{index}] must be an object")
             continue
-        for field in ("message_id", "message_version", "source_domain", "target_domain", "decision_question", "object_ref", "runtime_versions", "allowed_uses", "forbidden_uses", "participant_status", "lineage"):
-            if field not in envelope:
-                errors.append(f"{prefix}.{field} is required")
-        if set(envelope.get("allowed_uses", [])) & set(envelope.get("forbidden_uses", [])):
-            errors.append(f"{prefix} allowed and forbidden uses overlap")
-        if envelope.get("participant_status") not in {"contributed", "blocked", "inconclusive", "not_required"}:
-            errors.append(f"{prefix}.participant_status is invalid")
-        if not envelope.get("lineage", {}).get("input_hash"):
-            errors.append(f"{prefix}.lineage.input_hash is required")
-        object_ref = envelope.get("object_ref", {})
-        if not isinstance(object_ref, dict) or not object_ref.get("object_id") or not object_ref.get("object_version"):
-            errors.append(f"{prefix}.object_ref requires object_id and object_version")
-        versions = envelope.get("runtime_versions")
-        if not isinstance(versions, dict) or not versions:
-            errors.append(f"{prefix}.runtime_versions must be non-empty")
-        if envelope.get("participant_status") != "contributed" and not envelope.get("failure_reason"):
-            errors.append(f"{prefix}.failure_reason is required for non-contributed status")
-        extensions = envelope.get("extensions", {})
-        if not isinstance(extensions, dict):
-            errors.append(f"{prefix}.extensions must be an object")
-        elif any(":" not in key for key in extensions):
-            errors.append(f"{prefix}.extensions keys must be namespaced")
+        errors.extend(f"handoff_envelopes[{index}]: {error}" for error in _handoff.validate(envelope))
     if payload.get("external_write") not in {None, False, "forbidden"}:
         errors.append("ERDG cannot authorize external writes")
     if payload.get("production_ready") is True:
@@ -65,7 +50,7 @@ def _erdg_errors(payload: dict[str, Any]) -> list[str]:
 
 
 def validate(payload: dict[str, Any]) -> list[str]:
-    return _compat.validate(payload) + _erdg_errors(payload)
+    return _domain.validate(payload) + _erdg_errors(payload)
 
 
 def main() -> int:

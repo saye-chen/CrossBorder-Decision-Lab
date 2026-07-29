@@ -1,5 +1,5 @@
 {
-  "catalog_version": "PPFC-EVAL-2026.01",
+  "catalog_version": "PPFC-EVAL-2026.07",
   "count": 55,
   "coverage": {"golden": 12, "failure": 12, "adversarial": 10, "property": 9, "cross_domain": 6, "extreme": 6},
   "cases": [

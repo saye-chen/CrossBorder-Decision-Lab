@@ -1,13 +1,13 @@
 # ERDG 复合场景专家报告：新品上市经济与风险门
 
-运行时：`ERDG-2026.01`；成熟度：`controlled pilot`。
+运行时：`ERDG-2026.07`；成熟度：`controlled pilot`。
 
 ## 可复算绑定
 
 recomputation_id: `ERDG-RC-COMPOSITE`
 case_ids: `ERDG-C01, ERDG-C02`
 input_hash: `220ed313d10e97ef2e92ca38a9be3f2a06b09579b9fab68973da26ac8a0401ba`
-output_hash: `b8572d27fba4e4c796c14b4134894fb4a836cf303cc6ff7a8ef6b389e755ff02`
+output_hash: `625cdc6b952896a8f3d32cf0ce7cc95c7cc77a3365e0d586c665b53fa6671dd9`
 
 ## 决策对象
 

@@ -18,7 +18,7 @@ def analyze(paths: list[str]) -> dict:
     affected = {}
     for contract_id, spec in manifest["contracts"].items():
         watched = set()
-        for key in ("authoritative_sources", "consumers", "validators", "tests", "evaluations"):
+        for key in ("authoritative_sources", "retired_sources", "consumers", "validators", "tests", "evaluations"):
             watched.update(spec.get(key, []))
         matches = sorted(p for p in normalized if any(p == w or p.startswith(w.rstrip("/") + "/") for w in watched))
         if matches:

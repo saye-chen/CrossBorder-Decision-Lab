@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ERDG Golden, adversarial, property, adapter and migration tests."""
+"""ERDG Golden, adversarial, property, adapter and v2 architecture tests."""
 
 from __future__ import annotations
 
@@ -46,18 +46,18 @@ class ERDGTests(unittest.TestCase):
         cls.parameters = load("resolve_parameters")
         cls.units = load("validate_units_currency_tax_time")
         cls.impact = load("compute_impact_closure")
-        cls.migrate = load("migrate_contract")
         cls.depth = load("validate_erdg_depth")
         cls.recomputation = load("validate_report_recomputation")
         cls.capacity = load("validate_erdg_capacity")
         cls.schema_validator = load("validate_schema_instance")
         cls.contract = load("validate_contract")
-        cls.compat = load("validate_domain_contract_compat")
+        cls.compat = load("validate_domain_contract")
 
     def test_01_contract_version_keeps_l4_closed(self):
         version = json.loads((ERDG_DIR / "contract-version.json").read_text())
-        self.assertEqual(version["runtime"], "ERDG-2026.01")
-        self.assertEqual(version["contract"], "ERDG-CONTRACT-2026.01")
+        self.assertEqual(version["runtime"], "ERDG-2026.07")
+        self.assertEqual(version["contract"], "ERDG-CONTRACT-2026.07")
+        self.assertEqual(version["schema_version"], "2.0.0")
         self.assertFalse(version["production_ready"])
         self.assertEqual(version["l4"], "not_passed")
         self.assertEqual(version["external_write"], "forbidden")
@@ -76,7 +76,11 @@ class ERDGTests(unittest.TestCase):
         adapters = {path.parent.name: json.loads(path.read_text()) for path in (ERDG_DIR / "adapters").glob("*/adapter.json")}
         self.assertEqual(set(adapters), EXPECTED_SKILLS)
         for skill, adapter in adapters.items():
-            self.assertEqual(adapter["contract"], "ERDG-CONTRACT-2026.01", skill)
+            self.assertEqual(adapter["version"], "2.0.0", skill)
+            self.assertEqual(adapter["contract"], "ERDG-CONTRACT-2026.07", skill)
+            self.assertEqual(adapter["handoff_schema"], "governance/erdg/schemas/handoff-envelope.schema.json", skill)
+            self.assertEqual(adapter["decision_cycle_schema"], "governance/erdg/schemas/decision-cycle.schema.json", skill)
+            self.assertFalse(adapter["accepts_v1"], skill)
             self.assertFalse(adapter["external_write"], skill)
             self.assertTrue(adapter["owned_decision_types"], skill)
 
@@ -179,16 +183,13 @@ class ERDGTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, (script, result.stdout, result.stderr))
             self.assertIn("ERDG decision contract", result.stdout)
 
-    def test_15_migration_has_dual_read_and_rollback(self):
-        migration = json.loads((ERDG_DIR / "migration-manifest.json").read_text())
-        self.assertEqual(migration["status"], "physical_and_authoritative_switch_complete")
-        self.assertEqual(migration["completed_in_runtime"], "ERDG-2026.01")
-        self.assertEqual(migration["retired_path"], "governance/f03")
-        self.assertFalse(migration["retired_path_allowed"])
-        self.assertEqual(migration["dual_read"]["required_result"], "no_difference")
-        self.assertEqual(migration["rollback"]["unit"], "whole_release")
-        self.assertFalse(migration["rollback"]["restore_retired_path"])
-        self.assertTrue(migration["old_entrypoint_new_consumers_forbidden"])
+    def test_15_v2_is_the_only_shared_handoff_runtime(self):
+        self.assertFalse((ERDG_DIR / "migration-manifest.json").exists())
+        self.assertFalse((SCRIPTS / "migrate_contract.py").exists())
+        self.assertFalse((ERDG_DIR / "schemas/handoff-envelope-v2.schema.json").exists())
+        schema = json.loads((ERDG_DIR / "schemas/handoff-envelope.schema.json").read_text())
+        self.assertEqual(schema["properties"]["message_version"]["const"], "v2")
+        self.assertEqual(schema["properties"]["contract_version"]["const"], "ERDG-CONTRACT-2026.07")
 
     def test_16_parameter_registry_contains_no_production_thresholds(self):
         registry = json.loads((ERDG_DIR / "parameter-registry.json").read_text())
@@ -200,7 +201,15 @@ class ERDGTests(unittest.TestCase):
         self.assertEqual([item["id"] for item in manifest["requirements"][:18]], [f"R{i:02d}" for i in range(1, 19)])
         self.assertEqual(
             [item["id"] for item in manifest["requirements"][18:]],
-            ["ERDG-XDEPTH", "ERDG-XINTEGRATION", "ERDG-XSCHEMA", "ERDG-XRECOMPUTE", "ERDG-XCAPACITY"],
+            [
+                "ERDG-XDEPTH",
+                "ERDG-XINTEGRATION",
+                "ERDG-XSCHEMA",
+                "ERDG-XRECOMPUTE",
+                "ERDG-XCAPACITY",
+                "ERDG-XREGISTRY",
+                "ERDG-XHANDOFFV2",
+            ],
         )
         for item in manifest["requirements"]:
             self.assertTrue(item["evidence"], item)
@@ -209,7 +218,7 @@ class ERDGTests(unittest.TestCase):
                 self.assertTrue((ROOT / relative).exists(), relative)
         external = [item["id"] for item in manifest["requirements"] if item["status"] == "controlled_external_gate"]
         self.assertEqual(external, ["R18"])
-        self.assertEqual(manifest["summary"], {"fixed": 22, "controlled_external_gate": 1, "partial": 0, "missing": 0})
+        self.assertEqual(manifest["summary"], {"fixed": 24, "controlled_external_gate": 1, "partial": 0, "missing": 0})
         self.assertFalse(manifest["production_ready"])
 
     def test_18_unit_currency_tax_and_time_conflicts_fail_closed(self):
@@ -236,15 +245,13 @@ class ERDGTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.impact.compute({**base, "edges": base["edges"] + [{"from": "decision", "to": "calculation"}]})
 
-    def test_20_migration_is_shadow_only_and_decision_preserving(self):
+    def test_20_v1_contract_and_missing_contract_fail_closed(self):
         payload = json.loads((FIXTURES / "domain-contract.json").read_text())
-        payload.pop("erdg_contract")
-        payload.pop("external_write")
-        migrated = self.migrate.migrate(payload)
-        self.assertEqual(migrated["erdg_contract"], "ERDG-CONTRACT-2026.01")
-        self.assertFalse(migrated["external_write"])
-        self.assertFalse(migrated["migration"]["business_decision_changed"])
-        self.assertEqual(migrated["professional_core"], payload["professional_core"])
+        missing = dict(payload)
+        missing.pop("erdg_contract")
+        self.assertIn("erdg_contract must be ERDG-CONTRACT-2026.07", self.contract.validate(missing))
+        retired = {**payload, "erdg_contract": "ERDG-CONTRACT-2025.12"}
+        self.assertIn("erdg_contract must be ERDG-CONTRACT-2026.07", self.contract.validate(retired))
 
     def test_21_seven_execution_modes_and_reports_have_substantive_depth(self):
         self.assertEqual(self.depth.validate(), [])
@@ -295,7 +302,8 @@ class ERDGTests(unittest.TestCase):
             "risk.schema.json": {"risk_id": "R1", "risk_type": "demand", "object_id": "O1", "redline": False, "status": "open", "owner": "owner"},
             "decision.schema.json": {"decision_id": "D1", "owner_domain": "owner", "object_id": "O1", "decision_question": "q", "state": "draft", "version": "v1"},
             "action.schema.json": {"action_id": "A1", "decision_id": "D1", "object_id": "O1", "owner": "owner", "state": "planned", "external_write": False},
-            "handoff-envelope.schema.json": {"message_id": "M1", "message_version": "v1", "source_domain": "a", "target_domain": "b", "decision_question": "q", "object_ref": {"object_id": "O1", "object_version": "v1"}, "runtime_versions": {"a": "A-1"}, "allowed_uses": ["support"], "forbidden_uses": [], "participant_status": "contributed", "lineage": {"input_hash": "a"*64}},
+            "handoff-envelope.schema.json": {"message_id": "M2", "message_version": "v2", "contract_version": "ERDG-CONTRACT-2026.07", "decision_cycle_id": "C1", "packet_type": "evidence", "decision_phase": "sense", "source": {"domain_id": "D02", "skill": "competitive-intelligence-monitoring", "availability": "current"}, "target": {"domain_id": "D01", "skill": "category-investment-decision", "availability": "current"}, "decision_question": "q", "object_ref": {"object_id": "O1", "object_version": "v1"}, "runtime_versions": {"D02": "CIM-2026.07"}, "authority": {"source_authority": "competitive_intelligence", "target_authority": "investment", "ownership_transfer": False}, "allowed_uses": ["support"], "forbidden_uses": [], "participant_status": "contributed", "gate_binding": {"gate_id": "G0_EVIDENCE", "gate_status": "passed"}, "impact": {"affected_domains": ["D01"], "affected_claims": [], "preserved_results": []}, "lineage": {"input_hash": "a"*64, "packet_hash": "b"*64}},
+            "decision-cycle.schema.json": {"cycle_id": "C1", "cycle_version": "v2", "architecture_version": "DARCH-2026.07", "decision_object": {"object_id": "O1", "object_version": "v1", "country": "US", "platform": "Amazon", "category": "example"}, "orchestration_mode": "sequential", "current_phase": "sense", "participants": [{"domain_id": "D02", "role": "evidence_provider", "availability": "current", "status": "contributed"}], "stages": [{"stage_id": "S1", "phase": "sense", "dependencies": [], "participant_domains": ["D02"], "status": "completed", "required_packet_types": ["evidence"]}], "gates": [{"gate_id": "G0_EVIDENCE", "status": "passed", "required_stage_ids": ["S1"], "blocking_reasons": [], "recovery_requirements": []}], "current_effective_decisions": [], "lineage": {"cycle_input_hash": "a"*64, "cycle_state_hash": "b"*64}},
             "parameter.schema.json": {"parameter_id": "P1", "parameter_type": "threshold", "owner_domain": "owner", "value_or_formula": "1", "scope": "global", "effective_from": "2026-01-01T00:00:00Z", "version": "1", "calibration_status": "default", "approval": {"status": "approved"}},
             "replay.schema.json": {"replay_id": "RP1", "state": "not_started", "input_hash": "a"*64, "result_hash": "b"*64, "authorized": False, "deidentified": True, "production_ready": False},
         }

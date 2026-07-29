@@ -17,7 +17,7 @@ def main()->int:
         print(f"PIPM_ERDG=BLOCKED: {exc}",file=sys.stderr);return 1
     if errors:
         print("PIPM_ERDG=BLOCKED: "+"|".join(errors),file=sys.stderr);return 1
-    print(json.dumps({"valid":True,"erdg_contract":"ERDG-CONTRACT-2026.01","decision_owner":payload["decision_owner"]},ensure_ascii=False))
+    print(json.dumps({"valid":True,"erdg_contract":"ERDG-CONTRACT-2026.07","decision_owner":payload["decision_owner"]},ensure_ascii=False))
     return 0
 
 if __name__=="__main__": raise SystemExit(main())

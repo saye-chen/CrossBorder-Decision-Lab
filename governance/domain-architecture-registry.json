@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0.0",
+  "architecture_version": "CBDS-ARCH-2026.07",
+  "domains": [
+    {
+      "domain_id": "D01", "skill": "category-investment-decision", "runtime_prefix": "CIDM", "availability": "current",
+      "architecture_roles": ["portfolio_decision"], "owned_decision_types": ["investment", "capital_portfolio", "lifecycle_capital"],
+      "decision_authorities": ["category investment", "capital allocation", "market-platform entry", "capital add-reduce-exit"],
+      "provides": ["capital_posture", "budget_envelope", "investment_stop_exit_boundary"],
+      "requires": ["market_evidence", "customer_evidence", "economic_constraint", "compliance_gate", "supply_capacity", "operating_outcome"],
+      "hard_dependencies": [], "optional_dependencies": ["D02", "D03", "D04", "D05", "D06", "D07", "D13"],
+      "lifecycle_stages": ["frame", "invest", "learn", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "outcome", "conflict_escalation"],
+      "blocking_gates": ["G0_EVIDENCE", "G1_CAPITAL", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D02", "skill": "competitive-intelligence-monitoring", "runtime_prefix": "CIM", "availability": "current",
+      "architecture_roles": ["foundational_decision_service", "outcome_and_learning"], "owned_decision_types": ["competition", "competitive_intelligence"],
+      "decision_authorities": ["competitive facts", "confirmed changes", "competitive attribution"],
+      "provides": ["market_evidence", "competitive_change", "competitive_alternative_explanation"], "requires": ["monitoring_object", "observation_window"],
+      "hard_dependencies": [], "optional_dependencies": ["D01", "D03", "D08", "D09", "D12", "D13"],
+      "lifecycle_stages": ["sense", "launch", "learn"], "accepted_packet_types": ["evidence", "outcome", "recovery"],
+      "blocking_gates": ["G0_EVIDENCE", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D03", "skill": "product-innovation-product-management", "runtime_prefix": "PIPM", "availability": "current",
+      "architecture_roles": ["lifecycle_operation"], "owned_decision_types": ["product_opportunity", "product_definition", "product_specification", "product_validation", "product_roadmap"],
+      "decision_authorities": ["product opportunity", "definition", "specification", "validation scope", "roadmap"],
+      "provides": ["product_definition", "product_specification", "validation_scope", "product_roadmap"],
+      "requires": ["capital_posture", "market_evidence", "customer_evidence", "economic_constraint", "compliance_gate"],
+      "hard_dependencies": ["D01"], "optional_dependencies": ["D02", "D05", "D06", "D13"],
+      "lifecycle_stages": ["define", "qualify", "learn", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "outcome", "recovery"],
+      "blocking_gates": ["G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D04", "skill": "supplier-procurement-production-quality-decision", "runtime_prefix": "SPPQ", "availability": "next_build",
+      "architecture_roles": ["lifecycle_operation", "outcome_and_learning"],
+      "owned_decision_types": ["supplier_selection", "procurement_commitment", "sample_approval", "production_release", "batch_quality_release", "supplier_recovery_exit"],
+      "decision_authorities": ["supplier selection", "procurement commitment", "sample approval", "production release", "batch quality release", "supplier recovery and exit"],
+      "provides": ["supplier_decision", "qualified_batch", "capacity_commitment", "quality_release", "supplier_recovery"],
+      "requires": ["product_specification", "capital_posture", "economic_constraint", "compliance_gate", "quality_outcome"],
+      "hard_dependencies": ["D03"], "optional_dependencies": ["D01", "D05", "D06", "D07", "D13"],
+      "lifecycle_stages": ["source", "produce", "qualify", "recover", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
+      "blocking_gates": ["G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D05", "skill": "legal-tax-intellectual-property-market-access-decision", "runtime_prefix": "LTMA", "availability": "planned",
+      "architecture_roles": ["foundational_decision_service", "outcome_and_learning"],
+      "owned_decision_types": ["legal_access", "regulatory_compliance", "tax_treatment", "intellectual_property", "certification_access"],
+      "decision_authorities": ["legal access", "regulatory compliance", "tax treatment", "intellectual property", "certification access"],
+      "provides": ["compliance_gate", "market_access_decision", "claim_boundary", "professional_opinion", "compliance_recovery"],
+      "requires": ["canonical_object", "country_platform_scope", "product_claim_material", "professional_evidence"],
+      "hard_dependencies": [], "optional_dependencies": ["D03", "D04", "D08", "D09", "D10", "D11", "D12"],
+      "lifecycle_stages": ["sense", "define", "qualify", "launch", "learn", "recover", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
+      "blocking_gates": ["G0_EVIDENCE", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D06", "skill": "pricing-profit-finance-cashflow-decision", "runtime_prefix": "PPFC", "availability": "current",
+      "architecture_roles": ["foundational_decision_service", "outcome_and_learning"],
+      "owned_decision_types": ["pricing", "pricing_profit", "unit_economics", "financial_constraint", "cashflow"],
+      "decision_authorities": ["pricing", "profit", "financial constraints", "cash flow"],
+      "provides": ["economic_constraint", "price_decision", "break_even_boundary", "cash_peak", "actual_economic_result"],
+      "requires": ["cost_inputs", "fee_inputs", "tax_inputs", "currency_time_scope", "actual_outcome"],
+      "hard_dependencies": [], "optional_dependencies": ["D01", "D03", "D04", "D07", "D08", "D09", "D10", "D12", "D13"],
+      "lifecycle_stages": ["frame", "invest", "define", "source", "launch", "learn", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "outcome", "recovery"],
+      "blocking_gates": ["G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D07", "skill": "logistics-inventory-fulfillment-decision", "runtime_prefix": "LIFD", "availability": "current",
+      "architecture_roles": ["lifecycle_operation", "outcome_and_learning"],
+      "owned_decision_types": ["logistics", "inventory", "replenishment", "fulfillment", "reverse_logistics", "logistics_incident"],
+      "decision_authorities": ["logistics network", "replenishment", "inventory allocation", "fulfillment capacity", "reverse logistics", "inventory exit"],
+      "provides": ["route_decision", "inventory_state", "atp_ctp", "fulfillment_constraint", "reverse_outcome"],
+      "requires": ["qualified_batch", "capacity_commitment", "economic_constraint", "compliance_gate", "demand_scenario"],
+      "hard_dependencies": [], "optional_dependencies": ["D04", "D05", "D06", "D08", "D09", "D12", "D13"],
+      "lifecycle_stages": ["fulfill", "launch", "serve", "learn", "recover", "exit"],
+      "accepted_packet_types": ["constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
+      "blocking_gates": ["G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D08", "skill": "platform-store-listing-conversion", "runtime_prefix": "PLCO", "availability": "current",
+      "architecture_roles": ["market_operation"],
+      "owned_decision_types": ["listing_conversion", "page_conversion", "listing_incident", "listing_migration"],
+      "decision_authorities": ["platform", "store", "listing", "page conversion", "listing incident and migration"],
+      "provides": ["listing_decision", "page_experiment", "conversion_outcome"],
+      "requires": ["product_definition", "price_decision", "atp_ctp", "claim_boundary", "creative_asset", "rights_constraint"],
+      "hard_dependencies": [], "optional_dependencies": ["D03", "D05", "D06", "D07", "D10", "D11", "D12", "D13"],
+      "lifecycle_stages": ["launch", "convert", "learn", "recover", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "recovery"],
+      "blocking_gates": ["G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D09", "skill": "advertising-analysis-measurement-optimization", "runtime_prefix": "AAMO", "availability": "current",
+      "architecture_roles": ["market_operation", "outcome_and_learning"],
+      "owned_decision_types": ["advertising", "advertising_measurement", "advertising_scaling"],
+      "decision_authorities": ["advertising architecture", "budget and bid", "measurement", "scale and stop"],
+      "provides": ["advertising_decision", "incrementality_result", "media_outcome"],
+      "requires": ["economic_constraint", "creative_asset", "rights_constraint", "atp_ctp", "conversion_readiness", "compliance_gate"],
+      "hard_dependencies": [], "optional_dependencies": ["D05", "D06", "D07", "D08", "D10", "D11", "D12", "D13"],
+      "lifecycle_stages": ["launch", "acquire", "learn", "recover", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "recovery"],
+      "blocking_gates": ["G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D10", "skill": "creator-affiliate-partnership-management", "runtime_prefix": "CAPM", "availability": "current",
+      "architecture_roles": ["market_operation", "outcome_and_learning"],
+      "owned_decision_types": ["creator_affiliate", "creator_partnership", "affiliate_program"],
+      "decision_authorities": ["creator and affiliate diligence", "commercial structure", "content rights", "reconciliation", "partner portfolio and exit"],
+      "provides": ["partnership_decision", "rights_constraint", "affiliate_outcome"],
+      "requires": ["capital_posture", "economic_constraint", "brand_direction", "creative_brief", "inventory_constraint", "compliance_gate"],
+      "hard_dependencies": [], "optional_dependencies": ["D05", "D06", "D07", "D08", "D09", "D11", "D12", "D13"],
+      "lifecycle_stages": ["launch", "acquire", "serve", "learn", "recover", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
+      "blocking_gates": ["G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D11", "skill": "video-link-breakdown", "runtime_prefix": "VLB", "availability": "current",
+      "architecture_roles": ["market_operation", "outcome_and_learning"],
+      "owned_decision_types": ["content", "content_creative", "content_migration"],
+      "decision_authorities": ["content observation", "content mechanism", "transferability", "creative production"],
+      "provides": ["creative_mechanism", "creative_asset", "creative_test_variant", "content_outcome"],
+      "requires": ["product_definition", "brand_direction", "customer_evidence", "claim_boundary", "rights_constraint"],
+      "hard_dependencies": [], "optional_dependencies": ["D03", "D05", "D08", "D09", "D10", "D12", "D13"],
+      "lifecycle_stages": ["launch", "acquire", "convert", "learn", "recover"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "recovery"],
+      "blocking_gates": ["G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D12", "skill": "marketing-brand-campaign-management", "runtime_prefix": "MBCM", "availability": "current",
+      "architecture_roles": ["market_operation"],
+      "owned_decision_types": ["marketing_brand_campaign", "marketing_strategy", "campaign_management"],
+      "decision_authorities": ["segmentation and positioning", "brand architecture", "GTM", "Offer", "campaign management", "marketing resource direction"],
+      "provides": ["brand_direction", "gtm_plan", "offer_direction", "campaign_resource_packet"],
+      "requires": ["capital_posture", "market_evidence", "customer_evidence", "economic_constraint", "supply_capacity", "compliance_gate"],
+      "hard_dependencies": [], "optional_dependencies": ["D01", "D02", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D13"],
+      "lifecycle_stages": ["frame", "launch", "acquire", "convert", "learn", "recover", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
+      "blocking_gates": ["G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D13", "skill": "consumer-insights-customer-growth", "runtime_prefix": "CIG", "availability": "current",
+      "architecture_roles": ["foundational_decision_service", "market_operation", "outcome_and_learning"],
+      "owned_decision_types": ["customer_growth", "customer_experience", "service_recovery", "loyalty", "reputation", "crm_orchestration"],
+      "decision_authorities": ["authorized customer evidence", "customer state", "incrementality", "experience", "service recovery", "CRM orchestration"],
+      "provides": ["customer_evidence", "customer_state", "customer_outcome", "service_recovery", "incrementality_result"],
+      "requires": ["authorized_customer_data", "touchpoint_outcome", "order_return_service_outcome"],
+      "hard_dependencies": [], "optional_dependencies": ["D01", "D02", "D03", "D04", "D07", "D08", "D09", "D10", "D11", "D12"],
+      "lifecycle_stages": ["sense", "define", "launch", "serve", "learn", "recover"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
+      "blocking_gates": ["G0_EVIDENCE", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    },
+    {
+      "domain_id": "D14", "skill": "cross-domain-operating-posture-orchestration", "runtime_prefix": "COPO", "availability": "planned",
+      "architecture_roles": ["orchestration"],
+      "owned_decision_types": ["task_orchestration", "dependency_plan", "conflict_escalation", "company_operating_posture", "approved_resource_priority"],
+      "decision_authorities": ["task orchestration", "dependency planning", "conflict escalation", "company operating posture", "approved resource priority"],
+      "provides": ["decision_cycle", "execution_plan", "dependency_plan", "conflict_escalation", "company_operating_posture"],
+      "requires": ["domain_registry", "domain_packets", "gate_results", "operating_outcomes"],
+      "hard_dependencies": [], "optional_dependencies": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13"],
+      "lifecycle_stages": ["sense", "frame", "invest", "define", "source", "produce", "qualify", "fulfill", "launch", "acquire", "convert", "serve", "learn", "recover", "exit"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
+      "blocking_gates": ["G0_EVIDENCE", "G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+    }
+  ],
+  "governance_plane": {
+    "id": "ERDG", "contract": "ERDG-CONTRACT-2026.07", "owns_business_decisions": false,
+    "capabilities": ["domain_registry_validation", "canonical_object_and_evidence", "deterministic_shared_calculation", "risk_and_redline_validation", "state_parameter_version_lineage", "handoff_contract_validation", "decision_cycle_gate_validation", "audit_replay_and_maturity"]
+  }
+}

@@ -85,7 +85,7 @@ def trace(p):
 MODELS={"unmet_need":unmet,"opportunity_interval":interval,"constraint_feasibility":constraints,"mvp_coverage":mvp,"variant_portfolio":variants,"packaging_impact":packaging,"roadmap_priority":roadmap,"traceability":trace}
 def evaluate(p):
     if p.get("model") not in MODELS: raise ModelError("unknown_model")
-    return {"model":p["model"],"model_version":"PIPM-MODELS-2026.01","result":MODELS[p["model"]](p)}
+    return {"model":p["model"],"model_version":"PIPM-MODELS-2026.07","result":MODELS[p["model"]](p)}
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("input",type=Path);a=ap.parse_args()
     try: result=evaluate(json.loads(a.input.read_text()))

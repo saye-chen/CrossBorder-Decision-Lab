@@ -25,7 +25,7 @@ def good() -> dict:
     obj = {"object_id": "P-1", "object_version": "v3"}
     return {
         "d04": {
-            "contract": "PIPM-D04-TEMP-2026.01", "handoff_id": "H4", "object_ref": {**obj, "object_type": "market_product", "sample_batch_id": "B-1"},
+            "contract": "PIPM-D04-TEMP-2026.07", "handoff_id": "H4", "object_ref": {**obj, "object_type": "market_product", "sample_batch_id": "B-1"},
             "bom_version": "BOM-3", "packaging_version": "PKG-2", "status": "proposed",
             "specifications": [
                 {"field_id": "weight", "nominal": "500", "lsl": "490", "usl": "510", "unit": "g", "measurement_method": "calibrated_scale", "method_version": "M1", "owner_domain": "product-innovation-product-management", "criticality": "major", "depends_on": [], "evidence_ids": ["E1"], "state": "proposed"},
@@ -36,7 +36,7 @@ def good() -> dict:
             "reliability_requests": [{"mission_profile": "normal use", "status": "requested"}], "open_questions": ["process capability"], "blocked_actions": ["mass_production_release"], "preserved_results": ["user_need"], "external_write": False
         },
         "d05": {
-            "contract": "PIPM-D05-TEMP-2026.01", "request_id": "H5", "object_ref": obj,
+            "contract": "PIPM-D05-TEMP-2026.07", "request_id": "H5", "object_ref": obj,
             "scope": {"jurisdiction": "US", "country": "US", "platform": "Amazon", "sales_model": "marketplace", "business_time": "2026-07-28T00:00:00Z"},
             "status": "proposed", "intended_use": "consumer storage", "foreseeable_misuse": ["child access"], "users": {"age_scope": "adult", "contact_scenarios": ["skin"]},
             "product_facts": {"materials": ["MAT-1"], "energy": "none", "connectivity": "none", "packaging": "PKG-2"},
@@ -56,7 +56,7 @@ def good() -> dict:
             "translation_complete": True, "localization_complete": False, "evidence_gaps": ["local usage validation", "D05 warning review"], "blocked_actions": ["market_release"]
         },
         "migration": {
-            "migration_id": "MG-1", "temporary_contract": "PIPM-D05-TEMP-2026.01", "formal_contract": "D05-FUTURE-1", "snapshot_id": "S-1", "object_version": "v3",
+            "migration_id": "MG-1", "temporary_contract": "PIPM-D05-TEMP-2026.07", "formal_contract": "D05-FUTURE-1", "snapshot_id": "S-1", "object_version": "v3",
             "mappings": [{"source_field": "claims", "target_field": "claims", "classification": "lossless", "criticality": "safety_critical"}],
             "consumer_acceptance": [{"consumer": "product-innovation-product-management", "status": "accepted"}], "rollback_deadline": "2026-12-31T00:00:00Z", "legacy_read_preserved": True
         }

@@ -11,7 +11,7 @@ from validate_localization_contract import validate_localization, validate_migra
 def localization() -> dict:
     return {
         "contract": "F02-temporary-localization-contract-v1", "localization_id": "loc-us-1",
-        "version": "F02-TEMP-2026.01", "country_code": "US", "platform_id": "fixture",
+        "version": "F02-TEMP-2026.07", "country_code": "US", "platform_id": "fixture",
         "currency_code": "USD",
         "fx": {"source": "authorized:fx", "rate": "1", "base_currency": "USD", "quote_currency": "USD", "verified_at": "2026-07-28T00:00:00Z", "valid_until": "2026-08-28T00:00:00Z"},
         "tax": {"basis": "tax_exclusive_revenue", "inclusive": False, "source": "official:tax", "verified_at": "2026-07-28T00:00:00Z", "valid_until": "2026-08-28T00:00:00Z"},
@@ -20,7 +20,7 @@ def localization() -> dict:
         "dynamic_rule": {"source": "contract:store-1", "effective_at": "2026-07-01T00:00:00Z", "expires_at": "2026-08-28T00:00:00Z", "refresh_trigger": ["expiry", "fee_schedule_change"], "supersedes_rule_id": None, "rollback_rule_id": "rule-default"},
         "localization_status": "validated", "evidence_grade": "E4", "action_ceiling": "reversible_action",
         "validity": {"valid_from": "2026-07-01T00:00:00Z", "valid_until": "2026-08-28T00:00:00Z", "recorded_at": "2026-07-28T01:00:00Z"},
-        "lineage": {"input_hash": "sha256:abc", "runtime_version": "PPFC-2026.01", "evidence_ids": ["E1"]},
+        "lineage": {"input_hash": "sha256:abc", "runtime_version": "PPFC-2026.07", "evidence_ids": ["E1"]},
         "external_write": False,
     }
 
@@ -33,7 +33,7 @@ def migration() -> dict:
         "dual_run": {"same_input_hash": "sha256:abc", "source_result_hash": "sha256:same", "target_result_hash": "sha256:same"},
         "differences": [], "acceptance": {"accepted": False, "accepted_by": None, "accepted_at": None},
         "rollback": {"supported": True, "deadline": "2027-03-01T00:00:00Z", "source_readable": True},
-        "lineage": {"input_hash": "sha256:abc", "runtime_version": "PPFC-2026.01"},
+        "lineage": {"input_hash": "sha256:abc", "runtime_version": "PPFC-2026.07"},
     }
 
 

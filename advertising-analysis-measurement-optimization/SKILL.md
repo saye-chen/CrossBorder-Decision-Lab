@@ -5,7 +5,7 @@ description: 默认用中文执行专家级跨境广告分析、测量与优化�
 
 # 跨境广告分析、测量与优化
 
-运行时版本：`AAMO-2026.08`。
+运行时版本：`AAMO-2026.07`。
 
 成熟度：`controlled pilot`；授权真实历史回放门未通过，不得声明 `production ready`。
 
@@ -144,4 +144,4 @@ description: 默认用中文执行专家级跨境广告分析、测量与优化�
 11. 正式交付前是否运行适用脚本测试并清理本任务临时文件。
 ## ERDG 共享治理接入
 
-正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/advertising-analysis-measurement-optimization/adapter.json` 声明 AAMO 主权；ERDG 失败时不得形成生效动作。
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/advertising-analysis-measurement-optimization/adapter.json` 声明 AAMO 主权；ERDG 失败时不得形成生效动作。

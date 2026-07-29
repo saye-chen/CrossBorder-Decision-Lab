@@ -9,7 +9,7 @@ from handoff_contracts import validate_brief_seed, validate_selection_handoff
 
 def handoff() -> dict:
     return {"selection_handoff_package": {
-        "meta": {"cidm_version": "CIDM-2026.14", "assessment_date": "2026-07-22", "confidence_level": "medium", "lifecycle_stage": "LC-3"},
+        "meta": {"cidm_version": "CIDM-2026.07", "assessment_date": "2026-07-22", "confidence_level": "medium", "lifecycle_stage": "LC-3"},
         "product_identity": {"name": "Test product", "category_path": "Home > Test", "price_band": "$10-20", "key_variants": []},
         "selling_points_ranked": [
             {"point": "Rare proof", "differentiation": "rare", "evidence": "E1"},

@@ -1,5 +1,5 @@
 {
-  "audit_version": "PPFC-L3-AUDIT-2026.01",
+  "audit_version": "PPFC-L3-AUDIT-2026.07",
   "scope": "synthetic_and_deterministic_only",
   "real_case_calibration_deferred": true,
   "production_claim_allowed": false,

@@ -1,6 +1,6 @@
 # Shared Statistical Primitive Contract
 
-Contract version: `CBSTAT-2026.01`
+Contract version: `CBSTAT-2026.07`
 
 This repository uses formula parity rather than a shared runtime dependency. Each Skill remains independently installable and keeps a local implementation, while the repository gate verifies common definitions against identical fixtures.
 

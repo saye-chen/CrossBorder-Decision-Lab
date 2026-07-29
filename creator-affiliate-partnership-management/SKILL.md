@@ -127,4 +127,4 @@ CAPM 最终决定：
 完成前运行 quick validation、全部 `test_*.py`、120个可执行深度案例及其 Gate/能力/生命周期/结果分布门、五类Full Golden报告门、共享跨域/对抗/专业深度/仓库验证和 `git diff --check`。Golden 与合成 fixture 只证明结构和已知推理。L4 至少需要3个授权、脱敏、含实际结果和哈希的历史回放，并通过独立复核、漂移、事故和回滚门；否则保持 `controlled pilot`。
 ## ERDG 共享治理接入
 
-正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.01`，并使用 `governance/erdg/adapters/creator-affiliate-partnership-management/adapter.json` 声明 CAPM 主权；ERDG 失败时不得形成生效动作。
+正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/creator-affiliate-partnership-management/adapter.json` 声明 CAPM 主权；ERDG 失败时不得形成生效动作。

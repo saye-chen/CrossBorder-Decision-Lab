@@ -55,7 +55,7 @@ def main()->int:
     ]
     errors=[f"missing:{p}" for p in required if not (ROOT/p).is_file()]
     skill=(ROOT/"SKILL.md").read_text()
-    for marker in ("PIPM-2026.01","controlled pilot","PLC0","ERDG-CONTRACT-2026.01","validate_decision_contract.py"):
+    for marker in ("PIPM-2026.07","controlled pilot","PLC0","ERDG-CONTRACT-2026.07","validate_decision_contract.py"):
         if marker not in skill: errors.append(f"skill_missing:{marker}")
     adapter=json.loads((REPO/"governance/erdg/adapters/product-innovation-product-management/adapter.json").read_text())
     if adapter.get("external_write") is not False: errors.append("adapter_external_write")
