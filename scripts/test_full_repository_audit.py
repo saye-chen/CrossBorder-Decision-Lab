@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Executable release audit for eleven expert-level L1-L3 repository skills."""
+"""Executable release audit for twelve expert-level L1-L3 repository skills."""
 from __future__ import annotations
 import importlib.util
 import json
@@ -23,8 +23,9 @@ SKILLS={
  "marketing-brand-campaign-management":("marketing_brand_campaign","MBCM-2026.07","mbcm"),
  "pricing-profit-finance-cashflow-decision":("pricing_profit","PPFC-2026.07","ppfc"),
  "product-innovation-product-management":("product_definition","PIPM-2026.07","pipm"),
+ "supplier-procurement-production-quality-decision":("supplier_selection","SPPQ-2026.07","sppq"),
 }
-CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision","product-innovation-product-management"}}
+CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision","product-innovation-product-management","supplier-procurement-production-quality-decision"}}
 spec=importlib.util.spec_from_file_location("quality",ROOT/"scripts/evaluate_report_quality.py")
 quality=importlib.util.module_from_spec(spec); spec.loader.exec_module(quality)
 repo_spec=importlib.util.spec_from_file_location("repo_validation",ROOT/"scripts/validate_repo.py")

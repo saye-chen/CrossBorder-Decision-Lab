@@ -34,7 +34,7 @@
       "blocking_gates": ["G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G5_OUTCOME_REPLAY"], "external_write_authority": false
     },
     {
-      "domain_id": "D04", "skill": "supplier-procurement-production-quality-decision", "runtime_prefix": "SPPQ", "availability": "next_build",
+      "domain_id": "D04", "skill": "supplier-procurement-production-quality-decision", "runtime_prefix": "SPPQ", "availability": "current",
       "architecture_roles": ["lifecycle_operation", "outcome_and_learning"],
       "owned_decision_types": ["supplier_selection", "procurement_commitment", "sample_approval", "production_release", "batch_quality_release", "supplier_recovery_exit"],
       "decision_authorities": ["supplier selection", "procurement commitment", "sample approval", "production release", "batch quality release", "supplier recovery and exit"],
@@ -46,7 +46,7 @@
       "blocking_gates": ["G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G5_OUTCOME_REPLAY"], "external_write_authority": false
     },
     {
-      "domain_id": "D05", "skill": "legal-tax-intellectual-property-market-access-decision", "runtime_prefix": "LTMA", "availability": "planned",
+      "domain_id": "D05", "skill": "legal-tax-intellectual-property-market-access-decision", "runtime_prefix": "LTMA", "availability": "next_build",
       "architecture_roles": ["foundational_decision_service", "outcome_and_learning"],
       "owned_decision_types": ["legal_access", "regulatory_compliance", "tax_treatment", "intellectual_property", "certification_access"],
       "decision_authorities": ["legal access", "regulatory compliance", "tax treatment", "intellectual property", "certification access"],
@@ -156,14 +156,15 @@
     {
       "domain_id": "D14", "skill": "cross-domain-operating-posture-orchestration", "runtime_prefix": "COPO", "availability": "planned",
       "architecture_roles": ["orchestration"],
-      "owned_decision_types": ["task_orchestration", "dependency_plan", "conflict_escalation", "company_operating_posture", "approved_resource_priority"],
-      "decision_authorities": ["task orchestration", "dependency planning", "conflict escalation", "company operating posture", "approved resource priority"],
-      "provides": ["decision_cycle", "execution_plan", "dependency_plan", "conflict_escalation", "company_operating_posture"],
+      "owned_decision_types": ["task_orchestration", "dependency_plan", "conflict_escalation", "operating_posture_synthesis", "approved_resource_sequencing"],
+      "decision_authorities": ["task orchestration", "dependency planning", "conflict escalation", "owner-approved operating posture synthesis", "resource sequencing within approved envelopes"],
+      "provides": ["decision_cycle", "execution_plan", "dependency_plan", "conflict_escalation", "owner_approved_operating_posture"],
       "requires": ["domain_registry", "domain_packets", "gate_results", "operating_outcomes"],
       "hard_dependencies": [], "optional_dependencies": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13"],
       "lifecycle_stages": ["sense", "frame", "invest", "define", "source", "produce", "qualify", "fulfill", "launch", "acquire", "convert", "serve", "learn", "recover", "exit"],
       "accepted_packet_types": ["evidence", "constraint", "decision", "action_request", "outcome", "conflict_escalation", "recovery"],
-      "blocking_gates": ["G0_EVIDENCE", "G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
+      "blocking_gates": ["G0_EVIDENCE", "G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false,
+      "orchestration_constraints": ["preserve_domain_decision_sovereignty", "accept_only_owner_approved_decisions", "sequence_only_within_approved_envelopes", "escalate_conflicts_without_adjudicating_professional_conclusions", "no_external_write"]
     }
   ],
   "governance_plane": {

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the ten-skill governance baseline and semantic anchors."""
+"""Validate the current-skill governance baseline and semantic anchors."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +13,7 @@ SKILLS = [
     "marketing-brand-campaign-management",
     "pricing-profit-finance-cashflow-decision",
     "product-innovation-product-management",
+    "supplier-procurement-production-quality-decision",
 ]
 FILES = [
     "professional-depth-governance.md", "skill-integration-protocol.md",

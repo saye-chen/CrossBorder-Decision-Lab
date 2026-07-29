@@ -6,9 +6,9 @@
 
 Current release train: `2026.07`; target architecture: `CBDS-ARCH-2026.07`; shared contract: `ERDG-CONTRACT-2026.07`.
 
-CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It is not a generic prompt collection. It connects category investment, competitive intelligence, content, customers, advertising, fulfillment, conversion, partnerships, marketing, and pricing finance into eleven professional domains that can operate independently and collaborate under shared decision contracts.
+CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into twelve professional domains that can operate independently and collaborate under shared decision contracts.
 
-The system includes eleven professional domains with complete core workflows whose expert-level repository gates through L1–L3 are complete, plus ERDG. The new D03/PIPM domain has passed substantive depth review and includes eight deterministic product models, nine specialized outputs, 101 evaluation cases, ten scenario-owned Goldens, 404 positive/counterexample execution assertions, continuous decisions, extreme pressure tests, consumer-owned adapters, dual-run migration, and rollback evidence. Independent-owner authoritative migration remains closed, and every domain remains L4 `controlled pilot`.
+The system includes twelve professional domains with complete core workflows whose expert-level repository gates through L1–L3 are complete, plus ERDG. D04/SPPQ covers six sovereign supply and quality decisions, 18 deterministic cost/capacity/quality models with independent dual calculation, continuous decisions, four consumer-response paths, and 160 executable evaluations. Every domain remains L4 `controlled pilot`.
 
 ## System Value and Long-Term Defensibility
 
@@ -74,13 +74,13 @@ This moves the system from “answering professional questions” toward “cont
 
 ```mermaid
 flowchart TB
-    U["Operating question · event · new evidence"] --> D14["D14 operating posture and orchestration<br/>Planned"]
+    U["Operating question · event · new evidence"] --> D14["D14 coordinated posture and orchestration<br/>Planned"]
     D14 --> D01["D01 CIDM<br/>Capital and portfolio"]
     D14 --> D02["D02 CIM<br/>Competitive facts"]
     D14 --> D03["D03 PIPM<br/>Product definition"]
-    D14 --> D05["D05 compliance and market access<br/>Planned"]
+    D14 --> D05["D05 compliance and market access<br/>Next build"]
     D14 --> D06["D06 PPFC<br/>Pricing, profit, and cash"]
-    D01 --> D03 --> D04["D04 supply, procurement, production, and quality<br/>Next build"] --> D07["D07 LIFD<br/>Logistics, inventory, and fulfillment"]
+    D01 --> D03 --> D04["D04 SPPQ<br/>Supply, procurement, production, and quality"] --> D07["D07 LIFD<br/>Logistics, inventory, and fulfillment"]
     D07 --> D12["D12 MBCM<br/>Marketing, brand, and campaigns"]
     D12 --> D11["D11 VLB<br/>Content creative"]
     D12 --> D10["D10 CAPM<br/>Creator and affiliate"]
@@ -107,7 +107,7 @@ flowchart TB
     class D05,D14 planned
 ```
 
-Eleven domains are currently runnable; D04 is the next build, while D05 and D14 are planned and are blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. D14 orchestrates only, and ERDG performs neutral governance and deterministic shared calculations without making domain business decisions.
+Twelve domains are currently runnable; D05 is the next build and D14 is planned, and both are blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally. ERDG performs neutral governance and deterministic shared calculations without making domain business decisions.
 
 ### Continuous D01-D14 decision loop
 
@@ -119,8 +119,8 @@ sequenceDiagram
     participant D13 as D13 CIG
     participant D01 as D01 CIDM
     participant D03 as D03 PIPM
-    participant D04 as D04 supply (next build)
-    participant D05 as D05 compliance (planned)
+    participant D04 as D04 SPPQ
+    participant D05 as D05 compliance (next build)
     participant D06 as D06 PPFC
     participant D07 as D07 LIFD
     participant M as D12/D11/D10/D08/D09 market domains
@@ -182,12 +182,13 @@ Choose the primary Skill by the decision that must be made. Platform coverage, p
 | MBCM | `MBCM-2026.07` | Segment, position, launch, build brands, and orchestrate campaigns | [Marketing and Brand](marketing-brand-campaign-management/SKILL.md) |
 | PPFC | `PPFC-2026.07` | Calculate and adjust price, profit, contribution, break-even metrics, financial constraints, and cash risk | [Pricing, Profit, Finance, and Cash Flow](pricing-profit-finance-cashflow-decision/SKILL.md) |
 | PIPM | `PIPM-2026.07` | Turn opportunities into traceable product definitions, specifications, MVPs, and roadmaps | [Product Innovation and Product Management](product-innovation-product-management/SKILL.md) |
+| SPPQ | `SPPQ-2026.07` | Qualify suppliers, govern procurement commitments, release production and batches, and recover supply or quality failures | [Supplier, Procurement, Production, and Quality](supplier-procurement-production-quality-decision/SKILL.md) |
 
 Detailed platform coverage, models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
 
 ## Shared Decision Infrastructure
 
-The eleven domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
+The twelve domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
 
 1. evidence and counterevidence discipline;
 2. auditable economics and statistical estimation;
@@ -200,7 +201,7 @@ The eleven domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERD
 
 ## Current Capabilities
 
-The current version provides eleven professional decision Skills that have completed their expert-level L1–L3 repository gates and can operate independently or collaborate across domains. It includes:
+The current version provides twelve professional decision Skills that have completed their expert-level L1–L3 repository gates and can operate independently or collaborate across domains. It includes:
 
 - professional scenario and lifecycle coverage;
 - deterministic economics and statistical estimation tools;
@@ -245,7 +246,7 @@ Operating actions and results update benchmarks, parameters, counterexamples, an
 
 | Location | Purpose |
 |---|---|
-| Eleven Skill directories | Professional workflows, models, references, and tests |
+| Twelve Skill directories | Professional workflows, models, references, and tests |
 | [`evaluations/`](evaluations/) | Single-Skill, cross-Skill, multi-turn, adversarial, and extreme scenarios |
 | [`governance/`](governance/) | Ownership, maturity, change-impact, and shared contracts |
 | [`scripts/`](scripts/) | Repository validation, scoring, integration, and release gates |

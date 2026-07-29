@@ -99,6 +99,42 @@ def validate() -> list[str]:
     if plane["contract"] != "ERDG-CONTRACT-2026.07":
         errors.append("all domains must use the authoritative ERDG-CONTRACT-2026.07")
 
+    orchestrators = [item for item in domains if "orchestration" in item["architecture_roles"]]
+    if [item["domain_id"] for item in orchestrators] != ["D14"]:
+        errors.append("D14 must be the sole orchestration domain")
+    else:
+        orchestrator = orchestrators[0]
+        expected_types = {
+            "task_orchestration",
+            "dependency_plan",
+            "conflict_escalation",
+            "operating_posture_synthesis",
+            "approved_resource_sequencing",
+        }
+        expected_constraints = {
+            "preserve_domain_decision_sovereignty",
+            "accept_only_owner_approved_decisions",
+            "sequence_only_within_approved_envelopes",
+            "escalate_conflicts_without_adjudicating_professional_conclusions",
+            "no_external_write",
+        }
+        if set(orchestrator["owned_decision_types"]) != expected_types:
+            errors.append("D14 may own orchestration and synthesis only, not professional decisions")
+        if set(orchestrator.get("orchestration_constraints", [])) != expected_constraints:
+            errors.append("D14 orchestration sovereignty constraints are incomplete")
+        if orchestrator["external_write_authority"] is not False:
+            errors.append("D14 cannot own external write authority")
+        forbidden_authority_fragments = (
+            "capital allocation",
+            "capital add-reduce-exit",
+            "budget approval",
+            "professional conclusion",
+            "root cause decision",
+        )
+        authority_text = " ".join(orchestrator["decision_authorities"]).lower()
+        if any(fragment in authority_text for fragment in forbidden_authority_fragments):
+            errors.append("D14 decision authority overlaps a professional or capital owner")
+
     for name in ("handoff-envelope.schema.json", "decision-cycle.schema.json"):
         path = ROOT / "governance/erdg/schemas" / name
         try:
@@ -122,4 +158,4 @@ if __name__ == "__main__":
     failures = validate()
     if failures:
         raise SystemExit("Domain architecture validation failed:\n- " + "\n- ".join(failures))
-    print("Domain architecture validation passed for D01-D14; 11 current, D04 next_build, D05/D14 planned.")
+    print("Domain architecture validation passed for D01-D14; 12 current, D05 next_build, D14 planned.")

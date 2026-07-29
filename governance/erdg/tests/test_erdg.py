@@ -22,6 +22,7 @@ EXPECTED_SKILLS = {
     "creator-affiliate-partnership-management", "marketing-brand-campaign-management",
     "pricing-profit-finance-cashflow-decision",
     "product-innovation-product-management",
+    "supplier-procurement-production-quality-decision",
 }
 sys.path.insert(0, str(SCRIPTS))
 

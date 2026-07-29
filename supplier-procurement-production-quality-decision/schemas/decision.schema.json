@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sppq/decision/1.0.0",
+  "type": "object",
+  "required": ["runtime_version", "erdg_contract", "decision_id", "decision_type", "decision_owner", "object", "status", "evidence", "calculations", "gates", "lineage", "external_write", "production_ready"],
+  "properties": {
+    "runtime_version": {"const": "SPPQ-2026.07"},
+    "erdg_contract": {"const": "ERDG-CONTRACT-2026.07"},
+    "decision_id": {"type": "string", "minLength": 1},
+    "decision_type": {"enum": ["supplier_selection", "procurement_commitment", "sample_approval", "production_release", "batch_quality_release", "supplier_recovery_exit"]},
+    "decision_owner": {"const": "supplier-procurement-production-quality-decision"},
+    "object": {
+      "type": "object",
+      "required": ["object_id", "object_version", "as_of_time"],
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "object_version": {"type": "string", "minLength": 1},
+        "as_of_time": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": true
+    },
+    "status": {"enum": ["proposed", "validated", "rejected", "blocked", "inconclusive", "not_computable", "recovery_required"]},
+    "evidence": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "object_version", "hash"], "properties": {"id": {"type": "string", "minLength": 1}, "object_version": {"type": "string", "minLength": 1}, "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}},
+    "calculations": {"type": "array", "items": {"type": "object", "required": ["model", "input_hash", "output_hash"], "properties": {"model": {"type": "string"}, "input_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "output_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}},
+    "gates": {
+      "type": "object",
+      "required": ["identity", "sovereignty", "version", "evidence", "segregation", "external_action"],
+      "properties": {
+        "identity": {"type": "boolean"}, "sovereignty": {"type": "boolean"},
+        "version": {"type": "boolean"}, "evidence": {"type": "boolean"},
+        "segregation": {"type": "boolean"}, "external_action": {"const": false},
+        "compliance": {"enum": ["passed", "blocked", "not_applicable", "external_review_required"]}
+      },
+      "additionalProperties": false
+    },
+    "lineage": {
+      "type": "object", "required": ["input_hash", "output_hash"],
+      "properties": {"input_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "output_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    },
+    "external_write": {"const": false},
+    "production_ready": {"const": false}
+  },
+  "additionalProperties": true
+}

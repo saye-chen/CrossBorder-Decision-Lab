@@ -15,6 +15,7 @@ EXPECTED = {
     "creator-affiliate-partnership-management", "marketing-brand-campaign-management",
     "pricing-profit-finance-cashflow-decision",
     "product-innovation-product-management",
+    "supplier-procurement-production-quality-decision",
 }
 
 def validate_replay(data: dict, expected_skill: str | None = None) -> dict:

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sppq/continuous-state/1.0.0",
+  "type": "object",
+  "required": ["object_id", "current_version", "current_effective_decision", "history", "open_gates", "active_actions", "accepted_fields", "invalidated_fields", "recompute_scope"],
+  "properties": {
+    "object_id": {"type": "string", "minLength": 1},
+    "current_version": {"type": "string", "minLength": 1},
+    "current_effective_decision": {"type": ["object", "null"]},
+    "history": {"type": "array"},
+    "open_gates": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "active_actions": {"type": "array", "items": {"type": "object", "required": ["action_id", "status", "depends_on"]}},
+    "accepted_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "invalidated_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "recompute_scope": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "recovery_required": {"type": "array", "items": {"type": "object", "required": ["action_id", "status", "reason", "required"]}}
+  },
+  "additionalProperties": true
+}

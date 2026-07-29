@@ -1,0 +1,1401 @@
+{
+  "runtime_version": "SPPQ-2026.07",
+  "reports": [
+    {
+      "runtime_version": "SPPQ-2026.07",
+      "report_id": "G-1",
+      "decision_type": "supplier_selection",
+      "executive_summary": {
+        "status": "validated",
+        "conclusion": "supplier_selection is conditionally executable within the declared controls"
+      },
+      "object_scope": {
+        "object_id": "O-1",
+        "version": "v1",
+        "effective_at": "2026-07-29T00:00:00Z"
+      },
+      "sovereignty": {
+        "owner": "D04",
+        "excluded": [
+          "D01",
+          "D03",
+          "D05",
+          "D06",
+          "D07",
+          "D13"
+        ]
+      },
+      "data_quality": {
+        "grade": "E3",
+        "missing": [],
+        "conflicts": []
+      },
+      "hard_gates": [
+        {
+          "id": "identity",
+          "status": "passed",
+          "evidence_id": "E-1-1"
+        },
+        {
+          "id": "facility",
+          "status": "passed",
+          "evidence_id": "E-1-2"
+        },
+        {
+          "id": "critical_redline",
+          "status": "passed",
+          "evidence_id": "E-1-3"
+        },
+        {
+          "id": "segregation_of_duties",
+          "status": "passed",
+          "evidence_id": "E-1-4"
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "retain_validated_supplier",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for retain_validated_supplier"
+        },
+        {
+          "id": "qualify_controlled_backup",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for qualify_controlled_backup"
+        }
+      ],
+      "professional_analysis": {
+        "mechanisms": [
+          "identity_chain",
+          "supply_network",
+          "capacity",
+          "quality_history"
+        ],
+        "calculation_ids": [
+          "CAL-1-1",
+          "CAL-1-2"
+        ],
+        "sensitivity": "decision reverses when any declared hard gate fails"
+      },
+      "counterevidence": [
+        {
+          "id": "CE-1",
+          "effect": "could reverse the recommendation if independently confirmed",
+          "verification": "reconcile source timestamp, object identity, and independent evidence"
+        }
+      ],
+      "decision": {
+        "status": "validated",
+        "limitations": [
+          "synthetic evidence cannot establish production effectiveness"
+        ]
+      },
+      "cross_domain": [
+        {
+          "target": "D01",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D03",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        }
+      ],
+      "execution_controls": {
+        "success": [
+          "all declared gates remain passed through the effective window"
+        ],
+        "stop": [
+          "stop immediately when identity, critical defect, or authority state changes"
+        ],
+        "rollback": [
+          "restore the previous effective decision and invalidate downstream fields"
+        ],
+        "recovery": [
+          "contain affected objects, assign an owner, and recompute dependent decisions"
+        ]
+      },
+      "outcome_feedback": {
+        "status": "pending_real_outcome",
+        "metric": "decision-specific effectiveness and adverse-event recurrence"
+      },
+      "ledgers": {
+        "evidence": [
+          {
+            "id": "E-1-1",
+            "hash": "c8ccf258737de4f339440ec318574260d2c5931fa3bb75878088140d8e06fa44",
+            "supports": [
+              "hard_gates.identity",
+              "calculations.CAL-1-1",
+              "calculations.CAL-1-2"
+            ]
+          },
+          {
+            "id": "E-1-2",
+            "hash": "941efc4bccef51b9f80eedf0d33a209b6b72cc05246e96d3971658ee8c4329ef",
+            "supports": [
+              "hard_gates.facility"
+            ]
+          },
+          {
+            "id": "E-1-3",
+            "hash": "b36c182ba2f8af5c6ceed0040b693a76a6883970b3cba5c975d4718ff828b1bd",
+            "supports": [
+              "hard_gates.critical_redline"
+            ]
+          },
+          {
+            "id": "E-1-4",
+            "hash": "d58b410bfbcc13feb2af76210d74cda70c032932035179dbf07159e23519c496",
+            "supports": [
+              "hard_gates.segregation_of_duties"
+            ]
+          }
+        ],
+        "calculation": [
+          {
+            "id": "CAL-1-1",
+            "model": "capacity",
+            "input": {
+              "available_hours": 10,
+              "units_per_hour": 10,
+              "yield_rate": 0.9,
+              "changeover_hours": 1,
+              "uptime_rate": 0.8,
+              "demand": 50
+            },
+            "output": {
+              "effective_capacity": "64.8000",
+              "capacity_gap": "14.8000",
+              "feasible": true
+            },
+            "input_hash": "82da15a077a48f3ed3ba73c347601e60af056f7476089f7847b260cc4bd8c519",
+            "output_hash": "9f6d4d54501e1a8a4a2e2bbca253627cab75eee12cb5c0242525e6ba75b384e5",
+            "evidence_ids": [
+              "E-1-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-1-2",
+            "model": "concentration",
+            "input": {
+              "shares": [
+                0.5,
+                0.3,
+                0.2
+              ]
+            },
+            "output": {
+              "hhi": "0.3800",
+              "single_source": false
+            },
+            "input_hash": "966a3c0f3e60a1965f3bdbfdd8291307c690fb03eb6301dbb84326558723539a",
+            "output_hash": "f51ac687950e31a77767d93c21cfa0e4184d0daf60fbb4b9ec5bc280004f4042",
+            "evidence_ids": [
+              "E-1-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          }
+        ],
+        "decision": [
+          {
+            "id": "D-1",
+            "state": "validated",
+            "version": "v1"
+          }
+        ]
+      },
+      "limitations": [
+        "Golden fixture validates semantics but does not close the L4 external-outcome gate"
+      ]
+    },
+    {
+      "runtime_version": "SPPQ-2026.07",
+      "report_id": "G-2",
+      "decision_type": "procurement_commitment",
+      "executive_summary": {
+        "status": "validated",
+        "conclusion": "procurement_commitment is conditionally executable within the declared controls"
+      },
+      "object_scope": {
+        "object_id": "O-2",
+        "version": "v1",
+        "effective_at": "2026-07-29T00:00:00Z"
+      },
+      "sovereignty": {
+        "owner": "D04",
+        "excluded": [
+          "D01",
+          "D03",
+          "D05",
+          "D06",
+          "D07",
+          "D13"
+        ]
+      },
+      "data_quality": {
+        "grade": "E3",
+        "missing": [],
+        "conflicts": []
+      },
+      "hard_gates": [
+        {
+          "id": "supplier_approval",
+          "status": "passed",
+          "evidence_id": "E-2-1"
+        },
+        {
+          "id": "capital_authority",
+          "status": "passed",
+          "evidence_id": "E-2-2"
+        },
+        {
+          "id": "cash_constraint",
+          "status": "passed",
+          "evidence_id": "E-2-3"
+        },
+        {
+          "id": "compliance",
+          "status": "passed",
+          "evidence_id": "E-2-4"
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "phased_purchase_order",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for phased_purchase_order"
+        },
+        {
+          "id": "renegotiate_terms_and_quantity",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for renegotiate_terms_and_quantity"
+        }
+      ],
+      "professional_analysis": {
+        "mechanisms": [
+          "quote_normalization",
+          "bom_rollup",
+          "total_cost",
+          "commercial_terms"
+        ],
+        "calculation_ids": [
+          "CAL-2-1",
+          "CAL-2-2",
+          "CAL-2-3",
+          "CAL-2-4"
+        ],
+        "sensitivity": "decision reverses when any declared hard gate fails"
+      },
+      "counterevidence": [
+        {
+          "id": "CE-2",
+          "effect": "could reverse the recommendation if independently confirmed",
+          "verification": "reconcile source timestamp, object identity, and independent evidence"
+        }
+      ],
+      "decision": {
+        "status": "validated",
+        "limitations": [
+          "synthetic evidence cannot establish production effectiveness"
+        ]
+      },
+      "cross_domain": [
+        {
+          "target": "D01",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D05",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D06",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        }
+      ],
+      "execution_controls": {
+        "success": [
+          "all declared gates remain passed through the effective window"
+        ],
+        "stop": [
+          "stop immediately when identity, critical defect, or authority state changes"
+        ],
+        "rollback": [
+          "restore the previous effective decision and invalidate downstream fields"
+        ],
+        "recovery": [
+          "contain affected objects, assign an owner, and recompute dependent decisions"
+        ]
+      },
+      "outcome_feedback": {
+        "status": "pending_real_outcome",
+        "metric": "decision-specific effectiveness and adverse-event recurrence"
+      },
+      "ledgers": {
+        "evidence": [
+          {
+            "id": "E-2-1",
+            "hash": "aadc22c60a220c253c651511d7a8091d9ea9ea7aaa6b742ae82d0223241fd8e8",
+            "supports": [
+              "hard_gates.supplier_approval",
+              "calculations.CAL-2-1",
+              "calculations.CAL-2-2",
+              "calculations.CAL-2-3",
+              "calculations.CAL-2-4"
+            ]
+          },
+          {
+            "id": "E-2-2",
+            "hash": "69176066b50fb724d31ce4380791033b2eaedd18e6a36de4c9050d2a3df5b5cd",
+            "supports": [
+              "hard_gates.capital_authority"
+            ]
+          },
+          {
+            "id": "E-2-3",
+            "hash": "fcee5b3286c0431bb9ad09942c16a2f564805af1a7ca37d98e973aaa42135131",
+            "supports": [
+              "hard_gates.cash_constraint"
+            ]
+          },
+          {
+            "id": "E-2-4",
+            "hash": "7d4b214f6ae569fbfb38c19eb94fe2bfdd40811ff19366621f0b893331251f97",
+            "supports": [
+              "hard_gates.compliance"
+            ]
+          }
+        ],
+        "calculation": [
+          {
+            "id": "CAL-2-1",
+            "model": "quote_normalization",
+            "input": {
+              "currency": "CNY",
+              "fx_rate": 0.14,
+              "quantity": 100,
+              "unit_price": 10,
+              "extra_costs": [
+                20
+              ]
+            },
+            "output": {
+              "base_currency_unit_cost": "1.4280",
+              "base_currency_total": "142.8000"
+            },
+            "input_hash": "e7a1cc3fca78d3744e6ea937260fe96e41ff30e30771359132be1b374a8d9a17",
+            "output_hash": "d00d5f19fcae4ac74611df5c7cc354cc37c9dd7cae9d3cb98d386749a0732e9a",
+            "evidence_ids": [
+              "E-2-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-2-2",
+            "model": "bom_rollup",
+            "input": {
+              "components": [
+                {
+                  "quantity": 2,
+                  "unit_cost": 3,
+                  "scrap_rate": 0.02
+                }
+              ]
+            },
+            "output": {
+              "bom_cost": "6.1224",
+              "component_count": 1
+            },
+            "input_hash": "f245559041fc15be650d529a1c225ff25f7de2e6389c8275edd5ab953c5855c6",
+            "output_hash": "08607886146197b9cc9ee8e1a65ad91dc423d0ab48b2baead772132162e91505",
+            "evidence_ids": [
+              "E-2-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-2-3",
+            "model": "should_cost",
+            "input": {
+              "currency": "USD",
+              "unit": "piece",
+              "as_of_time": "2026-07-29T00:00:00Z",
+              "direct_material": 5,
+              "direct_labor": 2,
+              "machine_process": 1,
+              "manufacturing_overhead": 1,
+              "packaging_testing": 0.5,
+              "risk_allowance": 0.5
+            },
+            "output": {
+              "currency": "USD",
+              "unit": "piece",
+              "as_of_time": "2026-07-29T00:00:00Z",
+              "cost_before_margin": "10.0000",
+              "should_cost": "10.0000",
+              "low_case": "10.0000",
+              "high_case": "10.0000",
+              "tooling_amortization_per_unit": "0.0000",
+              "depreciation_per_unit": "0.0000",
+              "selected_volume_tier": null,
+              "component_count": 8,
+              "is_supplier_actual_cost": false
+            },
+            "input_hash": "cca590dab1f1eca5b2fdf6eb41f5e11dbce83b3445d9782a341c7157086d4213",
+            "output_hash": "2c235723c2170b987c66fd2b67bba484e8ccee1ba6fdf17e36dc89e6358eef62",
+            "evidence_ids": [
+              "E-2-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-2-4",
+            "model": "total_cost_of_ownership",
+            "input": {
+              "currency": "USD",
+              "unit": "piece",
+              "as_of_time": "2026-07-29T00:00:00Z",
+              "d06_inputs_accepted": true,
+              "d07_inputs_accepted": true,
+              "purchase": 100,
+              "inspection": 3,
+              "quality_failure": 7,
+              "delay": 5,
+              "switch_exit": 10
+            },
+            "output": {
+              "currency": "USD",
+              "unit": "piece",
+              "as_of_time": "2026-07-29T00:00:00Z",
+              "total_cost_of_ownership": "125.0000",
+              "financing_cost": "0.0000",
+              "expected_tail_loss": "0.0000",
+              "tail_event_mode": null,
+              "logistics": "0.0000",
+              "duties_taxes": "0.0000",
+              "recoverable_value": "0.0000",
+              "logistics_and_cash_require_owner_inputs": true
+            },
+            "input_hash": "6bf26f62297e211a1f8366f0b4a4aafd52373b90711373d0f802b7bda1e70e5b",
+            "output_hash": "5cf3908c09a2fdd21c38ccd4111c4f09fabe1c83d5abf337bc5b55bd5864896f",
+            "evidence_ids": [
+              "E-2-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          }
+        ],
+        "decision": [
+          {
+            "id": "D-2",
+            "state": "validated",
+            "version": "v1"
+          }
+        ]
+      },
+      "limitations": [
+        "Golden fixture validates semantics but does not close the L4 external-outcome gate"
+      ]
+    },
+    {
+      "runtime_version": "SPPQ-2026.07",
+      "report_id": "G-3",
+      "decision_type": "sample_approval",
+      "executive_summary": {
+        "status": "validated",
+        "conclusion": "sample_approval is conditionally executable within the declared controls"
+      },
+      "object_scope": {
+        "object_id": "O-3",
+        "version": "v1",
+        "effective_at": "2026-07-29T00:00:00Z"
+      },
+      "sovereignty": {
+        "owner": "D04",
+        "excluded": [
+          "D01",
+          "D03",
+          "D05",
+          "D06",
+          "D07",
+          "D13"
+        ]
+      },
+      "data_quality": {
+        "grade": "E3",
+        "missing": [],
+        "conflicts": []
+      },
+      "hard_gates": [
+        {
+          "id": "identity",
+          "status": "passed",
+          "evidence_id": "E-3-1"
+        },
+        {
+          "id": "specification",
+          "status": "passed",
+          "evidence_id": "E-3-2"
+        },
+        {
+          "id": "measurement_system",
+          "status": "passed",
+          "evidence_id": "E-3-3"
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "approve_controlled_sample",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for approve_controlled_sample"
+        },
+        {
+          "id": "repeat_sample_after_correction",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for repeat_sample_after_correction"
+        }
+      ],
+      "professional_analysis": {
+        "mechanisms": [
+          "sample_chain",
+          "ctq_coverage",
+          "measurement_system",
+          "revalidation"
+        ],
+        "calculation_ids": [
+          "CAL-3-1"
+        ],
+        "sensitivity": "decision reverses when any declared hard gate fails"
+      },
+      "counterevidence": [
+        {
+          "id": "CE-3",
+          "effect": "could reverse the recommendation if independently confirmed",
+          "verification": "reconcile source timestamp, object identity, and independent evidence"
+        }
+      ],
+      "decision": {
+        "status": "validated",
+        "limitations": [
+          "synthetic evidence cannot establish production effectiveness"
+        ]
+      },
+      "cross_domain": [
+        {
+          "target": "D03",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D05",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        }
+      ],
+      "execution_controls": {
+        "success": [
+          "all declared gates remain passed through the effective window"
+        ],
+        "stop": [
+          "stop immediately when identity, critical defect, or authority state changes"
+        ],
+        "rollback": [
+          "restore the previous effective decision and invalidate downstream fields"
+        ],
+        "recovery": [
+          "contain affected objects, assign an owner, and recompute dependent decisions"
+        ]
+      },
+      "outcome_feedback": {
+        "status": "pending_real_outcome",
+        "metric": "decision-specific effectiveness and adverse-event recurrence"
+      },
+      "ledgers": {
+        "evidence": [
+          {
+            "id": "E-3-1",
+            "hash": "d00d857841fc796b229c57ab2032d50bf29829909b86e732b5a872f7aa604953",
+            "supports": [
+              "hard_gates.identity",
+              "calculations.CAL-3-1"
+            ]
+          },
+          {
+            "id": "E-3-2",
+            "hash": "5b1a9243c9b3851d97e5ca89dcc16e9233c39a4e4a7afd38a92d9a471add7ceb",
+            "supports": [
+              "hard_gates.specification"
+            ]
+          },
+          {
+            "id": "E-3-3",
+            "hash": "4eb93cec3f521dc9e755d92fe781e15dfb6de938f23c9c3d20402d4784cd5805",
+            "supports": [
+              "hard_gates.measurement_system"
+            ]
+          }
+        ],
+        "calculation": [
+          {
+            "id": "CAL-3-1",
+            "model": "measurement_system",
+            "input": {
+              "study_variation": 1,
+              "tolerance": 10,
+              "process_variation": 5
+            },
+            "output": {
+              "variation_to_tolerance": "0.1000",
+              "ndc": 7,
+              "acceptable": true,
+              "conditional": false
+            },
+            "input_hash": "334b163fe20b22b20e7f68154ce835c2c4e30664d1ad2988bc13bc0042cafc87",
+            "output_hash": "b9bf1bb7a3079d996aa055169f373a28d2984c98504df4df28e95936ed4f3149",
+            "evidence_ids": [
+              "E-3-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          }
+        ],
+        "decision": [
+          {
+            "id": "D-3",
+            "state": "validated",
+            "version": "v1"
+          }
+        ]
+      },
+      "limitations": [
+        "Golden fixture validates semantics but does not close the L4 external-outcome gate"
+      ]
+    },
+    {
+      "runtime_version": "SPPQ-2026.07",
+      "report_id": "G-4",
+      "decision_type": "production_release",
+      "executive_summary": {
+        "status": "validated",
+        "conclusion": "production_release is conditionally executable within the declared controls"
+      },
+      "object_scope": {
+        "object_id": "O-4",
+        "version": "v1",
+        "effective_at": "2026-07-29T00:00:00Z"
+      },
+      "sovereignty": {
+        "owner": "D04",
+        "excluded": [
+          "D01",
+          "D03",
+          "D05",
+          "D06",
+          "D07",
+          "D13"
+        ]
+      },
+      "data_quality": {
+        "grade": "E3",
+        "missing": [],
+        "conflicts": []
+      },
+      "hard_gates": [
+        {
+          "id": "sample",
+          "status": "passed",
+          "evidence_id": "E-4-1"
+        },
+        {
+          "id": "specification",
+          "status": "passed",
+          "evidence_id": "E-4-2"
+        },
+        {
+          "id": "bom",
+          "status": "passed",
+          "evidence_id": "E-4-3"
+        },
+        {
+          "id": "capacity",
+          "status": "passed",
+          "evidence_id": "E-4-4"
+        },
+        {
+          "id": "compliance",
+          "status": "passed",
+          "evidence_id": "E-4-5"
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "release_limited_pilot",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for release_limited_pilot"
+        },
+        {
+          "id": "hold_and_close_process_gap",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for hold_and_close_process_gap"
+        }
+      ],
+      "professional_analysis": {
+        "mechanisms": [
+          "approved_sample",
+          "process_stability",
+          "control_plan",
+          "capacity"
+        ],
+        "calculation_ids": [
+          "CAL-4-1",
+          "CAL-4-2"
+        ],
+        "sensitivity": "decision reverses when any declared hard gate fails"
+      },
+      "counterevidence": [
+        {
+          "id": "CE-4",
+          "effect": "could reverse the recommendation if independently confirmed",
+          "verification": "reconcile source timestamp, object identity, and independent evidence"
+        }
+      ],
+      "decision": {
+        "status": "validated",
+        "limitations": [
+          "synthetic evidence cannot establish production effectiveness"
+        ]
+      },
+      "cross_domain": [
+        {
+          "target": "D03",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D05",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D06",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D07",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        }
+      ],
+      "execution_controls": {
+        "success": [
+          "all declared gates remain passed through the effective window"
+        ],
+        "stop": [
+          "stop immediately when identity, critical defect, or authority state changes"
+        ],
+        "rollback": [
+          "restore the previous effective decision and invalidate downstream fields"
+        ],
+        "recovery": [
+          "contain affected objects, assign an owner, and recompute dependent decisions"
+        ]
+      },
+      "outcome_feedback": {
+        "status": "pending_real_outcome",
+        "metric": "decision-specific effectiveness and adverse-event recurrence"
+      },
+      "ledgers": {
+        "evidence": [
+          {
+            "id": "E-4-1",
+            "hash": "05ceae1b5a0aead9c5944eef9e565d35d7b4d806d13f819740542ce8c5e238a8",
+            "supports": [
+              "hard_gates.sample",
+              "calculations.CAL-4-1",
+              "calculations.CAL-4-2"
+            ]
+          },
+          {
+            "id": "E-4-2",
+            "hash": "896a5767932d1b41296acebc1a0438bb6d894657206b810a4991cb42fa9c43b4",
+            "supports": [
+              "hard_gates.specification"
+            ]
+          },
+          {
+            "id": "E-4-3",
+            "hash": "20d08201294e5bc88142e3522ed4f07b8b9acf1e45e8945942c7d04a7df2047d",
+            "supports": [
+              "hard_gates.bom"
+            ]
+          },
+          {
+            "id": "E-4-4",
+            "hash": "b2d87978b96183d0a197dfb87796559bddd3dc498d0b92bda423f67e5d81882c",
+            "supports": [
+              "hard_gates.capacity"
+            ]
+          },
+          {
+            "id": "E-4-5",
+            "hash": "ace02a777e8973b87b55e59a4cdc3b1db28ca1c51e00bd864a4e401e5be26d0f",
+            "supports": [
+              "hard_gates.compliance"
+            ]
+          }
+        ],
+        "calculation": [
+          {
+            "id": "CAL-4-1",
+            "model": "process_stability",
+            "input": {
+              "values": [
+                10,
+                10.1,
+                9.9,
+                10,
+                10.05
+              ],
+              "max_range": 0.3
+            },
+            "output": {
+              "center": "10.0100",
+              "range": "0.2000",
+              "estimated_sigma": "0.0997",
+              "individual_ucl": "10.3092",
+              "individual_lcl": "9.7108",
+              "special_cause_points": [],
+              "trend_windows": [],
+              "monotonic_trend": false,
+              "stable": true,
+              "specification_limit_used_as_control_limit": false
+            },
+            "input_hash": "a661000b87f4c9cb9e5e74e6ab86d3721ac05e01984bb77ff791b11067541546",
+            "output_hash": "88ec7a06e13ff4fe23de8e2f28dd4036f12d448242126a9e825260d511626616",
+            "evidence_ids": [
+              "E-4-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-4-2",
+            "model": "capacity",
+            "input": {
+              "available_hours": 10,
+              "units_per_hour": 10,
+              "yield_rate": 0.9,
+              "changeover_hours": 1,
+              "uptime_rate": 0.8,
+              "demand": 50
+            },
+            "output": {
+              "effective_capacity": "64.8000",
+              "capacity_gap": "14.8000",
+              "feasible": true
+            },
+            "input_hash": "82da15a077a48f3ed3ba73c347601e60af056f7476089f7847b260cc4bd8c519",
+            "output_hash": "9f6d4d54501e1a8a4a2e2bbca253627cab75eee12cb5c0242525e6ba75b384e5",
+            "evidence_ids": [
+              "E-4-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          }
+        ],
+        "decision": [
+          {
+            "id": "D-4",
+            "state": "validated",
+            "version": "v1"
+          }
+        ]
+      },
+      "limitations": [
+        "Golden fixture validates semantics but does not close the L4 external-outcome gate"
+      ]
+    },
+    {
+      "runtime_version": "SPPQ-2026.07",
+      "report_id": "G-5",
+      "decision_type": "batch_quality_release",
+      "executive_summary": {
+        "status": "validated",
+        "conclusion": "batch_quality_release is conditionally executable within the declared controls"
+      },
+      "object_scope": {
+        "object_id": "O-5",
+        "version": "v1",
+        "effective_at": "2026-07-29T00:00:00Z"
+      },
+      "sovereignty": {
+        "owner": "D04",
+        "excluded": [
+          "D01",
+          "D03",
+          "D05",
+          "D06",
+          "D07",
+          "D13"
+        ]
+      },
+      "data_quality": {
+        "grade": "E3",
+        "missing": [],
+        "conflicts": []
+      },
+      "hard_gates": [
+        {
+          "id": "production_release",
+          "status": "passed",
+          "evidence_id": "E-5-1"
+        },
+        {
+          "id": "lineage",
+          "status": "passed",
+          "evidence_id": "E-5-2"
+        },
+        {
+          "id": "measurement_system",
+          "status": "passed",
+          "evidence_id": "E-5-3"
+        },
+        {
+          "id": "critical_defect",
+          "status": "passed",
+          "evidence_id": "E-5-4"
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "release_traceable_batch",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for release_traceable_batch"
+        },
+        {
+          "id": "quarantine_and_resample",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for quarantine_and_resample"
+        }
+      ],
+      "professional_analysis": {
+        "mechanisms": [
+          "batch_lineage",
+          "sampling",
+          "quantity_reconciliation",
+          "escape_risk"
+        ],
+        "calculation_ids": [
+          "CAL-5-1",
+          "CAL-5-2",
+          "CAL-5-3"
+        ],
+        "sensitivity": "decision reverses when any declared hard gate fails"
+      },
+      "counterevidence": [
+        {
+          "id": "CE-5",
+          "effect": "could reverse the recommendation if independently confirmed",
+          "verification": "reconcile source timestamp, object identity, and independent evidence"
+        }
+      ],
+      "decision": {
+        "status": "validated",
+        "limitations": [
+          "synthetic evidence cannot establish production effectiveness"
+        ]
+      },
+      "cross_domain": [
+        {
+          "target": "D05",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D07",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D13",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        }
+      ],
+      "execution_controls": {
+        "success": [
+          "all declared gates remain passed through the effective window"
+        ],
+        "stop": [
+          "stop immediately when identity, critical defect, or authority state changes"
+        ],
+        "rollback": [
+          "restore the previous effective decision and invalidate downstream fields"
+        ],
+        "recovery": [
+          "contain affected objects, assign an owner, and recompute dependent decisions"
+        ]
+      },
+      "outcome_feedback": {
+        "status": "pending_real_outcome",
+        "metric": "decision-specific effectiveness and adverse-event recurrence"
+      },
+      "ledgers": {
+        "evidence": [
+          {
+            "id": "E-5-1",
+            "hash": "aa4eeca16326691230a73e8c8812b876f9bb4672d59608322973a92a1318c46a",
+            "supports": [
+              "hard_gates.production_release",
+              "calculations.CAL-5-1",
+              "calculations.CAL-5-2",
+              "calculations.CAL-5-3"
+            ]
+          },
+          {
+            "id": "E-5-2",
+            "hash": "47c24765d6173d6067e294b3fc4aaceda825f48427caee725634ef36fe6ff2e8",
+            "supports": [
+              "hard_gates.lineage"
+            ]
+          },
+          {
+            "id": "E-5-3",
+            "hash": "f56e8667ee7f5ef5886011f66aeaf29f4fbd75d6e912b109e7f01e7e448ab615",
+            "supports": [
+              "hard_gates.measurement_system"
+            ]
+          },
+          {
+            "id": "E-5-4",
+            "hash": "43fa464ed6dd6135d21f42dd1342fd6fb92fc56c31dfa604b7cc6ab4e2ede918",
+            "supports": [
+              "hard_gates.critical_defect"
+            ]
+          }
+        ],
+        "calculation": [
+          {
+            "id": "CAL-5-1",
+            "model": "sampling",
+            "input": {
+              "lot_id": "L1",
+              "lot_size": 1000,
+              "sampling_plan_id": "PLAN-1",
+              "defect_class": "major",
+              "sample_representative": true,
+              "random_selection": true,
+              "sample_size": 80,
+              "defects": 0,
+              "accept_number": 1,
+              "reject_number": 2,
+              "critical_defects": 0
+            },
+            "output": {
+              "decision": "accept",
+              "observed_defect_rate": "0.0000",
+              "zero_defect_claim": false
+            },
+            "input_hash": "ac36f1b68f36059d0f371c5560533934577deff191d52e818e45ede191c67c90",
+            "output_hash": "d2a1b388bc814b4e468686c71bba1b13b1efe428cd0fed846712ea0927d1233c",
+            "evidence_ids": [
+              "E-5-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-5-2",
+            "model": "quantity_reconciliation",
+            "input": {
+              "input": 100,
+              "qualified": 90,
+              "nonconforming": 5,
+              "rework": 2,
+              "scrapped": 1,
+              "wip": 1,
+              "explained_variance": 1
+            },
+            "output": {
+              "balanced": true,
+              "difference": "0.0000"
+            },
+            "input_hash": "765e36b48a81178932aaace350c3d504418baadb82fd1eafe6a96c5a5a7e599b",
+            "output_hash": "ec22e02ab6e7efcace7ac674a2426193707ab114a3f4eb97e5103a74ca40e67c",
+            "evidence_ids": [
+              "E-5-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-5-3",
+            "model": "escape_risk",
+            "input": {
+              "sample_size": 80,
+              "defects": 0
+            },
+            "output": {
+              "observed_rate": "0.0000",
+              "approximate_upper_95_rate": "0.0375",
+              "residual_risk": "nonzero",
+              "zero_defect_claim": false
+            },
+            "input_hash": "2ce7a13f543d934e5dac2ddfec4b4a0020da1757fb9f9b45317ce578ab19e998",
+            "output_hash": "61565e0276e23a61bc53ed014644d09f077dd5652fb54716b6e3dfec6ffc4671",
+            "evidence_ids": [
+              "E-5-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          }
+        ],
+        "decision": [
+          {
+            "id": "D-5",
+            "state": "validated",
+            "version": "v1"
+          }
+        ]
+      },
+      "limitations": [
+        "Golden fixture validates semantics but does not close the L4 external-outcome gate"
+      ]
+    },
+    {
+      "runtime_version": "SPPQ-2026.07",
+      "report_id": "G-6",
+      "decision_type": "supplier_recovery_exit",
+      "executive_summary": {
+        "status": "validated",
+        "conclusion": "supplier_recovery_exit is conditionally executable within the declared controls"
+      },
+      "object_scope": {
+        "object_id": "O-6",
+        "version": "v1",
+        "effective_at": "2026-07-29T00:00:00Z"
+      },
+      "sovereignty": {
+        "owner": "D04",
+        "excluded": [
+          "D01",
+          "D03",
+          "D05",
+          "D06",
+          "D07",
+          "D13"
+        ]
+      },
+      "data_quality": {
+        "grade": "E3",
+        "missing": [],
+        "conflicts": []
+      },
+      "hard_gates": [
+        {
+          "id": "affected_scope",
+          "status": "passed",
+          "evidence_id": "E-6-1"
+        },
+        {
+          "id": "containment",
+          "status": "passed",
+          "evidence_id": "E-6-2"
+        },
+        {
+          "id": "accountable_owner",
+          "status": "passed",
+          "evidence_id": "E-6-3"
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "controlled_supplier_recovery",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for controlled_supplier_recovery"
+        },
+        {
+          "id": "activate_qualified_exit",
+          "feasible": true,
+          "tradeoff": "controlled tradeoff for activate_qualified_exit"
+        }
+      ],
+      "professional_analysis": {
+        "mechanisms": [
+          "containment",
+          "root_cause",
+          "capa_effectiveness",
+          "switch_exit"
+        ],
+        "calculation_ids": [
+          "CAL-6-1",
+          "CAL-6-2"
+        ],
+        "sensitivity": "decision reverses when any declared hard gate fails"
+      },
+      "counterevidence": [
+        {
+          "id": "CE-6",
+          "effect": "could reverse the recommendation if independently confirmed",
+          "verification": "reconcile source timestamp, object identity, and independent evidence"
+        }
+      ],
+      "decision": {
+        "status": "validated",
+        "limitations": [
+          "synthetic evidence cannot establish production effectiveness"
+        ]
+      },
+      "cross_domain": [
+        {
+          "target": "D01",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D05",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D06",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D07",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        },
+        {
+          "target": "D13",
+          "response": "accepted",
+          "contract_version": "1.0.0"
+        }
+      ],
+      "execution_controls": {
+        "success": [
+          "all declared gates remain passed through the effective window"
+        ],
+        "stop": [
+          "stop immediately when identity, critical defect, or authority state changes"
+        ],
+        "rollback": [
+          "restore the previous effective decision and invalidate downstream fields"
+        ],
+        "recovery": [
+          "contain affected objects, assign an owner, and recompute dependent decisions"
+        ]
+      },
+      "outcome_feedback": {
+        "status": "pending_real_outcome",
+        "metric": "decision-specific effectiveness and adverse-event recurrence"
+      },
+      "ledgers": {
+        "evidence": [
+          {
+            "id": "E-6-1",
+            "hash": "6e11c9559bddd08ce8b1dada7a22091a822859e57563f3b308e6c94c9f2e0959",
+            "supports": [
+              "hard_gates.affected_scope",
+              "calculations.CAL-6-1",
+              "calculations.CAL-6-2"
+            ]
+          },
+          {
+            "id": "E-6-2",
+            "hash": "5b47936b81d288e1b141b5eaafa94d1589c99789fea02d4b7ff8b15475ae51a1",
+            "supports": [
+              "hard_gates.containment"
+            ]
+          },
+          {
+            "id": "E-6-3",
+            "hash": "939138148b437f0cb845d1c21ea7f4cfb350f4e2c9edef3a916f2b072b7f8ef1",
+            "supports": [
+              "hard_gates.accountable_owner"
+            ]
+          }
+        ],
+        "calculation": [
+          {
+            "id": "CAL-6-1",
+            "model": "recovery_choice",
+            "input": {
+              "options": [
+                {
+                  "id": "A",
+                  "feasible": true,
+                  "loss": 10,
+                  "days": 2
+                },
+                {
+                  "id": "B",
+                  "feasible": true,
+                  "loss": 12,
+                  "days": 1
+                }
+              ]
+            },
+            "output": {
+              "selected_option": "A",
+              "residual_risk": "unknown"
+            },
+            "input_hash": "4a33500a4c39674dbb55c3475534d2f2b8610881a0fc8477d14ee04bb8b292bf",
+            "output_hash": "f7c7d499e760e2c4534e4ad1c0a6ef3de4848dddfb613a5c9a308dada883c748",
+            "evidence_ids": [
+              "E-6-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          },
+          {
+            "id": "CAL-6-2",
+            "model": "cost_of_quality",
+            "input": {
+              "prevention": 1,
+              "appraisal": 2,
+              "internal_failure": 3,
+              "external_failure": 4,
+              "recall": 5
+            },
+            "output": {
+              "total_cost_of_quality": "15.0000",
+              "external_failure_included": true,
+              "recall_included": true
+            },
+            "input_hash": "5e3dfa0faf3ed5e0da9f7e1a58f69202960d3945e9ea91664e4f66d37d70484e",
+            "output_hash": "f051a457068160f35719cb3c5a6dc29e8c6c6c64eb19788a1eb4fa70740af32d",
+            "evidence_ids": [
+              "E-6-1"
+            ],
+            "recomputed": true,
+            "status": "complete"
+          }
+        ],
+        "decision": [
+          {
+            "id": "D-6",
+            "state": "validated",
+            "version": "v1"
+          }
+        ]
+      },
+      "limitations": [
+        "Golden fixture validates semantics but does not close the L4 external-outcome gate"
+      ]
+    }
+  ]
+}

@@ -65,8 +65,14 @@ jobs:
           python3 product-innovation-product-management/scripts/validate_wp8_coverage.py
           python3 product-innovation-product-management/scripts/test_wp9_migration.py
           python3 product-innovation-product-management/scripts/validate_pipm_consumer_migration.py
+          python3 supplier-procurement-production-quality-decision/scripts/test_sppq.py
+          python3 supplier-procurement-production-quality-decision/scripts/test_evaluation_catalog.py
+          python3 supplier-procurement-production-quality-decision/scripts/test_guard_removal_simulations.py
+          python3 supplier-procurement-production-quality-decision/scripts/test_source_mutations.py
+          python3 supplier-procurement-production-quality-decision/scripts/run_evaluation_catalog.py
+          python3 supplier-procurement-production-quality-decision/scripts/validate_structure_contract.py
           python3 scripts/test_logistics_stress.py
-      - name: Cross-domain and eleven-skill expert release tests
+      - name: Cross-domain and twelve-skill expert release tests
         run: |
           python3 scripts/test_category_semantics.py
           python3 scripts/test_cross_skill_integration.py
