@@ -64,9 +64,35 @@
           "type": "array", "uniqueItems": true,
           "items": {"enum": ["G0_EVIDENCE", "G1_CAPITAL", "G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"]}
         },
+        "orchestration_constraints": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "preserve_domain_decision_sovereignty",
+              "accept_only_owner_approved_decisions",
+              "sequence_only_within_approved_envelopes",
+              "escalate_conflicts_without_adjudicating_professional_conclusions",
+              "no_external_write"
+            ]
+          }
+        },
         "external_write_authority": {"type": "boolean"}
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "architecture_roles": {"contains": {"const": "orchestration"}}
+            },
+            "required": ["architecture_roles"]
+          },
+          "then": {"required": ["orchestration_constraints"]},
+          "else": {"not": {"required": ["orchestration_constraints"]}}
+        }
+      ]
     }
   }
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "供应商采购生产质量决策"
+  short_description: "供应商尽调、采购承诺、生产与批次质量放行专业决策系统"
+  default_prompt: "使用 $supplier-procurement-production-quality-decision 对供应、采购、生产或质量问题作证据驱动决策。"

@@ -1,0 +1,40 @@
+{
+  "runtime_version": "SPPQ-2026.07",
+  "production_ready": false,
+  "authorized_real_cases": 0,
+  "authorization_contract": {
+    "required": true,
+    "fields": ["authorizer", "purpose", "allowed_fields", "retention", "expires_at", "revocation"],
+    "repository_storage_forbidden": true
+  },
+  "case_contract": {
+    "required_fields": [
+      "case_id",
+      "decision_type",
+      "object_versions",
+      "as_of_time",
+      "input_quality",
+      "decision_snapshot",
+      "actual_outcome",
+      "adverse_events",
+      "replay_result",
+      "independent_reviewer"
+    ],
+    "input_quality_states": ["complete", "missing", "conflicting", "expired", "dirty_format", "suspected_fraud", "unverifiable"],
+    "replay_result_states": ["matched", "material_difference", "not_replayable"],
+    "minimum_outcome_window_declared": true,
+    "raw_personal_or_supplier_data_forbidden": true
+  },
+  "cases": [],
+  "closure_gate": {
+    "minimum_mature_authorized_cases": 3,
+    "non_implementer_review_required": true,
+    "material_differences_resolved": true,
+    "long_term_calibration_required": true
+  },
+  "limitations": [
+    "No authorized mature real replay is registered.",
+    "Synthetic evaluations do not close L4.",
+    "The empty template is a controlled external gate, not evidence of production effectiveness."
+  ]
+}

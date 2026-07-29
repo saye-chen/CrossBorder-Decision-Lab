@@ -17,6 +17,7 @@ SKILLS = {
     "MBCM": ("MBCM-2026.07", "marketing-brand-campaign-management/SKILL.md"),
     "PPFC": ("PPFC-2026.07", "pricing-profit-finance-cashflow-decision/SKILL.md"),
     "PIPM": ("PIPM-2026.07", "product-innovation-product-management/SKILL.md"),
+    "SPPQ": ("SPPQ-2026.07", "supplier-procurement-production-quality-decision/SKILL.md"),
 }
 
 
@@ -47,7 +48,7 @@ class HomepageIntegrity(unittest.TestCase):
         self.assertIn("old v1 runtime path is retired", self.en)
         architecture = self.zh.split("### D01—D14 目标架构", 1)[1].split("```", 2)[1]
         for term in ("对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘",
-                     "合同与红线校验", "D14 跨域经营姿态与决策编排"):
+                     "合同与红线校验", "D14 跨域协同姿态与决策编排"):
             self.assertIn(term, architecture)
         self.assertIn("ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论", self.zh)
 
@@ -63,12 +64,17 @@ class HomepageIntegrity(unittest.TestCase):
         for index in range(1, 15):
             domain_id = f"D{index:02d}"
             self.assertEqual(len(re.findall(rf"\b{domain_id}\[", graph)), 1, domain_id)
-        self.assertIn("D04 供应采购生产质量", graph)
+        self.assertIn("D04 SPPQ", graph)
         self.assertIn("D05 合规与市场准入", graph)
-        self.assertIn("D14 跨域经营姿态与决策编排", graph)
+        self.assertIn("D14 跨域协同姿态与决策编排", graph)
+        self.assertIn("不裁决专业结论、不批准资本、不拥有外部写入", self.zh)
+        self.assertIn(
+            "cannot adjudicate professional conclusions, approve capital, or write externally",
+            self.en,
+        )
 
     def test_homepage_uses_completed_capability_and_long_term_calibration_language(self):
-        self.assertIn("已经形成十一个可独立运行、可跨域联动的专业决策 Skill", self.zh)
+        self.assertIn("已经形成十二个可独立运行、可跨域联动的专业决策 Skill", self.zh)
         self.assertIn("随着持续使用", self.zh)
         for forbidden in ("当前尚未完成：真实授权", "需数据验证", "等待真实授权"):
             self.assertNotIn(forbidden, self.zh)

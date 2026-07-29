@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sppq/cross-domain-envelope/1.0.0",
+  "type": "object",
+  "required": ["message_id", "source_domain", "target_domain", "object_id", "object_version", "as_of_time", "authority", "allowed_uses", "forbidden_uses", "requested_fields", "consumer_response", "accepted_fields", "rejection_reasons", "lineage"],
+  "properties": {
+    "message_id": {"type": "string", "minLength": 1},
+    "source_domain": {"enum": ["D01", "D03", "D04", "D05", "D06", "D07", "D13", "ERDG"]},
+    "target_domain": {"enum": ["D01", "D03", "D04", "D05", "D06", "D07", "D13", "ERDG"]},
+    "object_id": {"type": "string", "minLength": 1},
+    "object_version": {"type": "string", "minLength": 1},
+    "as_of_time": {"type": "string", "format": "date-time"},
+    "authority": {"type": "string", "minLength": 1},
+    "allowed_uses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "forbidden_uses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "requested_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "consumer_response": {"enum": ["pending", "accepted", "rejected", "partially_accepted"]},
+    "accepted_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "rejection_reasons": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "lineage": {
+      "type": "object",
+      "required": ["input_hash", "packet_hash"],
+      "properties": {
+        "input_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "packet_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"consumer_response": {"const": "rejected"}}}, "then": {"properties": {"rejection_reasons": {"minItems": 1}, "accepted_fields": {"maxItems": 0}}}},
+    {"if": {"properties": {"consumer_response": {"const": "partially_accepted"}}}, "then": {"properties": {"accepted_fields": {"minItems": 1}}}},
+    {"if": {"properties": {"consumer_response": {"const": "accepted"}}}, "then": {"properties": {"rejection_reasons": {"maxItems": 0}}}}
+  ],
+  "additionalProperties": false
+}

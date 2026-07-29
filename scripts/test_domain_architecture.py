@@ -103,29 +103,46 @@ class DomainArchitectureTest(unittest.TestCase):
     def test_registry_schema_semantics_and_current_coverage(self):
         self.assertEqual(architecture.validate(), [])
 
+    def test_d14_is_constrained_to_orchestration_and_owner_approved_synthesis(self):
+        registry = json.loads(
+            (ROOT / "governance/domain-architecture-registry.json").read_text(encoding="utf-8")
+        )
+        d14 = next(item for item in registry["domains"] if item["domain_id"] == "D14")
+        self.assertEqual(d14["architecture_roles"], ["orchestration"])
+        self.assertIn("operating_posture_synthesis", d14["owned_decision_types"])
+        self.assertNotIn("company_operating_posture", d14["owned_decision_types"])
+        self.assertNotIn("capital_portfolio", d14["owned_decision_types"])
+        self.assertIn("accept_only_owner_approved_decisions", d14["orchestration_constraints"])
+        self.assertIn("sequence_only_within_approved_envelopes", d14["orchestration_constraints"])
+        self.assertIn(
+            "escalate_conflicts_without_adjudicating_professional_conclusions",
+            d14["orchestration_constraints"],
+        )
+        self.assertFalse(d14["external_write_authority"])
+
     def test_current_v2_evidence_handoff_is_accepted(self):
         self.assertEqual(handoff.validate(evidence_packet()), [])
 
     def test_planned_domain_cannot_execute(self):
         payload = evidence_packet()
         payload["target"] = endpoint(
-            "D05", "legal-tax-intellectual-property-market-access-decision", "planned"
+            "D14", "cross-domain-operating-posture-orchestration", "planned"
         )
-        payload["authority"]["target_authority"] = "legal_access"
+        payload["authority"]["target_authority"] = "task_orchestration"
         failures = handoff.validate(payload)
         self.assertTrue(any("planned" in failure and "cannot execute" in failure for failure in failures), failures)
 
     def test_next_build_domain_cannot_execute(self):
-        plan = ROOT / "governance/next-build/d04-sppq.md"
+        plan = ROOT / "governance/next-build/d05-ltma.md"
         self.assertTrue(plan.is_file())
         plan_text = plan.read_text(encoding="utf-8")
         for marker in ("next_build", "fail closed", "不得把本文件注册为可调用 Skill"):
             self.assertIn(marker, plan_text)
         payload = evidence_packet()
         payload["target"] = endpoint(
-            "D04", "supplier-procurement-production-quality-decision", "next_build"
+            "D05", "legal-tax-intellectual-property-market-access-decision", "next_build"
         )
-        payload["authority"]["target_authority"] = "supplier_selection"
+        payload["authority"]["target_authority"] = "legal_access"
         failures = handoff.validate(payload)
         self.assertTrue(any("next_build" in failure and "cannot execute" in failure for failure in failures), failures)
 
@@ -195,7 +212,11 @@ class DomainArchitectureTest(unittest.TestCase):
         self.assertEqual(compat.SKILLS, current)
         self.assertEqual(compat.OWNERS["investment"], "category-investment-decision")
         self.assertEqual(compat.VERSION_PREFIX["product-innovation-product-management"], "PIPM")
-        self.assertNotIn("supplier_selection", compat.OWNERS)
+        self.assertEqual(
+            compat.OWNERS["supplier_selection"],
+            "supplier-procurement-production-quality-decision"
+        )
+        self.assertNotIn("legal_access", compat.OWNERS)
         self.assertEqual(
             compat.REGISTERED_OWNERS["supplier_selection"],
             "supplier-procurement-production-quality-decision"

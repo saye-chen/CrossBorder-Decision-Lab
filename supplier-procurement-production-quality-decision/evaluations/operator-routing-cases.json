@@ -1,0 +1,56 @@
+{
+  "runtime_version": "SPPQ-2026.07",
+  "purpose": "Synthetic forward-routing checks for an operator reading SKILL.md without implementation context.",
+  "blind_review_contract": {
+    "reviewer_must_not_be_implementer": true,
+    "implementation_diagnosis_must_be_hidden": true,
+    "score_dimensions": ["sovereignty", "evidence", "model_applicability", "calculation", "failure_semantics", "continuity", "report_rigor"],
+    "minimum_score_each": 4,
+    "maximum_score_each": 5,
+    "material_sovereignty_or_safety_error_is_automatic_failure": true
+  },
+  "cases": [
+    {
+      "id": "OP-01",
+      "request": "三个供应商是否真正独立，应该选谁？",
+      "required_references": ["charter-object-network.md", "decision-models.md", "evidence-measurement-governance.md"],
+      "required_concepts": ["供应网络图", "HHI =", "证明上限"],
+      "forbidden_claims": ["supplier names prove independence", "lowest price automatically wins"]
+    },
+    {
+      "id": "OP-02",
+      "request": "这个采购报价和账期是否值得承诺？",
+      "required_references": ["decision-models.md", "cross-domain-migration.md"],
+      "required_concepts": ["Should-cost", "TCO =", "D06"],
+      "forbidden_claims": ["D04 approves company cash", "unknown cost is zero"]
+    },
+    {
+      "id": "OP-03",
+      "request": "样品通过了，是否可以直接量产？",
+      "required_references": ["decision-models.md", "evidence-measurement-governance.md"],
+      "required_concepts": ["样品批准", "Chain of custody", "过程稳定与能力"],
+      "forbidden_claims": ["sample approval automatically releases production"]
+    },
+    {
+      "id": "OP-04",
+      "request": "抽检通过但过程均值在漂移，批次能否放行？",
+      "required_references": ["decision-models.md", "professional-depth-governance.md"],
+      "required_concepts": ["UCL/LCL =", "抽样、AQL", "十项深度门"],
+      "forbidden_claims": ["accepted sample overrides unstable process", "zero defects proved"]
+    },
+    {
+      "id": "OP-05",
+      "request": "货已发出后发现重大缺陷，连续追问如何处理？",
+      "required_references": ["continuity-report-evaluation.md", "skill-integration-protocol.md", "professional-report-delivery.md"],
+      "required_concepts": ["REALITY_RECOVERY", "七条联动闭环", "执行控制"],
+      "forbidden_claims": ["delete the old decision to remove shipped exposure", "D04 directly issues legal recall"]
+    },
+    {
+      "id": "OP-06",
+      "request": "供应商 Excel 中数量、百分比和单位混乱，能否直接计算？",
+      "required_references": ["data-contract-and-automation.md", "evidence-measurement-governance.md"],
+      "required_concepts": ["脏数据处理", "missing", "数据质量维度"],
+      "forbidden_claims": ["missing equals zero", "ambiguous unit may be guessed"]
+    }
+  ]
+}

@@ -17,7 +17,8 @@
     },
     "d01-d14-domain-architecture-and-handoff-v2": {
       "owner": "repository",
-      "authoritative_sources": ["governance/domain-architecture-registry.json", "governance/domain-architecture-registry.schema.json", "governance/next-build/d04-sppq.md", "governance/erdg/schemas/handoff-envelope.schema.json", "governance/erdg/schemas/decision-cycle.schema.json", "governance/erdg/scripts/validate_handoff.py", "governance/erdg/scripts/validate_decision_cycle.py"],
+      "authoritative_sources": ["governance/domain-architecture-registry.json", "governance/domain-architecture-registry.schema.json", "governance/next-build/d05-ltma.md", "governance/erdg/schemas/handoff-envelope.schema.json", "governance/erdg/schemas/decision-cycle.schema.json", "governance/erdg/scripts/validate_handoff.py", "governance/erdg/scripts/validate_decision_cycle.py"],
+      "retired_sources": ["governance/next-build/d04-sppq.md"],
       "consumers": ["README.md", "README.en.md", "RULES.md", "governance/erdg/ERDG.md", "governance/erdg/scripts/validate_domain_contract.py", "scripts/validate_repo.py"],
       "validators": ["scripts/validate_domain_architecture.py", "governance/erdg/scripts/validate_handoff.py", "governance/erdg/scripts/validate_decision_cycle.py", "scripts/validate_repo.py"],
       "tests": ["scripts/test_domain_architecture.py", "scripts/test_homepage_integrity.py", "scripts/test_full_repository_audit.py"],
@@ -237,6 +238,14 @@
         "product-innovation-product-management/evaluations/golden-execution-results.json",
         "product-innovation-product-management/evaluations/review-package"
       ]
+    },
+    "sppq-runtime-professional-and-migration": {
+      "owner": "supplier-procurement-production-quality-decision",
+      "authoritative_sources": ["supplier-procurement-production-quality-decision", "governance/erdg/adapters/supplier-procurement-production-quality-decision/adapter.json"],
+      "consumers": ["README.md", "README.en.md", "RULES.md", "governance/domain-architecture-registry.json", "governance/domain-maturity-status.json", "product-innovation-product-management", "pricing-profit-finance-cashflow-decision", "logistics-inventory-fulfillment-decision", "consumer-insights-customer-growth"],
+      "validators": ["supplier-procurement-production-quality-decision/scripts/validate_structure_contract.py", "supplier-procurement-production-quality-decision/scripts/validate_decision_contract.py", "supplier-procurement-production-quality-decision/scripts/validate_professional_report.py", "supplier-procurement-production-quality-decision/scripts/validate_evaluation_catalog.py", "scripts/validate_domain_architecture.py", "scripts/validate_domain_maturity.py", "scripts/validate_repo.py"],
+      "tests": ["supplier-procurement-production-quality-decision/scripts/test_sppq.py", "supplier-procurement-production-quality-decision/scripts/test_evaluation_catalog.py", "supplier-procurement-production-quality-decision/scripts/test_guard_removal_simulations.py", "supplier-procurement-production-quality-decision/scripts/test_source_mutations.py", "scripts/test_domain_architecture.py", "scripts/test_homepage_integrity.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["supplier-procurement-production-quality-decision/evaluations"]
     },
     "mbcm-runtime-and-contracts": {
       "owner": "marketing-brand-campaign-management",

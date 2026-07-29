@@ -12,7 +12,7 @@ Calculations that can change an investment conclusion must be deterministic. Cro
 
 ## 0b. Target Architecture and Deployment Boundary
 
-`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. Current domains remain independently owned modules inside a microservice-ready modular monolith. D04 is the next build; D05 and D14 are planned. A planned or next-build domain may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
+`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. Current domains remain independently owned modules inside a microservice-ready modular monolith. D04 is current; D05 is the next build and D14 is planned. A planned or next-build domain may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
 
 Module boundaries use versioned handoff packets, stable decision-type identifiers and Decision Cycle identity. Cross-domain calls must not import another domain's private implementation or rewrite its conclusions. ERDG validates structure, evidence, state, lineage and deterministic shared calculations; D14 may eventually orchestrate dependencies and escalation, but neither ERDG nor D14 acquires professional decision sovereignty.
 
