@@ -17,28 +17,42 @@ CIDM现包含受治理的`OSL-v1`机会信号层：以clean-room方式把外部�
 ```mermaid
 flowchart TB
     subgraph IN["① 证据接入"]
-      direction LR; RAW["外部研究 · 原始证据"] --> ADP["Evidence Adapter<br/>字段归一 · 时效 · 来源家族 · 血缘"]
+      direction LR
+      RAW["外部研究<br/>原始证据"] --> ADP["Evidence Adapter<br/>字段归一 · 时效 · 来源家族 · 血缘"]
+      ADP --> CON["信号合同<br/>对象 · 时间窗 · 反证 · 替代解释"]
     end
     subgraph CORE["② 信号计算"]
-      direction LR; CON["信号合同<br/>对象 · 时间窗 · 反证 · 替代解释"] --> MOD["8 类确定性模型"] <--> ORA["独立 Oracle<br/>状态与指标双算"] --> SIG["12 类规范信号"]
+      direction LR
+      MOD["8 类<br/>确定性模型"] <--> ORA["独立 Oracle<br/>状态与指标双算"]
+      ORA --> SIG["12 类<br/>规范信号"]
     end
     subgraph DEC["③ 决策治理"]
-      direction LR; PLAY["5 类组合剧本<br/>Required · Supporting · Counter · Veto"] --> GATE["CIDM 五道门槛<br/>七维评分"] --> CARD["Rapid Decision Card<br/>进入 · 小测 · 观察 · 不进入"]
+      direction LR
+      PLAY["5 类组合剧本<br/>Required · Supporting<br/>Counter · Veto"] --> GATE["CIDM 五道门槛<br/>七维评分"]
+      GATE --> CARD["Rapid Decision Card<br/>进入 · 小测 · 观察 · 不进入"]
     end
     subgraph REC["④ 失效恢复"]
-      direction LR; DRIFT["证据失效 · 字段漂移 · 口径变化"] --> FREEZE["冻结受影响动作"] --> RECOMPUTE["影响闭合 · 逐域重算 · 新有效决策"]
+      direction LR
+      DRIFT["证据失效<br/>字段漂移 · 口径变化"] --> FREEZE["冻结受影响动作"]
+      FREEZE --> RECOMPUTE["影响闭合 · 逐域重算<br/>生成新有效决策"]
     end
-    IN --> CORE --> DEC
-    REC -.重新进入证据接入.-> IN
-    GATE --> HAND["受控跨域交接<br/>PPFC · SPPQ · LIFD · PLCO"]
-    VETO["红线 / Veto"] --> BLOCK["Blocked<br/>不可被高分补偿"] -.阻断.-> GATE
+    CON --> MOD
+    SIG --> PLAY
+    CARD --> HAND["受控跨域交接<br/>PPFC · SPPQ · LIFD · PLCO"]
+    GATE -->|触发红线 / Veto| BLOCK["Blocked<br/>不可被高分补偿"]
+    CARD -.证据失效.-> DRIFT
+    RECOMPUTE -.重新进入证据接入.-> RAW
     EXT["外部门仍关闭<br/>20例盲选回放 · 20人非实现者测试 · 前向校准"] -.限制成熟度.-> CARD
     classDef evidence fill:#e8f1ff,stroke:#3269a8,color:#17324d
     classDef signal fill:#eaf7f0,stroke:#31845c,color:#153b2a
+    classDef decision fill:#fff4d8,stroke:#a87716,color:#4d3810
+    classDef recovery fill:#f3ecff,stroke:#7652a8,color:#34234d
     classDef stop fill:#ffe9e7,stroke:#b84a42,color:#541e1a
-    class RAW,ADP evidence
-    class CON,MOD,ORA,SIG,PLAY,GATE,CARD,HAND,DRIFT,FREEZE,RECOMPUTE signal
-    class VETO,BLOCK,EXT stop
+    class RAW,ADP,CON evidence
+    class MOD,ORA,SIG signal
+    class PLAY,GATE,CARD,HAND decision
+    class DRIFT,FREEZE,RECOMPUTE recovery
+    class BLOCK,EXT stop
 ```
 
 这张图展示的是“候选发现如何受治理”，不是另一套投资评分器。机会信号必须经过证据接入、合同校验、确定性模型与独立双算，再进入组合剧本和 CIDM 原有门槛；任何红线、否决条件或证据失效都优先阻断并触发恢复。信号层无权直接批准投资、备货、页面或广告动作。

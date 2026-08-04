@@ -28,7 +28,7 @@ class HomepageIntegrity(unittest.TestCase):
         cls.en = (ROOT / "README.en.md").read_text(encoding="utf-8")
 
     def test_chinese_homepage_is_concise_and_has_english_entry(self):
-        self.assertLessEqual(len(self.zh.splitlines()), 300)
+        self.assertLessEqual(len(self.zh.splitlines()), 340)
         self.assertIn("[English](README.en.md)", self.zh)
         for stale in ("# 出海决策实验室", "## Why This System Exists", "## Current Release Status"):
             self.assertNotIn(stale, self.zh)
@@ -48,6 +48,14 @@ class HomepageIntegrity(unittest.TestCase):
                 for line in diagram.splitlines():
                     if line.strip().startswith("classDef "):
                         self.assertRegex(line.strip(), r"^classDef\s+[A-Za-z][\w-]*\s+[^;]+$")
+
+    def test_osl_diagram_connects_real_nodes_and_terminates_blocked_branch(self):
+        for page, heading in ((self.zh, "### OSL-v1 机会信号结构"), (self.en, "### OSL-v1 opportunity-signal architecture")):
+            diagram = page.split(heading, 1)[1].split("```mermaid", 1)[1].split("```", 1)[0]
+            for forbidden in ("IN --> CORE", "CORE --> DEC", "BLOCK -.blocks.-> GATE", "BLOCK -.阻断.-> GATE"):
+                self.assertNotIn(forbidden, diagram)
+            for required in ("ADP --> CON", "CON --> MOD", "SIG --> PLAY", "GATE -->|", "CARD -." , "RECOMPUTE -."):
+                self.assertIn(required, diagram)
 
     def test_erdg_is_visible_without_taking_business_ownership(self):
         for page in (self.zh, self.en):
