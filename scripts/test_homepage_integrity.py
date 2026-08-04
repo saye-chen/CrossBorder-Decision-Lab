@@ -40,6 +40,15 @@ class HomepageIntegrity(unittest.TestCase):
             self.assertIn(anchor, self.zh)
         self.assertGreaterEqual(self.zh.count("```mermaid"), 2)
 
+    def test_mermaid_class_definitions_use_github_compatible_statements(self):
+        for page in (self.zh, self.en):
+            self.assertEqual(page.count("```mermaid"), page.count("```mermaid") and len(re.findall(r"```mermaid\n[\s\S]*?\n```", page)))
+            for diagram in re.findall(r"```mermaid\n([\s\S]*?)\n```", page):
+                self.assertNotRegex(diagram, r"classDef[^\n]*;\s*class\s")
+                for line in diagram.splitlines():
+                    if line.strip().startswith("classDef "):
+                        self.assertRegex(line.strip(), r"^classDef\s+[A-Za-z][\w-]*\s+[^;]+$")
+
     def test_erdg_is_visible_without_taking_business_ownership(self):
         for page in (self.zh, self.en):
             self.assertIn("ERDG-CONTRACT-2026.07", page)
