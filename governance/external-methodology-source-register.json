@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "source_id": "EXT-AMAZON-SORFTIME-2026-08",
+      "repository": "https://github.com/liangdabiao/amazon-sorftime-research-MCP-skill",
+      "audited_commit": "1b7afac85afc8d84529233698b5ea22fd3414e1e",
+      "audited_at": "2026-08-04",
+      "license_status": "no_explicit_license_observed",
+      "allowed_uses": ["method_research", "public_idea_analysis", "clean_room_reimplementation"],
+      "forbidden_imports": [
+        ".mcp.json",
+        "credentials_or_tokens",
+        "source_code",
+        "html_dashboard_templates",
+        "historical_reports_or_customer_data",
+        "unlicensed_prompt_or_markdown_copy"
+      ],
+      "implementation_policy": "business_specification_then_independent_internal_implementation",
+      "production_ready": false,
+      "review_status": "controlled_pilot_source_baseline"
+    }
+  ]
+}

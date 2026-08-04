@@ -1,0 +1,50 @@
+{
+  "playbook_version": "OSL-PLAYBOOK-v1",
+  "playbooks": [
+    {
+      "playbook_id": "PB-NEW-PRODUCT-01",
+      "display_name": "新品突破验真",
+      "required_signals": ["NEW_PRODUCT_BREAKOUT"],
+      "supporting_signals": ["DISTRIBUTED_KEYWORD_DEMAND", "TRAFFIC_REPLICABILITY"],
+      "counter_signals": [],
+      "veto_conditions": ["negative_contribution_profit", "compliance_ip_redline", "identity_falsified"],
+      "allowed_output": "validation_plan"
+    },
+    {
+      "playbook_id": "PB-MARKET-ENTRY-01",
+      "display_name": "类目可进入性",
+      "required_signals": ["MARKET_ENTRY_STRUCTURE"],
+      "supporting_signals": ["VALIDATED_SUPPLY_GAP", "NEW_PRODUCT_BREAKOUT"],
+      "counter_signals": [],
+      "veto_conditions": ["no_entry_wedge"],
+      "allowed_output": "competition_entry_evidence_card"
+    },
+    {
+      "playbook_id": "PB-PRODUCT-GAP-01",
+      "display_name": "产品改良机会",
+      "required_signals": ["RESOLVABLE_PRODUCT_GAP"],
+      "supporting_signals": ["VALIDATED_SUPPLY_GAP"],
+      "counter_signals": [],
+      "veto_conditions": ["safety_certification_uncontrolled", "technical_infeasible"],
+      "allowed_output": "product_concept_validation_card"
+    },
+    {
+      "playbook_id": "PB-ECONOMICS-01",
+      "display_name": "利润可实现性",
+      "required_signals": ["ECONOMIC_FEASIBILITY"],
+      "supporting_signals": [],
+      "counter_signals": [],
+      "veto_conditions": ["negative_base_contribution", "cash_inventory_redline"],
+      "allowed_output": "profit_and_capital_tolerance_card"
+    },
+    {
+      "playbook_id": "PB-SEASONAL-01",
+      "display_name": "季节进入窗口",
+      "required_signals": ["SEASONAL_PREPOSITIONING_WINDOW"],
+      "supporting_signals": ["DISTRIBUTED_KEYWORD_DEMAND", "ECONOMIC_FEASIBILITY"],
+      "counter_signals": [],
+      "veto_conditions": ["latest_order_date_missed", "no_inventory_exit"],
+      "allowed_output": "season_entry_or_stop"
+    }
+  ]
+}

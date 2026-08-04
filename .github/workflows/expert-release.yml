@@ -17,7 +17,7 @@ jobs:
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py

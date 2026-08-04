@@ -1,0 +1,24 @@
+{
+  "version": "CIDM-OSL-TACTICS-v1",
+  "status_vocabulary": ["configured", "routed", "implemented", "independently_verified", "externally_validated"],
+  "external_validation_status": "controlled_external_gate",
+  "tactics": [
+    {"id":"T04","name":"新品快速爆发","signal":"NEW_PRODUCT_BREAKOUT","implementation":"independent_model","runtime_model":"NEW_PRODUCT_BREAKOUT","route":null,"highest_verified_status":"independently_verified"},
+    {"id":"T05","name":"隐形爆款","signal":"LOW_SOCIAL_PROOF_BREAKOUT","implementation":"shared_submode","runtime_model":"NEW_PRODUCT_BREAKOUT","route":null,"highest_verified_status":"configured","gap":"dedicated low-social-proof calibration and counterexample tests"},
+    {"id":"T06","name":"ABA高增长趋势词","signal":"DISTRIBUTED_KEYWORD_DEMAND","implementation":"independent_model","runtime_model":"DISTRIBUTED_KEYWORD_DEMAND","route":null,"highest_verified_status":"independently_verified"},
+    {"id":"T07","name":"流量分散关键词","signal":"DISTRIBUTED_KEYWORD_DEMAND","implementation":"shared_submode","runtime_model":"DISTRIBUTED_KEYWORD_DEMAND","route":null,"highest_verified_status":"independently_verified"},
+    {"id":"T08","name":"标题密度漏洞","signal":"LISTING_ACCEPTANCE_GAP","implementation":"cross_domain_route","runtime_model":null,"route":"PLCO","highest_verified_status":"routed"},
+    {"id":"T09","name":"热销低评分","signal":"RESOLVABLE_PRODUCT_GAP","implementation":"independent_model","runtime_model":"RESOLVABLE_PRODUCT_GAP","route":null,"highest_verified_status":"independently_verified"},
+    {"id":"T10","name":"评论语义分析","signal":"RESOLVABLE_PRODUCT_GAP","implementation":"shared_submode","runtime_model":"RESOLVABLE_PRODUCT_GAP","route":null,"highest_verified_status":"implemented"},
+    {"id":"T11","name":"低品牌垄断","signal":"MARKET_ENTRY_STRUCTURE","implementation":"independent_model","runtime_model":"MARKET_ENTRY_STRUCTURE","route":null,"highest_verified_status":"independently_verified"},
+    {"id":"T12","name":"高新品占比","signal":"MARKET_ENTRY_STRUCTURE","implementation":"shared_submode","runtime_model":"MARKET_ENTRY_STRUCTURE","route":null,"highest_verified_status":"independently_verified"},
+    {"id":"T13","name":"高毛利轻小品","signal":"ECONOMIC_FEASIBILITY","implementation":"independent_model","runtime_model":"ECONOMIC_FEASIBILITY","route":"PPFC when authoritative finance is required","highest_verified_status":"independently_verified"},
+    {"id":"T14","name":"自然流量反查","signal":"TRAFFIC_REPLICABILITY","implementation":"independent_model","runtime_model":"TRAFFIC_REPLICABILITY","route":null,"highest_verified_status":"independently_verified"},
+    {"id":"T15","name":"变体缺口","signal":"VALIDATED_VARIANT_GAP","implementation":"shared_submode","runtime_model":"VALIDATED_SUPPLY_GAP","route":null,"highest_verified_status":"implemented","gap":"dedicated variant identity and availability tests"},
+    {"id":"T16","name":"本土溢价降维","signal":"REPLICABLE_LOCAL_PREMIUM","implementation":"configured_only","runtime_model":null,"route":null,"highest_verified_status":"configured","gap":"country-matched landed-cost and willingness-to-pay model"},
+    {"id":"T17","name":"FBM拦截","signal":"VALIDATED_SUPPLY_GAP","implementation":"cross_domain_route","runtime_model":null,"route":"LIFD","highest_verified_status":"routed"},
+    {"id":"T18","name":"低质量Listing高销量","signal":"LISTING_ACCEPTANCE_GAP","implementation":"cross_domain_route","runtime_model":null,"route":"PLCO","highest_verified_status":"routed"},
+    {"id":"T19","name":"高客单长尾","signal":"ECONOMIC_FEASIBILITY","implementation":"shared_submode","runtime_model":"ECONOMIC_FEASIBILITY","route":null,"highest_verified_status":"implemented","gap":"dedicated long-tail demand and cash-cycle tests"},
+    {"id":"T20","name":"季节前置布局","signal":"SEASONAL_PREPOSITIONING_WINDOW","implementation":"independent_model","runtime_model":"SEASONAL_PREPOSITIONING_WINDOW","route":"LIFD for lead-time authority","highest_verified_status":"independently_verified"}
+  ]
+}

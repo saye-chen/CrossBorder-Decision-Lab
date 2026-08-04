@@ -25,6 +25,9 @@ def run_script(name, *args, env=None):
 
 
 class ProfitModelTests(unittest.TestCase):
+    def test_zero_and_negative_price_are_rejected(self):
+        for price in (0, -1, "nan", "inf"): self.assertNotEqual(run_script("profit_model.py", "--price", price).returncode, 0)
+
     def test_known_unit_economics(self):
         result = run_script(
             "profit_model.py", "--price", 100, "--product", 20,
@@ -69,6 +72,25 @@ class ProfitModelTests(unittest.TestCase):
 
 
 class ScoreEngineTests(unittest.TestCase):
+    def payload(self, value=8, **extra):
+        result={"scores":{key:value for key in ("market_demand","competitive_entry","profit_space","content_communication","supply_control","risk_control","opportunity_window")}}
+        result.update(extra); return result
+
+    def run_payload(self,payload):
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/"score.json"; path.write_text(json.dumps(payload),encoding="utf-8"); return run_script("score_engine.py",path)
+
+    def test_clean_pass_and_threshold_bands(self):
+        for value,band in ((8,"建议进入"),(6.5,"谨慎小测"),(5,"仅观察/内容测款"),(4.99,"不建议进入")):
+            data=json.loads(self.run_payload(self.payload(value)).stdout); self.assertEqual(data["decision_band"],band)
+
+    def test_multiple_caps_and_redlines_are_deterministic(self):
+        data=json.loads(self.run_payload(self.payload(9,sensitivity_caps={"profit_space":6,"risk_control":4},hard_redlines=["ip","loss","ip"])).stdout)
+        self.assertEqual(data["applied_caps"],{"profit_space":6.0,"risk_control":4.0}); self.assertEqual(data["hard_redlines"],["ip","loss"]); self.assertEqual(data["decision_band"],"不建议进入")
+
+    def test_missing_nonfinite_boolean_cap_and_bad_redline_fail_closed(self):
+        cases=[{"scores":{}},self.payload("nan"),self.payload(8,sensitivity_caps={"profit_space":True}),self.payload(8,hard_redlines=[""])]
+        for payload in cases: self.assertNotEqual(self.run_payload(payload).returncode,0)
     def test_weighting_caps_and_redline_are_deterministic(self):
         payload = {"scores": {key: 8 for key in (
             "market_demand", "competitive_entry", "profit_space", "content_communication",

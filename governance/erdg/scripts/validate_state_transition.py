@@ -50,6 +50,16 @@ TRANSITIONS = {
         "no_change": set(),
         "inconclusive": set(),
     },
+    "recovery": {
+        "detected": {"frozen", "escalated"},
+        "frozen": {"triaged", "escalated"},
+        "triaged": {"recalculating", "escalated"},
+        "recalculating": {"partially_recovered", "recovered", "escalated"},
+        "partially_recovered": {"recalculating", "recovered", "escalated"},
+        "recovered": {"closed", "escalated"},
+        "escalated": {"recalculating", "closed"},
+        "closed": set(),
+    },
 }
 
 

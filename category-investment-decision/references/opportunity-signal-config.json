@@ -1,0 +1,34 @@
+{
+  "schema_version": "OSL-v1",
+  "internal_ratio_scale": "0-1",
+  "statuses": {
+    "evidence": ["current", "stale", "invalidated", "missing", "superseded"],
+    "signal": ["candidate", "proposed", "validated", "inconclusive", "blocked", "rejected", "expired"],
+    "execution": ["not_started", "running", "partial", "complete", "failed"],
+    "recovery": ["detected", "frozen", "triaged", "recalculating", "partially_recovered", "recovered", "escalated", "closed"]
+  },
+  "signal_names": {
+    "NEW_PRODUCT_BREAKOUT": {"display_name": "新品爆发", "not_mean": "不等于值得备货"},
+    "LOW_SOCIAL_PROOF_BREAKOUT": {"display_name": "隐形爆款", "not_mean": "不等于自然需求已证实"},
+    "DISTRIBUTED_KEYWORD_DEMAND": {"display_name": "流量分散词", "not_mean": "不自动称蓝海词"},
+    "RESOLVABLE_PRODUCT_GAP": {"display_name": "产品改良机会", "not_mean": "不等于消费者愿意付费"},
+    "VALIDATED_VARIANT_GAP": {"display_name": "变体缺口", "not_mean": "纯空白不构成机会"},
+    "SEASONAL_PREPOSITIONING_WINDOW": {"display_name": "季节前置", "not_mean": "错过最晚下单日即失效"},
+    "REPLICABLE_LOCAL_PREMIUM": {"display_name": "本土溢价机会", "not_mean": "不等于简单中外价差"},
+    "LISTING_ACCEPTANCE_GAP": {"display_name": "页面承接缺口", "not_mean": "不等于产品本身可超越"},
+    "MARKET_ENTRY_STRUCTURE": {"display_name": "类目可进入结构", "not_mean": "低集中不等于容易进入"},
+    "ECONOMIC_FEASIBILITY": {"display_name": "经济可行性", "not_mean": "高售价不等于高利润"},
+    "TRAFFIC_REPLICABILITY": {"display_name": "流量可复制性", "not_mean": "自然流量高不等于新品可复制"},
+    "VALIDATED_SUPPLY_GAP": {"display_name": "有效供给缺口", "not_mean": "供给为空不等于需求存在"}
+  },
+  "composition_budget": {
+    "max_signals": 50,
+    "max_supporting_per_playbook": 5,
+    "max_counter_per_playbook": 3,
+    "max_external_calls": 20,
+    "max_llm_interpretations": 5,
+    "max_wall_time_seconds": 600
+  },
+  "allowed_use": ["candidate_generation"],
+  "forbidden_use": ["automatic_score_override", "automatic_investment_action"]
+}

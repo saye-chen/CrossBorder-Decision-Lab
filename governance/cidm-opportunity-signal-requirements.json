@@ -1,0 +1,1940 @@
+{
+  "register_version": "CIDM-OSL-REQUIREMENTS-v1",
+  "source_spec": "Amazon-Sorftime-Skill-方法论汲取与优化实施方案-2026-08-04.md v1.3",
+  "requirement_count": 118,
+  "requirements": [
+    {
+      "requirement_id": "OSL-RQ-001",
+      "source_chapter": "37",
+      "source_heading": "安全与法律",
+      "requirement": "外部来源登记完成",
+      "parent_requirement_id": "OSL-P0-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "governance/external-methodology-source-register.json"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-002",
+      "source_chapter": "37",
+      "source_heading": "安全与法律",
+      "requirement": "许可证状态明确",
+      "parent_requirement_id": "OSL-P0-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "governance/external-methodology-source-register.json"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-003",
+      "source_chapter": "37",
+      "source_heading": "安全与法律",
+      "requirement": "无外部真实密钥",
+      "parent_requirement_id": "OSL-P0-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "governance/external-methodology-source-register.json"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-004",
+      "source_chapter": "37",
+      "source_heading": "安全与法律",
+      "requirement": "无外部源码和模板复制",
+      "parent_requirement_id": "OSL-P0-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "governance/external-methodology-source-register.json"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-005",
+      "source_chapter": "37",
+      "source_heading": "安全与法律",
+      "requirement": "秘密与历史扫描通过。",
+      "parent_requirement_id": "OSL-P0-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "governance/external-methodology-source-register.json"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-006",
+      "source_chapter": "37",
+      "source_heading": "方法",
+      "requirement": "外部仓库宣称16种、审计实际识别的17种战术均有内部重构规格",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-007",
+      "source_chapter": "37",
+      "source_heading": "方法",
+      "requirement": "每种方法有反例和替代解释",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-008",
+      "source_chapter": "37",
+      "source_heading": "方法",
+      "requirement": "固定阈值带适用条件",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-009",
+      "source_chapter": "37",
+      "source_heading": "方法",
+      "requirement": "候选信号与投资决策分离",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-010",
+      "source_chapter": "37",
+      "source_heading": "方法",
+      "requirement": "空白不再自动等于蓝海。",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-011",
+      "source_chapter": "37",
+      "source_heading": "数据",
+      "requirement": "对象、国家、平台和时间窗明确",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-012",
+      "source_chapter": "37",
+      "source_heading": "数据",
+      "requirement": "父子ASIN去重",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-013",
+      "source_chapter": "37",
+      "source_heading": "数据",
+      "requirement": "单位、币种和比例统一",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-014",
+      "source_chapter": "37",
+      "source_heading": "数据",
+      "requirement": "缺失字段使用UNKNOWN",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-015",
+      "source_chapter": "37",
+      "source_heading": "数据",
+      "requirement": "原始证据、适配结果和报告可追溯",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-016",
+      "source_chapter": "37",
+      "source_heading": "数据",
+      "requirement": "同源数据被识别。",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-017",
+      "source_chapter": "37",
+      "source_heading": "模型与实现",
+      "requirement": "核心计算确定性",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-018",
+      "source_chapter": "37",
+      "source_heading": "模型与实现",
+      "requirement": "评分使用CIDM七维模型",
+      "parent_requirement_id": "OSL-C-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "ERDG governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-019",
+      "source_chapter": "37",
+      "source_heading": "模型与实现",
+      "requirement": "五道门槛先于分数",
+      "parent_requirement_id": "OSL-C-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "ERDG governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-020",
+      "source_chapter": "37",
+      "source_heading": "模型与实现",
+      "requirement": "利润使用完整成本",
+      "parent_requirement_id": "OSL-C-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "ERDG governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-021",
+      "source_chapter": "37",
+      "source_heading": "模型与实现",
+      "requirement": "生命周期限制生效",
+      "parent_requirement_id": "OSL-C-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "ERDG governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-022",
+      "source_chapter": "37",
+      "source_heading": "模型与实现",
+      "requirement": "ERDG主权和失效传播生效。",
+      "parent_requirement_id": "OSL-C-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "ERDG governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-023",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "单元、边界、contract测试通过",
+      "parent_requirement_id": "OSL-C-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "ERDG governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-024",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "独立oracle通过",
+      "parent_requirement_id": "OSL-V-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/independent_opportunity_oracles.py",
+        "category-investment-decision/scripts/test_independent_opportunity_oracles.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-025",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "mutation通过",
+      "parent_requirement_id": "OSL-V-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/test_opportunity_source_mutations.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-026",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "端到端事故链通过",
+      "parent_requirement_id": "OSL-V-002",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/test_opportunity_source_mutations.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-027",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "授权历史回放完成",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-028",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "非实现者盲测完成",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-029",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "前向实验报告成功和失败案例",
+      "parent_requirement_id": "OSL-L4-003",
+      "gate": "external",
+      "owner": "business experiment owner",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "forward experiment and long-term calibration not run"
+    },
+    {
+      "requirement_id": "OSL-RQ-030",
+      "source_chapter": "37",
+      "source_heading": "验证",
+      "requirement": "成熟度没有夸大。",
+      "parent_requirement_id": "OSL-C-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_signals.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-031",
+      "source_chapter": "38",
+      "source_heading": "38.5 验收",
+      "requirement": "所有信号都有唯一规范名称",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-032",
+      "source_chapter": "38",
+      "source_heading": "38.5 验收",
+      "requirement": "用户名称不参与代码分支判断",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-033",
+      "source_chapter": "38",
+      "source_heading": "38.5 验收",
+      "requirement": "改显示名称不改变历史重放结果",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-034",
+      "source_chapter": "38",
+      "source_heading": "38.5 验收",
+      "requirement": "报告不会把“隐形爆款”等名称直接解释为投资通过。",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-035",
+      "source_chapter": "39",
+      "source_heading": "39.6 验收",
+      "requirement": "同源信号不会被称为三重独立验证",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-036",
+      "source_chapter": "39",
+      "source_heading": "39.6 验收",
+      "requirement": "必要条件缺失时支持信号再多也不能通过",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-037",
+      "source_chapter": "39",
+      "source_heading": "39.6 验收",
+      "requirement": "否决条件可覆盖组合得分",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-038",
+      "source_chapter": "39",
+      "source_heading": "39.6 验收",
+      "requirement": "每个组合输出验证动作而非自动投资动作",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-039",
+      "source_chapter": "39",
+      "source_heading": "39.6 验收",
+      "requirement": "删除任一关键证据后能重算并传播状态。",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-040",
+      "source_chapter": "40",
+      "source_heading": "40.7 验收",
+      "requirement": "CIDM不直接生成PLCO执行动作",
+      "parent_requirement_id": "OSL-X-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "PLCO owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/cidm-to-plco-packet.md",
+        "platform-store-listing-conversion/scripts/validate_cidm_handoff.py",
+        "platform-store-listing-conversion/scripts/test_cidm_handoff.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "live page outcome replay remains"
+    },
+    {
+      "requirement_id": "OSL-RQ-041",
+      "source_chapter": "40",
+      "source_heading": "40.7 验收",
+      "requirement": "无Proof卖点被验证器拒绝",
+      "parent_requirement_id": "OSL-X-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "PLCO owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/cidm-to-plco-packet.md",
+        "platform-store-listing-conversion/scripts/validate_cidm_handoff.py",
+        "platform-store-listing-conversion/scripts/test_cidm_handoff.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "live page outcome replay remains"
+    },
+    {
+      "requirement_id": "OSL-RQ-042",
+      "source_chapter": "40",
+      "source_heading": "40.7 验收",
+      "requirement": "页面测试结果不会未经CIDM重算自动改变投资结论",
+      "parent_requirement_id": "OSL-X-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "PLCO owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/cidm-to-plco-packet.md",
+        "platform-store-listing-conversion/scripts/validate_cidm_handoff.py",
+        "platform-store-listing-conversion/scripts/test_cidm_handoff.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "live page outcome replay remains"
+    },
+    {
+      "requirement_id": "OSL-RQ-043",
+      "source_chapter": "40",
+      "source_heading": "40.7 验收",
+      "requirement": "四项校验通过不被表述为销量或增量证明",
+      "parent_requirement_id": "OSL-X-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "PLCO owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/cidm-to-plco-packet.md",
+        "platform-store-listing-conversion/scripts/validate_cidm_handoff.py",
+        "platform-store-listing-conversion/scripts/test_cidm_handoff.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "live page outcome replay remains"
+    },
+    {
+      "requirement_id": "OSL-RQ-044",
+      "source_chapter": "40",
+      "source_heading": "40.7 验收",
+      "requirement": "上线版本和回写证据可追溯。",
+      "parent_requirement_id": "OSL-X-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "PLCO owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/cidm-to-plco-packet.md",
+        "platform-store-listing-conversion/scripts/validate_cidm_handoff.py",
+        "platform-store-listing-conversion/scripts/test_cidm_handoff.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "live page outcome replay remains"
+    },
+    {
+      "requirement_id": "OSL-RQ-045",
+      "source_chapter": "41",
+      "source_heading": "41.7 验收",
+      "requirement": "通用taxonomy允许品类扩展和开放类",
+      "parent_requirement_id": "OSL-GAP-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "SPPQ and customer evidence owners",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "authorized category-specific VOC and supply datasets remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-046",
+      "source_chapter": "41",
+      "source_heading": "41.7 验收",
+      "requirement": "样本内频率不被外推为市场占比",
+      "parent_requirement_id": "OSL-GAP-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "SPPQ and customer evidence owners",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "authorized category-specific VOC and supply datasets remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-047",
+      "source_chapter": "41",
+      "source_heading": "41.7 验收",
+      "requirement": "单条S4事件可触发人工复核",
+      "parent_requirement_id": "OSL-GAP-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "SPPQ and customer evidence owners",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "authorized category-specific VOC and supply datasets remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-048",
+      "source_chapter": "41",
+      "source_heading": "41.7 验收",
+      "requirement": "服务问题不会被错误写成产品创新",
+      "parent_requirement_id": "OSL-GAP-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "SPPQ and customer evidence owners",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "authorized category-specific VOC and supply datasets remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-049",
+      "source_chapter": "41",
+      "source_heading": "41.7 验收",
+      "requirement": "每个事件可回指原始评论或工单ID。",
+      "parent_requirement_id": "OSL-GAP-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "SPPQ and customer evidence owners",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "authorized category-specific VOC and supply datasets remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-050",
+      "source_chapter": "42",
+      "source_heading": "42.4 验收",
+      "requirement": "快速卡仍保留红线、利润约束、反证和Go/Stop",
+      "parent_requirement_id": "OSL-O-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "non-implementer reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/output-protocols/rapid-decision-card.md"
+      ],
+      "status": "implemented_contract",
+      "blocker": "formal non-implementer comprehension gate remains external"
+    },
+    {
+      "requirement_id": "OSL-RQ-051",
+      "source_chapter": "42",
+      "source_heading": "42.4 验收",
+      "requirement": "`Do Not Do Yet`与生命周期一致",
+      "parent_requirement_id": "OSL-O-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "non-implementer reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/output-protocols/rapid-decision-card.md"
+      ],
+      "status": "implemented_contract",
+      "blocker": "formal non-implementer comprehension gate remains external"
+    },
+    {
+      "requirement_id": "OSL-RQ-052",
+      "source_chapter": "42",
+      "source_heading": "42.4 验收",
+      "requirement": "验证窗口由问题决定，不强制7天",
+      "parent_requirement_id": "OSL-O-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "non-implementer reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/output-protocols/rapid-decision-card.md"
+      ],
+      "status": "implemented_contract",
+      "blocker": "formal non-implementer comprehension gate remains external"
+    },
+    {
+      "requirement_id": "OSL-RQ-053",
+      "source_chapter": "42",
+      "source_heading": "42.4 验收",
+      "requirement": "缺失数据说明具体决策影响",
+      "parent_requirement_id": "OSL-O-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "non-implementer reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/output-protocols/rapid-decision-card.md"
+      ],
+      "status": "implemented_contract",
+      "blocker": "formal non-implementer comprehension gate remains external"
+    },
+    {
+      "requirement_id": "OSL-RQ-054",
+      "source_chapter": "42",
+      "source_heading": "42.4 验收",
+      "requirement": "快速卡不能绕过确定性评分和合同验证。",
+      "parent_requirement_id": "OSL-O-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "non-implementer reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/output-protocols/rapid-decision-card.md"
+      ],
+      "status": "implemented_contract",
+      "blocker": "formal non-implementer comprehension gate remains external"
+    },
+    {
+      "requirement_id": "OSL-RQ-055",
+      "source_chapter": "43",
+      "source_heading": "43.6 验收",
+      "requirement": "实测经验有日期和证据，不作为永久真理",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-056",
+      "source_chapter": "43",
+      "source_heading": "43.6 验收",
+      "requirement": "高影响陷阱有自动测试",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-057",
+      "source_chapter": "43",
+      "source_heading": "43.6 验收",
+      "requirement": "上游字段变化不会静默变成0",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-058",
+      "source_chapter": "43",
+      "source_heading": "43.6 验收",
+      "requirement": "fallback不会伪造完整结论",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-059",
+      "source_chapter": "43",
+      "source_heading": "43.6 验收",
+      "requirement": "已解决陷阱保留历史但不继续误伤。",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-060",
+      "source_chapter": "44",
+      "source_heading": "44.7 验收",
+      "requirement": "并发结果与串行基准在同一快照下业务等价",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-061",
+      "source_chapter": "44",
+      "source_heading": "44.7 验收",
+      "requirement": "限流和重试不会形成请求风暴",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-062",
+      "source_chapter": "44",
+      "source_heading": "44.7 验收",
+      "requirement": "单工具失败不会静默污染总分",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-063",
+      "source_chapter": "44",
+      "source_heading": "44.7 验收",
+      "requirement": "关键工具失败会正确阻断相应结论",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-064",
+      "source_chapter": "44",
+      "source_heading": "44.7 验收",
+      "requirement": "性能提升有基准数据，不使用未经验证的倍数",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-065",
+      "source_chapter": "44",
+      "source_heading": "44.7 验收",
+      "requirement": "日志不包含凭据或敏感请求头。",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-066",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "用户名称与规范名称一一映射",
+      "parent_requirement_id": "OSL-M-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "independent method reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-signal-library.md",
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-067",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "组合器区分必要、支持、反证和否决条件",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-068",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "同源信号不会重复提高置信度",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-069",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "CIDM→PLCO Packet通过主权和Proof校验",
+      "parent_requirement_id": "OSL-X-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "PLCO owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/cidm-to-plco-packet.md",
+        "platform-store-listing-conversion/scripts/validate_cidm_handoff.py",
+        "platform-store-listing-conversion/scripts/test_cidm_handoff.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "live page outcome replay remains"
+    },
+    {
+      "requirement_id": "OSL-RQ-070",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "VOC具备通用骨架、品类插件和严重度",
+      "parent_requirement_id": "OSL-GAP-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "SPPQ and customer evidence owners",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "authorized category-specific VOC and supply datasets remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-071",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "监控阈值同时考虑样本、事件、趋势和严重度",
+      "parent_requirement_id": "OSL-GAP-001",
+      "gate": "score",
+      "owner": "CIDM methodology",
+      "reviewer": "SPPQ and customer evidence owners",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_models.py",
+        "category-investment-decision/scripts/test_opportunity_models.py"
+      ],
+      "status": "implemented_contract",
+      "blocker": "authorized category-specific VOC and supply datasets remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-072",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "快速决策卡包含`Do Not Do Yet`",
+      "parent_requirement_id": "OSL-O-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "non-implementer reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/output-protocols/rapid-decision-card.md"
+      ],
+      "status": "implemented_contract",
+      "blocker": "formal non-implementer comprehension gate remains external"
+    },
+    {
+      "requirement_id": "OSL-RQ-073",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "最短可信验证窗口不被机械固定为7天",
+      "parent_requirement_id": "OSL-O-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "non-implementer reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/output-protocols/rapid-decision-card.md"
+      ],
+      "status": "implemented_contract",
+      "blocker": "formal non-implementer comprehension gate remains external"
+    },
+    {
+      "requirement_id": "OSL-RQ-074",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "高影响字段陷阱均有contract test",
+      "parent_requirement_id": "OSL-D-001",
+      "gate": "hard",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-data-field-trap-registry.json",
+        "category-investment-decision/scripts/validate_opportunity_governance.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-075",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "DAG记录统一快照、调用状态和部分失败",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-076",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "并行性能提升经过基准测试",
+      "parent_requirement_id": "OSL-DAG-001",
+      "gate": "score",
+      "owner": "data adapter",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/external-research-runtime-mode.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "implemented_reserved_interface",
+      "blocker": "live rate-limit and performance requirements activate only after an authorized connector is enabled"
+    },
+    {
+      "requirement_id": "OSL-RQ-077",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "上述新增能力均被纳入全仓change-impact与ERDG验证。",
+      "parent_requirement_id": "OSL-C-001",
+      "gate": "hard",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/opportunity_signals.py"
+      ],
+      "status": "implemented"
+    },
+    {
+      "requirement_id": "OSL-RQ-078",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "组合预筛阻止无界枚举，计算预算和停止规则生效",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-079",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "回放集包含意外成功、意外失败和边界冲突样本",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-080",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "样本由非实现者盲选并执行时间冻结",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-081",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "非实现者理解测试达到7/8且严重误读为0",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-082",
+      "source_chapter": "45",
+      "source_heading": "45.3 DoD增补",
+      "requirement": "REALITY_RECOVERY按R0-R4排序并能合并同源失效批次",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-083",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "1000条噪声信号不会触发指数枚举",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-084",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "必要条件失败能提前停止高成本调用",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-085",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "同源派生信号不会重复增信",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-086",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "所有否决条件和关键反证保留率为100%",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-087",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "在影子模式中报告剪枝召回率、档位变化率、误剪成本和运行成本",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-088",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "超过配置容差时自动回退到全量分析或扩大Top-K",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-089",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "预算耗尽时使用`SignalStatus=inconclusive`和`ExecutionCompletion=partial`，不得拼接成未定义状态",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-090",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "剪枝算法自身进行mutation和边界测试",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-091",
+      "source_chapter": "46",
+      "source_heading": "46.11 验收与测试",
+      "requirement": "性能、成本和误剪率均被记录。",
+      "parent_requirement_id": "OSL-P-001",
+      "gate": "score",
+      "owner": "CIDM implementation",
+      "reviewer": "repository governance",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/references/opportunity-combination-playbooks.json",
+        "category-investment-decision/scripts/opportunity_signals.py",
+        "category-investment-decision/tests/test_opportunity_signal_governance.py"
+      ],
+      "status": "partially_implemented",
+      "blocker": "shadow pruning recall, decision-tier-change and false-prune cost metrics remain"
+    },
+    {
+      "requirement_id": "OSL-RQ-092",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "样本不是由实现者单独挑选",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-093",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "输入严格冻结在决策截止日",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-094",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "意外成功和意外失败均有覆盖",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-095",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "报告全部失败案例而非只展示命中",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-096",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "调参不污染holdout",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-097",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "高置信错误单独触发模型治理复核",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-098",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "20个起步样本不被包装为生产有效性证明。",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-099",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "每个样本在揭示结果前绑定结果标签合同",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-100",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "右删失和低置信标签不被当作普通确定结果",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-101",
+      "source_chapter": "47",
+      "source_heading": "47.10 验收",
+      "requirement": "销量、利润、现金、风险和存活结果不被压成未经定义的单一“成功”。",
+      "parent_requirement_id": "OSL-L4-001",
+      "gate": "external",
+      "owner": "independent replay role",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "authorized time-frozen 20-case starter replay not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-102",
+      "source_chapter": "48",
+      "source_heading": "48.8 验收",
+      "requirement": "测试保留原始答卷、耗时和评分",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-103",
+      "source_chapter": "48",
+      "source_heading": "48.8 验收",
+      "requirement": "非实现者样本和角色披露",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-104",
+      "source_chapter": "48",
+      "source_heading": "48.8 验收",
+      "requirement": "正式样本量和每角色最低样本满足要求",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-105",
+      "source_chapter": "48",
+      "source_heading": "48.8 验收",
+      "requirement": "严重误读逐项进入整改",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-106",
+      "source_chapter": "48",
+      "source_heading": "48.8 验收",
+      "requirement": "可理解性分数不由实现者自评",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-107",
+      "source_chapter": "48",
+      "source_heading": "48.8 验收",
+      "requirement": "业务可操作性不会以减少证据边界为代价。",
+      "parent_requirement_id": "OSL-L4-002",
+      "gate": "external",
+      "owner": "non-implementer test facilitator",
+      "reviewer": "accountable business owner",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [],
+      "status": "blocked_external",
+      "blocker": "20 non-implementer participants with at least four per core role not supplied"
+    },
+    {
+      "requirement_id": "OSL-RQ-108",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "低金额安全事故进入R0而非排在高金额普通数据错误之后",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-109",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "即将付款的采购错误进入R1",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-110",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "高库存暴露进入R2",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-111",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "同一API字段失效影响多个域时形成根节点批次",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-112",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "删除关键证据后所有消费者进入冻结或重算",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-113",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "恢复后旧决策不会继续作为当前有效状态",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-114",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "部分消费者恢复不能提前关闭整个批次。",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-115",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "净风险资本不存在同一现金/库存重复计算",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-116",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "R等级硬排序、同层归一化分数和同分规则可复算",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-117",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "R4老化提升能够防止队列饥饿",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    },
+    {
+      "requirement_id": "OSL-RQ-118",
+      "source_chapter": "49",
+      "source_heading": "49.10 验收场景",
+      "requirement": "未经授权的高影响恢复动作不会被自动执行。",
+      "parent_requirement_id": "OSL-R-001",
+      "gate": "hard",
+      "owner": "ERDG governance",
+      "reviewer": "independent incident reviewer",
+      "validation_method": "targeted automated evidence or explicit external gate inherited from parent requirement",
+      "evidence": [
+        "category-investment-decision/scripts/reality_recovery.py",
+        "category-investment-decision/scripts/test_reality_recovery.py",
+        "governance/erdg/scripts/validate_state_transition.py"
+      ],
+      "status": "implemented_controlled",
+      "blocker": "persistent incident store, calibrated SLA and live authorization workflow remain external"
+    }
+  ]
+}

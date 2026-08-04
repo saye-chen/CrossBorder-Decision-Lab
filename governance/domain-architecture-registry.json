@@ -6,11 +6,11 @@
       "domain_id": "D01", "skill": "category-investment-decision", "runtime_prefix": "CIDM", "availability": "current",
       "architecture_roles": ["portfolio_decision"], "owned_decision_types": ["investment", "capital_portfolio", "lifecycle_capital"],
       "decision_authorities": ["category investment", "capital allocation", "market-platform entry", "capital add-reduce-exit"],
-      "provides": ["capital_posture", "budget_envelope", "investment_stop_exit_boundary"],
+      "provides": ["capital_posture", "budget_envelope", "investment_stop_exit_boundary", "governed_opportunity_signal", "opportunity_validation_plan"],
       "requires": ["market_evidence", "customer_evidence", "economic_constraint", "compliance_gate", "supply_capacity", "operating_outcome"],
       "hard_dependencies": [], "optional_dependencies": ["D02", "D03", "D04", "D05", "D06", "D07", "D13"],
       "lifecycle_stages": ["frame", "invest", "learn", "exit"],
-      "accepted_packet_types": ["evidence", "constraint", "decision", "outcome", "conflict_escalation"],
+      "accepted_packet_types": ["evidence", "constraint", "decision", "outcome", "conflict_escalation", "recovery"],
       "blocking_gates": ["G0_EVIDENCE", "G1_CAPITAL", "G5_OUTCOME_REPLAY"], "external_write_authority": false
     },
     {
@@ -169,6 +169,6 @@
   ],
   "governance_plane": {
     "id": "ERDG", "contract": "ERDG-CONTRACT-2026.07", "owns_business_decisions": false,
-    "capabilities": ["domain_registry_validation", "canonical_object_and_evidence", "deterministic_shared_calculation", "risk_and_redline_validation", "state_parameter_version_lineage", "handoff_contract_validation", "decision_cycle_gate_validation", "audit_replay_and_maturity"]
+    "capabilities": ["domain_registry_validation", "canonical_object_and_evidence", "deterministic_shared_calculation", "risk_and_redline_validation", "state_parameter_version_lineage", "handoff_contract_validation", "decision_cycle_gate_validation", "root_cause_reality_recovery", "audit_replay_and_maturity"]
   }
 }

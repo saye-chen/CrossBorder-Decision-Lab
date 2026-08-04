@@ -135,18 +135,20 @@ class ERDGTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.risk.evaluate({"risks": [{"risk_id": "R2", "risk_type": "demand", "redline": False, "status": "open", "probability": "0.5", "impact": "-1"}]})
 
-    def test_10_four_state_machines_allow_and_reject_independently(self):
+    def test_10_state_machines_allow_and_reject_independently(self):
         base = {"actor": "owner", "occurred_at": "2026-07-27T00:00:00Z", "reason": "review", "input_version": "v1"}
         valid = [
             {"machine": "claim", "from": "proposed", "to": "validated"},
             {"machine": "decision", "from": "review", "to": "approved"},
             {"machine": "action", "from": "planned", "to": "approved", "approved_decision_id": "D1"},
             {"machine": "replay", "from": "replayed", "to": "independently_reviewed"},
+            {"machine": "recovery", "from": "frozen", "to": "triaged"},
         ]
         for transition in valid:
             self.assertEqual(self.states.validate({**base, **transition}), [])
         self.assertTrue(self.states.validate({**base, "machine": "decision", "from": "draft", "to": "effective"}))
         self.assertTrue(self.states.validate({**base, "machine": "action", "from": "planned", "to": "approved"}))
+        self.assertTrue(self.states.validate({**base, "machine": "recovery", "from": "detected", "to": "closed"}))
 
     def test_11_parameter_resolution_preserves_redline_and_controls_override(self):
         base = {
