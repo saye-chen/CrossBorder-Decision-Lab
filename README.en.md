@@ -18,45 +18,41 @@ CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room 
 flowchart TB
     subgraph IN["1. Evidence intake"]
       direction LR
-      RAW["External research · raw evidence"] --> ADP["Evidence Adapter<br/>normalization · freshness · source family · lineage"]
+      RAW["External research<br/>raw evidence"] --> ADP["Evidence Adapter<br/>normalization · freshness · source family · lineage"]
+      ADP --> CON["Signal contract<br/>object · window · counterevidence · alternatives"]
     end
-
     subgraph CORE["2. Signal computation"]
       direction LR
-      CON["Signal contract<br/>object · window · counterevidence · alternatives"] --> MOD["8 deterministic models"]
-      MOD <--> ORA["Independent Oracle<br/>status and metric dual calculation"]
-      ORA --> SIG["12 canonical signals"]
+      MOD["8 deterministic<br/>models"] <--> ORA["Independent Oracle<br/>status and metric dual calculation"]
+      ORA --> SIG["12 canonical<br/>signals"]
     end
-
     subgraph DEC["3. Decision governance"]
       direction LR
-      PLAY["5 composition playbooks<br/>Required · Supporting · Counter · Veto"] --> GATE["CIDM five gates<br/>seven-dimension score"]
+      PLAY["5 composition playbooks<br/>Required · Supporting<br/>Counter · Veto"] --> GATE["CIDM five gates<br/>seven-dimension score"]
       GATE --> CARD["Rapid Decision Card<br/>Enter · Test · Observe · Reject"]
     end
-
     subgraph REC["4. Reality recovery"]
       direction LR
-      DRIFT["Evidence invalidation · field drift · definition change"] --> FREEZE["Freeze affected actions"]
-      FREEZE --> RECOMPUTE["Impact closure · domain recomputation · new effective decision"]
+      DRIFT["Evidence invalidation<br/>field drift · definition change"] --> FREEZE["Freeze affected actions"]
+      FREEZE --> RECOMPUTE["Impact closure · domain recomputation<br/>new effective decision"]
     end
-
-    IN --> CORE --> DEC
-    REC -.re-enters evidence intake.-> IN
-    GATE --> HAND["Governed handoff<br/>PPFC · SPPQ · LIFD · PLCO"]
-    VETO["Redline / Veto"] --> BLOCK["Blocked<br/>cannot be offset by a high score"]
-    BLOCK -.blocks.-> GATE
+    CON --> MOD
+    SIG --> PLAY
+    CARD --> HAND["Governed handoff<br/>PPFC · SPPQ · LIFD · PLCO"]
+    GATE -->|redline / veto triggered| BLOCK["Blocked<br/>cannot be offset by a high score"]
+    CARD -.evidence invalidated.-> DRIFT
+    RECOMPUTE -.re-enters evidence intake.-> RAW
     EXT["External gates remain closed<br/>20-case blind replay · 20-person test · forward calibration"] -.limits maturity.-> CARD
-
     classDef evidence fill:#e8f1ff,stroke:#3269a8,color:#17324d
     classDef signal fill:#eaf7f0,stroke:#31845c,color:#153b2a
     classDef decision fill:#fff4d8,stroke:#a87716,color:#4d3810
     classDef recovery fill:#f3ecff,stroke:#7652a8,color:#34234d
     classDef stop fill:#ffe9e7,stroke:#b84a42,color:#541e1a
-    class RAW,ADP evidence
-    class CON,MOD,ORA,SIG signal
+    class RAW,ADP,CON evidence
+    class MOD,ORA,SIG signal
     class PLAY,GATE,CARD,HAND decision
     class DRIFT,FREEZE,RECOMPUTE recovery
-    class VETO,BLOCK,EXT stop
+    class BLOCK,EXT stop
 ```
 
 The diagram shows how candidate discovery is governed; it is not a parallel investment-scoring system. Signals pass through evidence intake, contract validation, deterministic models, independent dual calculation, composition playbooks, and CIDM's existing gates. Redlines, vetoes, and evidence invalidation take precedence and trigger blocking or recovery. The signal layer cannot approve investment, inventory, page, or advertising actions.
