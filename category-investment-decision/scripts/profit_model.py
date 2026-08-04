@@ -71,16 +71,16 @@ def main():
             setattr(a, key, value)
     if a.price is None:
         raise SystemExit("price is required")
-    if a.price <= 0:
+    if not math.isfinite(a.price) or a.price <= 0:
         raise SystemExit("price must be greater than zero")
     rates = (a.commission_rate, a.ad_rate, a.promo_rate, a.return_rate, a.return_loss_rate)
-    if any(rate < 0 or rate > 1 for rate in rates):
+    if any(not math.isfinite(rate) or rate < 0 or rate > 1 for rate in rates):
         raise SystemExit("rates must be between 0 and 1")
     unit_costs = (a.product, a.packaging, a.duty, a.inbound, a.fulfillment,
                   a.storage, a.quality, a.payment, a.other)
-    if any(cost < 0 for cost in unit_costs):
+    if any(not math.isfinite(cost) or cost < 0 for cost in unit_costs):
         raise SystemExit("unit costs must be non-negative")
-    if a.batch_fixed_costs < 0:
+    if not math.isfinite(a.batch_fixed_costs) or a.batch_fixed_costs < 0:
         raise SystemExit("batch fixed costs must be non-negative")
 
     unit_cost_total = sum(unit_costs)

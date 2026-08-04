@@ -7,6 +7,8 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 
 运行时版本：`CIDM-2026.07`。
 
+机会信号子合同版本：`OSL-v1`；不改变既有七维评分口径。
+
 成熟度：`controlled pilot`；授权真实历史回放门未通过，不得声明 `production ready`。
 
 ## 专业性与决策可用性硬约束
@@ -53,6 +55,20 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 ## 跨域边界与双向数据交换
 
 统一读取 [skill-integration-protocol.md](references/skill-integration-protocol.md)。CIDM 只接受带对象、版本、证据/计算 ID、允许/禁止用途和状态的结果卡；参与域只提交 `proposed/validated/blocked/inconclusive`，由 CIDM 接受后按原模型重算。结构化批处理读 [data-contract-and-automation.md](references/data-contract-and-automation.md)，正式交付读 [professional-report-delivery.md](references/output-protocols/professional-report-delivery.md)。
+
+使用 Amazon 或第三方卖家研究工具做候选发现、关键词趋势、评论/VOC、市场空白、变体缺口、新品突破或季节窗口时，必须读取 [opportunity-signal-library.md](references/opportunity-signal-library.md) 和 `opportunity-signal-config.json`。外部数据只进入 `candidate/proposed` 信号层；运行 `scripts/validate_opportunity_signal.py` 后才能进入 CIDM 五道门槛。未知值不得填0，同源证据不得重复增信，信号层不得写入投资、备货、页面执行或 `production_ready`。
+
+外部研究运行模式以`external-research-runtime-mode.json`为唯一合同：当前默认使用联网实时研究，MCP/API只保留标准化证据接口，不安装具体供应商客户端，也不是普通研究的运行依赖。Connector不可用时继续联网取证；部分失败仅把受影响证据标为`inconclusive`，不得把空响应写成0。只有取得明确授权、凭据隔离、字段contract test、限流/成本策略和回滚方案后，才允许启用具体Connector。
+
+第三方字段异常读取 `external-data-field-trap-registry.json` 并运行 `scripts/validate_opportunity_governance.py`；工具部分失败必须输出`ExecutionCompletion=partial`及受影响门槛，禁止“失败→空数组→0→正常评分”。需要把已接受的商品事实与Proof交给PLCO时读取 [cidm-to-plco-packet.md](references/cidm-to-plco-packet.md)；快速判断读取 [rapid-decision-card.md](references/output-protocols/rapid-decision-card.md)。两类输出均不得覆盖CIDM投资主权。
+
+需要计算新品突破、关键词需求、市场结构、经济可行性、有效供给缺口、可解决产品缺口、流量可复制性或季节窗口时，读取 [opportunity-model-execution.md](references/opportunity-model-execution.md)，并运行`scripts/opportunity_signal_engine.py`。阈值必须来自带国家、平台、品类、价格带和日期的校准输入；禁止把示例值固化为全局门槛。
+
+17种用户战术的真实能力层级读取`opportunity-tactic-capability-matrix.json`；配置、共享子模式、跨域路由和独立模型必须分别披露。需要从原始证据形成受控决策卡时运行`scripts/opportunity_decision_pipeline.py`；Adapter错误、Oracle不一致、红线或veto必须阻断，不得绕过后手工拼接正式结果。
+
+机会信号或底层证据失效、撤回、过期或字段口径变化时，读取 [reality-recovery-priority.md](references/reality-recovery-priority.md)，并运行`scripts/reality_recovery_engine.py`。受影响动作必须先冻结；共享根因合并为一个恢复批次；全部消费者重算、重过门槛并收到新状态前，不得关闭批次或继续沿用旧Current Effective Decision。
+
+版本发布、模型调整或审计复验时，读取 [opportunity-validation-and-external-gates.md](references/opportunity-validation-and-external-gates.md)，运行独立Oracle、13项源码mutation、回放合同和理解度门测试。空模板、合成答卷或实现者自选样本只能测试校验器，不能关闭真实历史回放、非实现者复核或前向实验门。
 
 ## 模式加载路径
 
@@ -288,7 +304,7 @@ VOC/竞品取证不是独立报告孤岛：高信号发现必须直接连接五�
 
 ## 评分与决策
 
-当前核心模型版本：`CIDM-2026.07`。每份报告记录模型版本、证据截止日、目标国家/平台、币种和含税/未税口径；模型升级不得回写或悄然改变旧报告分数。
+当前核心模型版本：`CIDM-2026.07`；`OSL-v1` 只治理候选发现、缺失值和信号主权，不是平行评分器。每份报告记录模型版本、信号合同版本、证据截止日、目标国家/平台、币种和含税/未税口径；模型升级不得回写或悄然改变旧报告分数。
 
 投资姿态严格按“门槛红线 → 生命周期动作上限 → 分数档位 → 已确认卖家资源约束”的顺序生成。卖家画像只能在生命周期允许的动作范围内改变执行方式；LC-1/LC-2 不得因高分或卖家资金充足直接进入批量备货、多平台铺开或重仓。
 

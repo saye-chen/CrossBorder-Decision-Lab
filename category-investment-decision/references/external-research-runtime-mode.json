@@ -1,0 +1,32 @@
+{
+  "contract_version": "OSL-RESEARCH-MODE-v1",
+  "default_research_mode": "online_realtime",
+  "external_connector_mode": "reserved_interface",
+  "mcp_required": false,
+  "installed_provider_clients": [],
+  "network_research": {
+    "required_for_dynamic_facts": true,
+    "dynamic_fact_families": ["price", "competitor", "trend", "platform_policy", "regulation", "fees", "availability"],
+    "source_routing": "category-investment-decision/references/source-routing.md",
+    "evidence_cutoff_required": true
+  },
+  "reserved_connector": {
+    "accepts": "versioned normalized evidence packet",
+    "activation_requirements": ["explicit provider authorization", "credential isolation", "field contract test", "rate and cost policy", "rollback"],
+    "may_change_core_model": false,
+    "may_write_investment_action": false
+  },
+  "fallbacks": {
+    "connector_unavailable": "continue_online_research",
+    "connector_partial_failure": "mark_affected_evidence_inconclusive_and_continue_unaffected_online_research",
+    "connector_empty_response": "unknown_not_zero",
+    "network_evidence_unavailable": "reduce_confidence_or_block_affected_conclusion"
+  },
+  "forbidden": [
+    "require_mcp_for_normal_research",
+    "silently_install_external_provider",
+    "embed_credentials",
+    "convert_connector_failure_to_zero",
+    "treat_third_party_estimate_as_platform_fact"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "registry_version": "EXT-DATA-TRAPS-v1",
+  "traps": [
+    {
+      "trap_id": "EXT-DATA-001",
+      "source": "third_party_tool",
+      "tool": "keyword_trend",
+      "observed_at": "2026-08-04",
+      "request_schema_version": "unknown",
+      "documented_field": "month/searches",
+      "observed_field": "time/search",
+      "unit": "integer",
+      "scale": "raw",
+      "symptom": "trend_values_parsed_as_zero",
+      "decision_impact": "market_demand_may_be_understated",
+      "detection": "test_field_trap_registry_blocks_optimistic_fallback",
+      "fallback": "block_trend_conclusion",
+      "status": "observed",
+      "owner": "data_adapter",
+      "expiry_review": "2026-09-04",
+      "evidence_id": "EXT-AMAZON-SORFTIME-2026-08"
+    },
+    {
+      "trap_id": "EXT-DATA-002",
+      "source": "third_party_tool",
+      "tool": "concentration_metric",
+      "observed_at": "2026-08-04",
+      "request_schema_version": "unknown",
+      "documented_field": "concentration_percent",
+      "observed_field": "concentration",
+      "unit": "ratio",
+      "scale": "unknown_0_1_or_0_100",
+      "symptom": "ratio_scale_ambiguity",
+      "decision_impact": "competition_entry_signal_may_reverse",
+      "detection": "test_missing_is_not_zero_and_error_fails_closed",
+      "fallback": "block_until_scale_confirmed",
+      "status": "observed",
+      "owner": "data_adapter",
+      "expiry_review": "2026-09-04",
+      "evidence_id": "EXT-AMAZON-SORFTIME-2026-08"
+    }
+  ]
+}

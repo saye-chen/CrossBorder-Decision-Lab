@@ -129,6 +129,10 @@ ln -sfn "$PWD/pricing-profit-finance-cashflow-decision" \
 # authoritative migration remains closed and L4 remains controlled pilot.
 ln -sfn "$PWD/product-innovation-product-management" \
   "${CODEX_HOME:-$HOME/.codex}/skills/product-innovation-product-management"
+
+# SPPQ is current; authorized real replay remains an external L4 gate.
+ln -sfn "$PWD/supplier-procurement-production-quality-decision" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/supplier-procurement-production-quality-decision"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.
@@ -191,6 +195,8 @@ Skills in this repository are **independent and self-contained by default**. Do 
 **pricing-profit-finance-cashflow-decision (PPFC).** Work packages 2–10 establish the sovereignty and object model, reconciliation, 18-family routing, dynamic rules, ERDG adapter, localization, continuous decisions, mixed-batch evaluation, 55-case execution, seven consumer dual runs, and seven rollback drills. Shared financial fields have 7/7 computed technical compatibility acceptance while every business domain retains action sovereignty. Technical acceptance requires no human signature and does not approve business execution or legacy retirement. L3 Expert passes substantive evidence review; L4 stays `controlled pilot`, and material finance or production decisions escalate to the finance/audit owner.
 
 **product-innovation-product-management (PIPM).** Work packages 2–10 establish D03 sovereignty, canonical product identity, PLC0—PLC8 lifecycle separation, eight deterministic product models, D04/D05/D06 handoffs, nine specialized outputs, continuous decisions, 101 evaluation cases, ten scenario-owned Goldens, 404 positive/counterexample assertions, eleven consumer adapters, dual-run migration and rollback. D03 owns product opportunity, definition, specification, validation scope, roadmap and retirement recommendations; it does not own capital entry, pricing and cash, suppliers and production release, legal access, inventory, listing, content, or external execution. L3 Expert passes the repository and substantive depth gate; independent-owner authoritative migration remains closed and L4 stays `controlled pilot`.
+
+**supplier-procurement-production-quality-decision (SPPQ).** D04 owns supplier qualification, sourcing, negotiation, purchase release, production control and quality disposition. CIDM may send a validated supply-gap or product constraint but retains capital-entry authority; SPPQ returns proposed supply feasibility and release constraints. PLCO may consume approved product facts but cannot rewrite supplier or quality disposition. Every handoff preserves evidence, calculation, version, allowed/forbidden use and fail-closed status.
 
 **video-link-breakdown → category-investment-decision (optional, unidirectional)**
 
@@ -365,6 +371,10 @@ ln -sfn "$PWD/pricing-profit-finance-cashflow-decision" \
 # PIPM 已完成 L1—L3 仓库门；独立 Owner 权威切换和 L4 仍保持关闭。
 ln -sfn "$PWD/product-innovation-product-management" \
   "${CODEX_HOME:-$HOME/.codex}/skills/product-innovation-product-management"
+
+# SPPQ 当前可用；授权真实回放仍属于外部 L4 门。
+ln -sfn "$PWD/supplier-procurement-production-quality-decision" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/supplier-procurement-production-quality-decision"
 ```
 
 不要使用 `cp -r` 更新 Skill；目标已存在时可能保留旧文件或产生嵌套目录。
@@ -425,6 +435,10 @@ git push origin main
 ### 当前关系
 
 **pricing-profit-finance-cashflow-decision（PPFC）。** 工作包 2—10 已建立主权骨架、核心模型、动态规则、跨域与本地化合同、连续追问、混合批次、55 场景、七域真实双轨及七次回滚演练。共享财务字段已完成 7/7 自动计算的技术兼容验收，各业务域继续保留动作主权。技术验收不需要人工签名，也不批准业务执行或旧实现退役；L3 Expert 已通过实质证据评审，L4 保持 `controlled pilot`，重大财务判断或生产放行升级给财务/审计责任人。
+
+**product-innovation-product-management（PIPM）。** 工作包 2—10 已建立 D03 主权、规范产品身份、PLC0—PLC8 生命周期、八个确定性产品模型、D04/D05/D06 交接、九类专业输出、连续决策、101 个评测案例、十个场景 Golden、404 个正反断言、十一消费者适配器、双轨迁移与回滚。D03 拥有产品机会、定义、规格、验证范围、路线图与退役建议，不拥有资本进入、定价现金、供应商生产放行、法律准入、库存、Listing、内容或外部执行。独立 Owner 权威迁移仍关闭，L4 保持 `controlled pilot`。
+
+**supplier-procurement-production-quality-decision（SPPQ）。** D04 拥有供应商准入、寻源、谈判、采购放行、生产控制和质量处置主权。CIDM 可发送已验证供给缺口或产品约束，但保留资本进入主权；SPPQ 只回传拟议供给可行性与放行约束。PLCO 可消费已批准产品事实，但不能改写供应商或质量处置。所有交接均保留证据、计算、版本、允许/禁止用途和失败关闭状态。
 
 **video-link-breakdown → category-investment-decision（可选、单向）**
 

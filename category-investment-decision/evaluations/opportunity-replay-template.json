@@ -1,0 +1,7 @@
+{
+  "template_version": "OSL-REPLAY-v1",
+  "status": "not_started",
+  "production_ready": false,
+  "cases": [],
+  "external_gate": "authorized time-frozen 20-case blind starter replay"
+}

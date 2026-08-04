@@ -29,6 +29,8 @@ description: 默认用中文执行专家级跨境平台、店铺、Listing 与�
 
 与 CIDM、CIM、VLB、CIG、LIFD、AAMO 的输入卡、允许/禁止用途、部分失败和冲突裁决读取 [skill-integration-protocol.md](references/skill-integration-protocol.md)。PLCO 只拥有页面承接主权；结构化数据读取 [data-contract-and-automation.md](references/data-contract-and-automation.md)。
 
+接收CIDM商品事实、Proof、关键词簇、痛点与实验假设时，必须运行`scripts/validate_cidm_handoff.py`。每条差异化声明必须绑定现有Proof；交接包只允许用于页面与店铺承接设计，并必须禁止`investment_score_override`。页面实验结果回传CIDM重算前，不得改变投资档位。
+
 ## 与品类投资决策 Skill 的边界
 
 当页面转化、Listing 质量或店铺结构影响品类进入、追加投资或退出判断时，路由 `category-investment-decision`。本 Skill 向 CIDM 提交页面承接评估、转化漏斗、可恢复价值、优化成本和实验结果；CIDM 回传资本姿态和利润红线。本 Skill 拥有页面承接主权，CIDM 拥有资本进入/退出主权；PLCO 不得直接改变投资结论，CIDM 不得反向修改页面优化方案。CIDM 缺失或失败时仍完成页面诊断，资本可行性标记 `inconclusive`。

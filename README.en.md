@@ -10,6 +10,8 @@ CrossBorder Decision Lab is built for cross-border operators, brands, investors,
 
 The system includes twelve professional domains with complete core workflows whose expert-level repository gates through L1–L3 are complete, plus ERDG. D04/SPPQ covers six sovereign supply and quality decisions, 18 deterministic cost/capacity/quality models with independent dual calculation, continuous decisions, four consumer-response paths, and 160 executable evaluations. Every domain remains L4 `controlled pilot`.
 
+CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room reimplements external research ideas as eight deterministic candidate-signal families with multi-source field quality, five composition playbooks, effective-supply/VOC analysis, proof-bound CIDM-to-PLCO handoff, partial-failure DAG execution, R0–R4 recovery, an independent oracle, and 13 source mutations. The layer expands candidate coverage only; it cannot directly change the seven-dimension score, capital posture, or cross-domain sovereignty. The authorized 20-case blind replay, 20-person non-implementer comprehension test, and forward calibration remain open, so this is not a production-maturity claim.
+
 ## System Value and Long-Term Defensibility
 
 Foundation models will continue to improve, and the cost of generating individual answers will continue to decline. The durable value lies above the model: professional decision infrastructure embedded in real operating workflows.
@@ -171,7 +173,7 @@ Choose the primary Skill by the decision that must be made. Platform coverage, p
 
 | Skill | Runtime | Decision owned | Entry |
 |---|---|---|---|
-| CIDM | `CIDM-2026.07` | Enter, invest, test, scale, reduce, or exit | [Category Investment](category-investment-decision/SKILL.md) |
+| CIDM | `CIDM-2026.07` + `OSL-v1` | Enter, invest, test, scale, reduce, or exit; external signals create governed candidates only | [Category Investment](category-investment-decision/SKILL.md) |
 | CIM | `CIM-2026.07` | Identify competitors, detect change, interpret impact, and respond | [Competitive Intelligence](competitive-intelligence-monitoring/SKILL.md) |
 | VLB | `VLB-2026.07` | Explain, adapt, produce, test, and scale content mechanisms | [Content Creative](video-link-breakdown/SKILL.md) |
 | CIG | `CIG-2026.07` | Understand customers, friction, incremental value, and growth | [Customer Growth](consumer-insights-customer-growth/SKILL.md) |

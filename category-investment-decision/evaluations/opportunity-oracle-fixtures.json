@@ -1,0 +1,13 @@
+{
+  "fixture_version": "OSL-ORACLE-FIXTURES-v1",
+  "cases": [
+    {"id":"O-01","signal_type":"NEW_PRODUCT_BREAKOUT","data":{"weekly_sales":[60,60,60,60,60,60,60,60],"parent_first_seen":"2026-06-01","child_first_seen":"2026-07-01","parent_age_days":30,"promotion_sales":0},"calibration":{"max_parent_age_days":90,"weekly_sales_floor":50,"max_promotion_contamination":"0.4","min_persistence":"0.75"}},
+    {"id":"O-02","signal_type":"DISTRIBUTED_KEYWORD_DEMAND","data":{"trend":[100,110,120,140],"brand_term":false,"purchase_intent":"high","purchase_concentration":"0.4"},"calibration":{"min_periods":4,"min_growth":"0.2","max_concentration":"0.5"}},
+    {"id":"O-03","signal_type":"MARKET_ENTRY_STRUCTURE","data":{"brand_shares":["0.2","0.15","0.1","0.05"],"new_entry_survival_rate":"0.3","entry_wedge":"size"},"calibration":{"max_cr3":"0.6","min_survival":"0.2"}},
+    {"id":"O-04","signal_type":"ECONOMIC_FEASIBILITY","data":{"scenarios":{"base":{"price":100,"cogs":20,"inbound":5,"referral":15,"fulfillment":10,"return":5,"warranty":2,"promo":5,"advertising":10},"stress":{"price":100,"cogs":20,"inbound":5,"referral":15,"fulfillment":10,"return":5,"warranty":2,"promo":5,"advertising":10},"upside":{"price":100,"cogs":20,"inbound":5,"referral":15,"fulfillment":10,"return":5,"warranty":2,"promo":5,"advertising":10}}},"calibration":{"minimum_base_contribution":0,"minimum_stress_contribution":0}},
+    {"id":"O-05","signal_type":"VALIDATED_SUPPLY_GAP","data":{"validated_demand":100,"available_products":50,"relevance":"0.8","availability":"0.5","quality_acceptance":"0.5","demand_evidence_ids":["E1"]},"calibration":{"minimum_gap":20}},
+    {"id":"O-06","signal_type":"RESOLVABLE_PRODUCT_GAP","data":{"coded_events":[{"event_id":"1","evidence_id":"E1","theme":"leak","severity":"S3","source_family_id":"reviews","controllability":"controllable"},{"event_id":"2","evidence_id":"E2","theme":"leak","severity":"S4","source_family_id":"returns","controllability":"controllable"}]},"calibration":{"minimum_severity":3,"minimum_events":2,"minimum_source_families":2}},
+    {"id":"O-07","signal_type":"TRAFFIC_REPLICABILITY","data":{"periods":[{"source_family_id":"F1","nonbrand_organic_ratio":"0.6"},{"source_family_id":"F2","nonbrand_organic_ratio":"0.8"}]},"calibration":{"minimum_periods":2,"minimum_source_families":2,"minimum_nonbrand_ratio":"0.5"}},
+    {"id":"O-08","signal_type":"SEASONAL_PREPOSITIONING_WINDOW","data":{"seasonal_years":[2024,2025],"peak_start":"2026-11-01","as_of":"2026-08-01","production_lead_days":30,"international_lead_days":30,"inbound_buffer_days":10,"inventory_exit_path":"outlet"},"calibration":{"minimum_years":2}}
+  ]
+}

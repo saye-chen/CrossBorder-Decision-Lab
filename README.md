@@ -10,6 +10,8 @@ CrossBorder Decision Lab 服务于跨境电商经营者、品牌团队、投资�
 
 系统当前包含十二个已完成 L1—L3 专家级仓库建设的专业决策域，以及 ERDG（Economic, Risk & Decision Governance）治理底座。新增 D04/SPPQ 覆盖六类供应与质量主权决定、18 个确定性成本/产能/质量模型及独立双算校验、连续决策、四类消费者响应闭环和 160 个可执行评测案例。所有域的 L4 均为 `controlled pilot`。
 
+CIDM现包含受治理的`OSL-v1`机会信号层：以clean-room方式把外部研究启发归并为八类确定性候选信号，覆盖多源字段质量、五类组合剧本、有效供给/VOC、CIDM→PLCO Proof交接、部分失败DAG、R0–R4恢复、独立Oracle和13项源码mutation。该信号层只扩大候选池，不能直接改变七维评分、资本姿态或跨域主权；授权20例盲选回放、20人非实现者理解测试和前向校准仍未完成，因此不构成生产成熟度声明。
+
 ## 系统价值与长期壁垒
 
 大模型会持续变强，单次生成内容的成本也会持续下降。真正具有长期价值的不是某一个模型，而是建立在模型之上的专业决策基础设施。
@@ -169,7 +171,7 @@ sequenceDiagram
 
 | Skill | Runtime | 主要解决的问题 | 专业入口 |
 |---|---|---|---|
-| **CIDM** | `CIDM-2026.07` | 什么值得进入、投资、测试、放量、收缩或退出？ | [品类投资决策](category-investment-decision/SKILL.md) |
+| **CIDM** | `CIDM-2026.07` + `OSL-v1` | 什么值得进入、投资、测试、放量、收缩或退出？外部信号只生成受治理候选。 | [品类投资决策](category-investment-decision/SKILL.md) |
 | **CIM** | `CIM-2026.07` | 竞品是谁、发生了什么变化、为什么重要、如何响应？ | [竞品情报监控](competitive-intelligence-monitoring/SKILL.md) |
 | **VLB** | `VLB-2026.07` | 内容为什么有效、能否迁移、如何生产、测试和规模化？ | [内容创意与传播](video-link-breakdown/SKILL.md) |
 | **CIG** | `CIG-2026.07` | 客户是谁、需求和阻力是什么、什么是真增量、如何增长？ | [消费者洞察与客户增长](consumer-insights-customer-growth/SKILL.md) |

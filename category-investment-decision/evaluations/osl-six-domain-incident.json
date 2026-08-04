@@ -1,0 +1,30 @@
+{
+  "scenario_id": "OSL-INCIDENT-6D-001",
+  "object_id": "ICE-US-AMZ-01",
+  "runtime": {"research_mode": "online_realtime", "connector_mode": "reserved_interface"},
+  "invalidated_evidence": {"evidence_id": "E1", "reason": "promotion-contaminated ranking window", "detected_at": "2026-08-04T12:00:00Z"},
+  "lineage_edges": [
+    {"source": "E1", "target": "CIM-D1"},
+    {"source": "E1", "target": "PPFC-D1"},
+    {"source": "E1", "target": "SPPQ-D1"},
+    {"source": "E1", "target": "LIFD-D1"},
+    {"source": "E1", "target": "PLCO-D1"},
+    {"source": "E1", "target": "CIDM-D1"}
+  ],
+  "domains": [
+    {"domain":"CIM","decision_id":"CIM-D1","status":"proposed","mechanism":"two-source non-promotion window and competitor identity resolution","calculation":"rank and review velocity deltas by matched window","counter_evidence":"promotion calendar and parent-child merge","action":"rebuild clean comparison window","stop_condition":"identity or clean window unavailable","rollback":"withdraw competitive-growth claim","allowed_use":"competition evidence correction","forbidden_use":"investment authorization"},
+    {"domain":"PPFC","decision_id":"PPFC-D1","status":"validated","mechanism":"optimistic base stress contribution and cash-peak model","calculation":"unit contribution 22/6/-19 USD with return sensitivity","counter_evidence":"stress contribution negative and quote not locked","action":"refresh quotes and mature-return range","stop_condition":"stress contribution remains negative","rollback":"restore zero capital ceiling","allowed_use":"economic boundary for CIDM","forbidden_use":"automatic Go"},
+    {"domain":"SPPQ","decision_id":"SPPQ-D1","status":"proposed","mechanism":"CTQ and FMEA for compressor life noise leakage and certification","calculation":"risk priority and sample-size plan","counter_evidence":"no target-object life distribution","action":"run bounded engineering validation","stop_condition":"critical CTQ or certification fails","rollback":"reject sample and supplier release","allowed_use":"quality gate input","forbidden_use":"certification substitution"},
+    {"domain":"LIFD","decision_id":"LIFD-D1","status":"proposed","mechanism":"FBA versus FBM route and inventory-exit model","calculation":"landed cost volumetric weight return residual and NRV","counter_evidence":"low return residual value","action":"obtain non-binding route quotes","stop_condition":"exit loss exceeds threshold","rollback":"keep purchase quantity zero","allowed_use":"inventory ceiling input","forbidden_use":"purchase or transfer execution"},
+    {"domain":"PLCO","decision_id":"PLCO-D1","status":"proposed","mechanism":"proof architecture for ice speed noise and cleaning claims","calculation":"claim-to-proof coverage and acceptance rate","counter_evidence":"proof assets absent","action":"define truthful proof acceptance tests","stop_condition":"claim cannot be evidenced","rollback":"remove claim and listing plan","allowed_use":"proof-readiness input","forbidden_use":"replace product facts with copy"},
+    {"domain":"CIDM","decision_id":"CIDM-D1","status":"validated","mechanism":"five-gate and seven-dimension investment synthesis with sovereignty","calculation":"47/100 plus non-compensable gate failures","counter_evidence":"E1 invalidation propagates to every dependent decision","action":"freeze and recalculate all six consumers","stop_condition":"any hard gate remains unresolved","rollback":"supersede CIDM-D1 with CIDM-D2 Do Not Do Yet","allowed_use":"sole investment decision","forbidden_use":"rewrite source-domain evidence"}
+  ],
+  "recovery": {
+    "batch_id": "RR-OSL-001",
+    "calibration": {"r2_net_capital_threshold": "10000", "r3_blast_radius_threshold": 3},
+    "previous_effective_decision_id": "CIDM-D1",
+    "new_effective_decision_id": "CIDM-D2",
+    "new_decision": "Do Not Do Yet",
+    "old_decision_status": "superseded"
+  }
+}
