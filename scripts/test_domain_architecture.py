@@ -132,19 +132,22 @@ class DomainArchitectureTest(unittest.TestCase):
         failures = handoff.validate(payload)
         self.assertTrue(any("planned" in failure and "cannot execute" in failure for failure in failures), failures)
 
-    def test_next_build_domain_cannot_execute(self):
-        plan = ROOT / "governance/next-build/d05-ltma.md"
+    def test_d05_current_domain_accepts_v2_handoff(self):
+        plan = ROOT / "governance/d05-ltma-blueprint.md"
         self.assertTrue(plan.is_file())
         plan_text = plan.read_text(encoding="utf-8")
-        for marker in ("next_build", "fail closed", "不得把本文件注册为可调用 Skill"):
-            self.assertIn(marker, plan_text)
+        self.assertIn("D05 LTMA", plan_text)
         payload = evidence_packet()
         payload["target"] = endpoint(
-            "D05", "legal-tax-intellectual-property-market-access-decision", "next_build"
+            "D05", "legal-tax-intellectual-property-market-access-decision", "current"
         )
-        payload["authority"]["target_authority"] = "legal_access"
+        payload["authority"]["target_authority"] = "market_access_gate"
+        payload["runtime_versions"] = {
+            "competitive-intelligence-monitoring": "CIM-2026.07",
+            "legal-tax-intellectual-property-market-access-decision": "LTMA-2026.07",
+        }
         failures = handoff.validate(payload)
-        self.assertTrue(any("next_build" in failure and "cannot execute" in failure for failure in failures), failures)
+        self.assertEqual(failures, [])
 
     def test_action_request_requires_passed_g4(self):
         payload = evidence_packet()
@@ -191,10 +194,10 @@ class DomainArchitectureTest(unittest.TestCase):
     def test_decision_cycle_blocks_planned_domain_execution(self):
         payload = decision_cycle()
         payload["participants"].append(
-            {"domain_id": "D05", "role": "constraint_provider", "availability": "planned", "status": "running"}
+            {"domain_id": "D14", "role": "orchestrator", "availability": "planned", "status": "running"}
         )
         payload["stages"].append(
-            {"stage_id": "ACCESS", "phase": "qualify", "dependencies": ["INVEST"], "participant_domains": ["D05"], "status": "running", "required_packet_types": ["constraint"]}
+            {"stage_id": "ORCHESTRATE", "phase": "qualify", "dependencies": ["INVEST"], "participant_domains": ["D14"], "status": "running", "required_packet_types": ["constraint"]}
         )
         errors = cycle.validate(payload)
         self.assertTrue(any("unavailable domain cannot execute" in error for error in errors), errors)
@@ -221,6 +224,28 @@ class DomainArchitectureTest(unittest.TestCase):
             compat.REGISTERED_OWNERS["supplier_selection"],
             "supplier-procurement-production-quality-decision"
         )
+
+    def test_d05_is_a_commercial_gate_not_a_professional_opinion_issuer(self):
+        registry = json.loads(
+            (ROOT / "governance/domain-architecture-registry.json").read_text(encoding="utf-8")
+        )
+        d05 = next(item for item in registry["domains"] if item["domain_id"] == "D05")
+        self.assertEqual(
+            set(d05["owned_decision_types"]),
+            {
+                "market_access_gate",
+                "compliance_action_ceiling",
+                "claim_use_boundary",
+                "professional_review_routing",
+                "compliance_recovery",
+            },
+        )
+        self.assertNotIn("legal_access", d05["owned_decision_types"])
+        self.assertNotIn("tax_treatment", d05["owned_decision_types"])
+        self.assertNotIn("professional_opinion", d05["provides"])
+        self.assertIn("professional_review_request", d05["provides"])
+        self.assertIn("professional_opinion_receipt", d05["provides"])
+        self.assertFalse(d05["external_write_authority"])
 
 
 if __name__ == "__main__":

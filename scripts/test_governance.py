@@ -13,7 +13,7 @@ class ImpactGovernance(unittest.TestCase):
         status = subprocess.run(["python3", str(ROOT/"scripts/validate_domain_maturity.py")], capture_output=True, text=True)
         self.assertEqual(status.returncode, 0, (status.stdout, status.stderr))
         ledger = json.loads((ROOT/"governance/domain-maturity-status.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(ledger["domains"]), 12)
+        self.assertEqual(len(ledger["domains"]), 13)
         self.assertTrue(all(d["maturity"] == "controlled pilot" and d["l4"] == "not_passed" and d["authorized_real_cases"] == 0 for d in ledger["domains"]))
         for domain in ledger["domains"][:5]:
             replay = ROOT/domain["replay_manifest"]
@@ -75,7 +75,7 @@ class ImpactGovernance(unittest.TestCase):
         self.assertIn("requirements-dev.txt", handoff_consumers)
         self.assertIn(workflow, handoff_consumers)
 
-    def test_all_ten_domain_entrypoints_execute_shared_contract(self):
+    def test_all_registered_domain_entrypoints_execute_shared_contract(self):
         payload = {"erdg_contract":"ERDG-CONTRACT-2026.07", "mode":"single", "decision_type":"content_creative", "decision_owner":"video-link-breakdown",
                    "participating_skills":["video-link-breakdown"], "runtime_versions":{"video-link-breakdown":"VLB-2026.07"},
                    "participant_results":{"video-link-breakdown":{"status":"contributed"}},

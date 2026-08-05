@@ -404,6 +404,7 @@ VOC/竞品取证不是独立报告孤岛：高信号发现必须直接连接五�
 18. 本地交付物是否按命名规范、目标路径和同名确认规则处理；源文件是否保持只读。
 19. 本任务后台进程、临时目录、截图、抓取页、测试文件和缓存是否已清理并验证不存在。
 20. 仅在 Skill 版本升级、模型/脚本改动、demo、压测或质量回归时运行 `python3 scripts/test_models.py` 与 Skill 校验；普通报告交付只做结构、证据、计算口径、链接/Markdown 和临时目录自检，不把未运行回归测试写成失败。
+21. 发布审计时同时读取 `evaluations/evaluation-catalog.json`、`evaluations/golden/decision-card.md` 与 `evaluations/golden/professional-report.md`；这些合成资产只证明专业工程门，不替代 L4 授权真实回放。
 
 ## PLCO 页面执行路由
 

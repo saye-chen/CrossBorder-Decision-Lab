@@ -1,0 +1,192 @@
+{
+  "runtime": "LIFD-2026.07",
+  "owner": "logistics",
+  "cases": [
+    {
+      "id": "LIFD-PE-01",
+      "name": "需求激增库存争用",
+      "mode": "standard",
+      "object_ref": "LIFD-OBJECT-1@v1",
+      "evidence": [
+        "E1S"
+      ],
+      "counterevidence": [
+        "E1C"
+      ],
+      "expected_status": "allocate",
+      "must": [
+        "ATP/CTP",
+        "库存保护",
+        "路线容量",
+        "反向履约",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "LIFD-PE-02",
+      "name": "清关延误级联",
+      "mode": "conflict",
+      "object_ref": "LIFD-OBJECT-2@v1",
+      "evidence": [
+        "E2S"
+      ],
+      "counterevidence": [
+        "E2C"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "ATP/CTP",
+        "库存保护",
+        "路线容量",
+        "反向履约",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "LIFD-PE-03",
+      "name": "危险品路线不合格",
+      "mode": "extreme",
+      "object_ref": "LIFD-OBJECT-3@v1",
+      "evidence": [
+        "E3S"
+      ],
+      "counterevidence": [
+        "E3C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "ATP/CTP",
+        "库存保护",
+        "路线容量",
+        "反向履约",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "LIFD-PE-04",
+      "name": "多仓调拨",
+      "mode": "multi_turn",
+      "object_ref": "LIFD-OBJECT-4@v1",
+      "evidence": [
+        "E4S"
+      ],
+      "counterevidence": [
+        "E4C"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "ATP/CTP",
+        "库存保护",
+        "路线容量",
+        "反向履约",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "LIFD-PE-05",
+      "name": "承运商时效漂移",
+      "mode": "adversarial",
+      "object_ref": "LIFD-OBJECT-5@v1",
+      "evidence": [
+        "E5S"
+      ],
+      "counterevidence": [
+        "E5C"
+      ],
+      "expected_status": "hold",
+      "must": [
+        "ATP/CTP",
+        "库存保护",
+        "路线容量",
+        "反向履约",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "LIFD-PE-06",
+      "name": "海外尾货退出",
+      "mode": "recovery",
+      "object_ref": "LIFD-OBJECT-6@v1",
+      "evidence": [
+        "E6S"
+      ],
+      "counterevidence": [
+        "E6C"
+      ],
+      "expected_status": "controlled_exit",
+      "must": [
+        "ATP/CTP",
+        "库存保护",
+        "路线容量",
+        "反向履约",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    }
+  ]
+}

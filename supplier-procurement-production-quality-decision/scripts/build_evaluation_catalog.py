@@ -5,6 +5,7 @@ GROUPS=[("decision",36),("calculation",36),("cross_domain",28),("multi_turn",24)
 DECISIONS=["supplier_selection","procurement_commitment","sample_approval","production_release","batch_quality_release","supplier_recovery_exit"]
 MODES=["spot","trader","OEM","ODM","own_factory","subcontract"]
 RISKS=["general","food_contact","beauty","child_toy","electrical","battery","textile","health_related"]
+CONTINUITY_FIELDS=["approved_material_version","supplier_facility","ctq_tolerance","measurement_method","sampling_plan","process_route","capacity_commitment","batch_lineage","compliance_gate","delivery_window","capa_evidence","quality_cost","reliability_mission","subcontractor_identity","inspection_result","release_quantity","currency_basis","tooling_status","control_plan","complaint_escape","inventory_disposition","professional_opinion","product_specification","decision_owner"]
 MODEL_FIXTURES=[
  ("quote_normalization",{"currency":"CNY","fx_rate":.14,"quantity":100,"unit_price":10,"extra_costs":[20]}),
  ("bom_rollup",{"components":[{"quantity":2,"unit_cost":3,"scrap_rate":.02}]}),
@@ -99,7 +100,7 @@ def build():
                 case["executable"]={"kind":"model","model":model,"input":copy.deepcopy(fixture if valid else INVALID_FIXTURES[model]),"expected":"pass" if valid else "blocked"}
             elif group=="multi_turn":
                 status=["planned","committed","in_progress","shipped"][i%4]
-                turns=[{"delta_type":["Addendum","Revision","Recalculation","Rebase"][j],"changed":f"field_{i}_{j}","impacted":f"impact_{i}_{j}","new_version":f"v{j+2}"} for j in range(4)]
+                turns=[{"delta_type":["Addendum","Revision","Recalculation","Rebase"][j],"changed":CONTINUITY_FIELDS[(i+j)%len(CONTINUITY_FIELDS)],"impacted":["evidence_recheck","dependent_model_recompute","consumer_reacceptance","action_ceiling_review"][j],"new_version":f"v{j+2}"} for j in range(4)]
                 case["executable"]={"kind":"continuity","turn_sequence":turns,"preserved":f"preserved_{i}","action_status":status,"expected":"recovery" if status!="planned" else "v5"}
             elif group=="cross_domain":
                 target=["D01","D03","D05","D06","D07","D13","ERDG"][i%7];mode=["accepted","rejected","partially_accepted","overreach"][i%4]

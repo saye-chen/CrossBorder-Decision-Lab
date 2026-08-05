@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0.0",
+  "authority": "governance/domain-architecture-registry.json",
+  "normalized_index": "evaluations/professional-evaluation-index.json",
+  "normalized_schema": "governance/professional-evaluation-case.schema.json",
+  "policy": {
+    "scope": "all current D01-D13 domains",
+    "engineering_gate": "computed from repository evidence",
+    "l4_external_assurance": "reported separately and never inferred from synthetic evaluations",
+    "compatibility_paths_are_authoritative": false
+  },
+  "domains": [
+    {
+      "domain_id": "D01",
+      "skill": "category-investment-decision",
+      "runtime": "CIDM-2026.07",
+      "catalog": "category-investment-decision/evaluations/evaluation-catalog.json",
+      "golden": "category-investment-decision/evaluations/golden/professional-report.md",
+      "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
+      "numeric_validator": "category-investment-decision/scripts/test_models.py",
+      "minimum_cases": 6,
+      "semantic_markers": ["资本姿态", "机会损失", "组合约束", "退出纪律"]
+    },
+    {
+      "domain_id": "D02",
+      "skill": "competitive-intelligence-monitoring",
+      "runtime": "CIM-2026.07",
+      "catalog": "competitive-intelligence-monitoring/evaluations/evaluation-catalog.json",
+      "golden": "competitive-intelligence-monitoring/evaluations/golden/professional-report.md",
+      "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
+      "numeric_validator": "competitive-intelligence-monitoring/scripts/test_monitoring.py",
+      "minimum_cases": 6,
+      "semantic_markers": ["对象去重", "代理信号", "来源独立性", "变化确认"]
+    },
+    {
+      "domain_id": "D03",
+      "skill": "product-innovation-product-management",
+      "runtime": "PIPM-2026.07",
+      "catalog": "product-innovation-product-management/evaluations/fixtures/evaluation-catalog.json",
+      "golden": "product-innovation-product-management/evaluations/golden/amazon-opportunity-mvp-report.json",
+      "semantic_validator": "product-innovation-product-management/scripts/test_wp8_evaluations.py",
+      "numeric_validator": "product-innovation-product-management/scripts/test_product_models.py",
+      "minimum_cases": 100,
+      "semantic_markers": ["counterevidence", "calculations", "allowed_uses", "object_ref"]
+    },
+    {
+      "domain_id": "D04",
+      "skill": "supplier-procurement-production-quality-decision",
+      "runtime": "SPPQ-2026.07",
+      "catalog": "supplier-procurement-production-quality-decision/evaluations/evaluation-catalog.json",
+      "golden": "supplier-procurement-production-quality-decision/evaluations/golden-professional-reports.json",
+      "semantic_validator": "supplier-procurement-production-quality-decision/scripts/validate_evaluation_catalog.py",
+      "numeric_validator": "supplier-procurement-production-quality-decision/scripts/test_advanced_quality_models.py",
+      "minimum_cases": 160,
+      "semantic_markers": ["object_scope", "sovereignty", "hard_gates", "data_quality"]
+    },
+    {
+      "domain_id": "D05",
+      "skill": "legal-tax-intellectual-property-market-access-decision",
+      "runtime": "LTMA-2026.07",
+      "catalog": "legal-tax-intellectual-property-market-access-decision/evaluations/evaluation-catalog.json",
+      "golden": "legal-tax-intellectual-property-market-access-decision/evaluations/golden/blocked-safety-report.json",
+      "semantic_validator": "legal-tax-intellectual-property-market-access-decision/scripts/test_professional_domains.py",
+      "numeric_validator": "legal-tax-intellectual-property-market-access-decision/scripts/test_decision_engine.py",
+      "minimum_cases": 14,
+      "semantic_markers": ["action_ceiling", "counterevidence", "redlines", "professional_reviews"]
+    },
+    {
+      "domain_id": "D06",
+      "skill": "pricing-profit-finance-cashflow-decision",
+      "runtime": "PPFC-2026.07",
+      "catalog": "pricing-profit-finance-cashflow-decision/evaluations/fixtures/evaluation-catalog.json",
+      "golden": "pricing-profit-finance-cashflow-decision/evaluations/golden/single-skill-pricing-report.json",
+      "semantic_validator": "pricing-profit-finance-cashflow-decision/scripts/validate_evaluation_execution.py",
+      "numeric_validator": "pricing-profit-finance-cashflow-decision/scripts/test_pricing_models.py",
+      "minimum_cases": 55,
+      "semantic_markers": ["current_conclusion", "counterevidence", "contribution", "stop_conditions"]
+    },
+    {
+      "domain_id": "D07",
+      "skill": "logistics-inventory-fulfillment-decision",
+      "runtime": "LIFD-2026.07",
+      "catalog": "logistics-inventory-fulfillment-decision/evaluations/evaluation-catalog.json",
+      "golden": "logistics-inventory-fulfillment-decision/evaluations/golden/professional-report.md",
+      "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
+      "numeric_validator": "logistics-inventory-fulfillment-decision/scripts/test_models.py",
+      "minimum_cases": 6,
+      "semantic_markers": ["ATP/CTP", "库存保护", "路线容量", "反向履约"]
+    },
+    {
+      "domain_id": "D08",
+      "skill": "platform-store-listing-conversion",
+      "runtime": "PLCO-2026.07",
+      "catalog": "platform-store-listing-conversion/evaluations/evaluation-catalog.json",
+      "golden": "platform-store-listing-conversion/evaluations/golden/professional-report.md",
+      "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
+      "numeric_validator": "platform-store-listing-conversion/scripts/test_models.py",
+      "minimum_cases": 6,
+      "semantic_markers": ["索引可见性", "Offer承接", "变体治理", "漏斗定位"]
+    },
+    {
+      "domain_id": "D09",
+      "skill": "advertising-analysis-measurement-optimization",
+      "runtime": "AAMO-2026.07",
+      "catalog": "advertising-analysis-measurement-optimization/evaluations/evaluation-catalog.json",
+      "golden": "advertising-analysis-measurement-optimization/evaluations/golden/professional-report.md",
+      "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
+      "numeric_validator": "advertising-analysis-measurement-optimization/scripts/test_causal_measurement.py",
+      "minimum_cases": 6,
+      "semantic_markers": ["三本账", "边际效率", "增量", "归因"]
+    },
+    {
+      "domain_id": "D10",
+      "skill": "creator-affiliate-partnership-management",
+      "runtime": "CAPM-2026.07",
+      "catalog": "creator-affiliate-partnership-management/evaluations/fixtures/evaluation-catalog.json",
+      "golden": "creator-affiliate-partnership-management/evaluations/golden/decision-card.md",
+      "semantic_validator": "creator-affiliate-partnership-management/scripts/test_capm.py",
+      "numeric_validator": "creator-affiliate-partnership-management/scripts/test_capm.py",
+      "minimum_cases": 120,
+      "semantic_markers": ["身份", "最大可逆损失", "反对证据", "禁止用途"]
+    },
+    {
+      "domain_id": "D11",
+      "skill": "video-link-breakdown",
+      "runtime": "VLB-2026.07",
+      "catalog": "video-link-breakdown/evaluations/evaluation-catalog.json",
+      "golden": "video-link-breakdown/evaluations/golden/professional-report.md",
+      "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
+      "numeric_validator": "video-link-breakdown/scripts/test_vlb_frameworks.py",
+      "minimum_cases": 6,
+      "semantic_markers": ["钩子", "证明机制", "平台迁移", "疲劳"]
+    },
+    {
+      "domain_id": "D12",
+      "skill": "marketing-brand-campaign-management",
+      "runtime": "MBCM-2026.07",
+      "catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
+      "golden": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
+      "semantic_validator": "marketing-brand-campaign-management/scripts/test_mbcm.py",
+      "numeric_validator": "marketing-brand-campaign-management/scripts/test_marketing_science.py",
+      "minimum_cases": 120,
+      "semantic_markers": ["关键路径", "hold", "测量设计", "回滚"]
+    },
+    {
+      "domain_id": "D13",
+      "skill": "consumer-insights-customer-growth",
+      "runtime": "CIG-2026.07",
+      "catalog": "consumer-insights-customer-growth/evaluations/evaluation-catalog.json",
+      "golden": "consumer-insights-customer-growth/evaluations/golden/professional-report.md",
+      "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
+      "numeric_validator": "consumer-insights-customer-growth/scripts/test_growth.py",
+      "minimum_cases": 6,
+      "semantic_markers": ["身份授权", "收入守恒", "Cohort", "净增量价值"]
+    }
+  ]
+}

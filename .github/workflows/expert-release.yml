@@ -17,7 +17,7 @@ jobs:
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -71,8 +71,15 @@ jobs:
           python3 supplier-procurement-production-quality-decision/scripts/test_source_mutations.py
           python3 supplier-procurement-production-quality-decision/scripts/run_evaluation_catalog.py
           python3 supplier-procurement-production-quality-decision/scripts/validate_structure_contract.py
+          python3 legal-tax-intellectual-property-market-access-decision/scripts/test_object_state.py
+          python3 legal-tax-intellectual-property-market-access-decision/scripts/test_input_evidence.py
+          python3 legal-tax-intellectual-property-market-access-decision/scripts/test_professional_domains.py
+          python3 legal-tax-intellectual-property-market-access-decision/scripts/test_decision_engine.py
+          python3 legal-tax-intellectual-property-market-access-decision/scripts/test_integration_migration.py
+          python3 legal-tax-intellectual-property-market-access-decision/scripts/test_release_candidate.py
+          python3 legal-tax-intellectual-property-market-access-decision/scripts/validate_release_candidate.py
           python3 scripts/test_logistics_stress.py
-      - name: Cross-domain and twelve-skill expert release tests
+      - name: Cross-domain and thirteen-skill expert release tests
         run: |
           python3 scripts/test_category_semantics.py
           python3 scripts/test_cross_skill_integration.py
@@ -89,6 +96,7 @@ jobs:
           python3 scripts/test_mbcm_integration.py
           python3 scripts/test_statistical_primitive_parity.py
           python3 scripts/test_qoderwork_skill_installation.py
+          python3 scripts/validate_release_integrity.py
           python3 scripts/test_full_repository_audit.py
       - name: Reject whitespace errors
         run: git diff --check

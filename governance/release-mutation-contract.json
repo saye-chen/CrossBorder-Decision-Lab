@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "prove that critical professional guards fail when removed or widened",
+  "test": "scripts/test_release_anti_cheat.py",
+  "mutations": [
+    {"id": "remove_noncompensable_redline", "guard": "D05 redlines block every commercial ceiling"},
+    {"id": "raise_action_ceiling", "guard": "missing professional review caps actions at reversible preparation"},
+    {"id": "expired_evidence_to_current", "guard": "expired evidence cannot support a current conclusion"},
+    {"id": "synthetic_evidence_to_production", "guard": "synthetic evidence cannot support production use"},
+    {"id": "delete_counterevidence", "guard": "every normalized case retains decision-changing counterevidence"},
+    {"id": "generic_template_substitution", "guard": "golden fingerprints and domain markers reject generic substitution"},
+    {"id": "auxiliary_domain_final_decision", "guard": "an auxiliary domain cannot issue another domain's final decision"},
+    {"id": "delete_consumer_rejection", "guard": "actual D05 consumers reject an unsafe packet"},
+    {"id": "old_version_overwrite", "guard": "late versions cannot overwrite current state"},
+    {"id": "partial_failure_overall_pass", "guard": "partial domain failure cannot become an overall pass"},
+    {"id": "manual_completion_tamper", "guard": "self-reported readiness cannot bypass computed validators"},
+    {"id": "same_source_fake_independence", "guard": "same-family evidence cannot be counted as independent sources"}
+  ]
+}

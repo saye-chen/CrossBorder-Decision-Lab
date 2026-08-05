@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ltma/consumer-response.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "response_id", "message_id", "consumer_domain", "status", "accepted_fields", "rejected_fields", "reasons", "recompute_scope", "current_state_updated"],
+  "properties": {
+    "contract": {"const": "D05-CONSUMER-RESPONSE-DRAFT-1"},
+    "response_id": {"type": "string"},
+    "message_id": {"type": "string"},
+    "consumer_domain": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"},
+    "status": {"enum": ["accepted", "rejected", "partially_accepted", "pending"]},
+    "accepted_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "rejected_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "reasons": {"type": "array", "items": {"type": "string"}},
+    "recompute_scope": {"type": "array", "items": {"type": "string"}},
+    "current_state_updated": {"type": "boolean"}
+  }
+}

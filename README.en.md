@@ -6,9 +6,9 @@
 
 Current release train: `2026.07`; target architecture: `CBDS-ARCH-2026.07`; shared contract: `ERDG-CONTRACT-2026.07`.
 
-CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into twelve professional domains that can operate independently and collaborate under shared decision contracts.
+CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, legal/tax/IP/market access, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into thirteen professional domains that can operate independently and collaborate under shared decision contracts.
 
-The system includes twelve professional domains with complete core workflows whose expert-level repository gates through L1–L3 are complete, plus ERDG. D04/SPPQ covers six sovereign supply and quality decisions, 18 deterministic cost/capacity/quality models with independent dual calculation, continuous decisions, four consumer-response paths, and 160 executable evaluations. Every domain remains L4 `controlled pilot`.
+The system includes thirteen professional domains with complete core workflows whose expert-level repository gates through L1–L3 are complete, plus ERDG. D05/LTMA adds commercial market-access gates, action ceilings, claim-use boundaries, qualified professional-review routing, dynamic-rule controls, incident recovery, and temporary-contract migration. It does not issue legal, tax, FTO, certification, or laboratory opinions. Every domain remains L4 `controlled pilot`.
 
 CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room reimplements external research ideas as eight deterministic candidate-signal families with multi-source field quality, five composition playbooks, effective-supply/VOC analysis, proof-bound CIDM-to-PLCO handoff, partial-failure DAG execution, R0–R4 recovery, an independent oracle, and 13 source mutations. The layer expands candidate coverage only; it cannot directly change the seven-dimension score, capital posture, or cross-domain sovereignty. The authorized 20-case blind replay, 20-person non-implementer comprehension test, and forward calibration remain open, so this is not a production-maturity claim.
 
@@ -125,7 +125,7 @@ flowchart TB
     D14 --> D01["D01 CIDM<br/>Capital and portfolio"]
     D14 --> D02["D02 CIM<br/>Competitive facts"]
     D14 --> D03["D03 PIPM<br/>Product definition"]
-    D14 --> D05["D05 compliance and market access<br/>Next build"]
+    D14 --> D05["D05 LTMA<br/>Compliance and market access"]
     D14 --> D06["D06 PPFC<br/>Pricing, profit, and cash"]
     D01 --> D03 --> D04["D04 SPPQ<br/>Supply, procurement, production, and quality"] --> D07["D07 LIFD<br/>Logistics, inventory, and fulfillment"]
     D07 --> D12["D12 MBCM<br/>Marketing, brand, and campaigns"]
@@ -151,10 +151,10 @@ flowchart TB
     E -.contract and redline validation.-> D12
     O -.replay and parameter calibration.-> E
     classDef planned stroke-dasharray:6 5
-    class D05,D14 planned
+    class D14 planned
 ```
 
-Twelve domains are currently runnable; D05 is the next build and D14 is planned, and both are blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally. ERDG performs neutral governance and deterministic shared calculations without making domain business decisions.
+Thirteen domains are currently runnable; D14 remains planned and is blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally. ERDG performs neutral governance and deterministic shared calculations without making domain business decisions.
 
 ### Continuous D01-D14 decision loop
 
@@ -167,7 +167,7 @@ sequenceDiagram
     participant D01 as D01 CIDM
     participant D03 as D03 PIPM
     participant D04 as D04 SPPQ
-    participant D05 as D05 compliance (next build)
+    participant D05 as D05 LTMA compliance and market access
     participant D06 as D06 PPFC
     participant D07 as D07 LIFD
     participant M as D12/D11/D10/D08/D09 market domains
@@ -230,12 +230,13 @@ Choose the primary Skill by the decision that must be made. Platform coverage, p
 | PPFC | `PPFC-2026.07` | Calculate and adjust price, profit, contribution, break-even metrics, financial constraints, and cash risk | [Pricing, Profit, Finance, and Cash Flow](pricing-profit-finance-cashflow-decision/SKILL.md) |
 | PIPM | `PIPM-2026.07` | Turn opportunities into traceable product definitions, specifications, MVPs, and roadmaps | [Product Innovation and Product Management](product-innovation-product-management/SKILL.md) |
 | SPPQ | `SPPQ-2026.07` | Qualify suppliers, govern procurement commitments, release production and batches, and recover supply or quality failures | [Supplier, Procurement, Production, and Quality](supplier-procurement-production-quality-decision/SKILL.md) |
+| LTMA | `LTMA-2026.07` | Gate commercial market access, cap actions, bound claims, and route qualified professional review | [Legal, Tax, IP, and Market Access](legal-tax-intellectual-property-market-access-decision/SKILL.md) |
 
 Detailed platform coverage, models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
 
 ## Shared Decision Infrastructure
 
-The twelve domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
+The thirteen domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
 
 1. evidence and counterevidence discipline;
 2. auditable economics and statistical estimation;
@@ -248,7 +249,7 @@ The twelve domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERD
 
 ## Current Capabilities
 
-The current version provides twelve professional decision Skills that have completed their expert-level L1–L3 repository gates and can operate independently or collaborate across domains. It includes:
+The current version provides thirteen professional decision Skills that have completed their expert-level L1–L3 repository gates and can operate independently or collaborate across domains. It includes:
 
 - professional scenario and lifecycle coverage;
 - deterministic economics and statistical estimation tools;
@@ -257,6 +258,8 @@ The current version provides twelve professional decision Skills that have compl
 - evidence, calculation, conclusion, action, and version lineage;
 - professional ownership, risk redlines, stopping, rollback, and exit governance;
 - repository-wide automated validation and release gates.
+
+The unified thirteen-domain engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current release snapshot binds 612 source cases across 13 domains, their Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 22 professional validation entrypoints and uses 12 anti-tamper mutations to prove that critical guards cannot be silently removed or widened. Run `python3 scripts/validate_release_integrity.py` to compute `controlled_pilot_engineering_ready`. L4 authorized replay, threshold/weight calibration, and independent review remain separate; an engineering pass is not production readiness and does not unfreeze planned D14.
 
 The system is not tied to a single foundation-model provider. Models can continue to improve while professional decision contracts, calculation tools, operating benchmarks, and historical assets remain continuous.
 

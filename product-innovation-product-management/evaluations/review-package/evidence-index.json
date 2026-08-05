@@ -11,7 +11,7 @@
     },
     {
       "path": "product-innovation-product-management/SKILL.md",
-      "sha256": "sha256:2db98003fae3bf3d47c51d6f8bb277112a7f0145f39cab058244f87051116389"
+      "sha256": "sha256:79f669270165c7a2649987454618f7d7c022bd87bb48568a1319eba5de896f3f"
     },
     {
       "path": "product-innovation-product-management/evaluations/review-package/REVIEW_GUIDE.md",
@@ -63,7 +63,7 @@
     },
     {
       "path": "scripts/test_full_repository_audit.py",
-      "sha256": "sha256:9776b4acd5a6dfbcae1022d94c218e87b5253bd0679ff8a7860048336c9d716c"
+      "sha256": "sha256:7dfc3887c6330790fbcb9ed82f99368dd5087911df0216df1bd5a9da46df66f1"
     }
   ],
   "generated_at": "2026-07-28T00:00:00Z",

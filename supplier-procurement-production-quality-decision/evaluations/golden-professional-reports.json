@@ -56,12 +56,12 @@
         {
           "id": "retain_validated_supplier",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for retain_validated_supplier"
+          "tradeoff": "保留现有已验证产能和过程知识，但继续承担集中度与切换准备不足风险"
         },
         {
           "id": "qualify_controlled_backup",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for qualify_controlled_backup"
+          "tradeoff": "降低单一来源暴露，但增加验证成本、双源一致性管理和爬坡时间"
         }
       ],
       "professional_analysis": {
@@ -80,8 +80,8 @@
       "counterevidence": [
         {
           "id": "CE-1",
-          "effect": "could reverse the recommendation if independently confirmed",
-          "verification": "reconcile source timestamp, object identity, and independent evidence"
+          "effect": "若独立证据证明quality_history不满足当前对象与时间范围，则撤销或收紧推荐",
+          "verification": "复核quality_history的对象版本、测量方法、来源独立性与有效时间，并重算依赖Gate"
         }
       ],
       "decision": {
@@ -268,12 +268,12 @@
         {
           "id": "phased_purchase_order",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for phased_purchase_order"
+          "tradeoff": "降低现金与质量暴露，但牺牲阶梯价格并增加补单与排产波动"
         },
         {
           "id": "renegotiate_terms_and_quantity",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for renegotiate_terms_and_quantity"
+          "tradeoff": "改善单位经济与付款条件，但可能延长谈判并降低供应商产能承诺"
         }
       ],
       "professional_analysis": {
@@ -294,8 +294,8 @@
       "counterevidence": [
         {
           "id": "CE-2",
-          "effect": "could reverse the recommendation if independently confirmed",
-          "verification": "reconcile source timestamp, object identity, and independent evidence"
+          "effect": "若独立证据证明commercial_terms不满足当前对象与时间范围，则撤销或收紧推荐",
+          "verification": "复核commercial_terms的对象版本、测量方法、来源独立性与有效时间，并重算依赖Gate"
         }
       ],
       "decision": {
@@ -558,12 +558,12 @@
         {
           "id": "approve_controlled_sample",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for approve_controlled_sample"
+          "tradeoff": "在限定CTQ和版本下推进验证，但不得外推到量产稳定性或全规格合格"
         },
         {
           "id": "repeat_sample_after_correction",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for repeat_sample_after_correction"
+          "tradeoff": "提高纠正措施证据强度，但延长开发周期且需防止挑样与样品特制"
         }
       ],
       "professional_analysis": {
@@ -581,8 +581,8 @@
       "counterevidence": [
         {
           "id": "CE-3",
-          "effect": "could reverse the recommendation if independently confirmed",
-          "verification": "reconcile source timestamp, object identity, and independent evidence"
+          "effect": "若独立证据证明revalidation不满足当前对象与时间范围，则撤销或收紧推荐",
+          "verification": "复核revalidation的对象版本、测量方法、来源独立性与有效时间，并重算依赖Gate"
         }
       ],
       "decision": {
@@ -742,12 +742,12 @@
         {
           "id": "release_limited_pilot",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for release_limited_pilot"
+          "tradeoff": "以可追溯小批量验证过程，但保留隔离容量、加严检验与停止成本"
         },
         {
           "id": "hold_and_close_process_gap",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for hold_and_close_process_gap"
+          "tradeoff": "避免不稳定过程进入量产，但承担延期、产能重排与机会成本"
         }
       ],
       "professional_analysis": {
@@ -766,8 +766,8 @@
       "counterevidence": [
         {
           "id": "CE-4",
-          "effect": "could reverse the recommendation if independently confirmed",
-          "verification": "reconcile source timestamp, object identity, and independent evidence"
+          "effect": "若独立证据证明capacity不满足当前对象与时间范围，则撤销或收紧推荐",
+          "verification": "复核capacity的对象版本、测量方法、来源独立性与有效时间，并重算依赖Gate"
         }
       ],
       "decision": {
@@ -982,12 +982,12 @@
         {
           "id": "release_traceable_batch",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for release_traceable_batch"
+          "tradeoff": "在当前抽样与谱系范围内放行，但保留抽样逃逸风险和召回追踪责任"
         },
         {
           "id": "quarantine_and_resample",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for quarantine_and_resample"
+          "tradeoff": "降低可疑批次外溢风险，但增加库存占用、复检成本且不能修复系统性偏差"
         }
       ],
       "professional_analysis": {
@@ -1007,8 +1007,8 @@
       "counterevidence": [
         {
           "id": "CE-5",
-          "effect": "could reverse the recommendation if independently confirmed",
-          "verification": "reconcile source timestamp, object identity, and independent evidence"
+          "effect": "若独立证据证明escape_risk不满足当前对象与时间范围，则撤销或收紧推荐",
+          "verification": "复核escape_risk的对象版本、测量方法、来源独立性与有效时间，并重算依赖Gate"
         }
       ],
       "decision": {
@@ -1224,12 +1224,12 @@
         {
           "id": "controlled_supplier_recovery",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for controlled_supplier_recovery"
+          "tradeoff": "保留既有模具和学习曲线，但必须验证遏制与CAPA有效性并承受复发风险"
         },
         {
           "id": "activate_qualified_exit",
           "feasible": true,
-          "tradeoff": "controlled tradeoff for activate_qualified_exit"
+          "tradeoff": "降低持续质量暴露，但承担切换损失、重新认证、交期和新供应商爬坡风险"
         }
       ],
       "professional_analysis": {
@@ -1248,8 +1248,8 @@
       "counterevidence": [
         {
           "id": "CE-6",
-          "effect": "could reverse the recommendation if independently confirmed",
-          "verification": "reconcile source timestamp, object identity, and independent evidence"
+          "effect": "若独立证据证明switch_exit不满足当前对象与时间范围，则撤销或收紧推荐",
+          "verification": "复核switch_exit的对象版本、测量方法、来源独立性与有效时间，并重算依赖Gate"
         }
       ],
       "decision": {

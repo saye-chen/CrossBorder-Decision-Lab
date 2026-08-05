@@ -135,6 +135,38 @@ def validate() -> list[str]:
         if any(fragment in authority_text for fragment in forbidden_authority_fragments):
             errors.append("D14 decision authority overlaps a professional or capital owner")
 
+    d05 = next((item for item in domains if item["domain_id"] == "D05"), None)
+    if d05 is None:
+        errors.append("D05 must be registered")
+    else:
+        expected_d05_types = {
+            "market_access_gate",
+            "compliance_action_ceiling",
+            "claim_use_boundary",
+            "professional_review_routing",
+            "compliance_recovery",
+        }
+        if set(d05["owned_decision_types"]) != expected_d05_types:
+            errors.append("D05 owns commercial gates and professional-review routing only")
+        forbidden_d05_types = {
+            "legal_access",
+            "regulatory_compliance",
+            "tax_treatment",
+            "intellectual_property",
+            "certification_access",
+            "legal_conclusion",
+            "freedom_to_operate_opinion",
+        }
+        if set(d05["owned_decision_types"]) & forbidden_d05_types:
+            errors.append("D05 cannot register reserved qualified-professional conclusions")
+        required_outputs = {"professional_review_request", "professional_opinion_receipt"}
+        if not required_outputs.issubset(d05["provides"]):
+            errors.append("D05 must route and receive qualified professional review explicitly")
+        if "professional_opinion" in d05["provides"]:
+            errors.append("D05 cannot present itself as the issuer of a professional opinion")
+        if d05["external_write_authority"] is not False:
+            errors.append("D05 cannot own external write authority")
+
     for name in ("handoff-envelope.schema.json", "decision-cycle.schema.json"):
         path = ROOT / "governance/erdg/schemas" / name
         try:
@@ -158,4 +190,4 @@ if __name__ == "__main__":
     failures = validate()
     if failures:
         raise SystemExit("Domain architecture validation failed:\n- " + "\n- ".join(failures))
-    print("Domain architecture validation passed for D01-D14; 12 current, D05 next_build, D14 planned.")
+    print("Domain architecture validation passed for D01-D14; 13 current and D14 planned.")

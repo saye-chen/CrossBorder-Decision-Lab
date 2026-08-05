@@ -1,0 +1,4 @@
+interface:
+  display_name: "D05 合规、税务、IP 与市场准入"
+  short_description: "跨境商品合规准入、专业复核路由、风险阻断与事故恢复决策"
+  default_prompt: "使用 $legal-tax-intellectual-property-market-access-decision 评估指定商品、国家与平台的准入风险、补证要求和专业复核路径。"

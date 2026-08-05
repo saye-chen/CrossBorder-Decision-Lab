@@ -3863,26 +3863,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_0_0",
-            "impacted": "impact_0_0",
+            "changed": "approved_material_version",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_0_1",
-            "impacted": "impact_0_1",
+            "changed": "supplier_facility",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_0_2",
-            "impacted": "impact_0_2",
+            "changed": "ctq_tolerance",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_0_3",
-            "impacted": "impact_0_3",
+            "changed": "measurement_method",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -3906,26 +3906,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_1_0",
-            "impacted": "impact_1_0",
+            "changed": "supplier_facility",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_1_1",
-            "impacted": "impact_1_1",
+            "changed": "ctq_tolerance",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_1_2",
-            "impacted": "impact_1_2",
+            "changed": "measurement_method",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_1_3",
-            "impacted": "impact_1_3",
+            "changed": "sampling_plan",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -3949,26 +3949,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_2_0",
-            "impacted": "impact_2_0",
+            "changed": "ctq_tolerance",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_2_1",
-            "impacted": "impact_2_1",
+            "changed": "measurement_method",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_2_2",
-            "impacted": "impact_2_2",
+            "changed": "sampling_plan",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_2_3",
-            "impacted": "impact_2_3",
+            "changed": "process_route",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -3992,26 +3992,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_3_0",
-            "impacted": "impact_3_0",
+            "changed": "measurement_method",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_3_1",
-            "impacted": "impact_3_1",
+            "changed": "sampling_plan",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_3_2",
-            "impacted": "impact_3_2",
+            "changed": "process_route",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_3_3",
-            "impacted": "impact_3_3",
+            "changed": "capacity_commitment",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4035,26 +4035,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_4_0",
-            "impacted": "impact_4_0",
+            "changed": "sampling_plan",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_4_1",
-            "impacted": "impact_4_1",
+            "changed": "process_route",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_4_2",
-            "impacted": "impact_4_2",
+            "changed": "capacity_commitment",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_4_3",
-            "impacted": "impact_4_3",
+            "changed": "batch_lineage",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4078,26 +4078,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_5_0",
-            "impacted": "impact_5_0",
+            "changed": "process_route",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_5_1",
-            "impacted": "impact_5_1",
+            "changed": "capacity_commitment",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_5_2",
-            "impacted": "impact_5_2",
+            "changed": "batch_lineage",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_5_3",
-            "impacted": "impact_5_3",
+            "changed": "compliance_gate",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4121,26 +4121,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_6_0",
-            "impacted": "impact_6_0",
+            "changed": "capacity_commitment",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_6_1",
-            "impacted": "impact_6_1",
+            "changed": "batch_lineage",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_6_2",
-            "impacted": "impact_6_2",
+            "changed": "compliance_gate",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_6_3",
-            "impacted": "impact_6_3",
+            "changed": "delivery_window",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4164,26 +4164,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_7_0",
-            "impacted": "impact_7_0",
+            "changed": "batch_lineage",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_7_1",
-            "impacted": "impact_7_1",
+            "changed": "compliance_gate",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_7_2",
-            "impacted": "impact_7_2",
+            "changed": "delivery_window",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_7_3",
-            "impacted": "impact_7_3",
+            "changed": "capa_evidence",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4207,26 +4207,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_8_0",
-            "impacted": "impact_8_0",
+            "changed": "compliance_gate",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_8_1",
-            "impacted": "impact_8_1",
+            "changed": "delivery_window",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_8_2",
-            "impacted": "impact_8_2",
+            "changed": "capa_evidence",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_8_3",
-            "impacted": "impact_8_3",
+            "changed": "quality_cost",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4250,26 +4250,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_9_0",
-            "impacted": "impact_9_0",
+            "changed": "delivery_window",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_9_1",
-            "impacted": "impact_9_1",
+            "changed": "capa_evidence",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_9_2",
-            "impacted": "impact_9_2",
+            "changed": "quality_cost",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_9_3",
-            "impacted": "impact_9_3",
+            "changed": "reliability_mission",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4293,26 +4293,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_10_0",
-            "impacted": "impact_10_0",
+            "changed": "capa_evidence",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_10_1",
-            "impacted": "impact_10_1",
+            "changed": "quality_cost",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_10_2",
-            "impacted": "impact_10_2",
+            "changed": "reliability_mission",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_10_3",
-            "impacted": "impact_10_3",
+            "changed": "subcontractor_identity",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4336,26 +4336,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_11_0",
-            "impacted": "impact_11_0",
+            "changed": "quality_cost",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_11_1",
-            "impacted": "impact_11_1",
+            "changed": "reliability_mission",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_11_2",
-            "impacted": "impact_11_2",
+            "changed": "subcontractor_identity",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_11_3",
-            "impacted": "impact_11_3",
+            "changed": "inspection_result",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4379,26 +4379,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_12_0",
-            "impacted": "impact_12_0",
+            "changed": "reliability_mission",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_12_1",
-            "impacted": "impact_12_1",
+            "changed": "subcontractor_identity",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_12_2",
-            "impacted": "impact_12_2",
+            "changed": "inspection_result",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_12_3",
-            "impacted": "impact_12_3",
+            "changed": "release_quantity",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4422,26 +4422,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_13_0",
-            "impacted": "impact_13_0",
+            "changed": "subcontractor_identity",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_13_1",
-            "impacted": "impact_13_1",
+            "changed": "inspection_result",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_13_2",
-            "impacted": "impact_13_2",
+            "changed": "release_quantity",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_13_3",
-            "impacted": "impact_13_3",
+            "changed": "currency_basis",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4465,26 +4465,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_14_0",
-            "impacted": "impact_14_0",
+            "changed": "inspection_result",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_14_1",
-            "impacted": "impact_14_1",
+            "changed": "release_quantity",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_14_2",
-            "impacted": "impact_14_2",
+            "changed": "currency_basis",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_14_3",
-            "impacted": "impact_14_3",
+            "changed": "tooling_status",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4508,26 +4508,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_15_0",
-            "impacted": "impact_15_0",
+            "changed": "release_quantity",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_15_1",
-            "impacted": "impact_15_1",
+            "changed": "currency_basis",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_15_2",
-            "impacted": "impact_15_2",
+            "changed": "tooling_status",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_15_3",
-            "impacted": "impact_15_3",
+            "changed": "control_plan",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4551,26 +4551,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_16_0",
-            "impacted": "impact_16_0",
+            "changed": "currency_basis",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_16_1",
-            "impacted": "impact_16_1",
+            "changed": "tooling_status",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_16_2",
-            "impacted": "impact_16_2",
+            "changed": "control_plan",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_16_3",
-            "impacted": "impact_16_3",
+            "changed": "complaint_escape",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4594,26 +4594,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_17_0",
-            "impacted": "impact_17_0",
+            "changed": "tooling_status",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_17_1",
-            "impacted": "impact_17_1",
+            "changed": "control_plan",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_17_2",
-            "impacted": "impact_17_2",
+            "changed": "complaint_escape",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_17_3",
-            "impacted": "impact_17_3",
+            "changed": "inventory_disposition",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4637,26 +4637,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_18_0",
-            "impacted": "impact_18_0",
+            "changed": "control_plan",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_18_1",
-            "impacted": "impact_18_1",
+            "changed": "complaint_escape",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_18_2",
-            "impacted": "impact_18_2",
+            "changed": "inventory_disposition",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_18_3",
-            "impacted": "impact_18_3",
+            "changed": "professional_opinion",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4680,26 +4680,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_19_0",
-            "impacted": "impact_19_0",
+            "changed": "complaint_escape",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_19_1",
-            "impacted": "impact_19_1",
+            "changed": "inventory_disposition",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_19_2",
-            "impacted": "impact_19_2",
+            "changed": "professional_opinion",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_19_3",
-            "impacted": "impact_19_3",
+            "changed": "product_specification",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4723,26 +4723,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_20_0",
-            "impacted": "impact_20_0",
+            "changed": "inventory_disposition",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_20_1",
-            "impacted": "impact_20_1",
+            "changed": "professional_opinion",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_20_2",
-            "impacted": "impact_20_2",
+            "changed": "product_specification",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_20_3",
-            "impacted": "impact_20_3",
+            "changed": "decision_owner",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4766,26 +4766,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_21_0",
-            "impacted": "impact_21_0",
+            "changed": "professional_opinion",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_21_1",
-            "impacted": "impact_21_1",
+            "changed": "product_specification",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_21_2",
-            "impacted": "impact_21_2",
+            "changed": "decision_owner",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_21_3",
-            "impacted": "impact_21_3",
+            "changed": "approved_material_version",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4809,26 +4809,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_22_0",
-            "impacted": "impact_22_0",
+            "changed": "product_specification",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_22_1",
-            "impacted": "impact_22_1",
+            "changed": "decision_owner",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_22_2",
-            "impacted": "impact_22_2",
+            "changed": "approved_material_version",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_22_3",
-            "impacted": "impact_22_3",
+            "changed": "supplier_facility",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],
@@ -4852,26 +4852,26 @@
         "turn_sequence": [
           {
             "delta_type": "Addendum",
-            "changed": "field_23_0",
-            "impacted": "impact_23_0",
+            "changed": "decision_owner",
+            "impacted": "evidence_recheck",
             "new_version": "v2"
           },
           {
             "delta_type": "Revision",
-            "changed": "field_23_1",
-            "impacted": "impact_23_1",
+            "changed": "approved_material_version",
+            "impacted": "dependent_model_recompute",
             "new_version": "v3"
           },
           {
             "delta_type": "Recalculation",
-            "changed": "field_23_2",
-            "impacted": "impact_23_2",
+            "changed": "supplier_facility",
+            "impacted": "consumer_reacceptance",
             "new_version": "v4"
           },
           {
             "delta_type": "Rebase",
-            "changed": "field_23_3",
-            "impacted": "impact_23_3",
+            "changed": "ctq_tolerance",
+            "impacted": "action_ceiling_review",
             "new_version": "v5"
           }
         ],

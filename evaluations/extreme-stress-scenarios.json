@@ -1,0 +1,12 @@
+{
+  "contract":"EXTREME-STRESS-2026.07",
+  "scenarios":[
+    {"id":"ES-01","type":"portfolio","objects":[{"id":"A","capital":"40000","capacity":2,"risk":"clear","contribution":"12000"},{"id":"B","capital":"35000","capacity":2,"risk":"blocked","contribution":"30000"},{"id":"C","capital":"20000","capacity":1,"risk":"clear","contribution":"7000"}],"constraints":{"capital":"60000","capacity":3},"expected_selected":["A","C"],"expected_blocked":["B"]},
+    {"id":"ES-02","type":"multi_market","object_id":"P1","markets":[{"id":"US-Shopify","voltage":"120V","rule":"current","rights":"valid","gate":"eligible"},{"id":"DE-Amazon","voltage":"230V","rule":"current","rights":"expired","gate":"blocked"},{"id":"JP-Marketplace","voltage":"100V","rule":"unavailable","rights":"valid","gate":"blocked"}],"expected_eligible":["US-Shopify"],"forbid_inheritance":true},
+    {"id":"ES-03","type":"cascade_failure","dependencies":{"D01":["D06","D07"],"D06":["D04"],"D07":["D04","D05"],"D08":["D03","D05"]},"failed":["D05"],"expected_blocked":["D01","D07","D08"],"expected_preserved":["D03","D04","D06"]},
+    {"id":"ES-04","type":"concurrency","object_count":50,"evidence_per_object":4,"assumptions_per_object":2,"duplicate_message_every":7,"late_version_every":9,"expected_current_objects":50,"expected_evidence":200,"expected_assumptions":100},
+    {"id":"ES-05","type":"regulatory_mutation","changed_rule":"EU-material-X-ban","affected_fields":["material","claim","certificate","market_access_gate"],"preserved_fields":["price_history","US_page","unrelated_variant"],"expected_state":"blocked","recovery":["replace_material","retest","recertify","reapprove_claim"]},
+    {"id":"ES-06","type":"financial_shock","baseline":{"price":"40","cost":"21","freight":"5","ad":"7","fx":"1.00"},"shock":{"cost":"23","freight":"8","ad":"7","fx":"0.92"},"expected_baseline_contribution":"7.00","expected_shock_contribution":"-1.20","expected_action":"freeze_scale"},
+    {"id":"ES-07","type":"organization_capacity","execution_capacity":1,"actions":[{"id":"recall","severity":5,"impact":5,"evidence":5,"redline":true},{"id":"listing_test","severity":2,"impact":4,"evidence":4,"redline":false},{"id":"creator_test","severity":1,"impact":3,"evidence":3,"redline":false}],"expected_execute":["recall"],"expected_deferred":["listing_test","creator_test"]}
+  ]
+}

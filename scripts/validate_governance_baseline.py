@@ -14,6 +14,7 @@ SKILLS = [
     "pricing-profit-finance-cashflow-decision",
     "product-innovation-product-management",
     "supplier-procurement-production-quality-decision",
+    "legal-tax-intellectual-property-market-access-decision",
 ]
 FILES = [
     "professional-depth-governance.md", "skill-integration-protocol.md",

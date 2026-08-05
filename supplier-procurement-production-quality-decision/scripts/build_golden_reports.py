@@ -76,6 +76,20 @@ CALCULATIONS = {
     ],
 }
 
+TRADEOFFS={
+ "retain_validated_supplier":"保留现有已验证产能和过程知识，但继续承担集中度与切换准备不足风险",
+ "qualify_controlled_backup":"降低单一来源暴露，但增加验证成本、双源一致性管理和爬坡时间",
+ "phased_purchase_order":"降低现金与质量暴露，但牺牲阶梯价格并增加补单与排产波动",
+ "renegotiate_terms_and_quantity":"改善单位经济与付款条件，但可能延长谈判并降低供应商产能承诺",
+ "approve_controlled_sample":"在限定CTQ和版本下推进验证，但不得外推到量产稳定性或全规格合格",
+ "repeat_sample_after_correction":"提高纠正措施证据强度，但延长开发周期且需防止挑样与样品特制",
+ "release_limited_pilot":"以可追溯小批量验证过程，但保留隔离容量、加严检验与停止成本",
+ "hold_and_close_process_gap":"避免不稳定过程进入量产，但承担延期、产能重排与机会成本",
+ "release_traceable_batch":"在当前抽样与谱系范围内放行，但保留抽样逃逸风险和召回追踪责任",
+ "quarantine_and_resample":"降低可疑批次外溢风险，但增加库存占用、复检成本且不能修复系统性偏差",
+ "controlled_supplier_recovery":"保留既有模具和学习曲线，但必须验证遏制与CAPA有效性并承受复发风险",
+ "activate_qualified_exit":"降低持续质量暴露，但承担切换损失、重新认证、交期和新供应商爬坡风险"}
+
 
 def sha(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True).encode()).hexdigest()
@@ -113,7 +127,7 @@ def report(kind, index):
         "data_quality": {"grade": "E3", "missing": [], "conflicts": []},
         "hard_gates": [{"id": gate, "status": "passed", "evidence_id": f"E-{index}-{n}"} for n, gate in enumerate(gates, 1)],
         "alternatives": [
-            {"id": alternative, "feasible": True, "tradeoff": f"controlled tradeoff for {alternative}"}
+            {"id": alternative, "feasible": True, "tradeoff": TRADEOFFS[alternative]}
             for alternative in alternatives
         ],
         "professional_analysis": {
@@ -124,8 +138,8 @@ def report(kind, index):
         "counterevidence": [
             {
                 "id": f"CE-{index}",
-                "effect": "could reverse the recommendation if independently confirmed",
-                "verification": "reconcile source timestamp, object identity, and independent evidence",
+                "effect": f"若独立证据证明{mechanisms[-1]}不满足当前对象与时间范围，则撤销或收紧推荐",
+                "verification": f"复核{mechanisms[-1]}的对象版本、测量方法、来源独立性与有效时间，并重算依赖Gate",
             }
         ],
         "decision": {

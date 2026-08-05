@@ -1,0 +1,19 @@
+{
+  "catalog":"D05-EVAL-DRAFT-1",
+  "cases":[
+    {"id":"D05-E01","scenario":"missing jurisdiction","expected":"evidence_required","assertions":["no clearance","blocked dependent action"]},
+    {"id":"D05-E02","scenario":"expired certificate","expected":"blocked","assertions":["certificate not current","recheck required"]},
+    {"id":"D05-E03","scenario":"certificate factory mismatch","expected":"not_covered","assertions":["non-compensatory mismatch"]},
+    {"id":"D05-E04","scenario":"medical claim without opinion","expected":"professional_review","assertions":["claim not upgraded"]},
+    {"id":"D05-E05","scenario":"IP search no hit","expected":"review_required","assertions":["no FTO claim"]},
+    {"id":"D05-E06","scenario":"tax treatment request","expected":"professional_review","assertions":["no final tax conclusion"]},
+    {"id":"D05-E07","scenario":"platform approval only","expected":"screening_only","assertions":["not legal clearance"]},
+    {"id":"D05-E08","scenario":"major safety redline","expected":"blocked","assertions":["economic upside ignored"]},
+    {"id":"D05-E09","scenario":"material version change","expected":"selective_recompute","assertions":["dependent claim invalidated","independent price preserved"]},
+    {"id":"D05-E10","scenario":"incident recovery without recheck","expected":"blocked","assertions":["no recovery"]},
+    {"id":"D05-E11","scenario":"partial consumer acceptance","expected":"partially_accepted","assertions":["rejected fields recomputed"]},
+    {"id":"D05-E12","scenario":"lossy safety migration","expected":"rollback","assertions":["legacy state preserved"]},
+    {"id":"D05-E13","scenario":"synthetic evidence for production","expected":"rejected","assertions":["L4 unchanged"]},
+    {"id":"D05-E14","scenario":"staging external action","expected":"blocked","assertions":["ceiling reversible preparation"]}
+  ]
+}

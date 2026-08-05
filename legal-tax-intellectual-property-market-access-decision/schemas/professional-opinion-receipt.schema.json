@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ltma/professional-opinion-receipt.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "receipt_id", "opinion_id", "subject_role", "issuer_identity_ref", "credential_scope", "jurisdictions", "object_refs", "allowed_uses", "conflict_of_interest", "basis_refs", "issued_at", "verified_at", "expires_at", "limitations", "opinion_summary", "source_evidence_ref", "state", "claim_upgrade_allowed", "issued_by_d05"],
+  "properties": {
+    "contract": {"const": "D05-OPINION-RECEIPT-DRAFT-1"},
+    "receipt_id": {"type": "string", "minLength": 1},
+    "opinion_id": {"type": "string", "minLength": 1},
+    "subject_role": {"type": "string", "minLength": 1},
+    "issuer_identity_ref": {"type": "string", "minLength": 1},
+    "credential_scope": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "jurisdictions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "object_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "allowed_uses": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "conflict_of_interest": {"enum": ["none", "disclosed_and_mitigated", "unresolved", "undisclosed"]},
+    "basis_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "issued_at": {"type": "string", "format": "date-time"},
+    "verified_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "opinion_summary": {"type": "string", "minLength": 1},
+    "source_evidence_ref": {"type": "string", "minLength": 1},
+    "state": {"enum": ["received", "accepted_as_bounded_evidence", "rejected", "expired", "superseded"]},
+    "claim_upgrade_allowed": {"const": false},
+    "issued_by_d05": {"const": false}
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/schemas/professional-evaluation-case.schema.json",
+  "title": "Normalized professional evaluation case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "domain_id",
+    "skill",
+    "runtime",
+    "source_catalog",
+    "source_case_id",
+    "source_hash",
+    "golden_hash",
+    "mode",
+    "object_ref",
+    "object_version",
+    "inputs",
+    "evidence",
+    "counterevidence",
+    "claims",
+    "root_cause",
+    "actions",
+    "expected_state",
+    "required_behaviors",
+    "forbidden_behaviors",
+    "calculations",
+    "sovereignty",
+    "state_transition",
+    "rollback",
+    "semantic_assertions",
+    "evidence_fingerprint"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "case_id": {"type": "string", "minLength": 5},
+    "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+    "skill": {"type": "string", "minLength": 3},
+    "runtime": {"type": "string", "pattern": "^[A-Z0-9]+-2026\\.07$"},
+    "source_catalog": {"type": "string", "minLength": 5},
+    "source_case_id": {"type": "string", "minLength": 2},
+    "source_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "golden_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "mode": {"type": "string", "minLength": 2},
+    "object_ref": {"type": "string", "minLength": 3},
+    "object_version": {"type": "string", "minLength": 1},
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provided", "missing"],
+      "properties": {
+        "provided": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "missing": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "counterevidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "assertion", "evidence_refs", "counterevidence_refs", "decision_impact"],
+        "properties": {
+          "id": {"type": "string", "minLength": 2},
+          "assertion": {"type": "string", "minLength": 1},
+          "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "counterevidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "decision_impact": {"type": "string", "minLength": 3}
+        }
+      }
+    },
+    "root_cause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "assertion", "evidence_refs", "counterevidence_refs"],
+      "properties": {
+        "id": {"type": "string", "minLength": 2},
+        "assertion": {"type": "string", "minLength": 3},
+        "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "counterevidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action", "root_cause_ref", "success_condition", "stop_condition", "rollback"],
+        "properties": {
+          "action": {"type": "string", "minLength": 3},
+          "root_cause_ref": {"type": "string", "minLength": 2},
+          "success_condition": {"type": "string", "minLength": 1},
+          "stop_condition": {"type": "string", "minLength": 1},
+          "rollback": {"type": "string", "minLength": 3}
+        }
+      }
+    },
+    "expected_state": {"type": "string", "minLength": 1},
+    "required_behaviors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "forbidden_behaviors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "calculations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status", "validator"],
+        "properties": {
+          "status": {"enum": ["source_defined", "not_applicable"]},
+          "validator": {"type": "string", "minLength": 3}
+        }
+      }
+    },
+    "sovereignty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "allowed_uses", "forbidden_uses"],
+      "properties": {
+        "owner": {"type": "string", "minLength": 3},
+        "allowed_uses": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "forbidden_uses": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "state_transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to", "trigger"],
+      "properties": {
+        "from": {"type": "string", "minLength": 1},
+        "to": {"type": "string", "minLength": 1},
+        "trigger": {"type": "string", "minLength": 1}
+      }
+    },
+    "rollback": {"type": "string", "minLength": 3},
+    "semantic_assertions": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+    "evidence_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

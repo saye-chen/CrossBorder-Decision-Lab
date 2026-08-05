@@ -174,3 +174,4 @@ Hard gates与阻断项
 ## ERDG 共享治理接入
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/logistics-inventory-fulfillment-decision/adapter.json` 声明 LIFD 主权；ERDG 失败时不得形成生效动作。
+<!-- Professional evaluation routing: release audits read evaluations/evaluation-catalog.json and evaluations/golden/*.md; synthetic assets prove engineering quality only, never L4 real-world calibration. -->

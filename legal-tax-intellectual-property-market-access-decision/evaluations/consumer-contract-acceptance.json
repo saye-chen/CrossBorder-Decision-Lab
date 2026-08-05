@@ -1,0 +1,9 @@
+{
+  "contract":"D05-CONSUMER-ACCEPTANCE-2026.07",
+  "records":[
+    {"consumer":"D03","runtime":"PIPM-2026.07","required_fields":["object_ref","scope_ref","use_ref","blocked_actions"],"preserved_sovereignty":["product_definition","specification","product_lifecycle"],"automated_contract_status":"verified_by_consumer_validator","validator":"product-innovation-product-management/scripts/validate_d05_consumer.py","independent_owner_status":"pending","external_write":false},
+    {"consumer":"D04","runtime":"SPPQ-2026.07","required_fields":["object_ref","product_facts","market_access_gate"],"preserved_sovereignty":["supplier_selection","production_release","batch_quality_release"],"automated_contract_status":"verified_by_consumer_validator","validator":"supplier-procurement-production-quality-decision/scripts/validate_d05_consumer.py","independent_owner_status":"pending","external_write":false},
+    {"consumer":"D08","runtime":"PLCO-2026.07","required_fields":["object_ref","claims","claim_use_boundary","blocked_actions"],"preserved_sovereignty":["listing_content","store_structure","conversion_optimization"],"automated_contract_status":"verified_by_consumer_validator","validator":"platform-store-listing-conversion/scripts/validate_d05_consumer.py","independent_owner_status":"pending","external_write":false}
+  ],
+  "next_stage_effect":"blocked_until_independent_owner_acceptance"
+}

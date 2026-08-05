@@ -145,3 +145,5 @@ description: 默认用中文执行专家级跨境广告分析、测量与优化�
 ## ERDG 共享治理接入
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/advertising-analysis-measurement-optimization/adapter.json` 声明 AAMO 主权；ERDG 失败时不得形成生效动作。
+
+专业评测使用 `evaluations/evaluation-catalog.json`、`evaluations/golden/decision-card.md` 与 `evaluations/golden/professional-report.md`；必须覆盖负贡献、高归因蚕食、追踪断裂、容量约束、预算漂移和退款成熟恢复。

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Executable release audit for twelve expert-level L1-L3 repository skills."""
+"""Executable release audit for thirteen expert-level L1-L3 repository skills."""
 from __future__ import annotations
 import importlib.util
 import json
@@ -24,8 +24,9 @@ SKILLS={
  "pricing-profit-finance-cashflow-decision":("pricing_profit","PPFC-2026.07","ppfc"),
  "product-innovation-product-management":("product_definition","PIPM-2026.07","pipm"),
  "supplier-procurement-production-quality-decision":("supplier_selection","SPPQ-2026.07","sppq"),
+ "legal-tax-intellectual-property-market-access-decision":("market_access_gate","LTMA-2026.07","ltma"),
 }
-CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision","product-innovation-product-management","supplier-procurement-production-quality-decision"}}
+CORE_REPORT_SKILLS={name:value for name,value in SKILLS.items() if name not in {"creator-affiliate-partnership-management","marketing-brand-campaign-management","pricing-profit-finance-cashflow-decision","product-innovation-product-management","supplier-procurement-production-quality-decision","legal-tax-intellectual-property-market-access-decision"}}
 spec=importlib.util.spec_from_file_location("quality",ROOT/"scripts/evaluate_report_quality.py")
 quality=importlib.util.module_from_spec(spec); spec.loader.exec_module(quality)
 repo_spec=importlib.util.spec_from_file_location("repo_validation",ROOT/"scripts/validate_repo.py")
@@ -159,6 +160,10 @@ class FullRepositoryAudit(unittest.TestCase):
   for x in rows:
    p=ROOT/"evaluations/extreme-reports"/f"{x['id']}.md"; self.assertTrue(p.is_file(),p)
    score=quality.score_report(p.read_text(encoding="utf-8"),"full"); self.assertEqual((score["result"],score["score"]),("PASS",100.0),score)
+  semantic=subprocess.run([sys.executable,str(ROOT/"scripts/validate_extreme_semantics.py")],capture_output=True,text=True)
+  self.assertEqual(semantic.returncode,0,(semantic.stdout,semantic.stderr))
+  stress=subprocess.run([sys.executable,str(ROOT/"scripts/validate_extreme_stress.py")],capture_output=True,text=True)
+  self.assertEqual(stress.returncode,0,(stress.stdout,stress.stderr))
   capm=json.loads((ROOT/"creator-affiliate-partnership-management/evaluations/fixtures/evaluation-catalog.json").read_text())
   self.assertEqual(len([x for x in capm["cases"] if x["mode"]=="extreme"]),20)
 
@@ -185,7 +190,7 @@ class FullRepositoryAudit(unittest.TestCase):
    if test.name==pathlib.Path(__file__).name: continue
    r=subprocess.run([sys.executable,str(test)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(test.name,r.stdout[-2000:],r.stderr[-2000:]))
-  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_evaluation_taxonomy.py","validate_domain_maturity.py","validate_domain_architecture.py","validate_system_release.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py"):
+  for validator in ("validate_repo.py","validate_governance_baseline.py","validate_evaluation_taxonomy.py","validate_domain_maturity.py","validate_domain_architecture.py","validate_system_release.py","validate_capm_blueprint.py","validate_mbcm_blueprint.py","validate_release_integrity.py"):
    r=subprocess.run([sys.executable,str(ROOT/"scripts"/validator)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,(validator,r.stdout[-2000:],r.stderr[-2000:]))
 
