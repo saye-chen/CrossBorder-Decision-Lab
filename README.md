@@ -1,6 +1,6 @@
 # CrossBorder Decision Lab
 
-[English](README.en.md) · [十二个专业 Skill](#skill-快速定位) · [ERDG 治理底座](#统一决策基础设施) · [系统结构](#系统结构) · [使用方式](#如何使用) · [维护规则](RULES.md)
+[English](README.en.md) · [十三个专业 Skill](#skill-快速定位) · [ERDG 治理底座](#统一决策基础设施) · [系统结构](#系统结构) · [使用方式](#如何使用) · [维护规则](RULES.md)
 
 > 面向跨境商业的专业决策基础设施，把依赖个人经验的经营判断转化为有证据、有模型、有边界、有动作、有停止规则、可持续积累的决策资产。
 
@@ -8,7 +8,7 @@
 
 CrossBorder Decision Lab 服务于跨境电商经营者、品牌团队、投资决策者与专业服务团队。它不是一组通用提示词，而是把品类投资、竞争情报、产品、供应采购生产质量、定价财务、履约、页面、广告、达人、内容、营销品牌与客户增长连接成可独立运行、跨域协同和持续进化的专业决策系统。
 
-系统当前包含十二个已完成 L1—L3 专家级仓库建设的专业决策域，以及 ERDG（Economic, Risk & Decision Governance）治理底座。新增 D04/SPPQ 覆盖六类供应与质量主权决定、18 个确定性成本/产能/质量模型及独立双算校验、连续决策、四类消费者响应闭环和 160 个可执行评测案例。所有域的 L4 均为 `controlled pilot`。
+系统当前包含十三个已完成 L1—L3 专家级仓库建设的专业决策域，以及 ERDG（Economic, Risk & Decision Governance）治理底座。新增 D05/LTMA 覆盖商业市场准入 Gate、动作上限、Claim 使用边界、适格专业复核路由、动态规则、事故恢复和临时合同迁移；它不签发法律、税务、FTO、认证或实验室意见。所有域的 L4 均为 `controlled pilot`。
 
 CIDM现包含受治理的`OSL-v1`机会信号层：以clean-room方式把外部研究启发归并为八类确定性候选信号，覆盖多源字段质量、五类组合剧本、有效供给/VOC、CIDM→PLCO Proof交接、部分失败DAG、R0–R4恢复、独立Oracle和13项源码mutation。该信号层只扩大候选池，不能直接改变七维评分、资本姿态或跨域主权；授权20例盲选回放、20人非实现者理解测试和前向校准仍未完成，因此不构成生产成熟度声明。
 
@@ -123,7 +123,7 @@ flowchart TB
     D14 --> D01["D01 CIDM<br/>资本与组合决策"]
     D14 --> D02["D02 CIM<br/>竞争事实"]
     D14 --> D03["D03 PIPM<br/>产品定义"]
-    D14 --> D05["D05 合规与市场准入<br/>下一建设域"]
+    D14 --> D05["D05 LTMA<br/>合规与市场准入"]
     D14 --> D06["D06 PPFC<br/>定价、利润与现金"]
     D01 --> D03 --> D04["D04 SPPQ<br/>供应采购生产质量"] --> D07["D07 LIFD<br/>物流、库存与履约"]
     D07 --> D12["D12 MBCM<br/>营销、品牌与活动"]
@@ -149,10 +149,10 @@ flowchart TB
     E -.合同与红线校验.-> D12
     O -.回放与参数校准.-> E
     classDef planned stroke-dasharray:6 5
-    class D05,D14 planned
+    class D14 planned
 ```
 
-图中十二域为当前可运行能力；D05 为下一建设域，D14 为规划域，注册表和校验器禁止它们提前进入执行。各专业域继续保留最终专业主权；D14 只负责编排、冲突升级，以及在各 owner 已批准结论和资源边界内合成协同姿态与安排顺序，不裁决专业结论、不批准资本、不拥有外部写入。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
+图中十三域为当前可运行能力；D14 为规划域，注册表和校验器禁止其提前进入执行。各专业域继续保留最终专业主权；D14 只负责编排、冲突升级，以及在各 owner 已批准结论和资源边界内合成协同姿态与安排顺序，不裁决专业结论、不批准资本、不拥有外部写入。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
 
 ### D01—D14 连续决策闭环
 
@@ -165,7 +165,7 @@ sequenceDiagram
     participant D01 as D01 CIDM
     participant D03 as D03 PIPM
     participant D04 as D04 SPPQ
-    participant D05 as D05 合规（下一建设）
+    participant D05 as D05 LTMA 合规与市场准入
     participant D06 as D06 PPFC
     participant D07 as D07 LIFD
     participant M as D12/D11/D10/D08/D09 市场域
@@ -228,10 +228,11 @@ sequenceDiagram
 | **PPFC** | `PPFC-2026.07` | 售价、利润、贡献、保本指标、财务约束和现金风险应该如何计算与调整？ | [定价、利润、财务与现金流](pricing-profit-finance-cashflow-decision/SKILL.md) |
 | **PIPM** | `PIPM-2026.07` | 产品机会如何转化为可验证的产品定义、规格、MVP和路线图？ | [产品创新与产品管理](product-innovation-product-management/SKILL.md) |
 | **SPPQ** | `SPPQ-2026.07` | 供应商是否可信、采购能否承诺、生产和批次是否可以放行、事故如何恢复？ | [供应商、采购、生产与质量](supplier-procurement-production-quality-decision/SKILL.md) |
+| **LTMA** | `LTMA-2026.07` | 当前证据下能否继续商业准备，哪些动作须阻断、补证或交适格专业主体复核？ | [法律、税务、IP 与市场准入](legal-tax-intellectual-property-market-access-decision/SKILL.md) |
 
 ## 统一决策基础设施
 
-十二个专业域通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
+十三个专业域通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
 
 1. **证据与反证**：观察、用户输入、授权数据、外部基准、推断和假设分开记录。
 2. **数学与守恒**：利润、增量、容量、组合和风险通过可复算模型计算。
@@ -244,7 +245,7 @@ sequenceDiagram
 
 ## 当前能力
 
-当前版本已经形成十二个可独立运行、可跨域联动的专业决策 Skill，并完成：
+当前版本已经形成十三个可独立运行、可跨域联动的专业决策 Skill，并完成：
 
 - 专业场景与生命周期覆盖；
 - 确定性经济模型与统计估计工具；
@@ -253,6 +254,8 @@ sequenceDiagram
 - 证据、计算、结论、动作和版本血缘；
 - 专业主权、风险红线、停止、回滚与退出治理；
 - 仓库级自动化校验和发布门禁。
+
+十三域专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将 13 个域的 612 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 22 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。运行 `python3 scripts/validate_release_integrity.py` 计算是否达到 `controlled_pilot_engineering_ready`。L4 的授权真实回放、阈值/权重校准和独立复核单独管理；工程门通过不等于 production-ready，也不会解冻规划中的 D14。
 
 系统不依赖固定的大模型供应商。模型可以持续升级，专业决策合同、计算工具、业务基准和历史资产保持连续。
 
@@ -289,7 +292,7 @@ sequenceDiagram
 
 | 位置 | 内容 |
 |---|---|
-| 十二个专业 Skill 目录 | 各专业域的入口、工作流、模型、参考资料和测试 |
+| 十三个专业 Skill 目录 | 各专业域的入口、工作流、模型、参考资料和测试 |
 | [`evaluations/`](evaluations/) | 单 Skill、跨 Skill、连续追问、对抗与极端场景 |
 | [`governance/`](governance/) | 主权、成熟度、变更影响与共享治理合同 |
 | [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG 经济、风险、证据、状态、参数、血缘与跨域决策治理底座 |

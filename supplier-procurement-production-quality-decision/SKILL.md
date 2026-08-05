@@ -42,6 +42,8 @@ D04 只输出供应、采购、生产和质量主权结果。所有跨域字段�
 7. 连续追问运行 `scripts/update_continuous_decision.py`，只重算影响字段，保留历史和现实恢复义务。
 8. 跨域包必须逐字段接受/拒绝/部分接受；Schema 或 ERDG PASS 不代表业务 owner 接受。
 9. 缺少 D05 正式决定时只接受辖区、对象、时间和资格匹配的专业意见；否则依赖准入的动作 `blocked`。
+10. 消费 D05 市场准入包时运行 `scripts/validate_d05_consumer.py`；准入通过不能替代 D04 的质量、样品、生产或批次放行。
+11. 涉及 GR&R、Western Electric 规则、Weibull、行业参数或抽样计划时读取 `references/advanced-quality-and-walkthrough.md`，使用 `scripts/advanced_quality_models.py`；未注册或无来源参数必须阻断。
 10. 外部写入始终为 `false`；用户明确授权也只能生成执行包，不能由本 Skill 直接执行。
 
 ## 失败关闭

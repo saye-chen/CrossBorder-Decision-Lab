@@ -1,0 +1,27 @@
+{
+  "contract": "D05-COMPUTED-READINESS-2026.07.1",
+  "determination": "computed_from_repository_evidence",
+  "engineering_scope": "professional engineering quality for controlled-pilot use",
+  "required_validators": [
+    "legal-tax-intellectual-property-market-access-decision/scripts/validate_release_candidate.py",
+    "legal-tax-intellectual-property-market-access-decision/scripts/validate_consumer_acceptance.py",
+    "legal-tax-intellectual-property-market-access-decision/scripts/test_input_evidence.py",
+    "legal-tax-intellectual-property-market-access-decision/scripts/test_decision_engine.py",
+    "legal-tax-intellectual-property-market-access-decision/scripts/test_professional_domains.py",
+    "legal-tax-intellectual-property-market-access-decision/scripts/test_professional_signoff.py",
+    "legal-tax-intellectual-property-market-access-decision/scripts/test_integration_migration.py",
+    "scripts/validate_professional_evaluation_registry.py"
+  ],
+  "external_assurance_sources": {
+    "consumer_owner_acceptance": "legal-tax-intellectual-property-market-access-decision/evaluations/consumer-contract-acceptance.json",
+    "qualified_professional_signoff": "legal-tax-intellectual-property-market-access-decision/evaluations/qualified-professional-signoff-template.json",
+    "authorized_real_replays": "legal-tax-intellectual-property-market-access-decision/evaluations/historical-replay-template.json"
+  },
+  "claim_boundaries": {
+    "engineering_ready_label": "controlled_pilot_engineering_ready",
+    "production_ready": false,
+    "qualified_legal_tax_certainty": false,
+    "l4_may_be_inferred_from_synthetic_evidence": false,
+    "external_write": false
+  }
+}

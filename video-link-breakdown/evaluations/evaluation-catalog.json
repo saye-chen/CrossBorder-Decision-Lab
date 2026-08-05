@@ -1,0 +1,192 @@
+{
+  "runtime": "VLB-2026.07",
+  "owner": "content_creative",
+  "cases": [
+    {
+      "id": "VLB-PE-01",
+      "name": "高播放无商品证明",
+      "mode": "standard",
+      "object_ref": "VLB-OBJECT-1@v1",
+      "evidence": [
+        "E1S"
+      ],
+      "counterevidence": [
+        "E1C"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "钩子",
+        "证明机制",
+        "平台迁移",
+        "疲劳",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "VLB-PE-02",
+      "name": "医疗话术越界",
+      "mode": "conflict",
+      "object_ref": "VLB-OBJECT-2@v1",
+      "evidence": [
+        "E2S"
+      ],
+      "counterevidence": [
+        "E2C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "钩子",
+        "证明机制",
+        "平台迁移",
+        "疲劳",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "VLB-PE-03",
+      "name": "达人素材权利缺失",
+      "mode": "extreme",
+      "object_ref": "VLB-OBJECT-3@v1",
+      "evidence": [
+        "E3S"
+      ],
+      "counterevidence": [
+        "E3C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "钩子",
+        "证明机制",
+        "平台迁移",
+        "疲劳",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "VLB-PE-04",
+      "name": "跨平台节奏迁移",
+      "mode": "multi_turn",
+      "object_ref": "VLB-OBJECT-4@v1",
+      "evidence": [
+        "E4S"
+      ],
+      "counterevidence": [
+        "E4C"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "钩子",
+        "证明机制",
+        "平台迁移",
+        "疲劳",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "VLB-PE-05",
+      "name": "素材疲劳漂移",
+      "mode": "adversarial",
+      "object_ref": "VLB-OBJECT-5@v1",
+      "evidence": [
+        "E5S"
+      ],
+      "counterevidence": [
+        "E5C"
+      ],
+      "expected_status": "refresh",
+      "must": [
+        "钩子",
+        "证明机制",
+        "平台迁移",
+        "疲劳",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "VLB-PE-06",
+      "name": "自然内容转广告",
+      "mode": "recovery",
+      "object_ref": "VLB-OBJECT-6@v1",
+      "evidence": [
+        "E6S"
+      ],
+      "counterevidence": [
+        "E6C"
+      ],
+      "expected_status": "review_required",
+      "must": [
+        "钩子",
+        "证明机制",
+        "平台迁移",
+        "疲劳",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    }
+  ]
+}

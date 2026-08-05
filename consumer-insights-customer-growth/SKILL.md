@@ -143,3 +143,5 @@ description: 默认用中文执行跨境电商消费者洞察、客户增长、�
 ## ERDG 共享治理接入
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/consumer-insights-customer-growth/adapter.json` 声明 CIG 主权；ERDG 失败时不得形成生效动作。
+
+专业评测使用 `evaluations/evaluation-catalog.json`、`evaluations/golden/decision-card.md` 与 `evaluations/golden/professional-report.md`；必须覆盖身份授权、退款成熟、触达疲劳、评价恢复、会员增量和授权撤回。

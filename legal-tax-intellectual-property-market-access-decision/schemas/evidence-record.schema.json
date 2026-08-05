@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ltma/evidence-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "evidence_id", "source_type", "source_ref", "source_family", "authorization_ref", "object_ref", "jurisdictions", "allowed_uses", "obtained_at", "verified_at", "expires_at", "content_hash", "supports_claims", "opposes_claims", "limitations", "state"],
+  "properties": {
+    "contract": {"const": "D05-EVIDENCE-DRAFT-1"},
+    "evidence_id": {"type": "string", "minLength": 1},
+    "source_type": {"enum": ["observed_public", "authorized_first_party", "authorized_third_party", "official_rule", "professional_opinion", "benchmark", "synthetic_fixture", "user_assertion"]},
+    "source_ref": {"type": "string", "minLength": 1},
+    "source_family": {"type": "string", "minLength": 1},
+    "authorization_ref": {"type": ["string", "null"]},
+    "object_ref": {"type": "string", "minLength": 1},
+    "jurisdictions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "allowed_uses": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "obtained_at": {"type": "string", "format": "date-time"},
+    "verified_at": {"type": ["string", "null"], "format": "date-time"},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "supports_claims": {"type": "array", "items": {"type": "string"}},
+    "opposes_claims": {"type": "array", "items": {"type": "string"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "state": {"enum": ["current", "expired", "conflicted", "rejected", "unavailable"]}
+  }
+}

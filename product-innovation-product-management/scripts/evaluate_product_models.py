@@ -82,7 +82,30 @@ def trace(p):
         if x.get("specification_id") not in spec or not set(x.get("verification_ids",[]))&ver: missing.append("claim:"+x["id"])
     failed=gates(p)
     return {"freeze_eligible":not missing and not failed,"untraced":sorted(missing),"status":"proposed" if not missing and not failed else "blocked","failed_gates":failed}
-MODELS={"unmet_need":unmet,"opportunity_interval":interval,"constraint_feasibility":constraints,"mvp_coverage":mvp,"variant_portfolio":variants,"packaging_impact":packaging,"roadmap_priority":roadmap,"traceability":trace}
+def tolerance_stack(p):
+    rows=p.get("contributors",[])
+    if not rows: raise ModelError("contributors_required")
+    nominal=sum((d(x["nominal"],x["id"]) for x in rows),Decimal(0));worst_low=sum((d(x["nominal"],x["id"])-d(x["minus"],x["id"]) for x in rows),Decimal(0));worst_high=sum((d(x["nominal"],x["id"])+d(x["plus"],x["id"]) for x in rows),Decimal(0))
+    if any(d(x["minus"],x["id"])<0 or d(x["plus"],x["id"])<0 or not x.get("unit") for x in rows):raise ModelError("invalid_tolerance_contributor")
+    low=d(p["assembly_min"],"assembly_min");high=d(p["assembly_max"],"assembly_max");failed=gates(p);feasible=worst_low>=low and worst_high<=high and not failed
+    return {"nominal":out(nominal),"worst_case_low":out(worst_low),"worst_case_high":out(worst_high),"margin_low":out(worst_low-low),"margin_high":out(high-worst_high),"status":"proposed" if feasible else "blocked","failed_gates":failed}
+def risk_retirement(p):
+    risks=p.get("risks",[])
+    if not risks:raise ModelError("risks_required")
+    unresolved=[]
+    for x in risks:
+        if x.get("critical") and (x.get("test_state")!="passed" or not x.get("evidence_id") or x.get("object_version")!=p.get("object_version")):unresolved.append(x["id"])
+    failed=gates(p);return {"critical_risks":len([x for x in risks if x.get("critical")]),"unresolved_critical":sorted(unresolved),"status":"proposed" if not unresolved and not failed else "blocked","failed_gates":failed}
+def resource_roadmap(p):
+    capacity={k:d(v,k) for k,v in p.get("capacity",{}).items()};selected=[];deferred=[]
+    for x in sorted(p.get("candidates",[]),key=lambda x:(-d(x["priority"],x["id"]),x["id"])):
+        needs={k:d(v,f"{x['id']}:{k}") for k,v in x.get("resource_needs",{}).items()}
+        if all(needs.get(k,Decimal(0))<=capacity.get(k,Decimal(0)) for k in needs):
+            selected.append(x["id"])
+            for k,v in needs.items():capacity[k]-=v
+        else:deferred.append(x["id"])
+    return {"selected":selected,"deferred":deferred,"remaining_capacity":{k:out(v) for k,v in capacity.items()},"status":"proposed" if selected and not gates(p) else "blocked","failed_gates":gates(p)}
+MODELS={"unmet_need":unmet,"opportunity_interval":interval,"constraint_feasibility":constraints,"mvp_coverage":mvp,"variant_portfolio":variants,"packaging_impact":packaging,"roadmap_priority":roadmap,"traceability":trace,"tolerance_stack":tolerance_stack,"mvp_risk_retirement":risk_retirement,"resource_roadmap":resource_roadmap}
 def evaluate(p):
     if p.get("model") not in MODELS: raise ModelError("unknown_model")
     return {"model":p["model"],"model_version":"PIPM-MODELS-2026.07","result":MODELS[p["model"]](p)}

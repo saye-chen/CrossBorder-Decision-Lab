@@ -6,7 +6,7 @@ Contract version: `ERDG-CONTRACT-2026.07`
 
 Maturity: `controlled pilot`. L1—L3 automated gates may pass; L4 requires authorized, deidentified real replays and independent review.
 
-All twelve current professional Skill entrypoints consume `ERDG-CONTRACT-2026.07` through their local decision-contract validator and registered adapter. The D01—D14 target topology and lifecycle state are authoritative in `../domain-architecture-registry.json`: D04 is current, D05 is `next_build`, and D14 is `planned`; unavailable domains must fail closed and cannot emit executable decisions. Draft 2020-12 schemas are executed with format checking. Golden reports must carry valid deterministic recomputation bindings. Reference capacity is governed by `capacity-contract.json`; exceeding a hard limit fails closed and the reference gate does not claim a production SLO.
+All thirteen current professional Skill entrypoints consume `ERDG-CONTRACT-2026.07` through their local decision-contract validator and registered adapter. The D01—D14 target topology and lifecycle state are authoritative in `../domain-architecture-registry.json`: D05 is current and D14 is `planned`; unavailable domains must fail closed and cannot emit executable decisions. Draft 2020-12 schemas are executed with format checking. Golden reports must carry valid deterministic recomputation bindings. Reference capacity is governed by `capacity-contract.json`; exceeding a hard limit fails closed and the reference gate does not claim a production SLO.
 
 ## Charter
 
@@ -36,7 +36,7 @@ ERDG does not own business decisions, choose production thresholds, infer causal
 
 `schemas/handoff-envelope.schema.json` is the sole authoritative v2 handoff
 contract. `schemas/decision-cycle.schema.json` defines the continuous
-decision-cycle identity. The twelve current domains use this boundary directly;
+decision-cycle identity. The thirteen current domains use this boundary directly;
 no v1 runtime path or dual-read mode remains. Schema acceptance never promotes
 a planned domain, approves an external action or transfers decision sovereignty.
 

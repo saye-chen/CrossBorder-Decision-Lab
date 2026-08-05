@@ -1,0 +1,174 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://crossborder.local/ltma/professional-report.schema.json",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "contract",
+        "report_id",
+        "report_type",
+        "object_ref",
+        "scope_ref",
+        "as_of_time",
+        "gate_status",
+        "action_ceiling",
+        "evidence",
+        "counterevidence",
+        "alternatives",
+        "redlines",
+        "gaps",
+        "professional_reviews",
+        "allowed_actions",
+        "blocked_actions",
+        "success_conditions",
+        "stop_conditions",
+        "rollback",
+        "expires_at",
+        "lineage",
+        "external_write",
+        "maturity"
+    ],
+    "properties": {
+        "contract": {
+            "const": "D05-REPORT-DRAFT-1"
+        },
+        "report_id": {
+            "type": "string"
+        },
+        "report_type": {
+            "enum": [
+                "decision_card",
+                "decision_memo",
+                "diligence",
+                "incident_card"
+            ]
+        },
+        "object_ref": {
+            "type": "string"
+        },
+        "scope_ref": {
+            "type": "string"
+        },
+        "as_of_time": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "gate_status": {
+            "enum": [
+                "continue_reversible_preparation",
+                "continue_with_conditions",
+                "evidence_required",
+                "professional_review",
+                "blocked",
+                "suspended",
+                "remediation",
+                "exit_required"
+            ]
+        },
+        "action_ceiling": {
+            "enum": [
+                "collect_evidence",
+                "reversible_preparation",
+                "limited_internal_test",
+                "external_commercial_action"
+            ]
+        },
+        "evidence": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "counterevidence": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "alternatives": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string"
+            }
+        },
+        "redlines": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "gaps": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "professional_reviews": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "allowed_actions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "blocked_actions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "success_conditions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string"
+            }
+        },
+        "stop_conditions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string"
+            }
+        },
+        "rollback": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string"
+            }
+        },
+        "expires_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "lineage": {
+            "type": "object",
+            "required": [
+                "input_hash",
+                "report_hash"
+            ],
+            "properties": {
+                "input_hash": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                },
+                "report_hash": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                }
+            }
+        },
+        "external_write": {
+            "const": false
+        },
+        "maturity": {
+            "const": "controlled pilot"
+        }
+    }
+}

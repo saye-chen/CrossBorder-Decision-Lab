@@ -17,8 +17,8 @@
     },
     "d01-d14-domain-architecture-and-handoff-v2": {
       "owner": "repository",
-      "authoritative_sources": ["governance/domain-architecture-registry.json", "governance/domain-architecture-registry.schema.json", "governance/next-build/d05-ltma.md", "governance/erdg/schemas/handoff-envelope.schema.json", "governance/erdg/schemas/decision-cycle.schema.json", "governance/erdg/scripts/validate_handoff.py", "governance/erdg/scripts/validate_decision_cycle.py"],
-      "retired_sources": ["governance/next-build/d04-sppq.md"],
+      "authoritative_sources": ["governance/domain-architecture-registry.json", "governance/domain-architecture-registry.schema.json", "governance/d05-ltma-blueprint.md", "governance/d05-sovereignty-and-terminology.md", "governance/d05-open-decisions.json", "legal-tax-intellectual-property-market-access-decision/SKILL.md", "governance/erdg/schemas/handoff-envelope.schema.json", "governance/erdg/schemas/decision-cycle.schema.json", "governance/erdg/scripts/validate_handoff.py", "governance/erdg/scripts/validate_decision_cycle.py"],
+      "retired_sources": ["governance/next-build/d04-sppq.md", "governance/d05-ltma-blueprint-review.md"],
       "consumers": ["README.md", "README.en.md", "RULES.md", "governance/erdg/ERDG.md", "governance/erdg/scripts/validate_domain_contract.py", "scripts/validate_repo.py"],
       "validators": ["scripts/validate_domain_architecture.py", "governance/erdg/scripts/validate_handoff.py", "governance/erdg/scripts/validate_decision_cycle.py", "scripts/validate_repo.py"],
       "tests": ["scripts/test_domain_architecture.py", "scripts/test_homepage_integrity.py", "scripts/test_full_repository_audit.py"],
@@ -112,6 +112,14 @@
       "validators": ["scripts/analyze_change_impact.py", "scripts/validate_repo.py"],
       "tests": ["scripts/test_governance.py", "scripts/test_release_compliance.py", "scripts/test_score_system_audit.py", "scripts/test_system_audit_evidence.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations/golden", "evaluations/golden-reports", "evaluations/adversarial-cases", "evaluations/methodology-comparison-2026-07-29.md"]
+    },
+    "thirteen-domain-professional-engineering-release": {
+      "owner": "repository",
+      "authoritative_sources": ["governance/professional-engineering-release.md", "governance/professional-evaluation-registry.json", "governance/professional-evaluation-case.schema.json", "governance/release-mutation-contract.json", "scripts/build_professional_evaluation_index.py"],
+      "consumers": ["README.md", "README.en.md", "RULES.md", "governance/system-audit-standard.md", ".github/workflows/expert-release.yml", "legal-tax-intellectual-property-market-access-decision/evaluations/completion-readiness.json"],
+      "validators": ["scripts/validate_professional_evaluation_registry.py", "scripts/validate_domain_professional_evaluations.py", "scripts/validate_release_integrity.py", "legal-tax-intellectual-property-market-access-decision/scripts/validate_completion_readiness.py"],
+      "tests": ["scripts/test_professional_evaluation_registry.py", "scripts/test_domain_professional_evaluations.py", "scripts/test_release_anti_cheat.py", "scripts/test_release_integrity.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["evaluations/professional-evaluation-index.json", "category-investment-decision/evaluations", "competitive-intelligence-monitoring/evaluations", "product-innovation-product-management/evaluations", "supplier-procurement-production-quality-decision/evaluations", "legal-tax-intellectual-property-market-access-decision/evaluations", "pricing-profit-finance-cashflow-decision/evaluations", "logistics-inventory-fulfillment-decision/evaluations", "platform-store-listing-conversion/evaluations", "advertising-analysis-measurement-optimization/evaluations", "creator-affiliate-partnership-management/evaluations", "video-link-breakdown/evaluations", "marketing-brand-campaign-management/evaluations", "consumer-insights-customer-growth/evaluations"]
     },
     "cim-monitoring-and-integration": {
       "owner": "competitive-intelligence-monitoring",

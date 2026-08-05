@@ -1,0 +1,7 @@
+{"contract":"SPPQ-INDUSTRY-PARAMETERS-2026.07","policy":"No generic threshold may be promoted to an industry requirement without a named source, jurisdiction, product scope, effective date and owner approval.","profiles":[
+{"industry":"medical_device","parameters":[],"status":"source_required","required_topics":["risk_class","process_validation","measurement_system","sterility_if_applicable","traceability"]},
+{"industry":"automotive","parameters":[],"status":"source_required","required_topics":["special_characteristics","msa","spc","ppap","supplier_quality"]},
+{"industry":"food_contact","parameters":[],"status":"source_required","required_topics":["material_composition","migration_testing","hygiene","lot_traceability"]},
+{"industry":"electrical_consumer","parameters":[],"status":"source_required","required_topics":["electrical_safety","battery_if_applicable","reliability","factory_consistency"]},
+{"industry":"general_consumer","parameters":[],"status":"owner_calibration_required","required_topics":["ctq","sampling","reliability","complaint_escape"]}
+],"sampling_plan_registry":{}}

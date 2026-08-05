@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ltma/compliance-incident.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "incident_id", "root_event_ref", "state", "detected_at", "affected_objects", "affected_actions", "frozen_actions", "preserved_results", "evidence_refs", "root_cause", "remediation", "professional_recheck", "recovery_conditions", "rollback", "external_action_requests", "external_write"],
+  "properties": {
+    "contract": {"const": "D05-INCIDENT-DRAFT-1"},
+    "incident_id": {"type": "string"},
+    "root_event_ref": {"type": "string"},
+    "state": {"enum": ["detected", "triaged", "contained", "investigation", "remediation", "professional_recheck", "recovery_review", "recovered", "exit"]},
+    "detected_at": {"type": "string", "format": "date-time"},
+    "affected_objects": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "affected_actions": {"type": "array", "items": {"type": "string"}},
+    "frozen_actions": {"type": "array", "items": {"type": "string"}},
+    "preserved_results": {"type": "array", "items": {"type": "string"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "root_cause": {"type": ["string", "null"]},
+    "remediation": {"type": "array", "items": {"type": "string"}},
+    "professional_recheck": {"type": "array", "items": {"type": "string"}},
+    "recovery_conditions": {"type": "array", "items": {"type": "string"}},
+    "rollback": {"type": "array", "items": {"type": "string"}},
+    "external_action_requests": {"type": "array", "items": {"type": "string"}},
+    "external_write": {"const": false}
+  }
+}

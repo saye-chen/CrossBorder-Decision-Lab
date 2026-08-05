@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class AdversarialExecution(unittest.TestCase):
  def test_each_case_triggers_its_specific_guard(self):
   cases=json.loads((ROOT/"evaluations/adversarial-executable-fixtures.json").read_text())["cases"]
-  self.assertEqual(len(cases),5)
+  self.assertEqual(len(cases),10)
   for case in cases:
    with self.subTest(case=case["id"]):
     result=validate(case["payload"]);self.assertFalse(result["valid"]);self.assertTrue(any(x.startswith(case["expected_error"]) for x in result["errors"]),result)

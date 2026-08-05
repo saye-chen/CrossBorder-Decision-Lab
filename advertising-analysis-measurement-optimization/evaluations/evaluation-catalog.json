@@ -1,0 +1,192 @@
+{
+  "runtime": "AAMO-2026.07",
+  "owner": "advertising",
+  "cases": [
+    {
+      "id": "AAMO-PE-01",
+      "name": "高ROAS负贡献",
+      "mode": "standard",
+      "object_ref": "AAMO-OBJECT-1@v1",
+      "evidence": [
+        "E1S"
+      ],
+      "counterevidence": [
+        "E1C"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "三本账",
+        "边际效率",
+        "增量",
+        "归因",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "AAMO-PE-02",
+      "name": "PMax品牌蚕食",
+      "mode": "conflict",
+      "object_ref": "AAMO-OBJECT-2@v1",
+      "evidence": [
+        "E2S"
+      ],
+      "counterevidence": [
+        "E2C"
+      ],
+      "expected_status": "experiment_required",
+      "must": [
+        "三本账",
+        "边际效率",
+        "增量",
+        "归因",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "AAMO-PE-03",
+      "name": "追踪断裂",
+      "mode": "extreme",
+      "object_ref": "AAMO-OBJECT-3@v1",
+      "evidence": [
+        "E3S"
+      ],
+      "counterevidence": [
+        "E3C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "三本账",
+        "边际效率",
+        "增量",
+        "归因",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "AAMO-PE-04",
+      "name": "库存容量不足",
+      "mode": "multi_turn",
+      "object_ref": "AAMO-OBJECT-4@v1",
+      "evidence": [
+        "E4S"
+      ],
+      "counterevidence": [
+        "E4C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "三本账",
+        "边际效率",
+        "增量",
+        "归因",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "AAMO-PE-05",
+      "name": "预算渐进漂移",
+      "mode": "adversarial",
+      "object_ref": "AAMO-OBJECT-5@v1",
+      "evidence": [
+        "E5S"
+      ],
+      "counterevidence": [
+        "E5C"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "三本账",
+        "边际效率",
+        "增量",
+        "归因",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "AAMO-PE-06",
+      "name": "退款成熟后恢复",
+      "mode": "recovery",
+      "object_ref": "AAMO-OBJECT-6@v1",
+      "evidence": [
+        "E6S"
+      ],
+      "counterevidence": [
+        "E6C"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "三本账",
+        "边际效率",
+        "增量",
+        "归因",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    }
+  ]
+}

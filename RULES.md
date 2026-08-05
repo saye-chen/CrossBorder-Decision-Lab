@@ -12,11 +12,17 @@ Calculations that can change an investment conclusion must be deterministic. Cro
 
 ## 0b. Target Architecture and Deployment Boundary
 
-`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. Current domains remain independently owned modules inside a microservice-ready modular monolith. D04 is current; D05 is the next build and D14 is planned. A planned or next-build domain may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
+`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. Current domains remain independently owned modules inside a microservice-ready modular monolith. D05 is current and D14 is planned. A planned or next-build domain may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
 
 Module boundaries use versioned handoff packets, stable decision-type identifiers and Decision Cycle identity. Cross-domain calls must not import another domain's private implementation or rewrite its conclusions. ERDG validates structure, evidence, state, lineage and deterministic shared calculations; D14 may eventually orchestrate dependencies and escalation, but neither ERDG nor D14 acquires professional decision sovereignty.
 
 Extraction into a network microservice requires observed independent scaling, isolation, deployment or organizational ownership need; a stable versioned contract; idempotency, retry and timeout semantics; observability; consumer migration evidence; and a tested rollback path. Directory count alone is never a reason to create a service.
+
+## 0c. Computed Professional Engineering Release
+
+`governance/professional-evaluation-registry.json` is the authority for the D01—D13 professional evaluation surface; `evaluations/professional-evaluation-index.json` is generated evidence, not a hand-edited status file. Run `scripts/build_professional_evaluation_index.py` after source evaluation or Golden changes, then run `scripts/validate_release_integrity.py`. The validator must bind every source case by hash, verify evidence/counterevidence and claim/root-cause/action lineage, execute registered semantic and numerical validators, and kill the mutations in `governance/release-mutation-contract.json`.
+
+`controlled_pilot_engineering_ready` and L4 external assurance are separate conclusions. Synthetic evaluations may close the L1—L3 engineering gate but can never establish production readiness, threshold calibration, qualified professional signoff, external write authority, or permission to activate D14.
 
 ## 1. Source of Truth
 

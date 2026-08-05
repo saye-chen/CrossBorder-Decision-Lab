@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "as_of_time": "2026-08-05T00:00:00+08:00",
+  "blueprint": "D05-BLUEPRINT-DRAFT-1",
+  "decisions": [
+    {
+      "id": "D05-OD-01",
+      "question": "Does D05 issue legal, tax, FTO, certification or laboratory conclusions?",
+      "decision": "No. D05 owns commercial gates, action ceilings, claim-use boundaries, qualified professional-review routing and compliance recovery. Reserved professional conclusions remain with appropriately qualified or authorized professionals and institutions.",
+      "status": "resolved"
+    },
+    {
+      "id": "D05-OD-02",
+      "question": "Can D05 treat no detected risk as confirmed compliance or no infringement?",
+      "decision": "No. A negative search or missing finding is bounded screening evidence only and cannot be upgraded to confirmed compliance, legality, tax correctness, certification or freedom to operate.",
+      "status": "resolved"
+    },
+    {
+      "id": "D05-OD-03",
+      "question": "Can commercial upside compensate for a legal, safety, authorization or certificate redline?",
+      "decision": "No. Non-compensable redlines cap or block the affected action regardless of revenue, margin, traffic or strategic value.",
+      "status": "resolved"
+    },
+    {
+      "id": "D05-OD-04",
+      "question": "Does a professional opinion automatically clear a product, claim or market?",
+      "decision": "No. D05 validates the opinion's role, credential or authorization scope, jurisdiction, object, intended use, basis, conflicts, limitations and validity window before accepting it as bounded evidence.",
+      "status": "resolved"
+    },
+    {
+      "id": "D05-OD-05",
+      "question": "Who owns dynamic rule storage and who owns its professional meaning?",
+      "decision": "The future F02 layer owns normalized localization facts, scope, time and refresh metadata. D05 owns the bounded compliance meaning, professional-review requirement and commercial gate that consume those facts. Until F02 exists, D05 reuses the governed temporary localization contract.",
+      "status": "resolved_for_blueprint"
+    },
+    {
+      "id": "D05-OD-06",
+      "question": "Can D05 execute filings, removals, recalls, notices or account changes?",
+      "decision": "No. D05 emits decisions and named action requests only; external write authority remains false and execution requires an accountable human or authorized external system.",
+      "status": "resolved"
+    },
+    {
+      "id": "D05-OD-07",
+      "question": "What qualified-professional review roles and minimum credential evidence are required for the first implementation?",
+      "decision": null,
+      "status": "open_external",
+      "owner": "repository owner",
+      "closure_evidence": [
+        "named independent review roles by topic and jurisdiction",
+        "credential or authorization verification method",
+        "conflict-of-interest disclosure",
+        "review scope and signed review record"
+      ]
+    },
+    {
+      "id": "D05-OD-08",
+      "question": "What minimization and retention contract applies to confidential, personal or potentially privileged professional materials?",
+      "decision": "The minimum repository control is defined in legal-tax-intellectual-property-market-access-decision/references/confidential-material-governance.md: minimize fields, use deidentified references and hashes, keep raw protected material outside the repository, record owner/use/access/location/retention/deletion, fail closed without authorization, and route privilege determinations to qualified counsel.",
+      "status": "resolved_engineering_policy",
+      "owner": "repository governance",
+      "closure_evidence": [
+        "legal-tax-intellectual-property-market-access-decision/references/confidential-material-governance.md",
+        "legal-tax-intellectual-property-market-access-decision/scripts/validate_release_candidate.py"
+      ]
+    }
+  ]
+}

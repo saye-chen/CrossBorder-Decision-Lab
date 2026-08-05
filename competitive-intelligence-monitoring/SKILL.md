@@ -138,3 +138,5 @@ description: 默认用中文执行跨境电商竞品发现、建档、投资级�
 ## ERDG 共享治理接入
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/competitive-intelligence-monitoring/adapter.json` 声明 CIM 主权；ERDG 失败时不得形成生效动作。
+
+专业评测使用 `evaluations/evaluation-catalog.json`、`evaluations/golden/decision-card.md` 与 `evaluations/golden/professional-report.md`；必须覆盖身份错配、同源污染、代理归因、跨国迁移、证据过期和监控恢复。

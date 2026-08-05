@@ -46,11 +46,11 @@
       "blocking_gates": ["G2_PRODUCT_SUPPLY_ACCESS", "G3_LAUNCH_READINESS", "G5_OUTCOME_REPLAY"], "external_write_authority": false
     },
     {
-      "domain_id": "D05", "skill": "legal-tax-intellectual-property-market-access-decision", "runtime_prefix": "LTMA", "availability": "next_build",
+      "domain_id": "D05", "skill": "legal-tax-intellectual-property-market-access-decision", "runtime_prefix": "LTMA", "availability": "current",
       "architecture_roles": ["foundational_decision_service", "outcome_and_learning"],
-      "owned_decision_types": ["legal_access", "regulatory_compliance", "tax_treatment", "intellectual_property", "certification_access"],
-      "decision_authorities": ["legal access", "regulatory compliance", "tax treatment", "intellectual property", "certification access"],
-      "provides": ["compliance_gate", "market_access_decision", "claim_boundary", "professional_opinion", "compliance_recovery"],
+      "owned_decision_types": ["market_access_gate", "compliance_action_ceiling", "claim_use_boundary", "professional_review_routing", "compliance_recovery"],
+      "decision_authorities": ["commercial market-access gating", "compliance action ceilings", "claim-use boundaries", "qualified professional-review routing", "compliance recovery workflow"],
+      "provides": ["compliance_gate", "market_access_decision", "claim_boundary", "professional_review_request", "professional_opinion_receipt", "compliance_recovery"],
       "requires": ["canonical_object", "country_platform_scope", "product_claim_material", "professional_evidence"],
       "hard_dependencies": [], "optional_dependencies": ["D03", "D04", "D08", "D09", "D10", "D11", "D12"],
       "lifecycle_stages": ["sense", "define", "qualify", "launch", "learn", "recover", "exit"],

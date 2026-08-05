@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ltma/classification-candidate.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "candidate_id", "classification_system", "candidate_value", "object_ref", "scope_ref", "supporting_evidence", "opposing_evidence", "unresolved_facts", "rule_family_refs", "state", "professional_review_required"],
+  "properties": {
+    "contract": {"const": "D05-CLASSIFICATION-DRAFT-1"},
+    "candidate_id": {"type": "string"},
+    "classification_system": {"enum": ["regulatory_product", "customs_hs", "platform_category", "commercial_category"]},
+    "candidate_value": {"type": "string", "minLength": 1},
+    "object_ref": {"type": "string", "minLength": 1},
+    "scope_ref": {"type": "string", "minLength": 1},
+    "supporting_evidence": {"type": "array", "items": {"type": "string"}},
+    "opposing_evidence": {"type": "array", "items": {"type": "string"}},
+    "unresolved_facts": {"type": "array", "items": {"type": "string"}},
+    "rule_family_refs": {"type": "array", "items": {"type": "string"}},
+    "state": {"enum": ["candidate", "excluded", "review_required", "inconclusive"]},
+    "professional_review_required": {"type": "boolean"}
+  }
+}

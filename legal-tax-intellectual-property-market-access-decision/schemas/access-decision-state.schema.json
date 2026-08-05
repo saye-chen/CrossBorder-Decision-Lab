@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ltma/access-decision-state.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "decision_id", "decision_version", "object_ref", "lifecycle_stage", "state", "previous_state", "external_write", "history_refs"],
+  "properties": {
+    "contract": {"const": "D05-STATE-DRAFT-1"},
+    "decision_id": {"type": "string", "minLength": 1},
+    "decision_version": {"type": "string", "minLength": 1},
+    "object_ref": {"type": "string", "minLength": 1},
+    "lifecycle_stage": {"enum": ["sense", "define", "qualify", "launch", "learn", "recover", "exit"]},
+    "state": {"enum": ["intake", "screening", "evidence_required", "professional_review", "conditionally_cleared", "cleared_for_named_use", "blocked", "suspended", "remediation", "withdrawn", "expired", "superseded", "closed"]},
+    "previous_state": {"type": ["string", "null"]},
+    "supersedes_decision_ref": {"type": ["string", "null"]},
+    "scope_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "blocked_actions": {"type": "array", "items": {"type": "string"}},
+    "allowed_actions": {"type": "array", "items": {"type": "string"}},
+    "external_write": {"const": false},
+    "history_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  }
+}

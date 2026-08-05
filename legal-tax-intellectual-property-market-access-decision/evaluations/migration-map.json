@@ -1,0 +1,28 @@
+{
+  "contract": "D05-MIGRATION-DRAFT-1",
+  "migration_id": "PIPM-D05-TEMP-TO-D05-DRAFT-1",
+  "temporary_contract": "PIPM-D05-TEMP-2026.07",
+  "formal_contract": "D05-INPUT-DRAFT-1",
+  "snapshot_id": "synthetic-migration-snapshot-1",
+  "object_ref": "synthetic-object@v1",
+  "business_time": "2026-08-05T00:00:00+08:00",
+  "mappings": [
+    {"source_field":"object_ref","target_field":"object_ref","transform":"identity","classification":"lossless","criticality":"safety_critical","validator":"validate_object_state.py","consumer":"D03","rollback":"restore temporary object_ref"},
+    {"source_field":"scope","target_field":"scope_ref","transform":"normalize scope object to versioned reference","classification":"lossless","criticality":"safety_critical","validator":"validate_input_evidence.py","consumer":"D03","rollback":"restore temporary scope"},
+    {"source_field":"intended_use","target_field":"use_ref","transform":"bind intended use to versioned use object","classification":"lossless","criticality":"major","validator":"validate_input_evidence.py","consumer":"D03","rollback":"restore temporary intended_use"},
+    {"source_field":"product_facts","target_field":"product_facts","transform":"preserve fields and explicit null semantics","classification":"lossless","criticality":"safety_critical","validator":"validate_input_evidence.py","consumer":"D04","rollback":"restore temporary product_facts"},
+    {"source_field":"claims","target_field":"claims","transform":"preserve original text language medium and object version","classification":"lossless","criticality":"major","validator":"evaluate_professional_domains.py","consumer":"D08","rollback":"restore temporary claims"},
+    {"source_field":"review_questions","target_field":null,"transform":"split into dynamic rule and professional review request records","classification":"lossy","criticality":"major","validator":"validate_input_evidence.py","consumer":"D05","rollback":"retain temporary review_questions until split acceptance"},
+    {"source_field":"blocked_actions","target_field":"blocked_actions","transform":"identity","classification":"lossless","criticality":"safety_critical","validator":"decision_engine.py","consumer":"D03","rollback":"restore temporary blocked_actions"}
+  ],
+  "consumer_acceptance": [
+    {"consumer":"D03","status":"pending"},
+    {"consumer":"D04","status":"pending"},
+    {"consumer":"D08","status":"pending"}
+  ],
+  "legacy_read_preserved": true,
+  "legacy_state_preserved": true,
+  "action_ceiling_comparison": "same",
+  "rollback_triggers": ["safety critical mapping not lossless", "consumer rejected or pending", "new action ceiling higher", "object or business time mismatch"],
+  "rollback_status": "ready"
+}

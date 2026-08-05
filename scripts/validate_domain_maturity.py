@@ -16,6 +16,7 @@ EXPECTED = {
     "pricing-profit-finance-cashflow-decision",
     "product-innovation-product-management",
     "supplier-procurement-production-quality-decision",
+    "legal-tax-intellectual-property-market-access-decision",
 }
 
 def validate_replay(data: dict, expected_skill: str | None = None) -> dict:

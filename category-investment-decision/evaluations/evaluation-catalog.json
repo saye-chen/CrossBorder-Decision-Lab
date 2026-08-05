@@ -1,0 +1,192 @@
+{
+  "runtime": "CIDM-2026.07",
+  "owner": "investment",
+  "cases": [
+    {
+      "id": "CIDM-PE-01",
+      "name": "高增长低证据品类",
+      "mode": "standard",
+      "object_ref": "CIDM-OBJECT-1@v1",
+      "evidence": [
+        "E1S"
+      ],
+      "counterevidence": [
+        "E1C"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "资本姿态",
+        "机会损失",
+        "组合约束",
+        "退出纪律",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIDM-PE-02",
+      "name": "组合资金争用",
+      "mode": "conflict",
+      "object_ref": "CIDM-OBJECT-2@v1",
+      "evidence": [
+        "E2S"
+      ],
+      "counterevidence": [
+        "E2C"
+      ],
+      "expected_status": "reallocate",
+      "must": [
+        "资本姿态",
+        "机会损失",
+        "组合约束",
+        "退出纪律",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIDM-PE-03",
+      "name": "合规红线机会",
+      "mode": "extreme",
+      "object_ref": "CIDM-OBJECT-3@v1",
+      "evidence": [
+        "E3S"
+      ],
+      "counterevidence": [
+        "E3C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "资本姿态",
+        "机会损失",
+        "组合约束",
+        "退出纪律",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIDM-PE-04",
+      "name": "国家平台迁移",
+      "mode": "multi_turn",
+      "object_ref": "CIDM-OBJECT-4@v1",
+      "evidence": [
+        "E4S"
+      ],
+      "counterevidence": [
+        "E4C"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "资本姿态",
+        "机会损失",
+        "组合约束",
+        "退出纪律",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIDM-PE-05",
+      "name": "需求代理失效",
+      "mode": "adversarial",
+      "object_ref": "CIDM-OBJECT-5@v1",
+      "evidence": [
+        "E5S"
+      ],
+      "counterevidence": [
+        "E5C"
+      ],
+      "expected_status": "hold",
+      "must": [
+        "资本姿态",
+        "机会损失",
+        "组合约束",
+        "退出纪律",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIDM-PE-06",
+      "name": "退出后再进入",
+      "mode": "recovery",
+      "object_ref": "CIDM-OBJECT-6@v1",
+      "evidence": [
+        "E6S"
+      ],
+      "counterevidence": [
+        "E6C"
+      ],
+      "expected_status": "controlled_reentry",
+      "must": [
+        "资本姿态",
+        "机会损失",
+        "组合约束",
+        "退出纪律",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    }
+  ]
+}

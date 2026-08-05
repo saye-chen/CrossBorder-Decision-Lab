@@ -82,7 +82,7 @@ class HomepageIntegrity(unittest.TestCase):
             domain_id = f"D{index:02d}"
             self.assertEqual(len(re.findall(rf"\b{domain_id}\[", graph)), 1, domain_id)
         self.assertIn("D04 SPPQ", graph)
-        self.assertIn("D05 合规与市场准入", graph)
+        self.assertIn("D05 LTMA<br/>合规与市场准入", graph)
         self.assertIn("D14 跨域协同姿态与决策编排", graph)
         self.assertIn("不裁决专业结论、不批准资本、不拥有外部写入", self.zh)
         self.assertIn(
@@ -91,7 +91,7 @@ class HomepageIntegrity(unittest.TestCase):
         )
 
     def test_homepage_uses_completed_capability_and_long_term_calibration_language(self):
-        self.assertIn("已经形成十二个可独立运行、可跨域联动的专业决策 Skill", self.zh)
+        self.assertIn("已经形成十三个可独立运行、可跨域联动的专业决策 Skill", self.zh)
         self.assertIn("随着持续使用", self.zh)
         for forbidden in ("当前尚未完成：真实授权", "需数据验证", "等待真实授权"):
             self.assertNotIn(forbidden, self.zh)

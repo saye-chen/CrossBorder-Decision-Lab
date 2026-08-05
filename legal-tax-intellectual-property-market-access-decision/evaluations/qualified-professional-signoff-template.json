@@ -1,0 +1,7 @@
+{
+  "contract":"D05-QUALIFIED-SIGNOFF-2026.07","review_id":"PENDING","topic":"legal_market_access","jurisdictions":["PENDING"],"object_refs":["PENDING"],"intended_uses":["PENDING"],
+  "reviewer_identity_ref":"PENDING","professional_role":"PENDING","credential_scope":["PENDING"],"credential_authority":"PENDING","credential_identifier_ref":"PENDING",
+  "credential_verified_at":"1970-01-01T00:00:00Z","credential_expires_at":null,"independent_of_implementation":true,
+  "conflict_of_interest":"none","scope":["PENDING"],"excluded_scope":[],"evidence_index_hash":"0000000000000000000000000000000000000000000000000000000000000000",
+  "decision":"changes_required","signed_at":"1970-01-01T00:00:00Z","signature_ref":"PENDING"
+}

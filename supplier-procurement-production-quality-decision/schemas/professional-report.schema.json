@@ -1,1 +1,92 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"sppq/professional-report/1.0.0","type":"object","required":["runtime_version","report_id","decision_type","executive_summary","object_scope","sovereignty","data_quality","hard_gates","alternatives","professional_analysis","counterevidence","decision","cross_domain","execution_controls","outcome_feedback","ledgers","limitations"],"properties":{"runtime_version":{"const":"SPPQ-2026.07"},"report_id":{"type":"string"},"decision_type":{"type":"string"},"executive_summary":{"type":"object"},"object_scope":{"type":"object"},"sovereignty":{"type":"object"},"data_quality":{"type":"object"},"hard_gates":{"type":"array"},"alternatives":{"type":"array","minItems":1},"professional_analysis":{"type":"object"},"counterevidence":{"type":"array","minItems":1},"decision":{"type":"object"},"cross_domain":{"type":"array"},"execution_controls":{"type":"object","required":["success","stop","rollback","recovery"]},"outcome_feedback":{"type":"object"},"ledgers":{"type":"object","required":["evidence","calculation","decision"]},"limitations":{"type":"array","minItems":1}},"additionalProperties":true}
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "sppq/professional-report/1.0.0",
+    "type": "object",
+    "required": [
+        "runtime_version",
+        "report_id",
+        "decision_type",
+        "executive_summary",
+        "object_scope",
+        "sovereignty",
+        "data_quality",
+        "hard_gates",
+        "alternatives",
+        "professional_analysis",
+        "counterevidence",
+        "decision",
+        "cross_domain",
+        "execution_controls",
+        "outcome_feedback",
+        "ledgers",
+        "limitations"
+    ],
+    "properties": {
+        "runtime_version": {
+            "const": "SPPQ-2026.07"
+        },
+        "report_id": {
+            "type": "string"
+        },
+        "decision_type": {
+            "type": "string"
+        },
+        "executive_summary": {
+            "type": "object"
+        },
+        "object_scope": {
+            "type": "object"
+        },
+        "sovereignty": {
+            "type": "object"
+        },
+        "data_quality": {
+            "type": "object"
+        },
+        "hard_gates": {
+            "type": "array"
+        },
+        "alternatives": {
+            "type": "array",
+            "minItems": 1
+        },
+        "professional_analysis": {
+            "type": "object"
+        },
+        "counterevidence": {
+            "type": "array",
+            "minItems": 1
+        },
+        "decision": {
+            "type": "object"
+        },
+        "cross_domain": {
+            "type": "array"
+        },
+        "execution_controls": {
+            "type": "object",
+            "required": [
+                "success",
+                "stop",
+                "rollback",
+                "recovery"
+            ]
+        },
+        "outcome_feedback": {
+            "type": "object"
+        },
+        "ledgers": {
+            "type": "object",
+            "required": [
+                "evidence",
+                "calculation",
+                "decision"
+            ]
+        },
+        "limitations": {
+            "type": "array",
+            "minItems": 1
+        }
+    },
+    "additionalProperties": true
+}

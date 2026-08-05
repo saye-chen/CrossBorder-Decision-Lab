@@ -1,0 +1,192 @@
+{
+  "runtime": "PLCO-2026.07",
+  "owner": "listing_conversion",
+  "cases": [
+    {
+      "id": "PLCO-PE-01",
+      "name": "流量正常转化下滑",
+      "mode": "standard",
+      "object_ref": "PLCO-OBJECT-1@v1",
+      "evidence": [
+        "E1S"
+      ],
+      "counterevidence": [
+        "E1C"
+      ],
+      "expected_status": "diagnose",
+      "must": [
+        "索引可见性",
+        "Offer承接",
+        "变体治理",
+        "漏斗定位",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "PLCO-PE-02",
+      "name": "主图高点击低成交",
+      "mode": "conflict",
+      "object_ref": "PLCO-OBJECT-2@v1",
+      "evidence": [
+        "E2S"
+      ],
+      "counterevidence": [
+        "E2C"
+      ],
+      "expected_status": "experiment_required",
+      "must": [
+        "索引可见性",
+        "Offer承接",
+        "变体治理",
+        "漏斗定位",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "PLCO-PE-03",
+      "name": "受限宣称上架",
+      "mode": "extreme",
+      "object_ref": "PLCO-OBJECT-3@v1",
+      "evidence": [
+        "E3S"
+      ],
+      "counterevidence": [
+        "E3C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "索引可见性",
+        "Offer承接",
+        "变体治理",
+        "漏斗定位",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "PLCO-PE-04",
+      "name": "跨平台Listing迁移",
+      "mode": "multi_turn",
+      "object_ref": "PLCO-OBJECT-4@v1",
+      "evidence": [
+        "E4S"
+      ],
+      "counterevidence": [
+        "E4C"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "索引可见性",
+        "Offer承接",
+        "变体治理",
+        "漏斗定位",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "PLCO-PE-05",
+      "name": "变体评论错配",
+      "mode": "adversarial",
+      "object_ref": "PLCO-OBJECT-5@v1",
+      "evidence": [
+        "E5S"
+      ],
+      "counterevidence": [
+        "E5C"
+      ],
+      "expected_status": "hold",
+      "must": [
+        "索引可见性",
+        "Offer承接",
+        "变体治理",
+        "漏斗定位",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "PLCO-PE-06",
+      "name": "抑制恢复",
+      "mode": "recovery",
+      "object_ref": "PLCO-OBJECT-6@v1",
+      "evidence": [
+        "E6S"
+      ],
+      "counterevidence": [
+        "E6C"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "索引可见性",
+        "Offer承接",
+        "变体治理",
+        "漏斗定位",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    }
+  ]
+}

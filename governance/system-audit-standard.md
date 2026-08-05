@@ -200,3 +200,9 @@ fail closed，并证明不会被运行时错误调用。
 
 自动生成结果优先于人工汇总；人工报告与机器分数冲突时，必须先修复证据或评分器，
 不得手工把分数调高。
+
+## 12. 专业工程门与 L4 分离
+
+当审计范围明确排除 L4 时，只允许使用 `controlled_pilot_engineering_ready` 描述 L1—L3 工程结论，并运行 `scripts/validate_release_integrity.py`。该门必须覆盖十三个当前域的源案例指纹、Golden 差异、证据—主张—根因—动作关系、数值复算入口、跨域主权、状态连续性和防篡改突变。
+
+排除 L4 不等于通过 L4，也不改变本标准第 7、10 节对 production-ready 的要求。报告必须在同一结论区单列 `L4_EXTERNAL_ASSURANCE=SEPARATE_NOT_PASSED`，不得将其作为 L1—L3 工程失败，也不得省略。

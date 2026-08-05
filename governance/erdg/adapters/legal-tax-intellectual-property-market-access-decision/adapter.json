@@ -1,0 +1,11 @@
+{
+  "adapter": "legal-tax-intellectual-property-market-access-decision-erdg",
+  "version": "2.0.0",
+  "runtime_prefix": "LTMA",
+  "owned_decision_types": ["market_access_gate", "compliance_action_ceiling", "claim_use_boundary", "professional_review_routing", "compliance_recovery"],
+  "contract": "ERDG-CONTRACT-2026.07",
+  "handoff_schema": "governance/erdg/schemas/handoff-envelope.schema.json",
+  "decision_cycle_schema": "governance/erdg/schemas/decision-cycle.schema.json",
+  "accepts_v1": false,
+  "external_write": false
+}

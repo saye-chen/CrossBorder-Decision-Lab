@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ltma/canonical-access-object.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "subject_ref", "product_ref", "scope_ref", "use_ref", "as_of_time"],
+  "properties": {
+    "contract": {"const": "D05-OBJECT-DRAFT-1"},
+    "subject_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["object_id", "object_type", "object_version"],
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "object_type": {"type": "string", "minLength": 1},
+        "object_version": {"type": "string", "minLength": 1}
+      }
+    },
+    "product_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["product_id", "product_version"],
+      "properties": {
+        "product_id": {"type": "string", "minLength": 1},
+        "product_version": {"type": "string", "minLength": 1},
+        "sku_id": {"type": ["string", "null"]},
+        "bom_version": {"type": ["string", "null"]},
+        "packaging_version": {"type": ["string", "null"]},
+        "sample_or_batch_id": {"type": ["string", "null"]}
+      }
+    },
+    "scope_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["jurisdiction", "country", "platform", "sales_model", "legal_entity_role", "business_time"],
+      "properties": {
+        "jurisdiction": {"type": "string", "minLength": 1},
+        "country": {"type": "string", "pattern": "^[A-Z]{2}$"},
+        "platform": {"type": "string", "minLength": 1},
+        "sales_model": {"type": "string", "minLength": 1},
+        "legal_entity_role": {"type": "string", "minLength": 1},
+        "business_time": {"type": "string", "format": "date-time"}
+      }
+    },
+    "use_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intended_use", "foreseeable_misuse", "age_scope", "contact_scenarios"],
+      "properties": {
+        "intended_use": {"type": "string", "minLength": 1},
+        "foreseeable_misuse": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "age_scope": {"type": "string", "minLength": 1},
+        "contact_scenarios": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "as_of_time": {"type": "string", "format": "date-time"}
+  }
+}

@@ -51,6 +51,8 @@ description: 默认用中文执行专家级跨境平台、店铺、Listing 与�
 
 不得替代：D01资本进入退出、D02外部竞品事实确认、D03产品定义、D05法律合规结论、D06价格利润、LIFD库存履约、AAMO广告预算出价归因、D10达人商务、D11创意机制与素材生产、D12定位与Offer战略、D13客户触达/服务/CLV、D14跨域最终经营姿态。跨域动作只输出 `proposed`，等待主权域确认。
 
+消费 D05 Claim 使用边界时运行 `scripts/validate_d05_consumer.py`；只允许发布包内明确允许且对象、版本匹配的 Claim，D05 不接管页面文案、店铺结构或转化优化主权。
+
 付费流量、归因、预算、出价和放量路由 `advertising-analysis-measurement-optimization`；依赖输入失败时保留已验证页面事实，受影响结论标记 `inconclusive`。任何动作必须明确成功条件、停止条件和回滚版本。
 
 ## 六道 Hard Gates
@@ -112,6 +114,7 @@ description: 默认用中文执行专家级跨境平台、店铺、Listing 与�
 - `rank_repair_actions.py`：Gate和依赖约束下的稳定排序；
 - `validate_page_lineage.py`：页面/报告/实验/回滚血缘与唯一当前版本。
 - `validate_output_goldens.py`：验证8类独立专业输出均有对象、证据、具体方案和完整闭环；属于发布辅助门，不替代13类业务工具。
+- `evaluations/evaluation-catalog.json` 与 `evaluations/golden/*.md`：统一专业语义审计入口；合成资产只证明工程专业性，不替代 L4 授权真实回放。
 - `validate_migration_parity.py`：逐项验证六Skill源/目标锚点、双向路由、保留主权和断链；属于迁移发布门。
 
 非有限数、负计数、分子大于分母、单位/币种/时窗冲突、循环血缘或多个当前版本必须报错，不得静默修正。

@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["contract","review_id","topic","jurisdictions","object_refs","intended_uses","reviewer_identity_ref","professional_role","credential_scope","credential_authority","credential_identifier_ref","credential_verified_at","credential_expires_at","independent_of_implementation","conflict_of_interest","scope","excluded_scope","evidence_index_hash","decision","signed_at","signature_ref"],
+  "properties":{
+    "contract":{"const":"D05-QUALIFIED-SIGNOFF-2026.07"},"review_id":{"type":"string","minLength":1},
+    "topic":{"enum":["legal_market_access","tax","customs","intellectual_property","certification_testing","product_safety","privacy_data"]},
+    "jurisdictions":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","minLength":2}},
+    "object_refs":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","minLength":1}},"intended_uses":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","minLength":1}},
+    "reviewer_identity_ref":{"type":"string","minLength":1},"professional_role":{"type":"string","minLength":1},
+    "credential_scope":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","minLength":1}},
+    "credential_authority":{"type":"string","minLength":1},"credential_identifier_ref":{"type":"string","minLength":1},
+    "credential_verified_at":{"type":"string","format":"date-time"},"credential_expires_at":{"type":["string","null"],"format":"date-time"},
+    "independent_of_implementation":{"const":true},"conflict_of_interest":{"enum":["none","disclosed_and_mitigated"]},
+    "scope":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},"excluded_scope":{"type":"array","items":{"type":"string"}},
+    "evidence_index_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},"decision":{"enum":["approved","changes_required","rejected"]},
+    "signed_at":{"type":"string","format":"date-time"},"signature_ref":{"type":"string","minLength":1}
+  }
+}

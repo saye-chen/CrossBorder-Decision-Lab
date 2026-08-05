@@ -1,0 +1,192 @@
+{
+  "runtime": "CIG-2026.07",
+  "owner": "customer_growth",
+  "cases": [
+    {
+      "id": "CIG-PE-01",
+      "name": "身份错误合并",
+      "mode": "standard",
+      "object_ref": "CIG-OBJECT-1@v1",
+      "evidence": [
+        "E1S"
+      ],
+      "counterevidence": [
+        "E1C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "身份授权",
+        "收入守恒",
+        "Cohort",
+        "净增量价值",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIG-PE-02",
+      "name": "退款未成熟CLV",
+      "mode": "conflict",
+      "object_ref": "CIG-OBJECT-2@v1",
+      "evidence": [
+        "E2S"
+      ],
+      "counterevidence": [
+        "E2C"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "身份授权",
+        "收入守恒",
+        "Cohort",
+        "净增量价值",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIG-PE-03",
+      "name": "触达疲劳",
+      "mode": "extreme",
+      "object_ref": "CIG-OBJECT-3@v1",
+      "evidence": [
+        "E3S"
+      ],
+      "counterevidence": [
+        "E3C"
+      ],
+      "expected_status": "holdout",
+      "must": [
+        "身份授权",
+        "收入守恒",
+        "Cohort",
+        "净增量价值",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIG-PE-04",
+      "name": "评价事故恢复",
+      "mode": "multi_turn",
+      "object_ref": "CIG-OBJECT-4@v1",
+      "evidence": [
+        "E4S"
+      ],
+      "counterevidence": [
+        "E4C"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "身份授权",
+        "收入守恒",
+        "Cohort",
+        "净增量价值",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIG-PE-05",
+      "name": "会员增量",
+      "mode": "adversarial",
+      "object_ref": "CIG-OBJECT-5@v1",
+      "evidence": [
+        "E5S"
+      ],
+      "counterevidence": [
+        "E5C"
+      ],
+      "expected_status": "experiment_required",
+      "must": [
+        "身份授权",
+        "收入守恒",
+        "Cohort",
+        "净增量价值",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    },
+    {
+      "id": "CIG-PE-06",
+      "name": "隐私授权撤回",
+      "mode": "recovery",
+      "object_ref": "CIG-OBJECT-6@v1",
+      "evidence": [
+        "E6S"
+      ],
+      "counterevidence": [
+        "E6C"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "身份授权",
+        "收入守恒",
+        "Cohort",
+        "净增量价值",
+        "停止条件",
+        "回滚"
+      ],
+      "forbidden": [
+        "代理升级为事实",
+        "跨域越权",
+        "模板占位结论"
+      ],
+      "mutation": {
+        "field": "object_version",
+        "value": "stale",
+        "expected": "blocked"
+      }
+    }
+  ]
+}

@@ -54,6 +54,8 @@ D03只输出产品主权内的事实和建议；其他域通过版本化输入/�
 
 标准治理入口为[专业深度治理](references/professional-depth-governance.md)、[Skill集成协议](references/skill-integration-protocol.md)、[数据合同与自动化](references/data-contract-and-automation.md)和[专业报告交付](references/output-protocols/professional-report-delivery.md)。完整主权与禁止越权规则见[能力章程与主权](references/charter-and-sovereignty.md)。规范对象、版本和 PLC0—PLC8 状态见[规范对象与生命周期](references/canonical-object-and-lifecycle.md)。输入分级、缺失语义、正交证据与决策闭环见[输入、证据与决策骨架](references/input-evidence-and-decision-skeleton.md)。产品机会、MVP、规格、变体、包装、路线图和追踪模型见[专业模型与确定性计算](references/professional-models-and-calculation.md)。涉及成本、利润、价格或现金约束时读取[D06 重算与跨域合同](references/d06-recomputation-and-cross-domain.md)。涉及制造/质量请求、市场准入问题、外部专业意见或国家平台适配时读取[D04、D05与本地化专家合同](references/d04-d05-localization-professional-contracts.md)。生成报告、处理连续追问、事故或回滚时读取[专业输出、连续决策与回滚](references/professional-output-continuity-and-rollback.md)。迁移或消费D03产品事实时读取[消费者迁移、接受与回滚](references/consumer-migration-and-acceptance.md)。
 
+涉及公差堆叠、关键风险退休、资源容量路线图或多国家变体时读取[高级产品定义 walkthrough](references/advanced-product-walkthrough.md)，并使用 `scripts/evaluate_product_models.py` 的对应模型；平均值、完成率或排序分不得补偿尾部规格、关键风险和资源超配。
+
 ## WP2 工作流
 
 1. 识别 enterprise、brand、product family、product、market product 与 SKU/variant。
@@ -67,6 +69,7 @@ D03只输出产品主权内的事实和建议；其他域通过版本化输入/�
 9. WP4 使用 `scripts/evaluate_product_models.py` 路由八类模型；所有数值使用十进制字符串。
 10. D03—D06 字段变化先运行 `scripts/compute_product_change_impact.py`，再由 `scripts/validate_cross_domain_envelope.py` 校验逐 Claim 回执、幂等与版本边界。
 11. D04/D05 临时交接、本地化、专业意见和正式迁移包统一运行 `scripts/validate_wp6_contracts.py`；双轨差异使用 `scripts/evaluate_temporary_contract_migration.py`。
+12. 消费 D05 当前市场准入包时运行 `scripts/validate_d05_consumer.py`；D05 Gate 只约束动作上限，不得接管产品定义、规格或生命周期主权。
 12. 连续追问使用 `scripts/update_continuous_product_decision.py`，影响传播使用 `scripts/compute_decision_impact_closure.py`，九类输出统一运行 `scripts/validate_professional_report.py`。
 13. 专业评测运行 `scripts/run_wp8_evaluations.py` 和 `scripts/validate_wp8_coverage.py`；任何 mutation 未失败、覆盖缩减或 L4 提前升级均阻断。
 14. 消费者迁移运行 `scripts/validate_pipm_consumer_migration.py`；自动合同接受不得冒充独立Owner接受，旧读路径在独立Owner签署和权威切换前保持有效。
