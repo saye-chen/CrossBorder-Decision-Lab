@@ -9,6 +9,10 @@ description: 默认用中文执行专家级跨境达人合作与联盟经营决�
 
 成熟度：`controlled pilot`；真实历史回放门通过前不得声明 `production ready`。
 
+## 统一交互与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，不得自动建联、寄样、签约、付款、续约或退出。
+
 ## 专业性与决策可用性硬约束
 
 所有任务先读取 [professional-depth-governance.md](references/professional-depth-governance.md)。只允许压缩展示，不得降低研究标准。始终保留对象与版本、证据和反证、动作级 Gates、成熟贡献和现金、权利范围、履约约束、候选与不行动、动作责任、成功/停止/回滚/退出及结果回填。

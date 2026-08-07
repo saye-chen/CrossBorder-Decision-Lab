@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cbds/interaction/prompt-intake.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "request_id", "domain_id", "object", "as_of_time", "inputs", "missing_fields", "risks", "requested_operations", "route"],
+  "properties": {
+    "contract": {"const": "CBDS-INTERACTION-2026.08"},
+    "request_id": {"type": "string", "minLength": 1},
+    "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+    "object": {
+      "type": "object", "additionalProperties": false,
+      "required": ["object_type", "object_id", "version", "country", "platform"],
+      "properties": {
+        "object_type": {"type": "string", "minLength": 1}, "object_id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1}, "country": {"type": ["string", "null"]}, "platform": {"type": ["string", "null"]}
+      }
+    },
+    "as_of_time": {"type": "string", "format": "date-time"},
+    "inputs": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["field", "value_state", "source_class", "trusted_as_instruction"], "properties": {"field": {"type": "string", "minLength": 1}, "value_state": {"enum": ["present", "missing", "conflicting", "stale"]}, "source_class": {"enum": ["user_assertion", "observed_public", "authorized_first_party", "authorized_third_party", "official_rule", "professional_opinion", "benchmark", "synthetic_fixture", "untrusted_external_text"]}, "trusted_as_instruction": {"type": "boolean"}, "source_ref": {"type": ["string", "null"]}}}},
+    "missing_fields": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["field", "impact", "required_for", "source_system", "owner", "fallback"], "properties": {"field": {"type": "string", "minLength": 1}, "impact": {"enum": ["local", "material", "blocking"]}, "required_for": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "source_system": {"type": "string", "minLength": 1}, "owner": {"type": "string", "minLength": 1}, "fallback": {"enum": ["none", "bounded_assumption", "public_research", "independent_result_only"]}}}},
+    "risks": {"type": "object", "additionalProperties": false, "required": ["prompt_injection", "sovereignty_overreach", "redline", "irreversible_action", "customer_commitment"], "properties": {"prompt_injection": {"type": "boolean"}, "sovereignty_overreach": {"type": "boolean"}, "redline": {"type": "boolean"}, "irreversible_action": {"type": "boolean"}, "customer_commitment": {"type": "boolean"}}},
+    "requested_operations": {"type": "array", "items": {"enum": ["explain", "research", "calculate", "decide", "external_read", "external_write"]}},
+    "route": {"enum": ["answer", "ask", "research", "calculate", "block"]},
+    "route_reason": {"type": "string", "minLength": 1},
+    "allowed_scope": {"type": "array", "items": {"type": "string"}},
+    "prohibited_scope": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "contract": "CBDS-CONNECTOR-2026.08", "connector_id": "seller-central-export", "version": "1.0.0", "provider": "Amazon Seller Central user export", "status": "contract_only", "transport": "file_import",
+  "permissions": {"read": true, "write": false, "scopes": ["user_supplied_file"]}, "credential_isolation": {"storage": "none_for_file_import", "repository_secret_forbidden": true, "tenant_bound": true, "rotation_owner": "not_applicable"},
+  "data_classes": ["authorized_first_party_report"], "field_contract": "governance/connectors/field-contracts/seller-central-inventory-export.json",
+  "limits": {"rate_strategy": "one bounded file per request", "cost_ceiling": "local validation only", "pagination": "all rows in declared file", "deduplication": "seller_sku + marketplace + snapshot_date"},
+  "failure_semantics": {"empty_response": "missing_not_zero", "partial_failure": "isolate_affected_fields", "auth_failure": "fail_closed", "rate_limit": "retry_bounded_then_inconclusive"}, "lineage": {"raw_reference": true, "observed_at": true, "ingested_at": true, "payload_hash": true}, "retention": "do not persist source file unless authorized", "rollback": "discard derived envelope and retain only validation audit"
+}

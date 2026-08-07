@@ -13,6 +13,10 @@ Maturity: `controlled pilot`. L4 requires authorized, deidentified real replays 
 
 当前状态：L1—L3 自动化发布门通过，运行成熟度为 `controlled pilot`；不得把自动化检查包装成专业意见，L4 仍关闭。
 
+## 统一交互与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，不能签发专业意见或执行申报、通知、下架、召回。
+
 ## 专业性与决策可用性硬约束
 
 正式结论必须绑定对象、时间、证据、反证、适用范围、停止与恢复条件。信息不足、来源冲突、专业保留事项未复核或红线未解除时，只能输出阻断、补证或升级请求，不能输出肯定合规结论。

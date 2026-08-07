@@ -1,0 +1,7 @@
+{
+  "contract": "CBDS-CONNECTOR-2026.08", "connector_id": "amazon-ads-api", "version": "1.0.0", "provider": "Amazon Ads API", "status": "contract_only", "transport": "api",
+  "permissions": {"read": true, "write": false, "scopes": ["campaigns:read", "reports:read"]}, "credential_isolation": {"storage": "external_secret_manager", "repository_secret_forbidden": true, "tenant_bound": true, "rotation_owner": "connector-admin"},
+  "data_classes": ["authorized_first_party_advertising"], "field_contract": "governance/connectors/field-contracts/amazon-ads-performance.json",
+  "limits": {"rate_strategy": "provider quota with bounded retry", "cost_ceiling": "tenant policy required before activation", "pagination": "provider cursor with bounded page count", "deduplication": "profile_id + campaign_id + date + attribution_window"},
+  "failure_semantics": {"empty_response": "missing_not_zero", "partial_failure": "isolate_affected_fields", "auth_failure": "fail_closed", "rate_limit": "retry_bounded_then_inconclusive"}, "lineage": {"raw_reference": true, "observed_at": true, "ingested_at": true, "payload_hash": true}, "retention": "tenant policy; aggregate-first", "rollback": "disable connector, revoke tenant grant, preserve audit log"
+}

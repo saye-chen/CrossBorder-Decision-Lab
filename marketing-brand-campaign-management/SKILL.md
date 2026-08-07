@@ -9,6 +9,10 @@ description: 默认用中文执行专家级跨境市场营销、品牌与活动�
 
 成熟度：`controlled pilot`；授权真实历史回放门通过前不得声明`production ready`。
 
+## 统一交互与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，不得自动发布活动、触达客户或改写其他域资源结论。
+
 ## 专业性与决策可用性硬约束
 
 所有任务先读取[professional-depth-governance.md](references/professional-depth-governance.md)。只允许压缩展示，不得降低研究标准。始终固定对象、国家/平台、生命周期、版本和`as_of_time`；分离事实、计算、估计、推断、决策与未知；分离观察、归因、增量和成熟增量；先执行G0—G8，再比较方案。

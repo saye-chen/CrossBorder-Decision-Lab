@@ -9,6 +9,10 @@ description: 默认用中文执行专家级跨境定价、利润、财务约束�
 目标合同：`ERDG-CONTRACT-2026.07`、`PPFC-CONTRACT-2026.07`、`PPFC-XDOMAIN-2026.07`、`F02-temporary-localization-contract-v1`；已注册 ERDG 适配器，但不等于完成域或生产就绪。
 成熟度：工作包 10；L1 已通过，L2 已通过，L3 Expert 已通过，L4 `controlled pilot`
 
+## 统一交互与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，缺失金额不得置零且不得自动调价、付款或形成财务承诺。
+
 ## 执行原则
 
 把价格、成本、利润、投放保本线和现金风险放入同一可复算经济系统。先识别商业模式、决策目标、生命周期、价格对象、约束和证据，再选择模型；不得用一个公式覆盖所有商家。

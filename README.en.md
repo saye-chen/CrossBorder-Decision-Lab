@@ -238,6 +238,8 @@ Detailed platform coverage, models, workflows, inputs, outputs, and failure boun
 
 The thirteen domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
 
+Before domain reasoning, the [`Prompt Intake Guard`](governance/interaction/interaction-governance.md) routes a request to answer, ask, research, calculate, or block. Only ERDG-passed Decision Packets can compile into operator-facing Playbooks. Dynamic platform claims use [versioned knowledge cards](governance/platform-knowledge/platform-knowledge-contract.md) with evidence status, sources, review dates, and invalidation conditions. External evidence follows the [Connector contract](governance/connectors/connector-governance.md); all current manifests are read-only contracts and grant no external-write authority.
+
 1. evidence and counterevidence discipline;
 2. auditable economics and statistical estimation;
 3. explicit professional ownership;
@@ -296,9 +298,13 @@ Operating actions and results update benchmarks, parameters, counterexamples, an
 
 | Location | Purpose |
 |---|---|
-| Twelve Skill directories | Professional workflows, models, references, and tests |
+| Thirteen Skill directories | Professional workflows, models, references, and tests |
 | [`evaluations/`](evaluations/) | Single-Skill, cross-Skill, multi-turn, adversarial, and extreme scenarios |
 | [`governance/`](governance/) | Ownership, maturity, change-impact, and shared contracts |
+| [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG economics, risk, evidence, state, parameters, lineage, and cross-domain governance |
+| [`governance/interaction/`](governance/interaction/interaction-governance.md) | Prompt Intake Guard and controlled Decision Packet-to-Operator Playbook compilation |
+| [`governance/platform-knowledge/`](governance/platform-knowledge/platform-knowledge-contract.md) | Versioned, expiring platform knowledge cards for PLCO, AAMO, and LIFD |
+| [`governance/connectors/`](governance/connectors/connector-governance.md) | Read-only SP-API, Seller Central, ads, and ERP evidence contracts plus Action Gateway |
 | [`scripts/`](scripts/) | Repository validation, scoring, integration, and release gates |
 | [`.github/workflows/expert-release.yml`](.github/workflows/expert-release.yml) | Automated release-quality gate |
 | [`requirements-dev.txt`](requirements-dev.txt) | Locked dependencies for local and automated validation |

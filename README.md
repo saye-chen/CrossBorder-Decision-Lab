@@ -234,6 +234,8 @@ sequenceDiagram
 
 十三个专业域通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
 
+模型交互前由 [`Prompt Intake Guard`](governance/interaction/interaction-governance.md) 把请求路由为回答、补数、研究、计算或阻断；ERDG 通过后的 Decision Packet 才能编译为面向运营的 Operator Playbook。动态平台知识使用带来源、证据等级、复核日和失效条件的 [平台知识卡](governance/platform-knowledge/platform-knowledge-contract.md)；外部数据按 [Connector 合同](governance/connectors/connector-governance.md) 接入，当前均为只读合同，不授权外部写入。
+
 1. **证据与反证**：观察、用户输入、授权数据、外部基准、推断和假设分开记录。
 2. **数学与守恒**：利润、增量、容量、组合和风险通过可复算模型计算。
 3. **专业主权**：资本、广告、客户、页面、履约、内容、伙伴和品牌结论不互相越权。
@@ -296,6 +298,9 @@ sequenceDiagram
 | [`evaluations/`](evaluations/) | 单 Skill、跨 Skill、连续追问、对抗与极端场景 |
 | [`governance/`](governance/) | 主权、成熟度、变更影响与共享治理合同 |
 | [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG 经济、风险、证据、状态、参数、血缘与跨域决策治理底座 |
+| [`governance/interaction/`](governance/interaction/interaction-governance.md) | Prompt Intake Guard 与 Decision Packet → Operator Playbook 编译控制 |
+| [`governance/platform-knowledge/`](governance/platform-knowledge/platform-knowledge-contract.md) | PLCO、AAMO、LIFD 的版本化平台知识卡与失效门 |
+| [`governance/connectors/`](governance/connectors/connector-governance.md) | SP-API、Seller Central、广告与 ERP 的只读证据接口和 Action Gateway |
 | [`scripts/`](scripts/) | 全仓校验、质量评分、集成与发布门禁 |
 | [`.github/workflows/expert-release.yml`](.github/workflows/expert-release.yml) | 自动化发布质量门 |
 | [`requirements-dev.txt`](requirements-dev.txt) | 本地与自动化校验使用的锁定依赖 |

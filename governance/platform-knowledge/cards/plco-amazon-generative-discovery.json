@@ -1,0 +1,12 @@
+{
+  "contract": "CBDS-PLATFORM-KNOWLEDGE-2026.08", "card_id": "PLCO-AMZ-GEN-DISCOVERY", "version": "1.0.0", "owner_domain": "D08", "platform": "Amazon", "surface": "search and generative shopping assistance",
+  "mechanism": "Use-case, audience, compatibility, attribute, Q&A, review and catalog evidence can be audited as intent coverage; the direct effect on Rufus recommendation or search rank is not public.", "evidence_status": "inferred",
+  "sources": [
+    {"source_id": "COSMO-2024", "source_type": "paper", "url": "https://assets.amazon.science/19/5d/bde30d0d4019be6421e79e50cda9/cosmo-paper.pdf", "published_at": "2024-06-09", "claim_boundary": "Confirms COSMO generation and serving for Amazon search/navigation; does not confirm Rufus weights."},
+    {"source_id": "RUFUS-AWS-2025", "source_type": "official", "url": "https://aws.amazon.com/blogs/machine-learning/how-rufus-scales-conversational-shopping-experiences-to-millions-of-amazon-customers-with-amazon-bedrock/", "published_at": "2025-11-20", "claim_boundary": "Confirms Rufus purpose and scale; does not publish listing ranking factors."}
+  ],
+  "valid_from": "2026-08-07", "reviewed_at": "2026-08-07", "expires_at": "2026-11-07", "affected_objects": ["listing", "catalog_attributes", "qa", "a_plus_content"],
+  "allowed_uses": ["diagnostic", "hypothesis", "experiment", "monitoring"], "prohibited_uses": ["direct_score_change", "automatic_external_write", "causal_claim"],
+  "testable_hypotheses": [{"hypothesis_id": "H-INTENT-COVERAGE", "change": "Add verified use-case, audience, compatibility and attribute evidence without keyword stuffing or unsupported claims.", "metric": "pre-registered intent-query coverage and downstream conversion guardrails", "window": "category-adjusted mature window", "success": "coverage improves and conversion guardrail is not harmed", "guardrail": "no unsupported claims, policy breach, or material conversion decline", "stop": "invalid experiment, policy risk, or guardrail breach"}],
+  "invalidation_conditions": ["Amazon publishes contradictory official guidance", "surface behavior changes materially", "card expires", "experiment shows repeated harm"]
+}

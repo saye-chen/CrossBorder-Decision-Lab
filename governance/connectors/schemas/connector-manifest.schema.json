@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "cbds/connector-manifest.schema.json", "type": "object", "additionalProperties": false,
+  "required": ["contract", "connector_id", "version", "provider", "status", "transport", "permissions", "credential_isolation", "data_classes", "field_contract", "limits", "failure_semantics", "lineage", "retention", "rollback"],
+  "properties": {
+    "contract": {"const": "CBDS-CONNECTOR-2026.08"}, "connector_id": {"type": "string"}, "version": {"type": "string"}, "provider": {"type": "string"}, "status": {"enum": ["contract_only", "controlled_pilot", "active", "suspended", "retired"]}, "transport": {"enum": ["api", "mcp", "file_import"]},
+    "permissions": {"type": "object", "additionalProperties": false, "required": ["read", "write", "scopes"], "properties": {"read": {"type": "boolean"}, "write": {"type": "boolean"}, "scopes": {"type": "array", "items": {"type": "string"}}}},
+    "credential_isolation": {"type": "object", "additionalProperties": false, "required": ["storage", "repository_secret_forbidden", "tenant_bound", "rotation_owner"], "properties": {"storage": {"enum": ["external_secret_manager", "user_session", "none_for_file_import"]}, "repository_secret_forbidden": {"const": true}, "tenant_bound": {"type": "boolean"}, "rotation_owner": {"type": "string"}}},
+    "data_classes": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "field_contract": {"type": "string"},
+    "limits": {"type": "object", "additionalProperties": false, "required": ["rate_strategy", "cost_ceiling", "pagination", "deduplication"], "properties": {"rate_strategy": {"type": "string"}, "cost_ceiling": {"type": "string"}, "pagination": {"type": "string"}, "deduplication": {"type": "string"}}},
+    "failure_semantics": {"type": "object", "additionalProperties": false, "required": ["empty_response", "partial_failure", "auth_failure", "rate_limit"], "properties": {"empty_response": {"const": "missing_not_zero"}, "partial_failure": {"const": "isolate_affected_fields"}, "auth_failure": {"const": "fail_closed"}, "rate_limit": {"const": "retry_bounded_then_inconclusive"}}},
+    "lineage": {"type": "object", "additionalProperties": false, "required": ["raw_reference", "observed_at", "ingested_at", "payload_hash"], "properties": {"raw_reference": {"type": "boolean"}, "observed_at": {"type": "boolean"}, "ingested_at": {"type": "boolean"}, "payload_hash": {"type": "boolean"}}},
+    "retention": {"type": "string"}, "rollback": {"type": "string"}
+  }
+}
