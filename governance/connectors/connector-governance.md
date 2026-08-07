@@ -1,6 +1,6 @@
 # Controlled Connector Governance
 
-Contract: `CBDS-CONNECTOR-2026.08`
+Contract: `CBDS-CONNECTOR-2026.07`
 
 Connectors transport authorized evidence; they do not become decision owners.
 Every connector declares identity, permissions, credential isolation, data

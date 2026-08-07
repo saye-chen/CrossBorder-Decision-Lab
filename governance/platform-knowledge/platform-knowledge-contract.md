@@ -1,6 +1,6 @@
 # Versioned Platform Knowledge Contract
 
-Contract: `CBDS-PLATFORM-KNOWLEDGE-2026.08`
+Contract: `CBDS-PLATFORM-KNOWLEDGE-2026.07`
 
 Platform knowledge is a dated evidence layer, not a hidden ranking formula.
 Cards distinguish `official`, `research`, `observed`, and `inferred` claims;

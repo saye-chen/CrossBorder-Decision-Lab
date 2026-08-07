@@ -35,7 +35,7 @@ def adapt(raw: dict, manifest: dict, fields: dict, context: dict) -> dict:
         else:
             missing.append({"field": field["canonical_field"], "state": "missing", "semantics": "unknown_not_zero", "required": field["required"]})
     raw_hash = hashlib.sha256(json.dumps(raw, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
-    return {"contract": "CBDS-CONNECTOR-EVIDENCE-2026.08", "connector_id": manifest["connector_id"], "tenant_id": context["tenant_id"], "authorization_ref": context["authorization_ref"], "source_class": "authorized_first_party", "raw_reference": context["raw_reference"], "payload_hash": raw_hash, "observed_at": context["observed_at"], "ingested_at": context["ingested_at"], "values": values, "missing": missing, "decision_authority": False, "external_write": False}
+    return {"contract": "CBDS-CONNECTOR-EVIDENCE-2026.07", "connector_id": manifest["connector_id"], "tenant_id": context["tenant_id"], "authorization_ref": context["authorization_ref"], "source_class": "authorized_first_party", "raw_reference": context["raw_reference"], "payload_hash": raw_hash, "observed_at": context["observed_at"], "ingested_at": context["ingested_at"], "values": values, "missing": missing, "decision_authority": False, "external_write": False}
 
 
 def main() -> int:

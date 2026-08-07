@@ -1,5 +1,5 @@
 {
-  "contract": "CBDS-PLATFORM-KNOWLEDGE-2026.08", "card_id": "LIFD-AMZ-AI-DEMAND-SIGNAL", "version": "1.0.0", "owner_domain": "D07", "platform": "Amazon", "surface": "demand sensing for inventory planning",
+  "contract": "CBDS-PLATFORM-KNOWLEDGE-2026.07", "card_id": "LIFD-AMZ-AI-DEMAND-SIGNAL", "version": "1.0.0", "owner_domain": "D07", "platform": "Amazon", "surface": "demand sensing for inventory planning",
   "mechanism": "A discovery-surface change can be logged as a demand scenario, but it is not a replenishment forecast until authorized sales, inventory, lead-time and uncertainty inputs pass LIFD gates.", "evidence_status": "inferred",
   "sources": [{"source_id": "RUFUS-AWS-2025", "source_type": "official", "url": "https://aws.amazon.com/blogs/machine-learning/how-rufus-scales-conversational-shopping-experiences-to-millions-of-amazon-customers-with-amazon-bedrock/", "published_at": "2025-11-20", "claim_boundary": "Confirms shopper-assistant adoption; does not establish SKU demand lift or replenishment quantities."}],
   "valid_from": "2026-08-07", "reviewed_at": "2026-08-07", "expires_at": "2026-11-07", "affected_objects": ["demand_scenario", "replenishment_input", "inventory_risk"],

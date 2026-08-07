@@ -33,7 +33,7 @@ def compile_playbook(packet: dict) -> dict:
         })
     decision = packet["decision"]
     return {
-        "contract": "CBDS-OPERATOR-PLAYBOOK-2026.08", "playbook_id": f"PB-{packet['packet_id']}",
+        "contract": "CBDS-OPERATOR-PLAYBOOK-2026.07", "playbook_id": f"PB-{packet['packet_id']}",
         "source_packet": {"packet_id": packet["packet_id"], "packet_hash": canonical_hash(packet), "erdg_contract": validation["contract"], "validation_status": "passed"},
         "owner_domain": packet["owner_domain"],
         "decision": {"decision_id": decision["decision_id"], "status": decision["status"], "posture": decision["posture"], "action_ceiling": decision["action_ceiling"]},

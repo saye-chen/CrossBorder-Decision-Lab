@@ -15,7 +15,7 @@ SCHEMA = ROOT / "governance/interaction/schemas/operator-playbook.schema.json"
 def validate(payload: dict) -> list[str]:
     schema = json.loads(SCHEMA.read_text())
     errors = [f"schema: {error.message}" for error in Draft202012Validator(schema, format_checker=Draft202012Validator.FORMAT_CHECKER).iter_errors(payload)]
-    if payload.get("contract") != "CBDS-OPERATOR-PLAYBOOK-2026.08": errors.append("unsupported playbook contract")
+    if payload.get("contract") != "CBDS-OPERATOR-PLAYBOOK-2026.07": errors.append("unsupported playbook contract")
     source = payload.get("source_packet", {})
     if source.get("validation_status") != "passed" or source.get("erdg_contract") != "ERDG-CONTRACT-2026.07": errors.append("playbook must bind to ERDG-passed packet")
     if payload.get("external_write") is not False: errors.append("playbook cannot authorize external write")

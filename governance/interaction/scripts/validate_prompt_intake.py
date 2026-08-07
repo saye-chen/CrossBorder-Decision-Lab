@@ -29,7 +29,7 @@ def validate(payload: dict) -> list[str]:
     if missing := required - set(payload): errors.append(f"missing fields: {sorted(missing)}")
     if unknown: errors.append(f"unknown fields: {sorted(unknown)}")
     if errors: return errors
-    if payload["contract"] != "CBDS-INTERACTION-2026.08": errors.append("unsupported interaction contract")
+    if payload["contract"] != "CBDS-INTERACTION-2026.07": errors.append("unsupported interaction contract")
     domains = {d["domain_id"] for d in json.loads(REGISTRY.read_text())["domains"] if d["availability"] == "current"}
     if payload["domain_id"] not in domains: errors.append("domain must be a current D01-D13 owner")
     try: _time(payload["as_of_time"])

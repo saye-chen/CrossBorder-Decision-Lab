@@ -16,7 +16,7 @@ SCHEMA = ROOT / "governance/platform-knowledge/platform-knowledge-card.schema.js
 def validate(card: dict, as_of: dt.date) -> list[str]:
     schema = json.loads(SCHEMA.read_text())
     errors = [f"schema: {error.message}" for error in Draft202012Validator(schema, format_checker=Draft202012Validator.FORMAT_CHECKER).iter_errors(card)]
-    if card.get("contract") != "CBDS-PLATFORM-KNOWLEDGE-2026.08": errors.append("unsupported platform knowledge contract")
+    if card.get("contract") != "CBDS-PLATFORM-KNOWLEDGE-2026.07": errors.append("unsupported platform knowledge contract")
     if card.get("owner_domain") not in {"D07", "D08", "D09"}: errors.append("owner must be LIFD, PLCO, or AAMO")
     try:
         reviewed = dt.date.fromisoformat(card["reviewed_at"]); expires = dt.date.fromisoformat(card["expires_at"]); valid_from = dt.date.fromisoformat(card["valid_from"])

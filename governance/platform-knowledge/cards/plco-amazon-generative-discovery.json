@@ -1,5 +1,5 @@
 {
-  "contract": "CBDS-PLATFORM-KNOWLEDGE-2026.08", "card_id": "PLCO-AMZ-GEN-DISCOVERY", "version": "1.0.0", "owner_domain": "D08", "platform": "Amazon", "surface": "search and generative shopping assistance",
+  "contract": "CBDS-PLATFORM-KNOWLEDGE-2026.07", "card_id": "PLCO-AMZ-GEN-DISCOVERY", "version": "1.0.0", "owner_domain": "D08", "platform": "Amazon", "surface": "search and generative shopping assistance",
   "mechanism": "Use-case, audience, compatibility, attribute, Q&A, review and catalog evidence can be audited as intent coverage; the direct effect on Rufus recommendation or search rank is not public.", "evidence_status": "inferred",
   "sources": [
     {"source_id": "COSMO-2024", "source_type": "paper", "url": "https://assets.amazon.science/19/5d/bde30d0d4019be6421e79e50cda9/cosmo-paper.pdf", "published_at": "2024-06-09", "claim_boundary": "Confirms COSMO generation and serving for Amazon search/navigation; does not confirm Rufus weights."},

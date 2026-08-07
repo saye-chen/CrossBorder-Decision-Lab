@@ -5,7 +5,7 @@
   "additionalProperties": false,
   "required": ["contract", "playbook_id", "source_packet", "owner_domain", "decision", "object", "as_of_time", "actions", "rollback", "outcome_feedback", "external_write"],
   "properties": {
-    "contract": {"const": "CBDS-OPERATOR-PLAYBOOK-2026.08"},
+    "contract": {"const": "CBDS-OPERATOR-PLAYBOOK-2026.07"},
     "playbook_id": {"type": "string", "minLength": 1},
     "source_packet": {"type": "object", "additionalProperties": false, "required": ["packet_id", "packet_hash", "erdg_contract", "validation_status"], "properties": {"packet_id": {"type": "string"}, "packet_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "erdg_contract": {"const": "ERDG-CONTRACT-2026.07"}, "validation_status": {"const": "passed"}}},
     "owner_domain": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},

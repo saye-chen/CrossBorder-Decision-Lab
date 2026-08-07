@@ -5,7 +5,7 @@
   "additionalProperties": false,
   "required": ["contract", "card_id", "version", "owner_domain", "platform", "surface", "mechanism", "evidence_status", "sources", "valid_from", "reviewed_at", "expires_at", "affected_objects", "allowed_uses", "prohibited_uses", "testable_hypotheses", "invalidation_conditions"],
   "properties": {
-    "contract": {"const": "CBDS-PLATFORM-KNOWLEDGE-2026.08"}, "card_id": {"type": "string", "minLength": 1}, "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "contract": {"const": "CBDS-PLATFORM-KNOWLEDGE-2026.07"}, "card_id": {"type": "string", "minLength": 1}, "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
     "owner_domain": {"enum": ["D07", "D08", "D09"]}, "platform": {"type": "string", "minLength": 1}, "surface": {"type": "string", "minLength": 1}, "mechanism": {"type": "string", "minLength": 1},
     "evidence_status": {"enum": ["official", "research", "observed", "inferred"]},
     "sources": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["source_id", "source_type", "url", "published_at", "claim_boundary"], "properties": {"source_id": {"type": "string"}, "source_type": {"enum": ["official", "paper", "authorized_observation", "industry_analysis"]}, "url": {"type": "string", "format": "uri"}, "published_at": {"type": "string", "format": "date"}, "claim_boundary": {"type": "string", "minLength": 1}}}},

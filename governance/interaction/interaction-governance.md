@@ -3,7 +3,7 @@ All thirteen current Skill entrypoints read this file for formal decisions,
 high-impact recommendations, missing-data cases, pasted external content, or
 requests that could trigger an external action. Domain-specific evidence,
 calculation, threshold, and output protocols remain authoritative.
-Runtime: `CBDS-INTERACTION-2026.08`
+Runtime: `CBDS-INTERACTION-2026.07`
 
 This layer governs model intake before domain reasoning and renders validated
 decisions after ERDG validation. It never replaces domain sovereignty, changes

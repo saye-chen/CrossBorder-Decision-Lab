@@ -16,7 +16,7 @@ FIELD_SCHEMA = ROOT / "governance/connectors/schemas/field-contract.schema.json"
 def validate_manifest(manifest: dict) -> list[str]:
     schema = json.loads(MANIFEST_SCHEMA.read_text())
     errors = [f"manifest schema: {error.message}" for error in Draft202012Validator(schema).iter_errors(manifest)]
-    if manifest.get("contract") != "CBDS-CONNECTOR-2026.08": errors.append("unsupported connector contract")
+    if manifest.get("contract") != "CBDS-CONNECTOR-2026.07": errors.append("unsupported connector contract")
     status = manifest.get("status")
     permissions = manifest.get("permissions", {})
     if status == "contract_only" and permissions.get("write") is not False: errors.append("contract_only connector must be read-only")
@@ -32,7 +32,7 @@ def validate_manifest(manifest: dict) -> list[str]:
     fields = json.loads(field_path.read_text())
     field_schema = json.loads(FIELD_SCHEMA.read_text())
     errors.extend(f"field schema: {error.message}" for error in Draft202012Validator(field_schema).iter_errors(fields))
-    if fields.get("contract") != "CBDS-CONNECTOR-FIELDS-2026.08": errors.append("unsupported field contract")
+    if fields.get("contract") != "CBDS-CONNECTOR-FIELDS-2026.07": errors.append("unsupported field contract")
     if fields.get("connector_id") != manifest.get("connector_id"): errors.append("field contract connector mismatch")
     canonical = set()
     for field in fields.get("fields", []):

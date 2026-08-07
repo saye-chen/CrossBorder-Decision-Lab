@@ -538,7 +538,7 @@ def validate_interaction_platform_connector_controls() -> list[str]:
     for path in cards:
         try:
             card = json.loads(path.read_text(encoding="utf-8")); owners.add(card.get("owner_domain"))
-            if card.get("contract") != "CBDS-PLATFORM-KNOWLEDGE-2026.08": errors.append(f"{path.name}: invalid platform contract")
+            if card.get("contract") != "CBDS-PLATFORM-KNOWLEDGE-2026.07": errors.append(f"{path.name}: invalid platform contract")
         except json.JSONDecodeError as exc: errors.append(f"invalid platform card {path.name}: {exc}")
     if owners != {"D07", "D08", "D09"}: errors.append(f"platform card owner coverage mismatch: {sorted(owners)}")
     manifests = sorted((ROOT / "governance/connectors/manifests").glob("*.json"))

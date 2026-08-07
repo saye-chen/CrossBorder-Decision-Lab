@@ -5,7 +5,7 @@
   "additionalProperties": false,
   "required": ["contract", "request_id", "domain_id", "object", "as_of_time", "inputs", "missing_fields", "risks", "requested_operations", "route"],
   "properties": {
-    "contract": {"const": "CBDS-INTERACTION-2026.08"},
+    "contract": {"const": "CBDS-INTERACTION-2026.07"},
     "request_id": {"type": "string", "minLength": 1},
     "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
     "object": {

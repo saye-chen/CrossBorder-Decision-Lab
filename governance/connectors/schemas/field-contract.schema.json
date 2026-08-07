@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "cbds/connector-field-contract.schema.json", "type": "object", "additionalProperties": false,
   "required": ["contract", "field_contract_id", "version", "connector_id", "object_key", "fields"],
   "properties": {
-    "contract": {"const": "CBDS-CONNECTOR-FIELDS-2026.08"}, "field_contract_id": {"type": "string"}, "version": {"type": "string"}, "connector_id": {"type": "string"}, "object_key": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "contract": {"const": "CBDS-CONNECTOR-FIELDS-2026.07"}, "field_contract_id": {"type": "string"}, "version": {"type": "string"}, "connector_id": {"type": "string"}, "object_key": {"type": "array", "minItems": 1, "items": {"type": "string"}},
     "fields": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["source_field", "canonical_field", "type", "unit", "timezone", "required", "missing_semantics", "allowed_uses"], "properties": {"source_field": {"type": "string"}, "canonical_field": {"type": "string"}, "type": {"enum": ["string", "integer", "decimal_string", "boolean", "date", "datetime"]}, "unit": {"type": ["string", "null"]}, "timezone": {"type": ["string", "null"]}, "required": {"type": "boolean"}, "missing_semantics": {"const": "unknown_not_zero"}, "allowed_uses": {"type": "array", "minItems": 1, "items": {"type": "string"}}}}}
   }
 }

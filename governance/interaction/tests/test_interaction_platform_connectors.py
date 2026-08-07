@@ -31,7 +31,7 @@ class InteractionPlatformConnectorTests(unittest.TestCase):
         cls.gateway = load(ROOT / "governance/connectors/scripts/authorize_action.py", "gateway")
 
     def intake_fixture(self):
-        return {"contract":"CBDS-INTERACTION-2026.08","request_id":"R1","domain_id":"D08","object":{"object_type":"listing","object_id":"ASIN1","version":"v1","country":"US","platform":"Amazon"},"as_of_time":"2026-08-07T00:00:00+08:00","inputs":[{"field":"listing","value_state":"present","source_class":"authorized_first_party","trusted_as_instruction":False}],"missing_fields":[],"risks":{"prompt_injection":False,"sovereignty_overreach":False,"redline":False,"irreversible_action":False,"customer_commitment":False},"requested_operations":["explain"],"route":"answer","route_reason":"bounded evidence-backed explanation","allowed_scope":["diagnostic"],"prohibited_scope":["external_write"]}
+        return {"contract":"CBDS-INTERACTION-2026.07","request_id":"R1","domain_id":"D08","object":{"object_type":"listing","object_id":"ASIN1","version":"v1","country":"US","platform":"Amazon"},"as_of_time":"2026-08-07T00:00:00+08:00","inputs":[{"field":"listing","value_state":"present","source_class":"authorized_first_party","trusted_as_instruction":False}],"missing_fields":[],"risks":{"prompt_injection":False,"sovereignty_overreach":False,"redline":False,"irreversible_action":False,"customer_commitment":False},"requested_operations":["explain"],"route":"answer","route_reason":"bounded evidence-backed explanation","allowed_scope":["diagnostic"],"prohibited_scope":["external_write"]}
 
     def test_01_golden_intake_passes(self):
         self.assertEqual(self.intake.validate(self.intake_fixture()), [])

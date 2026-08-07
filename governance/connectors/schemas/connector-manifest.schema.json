@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "cbds/connector-manifest.schema.json", "type": "object", "additionalProperties": false,
   "required": ["contract", "connector_id", "version", "provider", "status", "transport", "permissions", "credential_isolation", "data_classes", "field_contract", "limits", "failure_semantics", "lineage", "retention", "rollback"],
   "properties": {
-    "contract": {"const": "CBDS-CONNECTOR-2026.08"}, "connector_id": {"type": "string"}, "version": {"type": "string"}, "provider": {"type": "string"}, "status": {"enum": ["contract_only", "controlled_pilot", "active", "suspended", "retired"]}, "transport": {"enum": ["api", "mcp", "file_import"]},
+    "contract": {"const": "CBDS-CONNECTOR-2026.07"}, "connector_id": {"type": "string"}, "version": {"type": "string"}, "provider": {"type": "string"}, "status": {"enum": ["contract_only", "controlled_pilot", "active", "suspended", "retired"]}, "transport": {"enum": ["api", "mcp", "file_import"]},
     "permissions": {"type": "object", "additionalProperties": false, "required": ["read", "write", "scopes"], "properties": {"read": {"type": "boolean"}, "write": {"type": "boolean"}, "scopes": {"type": "array", "items": {"type": "string"}}}},
     "credential_isolation": {"type": "object", "additionalProperties": false, "required": ["storage", "repository_secret_forbidden", "tenant_bound", "rotation_owner"], "properties": {"storage": {"enum": ["external_secret_manager", "user_session", "none_for_file_import"]}, "repository_secret_forbidden": {"const": true}, "tenant_bound": {"type": "boolean"}, "rotation_owner": {"type": "string"}}},
     "data_classes": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "field_contract": {"type": "string"},
