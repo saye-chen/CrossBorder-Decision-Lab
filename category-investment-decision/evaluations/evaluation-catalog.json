@@ -8,10 +8,10 @@
       "mode": "standard",
       "object_ref": "CIDM-OBJECT-1@v1",
       "evidence": [
-        "E1S"
+        "E1S-SEARCH-VOL"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-COMP-CONC"
       ],
       "expected_status": "inconclusive",
       "must": [
@@ -27,6 +27,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "搜索量+12%证明需求存在，但Top5集中度68%意味着新进入者需$8,200亏损换排名，组合剩余仅$6,500。证据冲突不可调和，必须补证。",
+      "flip_condition": "若Top5集中度降至55%以下或组合可承受升至$9,000，结论翻转为Invest。",
+      "evidence_binding": {
+        "source": "授权后台快照+第三方排名API",
+        "fingerprint": "sha256:a3f8c2",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-09-01"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -39,10 +47,10 @@
       "mode": "conflict",
       "object_ref": "CIDM-OBJECT-2@v1",
       "evidence": [
-        "E2S"
+        "E2S-PORTFOLIO"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-CASH-PK"
       ],
       "expected_status": "reallocate",
       "must": [
@@ -58,6 +66,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "品类A预期月毛利$4,752 vs 品类B $6,120，但A需要$8,200前置投入而B仅需$3,400。组合现金峰值$22,000，同时投入将触及cash_peak安全线$8,000以下。",
+      "flip_condition": "若品类B供应链验证失败或品类A采购成本降至$5.5以下，重新排序。",
+      "evidence_binding": {
+        "source": "组合财务快照",
+        "fingerprint": "sha256:b7d1e4",
+        "biz_time": "2026-08-02",
+        "valid_until": "2026-08-15"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -70,10 +86,10 @@
       "mode": "extreme",
       "object_ref": "CIDM-OBJECT-3@v1",
       "evidence": [
-        "E3S"
+        "E3S-MARKET"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-COMPLIANCE"
       ],
       "expected_status": "blocked",
       "must": [
@@ -87,8 +103,17 @@
       "forbidden": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "合规门绕过"
       ],
+      "rationale": "品类月搜索量210K、转化率4.1%，经济模型优秀。但目标国要求CE认证+REACH注册，当前供应商无法提供，获取周期120天。合规门为硬门，不可用总分补偿。",
+      "flip_condition": "仅当供应商获得CE认证且REACH注册完成，门才关闭。",
+      "evidence_binding": {
+        "source": "合规数据库+供应商声明",
+        "fingerprint": "sha256:c9a2f1",
+        "biz_time": "2026-08-03",
+        "valid_until": "2026-08-10"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -101,10 +126,10 @@
       "mode": "multi_turn",
       "object_ref": "CIDM-OBJECT-4@v1",
       "evidence": [
-        "E4S"
+        "E4S-CROSS"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-LOCAL"
       ],
       "expected_status": "recompute",
       "must": [
@@ -120,6 +145,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "US站验证通过的品类(7维总分72)拟迁移至UK站。但UK站FBA费率34%(vs US 31%)、VAT 20%、客单价£22(≈$27.8)。重算后毛利率16.3%，低于UK站最低门槛18%。",
+      "flip_condition": "若UK站客单价升至£25或FBA费率谈判至32%，结论可翻转。",
+      "evidence_binding": {
+        "source": "UK站后台+HMRC税率表",
+        "fingerprint": "sha256:d4e8b3",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-09-01"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -132,10 +165,10 @@
       "mode": "adversarial",
       "object_ref": "CIDM-OBJECT-5@v1",
       "evidence": [
-        "E5S"
+        "E5S-TREND"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-SEASONAL"
       ],
       "expected_status": "hold",
       "must": [
@@ -151,6 +184,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "Google Trends显示品类搜索量6月+35%，但历史数据显示该品类为强季节性(Q4占全年62%)。当前8月入场将面临Q3淡季库存积压，持有成本$1,200/月。",
+      "flip_condition": "若Q4预售数据确认+15%以上增长或持有成本降至$600/月，可重新评估。",
+      "evidence_binding": {
+        "source": "Google Trends+历史销售数据",
+        "fingerprint": "sha256:e1f5a7",
+        "biz_time": "2026-08-04",
+        "valid_until": "2026-08-18"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -163,10 +204,10 @@
       "mode": "recovery",
       "object_ref": "CIDM-OBJECT-6@v1",
       "evidence": [
-        "E6S"
+        "E6S-REENTRY"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-HISTORY"
       ],
       "expected_status": "controlled_reentry",
       "must": [
@@ -182,6 +223,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "该品类6月前曾Invest→Exit(原因: 供应商质量事故，批次不良率18%)。新供应商样品合格率96%、小批量验证50件不良率4%。但历史Exit记录要求重新进入需连续3批不良率<5%且总投入不超过首次的70%。",
+      "flip_condition": "第3批不良率<3%且累计投入<$5,740(=$8,200×70%)，可升级为Invest。",
+      "evidence_binding": {
+        "source": "质检报告+历史决策记录",
+        "fingerprint": "sha256:f2a6c8",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-20"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",

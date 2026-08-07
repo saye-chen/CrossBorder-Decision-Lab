@@ -2,6 +2,8 @@
   "contract_version": "OSL-RESEARCH-MODE-v1",
   "default_research_mode": "online_realtime",
   "external_connector_mode": "reserved_interface",
+  "candidate_funnel_contract": "CIDM-CANDIDATE-FUNNEL-v1",
+  "research_cost_modes": ["SCAN", "DILIGENCE"],
   "mcp_required": false,
   "installed_provider_clients": [],
   "network_research": {

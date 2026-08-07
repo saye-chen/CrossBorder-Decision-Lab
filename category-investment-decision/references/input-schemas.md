@@ -11,6 +11,27 @@
 
 所有任务尽量提供：`task_id`、`scenario`、`country`、`platform`、`product_scope`、`currency`、`tax_basis`、`evidence_cutoff`、`seller_constraints`。缺失字段允许为空，但必须在报告中列为假设或数据缺口。
 
+候选发现和批量选品使用 `CIDM-CANDIDATE-FUNNEL-v1` 任务卡：
+
+```json
+{
+  "task_id": "research-2026-001",
+  "country": "US",
+  "platform": "Amazon",
+  "product_scope": "pet hydration",
+  "lifecycle": "LC-1",
+  "price_band": "35-49 USD",
+  "seller_profile": "seller-agnostic",
+  "capital_limit": "unknown",
+  "loss_limit": "unknown",
+  "time_window": "2026-Q3",
+  "risk_posture": "compliance-first",
+  "objective": "find concepts for bounded validation"
+}
+```
+
+金额未知时保留 `unknown`，不得填 0。卖家资源未知使用 `seller-agnostic`，不得据此确定预算比例、首批量或多平台扩张。
+
 ## 单品与链接
 
 | 字段 | 必填 | 说明 |
@@ -28,7 +49,7 @@
 
 CSV/Excel 建议字段：
 
-`id,name,country,platform,category,url,variant,price,currency,score,confidence,dimension_confidence,investment,operational_load,cash_cycle_days,supplier,redline,notes`
+`id,name,country,platform,category,url,variant,stage,research_mode,status,price,currency,score,confidence,dimension_confidence,investment,operational_load,cash_cycle_days,supplier,supply_chain_gate,ip_compliance_gate,weakest_assumption,next_validation,stop_conditions,reentry_conditions,redline,notes`
 
 - `score` 必须来自同一版本基础模型；未评分时留空，先逐项评分。
 - `confidence` 使用 `high/medium/low`，表示整体置信度。
@@ -36,6 +57,12 @@ CSV/Excel 建议字段：
 - `investment` 使用统一币种，包含启动阶段预计现金投入。
 - `operational_load` 使用同一团队定义的相对尺度。
 - `redline` 仅使用 `true/false`，并在 `notes` 写原因。
+- `stage` 使用 `DISCOVERY/SCREEN/DEEP_DIVE/INVESTMENT_CANDIDATE`；前两层必须是 `SCAN`，后两层必须是 `DILIGENCE`。
+- `status` 使用 `candidate/waiting_evidence/blocked/rejected/proposed_test/conditional_entry`。
+- 未进入 `DEEP_DIVE` 的对象不得填写正式七维总分；已有旧分数时标为历史值，不用于本轮晋级。
+- `supply_chain_gate` 与 `ip_compliance_gate` 使用 `pass/inconclusive/blocked`；快速 `pass` 不表示正式合规或 FTO 完成。
+
+跨平台证据每条至少包含：`relationship`、两个平台、观察窗口、证据 ID、来源家族、可比口径、替代解释和决策影响。`relationship` 只使用 `CONFIRMATION/LEADING/FIT_MISMATCH/CONFLICT`。
 
 组合脚本 JSON 使用 [portfolio-decision.md](portfolio-decision.md) 的结构。不要把缺失投资额自动视为 0。
 

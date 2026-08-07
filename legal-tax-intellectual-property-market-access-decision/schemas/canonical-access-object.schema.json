@@ -53,6 +53,68 @@
         "contact_scenarios": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
       }
     },
+    "claim_ref": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["claim_text", "language", "medium", "object_version", "audience", "allowed_uses"],
+      "properties": {
+        "claim_text": {"type": "string", "minLength": 1},
+        "language": {"type": "string", "minLength": 1},
+        "medium": {"type": "string", "minLength": 1},
+        "object_version": {"type": "string", "minLength": 1},
+        "audience": {"type": "string", "minLength": 1},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "allowed_uses": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "rule_ref": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["issuer", "source", "rule_version", "scope", "effective_date", "verified_date"],
+      "properties": {
+        "issuer": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1},
+        "rule_version": {"type": "string", "minLength": 1},
+        "scope": {"type": "string", "minLength": 1},
+        "effective_date": {"type": "string", "format": "date"},
+        "verified_date": {"type": "string", "format": "date"},
+        "expiry_date": {"type": ["string", "null"], "format": "date"},
+        "superseded_by": {"type": ["string", "null"]}
+      }
+    },
+    "opinion_ref": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["professional_id", "qualification", "jurisdiction", "basis", "issued_date"],
+      "properties": {
+        "professional_id": {"type": "string", "minLength": 1},
+        "qualification": {"type": "string", "minLength": 1},
+        "authorization_scope": {"type": "string", "minLength": 1},
+        "jurisdiction": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "conflict_of_interest": {"type": ["string", "null"]},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "issued_date": {"type": "string", "format": "date"},
+        "verified_date": {"type": "string", "format": "date"},
+        "expiry_date": {"type": ["string", "null"], "format": "date"}
+      }
+    },
+    "certificate_ref": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["issuer", "holder", "model", "standard", "status", "valid_until"],
+      "properties": {
+        "issuer": {"type": "string", "minLength": 1},
+        "holder": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "factory": {"type": ["string", "null"]},
+        "standard": {"type": "string", "minLength": 1},
+        "report_ref": {"type": ["string", "null"]},
+        "scope": {"type": "string", "minLength": 1},
+        "status": {"enum": ["valid", "suspended", "revoked", "expired"]},
+        "valid_until": {"type": "string", "format": "date"}
+      }
+    },
     "as_of_time": {"type": "string", "format": "date-time"}
   }
 }

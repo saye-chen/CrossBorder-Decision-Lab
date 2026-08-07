@@ -8,10 +8,10 @@
       "mode": "standard",
       "object_ref": "PLCO-OBJECT-1@v1",
       "evidence": [
-        "E1S"
+        "E1S-SESSION"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-USP"
       ],
       "expected_status": "diagnose",
       "must": [
@@ -27,6 +27,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "Session 12,500/周持平说明索引可见性正常。USP从14.2%降至11.8%说明问题在Offer承接或漏斗中段。漏斗分析定位到详情页→加购环节流失+22%。",
+      "flip_condition": "主图恢复白底图+Buy Box稳定后USP回升至13.5%以上。",
+      "evidence_binding": {
+        "source": "广告报表+Listing分析",
+        "fingerprint": "sha256:plco1a1",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-08"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -39,10 +47,10 @@
       "mode": "conflict",
       "object_ref": "PLCO-OBJECT-2@v1",
       "evidence": [
-        "E2S"
+        "E2S-CTR"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-CVR"
       ],
       "expected_status": "experiment_required",
       "must": [
@@ -58,6 +66,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "场景图主图CTR+8%但CVR-15%，说明吸引的流量与Offer不匹配。场景图吸引的是\"氛围感\"用户，但产品规格/价格不满足其预期。需A/B测试带产品规格标注的场景图(平衡点击与转化)。",
+      "flip_condition": "新变体CTR>+5%且CVR不低于白底图基线。",
+      "evidence_binding": {
+        "source": "A/B测试报表",
+        "fingerprint": "sha256:plco2b2",
+        "biz_time": "2026-08-02",
+        "valid_until": "2026-08-09"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -70,10 +86,10 @@
       "mode": "extreme",
       "object_ref": "PLCO-OBJECT-3@v1",
       "evidence": [
-        "E3S"
+        "E3S-CLAIM"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-COMPLIANCE"
       ],
       "expected_status": "blocked",
       "must": [
@@ -87,8 +103,17 @@
       "forbidden": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "合规门绕过"
       ],
+      "rationale": "Listing标题含\"FDA approved\"但产品仅为FDA registered(非approved)。该宣称在目标国构成虚假广告，即使转化率高也必须修正。修正后预计CTR下降3-5%(失去\"权威背书\"效应)。",
+      "flip_condition": "宣称修正为合规表述(\"FDA registered facility\")并通过合规预审。",
+      "evidence_binding": {
+        "source": "Listing文本+合规规则",
+        "fingerprint": "sha256:plco3c3",
+        "biz_time": "2026-08-03",
+        "valid_until": "2026-08-04"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -101,10 +126,10 @@
       "mode": "multi_turn",
       "object_ref": "PLCO-OBJECT-4@v1",
       "evidence": [
-        "E4S"
+        "E4S-AMZ-LISTING"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-WMT-LOCAL"
       ],
       "expected_status": "recompute",
       "must": [
@@ -120,6 +145,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "Amazon US Listing(标题200字符+5 bullet points+A+页面)直接迁移至Walmart Marketplace。Walmart标题限80字符、无bullet points、Rich Media替代A+。直接迁移导致信息密度下降60%、Offer承接断裂。",
+      "flip_condition": "按Walmart规范重写(80字符标题+Rich Media+Pro Seller Badge)后USP达平台均值。",
+      "evidence_binding": {
+        "source": "Amazon+ Walmart Listing对比",
+        "fingerprint": "sha256:plco4d4",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-15"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -132,10 +165,10 @@
       "mode": "adversarial",
       "object_ref": "PLCO-OBJECT-5@v1",
       "evidence": [
-        "E5S"
+        "E5S-VARIANTS"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-REVIEW-MIX"
       ],
       "expected_status": "hold",
       "must": [
@@ -151,6 +184,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "父ASIN下合并5个颜色变体，总评论1,200条。但黑色变体占评论900条(4.6★)，红色变体仅80条(3.8★)。合并显示时红色变体享受父ASIN的评论聚合优势，但实际产品体验(3.8★)与展示评分(4.3★聚合)不匹配，导致红色变体退款率18%。",
+      "flip_condition": "红色变体评论升至200+条且评分达4.0+，或拆分为独立ASIN。",
+      "evidence_binding": {
+        "source": "变体评论分布+退款数据",
+        "fingerprint": "sha256:plco5e5",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-12"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -163,10 +204,10 @@
       "mode": "recovery",
       "object_ref": "PLCO-OBJECT-6@v1",
       "evidence": [
-        "E6S"
+        "E6S-SUPPRESS"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-REINSTATE"
       ],
       "expected_status": "controlled_recovery",
       "must": [
@@ -182,6 +223,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "Listing因知识产权投诉被抑制48h(已申诉)。抑制期间搜索不可见，预估损失: 日均Session 1,800×2天×USP 13%×$28.5=$13,338。恢复后需7-14天索引恢复至抑制前水平。",
+      "flip_condition": "申诉通过+索引恢复至日均Session>1,500持续7天。",
+      "evidence_binding": {
+        "source": "Listing状态+申诉记录",
+        "fingerprint": "sha256:plco6f6",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-19"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",

@@ -8,10 +8,10 @@
       "mode": "standard",
       "object_ref": "VLB-OBJECT-1@v1",
       "evidence": [
-        "E1S"
+        "E1S-PLAY-VOL"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-PROOF-SCORE"
       ],
       "expected_status": "inconclusive",
       "must": [
@@ -27,6 +27,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "120K播放量证明钩子有效，但商品证明机制评分31/100——视频有娱乐性但缺少产品演示、效果对比或用户证言等说服要素。播放量不能代理为成交能力。",
+      "flip_condition": "证明机制评分升至60+且有效说服成本降至$0.30以下，可重新投放。",
+      "evidence_binding": {
+        "source": "视频分析后台+广告报表",
+        "fingerprint": "sha256:vlb1a1",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-08"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -36,13 +44,13 @@
     {
       "id": "VLB-PE-02",
       "name": "医疗话术越界",
-      "mode": "conflict",
-      "object_ref": "VLB-OBJECT-2@v1",
+      "mode": "extreme",
+      "object_ref": "VLB-PE-02@v1",
       "evidence": [
-        "E2S"
+        "E2S-TRANSCRIPT"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-COMPLIANCE"
       ],
       "expected_status": "blocked",
       "must": [
@@ -56,8 +64,17 @@
       "forbidden": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "合规门绕过"
       ],
+      "rationale": "视频脚本含\"治疗\"\"根治\"等医疗宣称，目标国(FDA/CE)归类为未经批准的医疗声明。即使转化率高也必须阻断——合规红线不可用创意评分补偿。",
+      "flip_condition": "脚本移除所有医疗宣称并通过合规预审后，才可重新评估。",
+      "evidence_binding": {
+        "source": "视频转录+合规规则库",
+        "fingerprint": "sha256:vlb2b2",
+        "biz_time": "2026-08-02",
+        "valid_until": "2026-08-04"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -67,13 +84,13 @@
     {
       "id": "VLB-PE-03",
       "name": "达人素材权利缺失",
-      "mode": "extreme",
+      "mode": "recovery",
       "object_ref": "VLB-OBJECT-3@v1",
       "evidence": [
-        "E3S"
+        "E3S-CONTENT"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-RIGHTS"
       ],
       "expected_status": "blocked",
       "must": [
@@ -87,8 +104,17 @@
       "forbidden": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "权利缺失续命"
       ],
+      "rationale": "达人原创视频转化率5.8%(远超均值2.1%)，但授权协议仅覆盖有机发布，不含付费投放和二次编辑权利。继续使用面临侵权风险。",
+      "flip_condition": "签署包含付费投放+二次编辑的补充协议后，权利门关闭。",
+      "evidence_binding": {
+        "source": "达人协议+授权记录",
+        "fingerprint": "sha256:vlb3c3",
+        "biz_time": "2026-08-03",
+        "valid_until": "2026-08-05"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -101,10 +127,10 @@
       "mode": "multi_turn",
       "object_ref": "VLB-OBJECT-4@v1",
       "evidence": [
-        "E4S"
+        "E4S-TT-PACNG"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-IG-DIFF"
       ],
       "expected_status": "recompute",
       "must": [
@@ -120,6 +146,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "TikTok素材(快节奏1.8s/镜头+文字叠压)直接迁移至Instagram Reels。IG用户偏好2.5s/镜头+自然光风格，TikTok素材在IG的CTR仅1.9%(vs IG同类均值3.4%)。平台节奏差异不可忽略。",
+      "flip_condition": "按IG节奏重剪(2.5s/镜头+去文字叠压)后CTR达3.0%以上。",
+      "evidence_binding": {
+        "source": "TikTok+IG广告报表",
+        "fingerprint": "sha256:vlb4d4",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-15"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -132,10 +166,10 @@
       "mode": "adversarial",
       "object_ref": "VLB-OBJECT-5@v1",
       "evidence": [
-        "E5S"
+        "E5S-FATIGUE"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-PLAT-ALLOC"
       ],
       "expected_status": "refresh",
       "must": [
@@ -151,6 +185,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "素材投放21天，CTR从4.2%降至2.4%(降42%)。但平台自动分配仍在持续，因为系统以CPM效率(而非CTR绝对值)分配。当前CPM $8.5仍低于行业$12，平台认为\"够效率\"但实际已亏损——隐性浪费。",
+      "flip_condition": "新素材上线且CTR恢复至3.5%以上，旧素材彻底下线。",
+      "evidence_binding": {
+        "source": "广告报表+平台分配日志",
+        "fingerprint": "sha256:vlb5e5",
+        "biz_time": "2026-08-04",
+        "valid_until": "2026-08-07"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -160,13 +202,13 @@
     {
       "id": "VLB-PE-06",
       "name": "自然内容转广告",
-      "mode": "recovery",
+      "mode": "conflict",
       "object_ref": "VLB-OBJECT-6@v1",
       "evidence": [
-        "E6S"
+        "E6S-ORGANIC"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-AD-CONVERT"
       ],
       "expected_status": "review_required",
       "must": [
@@ -182,6 +224,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "有机发布视频(播放量85K, 互动率6.2%)转付费投放后CTR仅1.1%。有机成功≠广告成功——有机用户已关注品牌，付费触达冷用户需要更强的行动号召和信任背书。直接转投浪费预算。",
+      "flip_condition": "添加CTA+信任背书(用户评价/认证标识)后付费CTR达2.5%以上。",
+      "evidence_binding": {
+        "source": "有机+付费报表对比",
+        "fingerprint": "sha256:vlb6f6",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-12"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",

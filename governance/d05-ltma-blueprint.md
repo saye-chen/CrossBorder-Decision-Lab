@@ -254,7 +254,7 @@ D05 只有在 Skill、合同、专业模型、适格意见路由、测试评测�
 | WP | 内容 | 退出证据 | 当前状态 |
 |---|---|---|---|
 | WP-01 | 章程、双层主权、术语和开放决策 | 主权矩阵、术语表、决策记录 | completed_internal_review |
-| WP-02 | 对象、身份、生命周期和状态机 | Schema、状态转换与测试 | not_started |
+| WP-02 | 对象、身份、生命周期和状态机 | Schema、状态转换与测试 | completed_internal_review |
 | WP-03 | 输入、证据、动态事实和专业意见 | 输入/证据合同与校验器 | completed_internal_review |
 | WP-04 | 分类、规则、证书、标签和 Claim | 决策树、覆盖矩阵和 Oracle | completed_internal_review |
 | WP-05 | IP、税务海关和平台准入路由 | 初筛、升级边界和专业请求 | completed_internal_review |

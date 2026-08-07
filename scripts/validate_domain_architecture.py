@@ -57,7 +57,8 @@ def validate() -> list[str]:
 
     current = {item["skill"] for item in domains if item["availability"] == "current"}
     unavailable = {item["skill"] for item in domains if item["availability"] in {"next_build", "planned"}}
-    discovered = {path.parent.name for path in ROOT.glob("*/SKILL.md")}
+    non_domain_utility_skills = {"article-draft-publisher", "authored-voice"}
+    discovered = {path.parent.name for path in ROOT.glob("*/SKILL.md")} - non_domain_utility_skills
     if current != discovered:
         errors.append(f"current registry/repository mismatch missing={sorted(discovered-current)} extra={sorted(current-discovered)}")
     accidentally_live = sorted(skill for skill in unavailable if (ROOT / skill / "SKILL.md").is_file())

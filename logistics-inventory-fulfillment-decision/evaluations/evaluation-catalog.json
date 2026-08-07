@@ -8,10 +8,10 @@
       "mode": "standard",
       "object_ref": "LIFD-OBJECT-1@v1",
       "evidence": [
-        "E1S"
+        "E1S-ATP-CTP"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-ROUTE-DEMAND"
       ],
       "expected_status": "allocate",
       "must": [
@@ -27,6 +27,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "ATP 2,400=总需求但CTP 1,800<总需求。在途600件延迟使可用库存不足。margin_weighted分配保护高利润路线D01/D02，D03缺口600件。",
+      "flip_condition": "在途货物到达且ATP升至3,000+，D03缺口可补。",
+      "evidence_binding": {
+        "source": "库存快照+在途追踪",
+        "fingerprint": "sha256:lifd1a1",
+        "biz_time": "2026-08-04",
+        "valid_until": "2026-08-06"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -39,10 +47,10 @@
       "mode": "conflict",
       "object_ref": "LIFD-OBJECT-2@v1",
       "evidence": [
-        "E2S"
+        "E2S-CUSTOMS"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-CASCADE"
       ],
       "expected_status": "controlled_recovery",
       "must": [
@@ -58,6 +66,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "批次B-2026-078清关延误3天(文件不全)，导致FBA入仓延迟。级联影响: 3个SKU的ATP下降→2条路线CTP不足→1个客户订单SLA风险。恢复: 补交文件+加急清关+临时从海外仓调拨200件。",
+      "flip_condition": "清关完成且FBA入仓确认，级联影响解除。",
+      "evidence_binding": {
+        "source": "清关状态+FBA入仓日志",
+        "fingerprint": "sha256:lifd2b2",
+        "biz_time": "2026-08-03",
+        "valid_until": "2026-08-07"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -70,10 +86,10 @@
       "mode": "extreme",
       "object_ref": "LIFD-OBJECT-3@v1",
       "evidence": [
-        "E3S"
+        "E3S-HAZMAT"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-ROUTE-CERT"
       ],
       "expected_status": "blocked",
       "must": [
@@ -87,8 +103,17 @@
       "forbidden": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "资质缺失续命"
       ],
+      "rationale": "含锂电池产品(SKU-C45)需UN38.3认证，当前承运商DHL Express路线资质过期(2026-07-15到期)。不能继续使用该路线，即使有库存。替代路线FedEx Ground需额外5天 transit time。",
+      "flip_condition": "承运商更新UN38.3资质或使用已认证替代路线。",
+      "evidence_binding": {
+        "source": "危险品证书+承运商资质",
+        "fingerprint": "sha256:lifd3c3",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-04"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -101,10 +126,10 @@
       "mode": "multi_turn",
       "object_ref": "LIFD-OBJECT-4@v1",
       "evidence": [
-        "E4S"
+        "E4S-MULTI"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-COST"
       ],
       "expected_status": "recompute",
       "must": [
@@ -120,6 +145,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "US东仓ATP=1,200(需求1,800,缺口600), US西仓ATP=900(需求400,过剩500)。调拨500件西→东: 运费$2.5/件×500=$1,250, 时效3天。但调拨期间西仓ATP降至400=需求，无安全余量。",
+      "flip_condition": "调拨完成且东仓ATP>1,600，同时西仓保留≥200安全库存。",
+      "evidence_binding": {
+        "source": "多仓库存快照+运费表",
+        "fingerprint": "sha256:lifd4d4",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-08"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -132,10 +165,10 @@
       "mode": "adversarial",
       "object_ref": "LIFD-OBJECT-5@v1",
       "evidence": [
-        "E5S"
+        "E5S-TRANSIT"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-SLA"
       ],
       "expected_status": "hold",
       "must": [
@@ -151,6 +184,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "承运商A承诺时效3-5天，近30天实际中位数6.2天(超标24%)。CTP计算基于承诺时效，实际时效漂移导致CTP虚高。需按实际时效重算CTP，预计CTP下降15%。",
+      "flip_condition": "承运商连续14天实际时效回到承诺范围内，或切换至时效稳定的备选承运商。",
+      "evidence_binding": {
+        "source": "承运商时效追踪+SLA",
+        "fingerprint": "sha256:lifd5e5",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-12"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -163,10 +204,10 @@
       "mode": "recovery",
       "object_ref": "LIFD-OBJECT-6@v1",
       "evidence": [
-        "E6S"
+        "E6S-OVERSEAS"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-EXIT-COST"
       ],
       "expected_status": "controlled_exit",
       "must": [
@@ -182,6 +223,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "UK海外仓尾货380件(SKU-B22)，月销仅45件(8.4月覆盖)。仓储费£1.2/件/月×380=£456/月。退出选项: 清仓(回收30%=$1,710) vs 退运(运费$3.8/件=$1,444+重新入仓$2,100)。清仓净回收$1,710优于退运。",
+      "flip_condition": "若该SKU UK站有促销可加速至月销100+件，保留库存继续销售。",
+      "evidence_binding": {
+        "source": "海外仓库存+销售趋势",
+        "fingerprint": "sha256:lifd6f6",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-12"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",

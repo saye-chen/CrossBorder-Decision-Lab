@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 VERSION_RE = re.compile(r"^运行时版本：`([A-Z][A-Z0-9-]*-\d{4}\.\d{2})`。$", re.MULTILINE)
 LINK_RE = re.compile(r"\[[^]]+\]\(([^)]+)\)")
+NON_DOMAIN_UTILITY_SKILLS = {"article-draft-publisher", "authored-voice"}
 
 
 def validate_skill(skill_dir: Path) -> list[str]:
@@ -103,7 +104,7 @@ def validate_video_weights() -> list[str]:
 def validate_agents_yaml() -> list[str]:
     """Check agents/openai.yaml follows the official UI metadata contract."""
     errors: list[str] = []
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         yaml_file = skill_dir / "agents" / "openai.yaml"
         if not yaml_file.exists():
             continue
@@ -160,7 +161,7 @@ def validate_readme_inventory() -> list[str]:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
 
     # Check all skill directories are mentioned
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         if skill_dir.name not in readme:
             errors.append(f"README.md: missing skill directory '{skill_dir.name}'")
 
@@ -170,7 +171,7 @@ def validate_readme_inventory() -> list[str]:
             errors.append(f"README.md: missing reference to '{required_file}'")
 
     # Check model versions in README match SKILL.md
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
         version_match = re.search(r"`([A-Z][A-Z0-9-]*-\d{4}\.\d{2})`", skill_text)
         if version_match and version_match.group(1) not in readme:
@@ -199,7 +200,7 @@ def validate_cross_skill_versions() -> list[str]:
     errors: list[str] = []
     rules_text = (ROOT / "RULES.md").read_text(encoding="utf-8")
 
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
         version_match = re.search(r"`([A-Z][A-Z0-9-]*-\d{4}\.\d{2})`", skill_text)
         if version_match:
@@ -222,7 +223,7 @@ def validate_cross_skill_versions() -> list[str]:
 def validate_reference_routing() -> list[str]:
     """Check every nested reference is reachable from SKILL.md."""
     errors: list[str] = []
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         skill_file = skill_dir / "SKILL.md"
         ref_dir = skill_dir / "references"
         if not ref_dir.exists():
@@ -266,7 +267,7 @@ def validate_reference_routing() -> list[str]:
 
 def current_runtime_versions() -> dict[str, str]:
     versions: dict[str, str] = {}
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         match = VERSION_RE.search((skill_dir / "SKILL.md").read_text(encoding="utf-8"))
         if match:
             versions[skill_dir.name] = match.group(1)
@@ -280,7 +281,7 @@ def validate_current_runtime_lineage() -> list[str]:
         version.split("-", 1)[0]: version for version in current_runtime_versions().values()
     }
     active_paths = set((ROOT / "scripts").rglob("*.py"))
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         active_paths.update((skill_dir / "scripts").rglob("*.py"))
         evaluation_dir = skill_dir / "evaluations"
         if evaluation_dir.exists():
@@ -309,7 +310,7 @@ def validate_ci_release_gate() -> list[str]:
     if not workflow.is_file():
         return [".github/workflows/expert-release.yml is required"]
     text = workflow.read_text(encoding="utf-8")
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         if skill_dir.name not in text:
             errors.append(f"expert-release.yml: missing Skill coverage for {skill_dir.name}")
     for command in (
@@ -339,7 +340,7 @@ def validate_change_impact_manifest() -> list[str]:
 
 def validate_domain_contract_entrypoints() -> list[str]:
     errors = []
-    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md")):
+    for skill_dir in sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS):
         entry = skill_dir / "scripts/validate_decision_contract.py"
         if not entry.exists():
             errors.append(f"{skill_dir.name}: missing decision contract validator")
@@ -393,7 +394,7 @@ def validate_erdg_baseline() -> list[str]:
     if len(schemas) < 13:
         errors.append("ERDG: at least 13 normative schemas are required")
     adapters = {path.parent.name for path in (root / "adapters").glob("*/adapter.json")}
-    skills = {path.parent.name for path in ROOT.glob("*/SKILL.md")}
+    skills = {path.parent.name for path in ROOT.glob("*/SKILL.md")} - NON_DOMAIN_UTILITY_SKILLS
     if adapters != skills:
         errors.append(f"ERDG: adapter coverage mismatch missing={sorted(skills-adapters)} extra={sorted(adapters-skills)}")
     try:
@@ -555,7 +556,7 @@ def validate_interaction_platform_connector_controls() -> list[str]:
 
 
 def main() -> int:
-    skill_dirs = sorted(path.parent for path in ROOT.glob("*/SKILL.md"))
+    skill_dirs = sorted(path.parent for path in ROOT.glob("*/SKILL.md") if path.parent.name not in NON_DOMAIN_UTILITY_SKILLS)
     errors: list[str] = []
 
     # Core skill validation

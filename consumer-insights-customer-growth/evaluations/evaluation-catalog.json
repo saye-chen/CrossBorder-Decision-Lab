@@ -8,10 +8,10 @@
       "mode": "standard",
       "object_ref": "CIG-OBJECT-1@v1",
       "evidence": [
-        "E1S"
+        "E1S-MERGE"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-REVENUE-CONSERVE"
       ],
       "expected_status": "blocked",
       "must": [
@@ -27,6 +27,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "合并后CLV $342 > 分个体之和$287，违反收入守恒。根因: 2笔重叠订单($55)+积分重复计($55)=$110虚增。",
+      "flip_condition": "去重后CLV≤$287且重叠订单标记完成，身份合并才有效。",
+      "evidence_binding": {
+        "source": "CRM合并日志+订单去重",
+        "fingerprint": "sha256:cig1a1",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-08"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -39,10 +47,10 @@
       "mode": "conflict",
       "object_ref": "CIG-OBJECT-2@v1",
       "evidence": [
-        "E2S"
+        "E2S-CLV-RAW"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-REFUND-MATURE"
       ],
       "expected_status": "inconclusive",
       "must": [
@@ -58,6 +66,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "Cohort 2026-Q1 CLV $18.24/人，但退款成熟期(90天)未过。历史同期退款率$3.70/人。扣除后净增量$14.54/人，低于增长目标$16/人的门槛。",
+      "flip_condition": "退款成熟后实际退款<$2.50/人，净增量可回升至$15.74+。",
+      "evidence_binding": {
+        "source": "CLV计算表+退款历史",
+        "fingerprint": "sha256:cig2b2",
+        "biz_time": "2026-08-02",
+        "valid_until": "2026-08-15"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -70,10 +86,10 @@
       "mode": "extreme",
       "object_ref": "CIG-OBJECT-3@v1",
       "evidence": [
-        "E3S"
+        "E3S-REACH"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-HOLDOUT"
       ],
       "expected_status": "holdout",
       "must": [
@@ -89,6 +105,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "月触达12次/人(邮件+Push+SMS)，打开率从28%降至14%。Holdout组(0触达)转化率与触达组差异从+3.2pp缩至+0.8pp。边际触达已无效甚至负向(退订率+1.2%)。",
+      "flip_condition": "触达频次降至6次/月且holdout差异回升至+2pp以上。",
+      "evidence_binding": {
+        "source": "触达日志+holdout实验",
+        "fingerprint": "sha256:cig3c3",
+        "biz_time": "2026-08-03",
+        "valid_until": "2026-08-10"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -98,13 +122,13 @@
     {
       "id": "CIG-PE-04",
       "name": "评价事故恢复",
-      "mode": "multi_turn",
+      "mode": "recovery",
       "object_ref": "CIG-OBJECT-4@v1",
       "evidence": [
-        "E4S"
+        "E4S-REVIEW-DROP"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-RECOVERY"
       ],
       "expected_status": "controlled_recovery",
       "must": [
@@ -120,6 +144,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "批量邀评邮件误发(应发500封实发5,000封)，导致店铺评分从4.6降至4.2。恢复计划: 暂停邀评14天+对已投诉客户补偿$5优惠券。预计恢复至4.5需21天。",
+      "flip_condition": "14天后评分回升至4.4+且投诉率降至<0.5%，恢复有效。",
+      "evidence_binding": {
+        "source": "邮件发送日志+评分追踪",
+        "fingerprint": "sha256:cig4d4",
+        "biz_time": "2026-08-04",
+        "valid_until": "2026-08-18"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -132,10 +164,10 @@
       "mode": "adversarial",
       "object_ref": "CIG-OBJECT-5@v1",
       "evidence": [
-        "E5S"
+        "E5S-MEMBER-LIFT"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-COUNTERFACTUAL"
       ],
       "expected_status": "experiment_required",
       "must": [
@@ -151,6 +183,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "会员计划声称带来+22%复购提升，但无反事实对照。自选加入会员的用户本身购买意愿更高(自选择偏差)。需RCT或合成控制法验证净增量。",
+      "flip_condition": "RCT显示会员组vs对照组差异>15%且p<0.05，增量成立。",
+      "evidence_binding": {
+        "source": "会员数据+历史购买",
+        "fingerprint": "sha256:cig5e5",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-19"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -160,13 +200,13 @@
     {
       "id": "CIG-PE-06",
       "name": "隐私授权撤回",
-      "mode": "recovery",
+      "mode": "multi_turn",
       "object_ref": "CIG-OBJECT-6@v1",
       "evidence": [
-        "E6S"
+        "E6S-CONSENT"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-DATA-GAP"
       ],
       "expected_status": "blocked",
       "must": [
@@ -180,8 +220,17 @@
       "forbidden": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "无授权数据续用"
       ],
+      "rationale": "3,200名用户撤回GDPR/CCPA数据授权(占总活跃用户18%)。撤回后不能使用其数据做CLV计算、触达或个性化推荐。影响: Cohort CLV分母从18,000降至14,800，人均CLV需重算。",
+      "flip_condition": "用户重新授权或找到匿名化合规替代方案后，才可恢复分析。",
+      "evidence_binding": {
+        "source": "授权日志+GDPR/CCPA合规记录",
+        "fingerprint": "sha256:cig6f6",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-06"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",

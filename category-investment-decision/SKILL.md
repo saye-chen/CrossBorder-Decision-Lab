@@ -9,6 +9,8 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 
 机会信号子合同版本：`OSL-v1`；不改变既有七维评分口径。
 
+候选漏斗子合同版本：`CIDM-CANDIDATE-FUNNEL-v1`；只治理候选研究状态、跨平台证据与受控交接，不改变资本主权。
+
 成熟度：`controlled pilot`；授权真实历史回放门未通过，不得声明 `production ready`。
 
 ## 统一交互与执行控制
@@ -64,6 +66,8 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 
 外部研究运行模式以`external-research-runtime-mode.json`为唯一合同：当前默认使用联网实时研究，MCP/API只保留标准化证据接口，不安装具体供应商客户端，也不是普通研究的运行依赖。Connector不可用时继续联网取证；部分失败仅把受影响证据标为`inconclusive`，不得把空响应写成0。只有取得明确授权、凭据隔离、字段contract test、限流/成本策略和回滚方案后，才允许启用具体Connector。
 
+批量发现、候选池、跨平台验证或从机会信号晋级正式尽调时，必须读取 [candidate-funnel-and-cross-platform-validation.md](references/candidate-funnel-and-cross-platform-validation.md)。所有对象依次使用 `DISCOVERY → SCREEN → DEEP_DIVE → INVESTMENT_CANDIDATE`；前两层使用 `SCAN`，后两层使用 `DILIGENCE`。跨平台证据只能标为 `CONFIRMATION / LEADING / FIT_MISMATCH / CONFLICT`，不得把“某平台热、另一平台冷”机械写成真实需求或信息差。结构化候选运行 `scripts/candidate_funnel.py`；漏斗校验失败、早期供应链/IP门阻断或 ERDG 未通过时不得晋级或编译交接包。
+
 第三方字段异常读取 `external-data-field-trap-registry.json` 并运行 `scripts/validate_opportunity_governance.py`；工具部分失败必须输出`ExecutionCompletion=partial`及受影响门槛，禁止“失败→空数组→0→正常评分”。需要把已接受的商品事实与Proof交给PLCO时读取 [cidm-to-plco-packet.md](references/cidm-to-plco-packet.md)；快速判断读取 [rapid-decision-card.md](references/output-protocols/rapid-decision-card.md)。两类输出均不得覆盖CIDM投资主权。
 
 需要计算新品突破、关键词需求、市场结构、经济可行性、有效供给缺口、可解决产品缺口、流量可复制性或季节窗口时，读取 [opportunity-model-execution.md](references/opportunity-model-execution.md)，并运行`scripts/opportunity_signal_engine.py`。阈值必须来自带国家、平台、品类、价格带和日期的校准输入；禁止把示例值固化为全局门槛。
@@ -85,6 +89,7 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 | 模式 | 默认必读文件 | 默认不读，触发时再读 |
 |---|---|---|
 | Decision Card / 快速初筛 / `/screen` | `scoring-model.md`、`evidence-and-finance.md` 中与问题相关的部分 | 报告模板和无关场景资源；需要正式文件或格式不确定时再读取 |
+| 候选池 / 批量发现 / 跨平台验证 | `candidate-funnel-and-cross-platform-validation.md`、`opportunity-signal-library.md` | 未晋级候选不运行完整七维评分与深度尽调 |
 | Decision Memo | 与目标国家、平台、对象和主场景直接相关的文件 | 无关场景资源和完整尽调模板 |
 | Investment Diligence | 所有与目标国家、平台、对象和场景相关的文件 | 仍按模块读取，避免无关参考文件 |
 | 监控 / 诊断 / 复盘 | `post-launch-playbook.md` 或 `competitor-monitoring.md`，再叠加对应对象模块 | `report-template.md` 中不相关的报告类型；未触发重新评分时不机械展开完整 STEP1-STEP8 |
@@ -92,6 +97,8 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 快速初筛必须保留门槛、评分、利润/风险假设、关键证据、Go/Stop 和下一步验证；少读模板文件不等于降低报告标准。
 
 开始前确定：产品边界、目标国家、目标平台、**生命周期阶段**、**卖家画像**、预期价格带、时间窗口和风险偏好。
+
+多候选或机会发现任务先生成“选品任务卡”，至少包含国家、平台、产品边界、生命周期、价格带、卖家画像、资本上限、可承受损失、时间窗口、风险偏好和经营目标。候选必须记录晋级/淘汰原因、缺失数据、最弱假设、下一步验证、停止条件和重新进入条件；没有这些字段不得称为可管理候选池。
 
 - **生命周期阶段**：LC-1 机会发现 / LC-2 概念验证 / LC-3 小测验证 / LC-4 放量期 / LC-5 稳态运营 / LC-6 衰退/退出。从用户输入推断；推断不出时主动询问，不默认 LC-1。阶段直接影响置信度上限和评分解读，详见 [references/scoring-model.md](references/scoring-model.md) “生命周期阶段修正”。
 - **卖家画像**：效率型 / 精品型 / 品牌型 / 规模型只是基础姿态。收集可用预算、当前 SKU 数、团队规模、核心能力、经营玩法、账号组织和国家平台拓扑。画像影响决策解读和运营方案，不改变评分或证据置信度。详见 [references/seller-endowment-matching.md](references/seller-endowment-matching.md)。用户未提供时保持 `seller-agnostic`：只交付产品基础结论，并并列给出 2-3 条条件化卖家路径及其所需资源，不默认任何路径为真实画像，不得据此确定预算比例、首批数量、多平台扩张、重仓或低分例外。
@@ -235,6 +242,7 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 - [完整][场景] 指定国家、比较国家或涉及美国/欧洲/日本/东南亚本地化时读取 [references/country-localization.md](references/country-localization.md)；国家不在既有剧本、用户只给区域或本地规则不确定时读取 [references/country-routing-universal.md](references/country-routing-universal.md)。跨国家评分比较时读取 [references/country-calibration.md](references/country-calibration.md) 获取国家校准锚点；需要特定平台×国家组合的费率、合规和竞争特征时读取 [references/platform-country-cards.md](references/platform-country-cards.md)。
 - [场景] 需要确定场景重点模块、附表或压缩展示边界时读取 [references/scene-output-protocols.md](references/scene-output-protocols.md)。
 - [场景] 需要确定输入字段、批量表格或 JSON 结构时读取 [references/input-schemas.md](references/input-schemas.md)。
+- [场景] 建候选池、做广搜深挖、跨平台交叉验证、早期供应链/IP筛查或生成选品后交接包时读取 [references/candidate-funnel-and-cross-platform-validation.md](references/candidate-funnel-and-cross-platform-validation.md)，并运行 `scripts/candidate_funnel.py`。
 - [完整] 联网取证前读取 [references/source-routing.md](references/source-routing.md)，按问题选择优先来源；快速初筛仅在来源选择不明确时读取。
 - [完整][场景] 页面不可访问、工具失败、数据冲突或证据不足时读取 [references/error-and-fallback.md](references/error-and-fallback.md)。
 - [完整] 需要重复计算利润、贡献利润、盈亏平衡广告率或批次盈亏平衡时运行 `scripts/profit_model.py --help`，不要手算多场景表格。
@@ -243,6 +251,10 @@ description: 默认用中文执行专业、证据驱动的跨境电商品类投�
 - [回归] 做版本升级、demo、压测或质量回归时读取 [references/pressure-test-matrix.md](references/pressure-test-matrix.md)，按 10 个标准场景抽样或完整回归。
 
 ## 内建能力链
+
+候选发现采用成本分层：`SCAN` 只形成候选和补证计划，不生成正式评分或 GO；只有通过快速供应链与 IP/合规门的对象才能进入 `DILIGENCE`。供应链与 IP/合规都采用两阶段检查：SCREEN 前排除明显不可行或高风险对象，进入前再完成真实报价、包装尺寸、质检、认证、标签/宣称和必要的专业复核。快速门通过只表示未发现明显阻断，不得写成“已合规”“IP 已清”或“供应链已验证”。
+
+投决后的执行延伸只能通过受控交接包完成。交接包必须绑定 ERDG 通过的 `INVESTMENT_CANDIDATE`、证据化卖点、禁止宣称、价格/利润红线、成功/停止条件、回滚和结果回填；所有动作保持 `proposed`，`external_write=false`，不得让页面、广告、达人、物流或采购模块反向覆盖 CIDM 资本结论。
 
 VOC/竞品取证不是独立报告孤岛：高信号发现必须直接连接五道门槛、七维评分、切入楔子和最弱假设。测款也不是附加建议：实验结果必须按原评分版本回写证据状态，必要时重新评分并说明变化来自哪个假设被验证或推翻。
 
@@ -409,6 +421,10 @@ VOC/竞品取证不是独立报告孤岛：高信号发现必须直接连接五�
 19. 本任务后台进程、临时目录、截图、抓取页、测试文件和缓存是否已清理并验证不存在。
 20. 仅在 Skill 版本升级、模型/脚本改动、demo、压测或质量回归时运行 `python3 scripts/test_models.py` 与 Skill 校验；普通报告交付只做结构、证据、计算口径、链接/Markdown 和临时目录自检，不把未运行回归测试写成失败。
 21. 发布审计时同时读取 `evaluations/evaluation-catalog.json`、`evaluations/golden/decision-card.md` 与 `evaluations/golden/professional-report.md`；这些合成资产只证明专业工程门，不替代 L4 授权真实回放。
+22. 多候选任务是否使用四层漏斗与 SCAN/DILIGENCE 分层；未晋级对象是否避免运行昂贵深挖或正式评分。
+23. 跨平台证据是否标明确认、领先、平台错配或冲突，并记录可比口径、独立来源、替代解释与决策影响。
+24. 候选是否具有晋级/淘汰、缺失数据、最弱假设、下一步验证、停止与重新进入账本；供应链和 IP/合规是否完成两阶段门。
+25. 选品后交接是否绑定 ERDG 通过的投资候选、保持 `proposed` 与 `external_write=false`，且未越过接收专业域主权。
 
 ## PLCO 页面执行路由
 

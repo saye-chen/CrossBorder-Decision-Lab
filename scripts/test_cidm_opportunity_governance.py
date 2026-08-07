@@ -12,7 +12,7 @@ class CIDMOpportunityGovernanceTests(unittest.TestCase):
     def test_current_dod_and_all_work_packages_are_consistent(self):
         errors, summary = module.validate()
         self.assertEqual(errors, [])
-        self.assertEqual(summary["work_packages"], 21)
+        self.assertEqual(summary["work_packages"], 22)
         self.assertEqual(summary["detailed_requirements"], 118)
         self.assertEqual(summary["external_gates_open"], 3)
         self.assertFalse(summary["production_ready"])

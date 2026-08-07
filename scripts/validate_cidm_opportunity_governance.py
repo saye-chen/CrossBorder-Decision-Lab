@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate OSL Current DoD and WP-01..WP-21 execution registers."""
+"""Validate OSL Current DoD and WP-01..WP-22 execution registers."""
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -36,9 +36,9 @@ def validate() -> tuple[list[str], dict]:
         if row.get("status") in OPEN and not row.get("blocker"): errors.append(f"{row.get('requirement_id')}: open item lacks blocker")
         for path in row.get("evidence", []):
             if not (ROOT / path).exists(): errors.append(f"{row.get('requirement_id')}: missing evidence {path}")
-    packages = wp.get("work_packages", []); expected = {f"WP-{index:02d}" for index in range(1, 22)}
+    packages = wp.get("work_packages", []); expected = {f"WP-{index:02d}" for index in range(1, 23)}
     by_id = {item.get("work_package_id"): item for item in packages}
-    if set(by_id) != expected or len(packages) != 21: errors.append("work package register must contain WP-01 through WP-21 exactly once")
+    if set(by_id) != expected or len(packages) != 22: errors.append("work package register must contain WP-01 through WP-22 exactly once")
     for package_id, item in by_id.items():
         for field in ("objective", "owner_role", "accountable_role", "reviewer_role", "entry_criteria", "dependencies", "deliverables", "exit_evidence", "test_commands", "risks", "rollback", "status", "commit_or_artifact_ids"):
             if field not in item: errors.append(f"{package_id}: missing {field}")
@@ -49,7 +49,7 @@ def validate() -> tuple[list[str], dict]:
             elif item.get("status") in {"completed", "completed_controlled", "completed_interface"} and by_id[dependency].get("status") == "not_started": errors.append(f"{package_id}: completed before dependency {dependency}")
         for path in item.get("exit_evidence", []):
             if not (ROOT / path).exists(): errors.append(f"{package_id}: missing exit evidence {path}")
-    summary = {"requirements": len(requirements), "detailed_requirements": len(detailed_rows), "requirements_open": sum(item.get("status") in OPEN for item in requirements), "work_packages": len(packages), "work_packages_completed": sum(item.get("status") in {"completed", "completed_controlled", "completed_interface"} for item in packages), "external_gates_open": sum(item.get("gate") == "external" for item in requirements), "production_ready": False, "maturity": "controlled pilot"}
+    summary = {"requirements": len(requirements), "detailed_requirements": len(detailed_rows), "requirements_open": sum(item.get("status") in OPEN for item in requirements), "work_packages": len(packages), "work_packages_completed": sum(item.get("status") in {"completed", "completed_controlled", "completed_interface", "completed_contract"} for item in packages), "external_gates_open": sum(item.get("gate") == "external" for item in requirements), "production_ready": False, "maturity": "controlled pilot"}
     return errors, summary
 
 def main() -> int:

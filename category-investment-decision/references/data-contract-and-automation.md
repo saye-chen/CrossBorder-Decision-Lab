@@ -2,6 +2,8 @@
 
 规范键为 `object_id × country × platform × lifecycle × model_version × as_of_time`。输入区分事实、授权数据、派生计算、推断和因果；所有金额带币种、税口径和窗口，缺失与零值严格分开。
 
+候选池额外绑定 `CIDM-CANDIDATE-FUNNEL-v1`：任务卡、候选 ID、阶段、研究模式、状态、证据/来源家族、晋级/淘汰原因、缺失数据、最弱假设、下一步验证、停止和重新进入条件必须版本化。SCAN 结果不得自动升级为 DILIGENCE 或正式评分；阶段变化写入不可覆盖的 transition ledger。
+
 批处理必须校验有限值、重复对象、证据指纹、分母、版本和单位。评分、利润、组合选择与变更影响由确定性脚本计算，输出保存输入/输出哈希。重跑使用相同幂等键，不覆盖旧报告；新版本生成 child，并保持唯一 Current Effective Decision。
 
 自动化失败返回 `invalid/blocked/inconclusive` 和逐字段错误，不静默填充。外部写入、发布、消息、预算或库存动作需要用户明确授权；默认只生成建议。删除只处理本任务临时目录，源数据只读。

@@ -1,5 +1,11 @@
 # CIDM 跨域集成协议
 
+## CIDM 候选漏斗交接前置条件
+
+选品后执行交接必须来自 `CIDM-CANDIDATE-FUNNEL-v1` 的 `INVESTMENT_CANDIDATE`，并绑定 `ERDG-CONTRACT-2026.07` 校验通过状态。交接包只传递已验证事实、证据绑定卖点、禁止宣称、目标人群/任务、价格利润红线、实验假设、成功/停止条件、回滚和结果回填位置。
+
+所有接收域只获得 `proposed` 输入，`external_write=false`。接收域不得修改 CIDM 分数、资本姿态或生命周期动作上限；新增证据必须作为结构化建议回传，由 CIDM 接受并重算。
+
 CIDM 是品类、SKU、国家、平台资本进入、追加、收缩、退出和再进入的最终主权 owner。输入卡必须含 `object_id`、生产域及运行时版本、`as_of_time`、证据/计算 ID、结论状态、置信区间、允许用途、禁止用途和到期时间。
 
 CIDM 向 CIM 提交竞品池与需确认变化，向 VLB 提交内容最弱假设，向 CIG 提交客户价值假设，向 LIFD 提交库存/现金上限，向 PLCO 提交页面承接任务，向 AAMO 提交广告资本上限。参与域只返回本域 `proposed/validated/blocked/inconclusive` 结果，不直接改变投资档位。

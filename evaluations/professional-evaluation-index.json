@@ -9,15 +9,15 @@
       "domain_id": "D01",
       "skill": "category-investment-decision",
       "source_case_count": 6,
-      "source_catalog_hash": "871d7e283c2f22994360478c8e814ae7765e0bb12a44036de22e7af74ae8cafa",
-      "golden_hash": "94526c5bf8ad008b8c5831031b13d0a1f678618a506337aa19b5c130b4c0fe82"
+      "source_catalog_hash": "96b04c9c07a4b88ac89fc298ddfa523cb1fd8a43b216be5c60191d6fb6a15f8d",
+      "golden_hash": "4305b58bc0c37e69b630232276668592182d6633c87d2ec363bd948954b613c7"
     },
     {
       "domain_id": "D02",
       "skill": "competitive-intelligence-monitoring",
       "source_case_count": 6,
-      "source_catalog_hash": "72ff9d24c7c10165301989a4f04d73e3c22a40bfe3add20a211674f017bf9085",
-      "golden_hash": "d299fa585ea27f07b6af8249fe7643ec01b70a3933a5e16f8155516b4414540f"
+      "source_catalog_hash": "0402558fa006e27cb85ecd10d9f1bf7bfd0ddf7f4c8fcb4b5ac655d0130cb86e",
+      "golden_hash": "68122b4cecd1ac5c31eace29959b84e09d3df989fbd14b8a72650fa3f9e0b1da"
     },
     {
       "domain_id": "D03",
@@ -51,22 +51,22 @@
       "domain_id": "D07",
       "skill": "logistics-inventory-fulfillment-decision",
       "source_case_count": 6,
-      "source_catalog_hash": "58fd4435f55ca6a6c4bac81b063e6496ae48dc70d1f84790e52f7b4d4fc256e2",
-      "golden_hash": "73864abfb6f45cc4059af8b4318554ec24a32309bdfe7f3ec286dfb51058ab7f"
+      "source_catalog_hash": "485d6172fa9dcb651bcb773949ac772bfb9a0261ec53bd06771f044b5a22198c",
+      "golden_hash": "3ad4e7643aa484aada63f1f3b7574023f528adfbc11583720fe5ab882bc2e8a5"
     },
     {
       "domain_id": "D08",
       "skill": "platform-store-listing-conversion",
       "source_case_count": 6,
-      "source_catalog_hash": "6681fe98742de1f7bc4ae33fa961c3006e28976302ea67d0ed46e36aafb75ff9",
-      "golden_hash": "b5fe8519d289a5cd3d561f64560c53ba57aca282f9a0668373a400f63731f86b"
+      "source_catalog_hash": "198f39e1d777a1456dc19d35f96e4b6723584800bc8bd0269dc4346dac7dbb32",
+      "golden_hash": "6118b968adb3940490588560403e6ac0d0fb0112c4cd52ad4f90d3edc9fe9b78"
     },
     {
       "domain_id": "D09",
       "skill": "advertising-analysis-measurement-optimization",
       "source_case_count": 6,
-      "source_catalog_hash": "5be3ed4d5f7002e4280448634c6d23d144b17845d0922bd77f4c91a88e93b4b4",
-      "golden_hash": "4152ca4aad6fa01ce6a9d5405126291d4a450d4925f95711c21783f7f3db2b48"
+      "source_catalog_hash": "b5bf58143c91eea1e434e7ce43e18f9d371de1dbb39145ab63ba995879f089c7",
+      "golden_hash": "bb9953e8ad6ba6843f8d871161a0a69d122d61e478552e0ba358e6761d6af7dd"
     },
     {
       "domain_id": "D10",
@@ -79,8 +79,8 @@
       "domain_id": "D11",
       "skill": "video-link-breakdown",
       "source_case_count": 6,
-      "source_catalog_hash": "f9332b843b4f10ed51fa5bc41a910044feba8e58e5c7a47fcb59a1d5ac8c8358",
-      "golden_hash": "eac78bc2b3a9f06647b7424a6a4aedf7c8031453ef33b92c50b64d3e0714d7c5"
+      "source_catalog_hash": "13efd6816ee31a24627e2c92c025d946e57b4c7bb7b0e612f6247dadeb6a8a51",
+      "golden_hash": "fe7b0cfa82014f3d85569932837d9cb2c3ce3384a70b84738e9dd6403c7d0da0"
     },
     {
       "domain_id": "D12",
@@ -93,8 +93,8 @@
       "domain_id": "D13",
       "skill": "consumer-insights-customer-growth",
       "source_case_count": 6,
-      "source_catalog_hash": "4cc5c580720fcaa2957b06a7c81c12c418088aed0ee3d38914b0dad0f4bedac3",
-      "golden_hash": "07588c707ead4ee5a4693954dd3911f5db66a27b13d646c1cf87b9e5d9fbb097"
+      "source_catalog_hash": "f3f5f0e87b3ec1a7b76945489f92a8e7fb813a312dac28da45406da6b15e83f2",
+      "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507"
     }
   ],
   "cases": [
@@ -106,8 +106,8 @@
       "runtime": "CIDM-2026.07",
       "source_catalog": "category-investment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "CIDM-PE-01",
-      "source_hash": "fd7ec8b365afb226ec0c2a2a5e660bcdc237de0cc06c21f11a4a8b4355a569ad",
-      "golden_hash": "94526c5bf8ad008b8c5831031b13d0a1f678618a506337aa19b5c130b4c0fe82",
+      "source_hash": "2ba04b1c15126f775195b33b7979f7b10ecccae91851f4d1d9ca501abc3fe7b0",
+      "golden_hash": "4305b58bc0c37e69b630232276668592182d6633c87d2ec363bd948954b613c7",
       "mode": "standard",
       "object_ref": "CIDM-OBJECT-1@v1",
       "object_version": "v1",
@@ -115,32 +115,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E1S"
+        "E1S-SEARCH-VOL"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-COMP-CONC"
       ],
       "claims": [
         {
           "id": "CL-CIDM-PE-01",
           "assertion": "inconclusive",
           "evidence_refs": [
-            "E1S"
+            "E1S-SEARCH-VOL"
           ],
           "counterevidence_refs": [
-            "E1C"
+            "E1C-COMP-CONC"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -149,10 +152,10 @@
         "id": "RC-CIDM-PE-01",
         "assertion": "domain_adjudication_required_for:CIDM-PE-01",
         "evidence_refs": [
-          "E1S"
+          "E1S-SEARCH-VOL"
         ],
         "counterevidence_refs": [
-          "E1C"
+          "E1C-COMP-CONC"
         ]
       },
       "actions": [
@@ -210,7 +213,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "fd7ec8b365afb226ec0c2a2a5e660bcdc237de0cc06c21f11a4a8b4355a569ad"
+      "evidence_fingerprint": "2ba04b1c15126f775195b33b7979f7b10ecccae91851f4d1d9ca501abc3fe7b0"
     },
     {
       "schema_version": "1.0.0",
@@ -220,8 +223,8 @@
       "runtime": "CIDM-2026.07",
       "source_catalog": "category-investment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "CIDM-PE-02",
-      "source_hash": "89d857005066e061bf58115761f636e76fdcf765549d55bafbdd4d081ab4b7f6",
-      "golden_hash": "94526c5bf8ad008b8c5831031b13d0a1f678618a506337aa19b5c130b4c0fe82",
+      "source_hash": "2dcc478489e58aa181efa967942e79cbdec5861fd768d0feeeabe7eff9982bc4",
+      "golden_hash": "4305b58bc0c37e69b630232276668592182d6633c87d2ec363bd948954b613c7",
       "mode": "conflict",
       "object_ref": "CIDM-OBJECT-2@v1",
       "object_version": "v1",
@@ -229,32 +232,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E2S"
+        "E2S-PORTFOLIO"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-CASH-PK"
       ],
       "claims": [
         {
           "id": "CL-CIDM-PE-02",
           "assertion": "reallocate",
           "evidence_refs": [
-            "E2S"
+            "E2S-PORTFOLIO"
           ],
           "counterevidence_refs": [
-            "E2C"
+            "E2C-CASH-PK"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -263,10 +269,10 @@
         "id": "RC-CIDM-PE-02",
         "assertion": "domain_adjudication_required_for:CIDM-PE-02",
         "evidence_refs": [
-          "E2S"
+          "E2S-PORTFOLIO"
         ],
         "counterevidence_refs": [
-          "E2C"
+          "E2C-CASH-PK"
         ]
       },
       "actions": [
@@ -324,7 +330,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "89d857005066e061bf58115761f636e76fdcf765549d55bafbdd4d081ab4b7f6"
+      "evidence_fingerprint": "2dcc478489e58aa181efa967942e79cbdec5861fd768d0feeeabe7eff9982bc4"
     },
     {
       "schema_version": "1.0.0",
@@ -334,8 +340,8 @@
       "runtime": "CIDM-2026.07",
       "source_catalog": "category-investment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "CIDM-PE-03",
-      "source_hash": "d1690efc9cab42b7c9ad077ea00b9e374d8536f239ab2a4829e7dde05c83d4c4",
-      "golden_hash": "94526c5bf8ad008b8c5831031b13d0a1f678618a506337aa19b5c130b4c0fe82",
+      "source_hash": "335fc2f3419b1e0c9079e579756f21a1993dcdf49f66ee2923574879f205b440",
+      "golden_hash": "4305b58bc0c37e69b630232276668592182d6633c87d2ec363bd948954b613c7",
       "mode": "extreme",
       "object_ref": "CIDM-OBJECT-3@v1",
       "object_version": "v1",
@@ -343,32 +349,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E3S"
+        "E3S-MARKET"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-COMPLIANCE"
       ],
       "claims": [
         {
           "id": "CL-CIDM-PE-03",
           "assertion": "blocked",
           "evidence_refs": [
-            "E3S"
+            "E3S-MARKET"
           ],
           "counterevidence_refs": [
-            "E3C"
+            "E3C-COMPLIANCE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -377,10 +386,10 @@
         "id": "RC-CIDM-PE-03",
         "assertion": "domain_adjudication_required_for:CIDM-PE-03",
         "evidence_refs": [
-          "E3S"
+          "E3S-MARKET"
         ],
         "counterevidence_refs": [
-          "E3C"
+          "E3C-COMPLIANCE"
         ]
       },
       "actions": [
@@ -404,7 +413,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "合规门绕过"
       ],
       "calculations": [
         {
@@ -438,7 +448,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "d1690efc9cab42b7c9ad077ea00b9e374d8536f239ab2a4829e7dde05c83d4c4"
+      "evidence_fingerprint": "335fc2f3419b1e0c9079e579756f21a1993dcdf49f66ee2923574879f205b440"
     },
     {
       "schema_version": "1.0.0",
@@ -448,8 +458,8 @@
       "runtime": "CIDM-2026.07",
       "source_catalog": "category-investment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "CIDM-PE-04",
-      "source_hash": "f7dd4712cc2fd7817625b772dcd59dc01611747465cf3cb9fbcf67d9da7994f9",
-      "golden_hash": "94526c5bf8ad008b8c5831031b13d0a1f678618a506337aa19b5c130b4c0fe82",
+      "source_hash": "bd3be3cccb3c96db8deb5b3fef8420f65d6c39ea419dea5b1e17bb21ef262112",
+      "golden_hash": "4305b58bc0c37e69b630232276668592182d6633c87d2ec363bd948954b613c7",
       "mode": "multi_turn",
       "object_ref": "CIDM-OBJECT-4@v1",
       "object_version": "v1",
@@ -457,32 +467,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E4S"
+        "E4S-CROSS"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-LOCAL"
       ],
       "claims": [
         {
           "id": "CL-CIDM-PE-04",
           "assertion": "recompute",
           "evidence_refs": [
-            "E4S"
+            "E4S-CROSS"
           ],
           "counterevidence_refs": [
-            "E4C"
+            "E4C-LOCAL"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -491,10 +504,10 @@
         "id": "RC-CIDM-PE-04",
         "assertion": "domain_adjudication_required_for:CIDM-PE-04",
         "evidence_refs": [
-          "E4S"
+          "E4S-CROSS"
         ],
         "counterevidence_refs": [
-          "E4C"
+          "E4C-LOCAL"
         ]
       },
       "actions": [
@@ -552,7 +565,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "f7dd4712cc2fd7817625b772dcd59dc01611747465cf3cb9fbcf67d9da7994f9"
+      "evidence_fingerprint": "bd3be3cccb3c96db8deb5b3fef8420f65d6c39ea419dea5b1e17bb21ef262112"
     },
     {
       "schema_version": "1.0.0",
@@ -562,8 +575,8 @@
       "runtime": "CIDM-2026.07",
       "source_catalog": "category-investment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "CIDM-PE-05",
-      "source_hash": "b416cabba3c90255439feb18942c76ed5feaeaac8a35e020e0e3ef451e8fe7f8",
-      "golden_hash": "94526c5bf8ad008b8c5831031b13d0a1f678618a506337aa19b5c130b4c0fe82",
+      "source_hash": "eba84d9a3072abd353ea2a9c549f6cc0dd2ee8265ae6def518efa204ded4ddef",
+      "golden_hash": "4305b58bc0c37e69b630232276668592182d6633c87d2ec363bd948954b613c7",
       "mode": "adversarial",
       "object_ref": "CIDM-OBJECT-5@v1",
       "object_version": "v1",
@@ -571,32 +584,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E5S"
+        "E5S-TREND"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-SEASONAL"
       ],
       "claims": [
         {
           "id": "CL-CIDM-PE-05",
           "assertion": "hold",
           "evidence_refs": [
-            "E5S"
+            "E5S-TREND"
           ],
           "counterevidence_refs": [
-            "E5C"
+            "E5C-SEASONAL"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -605,10 +621,10 @@
         "id": "RC-CIDM-PE-05",
         "assertion": "domain_adjudication_required_for:CIDM-PE-05",
         "evidence_refs": [
-          "E5S"
+          "E5S-TREND"
         ],
         "counterevidence_refs": [
-          "E5C"
+          "E5C-SEASONAL"
         ]
       },
       "actions": [
@@ -666,7 +682,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "b416cabba3c90255439feb18942c76ed5feaeaac8a35e020e0e3ef451e8fe7f8"
+      "evidence_fingerprint": "eba84d9a3072abd353ea2a9c549f6cc0dd2ee8265ae6def518efa204ded4ddef"
     },
     {
       "schema_version": "1.0.0",
@@ -676,8 +692,8 @@
       "runtime": "CIDM-2026.07",
       "source_catalog": "category-investment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "CIDM-PE-06",
-      "source_hash": "e190681044f8260b77cc25ace5cfd46e402e2939d5682c313d7944e4f8668874",
-      "golden_hash": "94526c5bf8ad008b8c5831031b13d0a1f678618a506337aa19b5c130b4c0fe82",
+      "source_hash": "2bef54c9030e6b71ca829c3207f8dc7b7c0acf85115ef73ce1215cb144dbac02",
+      "golden_hash": "4305b58bc0c37e69b630232276668592182d6633c87d2ec363bd948954b613c7",
       "mode": "recovery",
       "object_ref": "CIDM-OBJECT-6@v1",
       "object_version": "v1",
@@ -685,32 +701,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E6S"
+        "E6S-REENTRY"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-HISTORY"
       ],
       "claims": [
         {
           "id": "CL-CIDM-PE-06",
           "assertion": "controlled_reentry",
           "evidence_refs": [
-            "E6S"
+            "E6S-REENTRY"
           ],
           "counterevidence_refs": [
-            "E6C"
+            "E6C-HISTORY"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -719,10 +738,10 @@
         "id": "RC-CIDM-PE-06",
         "assertion": "domain_adjudication_required_for:CIDM-PE-06",
         "evidence_refs": [
-          "E6S"
+          "E6S-REENTRY"
         ],
         "counterevidence_refs": [
-          "E6C"
+          "E6C-HISTORY"
         ]
       },
       "actions": [
@@ -780,7 +799,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "e190681044f8260b77cc25ace5cfd46e402e2939d5682c313d7944e4f8668874"
+      "evidence_fingerprint": "2bef54c9030e6b71ca829c3207f8dc7b7c0acf85115ef73ce1215cb144dbac02"
     },
     {
       "schema_version": "1.0.0",
@@ -790,8 +809,8 @@
       "runtime": "CIM-2026.07",
       "source_catalog": "competitive-intelligence-monitoring/evaluations/evaluation-catalog.json",
       "source_case_id": "CIM-PE-01",
-      "source_hash": "73a4b684d69de8a4ff897ce5faa1314c81b32ad2538315082e80f9e401ddd369",
-      "golden_hash": "d299fa585ea27f07b6af8249fe7643ec01b70a3933a5e16f8155516b4414540f",
+      "source_hash": "f317c695c9217d8c45e168c9dc43fafb66c879061d1a04ca2d82bda4338cd064",
+      "golden_hash": "68122b4cecd1ac5c31eace29959b84e09d3df989fbd14b8a72650fa3f9e0b1da",
       "mode": "standard",
       "object_ref": "CIM-OBJECT-1@v1",
       "object_version": "v1",
@@ -799,32 +818,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E1S"
+        "E1S-ASIN-SNAP"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-SUPPLIER-REG"
       ],
       "claims": [
         {
           "id": "CL-CIM-PE-01",
           "assertion": "blocked",
           "evidence_refs": [
-            "E1S"
+            "E1S-ASIN-SNAP"
           ],
           "counterevidence_refs": [
-            "E1C"
+            "E1C-SUPPLIER-REG"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -833,10 +855,10 @@
         "id": "RC-CIM-PE-01",
         "assertion": "domain_adjudication_required_for:CIM-PE-01",
         "evidence_refs": [
-          "E1S"
+          "E1S-ASIN-SNAP"
         ],
         "counterevidence_refs": [
-          "E1C"
+          "E1C-SUPPLIER-REG"
         ]
       },
       "actions": [
@@ -894,7 +916,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "73a4b684d69de8a4ff897ce5faa1314c81b32ad2538315082e80f9e401ddd369"
+      "evidence_fingerprint": "f317c695c9217d8c45e168c9dc43fafb66c879061d1a04ca2d82bda4338cd064"
     },
     {
       "schema_version": "1.0.0",
@@ -904,8 +926,8 @@
       "runtime": "CIM-2026.07",
       "source_catalog": "competitive-intelligence-monitoring/evaluations/evaluation-catalog.json",
       "source_case_id": "CIM-PE-02",
-      "source_hash": "631c957f6ed8f8857618595b0b8e22d54ee9d2c1f99b64b07e783a8de16103b6",
-      "golden_hash": "d299fa585ea27f07b6af8249fe7643ec01b70a3933a5e16f8155516b4414540f",
+      "source_hash": "c875778ea346a523be48a544818d88517403c5d50ed9a902a9c430e30c614146",
+      "golden_hash": "68122b4cecd1ac5c31eace29959b84e09d3df989fbd14b8a72650fa3f9e0b1da",
       "mode": "conflict",
       "object_ref": "CIM-OBJECT-2@v1",
       "object_version": "v1",
@@ -913,32 +935,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E2S"
+        "E2S-PRICE-CRAWL"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-API-VERIFY"
       ],
       "claims": [
         {
           "id": "CL-CIM-PE-02",
           "assertion": "inconclusive",
           "evidence_refs": [
-            "E2S"
+            "E2S-PRICE-CRAWL"
           ],
           "counterevidence_refs": [
-            "E2C"
+            "E2C-API-VERIFY"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -947,10 +972,10 @@
         "id": "RC-CIM-PE-02",
         "assertion": "domain_adjudication_required_for:CIM-PE-02",
         "evidence_refs": [
-          "E2S"
+          "E2S-PRICE-CRAWL"
         ],
         "counterevidence_refs": [
-          "E2C"
+          "E2C-API-VERIFY"
         ]
       },
       "actions": [
@@ -1008,7 +1033,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "631c957f6ed8f8857618595b0b8e22d54ee9d2c1f99b64b07e783a8de16103b6"
+      "evidence_fingerprint": "c875778ea346a523be48a544818d88517403c5d50ed9a902a9c430e30c614146"
     },
     {
       "schema_version": "1.0.0",
@@ -1018,8 +1043,8 @@
       "runtime": "CIM-2026.07",
       "source_catalog": "competitive-intelligence-monitoring/evaluations/evaluation-catalog.json",
       "source_case_id": "CIM-PE-03",
-      "source_hash": "1ddb42950f1e7aba4adceedc14928e836c6165f0a06eb21d19a80176393a33fd",
-      "golden_hash": "d299fa585ea27f07b6af8249fe7643ec01b70a3933a5e16f8155516b4414540f",
+      "source_hash": "82381f9122be4ae62babdf0d9e63effed99985ce3290f45de498ea84bc1530b2",
+      "golden_hash": "68122b4cecd1ac5c31eace29959b84e09d3df989fbd14b8a72650fa3f9e0b1da",
       "mode": "extreme",
       "object_ref": "CIM-OBJECT-3@v1",
       "object_version": "v1",
@@ -1027,32 +1052,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E3S"
+        "E3S-RANK"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-REVIEW-VOL"
       ],
       "claims": [
         {
           "id": "CL-CIM-PE-03",
           "assertion": "review_required",
           "evidence_refs": [
-            "E3S"
+            "E3S-RANK"
           ],
           "counterevidence_refs": [
-            "E3C"
+            "E3C-REVIEW-VOL"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -1061,10 +1089,10 @@
         "id": "RC-CIM-PE-03",
         "assertion": "domain_adjudication_required_for:CIM-PE-03",
         "evidence_refs": [
-          "E3S"
+          "E3S-RANK"
         ],
         "counterevidence_refs": [
-          "E3C"
+          "E3C-REVIEW-VOL"
         ]
       },
       "actions": [
@@ -1122,7 +1150,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "1ddb42950f1e7aba4adceedc14928e836c6165f0a06eb21d19a80176393a33fd"
+      "evidence_fingerprint": "82381f9122be4ae62babdf0d9e63effed99985ce3290f45de498ea84bc1530b2"
     },
     {
       "schema_version": "1.0.0",
@@ -1132,8 +1160,8 @@
       "runtime": "CIM-2026.07",
       "source_catalog": "competitive-intelligence-monitoring/evaluations/evaluation-catalog.json",
       "source_case_id": "CIM-PE-04",
-      "source_hash": "974c6e458a5f7f09be2b008167b24225f0447f2b7f3d4ea72129f23f3f183133",
-      "golden_hash": "d299fa585ea27f07b6af8249fe7643ec01b70a3933a5e16f8155516b4414540f",
+      "source_hash": "92f7d800357d1228f8e48d87898649714fe507aff63c0336c3e43e34376a65e3",
+      "golden_hash": "68122b4cecd1ac5c31eace29959b84e09d3df989fbd14b8a72650fa3f9e0b1da",
       "mode": "multi_turn",
       "object_ref": "CIM-OBJECT-4@v1",
       "object_version": "v1",
@@ -1141,32 +1169,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E4S"
+        "E4S-US-DATA"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-UK-LOCAL"
       ],
       "claims": [
         {
           "id": "CL-CIM-PE-04",
           "assertion": "recompute",
           "evidence_refs": [
-            "E4S"
+            "E4S-US-DATA"
           ],
           "counterevidence_refs": [
-            "E4C"
+            "E4C-UK-LOCAL"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -1175,10 +1206,10 @@
         "id": "RC-CIM-PE-04",
         "assertion": "domain_adjudication_required_for:CIM-PE-04",
         "evidence_refs": [
-          "E4S"
+          "E4S-US-DATA"
         ],
         "counterevidence_refs": [
-          "E4C"
+          "E4C-UK-LOCAL"
         ]
       },
       "actions": [
@@ -1236,7 +1267,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "974c6e458a5f7f09be2b008167b24225f0447f2b7f3d4ea72129f23f3f183133"
+      "evidence_fingerprint": "92f7d800357d1228f8e48d87898649714fe507aff63c0336c3e43e34376a65e3"
     },
     {
       "schema_version": "1.0.0",
@@ -1246,8 +1277,8 @@
       "runtime": "CIM-2026.07",
       "source_catalog": "competitive-intelligence-monitoring/evaluations/evaluation-catalog.json",
       "source_case_id": "CIM-PE-05",
-      "source_hash": "ef1dadff0e97ef01c357d4eaeaa31213e938ff9ab0de6d0190e0211e4386892d",
-      "golden_hash": "d299fa585ea27f07b6af8249fe7643ec01b70a3933a5e16f8155516b4414540f",
+      "source_hash": "3bd21151f1b84ae58ce244ddc4cb9c964a0691c25982eba13b0b12579b984a00",
+      "golden_hash": "68122b4cecd1ac5c31eace29959b84e09d3df989fbd14b8a72650fa3f9e0b1da",
       "mode": "adversarial",
       "object_ref": "CIM-OBJECT-5@v1",
       "object_version": "v1",
@@ -1255,32 +1286,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E5S"
+        "E5S-STALE"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-GAP"
       ],
       "claims": [
         {
           "id": "CL-CIM-PE-05",
           "assertion": "blocked",
           "evidence_refs": [
-            "E5S"
+            "E5S-STALE"
           ],
           "counterevidence_refs": [
-            "E5C"
+            "E5C-GAP"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -1289,10 +1323,10 @@
         "id": "RC-CIM-PE-05",
         "assertion": "domain_adjudication_required_for:CIM-PE-05",
         "evidence_refs": [
-          "E5S"
+          "E5S-STALE"
         ],
         "counterevidence_refs": [
-          "E5C"
+          "E5C-GAP"
         ]
       },
       "actions": [
@@ -1316,7 +1350,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "过期证据续命"
       ],
       "calculations": [
         {
@@ -1350,7 +1385,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "ef1dadff0e97ef01c357d4eaeaa31213e938ff9ab0de6d0190e0211e4386892d"
+      "evidence_fingerprint": "3bd21151f1b84ae58ce244ddc4cb9c964a0691c25982eba13b0b12579b984a00"
     },
     {
       "schema_version": "1.0.0",
@@ -1360,8 +1395,8 @@
       "runtime": "CIM-2026.07",
       "source_catalog": "competitive-intelligence-monitoring/evaluations/evaluation-catalog.json",
       "source_case_id": "CIM-PE-06",
-      "source_hash": "52d6b2ba4991dc4392f48b086b16d02c284541f4b664382bcf7565bc4195bffa",
-      "golden_hash": "d299fa585ea27f07b6af8249fe7643ec01b70a3933a5e16f8155516b4414540f",
+      "source_hash": "8d17b33fdbb58f70c906af5d2702cfc8c05e71e9667b5a14d0130269d81c54b4",
+      "golden_hash": "68122b4cecd1ac5c31eace29959b84e09d3df989fbd14b8a72650fa3f9e0b1da",
       "mode": "recovery",
       "object_ref": "CIM-OBJECT-6@v1",
       "object_version": "v1",
@@ -1369,32 +1404,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E6S"
+        "E6S-RESUME"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-BASELINE-DRIFT"
       ],
       "claims": [
         {
           "id": "CL-CIM-PE-06",
           "assertion": "controlled_recovery",
           "evidence_refs": [
-            "E6S"
+            "E6S-RESUME"
           ],
           "counterevidence_refs": [
-            "E6C"
+            "E6C-BASELINE-DRIFT"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -1403,10 +1441,10 @@
         "id": "RC-CIM-PE-06",
         "assertion": "domain_adjudication_required_for:CIM-PE-06",
         "evidence_refs": [
-          "E6S"
+          "E6S-RESUME"
         ],
         "counterevidence_refs": [
-          "E6C"
+          "E6C-BASELINE-DRIFT"
         ]
       },
       "actions": [
@@ -1464,7 +1502,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "52d6b2ba4991dc4392f48b086b16d02c284541f4b664382bcf7565bc4195bffa"
+      "evidence_fingerprint": "8d17b33fdbb58f70c906af5d2702cfc8c05e71e9667b5a14d0130269d81c54b4"
     },
     {
       "schema_version": "1.0.0",
@@ -38716,8 +38754,8 @@
       "runtime": "LIFD-2026.07",
       "source_catalog": "logistics-inventory-fulfillment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "LIFD-PE-01",
-      "source_hash": "d1676fb2285aff81291532c70e3d27ef40e6a931241fd84431bfbbd6f4c29bc1",
-      "golden_hash": "73864abfb6f45cc4059af8b4318554ec24a32309bdfe7f3ec286dfb51058ab7f",
+      "source_hash": "7ebda73b382eeffccc62abd75dce4b18586dd6d7ab39718be5ddf7ea70aeabcc",
+      "golden_hash": "3ad4e7643aa484aada63f1f3b7574023f528adfbc11583720fe5ab882bc2e8a5",
       "mode": "standard",
       "object_ref": "LIFD-OBJECT-1@v1",
       "object_version": "v1",
@@ -38725,32 +38763,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E1S"
+        "E1S-ATP-CTP"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-ROUTE-DEMAND"
       ],
       "claims": [
         {
           "id": "CL-LIFD-PE-01",
           "assertion": "allocate",
           "evidence_refs": [
-            "E1S"
+            "E1S-ATP-CTP"
           ],
           "counterevidence_refs": [
-            "E1C"
+            "E1C-ROUTE-DEMAND"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -38759,10 +38800,10 @@
         "id": "RC-LIFD-PE-01",
         "assertion": "domain_adjudication_required_for:LIFD-PE-01",
         "evidence_refs": [
-          "E1S"
+          "E1S-ATP-CTP"
         ],
         "counterevidence_refs": [
-          "E1C"
+          "E1C-ROUTE-DEMAND"
         ]
       },
       "actions": [
@@ -38820,7 +38861,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "d1676fb2285aff81291532c70e3d27ef40e6a931241fd84431bfbbd6f4c29bc1"
+      "evidence_fingerprint": "7ebda73b382eeffccc62abd75dce4b18586dd6d7ab39718be5ddf7ea70aeabcc"
     },
     {
       "schema_version": "1.0.0",
@@ -38830,8 +38871,8 @@
       "runtime": "LIFD-2026.07",
       "source_catalog": "logistics-inventory-fulfillment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "LIFD-PE-02",
-      "source_hash": "d20efd09193bbff3aacaa9bb6ff33a6945c3c054352cc1ffa9900417ed47016d",
-      "golden_hash": "73864abfb6f45cc4059af8b4318554ec24a32309bdfe7f3ec286dfb51058ab7f",
+      "source_hash": "4c44f1ce7398fa37e5fbdea36a7e58cf2869833c9a540093b3616ba99729dd01",
+      "golden_hash": "3ad4e7643aa484aada63f1f3b7574023f528adfbc11583720fe5ab882bc2e8a5",
       "mode": "conflict",
       "object_ref": "LIFD-OBJECT-2@v1",
       "object_version": "v1",
@@ -38839,32 +38880,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E2S"
+        "E2S-CUSTOMS"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-CASCADE"
       ],
       "claims": [
         {
           "id": "CL-LIFD-PE-02",
           "assertion": "controlled_recovery",
           "evidence_refs": [
-            "E2S"
+            "E2S-CUSTOMS"
           ],
           "counterevidence_refs": [
-            "E2C"
+            "E2C-CASCADE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -38873,10 +38917,10 @@
         "id": "RC-LIFD-PE-02",
         "assertion": "domain_adjudication_required_for:LIFD-PE-02",
         "evidence_refs": [
-          "E2S"
+          "E2S-CUSTOMS"
         ],
         "counterevidence_refs": [
-          "E2C"
+          "E2C-CASCADE"
         ]
       },
       "actions": [
@@ -38934,7 +38978,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "d20efd09193bbff3aacaa9bb6ff33a6945c3c054352cc1ffa9900417ed47016d"
+      "evidence_fingerprint": "4c44f1ce7398fa37e5fbdea36a7e58cf2869833c9a540093b3616ba99729dd01"
     },
     {
       "schema_version": "1.0.0",
@@ -38944,8 +38988,8 @@
       "runtime": "LIFD-2026.07",
       "source_catalog": "logistics-inventory-fulfillment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "LIFD-PE-03",
-      "source_hash": "1fdf6275b208cea7ac9377c289549eb34e726c954cb3e350ca3be38e9591dd86",
-      "golden_hash": "73864abfb6f45cc4059af8b4318554ec24a32309bdfe7f3ec286dfb51058ab7f",
+      "source_hash": "5390a3bcd6d0ae48cfd3ba08a1b610b2604b2232593d09a25b40f52bbd9779bb",
+      "golden_hash": "3ad4e7643aa484aada63f1f3b7574023f528adfbc11583720fe5ab882bc2e8a5",
       "mode": "extreme",
       "object_ref": "LIFD-OBJECT-3@v1",
       "object_version": "v1",
@@ -38953,32 +38997,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E3S"
+        "E3S-HAZMAT"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-ROUTE-CERT"
       ],
       "claims": [
         {
           "id": "CL-LIFD-PE-03",
           "assertion": "blocked",
           "evidence_refs": [
-            "E3S"
+            "E3S-HAZMAT"
           ],
           "counterevidence_refs": [
-            "E3C"
+            "E3C-ROUTE-CERT"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -38987,10 +39034,10 @@
         "id": "RC-LIFD-PE-03",
         "assertion": "domain_adjudication_required_for:LIFD-PE-03",
         "evidence_refs": [
-          "E3S"
+          "E3S-HAZMAT"
         ],
         "counterevidence_refs": [
-          "E3C"
+          "E3C-ROUTE-CERT"
         ]
       },
       "actions": [
@@ -39014,7 +39061,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "资质缺失续命"
       ],
       "calculations": [
         {
@@ -39048,7 +39096,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "1fdf6275b208cea7ac9377c289549eb34e726c954cb3e350ca3be38e9591dd86"
+      "evidence_fingerprint": "5390a3bcd6d0ae48cfd3ba08a1b610b2604b2232593d09a25b40f52bbd9779bb"
     },
     {
       "schema_version": "1.0.0",
@@ -39058,8 +39106,8 @@
       "runtime": "LIFD-2026.07",
       "source_catalog": "logistics-inventory-fulfillment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "LIFD-PE-04",
-      "source_hash": "05c2577e56d3443670d50114729decb061ed091508665b9884eb755a975b91e5",
-      "golden_hash": "73864abfb6f45cc4059af8b4318554ec24a32309bdfe7f3ec286dfb51058ab7f",
+      "source_hash": "9035672dd236a616fd21d7104e23d6af4d579f0745726366840cc1390f67ec6c",
+      "golden_hash": "3ad4e7643aa484aada63f1f3b7574023f528adfbc11583720fe5ab882bc2e8a5",
       "mode": "multi_turn",
       "object_ref": "LIFD-OBJECT-4@v1",
       "object_version": "v1",
@@ -39067,32 +39115,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E4S"
+        "E4S-MULTI"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-COST"
       ],
       "claims": [
         {
           "id": "CL-LIFD-PE-04",
           "assertion": "recompute",
           "evidence_refs": [
-            "E4S"
+            "E4S-MULTI"
           ],
           "counterevidence_refs": [
-            "E4C"
+            "E4C-COST"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39101,10 +39152,10 @@
         "id": "RC-LIFD-PE-04",
         "assertion": "domain_adjudication_required_for:LIFD-PE-04",
         "evidence_refs": [
-          "E4S"
+          "E4S-MULTI"
         ],
         "counterevidence_refs": [
-          "E4C"
+          "E4C-COST"
         ]
       },
       "actions": [
@@ -39162,7 +39213,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "05c2577e56d3443670d50114729decb061ed091508665b9884eb755a975b91e5"
+      "evidence_fingerprint": "9035672dd236a616fd21d7104e23d6af4d579f0745726366840cc1390f67ec6c"
     },
     {
       "schema_version": "1.0.0",
@@ -39172,8 +39223,8 @@
       "runtime": "LIFD-2026.07",
       "source_catalog": "logistics-inventory-fulfillment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "LIFD-PE-05",
-      "source_hash": "ce6f8bbc5d6735b679df6801904830dd375250b920f770957a132e4a2d7981dc",
-      "golden_hash": "73864abfb6f45cc4059af8b4318554ec24a32309bdfe7f3ec286dfb51058ab7f",
+      "source_hash": "d6620ecfa66e4935b243d4c6c04e63bd5871891aafc2d7e342a51d38c6b3211b",
+      "golden_hash": "3ad4e7643aa484aada63f1f3b7574023f528adfbc11583720fe5ab882bc2e8a5",
       "mode": "adversarial",
       "object_ref": "LIFD-OBJECT-5@v1",
       "object_version": "v1",
@@ -39181,32 +39232,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E5S"
+        "E5S-TRANSIT"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-SLA"
       ],
       "claims": [
         {
           "id": "CL-LIFD-PE-05",
           "assertion": "hold",
           "evidence_refs": [
-            "E5S"
+            "E5S-TRANSIT"
           ],
           "counterevidence_refs": [
-            "E5C"
+            "E5C-SLA"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39215,10 +39269,10 @@
         "id": "RC-LIFD-PE-05",
         "assertion": "domain_adjudication_required_for:LIFD-PE-05",
         "evidence_refs": [
-          "E5S"
+          "E5S-TRANSIT"
         ],
         "counterevidence_refs": [
-          "E5C"
+          "E5C-SLA"
         ]
       },
       "actions": [
@@ -39276,7 +39330,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "ce6f8bbc5d6735b679df6801904830dd375250b920f770957a132e4a2d7981dc"
+      "evidence_fingerprint": "d6620ecfa66e4935b243d4c6c04e63bd5871891aafc2d7e342a51d38c6b3211b"
     },
     {
       "schema_version": "1.0.0",
@@ -39286,8 +39340,8 @@
       "runtime": "LIFD-2026.07",
       "source_catalog": "logistics-inventory-fulfillment-decision/evaluations/evaluation-catalog.json",
       "source_case_id": "LIFD-PE-06",
-      "source_hash": "cefd8645f6444854694057941de85c1e0b2c2af4bd0533cd2d86afa682371c55",
-      "golden_hash": "73864abfb6f45cc4059af8b4318554ec24a32309bdfe7f3ec286dfb51058ab7f",
+      "source_hash": "b2f38ceffefed7c594b96269d81f0c125438c7485952f07ce67ffed2537a4280",
+      "golden_hash": "3ad4e7643aa484aada63f1f3b7574023f528adfbc11583720fe5ab882bc2e8a5",
       "mode": "recovery",
       "object_ref": "LIFD-OBJECT-6@v1",
       "object_version": "v1",
@@ -39295,32 +39349,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E6S"
+        "E6S-OVERSEAS"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-EXIT-COST"
       ],
       "claims": [
         {
           "id": "CL-LIFD-PE-06",
           "assertion": "controlled_exit",
           "evidence_refs": [
-            "E6S"
+            "E6S-OVERSEAS"
           ],
           "counterevidence_refs": [
-            "E6C"
+            "E6C-EXIT-COST"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39329,10 +39386,10 @@
         "id": "RC-LIFD-PE-06",
         "assertion": "domain_adjudication_required_for:LIFD-PE-06",
         "evidence_refs": [
-          "E6S"
+          "E6S-OVERSEAS"
         ],
         "counterevidence_refs": [
-          "E6C"
+          "E6C-EXIT-COST"
         ]
       },
       "actions": [
@@ -39390,7 +39447,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "cefd8645f6444854694057941de85c1e0b2c2af4bd0533cd2d86afa682371c55"
+      "evidence_fingerprint": "b2f38ceffefed7c594b96269d81f0c125438c7485952f07ce67ffed2537a4280"
     },
     {
       "schema_version": "1.0.0",
@@ -39400,8 +39457,8 @@
       "runtime": "PLCO-2026.07",
       "source_catalog": "platform-store-listing-conversion/evaluations/evaluation-catalog.json",
       "source_case_id": "PLCO-PE-01",
-      "source_hash": "0749f1242ccc3f5e4c7db64ca773311f45fb46d24e40169b38029a1ea17a3d98",
-      "golden_hash": "b5fe8519d289a5cd3d561f64560c53ba57aca282f9a0668373a400f63731f86b",
+      "source_hash": "07f63204aaf0c678b9448176b1d0304310b954e5d2aad19ae52d2e8080a9f6cd",
+      "golden_hash": "6118b968adb3940490588560403e6ac0d0fb0112c4cd52ad4f90d3edc9fe9b78",
       "mode": "standard",
       "object_ref": "PLCO-OBJECT-1@v1",
       "object_version": "v1",
@@ -39409,32 +39466,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E1S"
+        "E1S-SESSION"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-USP"
       ],
       "claims": [
         {
           "id": "CL-PLCO-PE-01",
           "assertion": "diagnose",
           "evidence_refs": [
-            "E1S"
+            "E1S-SESSION"
           ],
           "counterevidence_refs": [
-            "E1C"
+            "E1C-USP"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39443,10 +39503,10 @@
         "id": "RC-PLCO-PE-01",
         "assertion": "domain_adjudication_required_for:PLCO-PE-01",
         "evidence_refs": [
-          "E1S"
+          "E1S-SESSION"
         ],
         "counterevidence_refs": [
-          "E1C"
+          "E1C-USP"
         ]
       },
       "actions": [
@@ -39504,7 +39564,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "0749f1242ccc3f5e4c7db64ca773311f45fb46d24e40169b38029a1ea17a3d98"
+      "evidence_fingerprint": "07f63204aaf0c678b9448176b1d0304310b954e5d2aad19ae52d2e8080a9f6cd"
     },
     {
       "schema_version": "1.0.0",
@@ -39514,8 +39574,8 @@
       "runtime": "PLCO-2026.07",
       "source_catalog": "platform-store-listing-conversion/evaluations/evaluation-catalog.json",
       "source_case_id": "PLCO-PE-02",
-      "source_hash": "63d40ad8922116341b74a9a56398b651b3b42b0ccdf6347bbac12468531a8ac0",
-      "golden_hash": "b5fe8519d289a5cd3d561f64560c53ba57aca282f9a0668373a400f63731f86b",
+      "source_hash": "28e7912a4479907350c9c6adbe992c0ee0bba9290eead9011a0b10252b4db49e",
+      "golden_hash": "6118b968adb3940490588560403e6ac0d0fb0112c4cd52ad4f90d3edc9fe9b78",
       "mode": "conflict",
       "object_ref": "PLCO-OBJECT-2@v1",
       "object_version": "v1",
@@ -39523,32 +39583,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E2S"
+        "E2S-CTR"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-CVR"
       ],
       "claims": [
         {
           "id": "CL-PLCO-PE-02",
           "assertion": "experiment_required",
           "evidence_refs": [
-            "E2S"
+            "E2S-CTR"
           ],
           "counterevidence_refs": [
-            "E2C"
+            "E2C-CVR"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39557,10 +39620,10 @@
         "id": "RC-PLCO-PE-02",
         "assertion": "domain_adjudication_required_for:PLCO-PE-02",
         "evidence_refs": [
-          "E2S"
+          "E2S-CTR"
         ],
         "counterevidence_refs": [
-          "E2C"
+          "E2C-CVR"
         ]
       },
       "actions": [
@@ -39618,7 +39681,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "63d40ad8922116341b74a9a56398b651b3b42b0ccdf6347bbac12468531a8ac0"
+      "evidence_fingerprint": "28e7912a4479907350c9c6adbe992c0ee0bba9290eead9011a0b10252b4db49e"
     },
     {
       "schema_version": "1.0.0",
@@ -39628,8 +39691,8 @@
       "runtime": "PLCO-2026.07",
       "source_catalog": "platform-store-listing-conversion/evaluations/evaluation-catalog.json",
       "source_case_id": "PLCO-PE-03",
-      "source_hash": "1c773922c35a7ccfa03ca3c4d78f28838e3090ea96730c17b6e2b3800b9b3ebb",
-      "golden_hash": "b5fe8519d289a5cd3d561f64560c53ba57aca282f9a0668373a400f63731f86b",
+      "source_hash": "3aabc0894a715f35f41fb78782c9600faaab1cad293c5f992cd6a9dbeec37987",
+      "golden_hash": "6118b968adb3940490588560403e6ac0d0fb0112c4cd52ad4f90d3edc9fe9b78",
       "mode": "extreme",
       "object_ref": "PLCO-OBJECT-3@v1",
       "object_version": "v1",
@@ -39637,32 +39700,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E3S"
+        "E3S-CLAIM"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-COMPLIANCE"
       ],
       "claims": [
         {
           "id": "CL-PLCO-PE-03",
           "assertion": "blocked",
           "evidence_refs": [
-            "E3S"
+            "E3S-CLAIM"
           ],
           "counterevidence_refs": [
-            "E3C"
+            "E3C-COMPLIANCE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39671,10 +39737,10 @@
         "id": "RC-PLCO-PE-03",
         "assertion": "domain_adjudication_required_for:PLCO-PE-03",
         "evidence_refs": [
-          "E3S"
+          "E3S-CLAIM"
         ],
         "counterevidence_refs": [
-          "E3C"
+          "E3C-COMPLIANCE"
         ]
       },
       "actions": [
@@ -39698,7 +39764,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "合规门绕过"
       ],
       "calculations": [
         {
@@ -39732,7 +39799,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "1c773922c35a7ccfa03ca3c4d78f28838e3090ea96730c17b6e2b3800b9b3ebb"
+      "evidence_fingerprint": "3aabc0894a715f35f41fb78782c9600faaab1cad293c5f992cd6a9dbeec37987"
     },
     {
       "schema_version": "1.0.0",
@@ -39742,8 +39809,8 @@
       "runtime": "PLCO-2026.07",
       "source_catalog": "platform-store-listing-conversion/evaluations/evaluation-catalog.json",
       "source_case_id": "PLCO-PE-04",
-      "source_hash": "d3f63ed41f21dbe6460e1c4dadca3904ee4f51e4bd341add24d7d5fb0fb9e454",
-      "golden_hash": "b5fe8519d289a5cd3d561f64560c53ba57aca282f9a0668373a400f63731f86b",
+      "source_hash": "09c7b60d38e4f8ef0fba0047c48dd1cc9ee1534607de235efbbea7f973ad5515",
+      "golden_hash": "6118b968adb3940490588560403e6ac0d0fb0112c4cd52ad4f90d3edc9fe9b78",
       "mode": "multi_turn",
       "object_ref": "PLCO-OBJECT-4@v1",
       "object_version": "v1",
@@ -39751,32 +39818,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E4S"
+        "E4S-AMZ-LISTING"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-WMT-LOCAL"
       ],
       "claims": [
         {
           "id": "CL-PLCO-PE-04",
           "assertion": "recompute",
           "evidence_refs": [
-            "E4S"
+            "E4S-AMZ-LISTING"
           ],
           "counterevidence_refs": [
-            "E4C"
+            "E4C-WMT-LOCAL"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39785,10 +39855,10 @@
         "id": "RC-PLCO-PE-04",
         "assertion": "domain_adjudication_required_for:PLCO-PE-04",
         "evidence_refs": [
-          "E4S"
+          "E4S-AMZ-LISTING"
         ],
         "counterevidence_refs": [
-          "E4C"
+          "E4C-WMT-LOCAL"
         ]
       },
       "actions": [
@@ -39846,7 +39916,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "d3f63ed41f21dbe6460e1c4dadca3904ee4f51e4bd341add24d7d5fb0fb9e454"
+      "evidence_fingerprint": "09c7b60d38e4f8ef0fba0047c48dd1cc9ee1534607de235efbbea7f973ad5515"
     },
     {
       "schema_version": "1.0.0",
@@ -39856,8 +39926,8 @@
       "runtime": "PLCO-2026.07",
       "source_catalog": "platform-store-listing-conversion/evaluations/evaluation-catalog.json",
       "source_case_id": "PLCO-PE-05",
-      "source_hash": "f25700c8370323b1f0ad0b9374ee3eaf0ba7c0f28c4a9fdea64f91963eb07867",
-      "golden_hash": "b5fe8519d289a5cd3d561f64560c53ba57aca282f9a0668373a400f63731f86b",
+      "source_hash": "9f54ba30f5cfa9f8e2d8ffcf7fb7d154b49538f88584ccb0ca5c2dc100f8daed",
+      "golden_hash": "6118b968adb3940490588560403e6ac0d0fb0112c4cd52ad4f90d3edc9fe9b78",
       "mode": "adversarial",
       "object_ref": "PLCO-OBJECT-5@v1",
       "object_version": "v1",
@@ -39865,32 +39935,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E5S"
+        "E5S-VARIANTS"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-REVIEW-MIX"
       ],
       "claims": [
         {
           "id": "CL-PLCO-PE-05",
           "assertion": "hold",
           "evidence_refs": [
-            "E5S"
+            "E5S-VARIANTS"
           ],
           "counterevidence_refs": [
-            "E5C"
+            "E5C-REVIEW-MIX"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -39899,10 +39972,10 @@
         "id": "RC-PLCO-PE-05",
         "assertion": "domain_adjudication_required_for:PLCO-PE-05",
         "evidence_refs": [
-          "E5S"
+          "E5S-VARIANTS"
         ],
         "counterevidence_refs": [
-          "E5C"
+          "E5C-REVIEW-MIX"
         ]
       },
       "actions": [
@@ -39960,7 +40033,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "f25700c8370323b1f0ad0b9374ee3eaf0ba7c0f28c4a9fdea64f91963eb07867"
+      "evidence_fingerprint": "9f54ba30f5cfa9f8e2d8ffcf7fb7d154b49538f88584ccb0ca5c2dc100f8daed"
     },
     {
       "schema_version": "1.0.0",
@@ -39970,8 +40043,8 @@
       "runtime": "PLCO-2026.07",
       "source_catalog": "platform-store-listing-conversion/evaluations/evaluation-catalog.json",
       "source_case_id": "PLCO-PE-06",
-      "source_hash": "91f1429febed7c71b94daa65cd40452ea2aad736a09e506997ac033a62d7d858",
-      "golden_hash": "b5fe8519d289a5cd3d561f64560c53ba57aca282f9a0668373a400f63731f86b",
+      "source_hash": "dc0683e014e7d8a56c11139912e1ad07afb41ce2a7de6b3d5f22d7f6da808df2",
+      "golden_hash": "6118b968adb3940490588560403e6ac0d0fb0112c4cd52ad4f90d3edc9fe9b78",
       "mode": "recovery",
       "object_ref": "PLCO-OBJECT-6@v1",
       "object_version": "v1",
@@ -39979,32 +40052,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E6S"
+        "E6S-SUPPRESS"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-REINSTATE"
       ],
       "claims": [
         {
           "id": "CL-PLCO-PE-06",
           "assertion": "controlled_recovery",
           "evidence_refs": [
-            "E6S"
+            "E6S-SUPPRESS"
           ],
           "counterevidence_refs": [
-            "E6C"
+            "E6C-REINSTATE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -40013,10 +40089,10 @@
         "id": "RC-PLCO-PE-06",
         "assertion": "domain_adjudication_required_for:PLCO-PE-06",
         "evidence_refs": [
-          "E6S"
+          "E6S-SUPPRESS"
         ],
         "counterevidence_refs": [
-          "E6C"
+          "E6C-REINSTATE"
         ]
       },
       "actions": [
@@ -40074,7 +40150,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "91f1429febed7c71b94daa65cd40452ea2aad736a09e506997ac033a62d7d858"
+      "evidence_fingerprint": "dc0683e014e7d8a56c11139912e1ad07afb41ce2a7de6b3d5f22d7f6da808df2"
     },
     {
       "schema_version": "1.0.0",
@@ -40084,8 +40160,8 @@
       "runtime": "AAMO-2026.07",
       "source_catalog": "advertising-analysis-measurement-optimization/evaluations/evaluation-catalog.json",
       "source_case_id": "AAMO-PE-01",
-      "source_hash": "e8893172cfa5226baee12c36dbaeb08f2b935bc5b3f75ec0ebc2d93807841498",
-      "golden_hash": "4152ca4aad6fa01ce6a9d5405126291d4a450d4925f95711c21783f7f3db2b48",
+      "source_hash": "4313d0ac6507aa33d3f861f926ef1dc3a48e85d89108ae2fc0864b4764a4d7ad",
+      "golden_hash": "bb9953e8ad6ba6843f8d871161a0a69d122d61e478552e0ba358e6761d6af7dd",
       "mode": "standard",
       "object_ref": "AAMO-OBJECT-1@v1",
       "object_version": "v1",
@@ -40093,32 +40169,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E1S"
+        "E1S-ROAS"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-INCREMENTALITY"
       ],
       "claims": [
         {
           "id": "CL-AAMO-PE-01",
           "assertion": "stop",
           "evidence_refs": [
-            "E1S"
+            "E1S-ROAS"
           ],
           "counterevidence_refs": [
-            "E1C"
+            "E1C-INCREMENTALITY"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -40127,10 +40206,10 @@
         "id": "RC-AAMO-PE-01",
         "assertion": "domain_adjudication_required_for:AAMO-PE-01",
         "evidence_refs": [
-          "E1S"
+          "E1S-ROAS"
         ],
         "counterevidence_refs": [
-          "E1C"
+          "E1C-INCREMENTALITY"
         ]
       },
       "actions": [
@@ -40188,7 +40267,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "e8893172cfa5226baee12c36dbaeb08f2b935bc5b3f75ec0ebc2d93807841498"
+      "evidence_fingerprint": "4313d0ac6507aa33d3f861f926ef1dc3a48e85d89108ae2fc0864b4764a4d7ad"
     },
     {
       "schema_version": "1.0.0",
@@ -40198,8 +40277,8 @@
       "runtime": "AAMO-2026.07",
       "source_catalog": "advertising-analysis-measurement-optimization/evaluations/evaluation-catalog.json",
       "source_case_id": "AAMO-PE-02",
-      "source_hash": "6008dcba6ceb53edc2c37f6eb68865c5885d4c760ac7ba99373f4247c3e9d188",
-      "golden_hash": "4152ca4aad6fa01ce6a9d5405126291d4a450d4925f95711c21783f7f3db2b48",
+      "source_hash": "1370add5d0336a57061bf3d5744073f5e99afb04fd57a3fc47bcd545bc951118",
+      "golden_hash": "bb9953e8ad6ba6843f8d871161a0a69d122d61e478552e0ba358e6761d6af7dd",
       "mode": "conflict",
       "object_ref": "AAMO-OBJECT-2@v1",
       "object_version": "v1",
@@ -40207,32 +40286,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E2S"
+        "E2S-PMAX"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-ORGANIC-BASELINE"
       ],
       "claims": [
         {
           "id": "CL-AAMO-PE-02",
           "assertion": "experiment_required",
           "evidence_refs": [
-            "E2S"
+            "E2S-PMAX"
           ],
           "counterevidence_refs": [
-            "E2C"
+            "E2C-ORGANIC-BASELINE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -40241,10 +40323,10 @@
         "id": "RC-AAMO-PE-02",
         "assertion": "domain_adjudication_required_for:AAMO-PE-02",
         "evidence_refs": [
-          "E2S"
+          "E2S-PMAX"
         ],
         "counterevidence_refs": [
-          "E2C"
+          "E2C-ORGANIC-BASELINE"
         ]
       },
       "actions": [
@@ -40302,7 +40384,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "6008dcba6ceb53edc2c37f6eb68865c5885d4c760ac7ba99373f4247c3e9d188"
+      "evidence_fingerprint": "1370add5d0336a57061bf3d5744073f5e99afb04fd57a3fc47bcd545bc951118"
     },
     {
       "schema_version": "1.0.0",
@@ -40312,8 +40394,8 @@
       "runtime": "AAMO-2026.07",
       "source_catalog": "advertising-analysis-measurement-optimization/evaluations/evaluation-catalog.json",
       "source_case_id": "AAMO-PE-03",
-      "source_hash": "d24709d21136a0917d2cf819f718dd8a524c1617a215bf85b5128890e2491f9e",
-      "golden_hash": "4152ca4aad6fa01ce6a9d5405126291d4a450d4925f95711c21783f7f3db2b48",
+      "source_hash": "a87c438132a041f755004f55cf8bb1f744cad00a8e31876e2d5b0bf92ad37bcf",
+      "golden_hash": "bb9953e8ad6ba6843f8d871161a0a69d122d61e478552e0ba358e6761d6af7dd",
       "mode": "extreme",
       "object_ref": "AAMO-OBJECT-3@v1",
       "object_version": "v1",
@@ -40321,32 +40403,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E3S"
+        "E3S-TRACKING"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-GAP"
       ],
       "claims": [
         {
           "id": "CL-AAMO-PE-03",
           "assertion": "blocked",
           "evidence_refs": [
-            "E3S"
+            "E3S-TRACKING"
           ],
           "counterevidence_refs": [
-            "E3C"
+            "E3C-GAP"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -40355,10 +40440,10 @@
         "id": "RC-AAMO-PE-03",
         "assertion": "domain_adjudication_required_for:AAMO-PE-03",
         "evidence_refs": [
-          "E3S"
+          "E3S-TRACKING"
         ],
         "counterevidence_refs": [
-          "E3C"
+          "E3C-GAP"
         ]
       },
       "actions": [
@@ -40382,7 +40467,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "断裂期数据续命"
       ],
       "calculations": [
         {
@@ -40416,7 +40502,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "d24709d21136a0917d2cf819f718dd8a524c1617a215bf85b5128890e2491f9e"
+      "evidence_fingerprint": "a87c438132a041f755004f55cf8bb1f744cad00a8e31876e2d5b0bf92ad37bcf"
     },
     {
       "schema_version": "1.0.0",
@@ -40426,8 +40512,8 @@
       "runtime": "AAMO-2026.07",
       "source_catalog": "advertising-analysis-measurement-optimization/evaluations/evaluation-catalog.json",
       "source_case_id": "AAMO-PE-04",
-      "source_hash": "30dc1eac0216c6d7ab8dff9a58ee8faed3c134ad6204d3133a5390a267c419f1",
-      "golden_hash": "4152ca4aad6fa01ce6a9d5405126291d4a450d4925f95711c21783f7f3db2b48",
+      "source_hash": "4962c64b30e5924cc7274f253b4d5be34178bc0911886299948015655d22849d",
+      "golden_hash": "bb9953e8ad6ba6843f8d871161a0a69d122d61e478552e0ba358e6761d6af7dd",
       "mode": "multi_turn",
       "object_ref": "AAMO-OBJECT-4@v1",
       "object_version": "v1",
@@ -40435,32 +40521,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E4S"
+        "E4S-INVENTORY"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-AD-SPEND"
       ],
       "claims": [
         {
           "id": "CL-AAMO-PE-04",
           "assertion": "blocked",
           "evidence_refs": [
-            "E4S"
+            "E4S-INVENTORY"
           ],
           "counterevidence_refs": [
-            "E4C"
+            "E4C-AD-SPEND"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -40469,10 +40558,10 @@
         "id": "RC-AAMO-PE-04",
         "assertion": "domain_adjudication_required_for:AAMO-PE-04",
         "evidence_refs": [
-          "E4S"
+          "E4S-INVENTORY"
         ],
         "counterevidence_refs": [
-          "E4C"
+          "E4C-AD-SPEND"
         ]
       },
       "actions": [
@@ -40530,7 +40619,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "30dc1eac0216c6d7ab8dff9a58ee8faed3c134ad6204d3133a5390a267c419f1"
+      "evidence_fingerprint": "4962c64b30e5924cc7274f253b4d5be34178bc0911886299948015655d22849d"
     },
     {
       "schema_version": "1.0.0",
@@ -40540,8 +40629,8 @@
       "runtime": "AAMO-2026.07",
       "source_catalog": "advertising-analysis-measurement-optimization/evaluations/evaluation-catalog.json",
       "source_case_id": "AAMO-PE-05",
-      "source_hash": "845842db298a1aa2a6b5e2bc1d0cb2a2b5f5e6310d7f6e32f151f6fbfb72aaf7",
-      "golden_hash": "4152ca4aad6fa01ce6a9d5405126291d4a450d4925f95711c21783f7f3db2b48",
+      "source_hash": "1f463eb6a7ccd2398927a6903d2a6e2b1393ddacd47d82ca926b1958f860be25",
+      "golden_hash": "bb9953e8ad6ba6843f8d871161a0a69d122d61e478552e0ba358e6761d6af7dd",
       "mode": "adversarial",
       "object_ref": "AAMO-OBJECT-5@v1",
       "object_version": "v1",
@@ -40549,32 +40638,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E5S"
+        "E5S-BUDGET"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-EFFICIENCY"
       ],
       "claims": [
         {
           "id": "CL-AAMO-PE-05",
           "assertion": "recompute",
           "evidence_refs": [
-            "E5S"
+            "E5S-BUDGET"
           ],
           "counterevidence_refs": [
-            "E5C"
+            "E5C-EFFICIENCY"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -40583,10 +40675,10 @@
         "id": "RC-AAMO-PE-05",
         "assertion": "domain_adjudication_required_for:AAMO-PE-05",
         "evidence_refs": [
-          "E5S"
+          "E5S-BUDGET"
         ],
         "counterevidence_refs": [
-          "E5C"
+          "E5C-EFFICIENCY"
         ]
       },
       "actions": [
@@ -40644,7 +40736,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "845842db298a1aa2a6b5e2bc1d0cb2a2b5f5e6310d7f6e32f151f6fbfb72aaf7"
+      "evidence_fingerprint": "1f463eb6a7ccd2398927a6903d2a6e2b1393ddacd47d82ca926b1958f860be25"
     },
     {
       "schema_version": "1.0.0",
@@ -40654,8 +40746,8 @@
       "runtime": "AAMO-2026.07",
       "source_catalog": "advertising-analysis-measurement-optimization/evaluations/evaluation-catalog.json",
       "source_case_id": "AAMO-PE-06",
-      "source_hash": "95f2513fc1066564df508612ea30d4ead063f942814811974e3f0c62ba9dbee2",
-      "golden_hash": "4152ca4aad6fa01ce6a9d5405126291d4a450d4925f95711c21783f7f3db2b48",
+      "source_hash": "ada91482eec31368e7889eb2fbaf7252898b07a57506b5a129ba434f82cedb42",
+      "golden_hash": "bb9953e8ad6ba6843f8d871161a0a69d122d61e478552e0ba358e6761d6af7dd",
       "mode": "recovery",
       "object_ref": "AAMO-OBJECT-6@v1",
       "object_version": "v1",
@@ -40663,32 +40755,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E6S"
+        "E6S-REFUND"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-NET-ROAS"
       ],
       "claims": [
         {
           "id": "CL-AAMO-PE-06",
           "assertion": "controlled_recovery",
           "evidence_refs": [
-            "E6S"
+            "E6S-REFUND"
           ],
           "counterevidence_refs": [
-            "E6C"
+            "E6C-NET-ROAS"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -40697,10 +40792,10 @@
         "id": "RC-AAMO-PE-06",
         "assertion": "domain_adjudication_required_for:AAMO-PE-06",
         "evidence_refs": [
-          "E6S"
+          "E6S-REFUND"
         ],
         "counterevidence_refs": [
-          "E6C"
+          "E6C-NET-ROAS"
         ]
       },
       "actions": [
@@ -40758,7 +40853,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "95f2513fc1066564df508612ea30d4ead063f942814811974e3f0c62ba9dbee2"
+      "evidence_fingerprint": "ada91482eec31368e7889eb2fbaf7252898b07a57506b5a129ba434f82cedb42"
     },
     {
       "schema_version": "1.0.0",
@@ -55332,8 +55427,8 @@
       "runtime": "VLB-2026.07",
       "source_catalog": "video-link-breakdown/evaluations/evaluation-catalog.json",
       "source_case_id": "VLB-PE-01",
-      "source_hash": "5722919b88fecf4b0cee330ce371a1ba505a106bce2b978ef941578d16a5524a",
-      "golden_hash": "eac78bc2b3a9f06647b7424a6a4aedf7c8031453ef33b92c50b64d3e0714d7c5",
+      "source_hash": "4143ff4c40ceed06dc45c374bd3b0412ed2a4a5e20e87c1cdda3f2261b7f174c",
+      "golden_hash": "fe7b0cfa82014f3d85569932837d9cb2c3ce3384a70b84738e9dd6403c7d0da0",
       "mode": "standard",
       "object_ref": "VLB-OBJECT-1@v1",
       "object_version": "v1",
@@ -55341,32 +55436,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E1S"
+        "E1S-PLAY-VOL"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-PROOF-SCORE"
       ],
       "claims": [
         {
           "id": "CL-VLB-PE-01",
           "assertion": "inconclusive",
           "evidence_refs": [
-            "E1S"
+            "E1S-PLAY-VOL"
           ],
           "counterevidence_refs": [
-            "E1C"
+            "E1C-PROOF-SCORE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -55375,10 +55473,10 @@
         "id": "RC-VLB-PE-01",
         "assertion": "domain_adjudication_required_for:VLB-PE-01",
         "evidence_refs": [
-          "E1S"
+          "E1S-PLAY-VOL"
         ],
         "counterevidence_refs": [
-          "E1C"
+          "E1C-PROOF-SCORE"
         ]
       },
       "actions": [
@@ -55436,7 +55534,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "5722919b88fecf4b0cee330ce371a1ba505a106bce2b978ef941578d16a5524a"
+      "evidence_fingerprint": "4143ff4c40ceed06dc45c374bd3b0412ed2a4a5e20e87c1cdda3f2261b7f174c"
     },
     {
       "schema_version": "1.0.0",
@@ -55446,41 +55544,44 @@
       "runtime": "VLB-2026.07",
       "source_catalog": "video-link-breakdown/evaluations/evaluation-catalog.json",
       "source_case_id": "VLB-PE-02",
-      "source_hash": "25ad84f9d17d497fac0a301f2d76ad5b4b7c9755d6987a83cf41d2f83cb908aa",
-      "golden_hash": "eac78bc2b3a9f06647b7424a6a4aedf7c8031453ef33b92c50b64d3e0714d7c5",
-      "mode": "conflict",
-      "object_ref": "VLB-OBJECT-2@v1",
+      "source_hash": "e78c897b4f1332a94768c43241da6cf19c0ea1a0e11bb86e2dd881348c098cbd",
+      "golden_hash": "fe7b0cfa82014f3d85569932837d9cb2c3ce3384a70b84738e9dd6403c7d0da0",
+      "mode": "extreme",
+      "object_ref": "VLB-PE-02@v1",
       "object_version": "v1",
       "inputs": {
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E2S"
+        "E2S-TRANSCRIPT"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-COMPLIANCE"
       ],
       "claims": [
         {
           "id": "CL-VLB-PE-02",
           "assertion": "blocked",
           "evidence_refs": [
-            "E2S"
+            "E2S-TRANSCRIPT"
           ],
           "counterevidence_refs": [
-            "E2C"
+            "E2C-COMPLIANCE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -55489,10 +55590,10 @@
         "id": "RC-VLB-PE-02",
         "assertion": "domain_adjudication_required_for:VLB-PE-02",
         "evidence_refs": [
-          "E2S"
+          "E2S-TRANSCRIPT"
         ],
         "counterevidence_refs": [
-          "E2C"
+          "E2C-COMPLIANCE"
         ]
       },
       "actions": [
@@ -55516,7 +55617,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "合规门绕过"
       ],
       "calculations": [
         {
@@ -55550,7 +55652,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "25ad84f9d17d497fac0a301f2d76ad5b4b7c9755d6987a83cf41d2f83cb908aa"
+      "evidence_fingerprint": "e78c897b4f1332a94768c43241da6cf19c0ea1a0e11bb86e2dd881348c098cbd"
     },
     {
       "schema_version": "1.0.0",
@@ -55560,41 +55662,44 @@
       "runtime": "VLB-2026.07",
       "source_catalog": "video-link-breakdown/evaluations/evaluation-catalog.json",
       "source_case_id": "VLB-PE-03",
-      "source_hash": "715cebdebcdde24b651e042411e0d48193d5064937e650095b7b52d03f36b13f",
-      "golden_hash": "eac78bc2b3a9f06647b7424a6a4aedf7c8031453ef33b92c50b64d3e0714d7c5",
-      "mode": "extreme",
+      "source_hash": "9323afbb30701429cb40cccf2da3ccf4909200bc2c0205d805b32afc71be9c11",
+      "golden_hash": "fe7b0cfa82014f3d85569932837d9cb2c3ce3384a70b84738e9dd6403c7d0da0",
+      "mode": "recovery",
       "object_ref": "VLB-OBJECT-3@v1",
       "object_version": "v1",
       "inputs": {
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E3S"
+        "E3S-CONTENT"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-RIGHTS"
       ],
       "claims": [
         {
           "id": "CL-VLB-PE-03",
           "assertion": "blocked",
           "evidence_refs": [
-            "E3S"
+            "E3S-CONTENT"
           ],
           "counterevidence_refs": [
-            "E3C"
+            "E3C-RIGHTS"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -55603,10 +55708,10 @@
         "id": "RC-VLB-PE-03",
         "assertion": "domain_adjudication_required_for:VLB-PE-03",
         "evidence_refs": [
-          "E3S"
+          "E3S-CONTENT"
         ],
         "counterevidence_refs": [
-          "E3C"
+          "E3C-RIGHTS"
         ]
       },
       "actions": [
@@ -55630,7 +55735,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "权利缺失续命"
       ],
       "calculations": [
         {
@@ -55664,7 +55770,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "715cebdebcdde24b651e042411e0d48193d5064937e650095b7b52d03f36b13f"
+      "evidence_fingerprint": "9323afbb30701429cb40cccf2da3ccf4909200bc2c0205d805b32afc71be9c11"
     },
     {
       "schema_version": "1.0.0",
@@ -55674,8 +55780,8 @@
       "runtime": "VLB-2026.07",
       "source_catalog": "video-link-breakdown/evaluations/evaluation-catalog.json",
       "source_case_id": "VLB-PE-04",
-      "source_hash": "0541c8bfa909e889b615ebeca8e7a0af731382ae49c5868183334e6659ff3c5a",
-      "golden_hash": "eac78bc2b3a9f06647b7424a6a4aedf7c8031453ef33b92c50b64d3e0714d7c5",
+      "source_hash": "4fa9dfa051cda9e9d26b7942d0cf6476cb1907d746c3534fd438475e08f2a4a8",
+      "golden_hash": "fe7b0cfa82014f3d85569932837d9cb2c3ce3384a70b84738e9dd6403c7d0da0",
       "mode": "multi_turn",
       "object_ref": "VLB-OBJECT-4@v1",
       "object_version": "v1",
@@ -55683,32 +55789,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E4S"
+        "E4S-TT-PACNG"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-IG-DIFF"
       ],
       "claims": [
         {
           "id": "CL-VLB-PE-04",
           "assertion": "recompute",
           "evidence_refs": [
-            "E4S"
+            "E4S-TT-PACNG"
           ],
           "counterevidence_refs": [
-            "E4C"
+            "E4C-IG-DIFF"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -55717,10 +55826,10 @@
         "id": "RC-VLB-PE-04",
         "assertion": "domain_adjudication_required_for:VLB-PE-04",
         "evidence_refs": [
-          "E4S"
+          "E4S-TT-PACNG"
         ],
         "counterevidence_refs": [
-          "E4C"
+          "E4C-IG-DIFF"
         ]
       },
       "actions": [
@@ -55778,7 +55887,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "0541c8bfa909e889b615ebeca8e7a0af731382ae49c5868183334e6659ff3c5a"
+      "evidence_fingerprint": "4fa9dfa051cda9e9d26b7942d0cf6476cb1907d746c3534fd438475e08f2a4a8"
     },
     {
       "schema_version": "1.0.0",
@@ -55788,8 +55897,8 @@
       "runtime": "VLB-2026.07",
       "source_catalog": "video-link-breakdown/evaluations/evaluation-catalog.json",
       "source_case_id": "VLB-PE-05",
-      "source_hash": "0d7c3bea9eadce1fb6235cf240532009e42b4383d7daddc5c71977aec33515d1",
-      "golden_hash": "eac78bc2b3a9f06647b7424a6a4aedf7c8031453ef33b92c50b64d3e0714d7c5",
+      "source_hash": "1572d7ee9dd78d1d72de7a7cb63e79c56249dec7eccb640a802d1623e5e3a9b6",
+      "golden_hash": "fe7b0cfa82014f3d85569932837d9cb2c3ce3384a70b84738e9dd6403c7d0da0",
       "mode": "adversarial",
       "object_ref": "VLB-OBJECT-5@v1",
       "object_version": "v1",
@@ -55797,32 +55906,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E5S"
+        "E5S-FATIGUE"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-PLAT-ALLOC"
       ],
       "claims": [
         {
           "id": "CL-VLB-PE-05",
           "assertion": "refresh",
           "evidence_refs": [
-            "E5S"
+            "E5S-FATIGUE"
           ],
           "counterevidence_refs": [
-            "E5C"
+            "E5C-PLAT-ALLOC"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -55831,10 +55943,10 @@
         "id": "RC-VLB-PE-05",
         "assertion": "domain_adjudication_required_for:VLB-PE-05",
         "evidence_refs": [
-          "E5S"
+          "E5S-FATIGUE"
         ],
         "counterevidence_refs": [
-          "E5C"
+          "E5C-PLAT-ALLOC"
         ]
       },
       "actions": [
@@ -55892,7 +56004,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "0d7c3bea9eadce1fb6235cf240532009e42b4383d7daddc5c71977aec33515d1"
+      "evidence_fingerprint": "1572d7ee9dd78d1d72de7a7cb63e79c56249dec7eccb640a802d1623e5e3a9b6"
     },
     {
       "schema_version": "1.0.0",
@@ -55902,41 +56014,44 @@
       "runtime": "VLB-2026.07",
       "source_catalog": "video-link-breakdown/evaluations/evaluation-catalog.json",
       "source_case_id": "VLB-PE-06",
-      "source_hash": "5f05e40f5b6f46d2e6ebbbd259046936d756d5a8bfb4a54dc7912a2253db13f5",
-      "golden_hash": "eac78bc2b3a9f06647b7424a6a4aedf7c8031453ef33b92c50b64d3e0714d7c5",
-      "mode": "recovery",
+      "source_hash": "b7cb009963eb10878c98dc949dc3e3ec2b0a9e67c09e80e6982880812faff900",
+      "golden_hash": "fe7b0cfa82014f3d85569932837d9cb2c3ce3384a70b84738e9dd6403c7d0da0",
+      "mode": "conflict",
       "object_ref": "VLB-OBJECT-6@v1",
       "object_version": "v1",
       "inputs": {
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E6S"
+        "E6S-ORGANIC"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-AD-CONVERT"
       ],
       "claims": [
         {
           "id": "CL-VLB-PE-06",
           "assertion": "review_required",
           "evidence_refs": [
-            "E6S"
+            "E6S-ORGANIC"
           ],
           "counterevidence_refs": [
-            "E6C"
+            "E6C-AD-CONVERT"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -55945,10 +56060,10 @@
         "id": "RC-VLB-PE-06",
         "assertion": "domain_adjudication_required_for:VLB-PE-06",
         "evidence_refs": [
-          "E6S"
+          "E6S-ORGANIC"
         ],
         "counterevidence_refs": [
-          "E6C"
+          "E6C-AD-CONVERT"
         ]
       },
       "actions": [
@@ -56006,7 +56121,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "5f05e40f5b6f46d2e6ebbbd259046936d756d5a8bfb4a54dc7912a2253db13f5"
+      "evidence_fingerprint": "b7cb009963eb10878c98dc949dc3e3ec2b0a9e67c09e80e6982880812faff900"
     },
     {
       "schema_version": "1.0.0",
@@ -70260,8 +70375,8 @@
       "runtime": "CIG-2026.07",
       "source_catalog": "consumer-insights-customer-growth/evaluations/evaluation-catalog.json",
       "source_case_id": "CIG-PE-01",
-      "source_hash": "6dda05ab4955ccb7e66fd24fe237a8d8291cb4e7957fad55cbc6165362495c21",
-      "golden_hash": "07588c707ead4ee5a4693954dd3911f5db66a27b13d646c1cf87b9e5d9fbb097",
+      "source_hash": "eab16f7da3ba733086d293fdfeac73dc4f0e04d52e04b3a9fa989aff9e75553a",
+      "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507",
       "mode": "standard",
       "object_ref": "CIG-OBJECT-1@v1",
       "object_version": "v1",
@@ -70269,32 +70384,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E1S"
+        "E1S-MERGE"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-REVENUE-CONSERVE"
       ],
       "claims": [
         {
           "id": "CL-CIG-PE-01",
           "assertion": "blocked",
           "evidence_refs": [
-            "E1S"
+            "E1S-MERGE"
           ],
           "counterevidence_refs": [
-            "E1C"
+            "E1C-REVENUE-CONSERVE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -70303,10 +70421,10 @@
         "id": "RC-CIG-PE-01",
         "assertion": "domain_adjudication_required_for:CIG-PE-01",
         "evidence_refs": [
-          "E1S"
+          "E1S-MERGE"
         ],
         "counterevidence_refs": [
-          "E1C"
+          "E1C-REVENUE-CONSERVE"
         ]
       },
       "actions": [
@@ -70364,7 +70482,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "6dda05ab4955ccb7e66fd24fe237a8d8291cb4e7957fad55cbc6165362495c21"
+      "evidence_fingerprint": "eab16f7da3ba733086d293fdfeac73dc4f0e04d52e04b3a9fa989aff9e75553a"
     },
     {
       "schema_version": "1.0.0",
@@ -70374,8 +70492,8 @@
       "runtime": "CIG-2026.07",
       "source_catalog": "consumer-insights-customer-growth/evaluations/evaluation-catalog.json",
       "source_case_id": "CIG-PE-02",
-      "source_hash": "004d1a9cab77b498bd5b71e3cd4f32c8025e436dcf35125f3e348ab7d17cdaf8",
-      "golden_hash": "07588c707ead4ee5a4693954dd3911f5db66a27b13d646c1cf87b9e5d9fbb097",
+      "source_hash": "1e11dae2f1968e05818f98cc2159bf48131d069188ac75101d0f8296daafd2c6",
+      "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507",
       "mode": "conflict",
       "object_ref": "CIG-OBJECT-2@v1",
       "object_version": "v1",
@@ -70383,32 +70501,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E2S"
+        "E2S-CLV-RAW"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-REFUND-MATURE"
       ],
       "claims": [
         {
           "id": "CL-CIG-PE-02",
           "assertion": "inconclusive",
           "evidence_refs": [
-            "E2S"
+            "E2S-CLV-RAW"
           ],
           "counterevidence_refs": [
-            "E2C"
+            "E2C-REFUND-MATURE"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -70417,10 +70538,10 @@
         "id": "RC-CIG-PE-02",
         "assertion": "domain_adjudication_required_for:CIG-PE-02",
         "evidence_refs": [
-          "E2S"
+          "E2S-CLV-RAW"
         ],
         "counterevidence_refs": [
-          "E2C"
+          "E2C-REFUND-MATURE"
         ]
       },
       "actions": [
@@ -70478,7 +70599,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "004d1a9cab77b498bd5b71e3cd4f32c8025e436dcf35125f3e348ab7d17cdaf8"
+      "evidence_fingerprint": "1e11dae2f1968e05818f98cc2159bf48131d069188ac75101d0f8296daafd2c6"
     },
     {
       "schema_version": "1.0.0",
@@ -70488,8 +70609,8 @@
       "runtime": "CIG-2026.07",
       "source_catalog": "consumer-insights-customer-growth/evaluations/evaluation-catalog.json",
       "source_case_id": "CIG-PE-03",
-      "source_hash": "4d0a1b96c27911b7b98aeb23830d25e2f4c8d45e1d0c31dddc3a623593c1fdc6",
-      "golden_hash": "07588c707ead4ee5a4693954dd3911f5db66a27b13d646c1cf87b9e5d9fbb097",
+      "source_hash": "019e948d3178279740a9d3fbdccb69b7c9e27d446ebf8a720b92bd47904904fa",
+      "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507",
       "mode": "extreme",
       "object_ref": "CIG-OBJECT-3@v1",
       "object_version": "v1",
@@ -70497,32 +70618,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E3S"
+        "E3S-REACH"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-HOLDOUT"
       ],
       "claims": [
         {
           "id": "CL-CIG-PE-03",
           "assertion": "holdout",
           "evidence_refs": [
-            "E3S"
+            "E3S-REACH"
           ],
           "counterevidence_refs": [
-            "E3C"
+            "E3C-HOLDOUT"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -70531,10 +70655,10 @@
         "id": "RC-CIG-PE-03",
         "assertion": "domain_adjudication_required_for:CIG-PE-03",
         "evidence_refs": [
-          "E3S"
+          "E3S-REACH"
         ],
         "counterevidence_refs": [
-          "E3C"
+          "E3C-HOLDOUT"
         ]
       },
       "actions": [
@@ -70592,7 +70716,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "4d0a1b96c27911b7b98aeb23830d25e2f4c8d45e1d0c31dddc3a623593c1fdc6"
+      "evidence_fingerprint": "019e948d3178279740a9d3fbdccb69b7c9e27d446ebf8a720b92bd47904904fa"
     },
     {
       "schema_version": "1.0.0",
@@ -70602,41 +70726,44 @@
       "runtime": "CIG-2026.07",
       "source_catalog": "consumer-insights-customer-growth/evaluations/evaluation-catalog.json",
       "source_case_id": "CIG-PE-04",
-      "source_hash": "02405bcabccae5cf168d5f1a51350c51ade7780b3452a3897041ca235c187afd",
-      "golden_hash": "07588c707ead4ee5a4693954dd3911f5db66a27b13d646c1cf87b9e5d9fbb097",
-      "mode": "multi_turn",
+      "source_hash": "475e833935622aceb4a23625002851c7b7879ed25a78a5f0a4ca7f59a4694832",
+      "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507",
+      "mode": "recovery",
       "object_ref": "CIG-OBJECT-4@v1",
       "object_version": "v1",
       "inputs": {
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E4S"
+        "E4S-REVIEW-DROP"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-RECOVERY"
       ],
       "claims": [
         {
           "id": "CL-CIG-PE-04",
           "assertion": "controlled_recovery",
           "evidence_refs": [
-            "E4S"
+            "E4S-REVIEW-DROP"
           ],
           "counterevidence_refs": [
-            "E4C"
+            "E4C-RECOVERY"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -70645,10 +70772,10 @@
         "id": "RC-CIG-PE-04",
         "assertion": "domain_adjudication_required_for:CIG-PE-04",
         "evidence_refs": [
-          "E4S"
+          "E4S-REVIEW-DROP"
         ],
         "counterevidence_refs": [
-          "E4C"
+          "E4C-RECOVERY"
         ]
       },
       "actions": [
@@ -70706,7 +70833,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "02405bcabccae5cf168d5f1a51350c51ade7780b3452a3897041ca235c187afd"
+      "evidence_fingerprint": "475e833935622aceb4a23625002851c7b7879ed25a78a5f0a4ca7f59a4694832"
     },
     {
       "schema_version": "1.0.0",
@@ -70716,8 +70843,8 @@
       "runtime": "CIG-2026.07",
       "source_catalog": "consumer-insights-customer-growth/evaluations/evaluation-catalog.json",
       "source_case_id": "CIG-PE-05",
-      "source_hash": "e6b80a32f428efddfb909b69381fe4779d0c3c98fb3c8e1fe256ddc19870ff76",
-      "golden_hash": "07588c707ead4ee5a4693954dd3911f5db66a27b13d646c1cf87b9e5d9fbb097",
+      "source_hash": "406f77edaf03d7dcfd777521c37feaba5e4a08f48a870b54a10ae44b431e4e90",
+      "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507",
       "mode": "adversarial",
       "object_ref": "CIG-OBJECT-5@v1",
       "object_version": "v1",
@@ -70725,32 +70852,35 @@
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E5S"
+        "E5S-MEMBER-LIFT"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-COUNTERFACTUAL"
       ],
       "claims": [
         {
           "id": "CL-CIG-PE-05",
           "assertion": "experiment_required",
           "evidence_refs": [
-            "E5S"
+            "E5S-MEMBER-LIFT"
           ],
           "counterevidence_refs": [
-            "E5C"
+            "E5C-COUNTERFACTUAL"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -70759,10 +70889,10 @@
         "id": "RC-CIG-PE-05",
         "assertion": "domain_adjudication_required_for:CIG-PE-05",
         "evidence_refs": [
-          "E5S"
+          "E5S-MEMBER-LIFT"
         ],
         "counterevidence_refs": [
-          "E5C"
+          "E5C-COUNTERFACTUAL"
         ]
       },
       "actions": [
@@ -70820,7 +70950,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "e6b80a32f428efddfb909b69381fe4779d0c3c98fb3c8e1fe256ddc19870ff76"
+      "evidence_fingerprint": "406f77edaf03d7dcfd777521c37feaba5e4a08f48a870b54a10ae44b431e4e90"
     },
     {
       "schema_version": "1.0.0",
@@ -70830,41 +70960,44 @@
       "runtime": "CIG-2026.07",
       "source_catalog": "consumer-insights-customer-growth/evaluations/evaluation-catalog.json",
       "source_case_id": "CIG-PE-06",
-      "source_hash": "5c00b9c91cf274af61417b92cff1b804fc6a5c49d49403dc808f1b7e6eee7720",
-      "golden_hash": "07588c707ead4ee5a4693954dd3911f5db66a27b13d646c1cf87b9e5d9fbb097",
-      "mode": "recovery",
+      "source_hash": "f5f7c26a86bedecc121f835800c166c34d913df0f521a633c9ddd91a4158eed1",
+      "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507",
+      "mode": "multi_turn",
       "object_ref": "CIG-OBJECT-6@v1",
       "object_version": "v1",
       "inputs": {
         "provided": [
           "counterevidence",
           "evidence",
+          "evidence_binding",
           "expected_status",
+          "flip_condition",
           "forbidden",
           "id",
           "mode",
           "must",
           "mutation",
           "name",
-          "object_ref"
+          "object_ref",
+          "rationale"
         ],
         "missing": []
       },
       "evidence": [
-        "E6S"
+        "E6S-CONSENT"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-DATA-GAP"
       ],
       "claims": [
         {
           "id": "CL-CIG-PE-06",
           "assertion": "blocked",
           "evidence_refs": [
-            "E6S"
+            "E6S-CONSENT"
           ],
           "counterevidence_refs": [
-            "E6C"
+            "E6C-DATA-GAP"
           ],
           "decision_impact": "sets_the_bounded_domain_action_ceiling"
         }
@@ -70873,10 +71006,10 @@
         "id": "RC-CIG-PE-06",
         "assertion": "domain_adjudication_required_for:CIG-PE-06",
         "evidence_refs": [
-          "E6S"
+          "E6S-CONSENT"
         ],
         "counterevidence_refs": [
-          "E6C"
+          "E6C-DATA-GAP"
         ]
       },
       "actions": [
@@ -70900,7 +71033,8 @@
       "forbidden_behaviors": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "无授权数据续用"
       ],
       "calculations": [
         {
@@ -70934,7 +71068,7 @@
         "反证必须能够改变结论",
         "主权边界不可越权"
       ],
-      "evidence_fingerprint": "5c00b9c91cf274af61417b92cff1b804fc6a5c49d49403dc808f1b7e6eee7720"
+      "evidence_fingerprint": "f5f7c26a86bedecc121f835800c166c34d913df0f521a633c9ddd91a4158eed1"
     }
   ]
 }

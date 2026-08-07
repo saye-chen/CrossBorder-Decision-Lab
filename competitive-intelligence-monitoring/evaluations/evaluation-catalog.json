@@ -8,10 +8,10 @@
       "mode": "standard",
       "object_ref": "CIM-OBJECT-1@v1",
       "evidence": [
-        "E1S"
+        "E1S-ASIN-SNAP"
       ],
       "counterevidence": [
-        "E1C"
+        "E1C-SUPPLIER-REG"
       ],
       "expected_status": "blocked",
       "must": [
@@ -27,6 +27,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "3个ASIN(B09X/B09Y/B09Z)品牌名不同但供应商注册ID相同，实为同一工厂3个白牌。若不去重，竞争强度被高估2.4倍。",
+      "flip_condition": "仅当3个ASIN分别来自不同供应商注册ID，身份才成立。",
+      "evidence_binding": {
+        "source": "ASIN快照+供应商注册库",
+        "fingerprint": "sha256:cim1a1",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-08"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -39,10 +47,10 @@
       "mode": "conflict",
       "object_ref": "CIM-OBJECT-2@v1",
       "evidence": [
-        "E2S"
+        "E2S-PRICE-CRAWL"
       ],
       "counterevidence": [
-        "E2C"
+        "E2C-API-VERIFY"
       ],
       "expected_status": "inconclusive",
       "must": [
@@ -58,6 +66,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "爬虫显示竞品降价-15%，但授权后台API同品类价格仅降-3%。差异可能因爬虫抓到的是促销价而非日常价。需第二独立来源确认。",
+      "flip_condition": "若授权后台API确认降幅>-10%或第二个独立爬虫源确认-15%，结论更新。",
+      "evidence_binding": {
+        "source": "爬虫快照+后台API",
+        "fingerprint": "sha256:cim2b2",
+        "biz_time": "2026-08-02",
+        "valid_until": "2026-08-05"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -70,10 +86,10 @@
       "mode": "extreme",
       "object_ref": "CIM-OBJECT-3@v1",
       "evidence": [
-        "E3S"
+        "E3S-RANK"
       ],
       "counterevidence": [
-        "E3C"
+        "E3C-REVIEW-VOL"
       ],
       "expected_status": "review_required",
       "must": [
@@ -89,6 +105,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "竞品BSR从#45升至#8(48h内)，但评论数未增长、评分未变。可能原因: 站外引流/刷单/平台推荐算法调整。归因不明确时不能确认竞争变化。",
+      "flip_condition": "若72h内排名稳定在Top15且评论数+50以上，归因为有效增长。",
+      "evidence_binding": {
+        "source": "BSR追踪+评论快照",
+        "fingerprint": "sha256:cim3c3",
+        "biz_time": "2026-08-03",
+        "valid_until": "2026-08-06"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -101,10 +125,10 @@
       "mode": "multi_turn",
       "object_ref": "CIM-OBJECT-4@v1",
       "evidence": [
-        "E4S"
+        "E4S-US-DATA"
       ],
       "counterevidence": [
-        "E4C"
+        "E4C-UK-LOCAL"
       ],
       "expected_status": "recompute",
       "must": [
@@ -120,6 +144,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "US站竞品格局(8家有效竞争者,HHI=0.18)不能直接迁移至UK站。UK站实际竞争者5家,HHI=0.26,且VAT结构不同导致价格带偏移。",
+      "flip_condition": "UK站独立核验完成且HHI修正后，才可使用UK站专属竞争评估。",
+      "evidence_binding": {
+        "source": "US+UK站后台数据",
+        "fingerprint": "sha256:cim4d4",
+        "biz_time": "2026-08-01",
+        "valid_until": "2026-08-15"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -132,10 +164,10 @@
       "mode": "adversarial",
       "object_ref": "CIM-OBJECT-5@v1",
       "evidence": [
-        "E5S"
+        "E5S-STALE"
       ],
       "counterevidence": [
-        "E5C"
+        "E5C-GAP"
       ],
       "expected_status": "blocked",
       "must": [
@@ -149,8 +181,17 @@
       "forbidden": [
         "代理升级为事实",
         "跨域越权",
-        "模板占位结论"
+        "模板占位结论",
+        "过期证据续命"
       ],
+      "rationale": "最后有效证据截止2026-07-20(18天前)，超过14天有效期。期间爬虫因API密钥过期中断5天。过期证据不能用于当前竞争判断。",
+      "flip_condition": "恢复数据采集且连续7天有效证据后，可重新激活监控。",
+      "evidence_binding": {
+        "source": "爬虫日志+API密钥状态",
+        "fingerprint": "sha256:cim5e5",
+        "biz_time": "2026-07-20",
+        "valid_until": "2026-08-03"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",
@@ -163,10 +204,10 @@
       "mode": "recovery",
       "object_ref": "CIM-OBJECT-6@v1",
       "evidence": [
-        "E6S"
+        "E6S-RESUME"
       ],
       "counterevidence": [
-        "E6C"
+        "E6C-BASELINE-DRIFT"
       ],
       "expected_status": "controlled_recovery",
       "must": [
@@ -182,6 +223,14 @@
         "跨域越权",
         "模板占位结论"
       ],
+      "rationale": "API密钥已更新，爬虫恢复。但中断期间竞品格局可能已变化——需先建立新基线(连续7天数据)再与旧基线比较，不能直接衔接。",
+      "flip_condition": "新基线建立且与旧基线偏差<10%，可恢复正常监控频率。",
+      "evidence_binding": {
+        "source": "恢复日志+新基线数据",
+        "fingerprint": "sha256:cim6f6",
+        "biz_time": "2026-08-05",
+        "valid_until": "2026-08-12"
+      },
       "mutation": {
         "field": "object_version",
         "value": "stale",

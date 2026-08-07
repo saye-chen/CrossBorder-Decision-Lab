@@ -1,0 +1,23 @@
+{
+  "contract_version": "CIDM-CANDIDATE-FUNNEL-v1",
+  "research_modes": ["SCAN", "DILIGENCE"],
+  "stages": ["DISCOVERY", "SCREEN", "DEEP_DIVE", "INVESTMENT_CANDIDATE"],
+  "statuses": ["candidate", "waiting_evidence", "blocked", "rejected", "proposed_test", "conditional_entry"],
+  "cross_platform_relationships": ["CONFIRMATION", "LEADING", "FIT_MISMATCH", "CONFLICT"],
+  "gate_statuses": ["pass", "inconclusive", "blocked"],
+  "allowed_transitions": {
+    "DISCOVERY": ["DISCOVERY", "SCREEN"],
+    "SCREEN": ["SCREEN", "DEEP_DIVE", "DISCOVERY"],
+    "DEEP_DIVE": ["DEEP_DIVE", "INVESTMENT_CANDIDATE", "SCREEN"],
+    "INVESTMENT_CANDIDATE": ["INVESTMENT_CANDIDATE", "DEEP_DIVE"]
+  },
+  "stage_research_mode": {
+    "DISCOVERY": "SCAN",
+    "SCREEN": "SCAN",
+    "DEEP_DIVE": "DILIGENCE",
+    "INVESTMENT_CANDIDATE": "DILIGENCE"
+  },
+  "handoff_destinations": ["PLCO", "AAMO", "CAPM", "LIFD", "SPPQ", "VLB", "CIG", "MBMC"],
+  "external_write": false,
+  "connector_mode": "reserved_interface"
+}
