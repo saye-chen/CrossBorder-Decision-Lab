@@ -9,6 +9,10 @@ description: 默认用中文执行跨境电商消费者洞察、客户增长、�
 
 成熟度：`controlled pilot`；授权真实历史回放门未通过，不得声明 `production ready`。
 
+## 统一交互与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 接入授权且去识别的客户证据，不得自动触达、补偿、退款或改变授权状态。
+
 ## 与广告分析 Skill 的边界
 
 当客户分析涉及广告获客、再营销、平台归因、新客 CAC、真实增量、频次或广告渠道预算时，可选路由 `advertising-analysis-measurement-optimization`。本 Skill 向 AAMO 仅提交经授权且去识别的人群定义、生命周期、贡献利润 CLV、真实曝光/实验状态、频控和不触达约束；AAMO 回传曝光、成本、平台归因和广告动作建议。本 Skill 拥有授权客户证据、客户状态和因果有效性，AAMO 拥有广告内部预算/出价与投放动作；平台归因不得替代实验增量，AAMO 不得执行客户触达。任一方失败时保留各自可验证结论，跨域部分标记 `inconclusive`。

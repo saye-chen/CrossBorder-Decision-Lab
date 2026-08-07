@@ -9,6 +9,10 @@ description: 默认用中文执行跨境电商产品创新与产品管理决策�
 
 成熟度：`controlled pilot`。WP2—WP10 的专家级L1—L3仓库门与专业深度复审已通过，包括真实执行评测、十个业务消费者和ERDG的本域适配、Golden业务链、404项正反断言、双轨差异、回滚演练和防篡改评审包；独立Owner权威切换仍保持关闭，L4仍需要授权真实回放。
 
+## 统一交互与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，不得自动改规格、路线图或产品状态。
+
 ## 任务边界
 
 最终决定产品机会如何转为产品任务，以及产品定义、MVP、需求、规格、变体、包装、验证范围、路线图、迭代与停产建议。不得决定市场资本进入、最终价格利润、供应商和量产放行、法律准入、库存数量、页面动作、广告动作或外部执行。

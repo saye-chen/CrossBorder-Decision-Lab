@@ -9,6 +9,10 @@ description: 默认用中文执行专家级跨境平台、店铺、Listing 与�
 
 成熟度：`controlled pilot`；真实历史回放未完成。
 
+## 统一交互、平台知识与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。COSMO、Rufus、GEO 等动态只能使用通过校验且未过期的 [平台知识卡](../governance/platform-knowledge/platform-knowledge-contract.md) 形成诊断、假设或实验，不直接改稳定评分；Connector 按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，不得自动发布页面。
+
 ## 专业性与决策可用性硬约束
 
 所有模式先读取 [professional-depth-governance.md](references/professional-depth-governance.md)。只允许压缩展示，不得删除对象/页面版本、G1—G6、证据与反对证据、根因与替代解释、具体方案、成功、停止、回滚和结果回填。

@@ -1,0 +1,9 @@
+{
+  "contract": "CBDS-PLATFORM-KNOWLEDGE-2026.07", "card_id": "AAMO-AMZ-AI-DISCOVERY", "version": "1.0.0", "owner_domain": "D09", "platform": "Amazon", "surface": "organic generative discovery adjacent to paid media",
+  "mechanism": "Generative shopping surfaces may alter discovery paths, but sponsored placement mechanics and incremental ad effects must be measured separately.", "evidence_status": "inferred",
+  "sources": [{"source_id": "RUFUS-AWS-2025", "source_type": "official", "url": "https://aws.amazon.com/blogs/machine-learning/how-rufus-scales-conversational-shopping-experiences-to-millions-of-amazon-customers-with-amazon-bedrock/", "published_at": "2025-11-20", "claim_boundary": "Confirms Rufus use, not ad attribution, paid placement weights, or incremental sales."}],
+  "valid_from": "2026-08-07", "reviewed_at": "2026-08-07", "expires_at": "2026-11-07", "affected_objects": ["campaign_measurement", "search_term_analysis", "incrementality_design"],
+  "allowed_uses": ["diagnostic", "hypothesis", "experiment", "monitoring", "routing"], "prohibited_uses": ["direct_score_change", "automatic_budget_change", "automatic_bid_change", "automatic_external_write", "causal_claim"],
+  "testable_hypotheses": [{"hypothesis_id": "H-DISCOVERY-MIX", "change": "Track generative-discovery observations separately from sponsored search exposure.", "metric": "channel-separated qualified traffic, conversion and incrementality estimate", "window": "pre-registered observation or holdout window", "success": "measurement identifies a stable, decision-relevant difference", "guardrail": "no attribution relabeling or budget change without causal evidence", "stop": "identity, exposure, or attribution quality gate fails"}],
+  "invalidation_conditions": ["Amazon publishes a unified paid-organic measurement contract", "surface taxonomy changes", "card expires", "exposure cannot be identified"]
+}

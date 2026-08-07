@@ -494,6 +494,66 @@ def validate_depth_remediation_invariants() -> list[str]:
     return errors
 
 
+def validate_interaction_platform_connector_controls() -> list[str]:
+    errors: list[str] = []
+    required = (
+        "governance/interaction/interaction-governance.md",
+        "governance/interaction/schemas/prompt-intake.schema.json",
+        "governance/interaction/schemas/operator-playbook.schema.json",
+        "governance/interaction/scripts/validate_prompt_intake.py",
+        "governance/interaction/scripts/compile_operator_playbook.py",
+        "governance/interaction/scripts/validate_operator_playbook.py",
+        "governance/platform-knowledge/platform-knowledge-contract.md",
+        "governance/platform-knowledge/platform-knowledge-card.schema.json",
+        "governance/platform-knowledge/scripts/validate_platform_cards.py",
+        "governance/connectors/connector-governance.md",
+        "governance/connectors/scripts/validate_connector_contract.py",
+        "governance/connectors/scripts/adapt_evidence.py",
+        "governance/connectors/scripts/authorize_action.py",
+        "governance/interaction/tests/test_interaction_platform_connectors.py",
+    )
+    for relative in required:
+        if not (ROOT / relative).is_file():
+            errors.append(f"shared interaction control missing: {relative}")
+    for path in (ROOT / "governance/interaction/schemas").glob("*.json"):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if data.get("$schema") != "https://json-schema.org/draft/2020-12/schema":
+                errors.append(f"interaction schema is not draft 2020-12: {path.name}")
+        except json.JSONDecodeError as exc:
+            errors.append(f"invalid interaction schema {path.name}: {exc}")
+    registry = json.loads((ROOT / "governance/domain-architecture-registry.json").read_text(encoding="utf-8"))
+    skill_dirs = [ROOT / item["skill"] for item in registry["domains"] if item["availability"] == "current"]
+    for skill_dir in skill_dirs:
+        text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
+        for marker in ("governance/interaction/interaction-governance.md", "governance/connectors/connector-governance.md"):
+            if marker not in text:
+                errors.append(f"{skill_dir.name}: shared control is not routed: {marker}")
+    for skill in ("logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "advertising-analysis-measurement-optimization"):
+        text = (ROOT / skill / "SKILL.md").read_text(encoding="utf-8")
+        if "governance/platform-knowledge/platform-knowledge-contract.md" not in text:
+            errors.append(f"{skill}: platform knowledge contract is not routed")
+    cards = sorted((ROOT / "governance/platform-knowledge/cards").glob("*.json"))
+    owners = set()
+    for path in cards:
+        try:
+            card = json.loads(path.read_text(encoding="utf-8")); owners.add(card.get("owner_domain"))
+            if card.get("contract") != "CBDS-PLATFORM-KNOWLEDGE-2026.07": errors.append(f"{path.name}: invalid platform contract")
+        except json.JSONDecodeError as exc: errors.append(f"invalid platform card {path.name}: {exc}")
+    if owners != {"D07", "D08", "D09"}: errors.append(f"platform card owner coverage mismatch: {sorted(owners)}")
+    manifests = sorted((ROOT / "governance/connectors/manifests").glob("*.json"))
+    if len(manifests) < 4: errors.append("connector baseline requires SP-API, Seller Central, ads, and ERP manifests")
+    for path in manifests:
+        try:
+            manifest = json.loads(path.read_text(encoding="utf-8"))
+            if manifest.get("status") != "contract_only" or manifest.get("permissions", {}).get("write") is not False:
+                errors.append(f"{path.name}: current connector must remain contract_only and read-only")
+            field_contract = ROOT / manifest.get("field_contract", "")
+            if not field_contract.is_file(): errors.append(f"{path.name}: missing field contract")
+        except json.JSONDecodeError as exc: errors.append(f"invalid connector manifest {path.name}: {exc}")
+    return errors
+
+
 def main() -> int:
     skill_dirs = sorted(path.parent for path in ROOT.glob("*/SKILL.md"))
     errors: list[str] = []
@@ -526,6 +586,7 @@ def main() -> int:
     errors.extend(validate_vlb_handoff_entrypoints())
     errors.extend(validate_erdg_baseline())
     errors.extend(validate_depth_remediation_invariants())
+    errors.extend(validate_interaction_platform_connector_controls())
 
     if errors:
         print("\n".join(f"ERROR: {error}" for error in errors), file=sys.stderr)

@@ -11,6 +11,10 @@ description: 默认用中文执行专家级跨境供应商、采购、生产与�
 
 共享治理合同为[`ERDG-CONTRACT-2026.07`](../governance/erdg/ERDG.md)，本域唯一 adapter 为[`adapter.json`](../governance/erdg/adapters/supplier-procurement-production-quality-decision/adapter.json)；不接受 v1 或本域私有交接主链。
 
+## 统一交互与执行控制
+
+正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，不得自动下单、放行生产、批次或供应商。
+
 ## 主权
 
 最终拥有 `supplier_selection`、`procurement_commitment`、`sample_approval`、`production_release`、`batch_quality_release`、`supplier_recovery_exit`。不决定 D01 资本、D03 产品定义、D05 法律税务/IP/准入、D06 价格利润现金、D07 物流库存、D13 客户补偿，也不执行签约、下单、付款、生产、召回或外部写入。

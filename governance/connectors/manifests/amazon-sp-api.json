@@ -1,0 +1,7 @@
+{
+  "contract": "CBDS-CONNECTOR-2026.07", "connector_id": "amazon-sp-api", "version": "1.0.0", "provider": "Amazon Selling Partner API", "status": "contract_only", "transport": "api",
+  "permissions": {"read": true, "write": false, "scopes": ["reports:read", "inventory:read", "orders:read"]}, "credential_isolation": {"storage": "external_secret_manager", "repository_secret_forbidden": true, "tenant_bound": true, "rotation_owner": "connector-admin"},
+  "data_classes": ["authorized_first_party_orders", "authorized_first_party_inventory", "authorized_first_party_reports"], "field_contract": "governance/connectors/field-contracts/amazon-sp-api-inventory.json",
+  "limits": {"rate_strategy": "provider quota with bounded exponential backoff", "cost_ceiling": "tenant policy required before activation", "pagination": "provider continuation token with bounded page count", "deduplication": "seller_id + marketplace_id + sku + observed_at"},
+  "failure_semantics": {"empty_response": "missing_not_zero", "partial_failure": "isolate_affected_fields", "auth_failure": "fail_closed", "rate_limit": "retry_bounded_then_inconclusive"}, "lineage": {"raw_reference": true, "observed_at": true, "ingested_at": true, "payload_hash": true}, "retention": "tenant policy; raw payload excluded by default", "rollback": "disable connector, revoke tenant grant, preserve audit log"
+}

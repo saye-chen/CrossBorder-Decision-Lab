@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cbds/interaction/operator-playbook.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "playbook_id", "source_packet", "owner_domain", "decision", "object", "as_of_time", "actions", "rollback", "outcome_feedback", "external_write"],
+  "properties": {
+    "contract": {"const": "CBDS-OPERATOR-PLAYBOOK-2026.07"},
+    "playbook_id": {"type": "string", "minLength": 1},
+    "source_packet": {"type": "object", "additionalProperties": false, "required": ["packet_id", "packet_hash", "erdg_contract", "validation_status"], "properties": {"packet_id": {"type": "string"}, "packet_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "erdg_contract": {"const": "ERDG-CONTRACT-2026.07"}, "validation_status": {"const": "passed"}}},
+    "owner_domain": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+    "decision": {"type": "object", "additionalProperties": false, "required": ["decision_id", "status", "posture", "action_ceiling"], "properties": {"decision_id": {"type": "string"}, "status": {"enum": ["proposed", "validated", "approved", "blocked", "inconclusive"]}, "posture": {"type": "string"}, "action_ceiling": {"type": "string"}}},
+    "object": {"type": "object"},
+    "as_of_time": {"type": "string", "format": "date-time"},
+    "actions": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["action_id", "instruction", "status", "owner_role", "dependencies", "success_conditions", "guardrails", "stop_conditions", "approval_required", "external_write"], "properties": {"action_id": {"type": "string"}, "instruction": {"type": "string", "minLength": 1}, "status": {"const": "proposed"}, "owner_role": {"type": "string", "minLength": 1}, "dependencies": {"type": "array", "items": {"type": "string"}}, "success_conditions": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "guardrails": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "stop_conditions": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "approval_required": {"type": "boolean"}, "external_write": {"type": "boolean"}}}},
+    "rollback": {"type": "object", "additionalProperties": false, "required": ["trigger", "steps", "residual_exposure_owner"], "properties": {"trigger": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "steps": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "residual_exposure_owner": {"type": "string", "minLength": 1}}},
+    "outcome_feedback": {"type": "object", "additionalProperties": false, "required": ["metrics", "observation_window", "writeback_target"], "properties": {"metrics": {"type": "array", "items": {"type": "string"}}, "observation_window": {"type": "string", "minLength": 1}, "writeback_target": {"type": "string", "minLength": 1}}},
+    "external_write": {"const": false}
+  }
+}
