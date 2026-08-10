@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-PERSISTENT-BACKEND-DEVELOPMENT-QUALIFICATION-2026-08-10",
+  "qualification": "implementer_owned_fixed_vectors_not_external_parity_or_independent_review",
+  "runtime_lock_ref": "backends/runtime-lock.json",
+  "runtime_checks": {
+    "python_3_12_13_exact_packages": "pass",
+    "r_4_5_3_exact_packages_and_synthdid_revision": "pass",
+    "adapter_sha256_integrity_12_of_12": "pass"
+  },
+  "adapter_results": {
+    "cluster_cr2_clubsandwich": {"status": "pass", "output_sha256": "c88b210a3f51deeb07ec509ebbab41b408faaf21bbc0244ce7b9417e59cf6b44"},
+    "group_sequential_gsdesign": {"status": "pass", "output_sha256": "6258a6346602cf536d920e43e3dd965e3450e421f8cf7c948d463352202171f7"},
+    "switchback_randomization_ri2": {"status": "pass", "output_sha256": "052f0f3c5900c27ff6176693251d0c9ae6b81fbeb182daa41a6c984f6ffc9361"},
+    "staggered_did_callaway_santanna": {"status": "pass", "output_sha256": "612a9ec9774c05e35a4cb5aeaf1c24d2f69962854895bfa72e50cd7393fb0b72"},
+    "synthetic_control_synth": {"status": "pass", "output_sha256": "bf89a60c36d35119a35e1cc944e515cf51ba8998f78caf16a10f013d02e7b45c"},
+    "synthetic_did_synthdid": {"status": "pass", "output_sha256": "d0fc27563a47f0318795127632e83f059c9a40c34106b417333f04a529243479"},
+    "rdd_local_rdrobust": {"status": "pass", "output_sha256": "a5f6cffd4e718296d822a73581f4d5c64360570ee8b776dd9798fd5a5bec318b"},
+    "weak_iv_ivmodels": {"status": "pass", "output_sha256": "34bcbaa87528f686a0b7d53625668bbaeb3b8572211903220feffea6764457b2"},
+    "observational_aipw_r": {"status": "pass", "output_sha256": "35269cf951fc80970b96c9090298a4e564fba4a5ca12ca1a0563960162ea8934"},
+    "observational_dml_doubleml": {"status": "pass", "output_sha256": "04aabcb1ff03111f9b02fef180e75add8c8b603570347f3e5b4af3af3aa6c764"},
+    "hte_uplift_econml": {"status": "pass", "output_sha256": "1beb30cf5f1c946fbb3a38e196bed3eec730dd51d2b993f5cea172f750d17511"},
+    "hte_uplift_grf": {"status": "pass", "output_sha256": "7a6d449d15b14131736359765ab8f7a1b059c573ea97fb72f1719442884a6b07"}
+  },
+  "all_adapters_pass": true,
+  "development_status": "complete",
+  "release_effect": {
+    "registry_state": "installed_unverified",
+    "verified_backend_count": 0,
+    "registry_promotion_authorized": false,
+    "business_action_authorized": false
+  },
+  "external_gates_open": [
+    "independent cross-implementation parity",
+    "preregistered operating-characteristic qualification grids",
+    "qualified independent causal-method review"
+  ]
+}

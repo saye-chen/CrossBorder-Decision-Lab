@@ -1,0 +1,11 @@
+{
+  "schema_version":"1.0.0",
+  "contract_id":"ECAE-BACKEND-SYNTHETIC-DID-1.0",
+  "backend_id":"synthetic_did",
+  "candidate_id":"synthetic_did_synthdid",
+  "status":"contract_frozen_adapter_not_verified_beta_candidate",
+  "input":{"required":["outcome_matrix","control_unit_count","pre_period_count","uncertainty_method","replications","seed"]},
+  "output":{"required":["effect","standard_error","confidence_interval","unit_weights","time_weights","effective_donor_count","weight_concentration","warnings"]},
+  "invariants":["all treated units share one treatment start in the selected candidate","control units precede treated units and pre-periods precede post-periods in the matrix","unit and time weights are exposed","uncertainty method is placebo bootstrap or jackknife and is frozen","seed and replication count are reported","beta package status blocks verification without stronger parity and review"],
+  "failure_codes":["SDID_ADOPTION_SCOPE","SDID_MATRIX_INVALID","SDID_UNCERTAINTY_INVALID","SDID_WEIGHT_INVALID","BACKEND_NUMERICAL_INVALID"]
+}

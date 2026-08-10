@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/consumer-production-plan.schema.json",
+  "title": "D01-D13 consumer production acceptance coordination plan",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "migration_id", "migration_ref", "status", "execution_mode", "required_case_classes", "controls", "domains", "completion_gate", "external_write"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "plan_id": {"type": "string", "minLength": 1},
+    "migration_id": {"type": "string", "minLength": 1},
+    "migration_ref": {"const": "integrations/consumer-migration.json"},
+    "status": {"enum": ["ready_waiting_owner_and_production_snapshot", "fixture_preflight_passed_waiting_production_snapshot", "l4_fixture_preflight_passed_waiting_production_snapshot", "running", "completed", "blocked"]},
+    "execution_mode": {"const": "read_only_shadow_dual_run"},
+    "required_case_classes": {
+      "const": ["normal", "near_decision_threshold", "negative_or_harm", "expired", "invalidation_triggered", "scope_mismatch", "missing_required_field"]
+    },
+    "controls": {
+      "type": "object",
+      "required": ["same_frozen_input_both_rails", "tolerance_frozen_before_results", "raw_results_hash_bound", "business_actions_disabled", "producer_self_acceptance_forbidden", "unknown_never_zero_fill"],
+      "properties": {
+        "same_frozen_input_both_rails": {"const": true},
+        "tolerance_frozen_before_results": {"const": true},
+        "raw_results_hash_bound": {"const": true},
+        "business_actions_disabled": {"const": true},
+        "producer_self_acceptance_forbidden": {"const": true},
+        "unknown_never_zero_fill": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 13,
+      "maxItems": 13,
+      "items": {
+        "type": "object",
+        "required": ["domain_id", "skill", "priority_wave", "consumer_owner_role", "owner_identity", "contract_version", "contract_content_hash", "adapter_ref", "local_acceptance_ref", "fixture_preflight_status", "fixture_run_package_ref", "fixture_evaluation_ref", "readiness_status", "production_snapshot_ref", "production_run_package_ref", "difference_evidence_ref", "rollback_evidence_ref", "signed_acceptance_ref"],
+        "properties": {
+          "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+          "skill": {"type": "string", "minLength": 1},
+          "priority_wave": {"enum": [1, 2]},
+          "consumer_owner_role": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])_consumer_owner$"},
+          "owner_identity": {"type": ["string", "null"], "minLength": 1},
+          "contract_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+          "contract_content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "adapter_ref": {"type": "string", "minLength": 1},
+          "local_acceptance_ref": {"type": "string", "minLength": 1},
+          "fixture_preflight_status": {"enum": ["pending", "passed", "failed"]},
+          "fixture_run_package_ref": {"type": ["string", "null"], "minLength": 1},
+          "fixture_evaluation_ref": {"type": ["string", "null"], "minLength": 1},
+          "readiness_status": {"enum": ["waiting_owner_and_production_snapshot", "fixture_preflight_passed_waiting_production_snapshot", "ready", "running", "blocking_difference", "ready_for_owner_review", "accepted", "conditionally_accepted", "rejected"]},
+          "production_snapshot_ref": {"type": ["string", "null"], "minLength": 1},
+          "production_run_package_ref": {"type": ["string", "null"], "minLength": 1},
+          "difference_evidence_ref": {"type": ["string", "null"], "minLength": 1},
+          "rollback_evidence_ref": {"type": ["string", "null"], "minLength": 1},
+          "signed_acceptance_ref": {"type": ["string", "null"], "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "completion_gate": {
+      "type": "object",
+      "required": ["owners_assigned", "fixture_preflights_passed", "production_snapshots_bound", "production_dual_runs_completed", "differences_dispositioned", "rollback_drills_passed", "owner_acceptances_signed", "l4_production_acceptance_complete"],
+      "properties": {
+        "owners_assigned": {"type": "boolean"},
+        "fixture_preflights_passed": {"type": "boolean"},
+        "production_snapshots_bound": {"type": "boolean"},
+        "production_dual_runs_completed": {"type": "boolean"},
+        "differences_dispositioned": {"type": "boolean"},
+        "rollback_drills_passed": {"type": "boolean"},
+        "owner_acceptances_signed": {"type": "boolean"},
+        "l4_production_acceptance_complete": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "external_write": {"const": false}
+  },
+  "additionalProperties": false
+}

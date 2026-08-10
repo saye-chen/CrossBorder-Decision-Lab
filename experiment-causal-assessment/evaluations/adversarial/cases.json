@@ -1,0 +1,8 @@
+{
+  "schema_version":"1.0.0","case_family":"adversarial","cases":[
+    {"case_id":"ECAE-ADV-01","threat":"business value rescues failed identification","expected":"maximum CE3","test_ref":"tests/test_grade_and_handoff.py::test_business_value_cannot_rescue_failed_q4"},
+    {"case_id":"ECAE-ADV-02","threat":"post-treatment bad control","expected":"BAD_CONTROL","test_ref":"tests/test_protocol_and_state.py::test_bad_control_rejected"},
+    {"case_id":"ECAE-ADV-03","threat":"staggered heterogeneous treatment analyzed with naive TWFE","expected":"NAIVE_TWFE_PROHIBITED","test_ref":"tests/test_quasi_experimental.py::test_staggered_twfe_prohibited"},
+    {"case_id":"ECAE-ADV-04","threat":"platform-attributed result renamed incremental economics","expected":"CAUSAL_EVIDENCE_INELIGIBLE","test_ref":"tests/test_grade_and_handoff.py::test_ce3_cannot_be_called_incremental_economics"}
+  ]
+}

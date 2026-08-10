@@ -236,6 +236,837 @@
         "value": "stale",
         "expected": "blocked"
       }
+    },
+    {
+      "id": "CIDM-RW-01",
+      "name": "资本组合约束-standard",
+      "mode": "standard",
+      "object_ref": "D01-资本组合约束@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-a541a22af98c",
+        "E-LINEAGE-a40c2a29e1c8"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4185e96170a3"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "资本组合约束",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以资本组合约束为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为inconclusive。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且资本组合约束守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:a541a22af98ca40c2a29e1c84185e96170a3b6a473bfcdf1689b8277294e971c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "资本组合约束:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-02",
+      "name": "资本组合约束-conflict",
+      "mode": "conflict",
+      "object_ref": "D01-资本组合约束@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-c5281f91c24a",
+        "E-LINEAGE-df9a6caf564a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-0101112dfff7"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "资本组合约束",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以资本组合约束为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且资本组合约束守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:c5281f91c24adf9a6caf564a0101112dfff7e67ef54412e41cc579adeaad13dc",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "资本组合约束:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-03",
+      "name": "资本组合约束-extreme",
+      "mode": "extreme",
+      "object_ref": "D01-资本组合约束@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-394bd07e2e53",
+        "E-LINEAGE-3570bf2ed616"
+      ],
+      "counterevidence": [
+        "E-COUNTER-8740c255ed8c"
+      ],
+      "expected_status": "test",
+      "must": [
+        "资本组合约束",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以资本组合约束为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且资本组合约束守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:394bd07e2e533570bf2ed6168740c255ed8c90d2b1de730332c25a3569db41b5",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "资本组合约束:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-04",
+      "name": "资本组合约束-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D01-资本组合约束@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-d23136704257",
+        "E-LINEAGE-0179342b6acc"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f060b75866b6"
+      ],
+      "expected_status": "reallocate",
+      "must": [
+        "资本组合约束",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以资本组合约束为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为reallocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且资本组合约束守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d231367042570179342b6accf060b75866b63e3817d27ec941eea1448be425a4",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "资本组合约束:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-05",
+      "name": "资本组合约束-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D01-资本组合约束@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-bcf4b685346f",
+        "E-LINEAGE-6233662c1ce3"
+      ],
+      "counterevidence": [
+        "E-COUNTER-ebbd323d748c"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "资本组合约束",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以资本组合约束为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且资本组合约束守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:bcf4b685346f6233662c1ce3ebbd323d748ca2f9930be8acc98d0704f9605826",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "资本组合约束:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-06",
+      "name": "资本组合约束-recovery",
+      "mode": "recovery",
+      "object_ref": "D01-资本组合约束@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-73a6c3339e85",
+        "E-LINEAGE-22aa12ab83c7"
+      ],
+      "counterevidence": [
+        "E-COUNTER-38b24c79072b"
+      ],
+      "expected_status": "controlled_reentry",
+      "must": [
+        "资本组合约束",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以资本组合约束为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_reentry。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且资本组合约束守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:73a6c3339e8522aa12ab83c738b24c79072b4e531050d7483a238773cc65486c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "资本组合约束:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-07",
+      "name": "非补偿准入门-standard",
+      "mode": "standard",
+      "object_ref": "D01-非补偿准入门@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-f19390befbd4",
+        "E-LINEAGE-415a48b6122a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-29f7ef5efdbe"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "非补偿准入门",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以非补偿准入门为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为inconclusive。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且非补偿准入门守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f19390befbd4415a48b6122a29f7ef5efdbe779d507dad4510a5ca120e62502b",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "非补偿准入门:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-08",
+      "name": "非补偿准入门-conflict",
+      "mode": "conflict",
+      "object_ref": "D01-非补偿准入门@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-b59b0a10dac9",
+        "E-LINEAGE-8c95054b6f66"
+      ],
+      "counterevidence": [
+        "E-COUNTER-61caad5698e7"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "非补偿准入门",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以非补偿准入门为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且非补偿准入门守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:b59b0a10dac98c95054b6f6661caad5698e7c9e3c2613fce2b3e15dc33f1fbd2",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "非补偿准入门:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-09",
+      "name": "非补偿准入门-extreme",
+      "mode": "extreme",
+      "object_ref": "D01-非补偿准入门@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-e8354c82c0d1",
+        "E-LINEAGE-7b791d7579b0"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9995254e2905"
+      ],
+      "expected_status": "test",
+      "must": [
+        "非补偿准入门",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以非补偿准入门为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且非补偿准入门守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e8354c82c0d17b791d7579b09995254e2905092500e921a4d9f43ffce005477c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "非补偿准入门:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-10",
+      "name": "非补偿准入门-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D01-非补偿准入门@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-6164fe6cef4a",
+        "E-LINEAGE-19f803319052"
+      ],
+      "counterevidence": [
+        "E-COUNTER-8473d3ad0a16"
+      ],
+      "expected_status": "reallocate",
+      "must": [
+        "非补偿准入门",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以非补偿准入门为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为reallocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且非补偿准入门守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:6164fe6cef4a19f8033190528473d3ad0a167b349c5fd81ee4039913fd3a2dbe",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "非补偿准入门:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-11",
+      "name": "非补偿准入门-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D01-非补偿准入门@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-e9c4059cad72",
+        "E-LINEAGE-adefe026f879"
+      ],
+      "counterevidence": [
+        "E-COUNTER-6d8e433e7322"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "非补偿准入门",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以非补偿准入门为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且非补偿准入门守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e9c4059cad72adefe026f8796d8e433e7322a231e211b3e41ba8a38a023cf5dd",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "非补偿准入门:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-12",
+      "name": "非补偿准入门-recovery",
+      "mode": "recovery",
+      "object_ref": "D01-非补偿准入门@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-b81364a8dada",
+        "E-LINEAGE-ec27681c7b2f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4e76f17eb2b9"
+      ],
+      "expected_status": "controlled_reentry",
+      "must": [
+        "非补偿准入门",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以非补偿准入门为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_reentry。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且非补偿准入门守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:b81364a8dadaec27681c7b2f4e76f17eb2b971ddc4681647e1c0ef3e8c7f82e1",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "非补偿准入门:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-13",
+      "name": "牛基熊利润情景-standard",
+      "mode": "standard",
+      "object_ref": "D01-牛基熊利润情景@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-09f141c2f1ac",
+        "E-LINEAGE-cea61d508aba"
+      ],
+      "counterevidence": [
+        "E-COUNTER-0b5e443f74ae"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "牛基熊利润情景",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以牛基熊利润情景为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为inconclusive。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且牛基熊利润情景守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:09f141c2f1accea61d508aba0b5e443f74ae8a221f51b45181bd6b5e25db8ae9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "牛基熊利润情景:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-14",
+      "name": "牛基熊利润情景-conflict",
+      "mode": "conflict",
+      "object_ref": "D01-牛基熊利润情景@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-ee18c3ce5e0b",
+        "E-LINEAGE-ea25f10495ab"
+      ],
+      "counterevidence": [
+        "E-COUNTER-1084d1e63da4"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "牛基熊利润情景",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以牛基熊利润情景为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且牛基熊利润情景守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:ee18c3ce5e0bea25f10495ab1084d1e63da4bb5c5a7aa81fecaf6f520f6c9070",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "牛基熊利润情景:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-15",
+      "name": "牛基熊利润情景-extreme",
+      "mode": "extreme",
+      "object_ref": "D01-牛基熊利润情景@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-90b93f7334b9",
+        "E-LINEAGE-5bde137e3475"
+      ],
+      "counterevidence": [
+        "E-COUNTER-77d1eef8683f"
+      ],
+      "expected_status": "test",
+      "must": [
+        "牛基熊利润情景",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以牛基熊利润情景为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且牛基熊利润情景守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:90b93f7334b95bde137e347577d1eef8683fd2b353e5a87bf3f2921636458b8d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "牛基熊利润情景:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-16",
+      "name": "牛基熊利润情景-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D01-牛基熊利润情景@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-8205d6e4f5c2",
+        "E-LINEAGE-9ab5ca19e297"
+      ],
+      "counterevidence": [
+        "E-COUNTER-c35c5eb1a2b3"
+      ],
+      "expected_status": "reallocate",
+      "must": [
+        "牛基熊利润情景",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以牛基熊利润情景为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为reallocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且牛基熊利润情景守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8205d6e4f5c29ab5ca19e297c35c5eb1a2b338239fec41341ce71729cb487bd2",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "牛基熊利润情景:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-17",
+      "name": "牛基熊利润情景-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D01-牛基熊利润情景@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-911c966bacf5",
+        "E-LINEAGE-c8a54d2c98a9"
+      ],
+      "counterevidence": [
+        "E-COUNTER-00d012e64707"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "牛基熊利润情景",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以牛基熊利润情景为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且牛基熊利润情景守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:911c966bacf5c8a54d2c98a900d012e64707bb2d977a5ab4abddf8b484238ba9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "牛基熊利润情景:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIDM-RW-18",
+      "name": "牛基熊利润情景-recovery",
+      "mode": "recovery",
+      "object_ref": "D01-牛基熊利润情景@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-9529d16ebedd",
+        "E-LINEAGE-9b73a224300c"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4f78fcbfb45e"
+      ],
+      "expected_status": "controlled_reentry",
+      "must": [
+        "牛基熊利润情景",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以牛基熊利润情景为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_reentry。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且牛基熊利润情景守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:9529d16ebedd9b73a224300c4f78fcbfb45e3789669a500f78fc5e1fa466bf71",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "牛基熊利润情景:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
     }
-  ]
+  ],
+  "catalog": "D01-EVAL",
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 24,
+    "mechanisms": [
+      "资本组合约束",
+      "非补偿准入门",
+      "牛基熊利润情景",
+      "小测资本上限"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

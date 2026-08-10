@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ppfc/ecae_financial_receipt.schema.json",
+  "title": "PPFC consumer receipt for qualified causal effects used in incremental economics",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "runtime_version", "receipt_id", "domain_id", "migration_id", "contract_version",
+    "handoff_ref", "handoff_content_hash", "causal_result_ref", "evaluated_as_of_time", "causal_evidence_grade", "claim_ceiling",
+    "intended_use", "decision", "effective_use", "incremental_input_state", "effect_estimate", "effect_interval",
+    "economic_parameter_snapshot", "incremental_economics_allowed", "causal_wording_allowed", "reasons",
+    "accepted_by_consumer_owner", "consumer_owner_acceptance_ref", "business_owner_decision_required",
+    "financial_decision_owner", "external_write", "receipt_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "runtime_version": {"const": "PPFC-2026.07"},
+    "receipt_id": {"type": "string", "pattern": "^PPFC-ECAE-RECEIPT-[a-f0-9]{16}$"},
+    "domain_id": {"const": "D06"},
+    "migration_id": {"type": "string", "minLength": 1},
+    "contract_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "handoff_ref": {"type": "string", "minLength": 1},
+    "handoff_content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "causal_result_ref": {"type": "string", "minLength": 1},
+    "evaluated_as_of_time": {"type": "string", "minLength": 1},
+    "causal_evidence_grade": {"enum": ["CE0", "CE1", "CE2", "CE3", "CE4", "CE5"]},
+    "claim_ceiling": {"type": "string", "minLength": 1},
+    "intended_use": {"enum": ["incremental_economic_input", "high_stakes_financial_support"]},
+    "decision": {"enum": ["accept", "hold_pending_consumer_acceptance", "degrade", "reject", "request_recompute"]},
+    "effective_use": {"type": "string", "minLength": 1},
+    "incremental_input_state": {"enum": ["qualified", "unknown"]},
+    "effect_estimate": {"type": ["string", "null"]},
+    "effect_interval": {
+      "type": ["object", "null"],
+      "properties": {"lower": {"type": "string"}, "point": {"type": "string"}, "upper": {"type": "string"}},
+      "required": ["lower", "point", "upper"], "additionalProperties": false
+    },
+    "economic_parameter_snapshot": {
+      "type": ["object", "null"],
+      "properties": {
+        "snapshot_id": {"type": "string", "minLength": 1}, "currency": {"type": "string", "minLength": 3},
+        "unit_contribution_interval": {
+          "type": "object", "properties": {"lower": {"type": "string"}, "point": {"type": "string"}, "upper": {"type": "string"}},
+          "required": ["lower", "point", "upper"], "additionalProperties": false
+        },
+        "valid_until": {"type": "string", "minLength": 1}, "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "required": ["snapshot_id", "currency", "unit_contribution_interval", "valid_until", "content_hash"],
+      "additionalProperties": false
+    },
+    "incremental_economics_allowed": {"type": "boolean"},
+    "causal_wording_allowed": {"type": "boolean"},
+    "reasons": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "accepted_by_consumer_owner": {"type": "boolean"},
+    "consumer_owner_acceptance_ref": {"type": ["string", "null"]},
+    "business_owner_decision_required": {"const": true},
+    "financial_decision_owner": {"const": "PPFC"},
+    "external_write": {"const": false},
+    "receipt_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

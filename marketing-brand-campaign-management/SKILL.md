@@ -138,3 +138,7 @@ MBCM最终决定：
 ## ERDG 共享治理接入
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/marketing-brand-campaign-management/adapter.json` 声明 MBCM 主权；ERDG 失败时不得形成生效动作。
+
+## F01 因果证据消费者接入
+
+通过 `integrations/experiment-causal-assessment/adapter.json` 接收与本域用途、CE 门槛、payload、适用范围和有效期绑定的 F01 回执。待签、低等级、过期、范围不符、缺字段或哈希不一致时保持 `unknown`，不得把旧标签、归因或预测升级为因果/增量。F01 只提供合格证据；品牌定位、活动、Offer 与渠道配置主权仍归 MBCM，且 `external_write=false`。

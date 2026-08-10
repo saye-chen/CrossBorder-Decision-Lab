@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/consumer-production-run.schema.json",
+  "title": "One read-only consumer dual-run package",
+  "type": "object",
+  "required": ["schema_version", "run_id", "migration_id", "domain_id", "run_class", "execution_mode", "frozen_before_results", "owner_assignment", "data_snapshot", "code_binding", "numeric_tolerance", "cases", "rollback_drill", "business_actions_executed", "external_write"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "run_id": {"type": "string", "pattern": "^ECAE-CONSUMER-RUN-D(0[1-9]|1[0-3])-[A-Z0-9._:-]+$"},
+    "migration_id": {"type": "string", "minLength": 1},
+    "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+    "run_class": {"enum": ["fixture_non_production", "production_dual_run"]},
+    "execution_mode": {"const": "read_only_shadow_dual_run"},
+    "frozen_before_results": {"const": true},
+    "owner_assignment": {
+      "type": "object",
+      "required": ["identity", "role", "independent_of_ecae_implementation", "responsibility_accepted"],
+      "properties": {
+        "identity": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])_consumer_owner$"},
+        "independent_of_ecae_implementation": {"const": true},
+        "responsibility_accepted": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "data_snapshot": {
+      "type": "object",
+      "required": ["source_ref", "snapshot_hash", "authorized", "read_only", "captured_at", "maximum_event_time", "business_timezone"],
+      "properties": {
+        "source_ref": {"type": "string", "minLength": 1},
+        "snapshot_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "authorized": {"const": true},
+        "read_only": {"const": true},
+        "captured_at": {"type": "string", "format": "date-time"},
+        "maximum_event_time": {"type": "string", "format": "date-time"},
+        "business_timezone": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "code_binding": {
+      "type": "object",
+      "required": ["legacy_code_ref", "legacy_code_hash", "f01_commit_hash", "f01_source_tree_hash", "adapter_hash", "contract_hash", "environment_refs"],
+      "properties": {
+        "legacy_code_ref": {"type": "string", "minLength": 1},
+        "legacy_code_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "f01_commit_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{40}$"},
+        "f01_source_tree_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "adapter_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "contract_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "environment_refs": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "numeric_tolerance": {"type": "number", "minimum": 0},
+    "cases": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["case_id", "case_class", "snapshot_hash", "legacy_result", "f01_result", "difference_disposition", "evidence_refs"],
+        "properties": {
+          "case_id": {"type": "string", "pattern": "^[A-Z0-9._:-]+$"},
+          "case_class": {"enum": ["normal", "near_decision_threshold", "negative_or_harm", "expired", "invalidation_triggered", "scope_mismatch", "missing_required_field"]},
+          "snapshot_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "legacy_result": {"$ref": "#/$defs/result"},
+          "f01_result": {"$ref": "#/$defs/result"},
+          "difference_disposition": {"enum": ["not_required", "owner_acknowledged_restriction", "pending", "rejected"]},
+          "evidence_refs": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "rollback_drill": {
+      "type": "object",
+      "required": ["executed", "trigger", "causal_wording_allowed", "incremental_state", "blocked_actions_enforced", "recompute_request_created", "business_write_observed", "evidence_refs"],
+      "properties": {
+        "executed": {"type": "boolean"},
+        "trigger": {"enum": ["expiry", "contract_change", "data_correction", "treatment_change", "scope_change"]},
+        "causal_wording_allowed": {"const": false},
+        "incremental_state": {"const": "unknown"},
+        "blocked_actions_enforced": {"type": "boolean"},
+        "recompute_request_created": {"type": "boolean"},
+        "business_write_observed": {"const": false},
+        "evidence_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "business_actions_executed": {"const": false},
+    "external_write": {"const": false}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"run_class": {"const": "fixture_non_production"}}},
+      "then": {"properties": {"code_binding": {"properties": {"f01_commit_hash": {"type": "null"}}}}}
+    },
+    {
+      "if": {"properties": {"run_class": {"const": "production_dual_run"}}},
+      "then": {"properties": {"code_binding": {"properties": {"f01_commit_hash": {"type": "string", "pattern": "^[a-f0-9]{40}$"}}}}}
+    }
+  ],
+  "$defs": {
+    "result": {
+      "type": "object",
+      "required": ["claim_class", "grade_label", "scope_key", "numeric_value", "allowed_actions"],
+      "properties": {
+        "claim_class": {"enum": ["inconclusive", "descriptive", "attributed", "causal", "incremental"]},
+        "grade_label": {"type": "string", "minLength": 1},
+        "scope_key": {"type": "string", "minLength": 1},
+        "numeric_value": {"type": ["number", "null"]},
+        "allowed_actions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

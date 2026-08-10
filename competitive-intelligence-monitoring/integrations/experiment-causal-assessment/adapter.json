@@ -1,0 +1,48 @@
+{
+  "adapter_version": "CIM-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "competitive-intelligence-monitoring",
+  "domain_id": "D02",
+  "runtime": "CIM-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "receipt_schema": "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+  "consumer_runtime": "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+  "allowed_uses": [
+    "alternative_explanation_support",
+    "causal_competitive_attribution_support"
+  ],
+  "minimum_grade_by_use": {
+    "alternative_explanation_support": "CE3",
+    "causal_competitive_attribution_support": "CE4"
+  },
+  "required_payload_by_use": {
+    "alternative_explanation_support": [],
+    "causal_competitive_attribution_support": []
+  },
+  "unknown_incremental_value_policy": "unknown_never_zero_fill",
+  "prohibited_legacy_mappings": [
+    "three_signals_to_CE4",
+    "attributed_to_incremental"
+  ],
+  "retained_sovereignty": [
+    "competitor identity",
+    "competitive event confirmation",
+    "competitive attribution"
+  ],
+  "forbidden_writeback": [
+    "competitor identity",
+    "competitive event confirmation",
+    "competitive attribution",
+    "monitoring action"
+  ],
+  "blocked_until_owner_acceptance": [
+    "causal or incremental claim",
+    "automatic business action",
+    "external write"
+  ],
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}

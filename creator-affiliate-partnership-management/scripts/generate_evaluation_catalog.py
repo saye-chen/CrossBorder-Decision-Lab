@@ -187,7 +187,7 @@ def executable(case_id: str, prompt: str, quality: str, target: str, status: str
     else: posture = "Investigate"
     return {"script": "scripts/evaluate_capm_decision.py", "script_input": inp,
             "expected_output": {"posture": posture, "allowed_actions": sorted(expected_allowed), "blocked_actions": sorted(expected_blocked),
-                                "causal_label": "incremental_eligible" if causal in {"C2", "C3"} else "attributed_or_inconclusive"},
+                                "causal_label": "legacy_c_label_non_equivalent" if causal in {"C2", "C3"} else "attributed_or_inconclusive"},
             "expected_intermediate_state": {"gate": target, "gate_status": status},
             "calculation_expectations": [], "evidence_conflicts": [], "report_type": "Decision Card"}
 

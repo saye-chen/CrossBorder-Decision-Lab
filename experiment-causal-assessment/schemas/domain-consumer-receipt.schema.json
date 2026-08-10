@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder.local/ecae/domain-consumer-receipt.schema.json",
+  "title": "Consumer-owned receipt for a domain-specific ECAE handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "runtime_version", "receipt_id", "domain_id", "migration_id", "contract_version",
+    "handoff_ref", "handoff_content_hash", "causal_result_ref", "causal_evidence_grade", "claim_ceiling",
+    "intended_use", "decision", "effective_use", "qualified_payload_state", "qualified_payload",
+    "downstream_use_allowed", "causal_wording_allowed", "reasons", "accepted_by_consumer_owner",
+    "consumer_owner_acceptance_ref", "business_owner_decision_required", "business_action_owner",
+    "external_write", "receipt_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "runtime_version": {"type": "string", "minLength": 3},
+    "receipt_id": {"type": "string", "pattern": "^[A-Z0-9]+-ECAE-RECEIPT-[a-f0-9]{16}$"},
+    "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+    "migration_id": {"type": "string", "minLength": 1},
+    "contract_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "handoff_ref": {"type": "string", "minLength": 1},
+    "handoff_content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "causal_result_ref": {"type": "string", "minLength": 1},
+    "causal_evidence_grade": {"enum": ["CE0", "CE1", "CE2", "CE3", "CE4", "CE5"]},
+    "claim_ceiling": {"type": "string", "minLength": 1},
+    "intended_use": {"type": "string", "minLength": 1},
+    "decision": {"enum": ["accept", "hold_pending_consumer_acceptance", "degrade", "reject", "request_recompute"]},
+    "effective_use": {"type": "string", "minLength": 1},
+    "qualified_payload_state": {"enum": ["qualified", "unknown"]},
+    "qualified_payload": {"type": ["object", "null"]},
+    "downstream_use_allowed": {"type": "boolean"},
+    "causal_wording_allowed": {"type": "boolean"},
+    "reasons": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "accepted_by_consumer_owner": {"type": "boolean"},
+    "consumer_owner_acceptance_ref": {"type": ["string", "null"]},
+    "business_owner_decision_required": {"const": true},
+    "business_action_owner": {"type": "string", "minLength": 1},
+    "external_write": {"const": false},
+    "receipt_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "blocking_case_count": 0,
+  "business_actions_executed": false,
+  "case_count": 91,
+  "disposition_failure_count": 0,
+  "domain_count": 13,
+  "domains": [
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D01",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D01-evaluation.json",
+      "package_hash": "0769ef22a9ff936a3645bf05113bacb8a697b5e3da5898cc82129c3be63014de",
+      "package_ref": "evaluations/consumer-production-preflight/D01-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D02",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D02-evaluation.json",
+      "package_hash": "c461aacf7b8ef3a9abb354180265485a7370c17f2ac70cdf0ba9aae09d6a7f18",
+      "package_ref": "evaluations/consumer-production-preflight/D02-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D03",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D03-evaluation.json",
+      "package_hash": "72ab194d4b79731e21e1da91f1549bded8d5cdb114d31132f3a50e696012f2f9",
+      "package_ref": "evaluations/consumer-production-preflight/D03-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D04",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D04-evaluation.json",
+      "package_hash": "955089963d36d75496cb0ccc97ccf500d51aa1ba48da6d6c7f4d974660478b0d",
+      "package_ref": "evaluations/consumer-production-preflight/D04-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D05",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D05-evaluation.json",
+      "package_hash": "e6609a52084febc09e6dfce87283f1eaaa92a89f7ec90ae892317ee4cc15eca1",
+      "package_ref": "evaluations/consumer-production-preflight/D05-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D06",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D06-evaluation.json",
+      "package_hash": "0c022b88ac7dac2771b60fc7bfe1ed5adbc81e9e8943ccd499d049c4662dc71a",
+      "package_ref": "evaluations/consumer-production-preflight/D06-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D07",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D07-evaluation.json",
+      "package_hash": "fb907089ce78864660867cb0140d58d281886b68097220b7476c9c5793464289",
+      "package_ref": "evaluations/consumer-production-preflight/D07-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D08",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D08-evaluation.json",
+      "package_hash": "029266b4b10c9e78260475dfabc59578a9dda185b760f42d245001e7578aae3a",
+      "package_ref": "evaluations/consumer-production-preflight/D08-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D09",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D09-evaluation.json",
+      "package_hash": "742eca16372870876f3cfbae5c4506e96dea4b53d33f401e5c82448bb5d2c27f",
+      "package_ref": "evaluations/consumer-production-preflight/D09-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D10",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D10-evaluation.json",
+      "package_hash": "bd358c66dc9b43ce8587c633bfd7e8971af6372c22ad649fc5bb3e0412204bba",
+      "package_ref": "evaluations/consumer-production-preflight/D10-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D11",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D11-evaluation.json",
+      "package_hash": "872fbfffcb815154323d2b6c937121bb332de8d42d9552b2b812d4fd45487bd9",
+      "package_ref": "evaluations/consumer-production-preflight/D11-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D12",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D12-evaluation.json",
+      "package_hash": "874aeb5ffdf6a2ee07a093619cc56241ac273d88448bc03ba7f45f5a6b06a546",
+      "package_ref": "evaluations/consumer-production-preflight/D12-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    },
+    {
+      "blocking_cases": [],
+      "case_count": 7,
+      "domain_id": "D13",
+      "evaluation_ref": "evaluations/consumer-production-preflight/D13-evaluation.json",
+      "package_hash": "b3ae30f8b95c13fad2061231730954d788e3e9ba2449ddb5ee05a7accd7299c3",
+      "package_ref": "evaluations/consumer-production-preflight/D13-run.json",
+      "production_evidence": false,
+      "rollback_drill_pass": true
+    }
+  ],
+  "external_write": false,
+  "fail_closed_semantic_failure_count": 0,
+  "fixture_eligible_for_owner_acceptance_count": 0,
+  "owner_identity": "Miles Chen",
+  "preflight_id": "ECAE-CONSUMER-PREFLIGHT-2026-08-10",
+  "production_evidence_created": false,
+  "production_owner_acceptance_created": false,
+  "rollback_drills_passed": 13,
+  "run_class": "fixture_non_production",
+  "schema_version": "1.0.0",
+  "source_tree_hash": "1de97c34bb78aecbf0b6aca55c6d7079e0697b966636c4d370255ca2f9e485f8",
+  "status": "passed_non_production"
+}

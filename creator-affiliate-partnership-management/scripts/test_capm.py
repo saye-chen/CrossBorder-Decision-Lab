@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Executable CAPM domain tests: normal, boundary, failure, property and governance."""
 from __future__ import annotations
+import copy
 import importlib.util
 import json
 from pathlib import Path
@@ -9,6 +10,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT.parent / "experiment-causal-assessment" / "scripts"))
 
 from affiliate_order_reconciliation import reconcile, reconcile_touchpoints
 from decision_state import validate as validate_state
@@ -24,6 +26,9 @@ from validate_schema_instance import validate as validate_schema
 from validate_capm_contracts import check as validate_contract
 from generate_evaluation_catalog import build as build_catalog
 from capm_common import sha256_json
+from validate_ecae_handoff import build_receipt, validate_receipt
+from ecae_common import content_hash as ecae_content_hash
+from validate_consumer_migration import contract_for as ecae_contract_for, load_default_migration
 
 quality_spec = importlib.util.spec_from_file_location("report_quality", ROOT.parents[0] / "scripts/evaluate_report_quality.py")
 report_quality = importlib.util.module_from_spec(quality_spec); assert quality_spec and quality_spec.loader; quality_spec.loader.exec_module(report_quality)
@@ -47,6 +52,51 @@ def envelope(**updates) -> dict:
             "payload": {"rights_ready": True}}
     data.update(updates); data["lineage"]=dict(data["lineage"],input_hash=input_lineage_hash(data))
     return data
+
+
+def ecae_context(grade: str = "CE4") -> dict:
+    handoff = {
+        "schema_version": "1.0.0", "object_id": "ECAE-HANDOFF-CAPM-FIXTURE", "object_version": "1.0.0",
+        "status": "handed_off", "as_of_time": "2026-08-10T00:00:00+08:00", "owner": "ECAE",
+        "created_at": "2026-08-10T00:00:00+08:00", "updated_at": "2026-08-10T00:00:00+08:00",
+        "source_refs": ["ECAE-RESULT-CAPM"], "lineage_refs": ["ECAE-BUNDLE-CAPM"], "jurisdiction_refs": [],
+        "parameter_refs": [], "assumption_refs": [], "limitations": ["fixture_non_production"],
+        "producer": "ECAE", "consumer": "D10", "causal_result_ref": "ECAE-RESULT-CAPM",
+        "estimand_ref": "ECAE-ESTIMAND-CAPM", "causal_evidence_grade": grade, "claim_ceiling": grade,
+        "allowed_actions": ["consider_within_consumer_decision_contract"],
+        "prohibited_actions": ["automatic_external_write", "treat_as_final_business_decision", "upgrade_causal_grade"],
+        "allowed_wording": ["qualified partnership effect"], "prohibited_wording": ["guaranteed incrementality"],
+        "applicability": {"population": "authorized_partnerships_v1", "platforms": ["TikTok-US"], "countries": ["US"], "time_window": "2026-08", "treatment_version": "PARTNER-T1"},
+        "invalidation_triggers": ["treatment_changed"], "recompute_triggers": ["cost_parameter_changed"],
+        "expires_at": "2026-09-10T00:00:00+08:00", "reproducibility_bundle_ref": "ECAE-BUNDLE-CAPM",
+        "review_status": "internal_reviewed", "business_owner_decision_required": True, "external_write": False,
+        "content_hash": "PENDING"
+    }
+    handoff["content_hash"] = ecae_content_hash(handoff)
+    return {
+        "intended_use": "incremental_partnership_support", "handoff": handoff,
+        "as_of_time": "2026-08-15T00:00:00+08:00", "active_events": [],
+        "target_context": {"platform": "TikTok-US", "country": "US", "population": "authorized_partnerships_v1", "treatment_version": "PARTNER-T1"},
+        "consumer_payload": {"effect_estimate": 12.0, "effect_interval": [3.0, 21.0]}
+    }
+
+
+def pending_owner_migration() -> dict:
+    migration = copy.deepcopy(load_default_migration())
+    contract = ecae_contract_for(migration, "D10")
+    contract["acceptance"] = {
+        "scope": "controlled_pilot_non_production",
+        "status": "pending_consumer_owner",
+        "consumer_owner_role": "D10_consumer_owner",
+        "signed_record_ref": None,
+        "accepted_uses": [],
+        "conditions": [],
+        "production_status": "not_executed",
+        "production_signed_record_ref": None,
+    }
+    migration["completion_gate"]["all_controlled_pilot_consumer_acceptances_signed"] = False
+    migration["completion_gate"]["wp11_controlled_pilot_complete"] = False
+    return migration
 
 
 class EconomicsTests(unittest.TestCase):
@@ -74,9 +124,49 @@ class EconomicsTests(unittest.TestCase):
         r = partnership_return({"controllable_investment": 100, "contribution": 150, "causal_evidence_level": "C0"})
         self.assertEqual((r["metric"], r["status"]), ("attributed_return", "inconclusive"))
 
-    def test_incremental_requires_c2(self):
+    def test_legacy_c2_is_not_incremental(self):
         r = partnership_return({"controllable_investment": 100, "contribution": 150, "causal_evidence_level": "C2"})
-        self.assertEqual(r["metric"], "incremental_return")
+        self.assertEqual((r["metric"], r["status"]), ("attributed_return", "inconclusive"))
+        self.assertTrue(r["legacy_label_non_equivalent"])
+        self.assertEqual(r["forbidden_metric"], "incremental_return")
+
+    def test_f01_pending_owner_keeps_return_attributed(self):
+        context = ecae_context()
+        receipt = build_receipt(context, migration=pending_owner_migration())
+        self.assertEqual(receipt["decision"], "hold_pending_consumer_acceptance")
+        self.assertFalse(receipt["incremental_claim_allowed"])
+
+    def test_exact_owner_accepted_f01_receipt_can_qualify_incremental(self):
+        migration = load_default_migration()
+        receipt = build_receipt(ecae_context(), migration=migration)
+        self.assertEqual(receipt["decision"], "accept")
+        self.assertTrue(receipt["incremental_claim_allowed"])
+        self.assertEqual(validate_receipt(receipt, migration=migration), [])
+
+    def test_fixture_acceptance_cannot_replay_against_pending_authority(self):
+        receipt = build_receipt(ecae_context())
+        errors = validate_receipt(receipt, migration=pending_owner_migration())
+        self.assertIn("$.accepted_by_consumer_owner:authoritative_acceptance_missing", errors)
+        self.assertIn("$.consumer_owner_acceptance_ref:authoritative_reference_mismatch", errors)
+
+    def test_expired_f01_handoff_requests_recompute(self):
+        context = ecae_context()
+        context["handoff"]["expires_at"] = "2026-08-14T00:00:00+08:00"
+        context["handoff"]["content_hash"] = ecae_content_hash(context["handoff"])
+        receipt = build_receipt(context)
+        self.assertEqual(receipt["decision"], "request_recompute")
+        self.assertIn("HANDOFF_EXPIRED", receipt["reasons"])
+        self.assertFalse(receipt["incremental_claim_allowed"])
+
+    def test_receipt_hash_tampering_fails_closed(self):
+        receipt = build_receipt(ecae_context())
+        receipt["causal_evidence_grade"] = "CE5"
+        self.assertIn("$.receipt_hash:mismatch", validate_receipt(receipt))
+
+    def test_program_profit_is_scenario_only_without_f01_receipt(self):
+        result = program_profit({"incremental_contribution_low": 10, "incremental_contribution_mid": 20, "incremental_contribution_high": 30, "program_costs": []})
+        self.assertEqual(result["evidence_semantics"], "scenario_not_incremental")
+        self.assertEqual(result["forbidden_claim"], "incremental_program_profit")
 
     def test_program_interval_order(self):
         with self.assertRaisesRegex(ValueError, "low <= mid <= high"):
@@ -184,6 +274,22 @@ class IntegrationGovernanceTests(unittest.TestCase):
 
     def test_incremental_label_blocked_at_c0(self):
         self.assertFalse(validate_handoff(envelope(payload={"incremental_orders": 10}))["valid"])
+
+    def test_incremental_label_also_blocked_at_legacy_c2(self):
+        data = envelope(causal_evidence_level="C2", payload={"incremental_orders": 10})
+        self.assertIn("invalid:incremental_without_f01_consumer_receipt", validate_handoff(data)["errors"])
+
+    def test_decision_evaluator_never_maps_legacy_c3_to_incremental(self):
+        case = copy.deepcopy(build_catalog()["cases"][0]["script_input"])
+        case["causal_evidence_level"] = "C3"
+        result = evaluate_decision(case)
+        self.assertEqual(result["causal_label"], "legacy_c_label_non_equivalent")
+        self.assertIn("incremental", result["forbidden_claims"])
+
+    def test_affiliate_reconciliation_never_maps_legacy_c3_to_incremental(self):
+        result = reconcile({"raw_attributed": 10, "mature_valid": 10, "causal_evidence_level": "C3"})
+        self.assertEqual(result["causal_status"], "legacy_c_label_non_equivalent")
+        self.assertFalse(result["incremental_claim_allowed"])
 
     def test_allowed_forbidden_conflict(self):
         self.assertFalse(validate_handoff(envelope(allowed_uses=["x"], forbidden_uses=["x"]))["valid"])

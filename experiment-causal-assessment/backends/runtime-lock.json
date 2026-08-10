@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "lock_id": "ECAE-RUNTIME-LOCK-2026-08-10",
+  "python": {
+    "implementation": "CPython",
+    "version": "3.12.13",
+    "requirements_ref": "backends/python-requirements.lock.txt",
+    "executable_env": "ECAE_PYTHON_BACKEND"
+  },
+  "r": {
+    "implementation": "R",
+    "version": "4.5.3",
+    "packages_ref": "backends/r-packages.lock.json",
+    "executable_env": "ECAE_RSCRIPT_BACKEND"
+  },
+  "adapter_integrity": {
+    "algorithm": "sha256",
+    "adapters": {
+      "backends/adapters/cluster_clubsandwich.R": "ec98fc694b1c40068c9be2797427191784ba7f9211c9bbae7682ba72981e4315",
+      "backends/adapters/group_sequential_gsdesign.R": "7cbe1315d4458cfdcd741ba79a94a8136abdefd78a74ff71175c01bded2a23a1",
+      "backends/adapters/hte_uplift_econml.py": "59974359b3b8c61bb14a15b8a8958b3ed263b2002b5e7004b37ee40ef04f51db",
+      "backends/adapters/hte_uplift_grf.R": "6a580af1f770db1dc50819441cd141cb84435f4598acf21d38c0f7e5b390bc3b",
+      "backends/adapters/observational_aipw.R": "6367eb9700fe1bff7022b6af4542093eb2b1b7b1570ec9a79a728daf168461e4",
+      "backends/adapters/observational_dml_doubleml.py": "a9ea0519cad4a2da7715570ba2630825777cc0e65edbb4a3590860e876249f9e",
+      "backends/adapters/rdd_rdrobust.py": "5c37e14884b8f82837109f856226712912c05f19676e0cac44356135a7bf6a34",
+      "backends/adapters/staggered_did_callaway_santanna.R": "81adf999b67a0a2c8ef4707ca26879f6e769e2e77381e60783d662bee3bf8925",
+      "backends/adapters/switchback_ri2.R": "715a164c643e71a6ec023356d7d852a3dadb5561fa05457fe2373bcd1203acfa",
+      "backends/adapters/synthetic_control_synth.R": "5986c34d27005ae6da0ffbc6264aeea5f8c9e979b8207697930147d2ce876f1f",
+      "backends/adapters/synthetic_did_synthdid.R": "cd0cbeeddae9d39f13251341c0099c08f9bfd91d26634e8788330ac39a8da583",
+      "backends/adapters/weak_iv_ivmodels.py": "c58bd827b1eb36be6b057aa7f91cb9a4598b017050844d1f5cec5ff23befcdc3"
+    }
+  },
+  "release_semantics": {
+    "persistent_runtime_is_development_evidence": true,
+    "runtime_qualification_does_not_create_external_parity": true,
+    "runtime_qualification_does_not_create_independent_review": true,
+    "backend_registry_remains_fail_closed_until_all_release_gates_pass": true
+  }
+}

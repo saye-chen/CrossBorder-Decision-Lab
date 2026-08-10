@@ -1,0 +1,67 @@
+{
+  "checks": {
+    "consumer_migration": {
+      "output": "{\n  \"ok\": true,\n  \"result\": {\n    \"consumer_count\": 13,\n    \"controlled_pilot_consumer_acceptances\": 13,\n    \"external_write\": false,\n    \"l4_production_acceptance_complete\": false,\n    \"local_fixture_verified\": 13,\n    \"local_rollback_verified\": 13,\n    \"migration_id\": \"ECAE-CONSUMER-MIGRATION-1.1\",\n    \"production_consumer_acceptances\": 0,\n    \"production_dual_runs_completed\": 0,\n    \"valid\": true,\n    \"wp11_controlled_pilot_complete\": true\n  },\n  \"runtime\": \"ECAE\",\n  \"schema_version\": \"1.0.0\",\n  \"warnings\": []\n}",
+      "pass": true
+    },
+    "controlled_pilot_acceptance_build": {
+      "output": "{\"controlled_pilot_acceptances\": 13, \"mismatches\": [], \"production_claim\": false, \"valid\": true}",
+      "pass": true
+    },
+    "development_closure": {
+      "output": "{\n  \"audit_id\": \"ECAE-DEVELOPMENT-CLOSURE-2026-08-10\",\n  \"checks\": {\n    \"backend_registry_fail_closed\": true,\n    \"consumer_local_implementation_13_of_13\": true,\n    \"method_evidence_and_script_surfaces_complete\": true,\n    \"persistent_runtime_and_12_adapters_pass\": true,\n    \"release_and_external_gates_fail_closed\": true,\n    \"work_package_artifacts_exist\": true\n  },\n  \"development_complete\": true,\n  \"development_failures\": [],\n  \"external_write_authorized\": false,\n  \"production_ready\": false,\n  \"remaining_work\": [\n    \"L4 external qualification for advanced backends withheld from the controlled-pilot executable surface\",\n    \"L4 independent non-implementer causal-method and production-evidence review\",\n    \"L4 production dual-runs, difference dispositions, owner signatures, and production rollback evidence for D01-D13\",\n    \"L4 authorized real-data decision replay, mature outcomes, calibration, drift review, and external assurance\"\n  ],\n  \"remaining_work_class\": \"l4_external_only\",\n  \"schema_version\": \"1.0.0\"\n}",
+      "pass": true
+    },
+    "governance": {
+      "output": "F01_GOVERNANCE=PASS",
+      "pass": true
+    },
+    "method_qualification": {
+      "output": "{\n  \"active_native_method_count\": 8,\n  \"advanced_backend_count_withheld\": 11,\n  \"external_write\": false,\n  \"failures\": [],\n  \"l3_controlled_pilot_gate_closed\": true,\n  \"l4_external_review_gate_closed\": false,\n  \"method_count\": 23,\n  \"native_parity_pass\": true,\n  \"primary_source_count\": 19,\n  \"production_ready\": false,\n  \"protocol_only_method_count\": 2,\n  \"valid\": true\n}",
+      "pass": true
+    },
+    "repository": {
+      "output": "Repository validation passed for 13 skills.",
+      "pass": true
+    },
+    "skill": {
+      "output": "F01_STRUCTURE=PASS",
+      "pass": true
+    },
+    "tests": {
+      "output": "...................................................................................................................................................................\n----------------------------------------------------------------------\nRan 163 tests in 24.890s\n\nOK",
+      "pass": true
+    }
+  },
+  "f01_release_audit": {
+    "availability": "current",
+    "controlled_pilot_released": true,
+    "l1_structure": true,
+    "l2_contract": true,
+    "l3_expert": true,
+    "l4_external_assurance": false,
+    "manifest_consistent": true,
+    "maturity": "controlled_pilot",
+    "premature_promotion": false,
+    "remaining_gate_class": "L4_EXTERNAL_ONLY"
+  },
+  "l4_blockers": {
+    "advanced_backend_external_qualification_pending": true,
+    "authorized_real_replay_and_calibration_pending": true,
+    "independent_nonimplementer_review_pending": true,
+    "production_consumer_dual_run_and_acceptance_pending": true
+  },
+  "non_l4_blockers": {
+    "controlled_pilot_consumer_acceptance_pending": false,
+    "controlled_pilot_review_pending": false,
+    "development_pending": false,
+    "method_qualification_pending": false,
+    "missing_artifacts": []
+  },
+  "policy": {
+    "external_write": false,
+    "production_ready": false,
+    "public_method_sources_do_not_equal_real_replay": true
+  },
+  "schema_version": "1.1.0"
+}

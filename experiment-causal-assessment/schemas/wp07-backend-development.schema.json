@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/wp07-backend-development.schema.json",
+  "title":"WP-07 non-promotional backend development evidence",
+  "type":"object",
+  "required":["schema_version","report_id","status","qualification","environment","persistent_qualification_ref","candidate_results","r_adapter_syntax","method_topology","release_effect","open_gates"],
+  "properties":{
+    "schema_version":{"const":"1.0.0"},
+    "report_id":{"type":"string","minLength":1},
+    "status":{"const":"development_vectors_pass_external_verification_open"},
+    "qualification":{"const":"locked_persistent_runtime_fixed_vectors_not_backend_proof"},
+    "environment":{"type":"object","required":["python","r","runtime_lock_ref"],"properties":{"python":{"const":"CPython 3.12.13 exact dependency lock"},"r":{"const":"R 4.5.3 exact package and source-revision lock"},"runtime_lock_ref":{"const":"backends/runtime-lock.json"}},"additionalProperties":false},
+    "persistent_qualification_ref":{"const":"evaluations/persistent-backend-development-qualification.json"},
+    "candidate_results":{"type":"array","minItems":2,"items":{"type":"object","required":["candidate_id","package","version","adapter_ref","vectors","binding_decision"],"properties":{"candidate_id":{"enum":["rdd_local_rdrobust","weak_iv_ivmodels"]},"package":{"enum":["rdrobust","ivmodels"]},"version":{"enum":["2.0.0","0.10.0"]},"adapter_ref":{"type":"string","pattern":"^backends/adapters/[A-Za-z0-9_.-]+\\.py$"},"vectors":{"type":"array","minItems":1,"items":{"type":"object","required":["vector_id","status","observations"],"properties":{"vector_id":{"type":"string","minLength":1},"status":{"const":"pass"},"observations":{"type":"object","minProperties":1}},"additionalProperties":false}},"binding_decision":{"const":"development_pass_not_verified"}},"additionalProperties":false}},
+    "r_adapter_syntax":{"type":"object","required":["runtime","files","package_execution"],"properties":{"runtime":{"const":"R 4.5.3 locked persistent runtime"},"files":{"type":"array","minItems":4,"items":{"type":"object","required":["adapter_ref","status"],"properties":{"adapter_ref":{"type":"string","pattern":"^backends/adapters/[A-Za-z0-9_.-]+\\.R$"},"status":{"const":"execution_pass"}},"additionalProperties":false}},"package_execution":{"const":"all_selected_adapters_pass_deterministic_vectors"}},"additionalProperties":false},
+    "method_topology":{"type":"object","required":["split_backends","tmle_binding","combined_backend_ids_removed"],"properties":{"split_backends":{"type":"array","minItems":7,"uniqueItems":true,"items":{"type":"string"}},"tmle_binding":{"const":"rejected_no_full_out_of_fold_nuisance_contract"},"combined_backend_ids_removed":{"const":true}},"additionalProperties":false},
+    "release_effect":{"type":"object","required":["registry_verified_count","wp07_release_complete","l2_or_l3_promotion"],"properties":{"registry_verified_count":{"const":0},"wp07_release_complete":{"const":false},"l2_or_l3_promotion":{"const":false}},"additionalProperties":false},
+    "open_gates":{"type":"array","minItems":4,"items":{"type":"string","minLength":1}}
+  },
+  "additionalProperties":false
+}

@@ -151,3 +151,7 @@ description: 默认用中文执行专家级跨境广告分析、测量与优化�
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/advertising-analysis-measurement-optimization/adapter.json` 声明 AAMO 主权；ERDG 失败时不得形成生效动作。
 
 专业评测使用 `evaluations/evaluation-catalog.json`、`evaluations/golden/decision-card.md` 与 `evaluations/golden/professional-report.md`；必须覆盖负贡献、高归因蚕食、追踪断裂、容量约束、预算漂移和退款成熟恢复。
+
+## F01 因果证据消费者接入
+
+通过 `integrations/experiment-causal-assessment/adapter.json` 接收与本域用途、CE 门槛、payload、适用范围和有效期绑定的 F01 回执。待签、低等级、过期、范围不符、缺字段或哈希不一致时保持 `unknown`，不得把旧标签、归因或预测升级为因果/增量。F01 只提供合格证据；广告预算、出价、放量/停投与账户结构主权仍归 AAMO，且 `external_write=false`。

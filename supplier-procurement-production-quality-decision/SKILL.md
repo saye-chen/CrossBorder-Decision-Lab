@@ -79,3 +79,7 @@ python3 scripts/test_full_repository_audit.py
 ```
 
 自动化、Golden 和合成 case 只证明仓库内 L1—L3，不关闭真实经营 L4。
+
+## F01 因果证据消费者接入
+
+通过 `integrations/experiment-causal-assessment/adapter.json` 接收与本域用途、CE 门槛、payload、适用范围和有效期绑定的 F01 回执。待签、低等级、过期、范围不符、缺字段或哈希不一致时保持 `unknown`，不得把旧标签、归因或预测升级为因果/增量。F01 只提供合格证据；供应商选择、生产放行与质量放行主权仍归 SPPQ，且 `external_write=false`。

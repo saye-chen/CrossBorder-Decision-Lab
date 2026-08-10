@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "FOUNDATION-REGISTRY-1.0.0",
+  "foundations": [
+    {
+      "foundation_id": "F01",
+      "name": "experiment-causal-assessment",
+      "runtime_prefix": "ECAE",
+      "availability": "current",
+      "capability_type": "shared_decision_foundation",
+      "owns_business_decisions": false,
+      "claim_authorities": [
+        "causal_claim_eligibility",
+        "incrementality_claim_eligibility",
+        "causal_evidence_grade",
+        "experimental_result_contract"
+      ],
+      "provides": [
+        "experiment_protocol",
+        "causal_analysis_result",
+        "causal_evidence_grade",
+        "causal_handoff",
+        "reproducibility_bundle"
+      ],
+      "requires": [
+        "causal_question",
+        "qualified_evidence",
+        "assignment_or_identification_strategy",
+        "metric_contract",
+        "economic_parameters"
+      ],
+      "consumers": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13", "D14"],
+      "blocking_gates": [
+        "Q1_DECISION_ACTIONABILITY",
+        "Q2_TREATMENT_DEFINITION",
+        "Q3_ETHICS_COMPLIANCE",
+        "Q4_ASSIGNMENT_IDENTIFICATION",
+        "Q5_UNIT_INTERFERENCE",
+        "Q6_METRIC_TIME",
+        "Q7_SAMPLE_PRECISION",
+        "Q8_DATA_AUDITABILITY",
+        "Q9_STOPPING_MULTIPLICITY",
+        "Q10_VALUE_OF_INFORMATION"
+      ],
+      "external_write_authority": false,
+      "maturity": "controlled_pilot"
+    },
+    {
+      "foundation_id": "F02",
+      "name": "localization-country-calibration",
+      "runtime_prefix": "LCCA",
+      "availability": "planned",
+      "capability_type": "shared_decision_foundation",
+      "owns_business_decisions": false,
+      "claim_authorities": [
+        "localization_applicability",
+        "cross_market_comparability",
+        "dynamic_fact_scope"
+      ],
+      "provides": [
+        "localized_scope",
+        "unit_currency_tax_time_contract",
+        "dynamic_fact_context",
+        "transferability_grade"
+      ],
+      "requires": [
+        "country_platform_scope",
+        "source_locale",
+        "target_locale",
+        "dynamic_fact_evidence"
+      ],
+      "consumers": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13", "D14"],
+      "blocking_gates": ["LOCALIZATION_SCOPE", "COMPARABILITY", "DYNAMIC_FACT_FRESHNESS"],
+      "external_write_authority": false,
+      "maturity": "planned"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "adapter_version": "CIG-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "consumer-insights-customer-growth",
+  "domain_id": "D13",
+  "runtime": "CIG-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "receipt_schema": "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+  "consumer_runtime": "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+  "allowed_uses": [
+    "causal_growth_support",
+    "heterogeneous_policy_support",
+    "high_stakes_customer_support"
+  ],
+  "minimum_grade_by_use": {
+    "causal_growth_support": "CE4",
+    "heterogeneous_policy_support": "CE4",
+    "high_stakes_customer_support": "CE5"
+  },
+  "required_payload_by_use": {
+    "causal_growth_support": [
+      "effect_estimate",
+      "effect_interval"
+    ],
+    "heterogeneous_policy_support": [
+      "policy_value_interval",
+      "policy_constraints"
+    ],
+    "high_stakes_customer_support": [
+      "effect_estimate",
+      "effect_interval"
+    ]
+  },
+  "unknown_incremental_value_policy": "unknown_never_zero_fill",
+  "prohibited_legacy_mappings": [
+    "Wald_Go_to_CE4",
+    "uplift_bin_to_individual_causal_effect"
+  ],
+  "retained_sovereignty": [
+    "customer identity",
+    "customer state",
+    "CRM action",
+    "service compensation"
+  ],
+  "forbidden_writeback": [
+    "customer identity",
+    "customer state",
+    "CRM action",
+    "service compensation",
+    "contact",
+    "benefit issue"
+  ],
+  "blocked_until_owner_acceptance": [
+    "causal or incremental claim",
+    "automatic business action",
+    "external write"
+  ],
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}

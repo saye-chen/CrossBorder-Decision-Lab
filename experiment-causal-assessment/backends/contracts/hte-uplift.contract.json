@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "ECAE-BACKEND-HTE-UPLIFT-1.0",
+  "backend_id": "hte_uplift",
+  "candidate_id": "hte_uplift_econml",
+  "status": "contract_frozen_adapter_not_verified",
+  "input": {
+    "required": [
+      "rows", "outcome_column", "treatment_column", "covariate_columns", "group_column",
+      "partition_column", "baseline_policy_column", "source_design", "known_treatment_probability",
+      "policy_threshold", "folds", "n_estimators", "min_samples_leaf", "calibration_groups",
+      "bootstrap_repetitions", "propensity_bounds", "confidence_level", "seed", "acceptance_policy"
+    ]
+  },
+  "output": {
+    "required": [
+      "development_sample_size", "evaluation_sample_size", "GATE", "BLP", "calibration",
+      "Qini", "AUTOC", "policy_value", "decision_diagnostics", "overlap", "CATE_distribution", "warnings"
+    ]
+  },
+  "invariants": [
+    "development and evaluation partitions are nonempty disjoint and frozen",
+    "evaluation outcomes never train or tune the CATE model or policy threshold",
+    "the causal forest uses honest tree splitting and cross-fitted nuisance models",
+    "all effect modifiers are pretreatment and the source identification contract is qualified outside the adapter",
+    "GATE intervals use a frozen group family and simultaneous Bonferroni coverage",
+    "Qini AUTOC BLP and calibration use the independent evaluation partition",
+    "candidate policy value is evaluated against treat-all treat-none and a frozen current policy",
+    "policy threshold is supplied by the frozen contract and is never optimized on evaluation outcomes",
+    "heterogeneity support and policy support use separately frozen acceptance thresholds",
+    "a small p-value with a negative ranking coefficient cannot support positive heterogeneity",
+    "no row-level CATE is emitted and no score is described as an individual true effect",
+    "capacity cost fairness and deployment decisions remain with the business owner"
+  ],
+  "failure_codes": [
+    "BACKEND_REQUEST_INVALID", "BACKEND_COLUMN_INVALID", "BACKEND_COLUMN_MISSING",
+    "HTE_PARTITION_INVALID", "HTE_TREATMENT_INVALID", "HTE_GROUP_INADEQUATE",
+    "HTE_OVERLAP_NOT_ESTABLISHED", "HTE_CONFIGURATION_INVALID",
+    "BACKEND_CONFIDENCE_LEVEL_INVALID", "BACKEND_NUMERICAL_INVALID"
+  ]
+}

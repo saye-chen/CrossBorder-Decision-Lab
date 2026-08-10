@@ -236,6 +236,837 @@
         "value": "stale",
         "expected": "blocked"
       }
+    },
+    {
+      "id": "CIM-RW-01",
+      "name": "竞品身份去重-standard",
+      "mode": "standard",
+      "object_ref": "D02-竞品身份去重@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-9f8f4d2ac9ed",
+        "E-LINEAGE-4b8fd2c5b02c"
+      ],
+      "counterevidence": [
+        "E-COUNTER-33d6b0ae98eb"
+      ],
+      "expected_status": "monitor",
+      "must": [
+        "竞品身份去重",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以竞品身份去重为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为monitor。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且竞品身份去重守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:9f8f4d2ac9ed4b8fd2c5b02c33d6b0ae98ebe176393028dec9bcc39306e62359",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "竞品身份去重:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-02",
+      "name": "竞品身份去重-conflict",
+      "mode": "conflict",
+      "object_ref": "D02-竞品身份去重@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-1808c0c71d35",
+        "E-LINEAGE-8ef4716bdc28"
+      ],
+      "counterevidence": [
+        "E-COUNTER-e9d7b38dd63a"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "竞品身份去重",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以竞品身份去重为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为inconclusive。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且竞品身份去重守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:1808c0c71d358ef4716bdc28e9d7b38dd63a6ab721d66d6900c8956466bb674a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "竞品身份去重:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-03",
+      "name": "竞品身份去重-extreme",
+      "mode": "extreme",
+      "object_ref": "D02-竞品身份去重@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-6886fdf4f33d",
+        "E-LINEAGE-332f6d02b78e"
+      ],
+      "counterevidence": [
+        "E-COUNTER-103bf761bdec"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "竞品身份去重",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以竞品身份去重为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且竞品身份去重守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:6886fdf4f33d332f6d02b78e103bf761bdec31b11ed936d7f339f87193c1d335",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "竞品身份去重:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-04",
+      "name": "竞品身份去重-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D02-竞品身份去重@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-b7ad11a3f2ca",
+        "E-LINEAGE-8cba46760606"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4c50962ecbb0"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "竞品身份去重",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以竞品身份去重为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且竞品身份去重守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:b7ad11a3f2ca8cba467606064c50962ecbb01f726a58549e5578b0f8966bc81c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "竞品身份去重:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-05",
+      "name": "竞品身份去重-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D02-竞品身份去重@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-180938ee4918",
+        "E-LINEAGE-21c50eac2d04"
+      ],
+      "counterevidence": [
+        "E-COUNTER-79c9a59d7f8c"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "竞品身份去重",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以竞品身份去重为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且竞品身份去重守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:180938ee491821c50eac2d0479c9a59d7f8c29b3d2b0e3f5538f655a5b4bc172",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "竞品身份去重:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-06",
+      "name": "竞品身份去重-recovery",
+      "mode": "recovery",
+      "object_ref": "D02-竞品身份去重@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-093524fb0605",
+        "E-LINEAGE-88e09d614595"
+      ],
+      "counterevidence": [
+        "E-COUNTER-6f656745f4ac"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "竞品身份去重",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以竞品身份去重为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且竞品身份去重守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:093524fb060588e09d6145956f656745f4ac8efce318420b2504e4a353ba4354",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "竞品身份去重:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-07",
+      "name": "变化双源确认-standard",
+      "mode": "standard",
+      "object_ref": "D02-变化双源确认@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-8edc3bbe5443",
+        "E-LINEAGE-611c76e2a140"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4d8faa1030e4"
+      ],
+      "expected_status": "monitor",
+      "must": [
+        "变化双源确认",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变化双源确认为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为monitor。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变化双源确认守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8edc3bbe5443611c76e2a1404d8faa1030e42e66b6fb6cbab760f5424f08fdaf",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变化双源确认:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-08",
+      "name": "变化双源确认-conflict",
+      "mode": "conflict",
+      "object_ref": "D02-变化双源确认@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-d6b8bb803c06",
+        "E-LINEAGE-b80105964e6b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9a1a27ef299d"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "变化双源确认",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变化双源确认为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为inconclusive。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变化双源确认守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d6b8bb803c06b80105964e6b9a1a27ef299da72f487280e018fea0cf5f9c9f41",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变化双源确认:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-09",
+      "name": "变化双源确认-extreme",
+      "mode": "extreme",
+      "object_ref": "D02-变化双源确认@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-ef18e2722ad0",
+        "E-LINEAGE-03ccac013d2f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-7f849a6a3781"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "变化双源确认",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变化双源确认为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变化双源确认守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:ef18e2722ad003ccac013d2f7f849a6a3781e9445dc2ca776ed10ba8d7468b52",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变化双源确认:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-10",
+      "name": "变化双源确认-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D02-变化双源确认@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-eaa585fc1719",
+        "E-LINEAGE-7964aa6a783f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f9e01df2c062"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "变化双源确认",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变化双源确认为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变化双源确认守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:eaa585fc17197964aa6a783ff9e01df2c062cc375ee993901901e487f6cc7411",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变化双源确认:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-11",
+      "name": "变化双源确认-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D02-变化双源确认@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-12132c05d706",
+        "E-LINEAGE-8c119d13e6f9"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f8cf132273ce"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "变化双源确认",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变化双源确认为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变化双源确认守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:12132c05d7068c119d13e6f9f8cf132273ce60183137aebe87f68ae73d563a1f",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变化双源确认:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-12",
+      "name": "变化双源确认-recovery",
+      "mode": "recovery",
+      "object_ref": "D02-变化双源确认@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-34aafa52f8c2",
+        "E-LINEAGE-5a62c4f6e8ae"
+      ],
+      "counterevidence": [
+        "E-COUNTER-bdd8a401cae1"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "变化双源确认",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变化双源确认为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变化双源确认守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:34aafa52f8c25a62c4f6e8aebdd8a401cae17e943cdc57e12c456c0f72f6e890",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变化双源确认:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-13",
+      "name": "代理信号边界-standard",
+      "mode": "standard",
+      "object_ref": "D02-代理信号边界@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-59af4ad580fe",
+        "E-LINEAGE-9ec1373bdff9"
+      ],
+      "counterevidence": [
+        "E-COUNTER-cfed66015dfc"
+      ],
+      "expected_status": "monitor",
+      "must": [
+        "代理信号边界",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以代理信号边界为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为monitor。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且代理信号边界守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:59af4ad580fe9ec1373bdff9cfed66015dfc7331f48397f31aa302ff27a384d1",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "代理信号边界:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-14",
+      "name": "代理信号边界-conflict",
+      "mode": "conflict",
+      "object_ref": "D02-代理信号边界@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-9b04faa8adb6",
+        "E-LINEAGE-991a6141d1b1"
+      ],
+      "counterevidence": [
+        "E-COUNTER-325bb49d308c"
+      ],
+      "expected_status": "inconclusive",
+      "must": [
+        "代理信号边界",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以代理信号边界为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为inconclusive。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且代理信号边界守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:9b04faa8adb6991a6141d1b1325bb49d308cba5ca183dd912bfe0a604a1e3dc8",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "代理信号边界:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-15",
+      "name": "代理信号边界-extreme",
+      "mode": "extreme",
+      "object_ref": "D02-代理信号边界@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-52ffe72e72d3",
+        "E-LINEAGE-56875be38e9f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-7f0c28ab0a57"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "代理信号边界",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以代理信号边界为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且代理信号边界守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:52ffe72e72d356875be38e9f7f0c28ab0a574749a5491c1f192f2f671dcacbc9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "代理信号边界:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-16",
+      "name": "代理信号边界-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D02-代理信号边界@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-c16052705ef7",
+        "E-LINEAGE-5d376ba0b29b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-d5ca829f4702"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "代理信号边界",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以代理信号边界为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且代理信号边界守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:c16052705ef75d376ba0b29bd5ca829f47027d3741119d5cd5ab911183518dd9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "代理信号边界:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-17",
+      "name": "代理信号边界-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D02-代理信号边界@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-40af1312b5c2",
+        "E-LINEAGE-692bbe3f54d0"
+      ],
+      "counterevidence": [
+        "E-COUNTER-3024be60b8ea"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "代理信号边界",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以代理信号边界为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且代理信号边界守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:40af1312b5c2692bbe3f54d03024be60b8ea3a7e339c9e033fe897934a9a2642",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "代理信号边界:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIM-RW-18",
+      "name": "代理信号边界-recovery",
+      "mode": "recovery",
+      "object_ref": "D02-代理信号边界@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-3465471844ee",
+        "E-LINEAGE-46d9a421b38c"
+      ],
+      "counterevidence": [
+        "E-COUNTER-70f6f6e50377"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "代理信号边界",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以代理信号边界为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且代理信号边界守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3465471844ee46d9a421b38c70f6f6e50377aa14e68a328179ce813dff57d791",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "代理信号边界:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
     }
-  ]
+  ],
+  "catalog": "D02-EVAL",
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 24,
+    "mechanisms": [
+      "竞品身份去重",
+      "变化双源确认",
+      "代理信号边界",
+      "事件归因窗口"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

@@ -21,6 +21,13 @@ CORE = {
     "scripts/validate_domain_professional_evaluations.py",
     "scripts/test_release_anti_cheat.py",
     "legal-tax-intellectual-property-market-access-decision/scripts/validate_completion_readiness.py",
+    "scripts/validate_risk_weighted_coverage.py",
+    "scripts/test_risk_weighted_coverage.py",
+    "scripts/validate_operational_governance_depth.py",
+    "scripts/test_operational_governance_depth.py",
+    "scripts/validate_l4_external_assurance.py",
+    "scripts/test_l4_external_assurance.py",
+    "scripts/validate_python_environment.py",
 }
 
 

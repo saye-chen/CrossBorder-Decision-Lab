@@ -1,0 +1,1619 @@
+{
+  "as_of_time": "2026-08-10T00:00:00+08:00",
+  "authority": {
+    "acceptance_owner": "consumer_owner",
+    "business_action_owner": "consumer_domain",
+    "causal_grade_owner": "ECAE",
+    "producer_self_acceptance_forbidden": true
+  },
+  "completion_gate": {
+    "all_controlled_pilot_consumer_acceptances_signed": true,
+    "all_production_consumer_acceptances_signed": false,
+    "all_production_differences_dispositioned": false,
+    "all_production_dual_runs_completed": false,
+    "all_production_rollback_drills_passed": false,
+    "l4_production_acceptance_complete": false,
+    "local_contract_implementation_complete": true,
+    "wp11_controlled_pilot_complete": true
+  },
+  "consumers": [
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "causal_investment_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D01_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D01.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D01",
+      "domain_specific_mappings": [
+        {
+          "classification": "conditional",
+          "destination": "CIDM.investment_evidence.causal_grade",
+          "rule": "supports but never determines investment posture",
+          "source": "causal_evidence_grade"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "category-investment-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "category investment posture",
+        "capital budget",
+        "entry add reduce exit",
+        "portfolio allocation"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "category-investment-decision/scripts/evaluate_experiment.py"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "funnel gate decisions are business heuristics rather than causal identification",
+      "legacy_reassessment_ceiling": "CE2",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "decision question",
+        "minimum important effect",
+        "experiment cost and risk"
+      ],
+      "prohibited_legacy_mappings": [
+        "CONTINUE_to_CE4",
+        "Go_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "category investment posture",
+        "capital budget",
+        "entry add reduce exit"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "causal investment claim",
+          "automatic capital action"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "CIDM",
+      "skill": "category-investment-decision",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "causal_investment_support"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": true,
+          "use": "high_stakes_capital_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "alternative_explanation_support",
+          "causal_competitive_attribution_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D02_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D02.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D02",
+      "domain_specific_mappings": [
+        {
+          "classification": "conditional",
+          "destination": "CIM.competitive_attribution.causal_claim_ceiling",
+          "rule": "CIM may narrow the claim but cannot call temporal adjacency causal",
+          "source": "claim_ceiling"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "competitive-intelligence-monitoring/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "competitor identity",
+        "competitive event confirmation",
+        "competitive attribution",
+        "monitoring action"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "competitive-intelligence-monitoring/references/anomaly-detection-and-attribution.md"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "observational triangulation may support attribution confidence but not experimental identification",
+      "legacy_reassessment_ceiling": "CE3",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "shock evidence",
+        "alternative explanations",
+        "placebo and negative-control candidates"
+      ],
+      "prohibited_legacy_mappings": [
+        "three_signals_to_CE4",
+        "attributed_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "competitor identity",
+        "competitive event confirmation",
+        "competitive attribution"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "causal competitor claim",
+          "automatic competitor response"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "CIM",
+      "skill": "competitive-intelligence-monitoring",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE3",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "alternative_explanation_support"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "causal_competitive_attribution_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "causal_product_validation"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D03_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D03.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D03",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "PIPM.validation.causal_result_ref",
+          "rule": "replaces the temporary causal block only after signed acceptance",
+          "source": "causal_result_ref"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "product-innovation-product-management/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "product definition",
+        "roadmap",
+        "release",
+        "specification"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "product-innovation-product-management/SKILL.md"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "the legacy Skill explicitly blocks causal claims until F01 is accepted",
+      "legacy_reassessment_ceiling": "CE2",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "product variant",
+        "product hypothesis",
+        "validation threshold"
+      ],
+      "prohibited_legacy_mappings": [
+        "validation_pass_to_CE4",
+        "launch_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "product definition",
+        "roadmap",
+        "release"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "causal product claim",
+          "automatic product release"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "PIPM",
+      "skill": "product-innovation-product-management",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "causal_product_validation"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": true,
+          "use": "high_stakes_release_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "causal_quality_guardrail_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D04_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D04.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D04",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "SPPQ.quality_gate.blocked_uses",
+          "rule": "causal evidence cannot override failed quality release gates",
+          "source": "prohibited_actions"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "supplier-procurement-production-quality-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "supplier selection",
+        "production release",
+        "quality release",
+        "purchase order"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": "D04 has no legacy causal estimator; supplier and quality tests remain domain-owned noncompensable gates",
+        "paths": []
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "no legacy causal estimator exists and quality eligibility is noncompensable",
+      "legacy_reassessment_ceiling": "CE0",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "quality guardrails",
+        "treatment feasibility",
+        "harm thresholds"
+      ],
+      "prohibited_legacy_mappings": [
+        "quality_pass_to_CE4",
+        "defect_change_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "supplier selection",
+        "production release",
+        "quality release"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "causal quality claim",
+          "override quality gate"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "consumer_sovereignty_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "SPPQ",
+      "skill": "supplier-procurement-production-quality-decision",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "causal_quality_guardrail_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "experiment_evidence_context",
+          "causal_claim_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D05_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D05.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D05",
+      "domain_specific_mappings": [
+        {
+          "classification": "conditional",
+          "destination": "LTMA.evidence_context.causal_claim_ceiling",
+          "rule": "never determines legal compliance or market access",
+          "source": "claim_ceiling"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "legal-tax-intellectual-property-market-access-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "legal opinion",
+        "tax treatment",
+        "IP decision",
+        "market access",
+        "professional approval"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": "D05 has no legacy causal estimator; legal safety tax IP and market-access gates remain professional-domain decisions",
+        "paths": []
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "no causal estimator exists and causal evidence cannot compensate for a professional redline",
+      "legacy_reassessment_ceiling": "CE0",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "legal and safety eligibility",
+        "claim boundary",
+        "market-access constraint"
+      ],
+      "prohibited_legacy_mappings": [
+        "legal_eligible_to_CE4",
+        "market_access_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "legal opinion",
+        "tax treatment",
+        "IP decision",
+        "market access"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "causal compliance claim",
+          "override professional redline"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "consumer_sovereignty_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "LTMA",
+      "skill": "legal-tax-intellectual-property-market-access-decision",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE3",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "experiment_evidence_context"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "causal_claim_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "incremental_economic_input"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D06_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D06.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D06",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "PPFC.incremental_economics.causal_result_ref",
+          "rule": "financial arithmetic can consume but cannot create or upgrade CE",
+          "source": "causal_result_ref"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "price",
+        "profit threshold",
+        "cash posture",
+        "financial constraint",
+        "payment"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "pricing-profit-finance-cashflow-decision/references/unit-economics-roas-and-price-recalculation.md"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "economic calculations interpret a qualified effect and never establish identification",
+      "legacy_reassessment_ceiling": "CE2",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "qualified economic parameters",
+        "validity window",
+        "price and cost scenarios"
+      ],
+      "prohibited_legacy_mappings": [
+        "E6_to_CE4",
+        "ROAS_ATTR_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "price",
+        "profit threshold",
+        "cash posture",
+        "financial constraint"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "incremental ROI claim",
+          "automatic price or cash action"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "PPFC",
+      "skill": "pricing-profit-finance-cashflow-decision",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval",
+            "economic_parameter_snapshot"
+          ],
+          "requires_independent_review": false,
+          "use": "incremental_economic_input"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval",
+            "economic_parameter_snapshot"
+          ],
+          "requires_independent_review": true,
+          "use": "high_stakes_financial_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "incremental_demand_input"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D07_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D07.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D07",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "LIFD.demand_signal.causal_effect_expires_at",
+          "rule": "missing or expired incremental contribution remains unknown rather than zero",
+          "source": "expires_at"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "route",
+        "inventory allocation",
+        "replenishment",
+        "fulfillment",
+        "purchase order"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "logistics-inventory-fulfillment-decision/scripts/inventory_allocation.py"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "legacy value ranking lacks a causal input contract and cannot zero-fill unknown effects",
+      "legacy_reassessment_ceiling": "CE2",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "capacity",
+        "service guardrails",
+        "demand treatment and outcome"
+      ],
+      "prohibited_legacy_mappings": [
+        "missing_incremental_to_zero",
+        "forecast_to_CE4"
+      ],
+      "retained_sovereignty": [
+        "route",
+        "inventory allocation",
+        "replenishment",
+        "fulfillment"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "incremental demand claim",
+          "automatic inventory allocation"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "LIFD",
+      "skill": "logistics-inventory-fulfillment-decision",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "incremental_contribution"
+          ],
+          "requires_independent_review": false,
+          "use": "incremental_demand_input"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "incremental_contribution"
+          ],
+          "requires_independent_review": true,
+          "use": "high_stakes_inventory_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "causal_listing_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D08_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D08.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D08",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "PLCO.experiment.causal_grade",
+          "rule": "basic legacy Wald output is never grandfathered into CE4",
+          "source": "causal_evidence_grade"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "platform-store-listing-conversion/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "store",
+        "listing",
+        "page",
+        "conversion action",
+        "publish"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "platform-store-listing-conversion/scripts/evaluate_listing_experiment.py"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "two-arm Wald output lacks the complete F01 protocol data and multiplicity contract",
+      "legacy_reassessment_ceiling": "CE3",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "listing treatment",
+        "conversion metrics",
+        "page guardrails"
+      ],
+      "prohibited_legacy_mappings": [
+        "Go_to_CE4",
+        "Wald_positive_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "store",
+        "listing",
+        "page",
+        "conversion action"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "causal listing claim",
+          "automatic page publish"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "PLCO",
+      "skill": "platform-store-listing-conversion",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "causal_listing_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "incremental_advertising_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D09_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D09.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D09",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "AAMO.measurement.f01_result_ref",
+          "rule": "legacy cluster DiD and SCM remain max CE3 after reassessment until verified backend parity",
+          "source": "causal_result_ref"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "advertising-analysis-measurement-optimization/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "advertising budget",
+        "bid",
+        "scale stop",
+        "account structure",
+        "campaign status"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "advertising-analysis-measurement-optimization/scripts/evaluate_incrementality.py",
+          "advertising-analysis-measurement-optimization/scripts/design_incrementality_experiment.py",
+          "advertising-analysis-measurement-optimization/scripts/estimate_causal_incrementality.py"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "simplified legacy estimators lack full backend parity diagnostics and review",
+      "legacy_reassessment_ceiling": "CE3",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "media treatment",
+        "budget and geo constraints",
+        "advertising outcomes"
+      ],
+      "prohibited_legacy_mappings": [
+        "legacy_incrementality_to_CE4",
+        "DiD_SCM_to_CE5"
+      ],
+      "retained_sovereignty": [
+        "advertising budget",
+        "bid",
+        "scale stop",
+        "account structure"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "incremental advertising claim",
+          "automatic budget bid or scale action"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "AAMO",
+      "skill": "advertising-analysis-measurement-optimization",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": false,
+          "use": "incremental_advertising_support"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": true,
+          "use": "high_stakes_media_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "incremental_partnership_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D10_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D10.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D10",
+      "domain_specific_mappings": [
+        {
+          "classification": "non_equivalent",
+          "destination": "CAPM.partnership_evidence.ce_grade",
+          "rule": "legacy C0-C3 labels require case-level semantic reassessment and C2 or C3 never auto-means incremental",
+          "source": "causal_evidence_grade"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "creator-affiliate-partnership-management/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "creator selection",
+        "commercial terms",
+        "contract",
+        "renew exit",
+        "payment",
+        "sample shipment"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "creator-affiliate-partnership-management/scripts/validate_cross_skill_handoff.py",
+          "creator-affiliate-partnership-management/scripts/evaluate_capm_decision.py"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "CAPM C-labels are a distinct ontology and its current C2-C3 incremental eligibility is explicitly non-equivalent",
+      "legacy_reassessment_ceiling": "CE3",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "partnership treatment",
+        "attribution records",
+        "costs and rights constraints"
+      ],
+      "prohibited_legacy_mappings": [
+        "C2_to_CE4",
+        "C3_to_CE5",
+        "incremental_eligible_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "creator selection",
+        "commercial terms",
+        "contract",
+        "renew exit"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "incremental partnership claim",
+          "automatic pay sign ship or renew"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "CAPM",
+      "skill": "creator-affiliate-partnership-management",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": false,
+          "use": "incremental_partnership_support"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": true,
+          "use": "high_stakes_partnership_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "causal_creative_effect_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D11_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D11.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D11",
+      "domain_specific_mappings": [
+        {
+          "classification": "conditional",
+          "destination": "VLB.creative_evidence.claim_ceiling",
+          "rule": "content scores and mechanisms remain max CE2 unless a qualified F01 handoff exists",
+          "source": "claim_ceiling"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "video-link-breakdown/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "content mechanism",
+        "creative expression",
+        "production brief",
+        "publish"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "video-link-breakdown/SKILL.md"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "content mechanism analysis is descriptive or associational without assignment evidence",
+      "legacy_reassessment_ceiling": "CE2",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "creative variants",
+        "mechanism hypothesis",
+        "content outcome"
+      ],
+      "prohibited_legacy_mappings": [
+        "content_score_to_CE4",
+        "sales_signal_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "content mechanism",
+        "creative expression",
+        "production brief"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "causal creative claim",
+          "automatic content production or publish"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "VLB",
+      "skill": "video-link-breakdown",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [],
+          "requires_independent_review": false,
+          "use": "causal_creative_effect_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "incremental_campaign_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D12_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D12.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D12",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "MBCM.incrementality.f01_result_ref",
+          "rule": "legacy DiD SCM geo and bridge outputs remain max CE3 after reassessment until verified parity",
+          "source": "causal_result_ref"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "marketing-brand-campaign-management/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "brand positioning",
+        "campaign",
+        "offer",
+        "channel allocation",
+        "publish",
+        "budget transfer"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "marketing-brand-campaign-management/scripts/experiment_design.py",
+          "marketing-brand-campaign-management/scripts/causal_effects.py",
+          "marketing-brand-campaign-management/scripts/incrementality_bridge.py"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "simplified legacy estimators and economic bridge cannot self-certify CE4 or CE5",
+      "legacy_reassessment_ceiling": "CE3",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "campaign treatment",
+        "brand guardrails",
+        "marketing thresholds"
+      ],
+      "prohibited_legacy_mappings": [
+        "qualified_causal_claim_to_CE4",
+        "causal_claim_allowed_to_incremental"
+      ],
+      "retained_sovereignty": [
+        "brand positioning",
+        "campaign",
+        "offer",
+        "channel allocation"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "incremental campaign claim",
+          "automatic campaign offer or channel action"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "MBCM",
+      "skill": "marketing-brand-campaign-management",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": false,
+          "use": "incremental_campaign_support"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": true,
+          "use": "high_stakes_campaign_support"
+        }
+      ]
+    },
+    {
+      "acceptance": {
+        "accepted_uses": [
+          "causal_growth_support",
+          "heterogeneous_policy_support"
+        ],
+        "conditions": [
+          "controlled_pilot_non_production_only",
+          "business_owner_decision_required",
+          "production_and_high_stakes_use_requires_L4_evidence",
+          "external_write_forbidden"
+        ],
+        "consumer_owner_role": "D13_consumer_owner",
+        "production_signed_record_ref": null,
+        "production_status": "not_executed",
+        "scope": "controlled_pilot_non_production",
+        "signed_record_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D13.json",
+        "status": "conditionally_accepted"
+      },
+      "contract_version": "1.1.0",
+      "domain_id": "D13",
+      "domain_specific_mappings": [
+        {
+          "classification": "direct",
+          "destination": "CIG.growth_evidence.ce_grade",
+          "rule": "basic Wald and uplift bins cannot establish honest individual effects or CE4 by themselves",
+          "source": "causal_evidence_grade"
+        }
+      ],
+      "dual_run": {
+        "difference_evidence_ref": "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "difference_status": "fixture_dispositioned",
+        "local_fixture_ref": "consumer-insights-customer-growth/integrations/experiment-causal-assessment/acceptance.json",
+        "local_fixture_status": "fixture_verified",
+        "production_evidence_ref": null,
+        "production_status": "not_executed"
+      },
+      "external_write": false,
+      "forbidden_writeback": [
+        "customer identity",
+        "customer state",
+        "CRM action",
+        "service compensation",
+        "contact",
+        "benefit issue"
+      ],
+      "invalidation_policy": {
+        "on_contract_change": "reaccept_and_recompute",
+        "on_expiry": "mark_stale_request_recompute",
+        "on_trigger": "mark_stale_request_recompute",
+        "silent_continued_consumption_forbidden": true
+      },
+      "legacy_assets": {
+        "absence_reason": null,
+        "paths": [
+          "consumer-insights-customer-growth/scripts/evaluate_growth_experiment.py",
+          "consumer-insights-customer-growth/scripts/evaluate_uplift_ranking.py"
+        ]
+      },
+      "legacy_automatic_ceiling": "CE0",
+      "legacy_mapping_rule": "basic two-arm Wald and observed uplift bins lack the full honest HTE and policy-value contract",
+      "legacy_reassessment_ceiling": "CE3",
+      "mapping_profile": "causal_handoff_v1_full",
+      "producer_inputs": [
+        "authorized customer treatment and outcome",
+        "consent and frequency constraints",
+        "policy target"
+      ],
+      "prohibited_legacy_mappings": [
+        "Wald_Go_to_CE4",
+        "uplift_bin_to_individual_causal_effect"
+      ],
+      "retained_sovereignty": [
+        "customer identity",
+        "customer state",
+        "CRM action",
+        "service compensation"
+      ],
+      "rollback": {
+        "blocked_actions": [
+          "individual causal claim",
+          "automatic CRM contact or compensation"
+        ],
+        "causal_wording_allowed": false,
+        "local_drill_status": "fixture_verified",
+        "mode": "legacy_descriptive_read_only",
+        "production_drill_evidence_ref": null,
+        "recompute_required": true,
+        "unknown_incremental_value_policy": "unknown_never_zero_fill"
+      },
+      "runtime_prefix": "CIG",
+      "skill": "consumer-insights-customer-growth",
+      "use_requirements": [
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": false,
+          "use": "causal_growth_support"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE4",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "policy_value_interval",
+            "policy_constraints"
+          ],
+          "requires_independent_review": false,
+          "use": "heterogeneous_policy_support"
+        },
+        {
+          "fallback_use": "descriptive_only",
+          "minimum_grade": "CE5",
+          "required_handoff_action": "consider_within_consumer_decision_contract",
+          "required_payload_fields": [
+            "effect_estimate",
+            "effect_interval"
+          ],
+          "requires_independent_review": true,
+          "use": "high_stakes_customer_support"
+        }
+      ]
+    }
+  ],
+  "external_write": false,
+  "global_rules": [
+    "legacy labels never auto-map to CE4 or CE5",
+    "attribution never becomes incrementality through renaming",
+    "missing or expired incremental values remain unknown and never become zero",
+    "consumer cannot remove applicability claim ceiling invalidation or recompute boundaries",
+    "consumer owner retains every business action and external write",
+    "producer implementation tests cannot sign consumer acceptance",
+    "fixture dual-runs do not count as production dual-runs",
+    "rollback disables causal and incremental wording until qualified recomputation",
+    "contract version change requires reacceptance and recomputation",
+    "CE5 and any use marked independent-review-required need independent_accepted review"
+  ],
+  "grade_order": [
+    "CE0",
+    "CE1",
+    "CE2",
+    "CE3",
+    "CE4",
+    "CE5"
+  ],
+  "local_verification": {
+    "contract_tests": "verified",
+    "controlled_pilot_owner_acceptance": "verified_by_owner_authorization",
+    "fixture_difference_dispositions": "verified_non_production",
+    "fixture_dual_runs": "verified_non_production",
+    "fixture_rollback_drills": "verified_non_production",
+    "production_claim": false,
+    "schema_and_registry": "verified"
+  },
+  "mapping_profiles": [
+    {
+      "accepted_schema_versions": [
+        "1.0.0"
+      ],
+      "field_mappings": [
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.producer",
+          "rule": "must equal ECAE",
+          "source": "producer"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.domain_id",
+          "rule": "must equal the bound D01-D13 contract",
+          "source": "consumer"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.result_ref",
+          "rule": "reference only and never copied as a consumer fact",
+          "source": "causal_result_ref"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.estimand_ref",
+          "rule": "preserve exact estimand identity",
+          "source": "estimand_ref"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.ce_grade",
+          "rule": "preserve CE0-CE5 exactly",
+          "source": "causal_evidence_grade"
+        },
+        {
+          "classification": "conditional",
+          "destination": "consumer.f01.claim_ceiling",
+          "rule": "consumer may narrow but never widen",
+          "source": "claim_ceiling"
+        },
+        {
+          "classification": "conditional",
+          "destination": "consumer.f01.allowed_uses",
+          "rule": "consumer contract and owner acceptance may further narrow",
+          "source": "allowed_actions"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.blocked_uses",
+          "rule": "prohibitions are monotone and cannot be removed",
+          "source": "prohibited_actions"
+        },
+        {
+          "classification": "conditional",
+          "destination": "consumer.f01.allowed_wording",
+          "rule": "consumer may use a strict subset only",
+          "source": "allowed_wording"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.prohibited_wording",
+          "rule": "prohibitions are monotone and cannot be removed",
+          "source": "prohibited_wording"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.applicability",
+          "rule": "population platform country time and treatment version remain bound",
+          "source": "applicability"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.invalidation_triggers",
+          "rule": "any active trigger marks downstream use stale",
+          "source": "invalidation_triggers"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.recompute_triggers",
+          "rule": "any active trigger creates a recompute request",
+          "source": "recompute_triggers"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.expires_at",
+          "rule": "expiry is fail-closed",
+          "source": "expires_at"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.reproducibility_ref",
+          "rule": "preserve exact replay lineage",
+          "source": "reproducibility_bundle_ref"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.review_status",
+          "rule": "review status cannot be promoted by the consumer",
+          "source": "review_status"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.owner_decision_required",
+          "rule": "must remain true",
+          "source": "business_owner_decision_required"
+        },
+        {
+          "classification": "direct",
+          "destination": "consumer.f01.external_write",
+          "rule": "must remain false",
+          "source": "external_write"
+        }
+      ],
+      "handoff_schema": "causal-handoff.schema.json",
+      "profile_id": "causal_handoff_v1_full",
+      "required_fields": [
+        "producer",
+        "consumer",
+        "causal_result_ref",
+        "estimand_ref",
+        "causal_evidence_grade",
+        "claim_ceiling",
+        "allowed_actions",
+        "prohibited_actions",
+        "allowed_wording",
+        "prohibited_wording",
+        "applicability",
+        "invalidation_triggers",
+        "recompute_triggers",
+        "expires_at",
+        "reproducibility_bundle_ref",
+        "review_status",
+        "business_owner_decision_required",
+        "external_write"
+      ]
+    }
+  ],
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "schema_version": "1.0.0",
+  "status": "controlled_pilot_accepted_production_l4_pending"
+}

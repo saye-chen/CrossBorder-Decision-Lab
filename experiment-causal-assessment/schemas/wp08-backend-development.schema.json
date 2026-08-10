@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/wp08-backend-development.schema.json",
+  "title": "WP-08 non-promotional HTE development evidence",
+  "type": "object",
+  "required": ["schema_version", "report_id", "status", "qualification", "environment", "persistent_qualification_ref", "candidate", "development_oracle", "vectors", "protocol_gates", "release_effect", "open_gates"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "report_id": {"type": "string", "minLength": 1},
+    "status": {"const": "development_vectors_pass_external_verification_open"},
+    "qualification": {"const": "locked_persistent_runtime_fixed_vectors_not_backend_proof"},
+    "environment": {
+      "type": "object",
+      "required": ["python", "r", "runtime_lock_ref"],
+      "properties": {
+        "python": {"const": "CPython 3.12.13 exact dependency lock"},
+        "r": {"const": "R 4.5.3 exact package and source-revision lock"},
+        "runtime_lock_ref": {"const": "backends/runtime-lock.json"}
+      },
+      "additionalProperties": false
+    },
+    "persistent_qualification_ref": {"const": "evaluations/persistent-backend-development-qualification.json"},
+    "candidate": {
+      "type": "object",
+      "required": ["candidate_id", "package", "version", "adapter_ref", "binding_decision"],
+      "properties": {
+        "candidate_id": {"const": "hte_uplift_econml"},
+        "package": {"const": "econml"},
+        "version": {"const": "0.16.0"},
+        "adapter_ref": {"const": "backends/adapters/hte_uplift_econml.py"},
+        "binding_decision": {"const": "development_pass_not_verified"}
+      },
+      "additionalProperties": false
+    },
+    "development_oracle": {
+      "type": "object",
+      "required": ["candidate_id", "package", "version", "adapter_ref", "execution_status"],
+      "properties": {
+        "candidate_id": {"const": "hte_uplift_grf"},
+        "package": {"const": "grf"},
+        "version": {"const": "2.6.1"},
+        "adapter_ref": {"const": "backends/adapters/hte_uplift_grf.R"},
+        "execution_status": {"const": "pass_not_external_parity"}
+      },
+      "additionalProperties": false
+    },
+    "vectors": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["vector_id", "status", "truth", "observations", "decision_semantics"],
+        "properties": {
+          "vector_id": {"type": "string", "minLength": 1},
+          "status": {"const": "pass"},
+          "truth": {"type": "object", "minProperties": 1},
+          "observations": {"type": "object", "minProperties": 1},
+          "decision_semantics": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "protocol_gates": {
+      "type": "object",
+      "required": ["surrogate", "transport", "individual_effect", "policy_owner"],
+      "properties": {
+        "surrogate": {"type": "string", "minLength": 1},
+        "transport": {"type": "string", "minLength": 1},
+        "individual_effect": {"const": "prohibited"},
+        "policy_owner": {"const": "external_business_owner_required"}
+      },
+      "additionalProperties": false
+    },
+    "release_effect": {
+      "type": "object",
+      "required": ["registry_verified_count", "wp08_release_complete", "l2_or_l3_promotion"],
+      "properties": {
+        "registry_verified_count": {"const": 0},
+        "wp08_release_complete": {"const": false},
+        "l2_or_l3_promotion": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "open_gates": {"type": "array", "minItems": 7, "items": {"type": "string", "minLength": 1}}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "backend_id": "hte_uplift",
+  "candidate_id": "hte_uplift_grf",
+  "role": "independent_development_parity_oracle",
+  "selected_for_production": false,
+  "external_verification_created": false,
+  "business_action_authorized": false
+}

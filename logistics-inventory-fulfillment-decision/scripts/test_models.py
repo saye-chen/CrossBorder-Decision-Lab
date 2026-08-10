@@ -1,7 +1,46 @@
 #!/usr/bin/env python3
-import json,subprocess,tempfile,unittest
+import copy,json,subprocess,sys,tempfile,unittest
 from pathlib import Path
 ROOT=Path(__file__).parent
+sys.path.insert(0,str(ROOT))
+sys.path.insert(0,str(ROOT.parent.parent/"experiment-causal-assessment"/"scripts"))
+from ecae_common import content_hash as ecae_content_hash
+from inventory_allocation import run as allocation_run
+from validate_consumer_migration import contract_for as ecae_contract_for,load_default_migration
+from validate_ecae_inventory_handoff import build_receipt,validate_receipt
+
+def allocation_platform(identifier,**updates):
+    value={"id":identifier,"base_protection":20,"event_reservation":0,"after_sales_reserve":0,"max_extra":50,
+           "avoided_stockout_loss":0,"service_value":0,"incremental_fulfillment":0,"transfer_cost":0,"misallocation_risk":0}
+    value.update(updates);return value
+
+def ecae_context(contribution=5,grade="CE4"):
+    handoff={"schema_version":"1.0.0","object_id":"ECAE-HANDOFF-LIFD-FIXTURE","object_version":"1.0.0",
+             "status":"handed_off","as_of_time":"2026-08-10T00:00:00+08:00","owner":"ECAE",
+             "created_at":"2026-08-10T00:00:00+08:00","updated_at":"2026-08-10T00:00:00+08:00",
+             "source_refs":["ECAE-RESULT-LIFD"],"lineage_refs":["ECAE-BUNDLE-LIFD"],"jurisdiction_refs":[],
+             "parameter_refs":[],"assumption_refs":[],"limitations":["fixture_non_production"],
+             "producer":"ECAE","consumer":"D07","causal_result_ref":"ECAE-RESULT-LIFD","estimand_ref":"ECAE-ESTIMAND-LIFD",
+             "causal_evidence_grade":grade,"claim_ceiling":grade,
+             "allowed_actions":["consider_within_consumer_decision_contract"],
+             "prohibited_actions":["automatic_external_write","treat_as_final_business_decision","upgrade_causal_grade"],
+             "allowed_wording":["qualified inventory demand effect"],"prohibited_wording":["guaranteed demand"],
+             "applicability":{"population":"authorized_inventory_v1","platforms":["Amazon-US"],"countries":["US"],"time_window":"2026-08","treatment_version":"INVENTORY-T1"},
+             "invalidation_triggers":["treatment_changed"],"recompute_triggers":["cost_parameter_changed"],
+             "expires_at":"2026-09-10T00:00:00+08:00","reproducibility_bundle_ref":"ECAE-BUNDLE-LIFD",
+             "review_status":"internal_reviewed","business_owner_decision_required":True,"external_write":False,"content_hash":"PENDING"}
+    handoff["content_hash"]=ecae_content_hash(handoff)
+    return {"intended_use":"incremental_demand_input","handoff":handoff,"as_of_time":"2026-08-15T00:00:00+08:00","active_events":[],
+            "target_context":{"platform":"Amazon-US","country":"US","population":"authorized_inventory_v1","treatment_version":"INVENTORY-T1"},
+            "consumer_payload":{"incremental_contribution":contribution}}
+
+def pending_owner_migration():
+    migration=copy.deepcopy(load_default_migration());contract=ecae_contract_for(migration,"D07")
+    contract["acceptance"]={"scope":"controlled_pilot_non_production","status":"pending_consumer_owner","consumer_owner_role":"D07_consumer_owner",
+                            "signed_record_ref":None,"accepted_uses":[],"conditions":[],"production_status":"not_executed","production_signed_record_ref":None}
+    migration["completion_gate"]["all_controlled_pilot_consumer_acceptances_signed"]=False
+    migration["completion_gate"]["wp11_controlled_pilot_complete"]=False
+    return migration
 def run(name,data,expect_ok=True):
     with tempfile.TemporaryDirectory() as td:
         i=Path(td)/"in.json";o=Path(td)/"out.json";i.write_text(json.dumps(data),encoding="utf-8")
@@ -77,8 +116,46 @@ class D07Models(unittest.TestCase):
         d=run("network_routing.py",{"required_flow":10,"max_p90_days":30,"routes":[{"id":"bad","compliance_pass":False,**base},{"id":"ok","compliance_pass":True,"main_haul":5,**base}]})
         self.assertEqual(d["recommended"]["id"],"ok");self.assertEqual(len(d["rejected"]),1)
     def test_allocation_conservation_and_negative_value(self):
-        d=run("inventory_allocation.py",{"total_eligible_inventory":100,"operational_reserve":10,"platforms":[{"id":"a","base_protection":20,"max_extra":50,"incremental_contribution":5},{"id":"b","base_protection":20,"max_extra":50,"incremental_contribution":-1}]})
-        self.assertTrue(d["conserved"]);self.assertEqual(next(x for x in d["allocations"] if x["id"]=="b")["extra"],0)
+        d=run("inventory_allocation.py",{"allocation_value_mode":"noncausal_scenario","total_eligible_inventory":100,"operational_reserve":10,"platforms":[allocation_platform("a",scenario_contribution=5),allocation_platform("b",scenario_contribution=-1)]})
+        self.assertTrue(d["conserved"]);self.assertEqual(d["decision"],"scenario_allocation")
+        self.assertEqual(next(x for x in d["allocations"] if x["id"]=="b")["extra"],0)
+        self.assertFalse(d["automatic_inventory_allocation_allowed"]);self.assertFalse(d["external_write"])
+
+    def test_missing_incremental_contribution_is_unknown_not_zero(self):
+        d=run("inventory_allocation.py",{"total_eligible_inventory":100,"operational_reserve":10,"platforms":[allocation_platform("a"),allocation_platform("b")]})
+        self.assertEqual(d["decision"],"inconclusive");self.assertEqual(d["value_semantics"],"unknown_never_zero_fill")
+        self.assertTrue(all(row["contribution_input"]=={"state":"unknown"} and row["extra"] is None for row in d["allocations"]))
+        self.assertTrue(any("INCREMENTAL_CONTRIBUTION_UNKNOWN" in reason for reason in d["reasons"]))
+
+    def test_legacy_incremental_field_cannot_enter_ranking(self):
+        d=run("inventory_allocation.py",{"total_eligible_inventory":100,"operational_reserve":10,"platforms":[allocation_platform("a",incremental_contribution=999)]})
+        self.assertEqual(d["decision"],"inconclusive");self.assertIn("a:LEGACY_INCREMENTAL_INPUT_FORBIDDEN",d["reasons"])
+        self.assertIsNone(d["allocations"][0]["value"]);self.assertIsNone(d["allocations"][0]["extra"])
+
+    def test_pending_f01_receipt_keeps_incremental_value_unknown(self):
+        context=ecae_context();migration=pending_owner_migration();receipt=build_receipt(context,migration=migration)
+        self.assertEqual(receipt["decision"],"hold_pending_consumer_acceptance");self.assertEqual(receipt["incremental_value_state"],"unknown")
+        d=allocation_run({"total_eligible_inventory":60,"operational_reserve":10,"platforms":[allocation_platform("a",ecae_handoff_context=context)]},migration=migration)
+        self.assertEqual(d["decision"],"inconclusive");self.assertEqual(d["allocations"][0]["contribution_input"],{"state":"unknown"})
+
+    def test_signed_accepted_receipt_can_support_proposed_ranking_only(self):
+        migration=load_default_migration();receipt=build_receipt(ecae_context(),migration=migration)
+        self.assertEqual(validate_receipt(receipt,migration=migration),[]);self.assertTrue(receipt["ranking_use_allowed"])
+        d=allocation_run({"total_eligible_inventory":60,"operational_reserve":10,"platforms":[allocation_platform("a",ecae_inventory_receipt=receipt)]},migration=migration)
+        self.assertEqual(d["decision"],"proposed_allocation");self.assertEqual(d["allocations"][0]["contribution_input"]["state"],"qualified")
+        self.assertFalse(d["automatic_inventory_allocation_allowed"]);self.assertEqual(d["inventory_decision_owner"],"LIFD");self.assertFalse(d["external_write"])
+
+    def test_expired_f01_handoff_requests_recompute_and_cannot_rank(self):
+        context=ecae_context();context["handoff"]["expires_at"]="2026-08-14T00:00:00+08:00";context["handoff"]["content_hash"]=ecae_content_hash(context["handoff"])
+        receipt=build_receipt(context);self.assertEqual(receipt["decision"],"request_recompute");self.assertIsNone(receipt["incremental_contribution"])
+        d=allocation_run({"total_eligible_inventory":60,"operational_reserve":10,"platforms":[allocation_platform("a",ecae_handoff_context=context)]})
+        self.assertEqual(d["decision"],"inconclusive");self.assertIn("HANDOFF_EXPIRED",d["allocations"][0]["ecae_receipt"]["reasons"])
+
+    def test_tampered_receipt_fails_closed(self):
+        receipt=build_receipt(ecae_context());receipt["ranking_use_allowed"]=not receipt["ranking_use_allowed"]
+        self.assertIn("$.receipt_hash:mismatch",validate_receipt(receipt))
+        with self.assertRaisesRegex(ValueError,"invalid LIFD ECAE receipt"):
+            allocation_run({"total_eligible_inventory":60,"operational_reserve":10,"platforms":[allocation_platform("a",ecae_inventory_receipt=receipt)]})
     def test_atp_ctp_bottleneck(self):
         data={"sellable":20,"confirmed_orders":5,"protected_reserved":5,"new_supply_within_window":100,"procurement_production_capacity":50,"transport_capacity":40,"customs_inbound_capacity":30,"warehouse_throughput":20,"last_mile_capacity":50,"cash_supported_capacity":50,"requested_qty":25}
         d=run("order_capacity.py",data);self.assertEqual(d["atp"],10);self.assertEqual(d["ctp"],30);self.assertIn("warehouse_throughput",d["bottlenecks"])

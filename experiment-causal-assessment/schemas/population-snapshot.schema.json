@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/population-snapshot.schema.json",
+  "title":"Population snapshot",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["population_name","eligibility_start","eligibility_end","inclusion_rules","exclusion_rules","deduplication_key","snapshot_ref","snapshot_hash","coverage","baseline_window","stratification_variables"],
+  "properties":{
+    "population_name":{"type":"string","minLength":1},
+    "eligibility_start":{"type":"string","format":"date-time"},
+    "eligibility_end":{"type":"string","format":"date-time"},
+    "inclusion_rules":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "exclusion_rules":{"type":"array","items":{"type":"string","minLength":1}},
+    "deduplication_key":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "snapshot_ref":{"type":"string","minLength":1},
+    "snapshot_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "coverage":{"type":"object","required":["eligible_units","included_units","excluded_units"],"properties":{"eligible_units":{"type":"integer","minimum":0},"included_units":{"type":"integer","minimum":0},"excluded_units":{"type":"integer","minimum":0}},"additionalProperties":false},
+    "baseline_window":{"type":"string","minLength":1},
+    "stratification_variables":{"type":"array","items":{"type":"string","minLength":1}},
+    "support_restrictions":{"type":"array","items":{"type":"string","minLength":1}}
+  },
+  "unevaluatedProperties":false
+}

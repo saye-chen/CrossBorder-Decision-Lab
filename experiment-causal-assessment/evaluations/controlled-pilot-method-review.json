@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "ECAE-CONTROLLED-PILOT-METHOD-REVIEW-2026-08-10",
+  "status": "accepted",
+  "review_scope": "L3 controlled-pilot method conformance and release-boundary review",
+  "authorization": {
+    "accountable_owner": "Miles Chen",
+    "authorization_basis": "Explicit repository-owner instruction in the Codex task on 2026-08-10 to complete public-method qualification and controlled-pilot consumer acceptance.",
+    "technical_reviewer": "Codex technical reviewer",
+    "external_independence_claimed": false
+  },
+  "evidence_reviewed": [
+    "evaluations/method-source-registry.json",
+    "evaluations/native-method-parity.json",
+    "evaluations/simulation-report.json",
+    "evaluations/mutation-catalog.json",
+    "evaluations/persistent-backend-development-qualification.json",
+    "tests"
+  ],
+  "decisions": [
+    {
+      "decision": "accept",
+      "scope": "Eight native methods for bounded controlled-pilot use, subject to their method cards, diagnostics and claim ceilings."
+    },
+    {
+      "decision": "accept_protocol_only",
+      "scope": "Long-term surrogate and transportability gates may reject, limit or route work but may not estimate an effect or award a causal grade."
+    },
+    {
+      "decision": "withhold",
+      "scope": "Installed advanced scientific backends are not released for causal estimation until L4 external qualification; runtime calls continue to fail closed."
+    },
+    {
+      "decision": "retain_external_gate",
+      "scope": "Production dual-runs, mature real outcomes, independent non-implementer review and production calibration remain L4-only."
+    }
+  ],
+  "unresolved_l1_l3_objections": [],
+  "l3_controlled_pilot_gate_closed": true,
+  "l4_external_review_gate_closed": false,
+  "production_ready": false,
+  "external_write": false
+}

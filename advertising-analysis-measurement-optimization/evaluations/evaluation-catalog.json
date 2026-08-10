@@ -236,6 +236,837 @@
         "value": "stale",
         "expected": "blocked"
       }
+    },
+    {
+      "id": "AAMO-RW-01",
+      "name": "三本账一致性-standard",
+      "mode": "standard",
+      "object_ref": "D09-三本账一致性@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-11969b94543e",
+        "E-LINEAGE-3d03a70a0d53"
+      ],
+      "counterevidence": [
+        "E-COUNTER-6546e33bc9b2"
+      ],
+      "expected_status": "hold",
+      "must": [
+        "三本账一致性",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以三本账一致性为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为hold。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且三本账一致性守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:11969b94543e3d03a70a0d536546e33bc9b2b99916c221e6a1071c03e8121280",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "三本账一致性:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-02",
+      "name": "三本账一致性-conflict",
+      "mode": "conflict",
+      "object_ref": "D09-三本账一致性@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-6b18d08c754c",
+        "E-LINEAGE-e68e6a3ac0a2"
+      ],
+      "counterevidence": [
+        "E-COUNTER-1440711e4ced"
+      ],
+      "expected_status": "reduce",
+      "must": [
+        "三本账一致性",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以三本账一致性为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为reduce。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且三本账一致性守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:6b18d08c754ce68e6a3ac0a21440711e4ced9ed45affa1ca2c3c8bfc37d4bf69",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "三本账一致性:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-03",
+      "name": "三本账一致性-extreme",
+      "mode": "extreme",
+      "object_ref": "D09-三本账一致性@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-1f8262d26f30",
+        "E-LINEAGE-6a979887c263"
+      ],
+      "counterevidence": [
+        "E-COUNTER-45eec234545f"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "三本账一致性",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以三本账一致性为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且三本账一致性守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:1f8262d26f306a979887c26345eec234545f2b1d116803b0adb4a9d3d90ca7af",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "三本账一致性:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-04",
+      "name": "三本账一致性-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D09-三本账一致性@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-20c31a33ad9d",
+        "E-LINEAGE-9be11022c814"
+      ],
+      "counterevidence": [
+        "E-COUNTER-ae532b5d19ff"
+      ],
+      "expected_status": "test",
+      "must": [
+        "三本账一致性",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以三本账一致性为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且三本账一致性守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:20c31a33ad9d9be11022c814ae532b5d19ffaa69f650cdf90e512e199469b3ec",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "三本账一致性:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-05",
+      "name": "三本账一致性-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D09-三本账一致性@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-54fd6158f6bc",
+        "E-LINEAGE-6c09bb8edf74"
+      ],
+      "counterevidence": [
+        "E-COUNTER-375ea25710ed"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "三本账一致性",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以三本账一致性为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且三本账一致性守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:54fd6158f6bc6c09bb8edf74375ea25710ed8250309a8353329a502eaf029994",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "三本账一致性:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-06",
+      "name": "三本账一致性-recovery",
+      "mode": "recovery",
+      "object_ref": "D09-三本账一致性@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-e70a6247b061",
+        "E-LINEAGE-6eab6b83e6cb"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f740cfeca52b"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "三本账一致性",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以三本账一致性为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且三本账一致性守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e70a6247b0616eab6b83e6cbf740cfeca52b239a71d808f82dd46d4e051eb776",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "三本账一致性:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-07",
+      "name": "平均边际效率分离-standard",
+      "mode": "standard",
+      "object_ref": "D09-平均边际效率分离@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-49b4975505f7",
+        "E-LINEAGE-5d0a07d3b573"
+      ],
+      "counterevidence": [
+        "E-COUNTER-fc1849d727fd"
+      ],
+      "expected_status": "hold",
+      "must": [
+        "平均边际效率分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以平均边际效率分离为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为hold。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且平均边际效率分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:49b4975505f75d0a07d3b573fc1849d727fdb6245405b975c31ce57bb0a122dd",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "平均边际效率分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-08",
+      "name": "平均边际效率分离-conflict",
+      "mode": "conflict",
+      "object_ref": "D09-平均边际效率分离@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-4730b3c9b10d",
+        "E-LINEAGE-b1d4117617f0"
+      ],
+      "counterevidence": [
+        "E-COUNTER-fee915bef426"
+      ],
+      "expected_status": "reduce",
+      "must": [
+        "平均边际效率分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以平均边际效率分离为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为reduce。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且平均边际效率分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:4730b3c9b10db1d4117617f0fee915bef4263a7de71afbdd9adcbaf998c137a6",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "平均边际效率分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-09",
+      "name": "平均边际效率分离-extreme",
+      "mode": "extreme",
+      "object_ref": "D09-平均边际效率分离@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-f22ce0285a98",
+        "E-LINEAGE-7164f4b055fc"
+      ],
+      "counterevidence": [
+        "E-COUNTER-09dfb808ce8a"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "平均边际效率分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以平均边际效率分离为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且平均边际效率分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f22ce0285a987164f4b055fc09dfb808ce8ab19d9c290739a7e15e71ca2f7a6e",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "平均边际效率分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-10",
+      "name": "平均边际效率分离-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D09-平均边际效率分离@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-5c00c084bc04",
+        "E-LINEAGE-a628989c1149"
+      ],
+      "counterevidence": [
+        "E-COUNTER-d9369c9448c6"
+      ],
+      "expected_status": "test",
+      "must": [
+        "平均边际效率分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以平均边际效率分离为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且平均边际效率分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:5c00c084bc04a628989c1149d9369c9448c62b5658a61c3e26dc76cd7eb3c27e",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "平均边际效率分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-11",
+      "name": "平均边际效率分离-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D09-平均边际效率分离@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-df3d6785bb7b",
+        "E-LINEAGE-e1e520478525"
+      ],
+      "counterevidence": [
+        "E-COUNTER-7e7149c26a11"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "平均边际效率分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以平均边际效率分离为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且平均边际效率分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:df3d6785bb7be1e5204785257e7149c26a111f55ec8b8f95b3d2ce9f46860ce3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "平均边际效率分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-12",
+      "name": "平均边际效率分离-recovery",
+      "mode": "recovery",
+      "object_ref": "D09-平均边际效率分离@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-dd3e79b46e7e",
+        "E-LINEAGE-75ccf205efb8"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f7cb595c5eaa"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "平均边际效率分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以平均边际效率分离为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且平均边际效率分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:dd3e79b46e7e75ccf205efb8f7cb595c5eaa79b0078ebadcd6000ce90b3c78bb",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "平均边际效率分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-13",
+      "name": "归因增量分离-standard",
+      "mode": "standard",
+      "object_ref": "D09-归因增量分离@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-89e5fd7f6886",
+        "E-LINEAGE-3795669d1619"
+      ],
+      "counterevidence": [
+        "E-COUNTER-1906da95eb7b"
+      ],
+      "expected_status": "hold",
+      "must": [
+        "归因增量分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以归因增量分离为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为hold。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且归因增量分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:89e5fd7f68863795669d16191906da95eb7b5f0c61371cd60dfa8137646edf65",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "归因增量分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-14",
+      "name": "归因增量分离-conflict",
+      "mode": "conflict",
+      "object_ref": "D09-归因增量分离@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-5098b33837b9",
+        "E-LINEAGE-587894e5f9ef"
+      ],
+      "counterevidence": [
+        "E-COUNTER-d3cf354930d3"
+      ],
+      "expected_status": "reduce",
+      "must": [
+        "归因增量分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以归因增量分离为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为reduce。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且归因增量分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:5098b33837b9587894e5f9efd3cf354930d388acacd9725722c874ac45ae6aa1",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "归因增量分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-15",
+      "name": "归因增量分离-extreme",
+      "mode": "extreme",
+      "object_ref": "D09-归因增量分离@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-4f627165e59c",
+        "E-LINEAGE-6bf11372ad54"
+      ],
+      "counterevidence": [
+        "E-COUNTER-e8499938a059"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "归因增量分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以归因增量分离为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且归因增量分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:4f627165e59c6bf11372ad54e8499938a0590f0b03d24bd00eddb154e8dccf14",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "归因增量分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-16",
+      "name": "归因增量分离-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D09-归因增量分离@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-19433c7847ef",
+        "E-LINEAGE-b906b6fdbaa7"
+      ],
+      "counterevidence": [
+        "E-COUNTER-cca79e24de73"
+      ],
+      "expected_status": "test",
+      "must": [
+        "归因增量分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以归因增量分离为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且归因增量分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:19433c7847efb906b6fdbaa7cca79e24de73e80b089339b205099d09713b27db",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "归因增量分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-17",
+      "name": "归因增量分离-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D09-归因增量分离@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-7bd79410918a",
+        "E-LINEAGE-739461e4b523"
+      ],
+      "counterevidence": [
+        "E-COUNTER-97712c51094c"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "归因增量分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以归因增量分离为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且归因增量分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:7bd79410918a739461e4b52397712c51094cef794cd457e78e74e83216609cd7",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "归因增量分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "AAMO-RW-18",
+      "name": "归因增量分离-recovery",
+      "mode": "recovery",
+      "object_ref": "D09-归因增量分离@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-11344296fe91",
+        "E-LINEAGE-fff062bae736"
+      ],
+      "counterevidence": [
+        "E-COUNTER-2ba72c939f94"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "归因增量分离",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以归因增量分离为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且归因增量分离守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:11344296fe91fff062bae7362ba72c939f9421153d3d84314868ead6a5c6de28",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "归因增量分离:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
     }
-  ]
+  ],
+  "catalog": "D09-EVAL",
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 24,
+    "mechanisms": [
+      "三本账一致性",
+      "平均边际效率分离",
+      "归因增量分离",
+      "放量库存利润红线"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

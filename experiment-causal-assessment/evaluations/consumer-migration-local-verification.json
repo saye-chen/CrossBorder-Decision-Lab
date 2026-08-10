@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "verification_id": "ECAE-WP11-LOCAL-2026-08-10",
+  "run_class": "fixture_non_production",
+  "status": "verified",
+  "consumer_owner_identity": "Miles Chen",
+  "consumer_owners_assigned": 13,
+  "scope": "contract evaluator difference classifier acceptance validator rollback and recompute behavior",
+  "case_families": [
+    "qualified_handoff_requires_scope_bound_consumer_acceptance",
+    "grade_below_minimum_degrades_to_descriptive",
+    "expiry_and_active_trigger_request_recompute",
+    "scope_mismatch_rejects",
+    "required_payload_never_zero_fills",
+    "legacy_grade_semantics_never_auto_upgrade",
+    "blocking_difference_prevents_acceptance",
+    "producer_self_acceptance_rejects",
+    "rollback_is_idempotent_noncausal_and_no_external_write"
+  ],
+  "consumers": [
+    {"domain_id": "D01", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D02", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D03", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D04", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D05", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D06", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D07", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass", "consumer_side_adapter": "controlled_pilot_owner_accepted"},
+    {"domain_id": "D08", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D09", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D10", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass", "consumer_side_adapter": "controlled_pilot_owner_accepted"},
+    {"domain_id": "D11", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D12", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"},
+    {"domain_id": "D13", "local_dual_run": "pass", "difference_disposition": "pass", "rollback_drill": "pass"}
+  ],
+  "consumer_preflight_summary_ref": "experiment-causal-assessment/evaluations/consumer-production-preflight-summary.json",
+  "consumer_preflight_domains_passed": 13,
+  "consumer_preflight_cases_passed": 91,
+  "consumer_preflight_blocking_cases": 0,
+  "consumer_preflight_rollback_drills_passed": 13,
+  "production_dual_run_evidence": null,
+  "controlled_pilot_acceptance_evidence": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance",
+  "production_consumer_acceptance_evidence": null,
+  "limitations": [
+    "fixtures prove deterministic contract behavior but not production equivalence",
+    "Miles Chen authorized controlled-pilot acceptance; post-production-run acceptance or rejection remains L4",
+    "legacy readers remain active and no consumer action is authorized"
+  ],
+  "external_write": false
+}

@@ -149,3 +149,7 @@ description: 默认用中文执行跨境电商消费者洞察、客户增长、�
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/consumer-insights-customer-growth/adapter.json` 声明 CIG 主权；ERDG 失败时不得形成生效动作。
 
 专业评测使用 `evaluations/evaluation-catalog.json`、`evaluations/golden/decision-card.md` 与 `evaluations/golden/professional-report.md`；必须覆盖身份授权、退款成熟、触达疲劳、评价恢复、会员增量和授权撤回。
+
+## F01 因果证据消费者接入
+
+通过 `integrations/experiment-causal-assessment/adapter.json` 接收与本域用途、CE 门槛、payload、适用范围和有效期绑定的 F01 回执。待签、低等级、过期、范围不符、缺字段或哈希不一致时保持 `unknown`，不得把旧标签、归因或预测升级为因果/增量。F01 只提供合格证据；客户身份、客户状态、CRM 动作与服务补偿主权仍归 CIG，且 `external_write=false`。

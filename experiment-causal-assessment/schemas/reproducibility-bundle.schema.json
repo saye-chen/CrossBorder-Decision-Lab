@@ -1,0 +1,27 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/reproducibility-bundle.schema.json",
+  "title":"Reproducibility bundle",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["protocol_hash","population_hash","assignment_hash","dataset_hash","code_hash","environment_hash","parameter_hash","result_hash","randomness_contract","backend_proofs","run_manifest","deviation_refs","replay_level","replay_status","dependency_graph","invalidation_triggers"],
+  "properties":{
+    "protocol_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "population_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "assignment_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "dataset_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "code_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "environment_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "parameter_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "result_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "randomness_contract":{"type":"object","required":["generator","algorithm","seed_commitment","parallelism"],"properties":{"generator":{"type":"string","minLength":1},"algorithm":{"type":"string","minLength":1},"seed_commitment":{"type":"string","minLength":1},"parallelism":{"type":"string","minLength":1}},"additionalProperties":false},
+    "backend_proofs":{"type":"array","items":{"type":"object","required":["backend_id","version","parity_evidence_ref","verified_at"],"properties":{"backend_id":{"type":"string","minLength":1},"version":{"type":"string","minLength":1},"parity_evidence_ref":{"type":"string","minLength":1},"verified_at":{"type":"string","format":"date-time"}},"additionalProperties":false}},
+    "run_manifest":{"type":"object","required":["command","started_at","completed_at","exit_status","log_ref"],"properties":{"command":{"type":"array","minItems":1,"items":{"type":"string"}},"started_at":{"type":"string","format":"date-time"},"completed_at":{"type":"string","format":"date-time"},"exit_status":{"type":"integer"},"log_ref":{"type":"string","minLength":1}},"additionalProperties":false},
+    "deviation_refs":{"type":"array","items":{"type":"string","minLength":1}},
+    "replay_level":{"enum":["structural_replay","deterministic_replay","decision_replay"]},
+    "replay_status":{"enum":["not_run","pass","fail","difference_under_review"]},
+    "dependency_graph":{"type":"array","minItems":1,"items":{"type":"object","required":["from","to","relation"],"properties":{"from":{"type":"string","minLength":1},"to":{"type":"string","minLength":1},"relation":{"enum":["consumes","produces","invalidates","recomputes"]}},"additionalProperties":false}},
+    "invalidation_triggers":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}}
+  },
+  "unevaluatedProperties":false
+}

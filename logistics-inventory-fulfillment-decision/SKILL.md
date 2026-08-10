@@ -96,6 +96,8 @@ description: 默认用中文执行专家级跨境物流、库存与履约决策�
 
 缺失值不得填零；点估计不足时改用区间；销量受缺货截尾时不得直接当真实需求；平均交期不得替代尾部分位数。
 
+库存边际分配中的新增贡献只有在 `scripts/validate_ecae_inventory_handoff.py` 验证 D07 的 F01/ECAE 消费者回执为 `qualified` 后才能进入排序。缺失、过期、触发失效、未获消费者所有者签字或仅有旧 `incremental_contribution` 字段时，增量值必须保持 `unknown`，共享池分配为 `inconclusive`；不得按 0 继续排序。没有合格因果回执的情景分析只能显式使用 `noncausal_scenario`，不得使用增量或因果措辞。
+
 ## 场景路由与必读文件
 
 - 网络、运输、包装、多仓、尾程：读 [network-transport-packaging.md](references/network-transport-packaging.md)。
@@ -124,6 +126,7 @@ description: 默认用中文执行专家级跨境物流、库存与履约决策�
 - `scripts/network_routing.py`：候选路线过滤与风险调整比较；
 - `scripts/multi_warehouse_flow.py`：多仓—目的地容量约束流量分配与缺口；
 - `scripts/inventory_allocation.py`：多平台保护、共享池和边际分配；
+- `scripts/validate_ecae_inventory_handoff.py`：验证 F01/ECAE D07 回执、所有者接受、有效期、失效触发和增量排序资格；
 - `scripts/order_capacity.py`：ATP、CTP、供需缺口和仓内吞吐；
 - `scripts/warehouse_capacity.py`：收货至承运商提货的分阶段瓶颈与队列；
 - `scripts/reverse_exit.py`：退货净回收、继续持有和海外库存退出；

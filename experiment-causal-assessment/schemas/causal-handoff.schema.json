@@ -1,0 +1,29 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/causal-handoff.schema.json",
+  "title":"Causal evidence handoff",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["producer","consumer","causal_result_ref","estimand_ref","causal_evidence_grade","claim_ceiling","allowed_actions","prohibited_actions","allowed_wording","prohibited_wording","applicability","invalidation_triggers","recompute_triggers","expires_at","reproducibility_bundle_ref","review_status","business_owner_decision_required","external_write"],
+  "properties":{
+    "producer":{"const":"ECAE"},
+    "consumer":{"type":"string","pattern":"^(D(0[1-9]|1[0-4])|F02)$"},
+    "causal_result_ref":{"type":"string","minLength":1},
+    "estimand_ref":{"type":"string","minLength":1},
+    "causal_evidence_grade":{"enum":["CE0","CE1","CE2","CE3","CE4","CE5"]},
+    "claim_ceiling":{"type":"string","minLength":1},
+    "allowed_actions":{"type":"array","items":{"type":"string","minLength":1}},
+    "prohibited_actions":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "allowed_wording":{"type":"array","items":{"type":"string","minLength":1}},
+    "prohibited_wording":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "applicability":{"type":"object","required":["population","platforms","countries","time_window","treatment_version"],"properties":{"population":{"type":"string","minLength":1},"platforms":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},"countries":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},"time_window":{"type":"string","minLength":1},"treatment_version":{"type":"string","minLength":1}},"additionalProperties":false},
+    "invalidation_triggers":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "recompute_triggers":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "expires_at":{"type":"string","format":"date-time"},
+    "reproducibility_bundle_ref":{"type":"string","minLength":1},
+    "review_status":{"enum":["unreviewed","internal_reviewed","independent_accepted","independent_conditional","independent_rejected"]},
+    "business_owner_decision_required":{"const":true},
+    "external_write":{"const":false}
+  },
+  "unevaluatedProperties":false
+}

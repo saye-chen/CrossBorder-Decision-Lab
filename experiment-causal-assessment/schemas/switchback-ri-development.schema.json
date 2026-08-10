@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/switchback-ri-development.schema.json",
+  "title": "Switchback exact randomization-inference development report",
+  "type": "object",
+  "required": ["schema_version", "report_id", "status", "qualification", "adapter_ref", "runtime", "fixed_vector", "mutations", "unsupported_claims", "release_effect"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "report_id": {"type": "string", "minLength": 1},
+    "status": {"const": "development_pass_external_verification_open"},
+    "qualification": {"const": "internal_ri2_to_hand_enumeration_parity_not_external_verification"},
+    "adapter_ref": {"const": "backends/adapters/switchback_ri2.R"},
+    "runtime": {
+      "type": "object",
+      "required": ["R", "ri2"],
+      "properties": {"R": {"type": "string"}, "ri2": {"const": "0.5.0"}},
+      "additionalProperties": false
+    },
+    "fixed_vector": {
+      "type": "object",
+      "required": ["allowed_sequences", "observed_sequence", "outcome", "observed_statistic", "permutation_count", "ri2_p_value", "hand_p_value", "absolute_difference", "status"],
+      "properties": {
+        "allowed_sequences": {"type": "array", "minItems": 2, "items": {"type": "array", "minItems": 4, "items": {"enum": [0, 1]}}},
+        "observed_sequence": {"type": "array", "minItems": 4, "items": {"enum": [0, 1]}},
+        "outcome": {"type": "array", "minItems": 4, "items": {"type": "number"}},
+        "observed_statistic": {"type": "number"},
+        "permutation_count": {"type": "integer", "minimum": 2},
+        "ri2_p_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "hand_p_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "absolute_difference": {"const": 0},
+        "status": {"const": "pass"}
+      },
+      "additionalProperties": false
+    },
+    "mutations": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["mutation", "expected_error", "observed_error", "status"],
+        "properties": {
+          "mutation": {"type": "string", "minLength": 1},
+          "expected_error": {"type": "string", "minLength": 1},
+          "observed_error": {"type": "string", "minLength": 1},
+          "status": {"const": "pass"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "unsupported_claims": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}},
+    "release_effect": {
+      "type": "object",
+      "required": ["registry_verified", "external_review_pending", "carryover_periodicity_sensitivity_pending", "average_effect_interval_supported"],
+      "properties": {
+        "registry_verified": {"const": false},
+        "external_review_pending": {"const": true},
+        "carryover_periodicity_sensitivity_pending": {"const": false},
+        "average_effect_interval_supported": {"const": false}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

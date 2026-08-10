@@ -1,0 +1,28 @@
+{
+  "adapter_hash": "fb4e1b24a6264c087171dec3c48414852eca6f21597c794bd5e462805a859481",
+  "automated_contract_accepted": true,
+  "checks": {
+    "attribution_non_equivalence": true,
+    "consumer_sovereignty_preserved": true,
+    "domain_binding": true,
+    "expiry_invalidation_recompute": true,
+    "explicit_noncausal_scenario": true,
+    "external_write_blocked": true,
+    "hash_tamper_detection": true,
+    "qualified_effect_only": true,
+    "schema_and_field_mapping": true,
+    "unknown_never_zero_fill": true
+  },
+  "consumer": "pricing-profit-finance-cashflow-decision",
+  "controlled_pilot_acceptance_scope": "non_production",
+  "controlled_pilot_owner_accepted": true,
+  "evidence_scope": "consumer_local_executable_contract_non_production",
+  "external_write": false,
+  "independent_owner_accepted": false,
+  "local_fixture_status": "verified",
+  "owner_acceptance_status": "conditionally_accepted_controlled_pilot",
+  "production_difference_dispositioned": false,
+  "production_dual_run_completed": false,
+  "production_ready": false,
+  "signed_owner_acceptance_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D06.json"
+}

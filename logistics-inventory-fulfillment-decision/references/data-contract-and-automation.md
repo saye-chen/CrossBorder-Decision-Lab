@@ -16,6 +16,12 @@ SKU/变体/批次、货权主体、国家、仓、库位、渠道、路线、承
 
 自动化候选默认 `proposed`。补货、调拨、承诺和处置结果必须带货权、批次、数量、最晚时间、能力版本、现金/成本、成功、停止、回滚和退出条件。
 
+## F01/ECAE 增量输入合同
+
+库存排序只读取由 `schemas/ecae_inventory_receipt.schema.json` 定义、并经 `scripts/validate_ecae_inventory_handoff.py` 校验的 D07 消费者回执。回执固定记录迁移/合同版本、handoff 哈希、CE 等级、claim ceiling、用途、有效决定、所有者签字引用、增量状态、排序资格和回执哈希。直接回放的回执必须再次对照当前权威迁移验证；旧签字、跨域回执、哈希篡改、过期或触发重算都失败关闭。
+
+`incremental_value_state=unknown` 时不得携带数值；`ranking_use_allowed=false` 时不得进入边际排序。预测、归因、旧 C0—C3 标签、裸 `incremental_contribution`、fixture 本地通过或生产双轨未完成，均不能自动升级为合格因果输入。接口不可用只污染增量排序：LIFD 仍可核对基础保护和数量守恒，但共享池动作保持 `inconclusive`，不产生外部写入。
+
 ## 外部写入
 
 下单、调拨、承运商订舱、改仓、取消、客户承诺、退供、清算和销毁必须获得明确授权并验证精确对象、前值、货权、审批、幂等键、回执和回滚/补救。批量动作先 dry-run；部分成功后按订单/批次对账，禁止整批重放。

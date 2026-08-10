@@ -1,0 +1,22 @@
+{
+  "causal_question":{"question_type":"causal","estimand_ref":"ECAE-ESTIMAND-DEMO-001","causal_graph_ref":"ECAE-DAG-DEMO-001","decision_to_change":"是否上线新版主图"},
+  "protocol":{
+    "design":"two_arm_randomized",
+    "capability_tier":"native_executable",
+    "eligibility_gates":[
+      {"gate_id":"Q1","status":"pass","rationale":"结果改变明确的上线决定","evidence_refs":["D08-DECISION-001"]},{"gate_id":"Q2","status":"pass","rationale":"处理和对照版本已冻结","evidence_refs":["D08-VARIANT-001"]},{"gate_id":"Q3","status":"pass","rationale":"实验符合平台与合规要求","evidence_refs":["D05-ELIGIBILITY-001"]},{"gate_id":"Q4","status":"pass","rationale":"合格会话可随机分配","evidence_refs":["ECAE-ASSIGNMENT-DESIGN-001"]},{"gate_id":"Q5","status":"pass","rationale":"会话间干扰在支持范围内可忽略","evidence_refs":["ECAE-INTERFERENCE-001"]},
+      {"gate_id":"Q6","status":"pass","rationale":"主要指标、护栏和成熟窗已冻结","evidence_refs":["ECAE-METRIC-CONVERSION-001"]},{"gate_id":"Q7","status":"pass","rationale":"样本计划达到冻结精度目标","evidence_refs":["ECAE-SAMPLE-001"]},{"gate_id":"Q8","status":"pass","rationale":"分配曝光结果可对账","evidence_refs":["ECAE-DATA-CONTRACT-001"]},{"gate_id":"Q9","status":"pass","rationale":"固定样本停止和单一主要家族已登记","evidence_refs":["ECAE-FAMILY-DEMO-001"]},{"gate_id":"Q10","status":"pass","rationale":"信息价值覆盖实验成本和风险","evidence_refs":["D06-VOI-001"]}
+    ],
+    "assignment":{"unit":"eligible_session","arms":["control","treatment"],"allocation":[0.5,0.5],"algorithm":"hash_bucket_v1"},
+    "metric_refs":["ECAE-METRIC-CONVERSION-001"],
+    "sample_plan":{"alpha":0.05,"power":0.8,"minimum_important_effect":0.005,"baseline_source":"D08-BASELINE-001","attrition_allowance":0.02},
+    "analysis_plan_ref":"ECAE-PLAN-DEMO-001",
+    "stopping_rule":"fixed horizon after maturity",
+    "sequential_paradigm":"fixed_horizon",
+    "hypothesis_family_refs":["ECAE-FAMILY-DEMO-001"],
+    "deviation_policy":"record, retain original analysis, and grade by impact",
+    "preregistration_time":"2026-08-10T01:00:00+08:00"
+  },
+  "analysis_plan":{"sequential_paradigm":"fixed_horizon","covariates":[{"name":"preperiod_conversion","temporal_status":"pre_treatment"}]},
+  "launch_time":"2026-08-11T01:00:00+08:00"
+}

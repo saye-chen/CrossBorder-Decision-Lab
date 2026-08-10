@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/deviation-record.schema.json",
+  "title":"Protocol deviation record",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["protocol_ref","deviation_type","occurred_at","discovered_at","discovered_before_outcome_review","reason","affected_objects","impact","causal_grade_cap","approved_by","remediation","rollback_target"],
+  "properties":{
+    "protocol_ref":{"type":"string","minLength":1},
+    "deviation_type":{"enum":["assignment_change","sample_change","metric_change","window_change","estimator_change","unregistered_stop","data_exclusion","bad_control","analysis_fork","maturity_failure","concurrent_intervention","leakage","selective_reporting","backend_change","other"]},
+    "occurred_at":{"type":"string","format":"date-time"},
+    "discovered_at":{"type":"string","format":"date-time"},
+    "discovered_before_outcome_review":{"type":"boolean"},
+    "reason":{"type":"string","minLength":1},
+    "affected_objects":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "impact":{"enum":["none","precision","estimand_change","bias_risk","identification_failure","unknown"]},
+    "causal_grade_cap":{"enum":["CE0","CE1","CE2","CE3","CE4","CE5"]},
+    "approved_by":{"type":"array","items":{"type":"string","minLength":1}},
+    "remediation":{"type":"string","minLength":1},
+    "rollback_target":{"$ref":"common-object.schema.json#/$defs/semanticValue"}
+  },
+  "unevaluatedProperties":false
+}

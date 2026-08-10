@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/backend-development-parity.schema.json",
+  "title": "Non-promotional scientific backend development parity report",
+  "type": "object",
+  "required": ["schema_version", "report_id", "status", "qualification", "source_script_ref", "runtimes", "qualification_check", "normalization", "tolerances", "vectors", "all_vectors_accepted", "release_effect"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "report_id": {"type": "string", "minLength": 1},
+    "status": {"const": "development_pass_external_verification_open"},
+    "qualification": {"const": "development_parity_not_independent_external_verification"},
+    "source_script_ref": {"type": "string", "pattern": "^scripts/[A-Za-z0-9_.-]+\\.R$"},
+    "runtimes": {
+      "type": "object",
+      "required": ["R", "gsDesign", "rpact"],
+      "properties": {"R": {"type": "string"}, "gsDesign": {"const": "3.10.1"}, "rpact": {"const": "4.4.0"}},
+      "additionalProperties": false
+    },
+    "qualification_check": {
+      "type": "object",
+      "required": ["scope", "status", "pass", "fail", "warn", "skip", "available_full_test_count", "full_qualification_requires_credentials"],
+      "properties": {
+        "scope": {"const": "rpact bundled demonstration subset"},
+        "status": {"const": "incomplete"},
+        "pass": {"const": 110},
+        "fail": {"const": 0},
+        "warn": {"const": 0},
+        "skip": {"const": 0},
+        "available_full_test_count": {"const": 39065},
+        "full_qualification_requires_credentials": {"const": true},
+        "resolved_prerequisite_failure": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "normalization": {"type": "object", "minProperties": 6},
+    "tolerances": {
+      "type": "object",
+      "required": ["maximum_absolute_boundary_difference", "maximum_absolute_cumulative_alpha_difference"],
+      "properties": {
+        "maximum_absolute_boundary_difference": {"type": "number", "exclusiveMinimum": 0},
+        "maximum_absolute_cumulative_alpha_difference": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "vectors": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["vector_id", "conventions", "gsDesign", "rpact", "maximum_absolute_boundary_difference", "maximum_absolute_cumulative_alpha_difference", "accepted"],
+        "properties": {
+          "vector_id": {"type": "string", "minLength": 1},
+          "conventions": {"type": "object", "required": ["sided", "total_alpha", "spending", "information_fractions"]},
+          "gsDesign": {"$ref": "#/$defs/engineOutput"},
+          "rpact": {"$ref": "#/$defs/engineOutput"},
+          "maximum_absolute_boundary_difference": {"type": "number", "minimum": 0},
+          "maximum_absolute_cumulative_alpha_difference": {"type": "number", "minimum": 0},
+          "accepted": {"const": true}
+        },
+        "additionalProperties": false
+      }
+    },
+    "all_vectors_accepted": {"const": true},
+    "release_effect": {
+      "type": "object",
+      "required": ["registry_verified", "external_review_pending", "operating_characteristic_simulation_pending"],
+      "properties": {
+        "registry_verified": {"const": false},
+        "external_review_pending": {"const": true},
+        "operating_characteristic_simulation_pending": {"const": true}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "engineOutput": {
+      "type": "object",
+      "required": ["boundaries", "cumulative_total_alpha_spent"],
+      "properties": {
+        "boundaries": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+        "cumulative_total_alpha_spent": {"type": "array", "minItems": 1, "items": {"type": "number"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

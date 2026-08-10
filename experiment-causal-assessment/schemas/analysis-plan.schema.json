@@ -1,0 +1,26 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/analysis-plan.schema.json",
+  "title":"Analysis plan",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["protocol_ref","primary_estimand_ref","estimator","capability_tier","analysis_population","covariates","missingness","outliers","inference","sequential_paradigm","multiplicity","sensitivity_analyses","heterogeneity_plan","locked_at"],
+  "properties":{
+    "protocol_ref":{"type":"string","minLength":1},
+    "primary_estimand_ref":{"type":"string","minLength":1},
+    "estimator":{"type":"string","minLength":1},
+    "capability_tier":{"enum":["native_executable","verified_backend","protocol_only","research_only"]},
+    "backend_ref":{"type":"string","minLength":1},
+    "analysis_population":{"enum":["intention_to_treat","per_protocol","as_treated","complier","eligible_population","target_population"]},
+    "covariates":{"type":"array","items":{"type":"object","required":["name","temporal_status","purpose"],"properties":{"name":{"type":"string","minLength":1},"temporal_status":{"enum":["pre_treatment","post_treatment","time_varying","unknown"]},"purpose":{"enum":["precision","identification","heterogeneity","diagnostic"]}},"additionalProperties":false}},
+    "missingness":{"type":"object","required":["primary_strategy","sensitivity"],"properties":{"primary_strategy":{"type":"string","minLength":1},"sensitivity":{"type":"array","items":{"type":"string","minLength":1}}},"additionalProperties":false},
+    "outliers":{"type":"object","required":["rule","registered_before_outcomes"],"properties":{"rule":{"type":"string","minLength":1},"registered_before_outcomes":{"type":"boolean"}},"additionalProperties":false},
+    "inference":{"type":"object","required":["interval_level","standard_error","finite_sample_correction"],"properties":{"interval_level":{"type":"number","exclusiveMinimum":0,"exclusiveMaximum":1},"standard_error":{"type":"string","minLength":1},"finite_sample_correction":{"type":"string","minLength":1}},"additionalProperties":false},
+    "sequential_paradigm":{"enum":["fixed_horizon","group_sequential","anytime_valid"]},
+    "multiplicity":{"type":"object","required":["family_refs","method"],"properties":{"family_refs":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},"method":{"enum":["holm","bonferroni","benjamini_hochberg","dunnett_backend","none_single_primary"]}},"additionalProperties":false},
+    "sensitivity_analyses":{"type":"array","items":{"type":"string","minLength":1}},
+    "heterogeneity_plan":{"type":"object","required":["mode","honest_evaluation"],"properties":{"mode":{"enum":["none","confirmatory_gate","exploratory_cate","policy_learning"]},"honest_evaluation":{"type":"boolean"},"subgroup_refs":{"type":"array","items":{"type":"string","minLength":1}}},"additionalProperties":false},
+    "locked_at":{"type":"string","format":"date-time"}
+  },
+  "unevaluatedProperties":false
+}

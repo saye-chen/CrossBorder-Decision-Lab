@@ -1,0 +1,50 @@
+{
+  "adapter_version": "CAPM-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "creator-affiliate-partnership-management",
+  "domain_id": "D10",
+  "runtime": "CAPM-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "handoff_schema": "experiment-causal-assessment/schemas/causal-handoff.schema.json",
+  "receipt_schema": "creator-affiliate-partnership-management/schemas/ecae_consumer_receipt.schema.json",
+  "consumer_validator": "creator-affiliate-partnership-management/scripts/validate_ecae_handoff.py",
+  "required_handoff_fields": [
+    "consumer", "causal_result_ref", "estimand_ref", "causal_evidence_grade", "claim_ceiling",
+    "allowed_actions", "prohibited_actions", "allowed_wording", "prohibited_wording", "applicability",
+    "invalidation_triggers", "recompute_triggers", "expires_at", "reproducibility_bundle_ref",
+    "review_status", "business_owner_decision_required", "external_write"
+  ],
+  "field_mapping": {
+    "causal_result_ref": "capm.partnership_evidence.f01_result_ref",
+    "causal_evidence_grade": "capm.partnership_evidence.ce_grade",
+    "claim_ceiling": "capm.partnership_evidence.claim_ceiling",
+    "applicability": "capm.partnership_evidence.applicability",
+    "expires_at": "capm.partnership_evidence.expires_at",
+    "reproducibility_bundle_ref": "capm.partnership_evidence.replay_ref"
+  },
+  "mapping_classification": {
+    "causal_result_ref": "direct",
+    "causal_evidence_grade": "direct",
+    "claim_ceiling": "narrow_only",
+    "applicability": "lossless",
+    "expires_at": "lossless",
+    "reproducibility_bundle_ref": "direct"
+  },
+  "allowed_uses": ["incremental_partnership_support", "high_stakes_partnership_support"],
+  "minimum_grade_by_use": {
+    "incremental_partnership_support": "CE4",
+    "high_stakes_partnership_support": "CE5"
+  },
+  "legacy_labels_retained_for_archive_only": ["C0", "C1", "C2", "C3"],
+  "prohibited_legacy_mappings": ["C2_to_CE4", "C3_to_CE5", "incremental_eligible_to_incremental"],
+  "retained_sovereignty": ["creator selection", "commercial terms", "contract", "renew exit"],
+  "forbidden_writeback": ["creator selection", "commercial terms", "contract", "renew exit", "payment", "sample shipment"],
+  "blocked_until_owner_acceptance": ["incremental claim", "pay", "sign", "ship sample", "renew", "scale"],
+  "reaccept_triggers": ["contract version change", "claim change", "scope change", "expiry", "invalidation trigger", "recompute trigger"],
+  "legacy_reader_active": true,
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}

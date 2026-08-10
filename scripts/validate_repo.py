@@ -26,7 +26,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 VERSION_RE = re.compile(r"^运行时版本：`([A-Z][A-Z0-9-]*-\d{4}\.\d{2})`。$", re.MULTILINE)
 LINK_RE = re.compile(r"\[[^]]+\]\(([^)]+)\)")
-NON_DOMAIN_UTILITY_SKILLS = {"article-draft-publisher", "authored-voice"}
+# Shared foundations are governed by their own registry and release gate; they
+# must not be mistaken for D01-D14 business domains or forced through ERDG
+# business-decision adapters.
+NON_DOMAIN_UTILITY_SKILLS = {"article-draft-publisher", "authored-voice", "experiment-causal-assessment"}
 
 
 def validate_skill(skill_dir: Path) -> list[str]:
@@ -187,10 +190,10 @@ def validate_no_artifacts() -> list[str]:
     """Check no __pycache__, .pyc, or other artifacts remain."""
     errors: list[str] = []
     for pycache in ROOT.rglob("__pycache__"):
-        if ".git" not in pycache.parts:
+        if ".git" not in pycache.parts and ".venv" not in pycache.parts:
             errors.append(f"artifact: {pycache.relative_to(ROOT)} directory exists")
     for pyc in ROOT.rglob("*.pyc"):
-        if ".git" not in pyc.parts:
+        if ".git" not in pyc.parts and ".venv" not in pyc.parts:
             errors.append(f"artifact: {pyc.relative_to(ROOT)} exists")
     return errors
 

@@ -2,6 +2,7 @@
 """Reconcile mutually exclusive affiliate-order buckets and causal labels."""
 import argparse
 from capm_common import emit, load_json, require_number, sha256_json
+from validate_ecae_handoff import qualified_receipt_from
 
 
 BUCKETS = ("duplicate", "confirmed_fraud", "mature_refund_chargeback", "mature_valid", "pending")
@@ -15,9 +16,13 @@ def reconcile(data: dict) -> dict:
     total = sum(buckets.values())
     if total != raw:
         raise ValueError(f"order conservation failed: raw={raw}, buckets={total}")
-    causal = data.get("causal_evidence_level", "C0")
+    legacy_causal = data.get("causal_evidence_level", "C0")
+    receipt = qualified_receipt_from(data)
+    incremental_qualified = bool(receipt and receipt["incremental_claim_allowed"])
     return {"status": "validated", "raw_attributed": raw, **buckets, "conservation": True,
-            "causal_status": "incremental_eligible" if causal in {"C2", "C3"} else "inconclusive",
+            "causal_status": "f01_incremental_eligible" if incremental_qualified else ("legacy_c_label_non_equivalent" if legacy_causal in {"C2", "C3"} else "inconclusive"),
+            "incremental_claim_allowed": incremental_qualified,
+            "ecae_consumer_receipt": receipt,
             "mature_valid_label": "mature_valid_attributed_orders", "input_hash": sha256_json(data)}
 
 
@@ -32,7 +37,7 @@ def reconcile_touchpoints(data: dict) -> dict:
         if key in seen: duplicated.append({"order_id":key[0], "partner_id":key[1], "touch_type":key[2]})
         seen.add(key)
     result.update({"touchpoint_duplicates": duplicated, "touchpoint_status":"blocked" if duplicated else "validated",
-                   "incremental_orders": None if result["causal_status"] == "inconclusive" else data.get("incremental_orders")})
+                   "incremental_orders": data.get("incremental_orders") if result["incremental_claim_allowed"] else None})
     return result
 
 

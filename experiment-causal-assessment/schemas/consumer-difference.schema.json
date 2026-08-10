@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/consumer-difference.schema.json",
+  "title": "Legacy versus ECAE consumer difference record",
+  "type": "object",
+  "required": ["schema_version", "difference_id", "domain_id", "fixture_id", "run_class", "difference_class", "differences", "blocking_reasons", "requires_consumer_disposition", "eligible_for_acceptance", "legacy_hash", "f01_hash", "external_write"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "difference_id": {"type": "string", "pattern": "^ECAE-DIFF-D(0[1-9]|1[0-3])-[A-Z0-9._:-]+$"},
+    "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+    "fixture_id": {"type": "string", "minLength": 1},
+    "run_class": {"enum": ["fixture_non_production", "production_dual_run"]},
+    "difference_class": {"enum": ["equivalent", "expected_restriction", "blocking_semantic", "blocking_scope", "blocking_numeric", "multiple_blocking"]},
+    "differences": {"type": "array", "items": {"type": "object", "required": ["dimension", "legacy", "f01", "blocking", "reason"], "properties": {"dimension": {"enum": ["claim", "grade", "scope", "numeric", "action"]}, "legacy": {}, "f01": {}, "blocking": {"type": "boolean"}, "reason": {"type": "string", "minLength": 1}}, "additionalProperties": false}},
+    "blocking_reasons": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "requires_consumer_disposition": {"type": "boolean"},
+    "eligible_for_acceptance": {"type": "boolean"},
+    "legacy_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "f01_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "external_write": {"const": false}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "ECAE-PRIMARY-METHOD-SOURCES-2026-08-10",
+  "scope": "Public primary papers and official package documentation used for controlled-pilot conformance review; sources do not substitute for L4 real-data replay.",
+  "source_policy": {
+    "allowed": ["peer_reviewed_primary_paper", "author_official_implementation", "official_package_documentation", "official_regulator_guidance"],
+    "forbidden_as_sole_support": ["marketing_page", "secondary_blog", "unsourced_tutorial", "search_result_snippet"],
+    "retrieved_at": "2026-08-10T00:00:00+08:00",
+    "production_claim": false
+  },
+  "sources": [
+    {
+      "source_id": "SRC-STATSMODELS-STATS",
+      "title": "Statsmodels statistics and power reference",
+      "source_type": "official_package_documentation",
+      "url": "https://www.statsmodels.org/stable/stats.html",
+      "method_ids": ["sample_size_fixed", "mde_precision_fixed", "randomized_itt", "srm_chi_square", "multiplicity_holm_bonferroni_bh"],
+      "use": "Independent numerical oracle for frozen native-method vectors."
+    },
+    {
+      "source_id": "SRC-CUPED-PAPER",
+      "title": "Improving the Sensitivity of Online Controlled Experiments by Utilizing Pre-Experiment Data",
+      "source_type": "peer_reviewed_primary_paper",
+      "url": "https://ai.stanford.edu/~ronnyk/2013-02CUPEDImprovingSensitivityOfControlledExperiments.pdf",
+      "method_ids": ["cuped_linear"],
+      "use": "Primary method definition and pretreatment-covariate boundary."
+    },
+    {
+      "source_id": "SRC-FDA-ADAPTIVE",
+      "title": "Adaptive Designs for Clinical Trials of Drugs and Biologics Guidance",
+      "source_type": "official_regulator_guidance",
+      "url": "https://www.fda.gov/media/78495/download",
+      "method_ids": ["guardrail_rules", "group_sequential_contract"],
+      "use": "Prospective decision-rule, interim-analysis, error-control and safety-boundary governance."
+    },
+    {
+      "source_id": "SRC-DID-OFFICIAL",
+      "title": "Difference-in-Differences with Multiple Time Periods official implementation and documentation",
+      "source_type": "author_official_implementation",
+      "url": "https://bcallaway11.github.io/did/",
+      "method_ids": ["did_2x2_independent_cells", "staggered_group_time_att_contract"],
+      "use": "ATT identification, group-time estimands and staggered-adoption restrictions."
+    },
+    {
+      "source_id": "SRC-GSDESIGN-CRAN",
+      "title": "gsDesign official CRAN package",
+      "source_type": "official_package_documentation",
+      "url": "https://cran.r-project.org/web/packages/gsDesign/index.html",
+      "method_ids": ["group_sequential_contract"],
+      "use": "Locked group-sequential candidate and official API surface."
+    },
+    {
+      "source_id": "SRC-CONFSEQ-OFFICIAL",
+      "title": "confseq official implementation",
+      "source_type": "author_official_implementation",
+      "url": "https://github.com/gostevehoward/confseq",
+      "method_ids": ["anytime_valid_contract"],
+      "use": "Candidate status review supporting explicit rejection rather than silent substitution."
+    },
+    {
+      "source_id": "SRC-CLUBSANDWICH-CRAN",
+      "title": "clubSandwich official CRAN package",
+      "source_type": "official_package_documentation",
+      "url": "https://cran.r-project.org/web/packages/clubSandwich/index.html",
+      "method_ids": ["cluster_inference_contract"],
+      "use": "CR2 and small-sample correction candidate surface."
+    },
+    {
+      "source_id": "SRC-RI2-CRAN",
+      "title": "RI2 official CRAN package",
+      "source_type": "official_package_documentation",
+      "url": "https://cran.r-project.org/package=RI2",
+      "method_ids": ["switchback_inference_contract"],
+      "use": "Randomization-inference candidate surface."
+    },
+    {
+      "source_id": "SRC-SYNTH-CRAN",
+      "title": "Synth official CRAN package",
+      "source_type": "official_package_documentation",
+      "url": "https://cran.r-project.org/web/packages/Synth/index.html",
+      "method_ids": ["synthetic_control_contract"],
+      "use": "Synthetic-control estimator and diagnostic candidate surface."
+    },
+    {
+      "source_id": "SRC-SYNTHDID-OFFICIAL",
+      "title": "Synthetic Difference in Differences author implementation",
+      "source_type": "author_official_implementation",
+      "url": "https://github.com/synth-inference/synthdid",
+      "method_ids": ["synthetic_did_contract"],
+      "use": "SDID estimand, block-design boundary and beta-status evidence."
+    },
+    {
+      "source_id": "SRC-RDROBUST-OFFICIAL",
+      "title": "rdrobust official project documentation",
+      "source_type": "author_official_implementation",
+      "url": "https://rdpackages.github.io/rdrobust/",
+      "method_ids": ["rdd_local_contract"],
+      "use": "Local-polynomial RDD and robust bias-correction candidate surface."
+    },
+    {
+      "source_id": "SRC-IVMODELS-OFFICIAL",
+      "title": "ivmodels official documentation",
+      "source_type": "author_official_implementation",
+      "url": "https://ivmodels.readthedocs.io/en/latest/",
+      "method_ids": ["weak_iv_contract"],
+      "use": "Weak-instrument-robust confidence-set candidate surface."
+    },
+    {
+      "source_id": "SRC-AIPW-CRAN",
+      "title": "AIPW official CRAN package",
+      "source_type": "official_package_documentation",
+      "url": "https://cran.r-project.org/package=AIPW",
+      "method_ids": ["cross_fitted_aipw_contract"],
+      "use": "AIPW implementation candidate surface."
+    },
+    {
+      "source_id": "SRC-DOUBLEML-OFFICIAL",
+      "title": "DoubleML official user guide",
+      "source_type": "author_official_implementation",
+      "url": "https://docs.doubleml.org/stable/guide/guide.html",
+      "method_ids": ["orthogonal_dml_irm_contract"],
+      "use": "Orthogonal score and cross-fitting contract."
+    },
+    {
+      "source_id": "SRC-TMLE-CRAN",
+      "title": "tmle official CRAN package",
+      "source_type": "official_package_documentation",
+      "url": "https://cran.r-project.org/package=tmle",
+      "method_ids": ["tmle_contract_unbound"],
+      "use": "Reviewed candidate surface supporting an explicit unbound disposition."
+    },
+    {
+      "source_id": "SRC-ECONML-OFFICIAL",
+      "title": "EconML official documentation",
+      "source_type": "author_official_implementation",
+      "url": "https://econml.azurewebsites.net/",
+      "method_ids": ["honest_hte_uplift_policy_contract"],
+      "use": "Honest forest, DR testing and policy-evaluation candidate surface."
+    },
+    {
+      "source_id": "SRC-GRF-OFFICIAL",
+      "title": "Generalized Random Forests official reference",
+      "source_type": "author_official_implementation",
+      "url": "https://grf-labs.github.io/grf/REFERENCE.html",
+      "method_ids": ["honest_hte_uplift_policy_contract"],
+      "use": "Independent development oracle and honest evaluation restrictions."
+    },
+    {
+      "source_id": "SRC-SURROGATE-PRIMARY",
+      "title": "A statistical definition of surrogate endpoints",
+      "source_type": "peer_reviewed_primary_paper",
+      "url": "https://doi.org/10.1002/sim.4780080507",
+      "method_ids": ["long_term_surrogate_contract"],
+      "use": "Surrogate-validation limits and non-substitution boundary."
+    },
+    {
+      "source_id": "SRC-TRANSPORT-PRIMARY",
+      "title": "A general algorithm for deciding transportability of experimental results",
+      "source_type": "peer_reviewed_primary_paper",
+      "url": "https://doi.org/10.1016/j.jcss.2013.10.005",
+      "method_ids": ["transportability_contract"],
+      "use": "Transportability identification boundary."
+    }
+  ],
+  "external_write": false
+}

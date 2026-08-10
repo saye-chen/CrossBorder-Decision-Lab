@@ -26,14 +26,14 @@
 - `S3` 授权可复算后台、合同、物流、订单、结算；
 - `S4` 跨过退款、拒付、归因和结算成熟窗并多源守恒的经营结果。
 
-因果轴：
+历史因果标签轴（仅兼容旧对象，不是 F01 CE）：
 
 - `C0` 无反事实，只报 observed/attributed；
 - `C1` 弱对照，只报 estimated；
-- `C2` 合格准实验；
-- `C3` 合格随机实验。
+- `C2` 旧系统声称的准实验；
+- `C3` 旧系统声称的随机实验。
 
-S4 不自动等于 C2/C3。截图不因“获准提供”升级为平台真值。复制同一证据不增加独立证据数。无当前来源的报价、费率、互动率、Cookie窗和工具价格标记 `synthetic_fixture`，不得生效动作。
+旧 `C2/C3` 只保留设计历史，不能自动映射为 F01 `CE4/CE5`，也不能授权 incremental。增量资格必须由 `scripts/validate_ecae_handoff.py` 对实时 D10 handoff、CE、claim ceiling、applicability、expiry、invalidation/recompute、消费者负责人签收和必需 payload 全部校验后生成 receipt。S4 不自动等于 C2/C3 或 CE4/CE5。截图不因“获准提供”升级为平台真值。复制同一证据不增加独立证据数。无当前来源的报价、费率、互动率、Cookie窗和工具价格标记 `synthetic_fixture`，不得生效动作。
 
 ## 动作级门禁
 
@@ -45,7 +45,7 @@ S4 不自动等于 C2/C3。截图不因“获准提供”升级为平台真值�
 - G3 法律/平台失败：阻断受影响国家/平台的发布、投流或结算。
 - G4 经济失败：阻断新增现金承诺、提佣、放量和确定性续约。
 - G5 履约失败：阻断寄样、活动承诺和规模化。
-- G6 测量失败：阻断 incremental 宣称和因果放量，不必然阻断低风险触达。
+- G6 测量失败或缺少有效 F01 consumer receipt：阻断 incremental 宣称和因果放量，不必然阻断低风险触达。
 
 ## professional-depth-governance 专属决策内核
 

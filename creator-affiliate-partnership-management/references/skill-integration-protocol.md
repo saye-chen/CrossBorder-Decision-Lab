@@ -12,7 +12,7 @@
 
 ## 统一信封
 
-每条消息必须包含：`contract_id/contract_version/message_id/correlation_id/causation_id/supersedes_message_id`，真实 sender/receiver Skill 与运行时，对象 ID/类型/版本，平台/国家/币种/时区/`as_of_time`，`status`，S/C证据等级，claim/evidence/calculation IDs，允许/禁止用途，阻断动作，接收确认，input/output/schema SHA-256，有效期和重算触发。
+每条消息必须包含：`contract_id/contract_version/message_id/correlation_id/causation_id/supersedes_message_id`，真实 sender/receiver Skill 与运行时，对象 ID/类型/版本，平台/国家/币种/时区/`as_of_time`，`status`，S/C证据等级，claim/evidence/calculation IDs，允许/禁止用途，阻断动作，接收确认，input/output/schema SHA-256，有效期和重算触发。任何 `incremental` payload 还必须包含经权威迁移合同复核且哈希有效的 `ecae_consumer_receipt`；旧 C2/C3 不能替代 receipt。
 
 状态只允许 `proposed/validated/blocked/inconclusive/superseded`。缺证据不得 `validated`；接收方不可用不得 `accepted`；过期消息不得继续生效。
 

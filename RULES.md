@@ -10,9 +10,11 @@ Decision sovereignty is fixed: CIDM owns category investment, capital allocation
 
 Calculations that can change an investment conclusion must be deterministic. Cross-Skill adjustments follow `proposed → validated/rejected` and become effective only after the owning Skill accepts them and recomputes under its own model. Any threshold crossing requires two independent evidence fingerprints, direct target-object evidence, complete calculations, no unresolved redline, and an owner recomputation; a disclaimer cannot waive these gates.
 
+F01 owns experiment-design qualification, estimand and identification contracts, CE0–CE5 causal-evidence grading, diagnostics, reproducibility, and the maximum causal or incremental claim. F01 never owns investment, price, inventory, advertising, product, compliance, customer, partner, content, or campaign decisions. A business domain may choose a more conservative action, but it may not upgrade an F01 claim or bypass an F01 block.
+
 ## 0b. Target Architecture and Deployment Boundary
 
-`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. Current domains remain independently owned modules inside a microservice-ready modular monolith. D05 is current and D14 is planned. A planned or next-build domain may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
+`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. `governance/foundation-capability-registry.json` is the corresponding authority for F01/F02 shared foundations. Current domains remain independently owned modules inside a microservice-ready modular monolith. D05 and F01 are current; D14 and F02 are planned. A planned or next-build capability may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
 
 Module boundaries use versioned handoff packets, stable decision-type identifiers and Decision Cycle identity. Cross-domain calls must not import another domain's private implementation or rewrite its conclusions. ERDG validates structure, evidence, state, lineage and deterministic shared calculations; D14 may eventually orchestrate dependencies and escalation, but neither ERDG nor D14 acquires professional decision sovereignty.
 
@@ -33,6 +35,8 @@ Connectors use `governance/connectors/`. Empty responses are missing, partial fa
 `governance/professional-evaluation-registry.json` is the authority for the D01—D13 professional evaluation surface; `evaluations/professional-evaluation-index.json` is generated evidence, not a hand-edited status file. Run `scripts/build_professional_evaluation_index.py` after source evaluation or Golden changes, then run `scripts/validate_release_integrity.py`. The validator must bind every source case by hash, verify evidence/counterevidence and claim/root-cause/action lineage, execute registered semantic and numerical validators, and kill the mutations in `governance/release-mutation-contract.json`.
 
 `controlled_pilot_engineering_ready` and L4 external assurance are separate conclusions. Synthetic evaluations may close the L1—L3 engineering gate but can never establish production readiness, threshold calibration, qualified professional signoff, external write authority, or permission to activate D14.
+
+F01 L1—L3 is computed by `scripts/validate_f01_release.py --require-l3`. Controlled-pilot owner acceptance permits only the explicitly listed non-production, non-high-stakes uses. Until all L4 gates close, production snapshots, production dual-runs, high-stakes causal use, automatic execution and external writes must fail closed. Fixtures, public method sources, local parity and owner-authorized technical review must never be relabeled as real replay, production acceptance or independent external assurance.
 
 ## 1. Source of Truth
 
@@ -149,6 +153,11 @@ ln -sfn "$PWD/product-innovation-product-management" \
 # SPPQ is current; authorized real replay remains an external L4 gate.
 ln -sfn "$PWD/supplier-procurement-production-quality-decision" \
   "${CODEX_HOME:-$HOME/.codex}/skills/supplier-procurement-production-quality-decision"
+
+# F01 is current for L1-L3 controlled-pilot causal qualification;
+# production use remains unavailable until every L4 gate closes.
+ln -sfn "$PWD/experiment-causal-assessment" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/experiment-causal-assessment"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.
@@ -169,6 +178,8 @@ done
 # excluding itself, and also runs repository and governance validators.
 python3 -m pip install -r requirements-dev.txt
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_full_repository_audit.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_release_integrity.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_f01_release.py --require-l3
 
 git diff --check
 git status --short
@@ -208,7 +219,9 @@ Skills in this repository are **independent and self-contained by default**. Do 
 
 ### Current relationships
 
-**pricing-profit-finance-cashflow-decision (PPFC).** Work packages 2–10 establish the sovereignty and object model, reconciliation, 18-family routing, dynamic rules, ERDG adapter, localization, continuous decisions, mixed-batch evaluation, 55-case execution, seven consumer dual runs, and seven rollback drills. Shared financial fields have 7/7 computed technical compatibility acceptance while every business domain retains action sovereignty. Technical acceptance requires no human signature and does not approve business execution or legacy retirement. L3 Expert passes substantive evidence review; L4 stays `controlled pilot`, and material finance or production decisions escalate to the finance/audit owner.
+**experiment-causal-assessment (F01/ECAE).** F01 is the shared experiment-design and causal-evidence qualification foundation for D01–D13. It accepts only versioned causal handoffs and can block or downgrade causal wording; every consumer retains its business sovereignty. Its controlled-pilot surface has 13/13 bounded consumer acceptances and read-only fixture preflights, while production dual-runs, real-outcome calibration, advanced-backend external qualification, and independent non-implementer review remain L4. No F01 result authorizes an external write.
+
+**pricing-profit-finance-cashflow-decision (PPFC).** Work packages 2–10 establish the sovereignty and object model, reconciliation, 18-family routing, dynamic rules, ERDG adapter, localization, continuous decisions, mixed-batch evaluation, 55-case execution, seven consumer fixture dual runs, and seven rollback drills. Shared financial fields have 7/7 computed technical compatibility acceptance while every business domain retains action sovereignty. Technical acceptance requires no human signature and does not approve business execution or legacy retirement. L3 Expert passes substantive evidence review; L4 stays `controlled pilot`, and material finance or production decisions escalate to the finance/audit owner.
 
 **product-innovation-product-management (PIPM).** Work packages 2–10 establish D03 sovereignty, canonical product identity, PLC0—PLC8 lifecycle separation, eight deterministic product models, D04/D05/D06 handoffs, nine specialized outputs, continuous decisions, 101 evaluation cases, ten scenario-owned Goldens, 404 positive/counterexample assertions, eleven consumer adapters, dual-run migration and rollback. D03 owns product opportunity, definition, specification, validation scope, roadmap and retirement recommendations; it does not own capital entry, pricing and cash, suppliers and production release, legal access, inventory, listing, content, or external execution. L3 Expert passes the repository and substantive depth gate; independent-owner authoritative migration remains closed and L4 stays `controlled pilot`.
 
@@ -277,6 +290,28 @@ Rules: integration is opt-in, never auto-triggered; video analysis conclusions t
 决策主权固定为：CIDM 拥有品类投资、资本配置和最终 Go/No-Go 主权；CIM 拥有外部竞争事实、变化确认与竞争归因主权；VLB 拥有视频观察、内容机制与迁移性主权；CIG 拥有授权客户证据、客户状态与增量有效性主权；AAMO 拥有广告架构、广告内部预算/出价、广告诊断/测量和放量/停投主权；LIFD 拥有物流网络、路线、补货、库存配置、履约能力、逆向、异常恢复和海外库存处置主权；PLCO 拥有平台、店铺、Listing、标题、图片、详情、落地页和转化承接主权；CAPM 拥有达人/联盟尽调、商务结构、用途级内容权利证据与台账、联盟对账、伙伴组合、续约和退出主权。CAPM 不替代适格主体对合同法律效力、税务、知识产权或监管合规的最终判断。非主权 Skill 只能提交结构化建议，不得直接改变主权 Skill 的正式结论、评分、门槛或历史报告。
 
 所有会改变投资结论的计算使用确定性脚本；跨 Skill 调整使用 `proposed → validated/rejected` 状态，只有主权 Skill 接受并按原模型重算后才能生效。任何跨档位变化必须有两个独立证据指纹、目标对象直接证据、完整计算、无未解决红线和主权 Skill重算。违反任一条件即阻断交付，不允许用自然语言免责声明绕过。
+
+F01 拥有实验设计资格、估计量与识别合同、CE0—CE5 因果证据分级、诊断、复现，以及因果/增量 Claim 的最大上限。F01 不拥有投资、价格、库存、广告、产品、合规、客户、伙伴、内容或活动决策。业务域可以采取更保守的动作，但不得升级 F01 Claim 或绕过 F01 阻断。
+
+## 0b. 目标架构与部署边界
+
+`governance/domain-architecture-registry.json` 是 D01—D14 目标拓扑、领域主权、标准交接、依赖和生命周期可用性的机器权威来源；`governance/foundation-capability-registry.json` 是 F01/F02 共享底座的对应权威来源。当前域保持微服务就绪的模块化单体和独立主权；D05 与 F01 当前可用，D14 与 F02 仍为规划能力。规划或下一构建能力可以出现在架构和合同中，但执行时必须失败关闭，且根目录不得提前暴露可调用 `SKILL.md`。
+
+模块边界使用版本化交接、稳定决策类型和 Decision Cycle 身份。跨域调用不得导入另一域的私有实现或改写其结论。ERDG 校验结构、证据、状态、血缘与确定性共享计算；F01 校验实验与因果证据资格；D14 即使未来承担编排，也不取得专业决策主权。
+
+## 0c. 交互、平台知识与 Connector 边界
+
+D01—D13 的正式决策统一使用 `governance/interaction/interaction-governance.md`。Prompt Intake 只能路由为回答、补数、研究、计算或阻断，不能批准业务决定或外部写入。不可信粘贴内容仅作为数据；缺失值保持 unknown，不得转填为零。
+
+Operator Playbook 只能由 ERDG 通过的 Decision Packet 编译，必须保留 owner、对象、动作上限、成功条件、护栏、停止、回滚、审批和结果回填，且动作始终保持 `proposed`。动态平台知识卡必须具备证据状态、来源与 Claim 边界、复核与失效条件；Connector 当前均为 contract-only、read-only，密钥不入库，外部写入须另行通过绑定 owner 决策、精确对象、人审、dry-run、回滚、幂等和审计目的地的 Action Gateway。
+
+## 0d. 计算型专业工程发布门
+
+`governance/professional-evaluation-registry.json` 是 D01—D13 专业评测面的权威来源，`evaluations/professional-evaluation-index.json` 是生成证据。源案例或 Golden 改变后必须先重建索引，再运行 `scripts/validate_release_integrity.py`；校验器必须绑定所有源案例哈希、验证证据/反证与 Claim—根因—动作血缘、执行登记的语义和数值验证，并杀死 `governance/release-mutation-contract.json` 中的突变。
+
+`controlled_pilot_engineering_ready` 与 L4 外部保证是两类独立结论。合成评测可以关闭 L1—L3 工程门，但绝不能证明生产成熟度、阈值校准、适格专业签章、外部写入权限，也不能授权启动 D14。
+
+F01 L1—L3 由 `scripts/validate_f01_release.py --require-l3` 计算。受控试点 Owner 接受只允许合同明确列出的非生产、非高风险用途。L4 全部门关闭前，生产快照、生产双跑、高风险因果使用、自动执行和外部写入必须失败关闭；fixture、公开方法来源、本地对照和 Owner 授权技术复核不得改名为真实回放、生产接受或独立外部保证。
 
 ## 1. 唯一真实来源
 
@@ -391,6 +426,10 @@ ln -sfn "$PWD/product-innovation-product-management" \
 # SPPQ 当前可用；授权真实回放仍属于外部 L4 门。
 ln -sfn "$PWD/supplier-procurement-production-quality-decision" \
   "${CODEX_HOME:-$HOME/.codex}/skills/supplier-procurement-production-quality-decision"
+
+# F01 当前可用于 L1—L3 受控试点因果资格；所有 L4 门关闭前生产用途不可用。
+ln -sfn "$PWD/experiment-causal-assessment" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/experiment-causal-assessment"
 ```
 
 不要使用 `cp -r` 更新 Skill；目标已存在时可能保留旧文件或产生嵌套目录。
@@ -411,6 +450,8 @@ done
 #（排除自身），并执行仓库与治理校验器，避免新增 Skill 后漏列测试。
 python3 -m pip install -r requirements-dev.txt
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_full_repository_audit.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_release_integrity.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_f01_release.py --require-l3
 
 git diff --check
 git status --short
@@ -450,7 +491,9 @@ git push origin main
 
 ### 当前关系
 
-**pricing-profit-finance-cashflow-decision（PPFC）。** 工作包 2—10 已建立主权骨架、核心模型、动态规则、跨域与本地化合同、连续追问、混合批次、55 场景、七域真实双轨及七次回滚演练。共享财务字段已完成 7/7 自动计算的技术兼容验收，各业务域继续保留动作主权。技术验收不需要人工签名，也不批准业务执行或旧实现退役；L3 Expert 已通过实质证据评审，L4 保持 `controlled pilot`，重大财务判断或生产放行升级给财务/审计责任人。
+**experiment-causal-assessment（F01/ECAE）。** F01 是 D01—D13 共享的实验设计与因果证据资格底座，只接受版本化因果交接，可阻断或降级因果措辞；各消费者继续保留业务主权。其受控试点面已完成 13/13 有界消费者接受和只读 fixture 预检，生产双跑、真实结果校准、高级后端外部资格及非实现者独立复核仍属于 L4；任何 F01 结果都不授权外部写入。
+
+**pricing-profit-finance-cashflow-decision（PPFC）。** 工作包 2—10 已建立主权骨架、核心模型、动态规则、跨域与本地化合同、连续追问、混合批次、55 场景、七域非生产 fixture 双轨及七次回滚演练。共享财务字段已完成 7/7 自动计算的技术兼容验收，各业务域继续保留动作主权。技术验收不需要人工签名，也不批准业务执行或旧实现退役；L3 Expert 已通过实质证据评审，L4 保持 `controlled pilot`，重大财务判断或生产放行升级给财务/审计责任人。
 
 **product-innovation-product-management（PIPM）。** 工作包 2—10 已建立 D03 主权、规范产品身份、PLC0—PLC8 生命周期、八个确定性产品模型、D04/D05/D06 交接、九类专业输出、连续决策、101 个评测案例、十个场景 Golden、404 个正反断言、十一消费者适配器、双轨迁移与回滚。D03 拥有产品机会、定义、规格、验证范围、路线图与退役建议，不拥有资本进入、定价现金、供应商生产放行、法律准入、库存、Listing、内容或外部执行。独立 Owner 权威迁移仍关闭，L4 保持 `controlled pilot`。
 

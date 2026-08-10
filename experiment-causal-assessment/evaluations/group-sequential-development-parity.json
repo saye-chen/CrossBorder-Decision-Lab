@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-WP06-GROUP-SEQUENTIAL-DUAL-ENGINE-PARITY-2026-08-10",
+  "status": "development_pass_external_verification_open",
+  "qualification": "development_parity_not_independent_external_verification",
+  "source_script_ref": "scripts/probe_group_sequential_parity.R",
+  "runtimes": {"R": "4.6.1", "gsDesign": "3.10.1", "rpact": "4.4.0"},
+  "qualification_check": {
+    "scope": "rpact bundled demonstration subset",
+    "status": "incomplete",
+    "pass": 110,
+    "fail": 0,
+    "warn": 0,
+    "skip": 0,
+    "available_full_test_count": 39065,
+    "full_qualification_requires_credentials": true,
+    "resolved_prerequisite_failure": "Initial IQ launch did not run because testthat was absent; testthat 3.3.2 was installed only in the temporary library and the subset was rerun."
+  },
+  "normalization": {
+    "rpact_alpha_is_total_type_I_error": true,
+    "gsDesign_alpha_is_one_sided": true,
+    "two_sided_gsDesign_alpha_equals_total_alpha_divided_by_two": true,
+    "gsDesign_incremental_spending_is_cumulatively_summed": true,
+    "rpact_alpha_spent_is_already_cumulative": true,
+    "boundary_scale": "z_statistic",
+    "efficacy_only": true
+  },
+  "tolerances": {"maximum_absolute_boundary_difference": 0.000001, "maximum_absolute_cumulative_alpha_difference": 0.00000002},
+  "vectors": [
+    {
+      "vector_id": "obf_one_sided_three_unequal_looks",
+      "conventions": {"sided": 1, "total_alpha": 0.025, "spending": "obrien_fleming", "information_fractions": [0.33, 0.67, 1]},
+      "gsDesign": {"boundaries": [3.7306652931904942, 2.5038709022881944, 1.9937099188719578], "cumulative_total_alpha_spent": [0.0000954873997267569, 0.006175597249909792, 0.025000000000000133]},
+      "rpact": {"boundaries": [3.7306652931904942, 2.5038713589310646, 1.9937098547816277], "cumulative_total_alpha_spent": [0.0000954873997267569, 0.006175597216978912, 0.025]},
+      "maximum_absolute_boundary_difference": 0.00000045664287018354344,
+      "maximum_absolute_cumulative_alpha_difference": 0.00000000003293088024491908,
+      "accepted": true
+    },
+    {
+      "vector_id": "pocock_one_sided_three_unequal_looks",
+      "conventions": {"sided": 1, "total_alpha": 0.025, "spending": "pocock", "information_fractions": [0.33, 0.67, 1]},
+      "gsDesign": {"boundaries": [2.2825107891633825, 2.291231676592675, 2.297091893911415], "cumulative_total_alpha_spent": [0.011229600616637123, 0.019151213059519875, 0.025]},
+      "rpact": {"boundaries": [2.2825107891633825, 2.2912321761250496, 2.297092102468014], "cumulative_total_alpha_spent": [0.011229600616637136, 0.019151212949239937, 0.025]},
+      "maximum_absolute_boundary_difference": 0.0000004995323745760061,
+      "maximum_absolute_cumulative_alpha_difference": 0.00000000011027993795931224,
+      "accepted": true
+    },
+    {
+      "vector_id": "obf_two_sided_three_unequal_looks",
+      "conventions": {"sided": 2, "total_alpha": 0.05, "spending": "obrien_fleming", "information_fractions": [0.33, 0.67, 1]},
+      "gsDesign": {"boundaries": [3.7306652931904942, 2.5038709022881944, 1.9937099186595837], "cumulative_total_alpha_spent": [0.00019097479945351381, 0.012351194499819584, 0.050000000000000266]},
+      "rpact": {"boundaries": [3.7306652931904942, 2.5038713589310646, 1.9937098547816277], "cumulative_total_alpha_spent": [0.00019097479945351384, 0.012351194429657944, 0.04999999]},
+      "maximum_absolute_boundary_difference": 0.00000045664287018354344,
+      "maximum_absolute_cumulative_alpha_difference": 0.000000010000000265353304,
+      "accepted": true
+    },
+    {
+      "vector_id": "pocock_two_sided_five_equal_looks",
+      "conventions": {"sided": 2, "total_alpha": 0.05, "spending": "pocock", "information_fractions": [0.2, 0.4, 0.6, 0.8, 1]},
+      "gsDesign": {"boundaries": [2.437976688050011, 2.4268136883781875, 2.4101938198190975, 2.396645436205192, 2.3859846505775004], "cumulative_total_alpha_spent": [0.014769726456017382, 0.026156858180579275, 0.03542565334311575, 0.04324198625815952, 0.05]},
+      "rpact": {"boundaries": [2.437976688050011, 2.4268138632178307, 2.4101938381791115, 2.3966454043984413, 2.3859845623373985], "cumulative_total_alpha_spent": [0.014769726456017391, 0.026156858000577068, 0.03542565327324715, 0.043241986072572985, 0.05]},
+      "maximum_absolute_boundary_difference": 0.00000017483964320774703,
+      "maximum_absolute_cumulative_alpha_difference": 0.0000000001855865322530903,
+      "accepted": true
+    },
+    {
+      "vector_id": "hsd_one_sided_four_unequal_looks",
+      "conventions": {"sided": 1, "total_alpha": 0.025, "spending": "hwang_shih_decani", "information_fractions": [0.25, 0.5, 0.8, 1], "gamma": -4},
+      "gsDesign": {"boundaries": [3.1553730326596163, 2.8183471275929555, 2.34716054246536, 2.022028744222616], "cumulative_total_alpha_spent": [0.0008014650820021247, 0.0029800730505529396, 0.010976372403971597, 0.025]},
+      "rpact": {"boundaries": [3.1553730326596163, 2.8183471485972404, 2.347160540521145, 2.0220286920666695], "cumulative_total_alpha_spent": [0.000801465082002073, 0.002980073072939793, 0.010976372339781326, 0.025]},
+      "maximum_absolute_boundary_difference": 0.00000005215594667262735,
+      "maximum_absolute_cumulative_alpha_difference": 0.00000000006419027115400766,
+      "accepted": true
+    },
+    {
+      "vector_id": "user_spending_one_sided_four_unequal_looks",
+      "conventions": {"sided": 1, "total_alpha": 0.025, "spending": "user_supplied", "information_fractions": [0.2, 0.5, 0.75, 1], "user_cumulative_alpha_spending": [0.001, 0.006, 0.015, 0.025]},
+      "gsDesign": {"boundaries": [3.090232306167813, 2.5559856694829617, 2.2567992470765157, 2.1062985489975006], "cumulative_total_alpha_spent": [0.001, 0.006, 0.015, 0.025]},
+      "rpact": {"boundaries": [3.090232306167813, 2.555986024439335, 2.2567994818091393, 2.1062986329197884], "cumulative_total_alpha_spent": [0.0010000000000000009, 0.006000000057058474, 0.015000000136786928, 0.025]},
+      "maximum_absolute_boundary_difference": 0.0000003549563731830574,
+      "maximum_absolute_cumulative_alpha_difference": 0.00000000013678692900587208,
+      "accepted": true
+    }
+  ],
+  "all_vectors_accepted": true,
+  "release_effect": {"registry_verified": false, "external_review_pending": true, "operating_characteristic_simulation_pending": true}
+}

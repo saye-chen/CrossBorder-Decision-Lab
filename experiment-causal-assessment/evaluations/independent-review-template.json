@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.1.0",
+  "review_id": "ECAE-L4-INDEPENDENT-REVIEW-UNASSIGNED",
+  "status": "pending",
+  "review_scope": "L4 production evidence, advanced backend qualification and high-risk case-level claims",
+  "reviewer": {
+    "name": null,
+    "verifiable_qualifications": [],
+    "method_families": [],
+    "not_primary_implementer": null,
+    "conflicts_of_interest": null
+  },
+  "scope": {
+    "commit_hash": null,
+    "method_ids": [],
+    "schema_versions": [],
+    "evidence_registry_hash": null,
+    "production_replay_refs": []
+  },
+  "decisions": [],
+  "required_decision_values": ["accepted", "conditional", "rejected"],
+  "unresolved_objections": [],
+  "signed_at": null,
+  "l4_external_review_gate_closed": false
+}

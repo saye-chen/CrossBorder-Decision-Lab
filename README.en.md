@@ -1,6 +1,6 @@
 # CrossBorder Decision Lab
 
-[中文首页](README.md) · [Skill Directory](#skill-directory) · [ERDG Governance](#shared-decision-infrastructure) · [System Architecture](#system-architecture) · [How to Use](#how-to-use)
+[中文首页](README.md) · [Skill Directory](#skill-directory) · [F01 and ERDG](#shared-decision-infrastructure) · [System Architecture](#system-architecture) · [How to Use](#how-to-use)
 
 > Professional decision infrastructure for cross-border commerce—turning experience-dependent judgment into evidence-based, model-backed, actionable, and compounding decision assets.
 
@@ -8,7 +8,7 @@ Current release train: `2026.07`; target architecture: `CBDS-ARCH-2026.07`; shar
 
 CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, legal/tax/IP/market access, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into thirteen professional domains that can operate independently and collaborate under shared decision contracts.
 
-The system includes thirteen professional domains with complete core workflows whose expert-level repository gates through L1–L3 are complete, plus ERDG. D05/LTMA adds commercial market-access gates, action ceilings, claim-use boundaries, qualified professional-review routing, dynamic-rule controls, incident recovery, and temporary-contract migration. It does not issue legal, tax, FTO, certification, or laboratory opinions. Every domain remains L4 `controlled pilot`.
+The system includes thirteen professional domains with complete core workflows whose expert-level L1–L3 repository gates are complete, ERDG, and the current F01 experiment and causal-assessment foundation. D05/LTMA adds commercial market-access gates, action ceilings, claim-use boundaries, qualified professional-review routing, dynamic-rule controls, incident recovery, and temporary-contract migration. It does not issue legal, tax, FTO, certification, or laboratory opinions. System maturity remains `controlled_pilot`; L4 is open, so real production decisions, high-stakes use, and external writes are unavailable.
 
 CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room reimplements external research ideas as eight deterministic candidate-signal families with multi-source field quality, five composition playbooks, effective-supply/VOC analysis, proof-bound CIDM-to-PLCO handoff, partial-failure DAG execution, R0–R4 recovery, an independent oracle, and 13 source mutations. The layer expands candidate coverage only; it cannot directly change the seven-dimension score, capital posture, or cross-domain sovereignty. The authorized 20-case blind replay, 20-person non-implementer comprehension test, and forward calibration remain open, so this is not a production-maturity claim.
 
@@ -146,6 +146,11 @@ flowchart TB
     O -.quality, competition, rules, and customer feedback.-> D04
     O -.quality, competition, rules, and customer feedback.-> D05
     E["ERDG governance control plane<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"] -.governs.-> D14
+    F["F01 experiment and causal assessment<br/>Protocols · estimands · CE0–CE5 · diagnostics · reproducibility"] -.causal and incremental claim eligibility.-> D01
+    F -.causal and incremental claim eligibility.-> D06
+    F -.causal and incremental claim eligibility.-> D12
+    O -.authorized outcome replay and calibration.-> F
+    E -.contract and release governance.-> F
     E -.contract and redline validation.-> D01
     E -.contract and redline validation.-> D04
     E -.contract and redline validation.-> D12
@@ -154,7 +159,7 @@ flowchart TB
     class D14 planned
 ```
 
-Thirteen domains are currently runnable; D14 remains planned and is blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally. ERDG performs neutral governance and deterministic shared calculations without making domain business decisions.
+Thirteen domains and F01 are currently runnable; D14 remains planned and is blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. F01 governs experiment design, causal/incremental claim eligibility, and evidence grades but never makes the final business decision. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally. ERDG performs neutral governance and deterministic shared calculations without making domain business decisions.
 
 ### Continuous D01-D14 decision loop
 
@@ -234,9 +239,15 @@ Choose the primary Skill by the decision that must be made. Platform coverage, p
 
 Detailed platform coverage, models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
 
+Shared foundations do not own final business decisions:
+
+| Foundation | Runtime | Question answered | Entry |
+|---|---|---|---|
+| **F01 / ECAE** | `ECAE` · `controlled_pilot` | Is an experiment executable, is the estimand identifiable, what claim grade is allowed, and when must the result be downgraded or redesigned? | [Experiment and Causal Assessment](experiment-causal-assessment/SKILL.md) |
+
 ## Shared Decision Infrastructure
 
-The thirteen domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). ERDG is repository-owned neutral infrastructure for structural safety, deterministic shared calculations, and cross-domain contract validation; each Skill retains its professional models, thresholds, and final business decisions.
+The thirteen domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) and use [F01 Experiment and Causal Assessment](experiment-causal-assessment/SKILL.md) for experiment protocols, estimands, CE0–CE5 evidence grades, diagnostics, reproducibility, and causal claim ceilings. ERDG owns structural safety, deterministic shared calculations, and cross-domain contract validation; F01 owns causal-evidence eligibility; each Skill retains its models, thresholds, and final business decisions.
 
 Before domain reasoning, the [`Prompt Intake Guard`](governance/interaction/interaction-governance.md) routes a request to answer, ask, research, calculate, or block. Only ERDG-passed Decision Packets can compile into operator-facing Playbooks. Dynamic platform claims use [versioned knowledge cards](governance/platform-knowledge/platform-knowledge-contract.md) with evidence status, sources, review dates, and invalidation conditions. External evidence follows the [Connector contract](governance/connectors/connector-governance.md); all current manifests are read-only contracts and grant no external-write authority.
 
@@ -261,7 +272,7 @@ The current version provides thirteen professional decision Skills that have com
 - professional ownership, risk redlines, stopping, rollback, and exit governance;
 - repository-wide automated validation and release gates.
 
-The unified thirteen-domain engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current release snapshot binds 612 source cases across 13 domains, their Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 22 professional validation entrypoints and uses 12 anti-tamper mutations to prove that critical guards cannot be silently removed or widened. Run `python3 scripts/validate_release_integrity.py` to compute `controlled_pilot_engineering_ready`. L4 authorized replay, threshold/weight calibration, and independent review remain separate; an engineering pass is not production readiness and does not unfreeze planned D14.
+The unified thirteen-domain engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current release snapshot binds 790 source cases across 13 domains, their Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 29 professional validation entrypoints and uses 12 anti-tamper mutations. F01 has passed L1–L3, 163 tests, source binding for 23 methods, and 13/13 controlled-pilot consumer acceptances; its 91 read-only preflight cases make no production-evidence claim. Run `python3 scripts/validate_release_integrity.py` and `python3 scripts/validate_f01_release.py --require-l3` to recompute release status. L4 production dual-runs, real-outcome calibration, advanced-backend external qualification, and independent non-implementer review remain separate; an engineering pass is not production readiness, external-write authority, or permission to unfreeze D14.
 
 The system is not tied to a single foundation-model provider. Models can continue to improve while professional decision contracts, calculation tools, operating benchmarks, and historical assets remain continuous.
 
@@ -302,6 +313,8 @@ Operating actions and results update benchmarks, parameters, counterexamples, an
 | [`evaluations/`](evaluations/) | Single-Skill, cross-Skill, multi-turn, adversarial, and extreme scenarios |
 | [`governance/`](governance/) | Ownership, maturity, change-impact, and shared contracts |
 | [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG economics, risk, evidence, state, parameters, lineage, and cross-domain governance |
+| [`experiment-causal-assessment/`](experiment-causal-assessment/SKILL.md) | F01 experiment design, causal qualification, evidence grades, diagnostics, reproducibility, consumer acceptance, and reserved L4 gates |
+| [`governance/foundation-capability-registry.json`](governance/foundation-capability-registry.json) | F01/F02 identities, capabilities, consumers, sovereignty, and maturity |
 | [`governance/interaction/`](governance/interaction/interaction-governance.md) | Prompt Intake Guard and controlled Decision Packet-to-Operator Playbook compilation |
 | [`governance/platform-knowledge/`](governance/platform-knowledge/platform-knowledge-contract.md) | Versioned, expiring platform knowledge cards for PLCO, AAMO, and LIFD |
 | [`governance/connectors/`](governance/connectors/connector-governance.md) | Read-only SP-API, Seller Central, ads, and ERP evidence contracts plus Action Gateway |
@@ -315,6 +328,7 @@ Operating actions and results update benchmarks, parameters, counterexamples, an
 
 - Current platform rules, regulations, prices, and market facts are checked at execution time.
 - Platform attribution, correlation, prediction, and causal incrementality remain distinct.
+- Until L4 closes, real production decisions, high-stakes use, automated execution, and external writes must fail closed; synthetic or read-only preflight evidence cannot be relabeled as production evidence.
 - Financial conclusions separate facts, user inputs, benchmarks, and scenarios.
 - Legal, tax, intellectual-property, and regulatory matters retain qualified ownership.
 - The system does not support deceptive claims, fake engagement, infringement, review manipulation, or platform evasion.

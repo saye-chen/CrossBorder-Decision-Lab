@@ -236,6 +236,837 @@
         "value": "stale",
         "expected": "blocked"
       }
+    },
+    {
+      "id": "CIG-RW-01",
+      "name": "身份授权与撤回-standard",
+      "mode": "standard",
+      "object_ref": "D13-身份授权与撤回@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-93eefdc7e9ec",
+        "E-LINEAGE-b1e0057cd145"
+      ],
+      "counterevidence": [
+        "E-COUNTER-db226b366145"
+      ],
+      "expected_status": "no_contact",
+      "must": [
+        "身份授权与撤回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以身份授权与撤回为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为no_contact。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且身份授权与撤回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:93eefdc7e9ecb1e0057cd145db226b36614564816e051d4fd3268694c8bea8a3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "身份授权与撤回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-02",
+      "name": "身份授权与撤回-conflict",
+      "mode": "conflict",
+      "object_ref": "D13-身份授权与撤回@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-d7cf92fc9be3",
+        "E-LINEAGE-d03450824eaf"
+      ],
+      "counterevidence": [
+        "E-COUNTER-bb88f976150f"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "身份授权与撤回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以身份授权与撤回为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且身份授权与撤回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d7cf92fc9be3d03450824eafbb88f976150f9a489181721f21c7b898075859f3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "身份授权与撤回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-03",
+      "name": "身份授权与撤回-extreme",
+      "mode": "extreme",
+      "object_ref": "D13-身份授权与撤回@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-f39bd33e1973",
+        "E-LINEAGE-67d633a701a6"
+      ],
+      "counterevidence": [
+        "E-COUNTER-52cbbb1d54ac"
+      ],
+      "expected_status": "test",
+      "must": [
+        "身份授权与撤回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以身份授权与撤回为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且身份授权与撤回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f39bd33e197367d633a701a652cbbb1d54ac48b44ac9465f625270d64bf77383",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "身份授权与撤回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-04",
+      "name": "身份授权与撤回-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D13-身份授权与撤回@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-d2c093d689e7",
+        "E-LINEAGE-afabe28e87d9"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9931fe6c9ff0"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "身份授权与撤回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以身份授权与撤回为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且身份授权与撤回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d2c093d689e7afabe28e87d99931fe6c9ff050cf0162b453f165f08c0459caca",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "身份授权与撤回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-05",
+      "name": "身份授权与撤回-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D13-身份授权与撤回@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-1bfbc46fcbb4",
+        "E-LINEAGE-2ddc69ed74b1"
+      ],
+      "counterevidence": [
+        "E-COUNTER-dc216fda2f71"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "身份授权与撤回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以身份授权与撤回为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且身份授权与撤回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:1bfbc46fcbb42ddc69ed74b1dc216fda2f71fc3905c1763c066dd0a404f390fd",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "身份授权与撤回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-06",
+      "name": "身份授权与撤回-recovery",
+      "mode": "recovery",
+      "object_ref": "D13-身份授权与撤回@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-6ec9c35f66e6",
+        "E-LINEAGE-eb92005cdd18"
+      ],
+      "counterevidence": [
+        "E-COUNTER-a0d40ab6774a"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "身份授权与撤回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以身份授权与撤回为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且身份授权与撤回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:6ec9c35f66e6eb92005cdd18a0d40ab6774a75f7718b7dfc42986f9c2a5f2d79",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "身份授权与撤回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-07",
+      "name": "收入订单守恒-standard",
+      "mode": "standard",
+      "object_ref": "D13-收入订单守恒@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-c4cec7318fd2",
+        "E-LINEAGE-0ba44c8a6ede"
+      ],
+      "counterevidence": [
+        "E-COUNTER-0afc561ec3bf"
+      ],
+      "expected_status": "no_contact",
+      "must": [
+        "收入订单守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以收入订单守恒为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为no_contact。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且收入订单守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:c4cec7318fd20ba44c8a6ede0afc561ec3bf99ffab12fba01604a635efd270f5",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "收入订单守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-08",
+      "name": "收入订单守恒-conflict",
+      "mode": "conflict",
+      "object_ref": "D13-收入订单守恒@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-2c180ca0acd8",
+        "E-LINEAGE-a8c8fab9302e"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f325d591c0b1"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "收入订单守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以收入订单守恒为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且收入订单守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:2c180ca0acd8a8c8fab9302ef325d591c0b1801c86838fb5aac29ff39c0407bc",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "收入订单守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-09",
+      "name": "收入订单守恒-extreme",
+      "mode": "extreme",
+      "object_ref": "D13-收入订单守恒@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-ba0696040d41",
+        "E-LINEAGE-f5732094186a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-53d22d160aed"
+      ],
+      "expected_status": "test",
+      "must": [
+        "收入订单守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以收入订单守恒为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且收入订单守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:ba0696040d41f5732094186a53d22d160aed3f6a457e1189c80d41a0c0cdb58c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "收入订单守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-10",
+      "name": "收入订单守恒-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D13-收入订单守恒@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-72631a43f151",
+        "E-LINEAGE-9aea5d7a60b9"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9bfd54e3f0ad"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "收入订单守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以收入订单守恒为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且收入订单守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:72631a43f1519aea5d7a60b99bfd54e3f0adc73fe62013d206cc906c5346e1d6",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "收入订单守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-11",
+      "name": "收入订单守恒-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D13-收入订单守恒@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-c2ae52abcec5",
+        "E-LINEAGE-16f3d8429dbd"
+      ],
+      "counterevidence": [
+        "E-COUNTER-6c004be1db55"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "收入订单守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以收入订单守恒为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且收入订单守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:c2ae52abcec516f3d8429dbd6c004be1db558cb662c179bd65dab6b951cff3e3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "收入订单守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-12",
+      "name": "收入订单守恒-recovery",
+      "mode": "recovery",
+      "object_ref": "D13-收入订单守恒@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-24e65f2fdcd8",
+        "E-LINEAGE-62331a5cd909"
+      ],
+      "counterevidence": [
+        "E-COUNTER-ad90fbe01386"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "收入订单守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以收入订单守恒为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且收入订单守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:24e65f2fdcd862331a5cd909ad90fbe013867a2461ad8053af2adf69c6aac76b",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "收入订单守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-13",
+      "name": "Cohort_CLV成熟度-standard",
+      "mode": "standard",
+      "object_ref": "D13-Cohort_CLV成熟度@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-e7d7e42b97c6",
+        "E-LINEAGE-64b0dba911c1"
+      ],
+      "counterevidence": [
+        "E-COUNTER-15957dc0ccf6"
+      ],
+      "expected_status": "no_contact",
+      "must": [
+        "Cohort_CLV成熟度",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Cohort_CLV成熟度为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为no_contact。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Cohort_CLV成熟度守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e7d7e42b97c664b0dba911c115957dc0ccf6ebf0f6ee3706349bc8dc7f2b6427",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Cohort_CLV成熟度:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-14",
+      "name": "Cohort_CLV成熟度-conflict",
+      "mode": "conflict",
+      "object_ref": "D13-Cohort_CLV成熟度@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-3de2824b6250",
+        "E-LINEAGE-b409a95ae3c8"
+      ],
+      "counterevidence": [
+        "E-COUNTER-fe9e7133d9e8"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "Cohort_CLV成熟度",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Cohort_CLV成熟度为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Cohort_CLV成熟度守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3de2824b6250b409a95ae3c8fe9e7133d9e85722b6040f885a3b71a2fea6a0ed",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Cohort_CLV成熟度:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-15",
+      "name": "Cohort_CLV成熟度-extreme",
+      "mode": "extreme",
+      "object_ref": "D13-Cohort_CLV成熟度@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-3145877ac5c9",
+        "E-LINEAGE-8837044da708"
+      ],
+      "counterevidence": [
+        "E-COUNTER-bd2087766546"
+      ],
+      "expected_status": "test",
+      "must": [
+        "Cohort_CLV成熟度",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Cohort_CLV成熟度为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Cohort_CLV成熟度守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3145877ac5c98837044da708bd20877665469a7dae0cabdbcf5f565074162413",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Cohort_CLV成熟度:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-16",
+      "name": "Cohort_CLV成熟度-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D13-Cohort_CLV成熟度@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-a8f60fb2a885",
+        "E-LINEAGE-bc78f3b8dae5"
+      ],
+      "counterevidence": [
+        "E-COUNTER-33551f56da81"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "Cohort_CLV成熟度",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Cohort_CLV成熟度为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Cohort_CLV成熟度守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:a8f60fb2a885bc78f3b8dae533551f56da813812383846da0bba33f09b65b0ca",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Cohort_CLV成熟度:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-17",
+      "name": "Cohort_CLV成熟度-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D13-Cohort_CLV成熟度@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-8f8e4cb492a0",
+        "E-LINEAGE-d04b839b6f0c"
+      ],
+      "counterevidence": [
+        "E-COUNTER-097c3f84d8ef"
+      ],
+      "expected_status": "stop",
+      "must": [
+        "Cohort_CLV成熟度",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Cohort_CLV成熟度为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为stop。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Cohort_CLV成熟度守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8f8e4cb492a0d04b839b6f0c097c3f84d8efa04021ec9b49155754f438f9c308",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Cohort_CLV成熟度:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "CIG-RW-18",
+      "name": "Cohort_CLV成熟度-recovery",
+      "mode": "recovery",
+      "object_ref": "D13-Cohort_CLV成熟度@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-dc7c8f162197",
+        "E-LINEAGE-3348c69f0653"
+      ],
+      "counterevidence": [
+        "E-COUNTER-faba3622cc56"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "Cohort_CLV成熟度",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Cohort_CLV成熟度为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Cohort_CLV成熟度守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:dc7c8f1621973348c69f0653faba3622cc565427af953b6b7028816f7a29da2a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Cohort_CLV成熟度:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
     }
-  ]
+  ],
+  "catalog": "D13-EVAL",
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 24,
+    "mechanisms": [
+      "身份授权与撤回",
+      "收入订单守恒",
+      "Cohort_CLV成熟度",
+      "增量触达与疲劳"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

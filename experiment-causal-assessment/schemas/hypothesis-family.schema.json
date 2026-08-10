@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/hypothesis-family.schema.json",
+  "title":"Hypothesis family ledger",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["experiment_ref","family_role","family_key","alpha_budget","error_rate","adjustment_method","hypotheses","fork_policy","rerun_policy","window_policy"],
+  "properties":{
+    "experiment_ref":{"type":"string","minLength":1},
+    "family_role":{"enum":["primary","secondary","guardrail","exploratory"]},
+    "family_key":{"type":"string","minLength":1},
+    "alpha_budget":{"type":"number","exclusiveMinimum":0,"exclusiveMaximum":1},
+    "error_rate":{"enum":["FWER","FDR","none"]},
+    "adjustment_method":{"enum":["holm","bonferroni","benjamini_hochberg","dunnett_backend","none_single_primary"]},
+    "hypotheses":{"type":"array","minItems":1,"items":{"type":"object","required":["hypothesis_id","metric_ref","contrast","population","window","registered_at"],"properties":{"hypothesis_id":{"type":"string","minLength":1},"metric_ref":{"type":"string","minLength":1},"contrast":{"type":"string","minLength":1},"population":{"type":"string","minLength":1},"window":{"type":"string","minLength":1},"registered_at":{"type":"string","format":"date-time"}},"additionalProperties":false}},
+    "fork_policy":{"type":"string","minLength":1},
+    "rerun_policy":{"type":"string","minLength":1},
+    "window_policy":{"type":"string","minLength":1}
+  },
+  "unevaluatedProperties":false
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/common-object.schema.json",
+  "title": "ECAE common object contract",
+  "$defs": {
+    "nonEmptyString": {"type":"string","minLength":1},
+    "refArray": {"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "semanticState": {"type":"string","enum":["known","unknown","missing","not_applicable","not_observed","conflict"]},
+    "semanticValue": {
+      "type":"object",
+      "required":["state"],
+      "properties":{
+        "state":{"$ref":"#/$defs/semanticState"},
+        "value":{},
+        "reason":{"type":"string","minLength":1},
+        "source_refs":{"$ref":"#/$defs/refArray"}
+      },
+      "allOf":[
+        {"if":{"properties":{"state":{"const":"known"}}},"then":{"required":["value"],"properties":{"value":{"not":{"type":"null"}}}}},
+        {"if":{"properties":{"state":{"enum":["unknown","missing","not_applicable","not_observed","conflict"]}}},"then":{"required":["reason"],"not":{"required":["value"]}}}
+      ],
+      "additionalProperties":false
+    },
+    "evidenceRef": {
+      "type":"object",
+      "required":["ref_id","source_type","uri_or_path","as_of_time"],
+      "properties":{
+        "ref_id":{"type":"string","minLength":1},
+        "source_type":{"type":"string","enum":["dataset","document","code","run","review","external_source","decision"]},
+        "uri_or_path":{"type":"string","minLength":1},
+        "as_of_time":{"type":"string","format":"date-time"},
+        "content_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+      },
+      "additionalProperties":false
+    },
+    "baseObject": {
+      "type":"object",
+      "required":["schema_version","object_id","object_version","status","as_of_time","owner","created_at","updated_at","source_refs","lineage_refs","jurisdiction_refs","parameter_refs","assumption_refs","limitations","content_hash"],
+      "properties":{
+        "schema_version":{"type":"string","const":"1.0.0"},
+        "object_id":{"type":"string","pattern":"^ECAE-[A-Z0-9][A-Z0-9._:-]{2,127}$"},
+        "object_version":{"type":"string","pattern":"^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status":{"type":"string","enum":["draft","preregistered","eligibility_checked","approved_to_launch","running","monitoring","analysis_locked","analyzed","reviewed","handed_off","replayed","superseded","invalidated","blocked","redesign_required","stopped_for_harm","stopped_for_futility","stopped_for_success","cancelled","data_failed","inconclusive","provisional","current","stale"]},
+        "as_of_time":{"type":"string","format":"date-time"},
+        "owner":{"type":"string","minLength":1},
+        "created_at":{"type":"string","format":"date-time"},
+        "updated_at":{"type":"string","format":"date-time"},
+        "source_refs":{"$ref":"#/$defs/refArray"},
+        "lineage_refs":{"$ref":"#/$defs/refArray"},
+        "jurisdiction_refs":{"$ref":"#/$defs/refArray"},
+        "parameter_refs":{"$ref":"#/$defs/refArray"},
+        "assumption_refs":{"$ref":"#/$defs/refArray"},
+        "limitations":{"type":"array","items":{"type":"string","minLength":1}},
+        "content_hash":{"type":"string","pattern":"^(PENDING|[a-f0-9]{64})$"}
+      }
+    }
+  }
+}

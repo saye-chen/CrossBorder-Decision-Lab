@@ -1,0 +1,97 @@
+{
+  "blocking_cases": [],
+  "business_actions_executed": false,
+  "case_count": 7,
+  "case_results": [
+    {
+      "blocking_reasons": [],
+      "case_class": "normal",
+      "case_id": "D11-PREFLIGHT-01",
+      "difference_class": "equivalent",
+      "difference_disposition": "not_required",
+      "disposition_valid": true,
+      "eligible_for_acceptance": true,
+      "f01_hash": "9eb3ac304be5e2e456e2b236700519df092bb6ef4c40b32fbecdb3650907ed7b",
+      "legacy_hash": "9eb3ac304be5e2e456e2b236700519df092bb6ef4c40b32fbecdb3650907ed7b"
+    },
+    {
+      "blocking_reasons": [],
+      "case_class": "near_decision_threshold",
+      "case_id": "D11-PREFLIGHT-02",
+      "difference_class": "equivalent",
+      "difference_disposition": "not_required",
+      "disposition_valid": true,
+      "eligible_for_acceptance": true,
+      "f01_hash": "dfb465617921b9445089841f331f4d9365926df723cf4645a03a19739056f6e1",
+      "legacy_hash": "dfb465617921b9445089841f331f4d9365926df723cf4645a03a19739056f6e1"
+    },
+    {
+      "blocking_reasons": [],
+      "case_class": "negative_or_harm",
+      "case_id": "D11-PREFLIGHT-03",
+      "difference_class": "equivalent",
+      "difference_disposition": "not_required",
+      "disposition_valid": true,
+      "eligible_for_acceptance": true,
+      "f01_hash": "35c7e70ce6481c71b63ff50910bd8b7c9459bcae23548c6305bab9514e4a2a97",
+      "legacy_hash": "35c7e70ce6481c71b63ff50910bd8b7c9459bcae23548c6305bab9514e4a2a97"
+    },
+    {
+      "blocking_reasons": [],
+      "case_class": "expired",
+      "case_id": "D11-PREFLIGHT-04",
+      "difference_class": "equivalent",
+      "difference_disposition": "not_required",
+      "disposition_valid": true,
+      "eligible_for_acceptance": true,
+      "f01_hash": "28675abca50abc34d65f26c49014eb67e9ac58c4609e35a6520b0a2abbf583b7",
+      "legacy_hash": "28675abca50abc34d65f26c49014eb67e9ac58c4609e35a6520b0a2abbf583b7"
+    },
+    {
+      "blocking_reasons": [],
+      "case_class": "invalidation_triggered",
+      "case_id": "D11-PREFLIGHT-05",
+      "difference_class": "equivalent",
+      "difference_disposition": "not_required",
+      "disposition_valid": true,
+      "eligible_for_acceptance": true,
+      "f01_hash": "28675abca50abc34d65f26c49014eb67e9ac58c4609e35a6520b0a2abbf583b7",
+      "legacy_hash": "28675abca50abc34d65f26c49014eb67e9ac58c4609e35a6520b0a2abbf583b7"
+    },
+    {
+      "blocking_reasons": [],
+      "case_class": "scope_mismatch",
+      "case_id": "D11-PREFLIGHT-06",
+      "difference_class": "equivalent",
+      "difference_disposition": "not_required",
+      "disposition_valid": true,
+      "eligible_for_acceptance": true,
+      "f01_hash": "b9d0484e262c550e7bb9314656b1c89fa2f79e6bee6eff14beabaa667523b61c",
+      "legacy_hash": "b9d0484e262c550e7bb9314656b1c89fa2f79e6bee6eff14beabaa667523b61c"
+    },
+    {
+      "blocking_reasons": [],
+      "case_class": "missing_required_field",
+      "case_id": "D11-PREFLIGHT-07",
+      "difference_class": "equivalent",
+      "difference_disposition": "not_required",
+      "disposition_valid": true,
+      "eligible_for_acceptance": true,
+      "f01_hash": "b9d0484e262c550e7bb9314656b1c89fa2f79e6bee6eff14beabaa667523b61c",
+      "legacy_hash": "b9d0484e262c550e7bb9314656b1c89fa2f79e6bee6eff14beabaa667523b61c"
+    }
+  ],
+  "consumer_owner_decision_required": true,
+  "disposition_failures": [],
+  "domain_id": "D11",
+  "eligible_for_owner_acceptance": false,
+  "evaluation_id": "ECAE-CONSUMER-RUN-D11-PREFLIGHT-20260810-EVALUATION",
+  "external_write": false,
+  "fail_closed_semantic_failures": [],
+  "next_state": "evidence_incomplete_or_nonproduction",
+  "package_hash": "872fbfffcb815154323d2b6c937121bb332de8d42d9552b2b812d4fd45487bd9",
+  "producer_self_acceptance_forbidden": true,
+  "rollback_drill_pass": true,
+  "run_class": "fixture_non_production",
+  "schema_version": "1.0.0"
+}

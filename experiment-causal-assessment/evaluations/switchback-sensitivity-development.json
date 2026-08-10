@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-WP06-SWITCHBACK-SENSITIVITY-2026-08-10",
+  "status": "development_pass_external_verification_open",
+  "qualification": "implementer_owned_lag_periodicity_and_HAC_fixture_not_external_parity",
+  "script_ref": "scripts/evaluate_switchback_sensitivity.py",
+  "fixture": {"period_count": 32, "true_current_effect": 2, "true_lag_effect": 0.5, "true_periodicity": 8, "true_sine_amplitude": 0.4},
+  "registered_model": {
+    "lag_order": 1,
+    "periodicities": [8],
+    "hac_lag": 2,
+    "sample_size": 31,
+    "residual_degrees_of_freedom": 26,
+    "current_treatment": 1.999999999999992,
+    "lag_1": 0.4999999999999909,
+    "sin_8": 0.40000000000000024,
+    "current_treatment_interval_95": [1.9999999999999845, 1.9999999999999996]
+  },
+  "omitted_lag_model": {"current_treatment": 1.7241116523516853, "current_treatment_interval_95": [1.6295977787668496, 1.818625525936521]},
+  "maximum_absolute_effect_shift": 0.2758883476483067,
+  "coefficient_stability_tolerance": 0.5,
+  "carryover_sensitivity_pass": true,
+  "periodicity_terms_estimated": true,
+  "serial_dependence_interval": "Newey_West_Bartlett_HAC",
+  "business_action_authorized": false,
+  "release_effect": {"registry_verified": false, "external_review_pending": true}
+}

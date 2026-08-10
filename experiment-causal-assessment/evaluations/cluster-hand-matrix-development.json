@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-WP06-CLUSTER-HAND-MATRIX-2026-08-10",
+  "status": "development_pass_external_verification_open",
+  "qualification": "equal_cluster_size_two_arm_hand_matrix_truth_not_external_parity",
+  "runtime": {"R": "4.5.3", "clubSandwich": "0.7.0"},
+  "adapter_ref": "backends/adapters/cluster_clubsandwich.R",
+  "fixture_ref": "scripts/run_backend_development_qualification.py::fixtures.cluster_cr2_clubsandwich",
+  "hand_truth": {
+    "control_cluster_means": [-1.5, -0.5, 0.5, 1.5],
+    "treatment_cluster_means": [1, 2, 3, 4],
+    "effect": 2.5,
+    "sample_variance_each_arm": 1.6666666666666667,
+    "standard_error": 0.9128709291752769,
+    "satterthwaite_degrees_of_freedom": 6
+  },
+  "adapter_observed": {
+    "effect": 2.4999999999999996,
+    "standard_error": 0.9128709291752766,
+    "satterthwaite_degrees_of_freedom": 6.000000000000001,
+    "p_value": 0.03379778750009082,
+    "maximum_cluster_leverage": 0.25
+  },
+  "absolute_differences": {"effect": 0.0000000000000004, "standard_error": 0.0000000000000003, "degrees_of_freedom": 0.0000000000000009},
+  "tolerance": 0.000000000001,
+  "all_checks_pass": true,
+  "release_effect": {"registry_verified": false, "external_review_pending": true, "simulation_pending": true}
+}

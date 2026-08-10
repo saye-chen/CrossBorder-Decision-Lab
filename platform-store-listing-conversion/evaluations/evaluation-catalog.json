@@ -236,6 +236,837 @@
         "value": "stale",
         "expected": "blocked"
       }
+    },
+    {
+      "id": "PLCO-RW-01",
+      "name": "索引可见性诊断-standard",
+      "mode": "standard",
+      "object_ref": "D08-索引可见性诊断@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-0b073f92940c",
+        "E-LINEAGE-07c8223ce2e2"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b6ac4427eb84"
+      ],
+      "expected_status": "repair",
+      "must": [
+        "索引可见性诊断",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以索引可见性诊断为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为repair。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且索引可见性诊断守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:0b073f92940c07c8223ce2e2b6ac4427eb84b12c0fed6ab30b631ada95dfad3a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "索引可见性诊断:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-02",
+      "name": "索引可见性诊断-conflict",
+      "mode": "conflict",
+      "object_ref": "D08-索引可见性诊断@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-3b5a23db66aa",
+        "E-LINEAGE-4007b8533731"
+      ],
+      "counterevidence": [
+        "E-COUNTER-32d9ca2c7664"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "索引可见性诊断",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以索引可见性诊断为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且索引可见性诊断守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3b5a23db66aa4007b853373132d9ca2c7664edbcb3d7970cdd33be511687ec36",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "索引可见性诊断:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-03",
+      "name": "索引可见性诊断-extreme",
+      "mode": "extreme",
+      "object_ref": "D08-索引可见性诊断@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-958fd1d3a171",
+        "E-LINEAGE-ce398d2d949f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-cee4d82fe607"
+      ],
+      "expected_status": "test",
+      "must": [
+        "索引可见性诊断",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以索引可见性诊断为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且索引可见性诊断守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:958fd1d3a171ce398d2d949fcee4d82fe607c131dd3b307b700720d8dcaba7bd",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "索引可见性诊断:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-04",
+      "name": "索引可见性诊断-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D08-索引可见性诊断@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-0f2721da2e28",
+        "E-LINEAGE-c8ead363fe20"
+      ],
+      "counterevidence": [
+        "E-COUNTER-992061c9efee"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "索引可见性诊断",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以索引可见性诊断为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且索引可见性诊断守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:0f2721da2e28c8ead363fe20992061c9efeee3e5a8b2e3c5aff110a1b14f4cee",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "索引可见性诊断:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-05",
+      "name": "索引可见性诊断-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D08-索引可见性诊断@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-fcfb4211e7d9",
+        "E-LINEAGE-9e224963b669"
+      ],
+      "counterevidence": [
+        "E-COUNTER-3a773c30caf8"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "索引可见性诊断",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以索引可见性诊断为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且索引可见性诊断守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:fcfb4211e7d99e224963b6693a773c30caf81e6e7d277cd314a5f02743dea6fe",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "索引可见性诊断:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-06",
+      "name": "索引可见性诊断-recovery",
+      "mode": "recovery",
+      "object_ref": "D08-索引可见性诊断@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-2502919af0cf",
+        "E-LINEAGE-890f03ad64a8"
+      ],
+      "counterevidence": [
+        "E-COUNTER-1418eec4be70"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "索引可见性诊断",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以索引可见性诊断为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且索引可见性诊断守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:2502919af0cf890f03ad64a81418eec4be707c28801428559ba8543cfa9ff1f8",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "索引可见性诊断:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-07",
+      "name": "Offer库存承诺-standard",
+      "mode": "standard",
+      "object_ref": "D08-Offer库存承诺@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-d27231708ebd",
+        "E-LINEAGE-c0fbd15da6df"
+      ],
+      "counterevidence": [
+        "E-COUNTER-191103638ef6"
+      ],
+      "expected_status": "repair",
+      "must": [
+        "Offer库存承诺",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Offer库存承诺为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为repair。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Offer库存承诺守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d27231708ebdc0fbd15da6df191103638ef694b952205a40ac25176df9859daf",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Offer库存承诺:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-08",
+      "name": "Offer库存承诺-conflict",
+      "mode": "conflict",
+      "object_ref": "D08-Offer库存承诺@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-e23b8e774cb6",
+        "E-LINEAGE-6ae58aa2b0be"
+      ],
+      "counterevidence": [
+        "E-COUNTER-7bf9926ce8a2"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "Offer库存承诺",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Offer库存承诺为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Offer库存承诺守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e23b8e774cb66ae58aa2b0be7bf9926ce8a29b9022f33026252cee0ddf66138b",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Offer库存承诺:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-09",
+      "name": "Offer库存承诺-extreme",
+      "mode": "extreme",
+      "object_ref": "D08-Offer库存承诺@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-23b5d69ac55c",
+        "E-LINEAGE-afddda6a8192"
+      ],
+      "counterevidence": [
+        "E-COUNTER-a306c0435fe7"
+      ],
+      "expected_status": "test",
+      "must": [
+        "Offer库存承诺",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Offer库存承诺为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Offer库存承诺守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:23b5d69ac55cafddda6a8192a306c0435fe721ed707485c763549a5354b4ffc9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Offer库存承诺:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-10",
+      "name": "Offer库存承诺-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D08-Offer库存承诺@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-a2404e99c478",
+        "E-LINEAGE-d872a968d50e"
+      ],
+      "counterevidence": [
+        "E-COUNTER-3a48dddae1fc"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "Offer库存承诺",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Offer库存承诺为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Offer库存承诺守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:a2404e99c478d872a968d50e3a48dddae1fc56eaf25462530a6cb69c974e717a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Offer库存承诺:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-11",
+      "name": "Offer库存承诺-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D08-Offer库存承诺@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-b2cf19f134fe",
+        "E-LINEAGE-ed2193c3c686"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b47486bf4bdd"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "Offer库存承诺",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Offer库存承诺为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Offer库存承诺守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:b2cf19f134feed2193c3c686b47486bf4bdd072c473792f6a10c4aabd08c444b",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Offer库存承诺:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-12",
+      "name": "Offer库存承诺-recovery",
+      "mode": "recovery",
+      "object_ref": "D08-Offer库存承诺@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-89e7765388e7",
+        "E-LINEAGE-3ec2d6eed79f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4101b6128dd8"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "Offer库存承诺",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以Offer库存承诺为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且Offer库存承诺守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:89e7765388e73ec2d6eed79f4101b6128dd8ad65194911659b4a3318fbe1576b",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "Offer库存承诺:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-13",
+      "name": "变体合并拆分治理-standard",
+      "mode": "standard",
+      "object_ref": "D08-变体合并拆分治理@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-2fdf29ff3f92",
+        "E-LINEAGE-11133ce2c7be"
+      ],
+      "counterevidence": [
+        "E-COUNTER-66f0b5dbed56"
+      ],
+      "expected_status": "repair",
+      "must": [
+        "变体合并拆分治理",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变体合并拆分治理为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为repair。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变体合并拆分治理守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:2fdf29ff3f9211133ce2c7be66f0b5dbed56cd9be43b01b9ff04f66dfc78f2f5",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变体合并拆分治理:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-14",
+      "name": "变体合并拆分治理-conflict",
+      "mode": "conflict",
+      "object_ref": "D08-变体合并拆分治理@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-9c5b85fde053",
+        "E-LINEAGE-62d2f55a114d"
+      ],
+      "counterevidence": [
+        "E-COUNTER-716bd7e505bc"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "变体合并拆分治理",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变体合并拆分治理为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变体合并拆分治理守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:9c5b85fde05362d2f55a114d716bd7e505bc2b2b0c96a9ead8ad7888f1a95bf3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变体合并拆分治理:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-15",
+      "name": "变体合并拆分治理-extreme",
+      "mode": "extreme",
+      "object_ref": "D08-变体合并拆分治理@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-f8085b2f04f4",
+        "E-LINEAGE-dacacc35729c"
+      ],
+      "counterevidence": [
+        "E-COUNTER-86711273b297"
+      ],
+      "expected_status": "test",
+      "must": [
+        "变体合并拆分治理",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变体合并拆分治理为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变体合并拆分治理守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f8085b2f04f4dacacc35729c86711273b297763f77c7f30dc03ddfa8dbe546f4",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变体合并拆分治理:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-16",
+      "name": "变体合并拆分治理-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D08-变体合并拆分治理@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-dfb19da3827d",
+        "E-LINEAGE-325bf877be42"
+      ],
+      "counterevidence": [
+        "E-COUNTER-2f3bbd6d5018"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "变体合并拆分治理",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变体合并拆分治理为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变体合并拆分治理守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:dfb19da3827d325bf877be422f3bbd6d501825dba2d5a9d6c76949c69847fb90",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变体合并拆分治理:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-17",
+      "name": "变体合并拆分治理-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D08-变体合并拆分治理@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-164a07ec9ed8",
+        "E-LINEAGE-997c831d51ba"
+      ],
+      "counterevidence": [
+        "E-COUNTER-776948e2082d"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "变体合并拆分治理",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变体合并拆分治理为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变体合并拆分治理守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:164a07ec9ed8997c831d51ba776948e2082d0fd9f87095454b8a3203903dd38a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变体合并拆分治理:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "PLCO-RW-18",
+      "name": "变体合并拆分治理-recovery",
+      "mode": "recovery",
+      "object_ref": "D08-变体合并拆分治理@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-a637e3de83e4",
+        "E-LINEAGE-8c5dc51ea5a2"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f5e3ab18a07f"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "变体合并拆分治理",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以变体合并拆分治理为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且变体合并拆分治理守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:a637e3de83e48c5dc51ea5a2f5e3ab18a07f27a0cf9ee80128c9b20bbcee32e9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "变体合并拆分治理:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
     }
-  ]
+  ],
+  "catalog": "D08-EVAL",
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 24,
+    "mechanisms": [
+      "索引可见性诊断",
+      "Offer库存承诺",
+      "变体合并拆分治理",
+      "移动桌面漏斗守恒"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

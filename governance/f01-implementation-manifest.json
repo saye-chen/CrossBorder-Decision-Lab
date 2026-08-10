@@ -1,0 +1,297 @@
+{
+  "schema_version": "1.0.0",
+  "implementation_id": "F01-IMPLEMENTATION-2026-08-10",
+  "runtime": "ECAE",
+  "availability": "current",
+  "maturity": "controlled_pilot",
+  "blueprint": {
+    "path": "governance/f01-experiment-causal-assessment-blueprint-review.md",
+      "version": "F01-BLUEPRINT-1.1",
+    "sha256": "cf5ad31bdec2732b594696b44cba63bca650039b396209664f1222282c627a53"
+  },
+  "work_packages": [
+    {
+      "id": "WP-00",
+      "status": "complete",
+      "evidence": [
+        "governance/f01-existing-capability-inventory.json"
+      ]
+    },
+    {
+      "id": "WP-01",
+      "status": "complete",
+      "evidence": [
+        "governance/foundation-capability-registry.json",
+        "governance/f01-requirements-traceability.json",
+        "experiment-causal-assessment/SKILL.md",
+        "experiment-causal-assessment/references/charter-sovereignty-and-terminology.md"
+      ]
+    },
+    {
+      "id": "WP-02",
+      "status": "complete",
+      "evidence": [
+        "experiment-causal-assessment/schemas",
+        "experiment-causal-assessment/scripts/validate_schema.py",
+        "experiment-causal-assessment/scripts/validate_state_transition.py",
+        "experiment-causal-assessment/tests/test_schemas.py",
+        "experiment-causal-assessment/tests/test_protocol_and_state.py"
+      ]
+    },
+    {
+      "id": "WP-03",
+      "status": "complete",
+      "evidence": [
+        "experiment-causal-assessment/references/identification-estimands-and-causal-graphs.md",
+        "experiment-causal-assessment/scripts/validate_experiment_protocol.py",
+        "experiment-causal-assessment/schemas/metric-contract.schema.json"
+      ]
+    },
+    {
+      "id": "WP-04",
+      "status": "complete",
+      "evidence": [
+        "experiment-causal-assessment/scripts/evaluate_randomized_effect.py",
+        "experiment-causal-assessment/scripts/apply_covariate_adjustment.py",
+        "experiment-causal-assessment/scripts/validate_randomization.py",
+        "experiment-causal-assessment/scripts/validate_exposure_outcome.py",
+        "experiment-causal-assessment/tests/test_randomized_core.py"
+      ]
+    },
+    {
+      "id": "WP-05",
+      "status": "complete",
+      "evidence": [
+        "experiment-causal-assessment/scripts/evaluate_sequential_result.py",
+        "experiment-causal-assessment/scripts/adjust_multiplicity.py",
+        "experiment-causal-assessment/scripts/evaluate_guardrails.py",
+        "experiment-causal-assessment/tests/test_sequential_and_multiplicity.py"
+      ]
+    },
+    {
+      "id": "WP-06",
+      "status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "evidence": [
+        "experiment-causal-assessment/scripts/evaluate_cluster_effect.py",
+        "experiment-causal-assessment/scripts/evaluate_switchback.py",
+        "experiment-causal-assessment/scripts/evaluate_sequential_result.py",
+        "experiment-causal-assessment/scripts/probe_backend_environment.py",
+        "experiment-causal-assessment/scripts/probe_group_sequential_parity.R",
+        "experiment-causal-assessment/scripts/validate_backend_registry.py",
+        "experiment-causal-assessment/scripts/run_scientific_backend.py",
+        "experiment-causal-assessment/tests/test_cluster_switchback.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py",
+        "experiment-causal-assessment/tests/test_backend_runner.py",
+        "experiment-causal-assessment/backends/backend-registry.json",
+        "experiment-causal-assessment/backends/backend-lock.json",
+        "experiment-causal-assessment/backends/adapters/cluster_clubsandwich.R",
+        "experiment-causal-assessment/backends/adapters/group_sequential_gsdesign.R",
+        "experiment-causal-assessment/backends/adapters/switchback_ri2.R",
+        "experiment-causal-assessment/backends/contracts",
+        "experiment-causal-assessment/evaluations/backend-parity-plan.json",
+        "experiment-causal-assessment/evaluations/backend-probe-report.json",
+        "experiment-causal-assessment/evaluations/group-sequential-development-parity.json",
+        "experiment-causal-assessment/evaluations/group-sequential-futility-development-parity.json",
+        "experiment-causal-assessment/evaluations/cluster-hand-matrix-development.json",
+        "experiment-causal-assessment/evaluations/switchback-ri-development.json",
+        "experiment-causal-assessment/evaluations/switchback-sensitivity-development.json",
+        "experiment-causal-assessment/backends/runtime-lock.json",
+        "experiment-causal-assessment/evaluations/persistent-backend-development-qualification.json"
+      ]
+    },
+    {
+      "id": "WP-07",
+      "status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "evidence": [
+        "experiment-causal-assessment/scripts/evaluate_did.py",
+        "experiment-causal-assessment/scripts/evaluate_synthetic_counterfactual.py",
+        "experiment-causal-assessment/scripts/evaluate_rdd_iv.py",
+        "experiment-causal-assessment/scripts/evaluate_doubly_robust_effect.py",
+        "experiment-causal-assessment/backends/backend-lock.json",
+        "experiment-causal-assessment/backends/backend-registry.json",
+        "experiment-causal-assessment/backends/contracts/staggered-did.contract.json",
+        "experiment-causal-assessment/backends/contracts/synthetic-control.contract.json",
+        "experiment-causal-assessment/backends/contracts/synthetic-did.contract.json",
+        "experiment-causal-assessment/backends/contracts/rdd-local.contract.json",
+        "experiment-causal-assessment/backends/contracts/weak-iv.contract.json",
+        "experiment-causal-assessment/backends/contracts/observational-aipw.contract.json",
+        "experiment-causal-assessment/backends/contracts/observational-dml.contract.json",
+        "experiment-causal-assessment/backends/adapters/staggered_did_callaway_santanna.R",
+        "experiment-causal-assessment/backends/adapters/synthetic_control_synth.R",
+        "experiment-causal-assessment/backends/adapters/synthetic_did_synthdid.R",
+        "experiment-causal-assessment/backends/adapters/rdd_rdrobust.py",
+        "experiment-causal-assessment/backends/adapters/weak_iv_ivmodels.py",
+        "experiment-causal-assessment/backends/adapters/observational_aipw.R",
+        "experiment-causal-assessment/backends/adapters/observational_dml_doubleml.py",
+        "experiment-causal-assessment/evaluations/wp07-parity-plan.json",
+        "experiment-causal-assessment/evaluations/wp07-backend-development.json",
+        "experiment-causal-assessment/backends/runtime-lock.json",
+        "experiment-causal-assessment/evaluations/persistent-backend-development-qualification.json",
+        "experiment-causal-assessment/tests/test_quasi_experimental.py",
+        "experiment-causal-assessment/tests/test_observational_hte.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ]
+    },
+    {
+      "id": "WP-08",
+      "status": "complete",
+      "release_scope": "protocol_complete_hte_backend_fail_closed_until_l4",
+      "evidence": [
+        "experiment-causal-assessment/scripts/evaluate_heterogeneous_effect.py",
+        "experiment-causal-assessment/scripts/evaluate_long_term_surrogate.py",
+        "experiment-causal-assessment/scripts/evaluate_transportability.py",
+        "experiment-causal-assessment/references/heterogeneity-uplift-long-term-and-transport.md",
+        "experiment-causal-assessment/backends/contracts/hte-uplift.contract.json",
+        "experiment-causal-assessment/backends/adapters/hte_uplift_econml.py",
+        "experiment-causal-assessment/backends/contracts/hte-uplift-grf.contract.json",
+        "experiment-causal-assessment/backends/adapters/hte_uplift_grf.R",
+        "experiment-causal-assessment/backends/backend-lock.json",
+        "experiment-causal-assessment/backends/backend-registry.json",
+        "experiment-causal-assessment/evaluations/wp08-backend-development.json",
+        "experiment-causal-assessment/evaluations/wp08-parity-plan.json",
+        "experiment-causal-assessment/backends/runtime-lock.json",
+        "experiment-causal-assessment/evaluations/persistent-backend-development-qualification.json",
+        "experiment-causal-assessment/tests/test_observational_hte.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ]
+    },
+    {
+      "id": "WP-09",
+      "status": "complete",
+      "evidence": [
+        "experiment-causal-assessment/scripts/grade_causal_claim.py",
+        "experiment-causal-assessment/scripts/calculate_incremental_economics.py",
+        "experiment-causal-assessment/scripts/build_causal_handoff.py",
+        "experiment-causal-assessment/scripts/validate_causal_handoff.py",
+        "experiment-causal-assessment/tests/test_grade_and_handoff.py"
+      ]
+    },
+    {
+      "id": "WP-10",
+      "status": "complete",
+      "evidence": [
+        "experiment-causal-assessment/scripts/validate_reproducibility_bundle.py",
+        "experiment-causal-assessment/scripts/compute_invalidation_closure.py",
+        "experiment-causal-assessment/tests/test_reproducibility.py"
+      ]
+    },
+    {
+      "id": "WP-11",
+      "status": "complete",
+      "release_scope": "controlled_pilot_acceptance_complete_production_acceptance_l4",
+      "evidence": [
+        "experiment-causal-assessment/integrations/consumer-migration.json",
+        "experiment-causal-assessment/schemas/consumer-migration.schema.json",
+        "experiment-causal-assessment/schemas/consumer-acceptance.schema.json",
+        "experiment-causal-assessment/schemas/consumer-difference.schema.json",
+        "experiment-causal-assessment/schemas/consumer-production-plan.schema.json",
+        "experiment-causal-assessment/schemas/consumer-production-run.schema.json",
+        "experiment-causal-assessment/scripts/validate_consumer_migration.py",
+        "experiment-causal-assessment/scripts/validate_consumer_production_plan.py",
+        "experiment-causal-assessment/scripts/evaluate_consumer_production_run.py",
+        "experiment-causal-assessment/scripts/build_consumer_preflight.py",
+        "experiment-causal-assessment/scripts/build_controlled_pilot_acceptance.py",
+        "experiment-causal-assessment/scripts/evaluate_consumer_handoff.py",
+        "experiment-causal-assessment/scripts/validate_consumer_acceptance.py",
+        "experiment-causal-assessment/scripts/compare_legacy_f01.py",
+        "experiment-causal-assessment/scripts/evaluate_consumer_rollback.py",
+        "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "experiment-causal-assessment/evaluations/consumer-production-acceptance-readiness.json",
+        "experiment-causal-assessment/evaluations/consumer-production-preflight-summary.json",
+        "experiment-causal-assessment/evaluations/consumer-production-preflight",
+        "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance",
+        "experiment-causal-assessment/integrations/consumer-production-acceptance-plan.json",
+        "experiment-causal-assessment/references/consumer-migration-and-acceptance.md",
+        "experiment-causal-assessment/references/consumer-production-acceptance-operator-runbook.md",
+        "experiment-causal-assessment/tests/test_consumer_migration.py",
+        "experiment-causal-assessment/tests/test_consumer_production_acceptance.py",
+        "creator-affiliate-partnership-management/schemas/ecae_consumer_receipt.schema.json",
+        "creator-affiliate-partnership-management/scripts/validate_ecae_handoff.py",
+        "creator-affiliate-partnership-management/integrations/experiment-causal-assessment/adapter.json",
+        "creator-affiliate-partnership-management/integrations/experiment-causal-assessment/acceptance.json",
+        "creator-affiliate-partnership-management/integrations/experiment-causal-assessment/test_adapter.py",
+        "logistics-inventory-fulfillment-decision/schemas/ecae_inventory_receipt.schema.json",
+        "logistics-inventory-fulfillment-decision/scripts/validate_ecae_inventory_handoff.py",
+        "logistics-inventory-fulfillment-decision/scripts/inventory_allocation.py",
+        "logistics-inventory-fulfillment-decision/scripts/test_models.py",
+        "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/adapter.json",
+        "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/test_adapter.py",
+        "pricing-profit-finance-cashflow-decision/schemas/ecae_financial_receipt.schema.json",
+        "pricing-profit-finance-cashflow-decision/scripts/validate_ecae_financial_handoff.py",
+        "pricing-profit-finance-cashflow-decision/scripts/calculate_incremental_economics.py",
+        "pricing-profit-finance-cashflow-decision/scripts/test_ecae_incremental_economics.py",
+        "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment/adapter.json",
+        "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment/test_adapter.py",
+        "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+        "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+        "experiment-causal-assessment/tests/test_remaining_consumer_adapters.py",
+        "category-investment-decision/integrations/experiment-causal-assessment/adapter.json",
+        "category-investment-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "competitive-intelligence-monitoring/integrations/experiment-causal-assessment/adapter.json",
+        "competitive-intelligence-monitoring/integrations/experiment-causal-assessment/acceptance.json",
+        "product-innovation-product-management/integrations/experiment-causal-assessment/adapter.json",
+        "product-innovation-product-management/integrations/experiment-causal-assessment/acceptance.json",
+        "supplier-procurement-production-quality-decision/integrations/experiment-causal-assessment/adapter.json",
+        "supplier-procurement-production-quality-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "legal-tax-intellectual-property-market-access-decision/integrations/experiment-causal-assessment/adapter.json",
+        "legal-tax-intellectual-property-market-access-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "platform-store-listing-conversion/integrations/experiment-causal-assessment/adapter.json",
+        "platform-store-listing-conversion/integrations/experiment-causal-assessment/acceptance.json",
+        "advertising-analysis-measurement-optimization/integrations/experiment-causal-assessment/adapter.json",
+        "advertising-analysis-measurement-optimization/integrations/experiment-causal-assessment/acceptance.json",
+        "video-link-breakdown/integrations/experiment-causal-assessment/adapter.json",
+        "video-link-breakdown/integrations/experiment-causal-assessment/acceptance.json",
+        "marketing-brand-campaign-management/integrations/experiment-causal-assessment/adapter.json",
+        "marketing-brand-campaign-management/integrations/experiment-causal-assessment/acceptance.json",
+        "consumer-insights-customer-growth/integrations/experiment-causal-assessment/adapter.json",
+        "consumer-insights-customer-growth/integrations/experiment-causal-assessment/acceptance.json"
+      ]
+    },
+    {
+      "id": "WP-12",
+      "status": "complete",
+      "release_scope": "active_native_methods_and_protocol_gates_qualified_advanced_backends_l4",
+      "evidence": [
+        "experiment-causal-assessment/evaluations/method-evidence-registry.json",
+        "experiment-causal-assessment/evaluations/method-source-registry.json",
+        "experiment-causal-assessment/evaluations/native-method-parity.json",
+        "experiment-causal-assessment/evaluations/controlled-pilot-method-review.json",
+        "experiment-causal-assessment/scripts/run_native_method_parity.py",
+        "experiment-causal-assessment/scripts/validate_method_qualification.py",
+        "experiment-causal-assessment/evaluations/simulation-report.json",
+        "experiment-causal-assessment/evaluations/mutation-catalog.json",
+        "experiment-causal-assessment/tests",
+        "experiment-causal-assessment/evaluations/persistent-backend-development-qualification.json",
+        "experiment-causal-assessment/evaluations/development-closure.json"
+      ]
+    },
+    {
+      "id": "WP-13",
+      "status": "complete",
+      "release_scope": "l1_l3_controlled_pilot_released_l4_separate",
+      "evidence": [
+        "scripts/validate_f01_release.py",
+        "experiment-causal-assessment/scripts/validate_development_closure.py",
+        "experiment-causal-assessment/evaluations/release-audit.json",
+        "experiment-causal-assessment/evaluations/development-closure.json",
+        "experiment-causal-assessment/evaluations/controlled-pilot-method-review.json",
+        "experiment-causal-assessment/evaluations/independent-review-template.json",
+        "experiment-causal-assessment/evaluations/real-replay-template.json"
+      ]
+    }
+  ],
+  "release_boundaries": {
+    "implementation_complete": true,
+    "l1_structure": true,
+    "l2_contract": true,
+    "l3_expert": true,
+    "independent_review": false,
+    "l4_external_assurance": false,
+    "production_ready": false,
+    "external_write_authority": false
+  }
+}

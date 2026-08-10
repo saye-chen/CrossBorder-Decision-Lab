@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "crossborder/foundation-capability-registry/1.0.0",
+  "type": "object",
+  "required": ["schema_version", "registry_version", "foundations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_version": {"type": "string", "minLength": 1},
+    "foundations": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/foundation"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "foundation": {
+      "type": "object",
+      "required": [
+        "foundation_id", "name", "runtime_prefix", "availability", "capability_type",
+        "owns_business_decisions", "claim_authorities", "provides", "requires",
+        "consumers", "blocking_gates", "external_write_authority", "maturity"
+      ],
+      "properties": {
+        "foundation_id": {"enum": ["F01", "F02"]},
+        "name": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)+$"},
+        "runtime_prefix": {"type": "string", "pattern": "^[A-Z][A-Z0-9]{1,7}$"},
+        "availability": {"enum": ["planned", "next_build", "current", "retired"]},
+        "capability_type": {"enum": ["shared_decision_foundation"]},
+        "owns_business_decisions": {"const": false},
+        "claim_authorities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+        },
+        "provides": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+        },
+        "requires": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+        },
+        "consumers": {
+          "type": "array",
+          "minItems": 14,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^D(0[1-9]|1[0-4])$"}
+        },
+        "blocking_gates": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "external_write_authority": {"const": false},
+        "maturity": {"enum": ["planned", "blueprint_approved", "controlled_pilot"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}

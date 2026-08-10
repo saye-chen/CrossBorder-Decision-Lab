@@ -1,0 +1,11 @@
+{
+  "schema_version":"1.0.0",
+  "contract_id":"ECAE-BACKEND-RDD-LOCAL-1.0",
+  "backend_id":"rdd_local",
+  "candidate_id":"rdd_local_rdrobust",
+  "status":"contract_frozen_adapter_not_verified",
+  "input":{"required":["outcome","running","cutoff","assignment_type","polynomial_order","bias_order","kernel","bandwidth_rule","confidence_level"],"optional":["treatment","covariates","cluster"]},
+  "output":{"required":["conventional_effect","bias_corrected_effect","robust_standard_error","robust_confidence_interval","robust_p_value","bandwidths","effective_sample","polynomial_order","bias_order","kernel","warnings"]},
+  "invariants":["primary specification is local linear","bandwidth is data driven","reported confirmatory interval is robust bias corrected","sharp and fuzzy designs cannot silently substitute","density manipulation covariate continuity bandwidth polynomial donut and placebo diagnostics remain separate required evidence","estimand is local to the cutoff"],
+  "failure_codes":["RDD_CUTOFF_NOT_FROZEN","RDD_PRIMARY_ORDER_INVALID","RDD_RBC_REQUIRED","FUZZY_RDD_TREATMENT_MISSING","RDD_SUPPORT_INADEQUATE","BACKEND_NUMERICAL_INVALID"]
+}

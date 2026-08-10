@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","case_family":"golden","cases":[
+    {"case_id":"ECAE-GOLDEN-ITT-01","method":"randomized_itt","truth":"treatment mean minus control mean equals 1","test_ref":"tests/test_randomized_core.py::test_continuous_itt_known_difference"},
+    {"case_id":"ECAE-GOLDEN-DID-01","method":"did_2x2_independent_cells","truth":"(15-10)-(10-8)=3","test_ref":"tests/test_quasi_experimental.py::test_2x2_did_analytical_truth"},
+    {"case_id":"ECAE-GOLDEN-HOLM-01","method":"multiplicity_holm","truth":"adjusted p-values 0.03, 0.06, 0.06","test_ref":"tests/test_sequential_and_multiplicity.py::test_holm_known_values"}
+  ]
+}

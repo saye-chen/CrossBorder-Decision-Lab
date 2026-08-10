@@ -1,0 +1,241 @@
+{
+  "business_actions_executed": false,
+  "cases": [
+    {
+      "case_class": "normal",
+      "case_id": "D03-PREFLIGHT-01",
+      "difference_disposition": "not_required",
+      "evidence_refs": [
+        "synthetic://D03/legacy/D03-PREFLIGHT-01",
+        "synthetic://D03/f01/D03-PREFLIGHT-01"
+      ],
+      "f01_result": {
+        "allowed_actions": [
+          "review"
+        ],
+        "claim_class": "descriptive",
+        "grade_label": "CE2",
+        "numeric_value": 1.0,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "legacy_result": {
+        "allowed_actions": [
+          "review"
+        ],
+        "claim_class": "descriptive",
+        "grade_label": "CE2",
+        "numeric_value": 1.0,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "snapshot_hash": "a63608c2feb95ea30ae97fc906fc8894d3bba40f73cae3b3adc6a41f21ea76ba"
+    },
+    {
+      "case_class": "near_decision_threshold",
+      "case_id": "D03-PREFLIGHT-02",
+      "difference_disposition": "not_required",
+      "evidence_refs": [
+        "synthetic://D03/legacy/D03-PREFLIGHT-02",
+        "synthetic://D03/f01/D03-PREFLIGHT-02"
+      ],
+      "f01_result": {
+        "allowed_actions": [
+          "review"
+        ],
+        "claim_class": "descriptive",
+        "grade_label": "CE2",
+        "numeric_value": 1e-09,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "legacy_result": {
+        "allowed_actions": [
+          "review"
+        ],
+        "claim_class": "descriptive",
+        "grade_label": "CE2",
+        "numeric_value": 1e-09,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "snapshot_hash": "e8434f15aae40b79bfcb44722d443f25621e3b34c4d01f9e96eb77449037f03d"
+    },
+    {
+      "case_class": "negative_or_harm",
+      "case_id": "D03-PREFLIGHT-03",
+      "difference_disposition": "not_required",
+      "evidence_refs": [
+        "synthetic://D03/legacy/D03-PREFLIGHT-03",
+        "synthetic://D03/f01/D03-PREFLIGHT-03"
+      ],
+      "f01_result": {
+        "allowed_actions": [
+          "review"
+        ],
+        "claim_class": "descriptive",
+        "grade_label": "CE2",
+        "numeric_value": -1.0,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "legacy_result": {
+        "allowed_actions": [
+          "review"
+        ],
+        "claim_class": "descriptive",
+        "grade_label": "CE2",
+        "numeric_value": -1.0,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "snapshot_hash": "3281feb84c7b96f8f3860cced62c79b51511e6d76ebe518a1fc97710bc6d05ae"
+    },
+    {
+      "case_class": "expired",
+      "case_id": "D03-PREFLIGHT-04",
+      "difference_disposition": "not_required",
+      "evidence_refs": [
+        "synthetic://D03/legacy/D03-PREFLIGHT-04",
+        "synthetic://D03/f01/D03-PREFLIGHT-04"
+      ],
+      "f01_result": {
+        "allowed_actions": [
+          "request_recompute"
+        ],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "legacy_result": {
+        "allowed_actions": [
+          "request_recompute"
+        ],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "snapshot_hash": "3bf2400d7dc2b5dbe22a84a6f4f3e80534dd9091712694a038648f949ea1d60e"
+    },
+    {
+      "case_class": "invalidation_triggered",
+      "case_id": "D03-PREFLIGHT-05",
+      "difference_disposition": "not_required",
+      "evidence_refs": [
+        "synthetic://D03/legacy/D03-PREFLIGHT-05",
+        "synthetic://D03/f01/D03-PREFLIGHT-05"
+      ],
+      "f01_result": {
+        "allowed_actions": [
+          "request_recompute"
+        ],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "legacy_result": {
+        "allowed_actions": [
+          "request_recompute"
+        ],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "snapshot_hash": "0a52325fda91be7e1a333ec57819f6b97ed472399d48ccd42e5fc7ef6f735041"
+    },
+    {
+      "case_class": "scope_mismatch",
+      "case_id": "D03-PREFLIGHT-06",
+      "difference_disposition": "not_required",
+      "evidence_refs": [
+        "synthetic://D03/legacy/D03-PREFLIGHT-06",
+        "synthetic://D03/f01/D03-PREFLIGHT-06"
+      ],
+      "f01_result": {
+        "allowed_actions": [],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "legacy_result": {
+        "allowed_actions": [],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "snapshot_hash": "1d1cf71485d1a6cfb63e3d02d043dfe0aa01947641ff03fe29e7fc164f6a4724"
+    },
+    {
+      "case_class": "missing_required_field",
+      "case_id": "D03-PREFLIGHT-07",
+      "difference_disposition": "not_required",
+      "evidence_refs": [
+        "synthetic://D03/legacy/D03-PREFLIGHT-07",
+        "synthetic://D03/f01/D03-PREFLIGHT-07"
+      ],
+      "f01_result": {
+        "allowed_actions": [],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "legacy_result": {
+        "allowed_actions": [],
+        "claim_class": "inconclusive",
+        "grade_label": "CE0",
+        "numeric_value": null,
+        "scope_key": "US|SIMULATED|D03|2026-08"
+      },
+      "snapshot_hash": "bb2884bc85669df471d66a7a5b5d798416bddcce9475017e1f5590503028faff"
+    }
+  ],
+  "code_binding": {
+    "adapter_hash": "74f3929b913550831b5e9ed405f385ee2e7b13703fc73da7abd2c281ba4f404e",
+    "contract_hash": "e9a906a8b5ba694c3cbcfe3f8945a0cff78373d48d92e932c676925e64b123c9",
+    "environment_refs": [
+      "local://python-runtime",
+      "local://f01-source-tree"
+    ],
+    "f01_commit_hash": null,
+    "f01_source_tree_hash": "1de97c34bb78aecbf0b6aca55c6d7079e0697b966636c4d370255ca2f9e485f8",
+    "legacy_code_hash": "c77e00a2a7d2abadbc6d5ba48491396d6d162cce418cb0ccb451e066b8ee2cbf",
+    "legacy_code_ref": "repository://D03/legacy-assets"
+  },
+  "data_snapshot": {
+    "authorized": true,
+    "business_timezone": "Asia/Shanghai",
+    "captured_at": "2026-08-10T00:00:00Z",
+    "maximum_event_time": "2026-08-09T23:59:59Z",
+    "read_only": true,
+    "snapshot_hash": "98f9efd8bf762f33d15e081e324d535a8accbb46c1834ef77ee9ee24b3139daa",
+    "source_ref": "synthetic://ecae/consumer-preflight/D03"
+  },
+  "domain_id": "D03",
+  "execution_mode": "read_only_shadow_dual_run",
+  "external_write": false,
+  "frozen_before_results": true,
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "numeric_tolerance": 1e-09,
+  "owner_assignment": {
+    "identity": "Miles Chen",
+    "independent_of_ecae_implementation": true,
+    "responsibility_accepted": true,
+    "role": "D03_consumer_owner"
+  },
+  "rollback_drill": {
+    "blocked_actions_enforced": true,
+    "business_write_observed": false,
+    "causal_wording_allowed": false,
+    "evidence_refs": [
+      "synthetic://D03/rollback/expiry"
+    ],
+    "executed": true,
+    "incremental_state": "unknown",
+    "recompute_request_created": true,
+    "trigger": "expiry"
+  },
+  "run_class": "fixture_non_production",
+  "run_id": "ECAE-CONSUMER-RUN-D03-PREFLIGHT-20260810",
+  "schema_version": "1.0.0"
+}

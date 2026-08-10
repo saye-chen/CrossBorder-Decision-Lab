@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/causal-graph.schema.json",
+  "title":"Causal graph contract",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["treatment_node","outcome_nodes","nodes","edges","adjustment_set","forbidden_adjustment_nodes","selection_nodes","identification_statement","alternative_explanations"],
+  "properties":{
+    "treatment_node":{"type":"string","minLength":1},
+    "outcome_nodes":{"type":"array","minItems":1,"items":{"type":"string","minLength":1},"uniqueItems":true},
+    "nodes":{"type":"array","minItems":2,"items":{"type":"object","required":["node_id","role","temporal_position","observed_state"],"properties":{"node_id":{"type":"string","minLength":1},"role":{"enum":["treatment","outcome","confounder","mediator","collider","selection","proxy","instrument","effect_modifier","time","concurrent_intervention"]},"temporal_position":{"enum":["pre_treatment","at_treatment","post_treatment","time_varying","unknown"]},"observed_state":{"enum":["observed","latent","partially_observed","unknown"]}},"additionalProperties":false}},
+    "edges":{"type":"array","items":{"type":"object","required":["from","to","evidence_basis","certainty"],"properties":{"from":{"type":"string","minLength":1},"to":{"type":"string","minLength":1},"evidence_basis":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},"certainty":{"enum":["established","plausible","contested","unknown"]}},"additionalProperties":false}},
+    "adjustment_set":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "forbidden_adjustment_nodes":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "selection_nodes":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "identification_statement":{"type":"string","minLength":20},
+    "alternative_explanations":{"type":"array","items":{"type":"string","minLength":1},"minItems":1},
+    "graph_format":{"enum":["edge_list","dagitty","dot","json_graph"]}
+  },
+  "unevaluatedProperties":false
+}

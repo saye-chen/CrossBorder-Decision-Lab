@@ -1,0 +1,35 @@
+{
+  "schema_version":"1.0.0",
+  "report_id":"ECAE-WP07-BACKEND-DEVELOPMENT-2026-08-10",
+  "status":"development_vectors_pass_external_verification_open",
+  "qualification":"locked_persistent_runtime_fixed_vectors_not_backend_proof",
+  "environment":{"python":"CPython 3.12.13 exact dependency lock","r":"R 4.5.3 exact package and source-revision lock","runtime_lock_ref":"backends/runtime-lock.json"},
+  "persistent_qualification_ref":"evaluations/persistent-backend-development-qualification.json",
+  "candidate_results":[
+    {
+      "candidate_id":"rdd_local_rdrobust",
+      "package":"rdrobust",
+      "version":"2.0.0",
+      "adapter_ref":"backends/adapters/rdd_rdrobust.py",
+      "vectors":[
+        {"vector_id":"sharp_local_linear_jump_three","status":"pass","observations":{"rows":200,"true_structural_jump":3.0,"conventional_effect":3.008480782040367,"bias_corrected_effect":3.0106124701082724,"robust_standard_error":0.027116967267242362,"robust_interval":[2.957464190894526,3.063760749322019],"selected_bandwidth_left_right":[0.777831990586685,0.777831990586685],"effective_sample_left_right":[39,39],"note":"sanity vector only; not an independent truth or cross-language parity oracle"}}
+      ],
+      "binding_decision":"development_pass_not_verified"
+    },
+    {
+      "candidate_id":"weak_iv_ivmodels",
+      "package":"ivmodels",
+      "version":"0.10.0",
+      "adapter_ref":"backends/adapters/weak_iv_ivmodels.py",
+      "vectors":[
+        {"vector_id":"strong_first_stage_late_two","status":"pass","observations":{"rows":300,"structural_effect":2.0,"liml_effect":1.9771103476203453,"rank_statistic":183.7884623419403,"rank_p_value":0.0,"anderson_rubin_confidence_set":"[1.830403981078255, 2.118271317423932]","conditional_likelihood_ratio_confidence_set":"[1.830403981078255, 2.118271317423932]","structural_effect_contained":true}},
+        {"vector_id":"weak_first_stage_preserves_nonidentification","status":"pass","observations":{"rows":300,"first_stage_coefficient":0.02,"liml_effect":0.5171452742574412,"rank_statistic":0.5711563003044554,"rank_p_value":0.4497997989850423,"anderson_rubin_confidence_set":"[-inf, inf]","conditional_likelihood_ratio_confidence_set":"[-inf, inf]","finite_wald_like_interval_fabricated":false}}
+      ],
+      "binding_decision":"development_pass_not_verified"
+    }
+  ],
+  "r_adapter_syntax":{"runtime":"R 4.5.3 locked persistent runtime","files":[{"adapter_ref":"backends/adapters/staggered_did_callaway_santanna.R","status":"execution_pass"},{"adapter_ref":"backends/adapters/synthetic_control_synth.R","status":"execution_pass"},{"adapter_ref":"backends/adapters/synthetic_did_synthdid.R","status":"execution_pass"},{"adapter_ref":"backends/adapters/observational_aipw.R","status":"execution_pass"}],"package_execution":"all_selected_adapters_pass_deterministic_vectors"},
+  "method_topology":{"split_backends":["staggered_did","synthetic_control","synthetic_did","rdd_local","weak_iv","observational_aipw","observational_dml"],"tmle_binding":"rejected_no_full_out_of_fold_nuisance_contract","combined_backend_ids_removed":true},
+  "release_effect":{"registry_verified_count":0,"wp07_release_complete":false,"l2_or_l3_promotion":false},
+  "open_gates":["independent cross-implementation parity","preregistered coverage bias and type-I-error simulation grids","external qualification of the implemented backend-binding mutation suite","qualified independent causal-method review"]
+}

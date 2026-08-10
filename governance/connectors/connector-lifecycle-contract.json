@@ -1,0 +1,32 @@
+{
+  "contract": "CBDS-CONNECTOR-LIFECYCLE-2026.07",
+  "current_repository_ceiling": "contract_only",
+  "states": ["draft", "contract_only", "controlled_pilot", "active", "suspended", "retired"],
+  "transitions": [
+    {"from":"draft","to":"contract_only","requires":["manifest_hash","field_contract_hash","owner_approval","read_only_probe"]},
+    {"from":"contract_only","to":"controlled_pilot","requires":["authorized_environment","tenant_isolation","quota_budget","incident_runbook","independent_review"]},
+    {"from":"controlled_pilot","to":"active","requires":["authorized_replays","reconciliation_pass","observability","rollback_drill","independent_review"]},
+    {"from":"active","to":"suspended","requires":["incident_or_owner_decision","affected_window","consumer_notification"]},
+    {"from":"suspended","to":"controlled_pilot","requires":["root_cause_closed","credential_rotation_if_applicable","reconciliation_pass","owner_approval"]},
+    {"from":"contract_only","to":"retired","requires":["consumer_inventory","retention_disposition","owner_approval"]},
+    {"from":"active","to":"retired","requires":["suspension","consumer_migration","retention_disposition","owner_approval"]}
+  ],
+  "roles": {
+    "connector_owner":"transport credentials quota mapping incidents",
+    "domain_owner":"interpretation and domain decision",
+    "erdg":"evidence acceptance and lineage",
+    "action_gateway":"exact external write authorization",
+    "independent_reviewer":"transition evidence review"
+  },
+  "failure_semantics": {
+    "empty_response":"missing_not_zero",
+    "partial_failure":"isolate_fields_and_preserve_valid_subset",
+    "auth_failure":"suspend_and_fail_closed",
+    "rate_limit":"bounded_retry_then_inconclusive",
+    "schema_drift":"quarantine_affected_fields",
+    "duplicate_or_replay":"deduplicate_or_block_on_collision",
+    "lineage_mismatch":"block_evidence_acceptance"
+  },
+  "write_requirements": ["erdg_passed_packet","exact_owner","exact_target","approved_operation","human_approval","expiry","dry_run","rollback","idempotency","audit_destination"],
+  "prohibited": ["self_approval","state_skip","secret_in_repository","empty_as_zero","partial_as_total_success","transport_as_decision","automatic_reactivation"]
+}

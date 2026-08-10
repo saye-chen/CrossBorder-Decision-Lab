@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossborder-decision-lab.local/ecae/schemas/consumer-acceptance.schema.json",
+  "title": "Signed ECAE consumer acceptance or rejection",
+  "type": "object",
+  "required": ["schema_version", "record_id", "migration_id", "domain_id", "contract_version", "contract_content_hash", "acceptance_scope", "decision", "reviewed_at", "expires_at", "reviewer", "authorization_basis", "evidence_refs", "accepted_uses", "conditions", "consumer_owner_attestation", "producer_self_acceptance", "production_evidence_claimed", "external_write", "content_hash"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_id": {"type": "string", "pattern": "^ECAE-CONSUMER-(ACCEPTANCE|REJECTION)-D(0[1-9]|1[0-3])-[A-Z0-9._:-]+$"},
+    "migration_id": {"type": "string", "minLength": 1},
+    "domain_id": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])$"},
+    "contract_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "contract_content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "acceptance_scope": {"enum": ["controlled_pilot_non_production", "production"]},
+    "decision": {"enum": ["accepted", "conditionally_accepted", "rejected"]},
+    "reviewed_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "reviewer": {
+      "type": "object",
+      "required": ["identity", "role", "affiliation", "independent_of_producer_implementation"],
+      "properties": {
+        "identity": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "pattern": "^D(0[1-9]|1[0-3])_consumer_owner$"},
+        "affiliation": {"const": "consumer_domain"},
+        "independent_of_producer_implementation": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "authorization_basis": {"type": "string", "minLength": 1},
+    "evidence_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "accepted_uses": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "conditions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "consumer_owner_attestation": {"const": true},
+    "producer_self_acceptance": {"const": false},
+    "production_evidence_claimed": {"type": "boolean"},
+    "external_write": {"const": false},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"acceptance_scope": {"const": "controlled_pilot_non_production"}}},
+      "then": {"properties": {"production_evidence_claimed": {"const": false}}}
+    },
+    {
+      "if": {"properties": {"decision": {"enum": ["accepted", "conditionally_accepted"]}}},
+      "then": {"properties": {"accepted_uses": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"decision": {"const": "conditionally_accepted"}}},
+      "then": {"properties": {"conditions": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"decision": {"const": "rejected"}}},
+      "then": {"properties": {"accepted_uses": {"maxItems": 0}, "conditions": {"minItems": 1}}}
+    }
+  ],
+  "additionalProperties": false
+}

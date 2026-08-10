@@ -1,19 +1,1674 @@
 {
-  "catalog":"D05-EVAL-DRAFT-1",
-  "cases":[
-    {"id":"D05-E01","scenario":"missing jurisdiction","expected":"evidence_required","assertions":["no clearance","blocked dependent action"]},
-    {"id":"D05-E02","scenario":"expired certificate","expected":"blocked","assertions":["certificate not current","recheck required"]},
-    {"id":"D05-E03","scenario":"certificate factory mismatch","expected":"not_covered","assertions":["non-compensatory mismatch"]},
-    {"id":"D05-E04","scenario":"medical claim without opinion","expected":"professional_review","assertions":["claim not upgraded"]},
-    {"id":"D05-E05","scenario":"IP search no hit","expected":"review_required","assertions":["no FTO claim"]},
-    {"id":"D05-E06","scenario":"tax treatment request","expected":"professional_review","assertions":["no final tax conclusion"]},
-    {"id":"D05-E07","scenario":"platform approval only","expected":"screening_only","assertions":["not legal clearance"]},
-    {"id":"D05-E08","scenario":"major safety redline","expected":"blocked","assertions":["economic upside ignored"]},
-    {"id":"D05-E09","scenario":"material version change","expected":"selective_recompute","assertions":["dependent claim invalidated","independent price preserved"]},
-    {"id":"D05-E10","scenario":"incident recovery without recheck","expected":"blocked","assertions":["no recovery"]},
-    {"id":"D05-E11","scenario":"partial consumer acceptance","expected":"partially_accepted","assertions":["rejected fields recomputed"]},
-    {"id":"D05-E12","scenario":"lossy safety migration","expected":"rollback","assertions":["legacy state preserved"]},
-    {"id":"D05-E13","scenario":"synthetic evidence for production","expected":"rejected","assertions":["L4 unchanged"]},
-    {"id":"D05-E14","scenario":"staging external action","expected":"blocked","assertions":["ceiling reversible preparation"]}
-  ]
+  "catalog": "D05-EVAL-RISK-WEIGHTED-1",
+  "cases": [
+    {
+      "id": "D05-E01",
+      "scenario": "missing jurisdiction",
+      "expected": "evidence_required",
+      "assertions": [
+        "no clearance",
+        "blocked dependent action"
+      ]
+    },
+    {
+      "id": "D05-E02",
+      "scenario": "expired certificate",
+      "expected": "blocked",
+      "assertions": [
+        "certificate not current",
+        "recheck required"
+      ]
+    },
+    {
+      "id": "D05-E03",
+      "scenario": "certificate factory mismatch",
+      "expected": "not_covered",
+      "assertions": [
+        "non-compensatory mismatch"
+      ]
+    },
+    {
+      "id": "D05-E04",
+      "scenario": "medical claim without opinion",
+      "expected": "professional_review",
+      "assertions": [
+        "claim not upgraded"
+      ]
+    },
+    {
+      "id": "D05-E05",
+      "scenario": "IP search no hit",
+      "expected": "review_required",
+      "assertions": [
+        "no FTO claim"
+      ]
+    },
+    {
+      "id": "D05-E06",
+      "scenario": "tax treatment request",
+      "expected": "professional_review",
+      "assertions": [
+        "no final tax conclusion"
+      ]
+    },
+    {
+      "id": "D05-E07",
+      "scenario": "platform approval only",
+      "expected": "screening_only",
+      "assertions": [
+        "not legal clearance"
+      ]
+    },
+    {
+      "id": "D05-E08",
+      "scenario": "major safety redline",
+      "expected": "blocked",
+      "assertions": [
+        "economic upside ignored"
+      ]
+    },
+    {
+      "id": "D05-E09",
+      "scenario": "material version change",
+      "expected": "selective_recompute",
+      "assertions": [
+        "dependent claim invalidated",
+        "independent price preserved"
+      ]
+    },
+    {
+      "id": "D05-E10",
+      "scenario": "incident recovery without recheck",
+      "expected": "blocked",
+      "assertions": [
+        "no recovery"
+      ]
+    },
+    {
+      "id": "D05-E11",
+      "scenario": "partial consumer acceptance",
+      "expected": "partially_accepted",
+      "assertions": [
+        "rejected fields recomputed"
+      ]
+    },
+    {
+      "id": "D05-E12",
+      "scenario": "lossy safety migration",
+      "expected": "rollback",
+      "assertions": [
+        "legacy state preserved"
+      ]
+    },
+    {
+      "id": "D05-E13",
+      "scenario": "synthetic evidence for production",
+      "expected": "rejected",
+      "assertions": [
+        "L4 unchanged"
+      ]
+    },
+    {
+      "id": "D05-E14",
+      "scenario": "staging external action",
+      "expected": "blocked",
+      "assertions": [
+        "ceiling reversible preparation"
+      ]
+    },
+    {
+      "id": "D05-RW-01",
+      "name": "多辖区适用规则冲突-standard",
+      "mode": "standard",
+      "object_ref": "D05-多辖区适用规则冲突@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-b3360007e4df",
+        "E-LINEAGE-652e7114b683"
+      ],
+      "counterevidence": [
+        "E-COUNTER-2f1450b80723"
+      ],
+      "expected_status": "evidence_required",
+      "must": [
+        "多辖区适用规则冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多辖区适用规则冲突为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为evidence_required。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多辖区适用规则冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:b3360007e4df652e7114b6832f1450b80723f26fcf8538630e3640eeb0b610f5",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多辖区适用规则冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-02",
+      "name": "多辖区适用规则冲突-conflict",
+      "mode": "conflict",
+      "object_ref": "D05-多辖区适用规则冲突@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-0963467859ce",
+        "E-LINEAGE-77e20e6fedf5"
+      ],
+      "counterevidence": [
+        "E-COUNTER-2e52dd697067"
+      ],
+      "expected_status": "professional_review",
+      "must": [
+        "多辖区适用规则冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多辖区适用规则冲突为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为professional_review。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多辖区适用规则冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:0963467859ce77e20e6fedf52e52dd6970670ca9337eff848f371cea3961b054",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多辖区适用规则冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-03",
+      "name": "多辖区适用规则冲突-extreme",
+      "mode": "extreme",
+      "object_ref": "D05-多辖区适用规则冲突@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-e4520fe9b4ea",
+        "E-LINEAGE-a0c48a90dc03"
+      ],
+      "counterevidence": [
+        "E-COUNTER-dc2cb489bd4a"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "多辖区适用规则冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多辖区适用规则冲突为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多辖区适用规则冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e4520fe9b4eaa0c48a90dc03dc2cb489bd4a740f9e71b27c23c2ae306d7962de",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多辖区适用规则冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-04",
+      "name": "多辖区适用规则冲突-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D05-多辖区适用规则冲突@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-e31ac8f7a01c",
+        "E-LINEAGE-00c3339bc572"
+      ],
+      "counterevidence": [
+        "E-COUNTER-e4f5f0f6be0e"
+      ],
+      "expected_status": "restricted_continue",
+      "must": [
+        "多辖区适用规则冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多辖区适用规则冲突为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为restricted_continue。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多辖区适用规则冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e31ac8f7a01c00c3339bc572e4f5f0f6be0ee6cc20dc5eac2d66b4b5fca6407d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多辖区适用规则冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-05",
+      "name": "多辖区适用规则冲突-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D05-多辖区适用规则冲突@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-fba4eefb854f",
+        "E-LINEAGE-df98b5d23510"
+      ],
+      "counterevidence": [
+        "E-COUNTER-291825a96a15"
+      ],
+      "expected_status": "recovery_pending",
+      "must": [
+        "多辖区适用规则冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多辖区适用规则冲突为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为recovery_pending。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多辖区适用规则冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:fba4eefb854fdf98b5d23510291825a96a15aaba3c2a120b3e1419fd4eb6af1b",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多辖区适用规则冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-06",
+      "name": "多辖区适用规则冲突-recovery",
+      "mode": "recovery",
+      "object_ref": "D05-多辖区适用规则冲突@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-29333a66cdf7",
+        "E-LINEAGE-69f59a588bd7"
+      ],
+      "counterevidence": [
+        "E-COUNTER-39e00a549678"
+      ],
+      "expected_status": "exited",
+      "must": [
+        "多辖区适用规则冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多辖区适用规则冲突为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为exited。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多辖区适用规则冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:29333a66cdf769f59a588bd739e00a549678f90cbd6757dae1f8e6935cf9af60",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多辖区适用规则冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-07",
+      "name": "证书对象工厂版本错配-standard",
+      "mode": "standard",
+      "object_ref": "D05-证书对象工厂版本错配@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-98dde86145d0",
+        "E-LINEAGE-10767224968f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-36adbd308c05"
+      ],
+      "expected_status": "evidence_required",
+      "must": [
+        "证书对象工厂版本错配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以证书对象工厂版本错配为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为evidence_required。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且证书对象工厂版本错配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:98dde86145d010767224968f36adbd308c051e638b937eaf4f04ae857d9157df",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "证书对象工厂版本错配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-08",
+      "name": "证书对象工厂版本错配-conflict",
+      "mode": "conflict",
+      "object_ref": "D05-证书对象工厂版本错配@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-d106914e51c2",
+        "E-LINEAGE-9b2601e6e15e"
+      ],
+      "counterevidence": [
+        "E-COUNTER-67128f641b50"
+      ],
+      "expected_status": "professional_review",
+      "must": [
+        "证书对象工厂版本错配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以证书对象工厂版本错配为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为professional_review。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且证书对象工厂版本错配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d106914e51c29b2601e6e15e67128f641b503b1fef293934a1e307b8bc567d91",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "证书对象工厂版本错配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-09",
+      "name": "证书对象工厂版本错配-extreme",
+      "mode": "extreme",
+      "object_ref": "D05-证书对象工厂版本错配@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-075a288a9c5f",
+        "E-LINEAGE-26206bd2a201"
+      ],
+      "counterevidence": [
+        "E-COUNTER-e3e1118a1cea"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "证书对象工厂版本错配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以证书对象工厂版本错配为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且证书对象工厂版本错配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:075a288a9c5f26206bd2a201e3e1118a1ceaaee7907ca7a8818f9030580996b1",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "证书对象工厂版本错配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-10",
+      "name": "证书对象工厂版本错配-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D05-证书对象工厂版本错配@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-8d6f196b0c85",
+        "E-LINEAGE-d5cf506260ed"
+      ],
+      "counterevidence": [
+        "E-COUNTER-98ec1d1b979b"
+      ],
+      "expected_status": "restricted_continue",
+      "must": [
+        "证书对象工厂版本错配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以证书对象工厂版本错配为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为restricted_continue。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且证书对象工厂版本错配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8d6f196b0c85d5cf506260ed98ec1d1b979b068d5ff12ca4ca4bf238486f8f77",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "证书对象工厂版本错配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-11",
+      "name": "证书对象工厂版本错配-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D05-证书对象工厂版本错配@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-634d73aadd3d",
+        "E-LINEAGE-cdea2dae78f5"
+      ],
+      "counterevidence": [
+        "E-COUNTER-151fa33da2e0"
+      ],
+      "expected_status": "recovery_pending",
+      "must": [
+        "证书对象工厂版本错配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以证书对象工厂版本错配为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为recovery_pending。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且证书对象工厂版本错配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:634d73aadd3dcdea2dae78f5151fa33da2e0caa02214448e22241b537dbf81ab",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "证书对象工厂版本错配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-12",
+      "name": "证书对象工厂版本错配-recovery",
+      "mode": "recovery",
+      "object_ref": "D05-证书对象工厂版本错配@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-97f0dfe85897",
+        "E-LINEAGE-0ed312f58d06"
+      ],
+      "counterevidence": [
+        "E-COUNTER-566d27f17e3e"
+      ],
+      "expected_status": "exited",
+      "must": [
+        "证书对象工厂版本错配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以证书对象工厂版本错配为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为exited。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且证书对象工厂版本错配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:97f0dfe858970ed312f58d06566d27f17e3eb31521452631531ac48fd576c535",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "证书对象工厂版本错配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-13",
+      "name": "认证测试标签路由-standard",
+      "mode": "standard",
+      "object_ref": "D05-认证测试标签路由@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-cd98b8a70d6f",
+        "E-LINEAGE-f3c7a54fe40a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9665c982750a"
+      ],
+      "expected_status": "evidence_required",
+      "must": [
+        "认证测试标签路由",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以认证测试标签路由为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为evidence_required。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且认证测试标签路由守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:cd98b8a70d6ff3c7a54fe40a9665c982750a9be4c17a1c6d85e11a28a610e168",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "认证测试标签路由:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-14",
+      "name": "认证测试标签路由-conflict",
+      "mode": "conflict",
+      "object_ref": "D05-认证测试标签路由@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-e8e87d7b6e3a",
+        "E-LINEAGE-3f6165589283"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f4210ff5e7fa"
+      ],
+      "expected_status": "professional_review",
+      "must": [
+        "认证测试标签路由",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以认证测试标签路由为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为professional_review。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且认证测试标签路由守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e8e87d7b6e3a3f6165589283f4210ff5e7fac54b4cd08218859ef7c39600a8b2",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "认证测试标签路由:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-15",
+      "name": "认证测试标签路由-extreme",
+      "mode": "extreme",
+      "object_ref": "D05-认证测试标签路由@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-2120b03f956e",
+        "E-LINEAGE-714f90a53e61"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b3f123a2568d"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "认证测试标签路由",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以认证测试标签路由为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且认证测试标签路由守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:2120b03f956e714f90a53e61b3f123a2568d65da6c5daa7ed4aad8a78f0ee53e",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "认证测试标签路由:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-16",
+      "name": "认证测试标签路由-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D05-认证测试标签路由@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-22a2b886c2f0",
+        "E-LINEAGE-8741e8e99aae"
+      ],
+      "counterevidence": [
+        "E-COUNTER-78af7e2393c6"
+      ],
+      "expected_status": "restricted_continue",
+      "must": [
+        "认证测试标签路由",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以认证测试标签路由为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为restricted_continue。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且认证测试标签路由守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:22a2b886c2f08741e8e99aae78af7e2393c6c9a43bbcaf5516164a2456d71e86",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "认证测试标签路由:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-17",
+      "name": "认证测试标签路由-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D05-认证测试标签路由@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-8e01fe4b2c94",
+        "E-LINEAGE-cbe9e21a3af6"
+      ],
+      "counterevidence": [
+        "E-COUNTER-00bea621b9dd"
+      ],
+      "expected_status": "recovery_pending",
+      "must": [
+        "认证测试标签路由",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以认证测试标签路由为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为recovery_pending。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且认证测试标签路由守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8e01fe4b2c94cbe9e21a3af600bea621b9ddb1b7f828eea73f1e64b6ae6e68a1",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "认证测试标签路由:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-18",
+      "name": "认证测试标签路由-recovery",
+      "mode": "recovery",
+      "object_ref": "D05-认证测试标签路由@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-1460c0a3c1b5",
+        "E-LINEAGE-2b41c3a4b5bf"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9531e4673c5c"
+      ],
+      "expected_status": "exited",
+      "must": [
+        "认证测试标签路由",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以认证测试标签路由为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为exited。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且认证测试标签路由守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:1460c0a3c1b52b41c3a4b5bf9531e4673c5ca57a71facc102cd7b2e1b5062f55",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "认证测试标签路由:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-19",
+      "name": "商标专利版权并行冲突-standard",
+      "mode": "standard",
+      "object_ref": "D05-商标专利版权并行冲突@v19",
+      "object_version": "v19",
+      "evidence": [
+        "E-SUPPORT-36fdc86e5037",
+        "E-LINEAGE-8f4ddc13c038"
+      ],
+      "counterevidence": [
+        "E-COUNTER-bbc62a32a644"
+      ],
+      "expected_status": "evidence_required",
+      "must": [
+        "商标专利版权并行冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以商标专利版权并行冲突为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为evidence_required。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且商标专利版权并行冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:36fdc86e50378f4ddc13c038bbc62a32a6443eff20637e1d7a6099eb1caefe2a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "商标专利版权并行冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-20",
+      "name": "商标专利版权并行冲突-conflict",
+      "mode": "conflict",
+      "object_ref": "D05-商标专利版权并行冲突@v20",
+      "object_version": "v20",
+      "evidence": [
+        "E-SUPPORT-66223481ffde",
+        "E-LINEAGE-d9dc7ededc4a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-caa811e37119"
+      ],
+      "expected_status": "professional_review",
+      "must": [
+        "商标专利版权并行冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以商标专利版权并行冲突为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为professional_review。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且商标专利版权并行冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:66223481ffded9dc7ededc4acaa811e37119b1548665aacd9f2f870ead0fb9c3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "商标专利版权并行冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-21",
+      "name": "商标专利版权并行冲突-extreme",
+      "mode": "extreme",
+      "object_ref": "D05-商标专利版权并行冲突@v21",
+      "object_version": "v21",
+      "evidence": [
+        "E-SUPPORT-bdcf60198d14",
+        "E-LINEAGE-a5282b337710"
+      ],
+      "counterevidence": [
+        "E-COUNTER-aba299ae7e4a"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "商标专利版权并行冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以商标专利版权并行冲突为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且商标专利版权并行冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:bdcf60198d14a5282b337710aba299ae7e4aaefe768668f85d86f25e93b1e399",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "商标专利版权并行冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-22",
+      "name": "商标专利版权并行冲突-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D05-商标专利版权并行冲突@v22",
+      "object_version": "v22",
+      "evidence": [
+        "E-SUPPORT-44a1498a44af",
+        "E-LINEAGE-5350281feb94"
+      ],
+      "counterevidence": [
+        "E-COUNTER-7cf076adcb09"
+      ],
+      "expected_status": "restricted_continue",
+      "must": [
+        "商标专利版权并行冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以商标专利版权并行冲突为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为restricted_continue。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且商标专利版权并行冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:44a1498a44af5350281feb947cf076adcb09b2756dd2194f6d9eb437492c5637",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "商标专利版权并行冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-23",
+      "name": "商标专利版权并行冲突-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D05-商标专利版权并行冲突@v23",
+      "object_version": "v23",
+      "evidence": [
+        "E-SUPPORT-cb0c980a1a3b",
+        "E-LINEAGE-77cb7672faf2"
+      ],
+      "counterevidence": [
+        "E-COUNTER-8dbac9bc5654"
+      ],
+      "expected_status": "recovery_pending",
+      "must": [
+        "商标专利版权并行冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以商标专利版权并行冲突为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为recovery_pending。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且商标专利版权并行冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:cb0c980a1a3b77cb7672faf28dbac9bc5654a962335d4281b9ddb47b5f985cec",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "商标专利版权并行冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-24",
+      "name": "商标专利版权并行冲突-recovery",
+      "mode": "recovery",
+      "object_ref": "D05-商标专利版权并行冲突@v24",
+      "object_version": "v24",
+      "evidence": [
+        "E-SUPPORT-4b0efc665753",
+        "E-LINEAGE-d29a95c120e6"
+      ],
+      "counterevidence": [
+        "E-COUNTER-adc49a5b5670"
+      ],
+      "expected_status": "exited",
+      "must": [
+        "商标专利版权并行冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以商标专利版权并行冲突为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为exited。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且商标专利版权并行冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:4b0efc665753d29a95c120e6adc49a5b5670f11e2d3774f2dcc6e1dee960a832",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "商标专利版权并行冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-25",
+      "name": "税务海关交易链冲突-standard",
+      "mode": "standard",
+      "object_ref": "D05-税务海关交易链冲突@v25",
+      "object_version": "v25",
+      "evidence": [
+        "E-SUPPORT-dbe008522b34",
+        "E-LINEAGE-da05cc6c7f22"
+      ],
+      "counterevidence": [
+        "E-COUNTER-5cc7012585cf"
+      ],
+      "expected_status": "evidence_required",
+      "must": [
+        "税务海关交易链冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以税务海关交易链冲突为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为evidence_required。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且税务海关交易链冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:dbe008522b34da05cc6c7f225cc7012585cfdd1f5505a9234d755ba0493bf663",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "税务海关交易链冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-26",
+      "name": "税务海关交易链冲突-conflict",
+      "mode": "conflict",
+      "object_ref": "D05-税务海关交易链冲突@v26",
+      "object_version": "v26",
+      "evidence": [
+        "E-SUPPORT-a2edb3b5f498",
+        "E-LINEAGE-9648b8e1e78a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-44b731c84da3"
+      ],
+      "expected_status": "professional_review",
+      "must": [
+        "税务海关交易链冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以税务海关交易链冲突为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为professional_review。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且税务海关交易链冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:a2edb3b5f4989648b8e1e78a44b731c84da318cc6f06a296dcb189b59b2126d2",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "税务海关交易链冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-27",
+      "name": "税务海关交易链冲突-extreme",
+      "mode": "extreme",
+      "object_ref": "D05-税务海关交易链冲突@v27",
+      "object_version": "v27",
+      "evidence": [
+        "E-SUPPORT-f9096bb38736",
+        "E-LINEAGE-ac72ccc1bd0e"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4a5db4486954"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "税务海关交易链冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以税务海关交易链冲突为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且税务海关交易链冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f9096bb38736ac72ccc1bd0e4a5db448695421535dd05f944877b600801c62cb",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "税务海关交易链冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-28",
+      "name": "税务海关交易链冲突-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D05-税务海关交易链冲突@v28",
+      "object_version": "v28",
+      "evidence": [
+        "E-SUPPORT-00b175538009",
+        "E-LINEAGE-d38b22258af9"
+      ],
+      "counterevidence": [
+        "E-COUNTER-baeb9cdd26e3"
+      ],
+      "expected_status": "restricted_continue",
+      "must": [
+        "税务海关交易链冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以税务海关交易链冲突为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为restricted_continue。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且税务海关交易链冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:00b175538009d38b22258af9baeb9cdd26e3b8e22141c836a4d82a0656c0b32f",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "税务海关交易链冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-29",
+      "name": "税务海关交易链冲突-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D05-税务海关交易链冲突@v29",
+      "object_version": "v29",
+      "evidence": [
+        "E-SUPPORT-aecd94973cbe",
+        "E-LINEAGE-a6178b0dead7"
+      ],
+      "counterevidence": [
+        "E-COUNTER-08afe6412880"
+      ],
+      "expected_status": "recovery_pending",
+      "must": [
+        "税务海关交易链冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以税务海关交易链冲突为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为recovery_pending。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且税务海关交易链冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:aecd94973cbea6178b0dead708afe641288021e8424d26122da48d0e7ea82418",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "税务海关交易链冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-30",
+      "name": "税务海关交易链冲突-recovery",
+      "mode": "recovery",
+      "object_ref": "D05-税务海关交易链冲突@v30",
+      "object_version": "v30",
+      "evidence": [
+        "E-SUPPORT-605d2a64006e",
+        "E-LINEAGE-9fd941bd128b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-87e8e640dc58"
+      ],
+      "expected_status": "exited",
+      "must": [
+        "税务海关交易链冲突",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以税务海关交易链冲突为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为exited。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且税务海关交易链冲突守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:605d2a64006e9fd941bd128b87e8e640dc580de91e01b6bbc6ca85df49708787",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "税务海关交易链冲突:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-31",
+      "name": "高风险营销Claim-standard",
+      "mode": "standard",
+      "object_ref": "D05-高风险营销Claim@v31",
+      "object_version": "v31",
+      "evidence": [
+        "E-SUPPORT-ee469eaa9fb1",
+        "E-LINEAGE-0aac1b3e8812"
+      ],
+      "counterevidence": [
+        "E-COUNTER-646f469f01a5"
+      ],
+      "expected_status": "evidence_required",
+      "must": [
+        "高风险营销Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以高风险营销Claim为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为evidence_required。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且高风险营销Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:ee469eaa9fb10aac1b3e8812646f469f01a53fd3eaa3568dfe0bf9d533a90a2d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "高风险营销Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-32",
+      "name": "高风险营销Claim-conflict",
+      "mode": "conflict",
+      "object_ref": "D05-高风险营销Claim@v32",
+      "object_version": "v32",
+      "evidence": [
+        "E-SUPPORT-ee68eb96fa87",
+        "E-LINEAGE-bab1af1e6bbe"
+      ],
+      "counterevidence": [
+        "E-COUNTER-8dd0961b058a"
+      ],
+      "expected_status": "professional_review",
+      "must": [
+        "高风险营销Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以高风险营销Claim为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为professional_review。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且高风险营销Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:ee68eb96fa87bab1af1e6bbe8dd0961b058ac4a311139ed195ba76cb1cf36cf9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "高风险营销Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-33",
+      "name": "高风险营销Claim-extreme",
+      "mode": "extreme",
+      "object_ref": "D05-高风险营销Claim@v33",
+      "object_version": "v33",
+      "evidence": [
+        "E-SUPPORT-8dfe3539de5b",
+        "E-LINEAGE-3a755e70886c"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9075d1225893"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "高风险营销Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以高风险营销Claim为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且高风险营销Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8dfe3539de5b3a755e70886c9075d12258938d68271acdd1d26e2c28ac461dbf",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "高风险营销Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "D05-RW-34",
+      "name": "高风险营销Claim-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D05-高风险营销Claim@v34",
+      "object_version": "v34",
+      "evidence": [
+        "E-SUPPORT-328f3f51bf85",
+        "E-LINEAGE-b7832c855ed0"
+      ],
+      "counterevidence": [
+        "E-COUNTER-291b672918d9"
+      ],
+      "expected_status": "restricted_continue",
+      "must": [
+        "高风险营销Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以高风险营销Claim为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖redline门，预期状态为restricted_continue。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且高风险营销Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:328f3f51bf85b7832c855ed0291b672918d9861b47feb3ebf14f62c5d6c045f6",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "高风险营销Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    }
+  ],
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 48,
+    "mechanisms": [
+      "多辖区适用规则冲突",
+      "证书对象工厂版本错配",
+      "认证测试标签路由",
+      "商标专利版权并行冲突",
+      "税务海关交易链冲突",
+      "高风险营销Claim",
+      "平台下架与法律准入分离",
+      "证书吊销召回恢复"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

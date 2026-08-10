@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "runtime": {"implementation": "R", "version": "4.5.3"},
+  "repositories": {"CRAN": "https://cloud.r-project.org"},
+  "packages": [
+    {"package": "clubSandwich", "version": "0.7.0", "source": "CRAN"},
+    {"package": "gsDesign", "version": "3.10.1", "source": "CRAN"},
+    {"package": "rpact", "version": "4.4.0", "source": "CRAN"},
+    {"package": "ri2", "version": "0.5.0", "source": "CRAN"},
+    {"package": "did", "version": "2.5.1", "source": "CRAN"},
+    {"package": "Synth", "version": "1.1-10", "source": "CRAN"},
+    {"package": "AIPW", "version": "0.6.9.3", "source": "CRAN"},
+    {"package": "grf", "version": "2.6.1", "source": "CRAN"},
+    {"package": "synthdid", "version": "0.0.9", "source": "GitHub", "repository": "synth-inference/synthdid", "revision": "70c1ce3eac58e28c30b67435ca377bb48baa9b8a"}
+  ],
+  "policy": {
+    "exact_backend_versions_required": true,
+    "github_revision_required": true,
+    "version_drift_fails_closed": true,
+    "installed_does_not_mean_verified": true
+  }
+}

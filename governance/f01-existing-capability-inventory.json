@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0.0",
+  "inventory_id": "F01-WP00-INVENTORY-2026-08-10",
+  "as_of_time": "2026-08-10T00:00:00+08:00",
+  "blueprint": {
+    "path": "governance/f01-experiment-causal-assessment-blueprint-review.md",
+      "version": "F01-BLUEPRINT-1.1",
+      "sha256": "cf5ad31bdec2732b594696b44cba63bca650039b396209664f1222282c627a53"
+  },
+  "scan": {
+    "matching_files": 265,
+    "terms": [
+      "experiment",
+      "causal",
+      "incremental",
+      "incrementality",
+      "attribution",
+      "MDE",
+      "CUPED",
+      "randomization",
+      "SRM",
+      "guardrail",
+      "uplift"
+    ],
+    "included_extensions": ["md", "py", "json"],
+    "excluded_generated_indexes": [
+      "evaluations/professional-evaluation-index.json",
+      "evaluations/professional-evaluation-registry.json"
+    ]
+  },
+  "domains": [
+    {
+      "domain_id": "D01",
+      "runtime": "CIDM",
+      "role": "business_consumer",
+      "files_matched": 18,
+      "key_assets": ["category-investment-decision/scripts/evaluate_experiment.py"],
+      "verified_capability": "preregistered operating thresholds and funnel outcome gates",
+      "gap": "no assignment, exposure, counterfactual or inferential contract",
+      "disposition": "retain business test decision; consume ECAE handoff"
+    },
+    {
+      "domain_id": "D02",
+      "runtime": "CIM",
+      "role": "evidence_provider",
+      "files_matched": 8,
+      "key_assets": ["competitive-intelligence-monitoring/references/anomaly-detection-and-attribution.md"],
+      "verified_capability": "observed change attribution and alternative explanations",
+      "gap": "observational attribution is not causal identification",
+      "disposition": "provide shocks, counterevidence, placebo and negative-control candidates"
+    },
+    {
+      "domain_id": "D03",
+      "runtime": "PIPM",
+      "role": "business_consumer",
+      "files_matched": 13,
+      "key_assets": ["product-innovation-product-management/SKILL.md"],
+      "verified_capability": "validation scope with pre-F01 causal claim block",
+      "gap": "temporary block has no formal ECAE grade contract",
+      "disposition": "replace temporary block with CE-grade consumer adapter"
+    },
+    {
+      "domain_id": "D04",
+      "runtime": "SPPQ",
+      "role": "constraint_provider_and_consumer",
+      "files_matched": 0,
+      "key_assets": [],
+      "verified_capability": "sample, quality and production release decisions",
+      "gap": "quality tests are not a market-effect counterfactual",
+      "disposition": "provide treatment feasibility and quality guardrails; retain release sovereignty"
+    },
+    {
+      "domain_id": "D05",
+      "runtime": "LTMA",
+      "role": "noncompensable_constraint_provider",
+      "files_matched": 0,
+      "key_assets": [],
+      "verified_capability": "commercial compliance gates and claim boundaries",
+      "gap": "causal evidence cannot override legal, safety or access gates",
+      "disposition": "provide experiment eligibility constraints only"
+    },
+    {
+      "domain_id": "D06",
+      "runtime": "PPFC",
+      "role": "economic_parameter_owner",
+      "files_matched": 27,
+      "key_assets": ["pricing-profit-finance-cashflow-decision/references/unit-economics-roas-and-price-recalculation.md"],
+      "verified_capability": "contribution profit, cash, currency, tax and economic outcomes",
+      "gap": "economic calculation does not identify causal effect",
+      "disposition": "provide qualified economic parameters and consume effect distributions"
+    },
+    {
+      "domain_id": "D07",
+      "runtime": "LIFD",
+      "role": "business_consumer",
+      "files_matched": 7,
+      "key_assets": ["logistics-inventory-fulfillment-decision/scripts/inventory_allocation.py"],
+      "verified_capability": "uses incremental contribution in allocation",
+      "gap": "incremental inputs have no unified causal eligibility",
+      "disposition": "accept only versioned CE-grade effects; retain inventory sovereignty"
+    },
+    {
+      "domain_id": "D08",
+      "runtime": "PLCO",
+      "role": "producer_and_consumer",
+      "files_matched": 29,
+      "key_assets": [
+        "platform-store-listing-conversion/scripts/evaluate_listing_experiment.py",
+        "platform-store-listing-conversion/references/conversion-experiment-and-value.md"
+      ],
+      "verified_capability": "two-arm binary Wald interval, maturity and guardrail decision",
+      "gap": "no SRM, sequential, multiplicity, covariate, ratio or cluster inference",
+      "disposition": "legacy adapter; ECAE owns experiment inference and D08 owns page action"
+    },
+    {
+      "domain_id": "D09",
+      "runtime": "AAMO",
+      "role": "producer_and_consumer",
+      "files_matched": 24,
+      "key_assets": [
+        "advertising-analysis-measurement-optimization/scripts/evaluate_incrementality.py",
+        "advertising-analysis-measurement-optimization/scripts/design_incrementality_experiment.py",
+        "advertising-analysis-measurement-optimization/scripts/estimate_causal_incrementality.py",
+        "advertising-analysis-measurement-optimization/scripts/estimate_media_response.py"
+      ],
+      "verified_capability": "basic ITT, MDE, cluster means, simplified DiD and synthetic control",
+      "gap": "duplicated entry points and underqualified cluster, DiD and synthetic-control inference",
+      "disposition": "migrate causal primitives; retain advertising and media-response sovereignty"
+    },
+    {
+      "domain_id": "D10",
+      "runtime": "CAPM",
+      "role": "business_consumer",
+      "files_matched": 18,
+      "key_assets": [
+        "creator-affiliate-partnership-management/scripts/evaluate_capm_decision.py",
+        "creator-affiliate-partnership-management/scripts/partnership_economics.py"
+      ],
+      "verified_capability": "measurement gate and attributed-versus-incremental action ceiling",
+      "gap": "undefined legacy C2/C3 strings automatically enable incrementality",
+      "disposition": "P0 explicit mapping to CE grade; no string-based upgrade"
+    },
+    {
+      "domain_id": "D11",
+      "runtime": "VLB",
+      "role": "hypothesis_and_variant_provider",
+      "files_matched": 2,
+      "key_assets": ["video-link-breakdown/SKILL.md"],
+      "verified_capability": "creative variants and content-mechanism hypotheses",
+      "gap": "content scores cannot prove sales or incrementality",
+      "disposition": "provide variants and mechanism hypotheses; consume ECAE results"
+    },
+    {
+      "domain_id": "D12",
+      "runtime": "MBCM",
+      "role": "producer_and_consumer",
+      "files_matched": 25,
+      "key_assets": [
+        "marketing-brand-campaign-management/scripts/experiment_design.py",
+        "marketing-brand-campaign-management/scripts/causal_effects.py",
+        "marketing-brand-campaign-management/scripts/incrementality_bridge.py"
+      ],
+      "verified_capability": "MDE, simplified DiD, ITT/CACE, synthetic control, geo match and uncertainty",
+      "gap": "duplicates D09 and overcombines causal eligibility, confidence interval and profit",
+      "disposition": "migrate statistical primitives; retain brand and campaign sovereignty"
+    },
+    {
+      "domain_id": "D13",
+      "runtime": "CIG",
+      "role": "producer_and_consumer",
+      "files_matched": 35,
+      "key_assets": [
+        "consumer-insights-customer-growth/scripts/evaluate_growth_experiment.py",
+        "consumer-insights-customer-growth/scripts/evaluate_uplift_ranking.py"
+      ],
+      "verified_capability": "basic binary ITT, SRM z-score, guardrails and uplift ranking bins",
+      "gap": "Wald and simple bins do not support complex RCT or HTE claims",
+      "disposition": "migrate inference and HTE evaluation; retain customer-data and CRM sovereignty"
+    }
+  ],
+  "technical_debts": [
+    {"id": "F01-TD-01", "priority": "P0", "issue": "causal grade labels conflict across domains", "closure_wp": "WP-11"},
+    {"id": "F01-TD-02", "priority": "P0", "issue": "attribution and before-after changes can be renamed incremental", "closure_wp": "WP-09"},
+    {"id": "F01-TD-03", "priority": "P0", "issue": "current DiD is not valid for staggered heterogeneous treatment", "closure_wp": "WP-07"},
+    {"id": "F01-TD-04", "priority": "P0", "issue": "current synthetic control lacks placebo and uncertainty", "closure_wp": "WP-07"},
+    {"id": "F01-TD-05", "priority": "P1", "issue": "unconditional binary Wald intervals have weak boundary coverage", "closure_wp": "WP-04"},
+    {"id": "F01-TD-06", "priority": "P1", "issue": "few-cluster inference and degrees of freedom are ungoverned", "closure_wp": "WP-06"},
+    {"id": "F01-TD-07", "priority": "P1", "issue": "ratio and repeated-event metrics can mismatch randomization unit", "closure_wp": "WP-04"},
+    {"id": "F01-TD-08", "priority": "P1", "issue": "no unified sequential and hypothesis-family ledger", "closure_wp": "WP-05"},
+    {"id": "F01-TD-09", "priority": "P1", "issue": "uplift evaluation lacks cross-fit calibration and policy value", "closure_wp": "WP-08"},
+    {"id": "F01-TD-10", "priority": "P1", "issue": "F01 and F02 have no foundation capability registry", "closure_wp": "WP-01"}
+  ],
+  "wp00_result": {
+    "status": "complete",
+    "implementation_authorized": true,
+    "next_work_package": "WP-01",
+    "limitations": [
+      "static inventory does not prove runtime behavior",
+      "consumer acceptance remains required in WP-11",
+      "no existing estimator is grandfathered into CE4 or CE5"
+    ]
+  }
+}

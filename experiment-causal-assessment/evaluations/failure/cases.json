@@ -1,0 +1,8 @@
+{
+  "schema_version":"1.0.0","case_family":"failure","cases":[
+    {"case_id":"ECAE-FAIL-01","failure":"SRM","expected":"block causal until resolved","test_ref":"tests/test_randomized_core.py::test_srm_pass_and_fail"},
+    {"case_id":"ECAE-FAIL-02","failure":"outcome not mature","expected":"block CE4/CE5","test_ref":"tests/test_randomized_core.py::test_exposure_maturity_can_block"},
+    {"case_id":"ECAE-FAIL-03","failure":"verified backend unavailable","expected":"BACKEND_UNAVAILABLE no fallback","test_ref":"tests/test_backend_contract.py::test_registry_unique_and_fail_closed"},
+    {"case_id":"ECAE-FAIL-04","failure":"expired handoff","expected":"HANDOFF_EXPIRED","test_ref":"tests/test_mutations.py::test_M09_expired_handoff_is_killed"}
+  ]
+}

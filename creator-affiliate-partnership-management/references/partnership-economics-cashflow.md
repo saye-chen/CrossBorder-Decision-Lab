@@ -16,7 +16,7 @@
 
 - C01/C08：`max_rate=(mature_net_revenue-non_commission_cost-target_profit)/commission_base`。
 - C02：`max_fixed_fee=mature_revenue-all_non_fixed_cost-target_profit`，按low/base/high输出。
-- C03：`incremental_return=(incremental_contribution-controllable_investment)/controllable_investment`；C0时只报attributed return。
+- C03：仅当有效 F01 D10 consumer receipt 明确允许增量用途时，计算 `incremental_return=(incremental_contribution-controllable_investment)/controllable_investment`；没有 receipt 或只有旧 C0-C3 标签时一律只报 attributed return。
 - C04：反向漏斗使用各环节概率并向上取整。
 - C05：寄样期望损失含未发布、物流、不可回收和管理。
 - C07：成熟贡献、归因GMV、权利、平台、到期暴露分别算HHI/Shannon/Top share。
@@ -35,7 +35,7 @@
 
 ## partnership-economics-cashflow 专属决策内核
 
-机制：统一成本字典和现金事件账先保证无重复，再用证据成熟度选择 attributed 或 incremental 分子，最后求动作可承受上限。
+机制：统一成本字典和现金事件账先保证无重复，再由有效 F01 consumer receipt 选择 attributed 或 incremental 分子，最后求动作可承受上限。退款/结算成熟度只决定结果成熟，不创造因果资格。
 
 计算/判定：成本键唯一、佣金计提基数、退款冲回、固定费上限、现金谷底、敏感性、边际贡献、HHI和LTV分层。
 

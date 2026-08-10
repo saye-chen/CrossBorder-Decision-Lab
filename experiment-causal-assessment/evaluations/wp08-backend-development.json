@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-WP08-BACKEND-DEVELOPMENT-2026-08-10",
+  "status": "development_vectors_pass_external_verification_open",
+  "qualification": "locked_persistent_runtime_fixed_vectors_not_backend_proof",
+  "environment": {
+    "python": "CPython 3.12.13 exact dependency lock",
+    "r": "R 4.5.3 exact package and source-revision lock",
+    "runtime_lock_ref": "backends/runtime-lock.json"
+  },
+  "persistent_qualification_ref": "evaluations/persistent-backend-development-qualification.json",
+  "candidate": {
+    "candidate_id": "hte_uplift_econml",
+    "package": "econml",
+    "version": "0.16.0",
+    "adapter_ref": "backends/adapters/hte_uplift_econml.py",
+    "binding_decision": "development_pass_not_verified"
+  },
+  "development_oracle": {
+    "candidate_id": "hte_uplift_grf",
+    "package": "grf",
+    "version": "2.6.1",
+    "adapter_ref": "backends/adapters/hte_uplift_grf.R",
+    "execution_status": "pass_not_external_parity"
+  },
+  "vectors": [
+    {
+      "vector_id": "randomized_two_stratum_heterogeneity",
+      "status": "pass",
+      "truth": {"rows": 1000, "development_rows": 500, "evaluation_rows": 500, "low_group_effect": 1.0, "high_group_effect": 3.0},
+      "observations": {
+        "low_GATE": 1.1123374097800018,
+        "low_GATE_interval": [0.7944639911390963, 1.4302108284209074],
+        "high_GATE": 3.2257931163079276,
+        "high_GATE_interval": [2.9131908492948617, 3.5383953833209936],
+        "BLP_slope": 1.132733266366571,
+        "calibration_r_squared": 0.7937239261848726,
+        "Qini": 0.25843187859517813,
+        "AUTOC": 0.6736004254178188,
+        "candidate_policy_incremental_value": 1.5637362083685526,
+        "candidate_minus_treat_all": -0.5884214090231883,
+        "candidate_minus_treat_all_interval": [-0.7408722192656078, -0.4359705987807688],
+        "heterogeneity_supported_by_frozen_gate": true,
+        "policy_supported_by_frozen_gate": false
+      },
+      "decision_semantics": "Heterogeneity diagnostics are positive, but the frozen candidate policy is inferior to treat-all because both strata benefit; policy adoption must fail despite a useful CATE ranking."
+    },
+    {
+      "vector_id": "randomized_constant_effect_no_positive_heterogeneity_support",
+      "status": "pass",
+      "truth": {"rows": 1000, "development_rows": 500, "evaluation_rows": 500, "constant_effect": 2.0},
+      "observations": {
+        "low_GATE": 1.947158673720211,
+        "high_GATE": 1.8514854412843336,
+        "BLP_slope": -2.598089168564334,
+        "BLP_p_value": 0.0773520883837761,
+        "calibration_r_squared": -0.7313408529249426,
+        "Qini": -0.04854640522621864,
+        "AUTOC": -0.1317444275422804,
+        "candidate_minus_treat_all": -0.5707525547176694,
+        "candidate_minus_treat_all_interval": [-0.6964425887785198, -0.44506252065681895],
+        "heterogeneity_supported_by_frozen_gate": false,
+        "policy_supported_by_frozen_gate": false
+      },
+      "decision_semantics": "The adapter emits diagnostics rather than converting a nominal p-value into positive heterogeneity; negative ranking metrics, poor calibration, and inferior policy value prohibit a personalization claim."
+    }
+  ],
+  "protocol_gates": {
+    "surrogate": "favorable_short_term_proxy_alone_is_blocked_and_long_term_estimation_remains_external",
+    "transport": "source_grade_is_never_inherited_and_target_support_weight_bridge_and_F02_gates_are_required",
+    "individual_effect": "prohibited",
+    "policy_owner": "external_business_owner_required"
+  },
+  "release_effect": {"registry_verified_count": 0, "wp08_release_complete": false, "l2_or_l3_promotion": false},
+  "open_gates": [
+    "independent EconML versus GRF differential parity",
+    "preregistered null sparse diffuse and sign-changing heterogeneity simulations",
+    "policy-value coverage capacity cost fairness and drift simulations",
+    "surrogate-validity and surrogate-paradox external fixtures",
+    "transport weighting and standardization parity plus positivity stress tests",
+    "external qualification of the implemented backend-binding mutation suite",
+    "qualified independent causal-method review"
+  ]
+}

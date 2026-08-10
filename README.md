@@ -1,6 +1,6 @@
 # CrossBorder Decision Lab
 
-[English](README.en.md) · [十三个专业 Skill](#skill-快速定位) · [ERDG 治理底座](#统一决策基础设施) · [系统结构](#系统结构) · [使用方式](#如何使用) · [维护规则](RULES.md)
+[English](README.en.md) · [十三个专业 Skill](#skill-快速定位) · [F01 与 ERDG](#统一决策基础设施) · [系统结构](#系统结构) · [使用方式](#如何使用) · [维护规则](RULES.md)
 
 > 面向跨境商业的专业决策基础设施，把依赖个人经验的经营判断转化为有证据、有模型、有边界、有动作、有停止规则、可持续积累的决策资产。
 
@@ -8,7 +8,7 @@
 
 CrossBorder Decision Lab 服务于跨境电商经营者、品牌团队、投资决策者与专业服务团队。它不是一组通用提示词，而是把品类投资、竞争情报、产品、供应采购生产质量、定价财务、履约、页面、广告、达人、内容、营销品牌与客户增长连接成可独立运行、跨域协同和持续进化的专业决策系统。
 
-系统当前包含十三个已完成 L1—L3 专家级仓库建设的专业决策域，以及 ERDG（Economic, Risk & Decision Governance）治理底座。新增 D05/LTMA 覆盖商业市场准入 Gate、动作上限、Claim 使用边界、适格专业复核路由、动态规则、事故恢复和临时合同迁移；它不签发法律、税务、FTO、认证或实验室意见。所有域的 L4 均为 `controlled pilot`。
+系统当前包含十三个已完成 L1—L3 专家级仓库建设的专业决策域、ERDG（Economic, Risk & Decision Governance）治理底座，以及当前可用的 F01 实验与因果评估共享底座。D05/LTMA 覆盖商业市场准入 Gate、动作上限、Claim 使用边界、适格专业复核路由、动态规则、事故恢复和临时合同迁移；它不签发法律、税务、FTO、认证或实验室意见。系统成熟度保持 `controlled_pilot`；L4 尚未关闭，任何真实生产决策、高风险用途或外部写入均不可用。
 
 CIDM现包含受治理的`OSL-v1`机会信号层：以clean-room方式把外部研究启发归并为八类确定性候选信号，覆盖多源字段质量、五类组合剧本、有效供给/VOC、CIDM→PLCO Proof交接、部分失败DAG、R0–R4恢复、独立Oracle和13项源码mutation。该信号层只扩大候选池，不能直接改变七维评分、资本姿态或跨域主权；授权20例盲选回放、20人非实现者理解测试和前向校准仍未完成，因此不构成生产成熟度声明。
 
@@ -144,6 +144,11 @@ flowchart TB
     O -.质量、竞争、规则与客户反馈.-> D04
     O -.质量、竞争、规则与客户反馈.-> D05
     E["ERDG 治理控制面<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"] -.治理.-> D14
+    F["F01 实验与因果评估<br/>协议 · 估计量 · CE0—CE5 · 诊断 · 复现"] -.因果与增量 Claim 资格.-> D01
+    F -.因果与增量 Claim 资格.-> D06
+    F -.因果与增量 Claim 资格.-> D12
+    O -.授权结果回放与校准.-> F
+    E -.合同与发布治理.-> F
     E -.合同与红线校验.-> D01
     E -.合同与红线校验.-> D04
     E -.合同与红线校验.-> D12
@@ -152,7 +157,7 @@ flowchart TB
     class D14 planned
 ```
 
-图中十三域为当前可运行能力；D14 为规划域，注册表和校验器禁止其提前进入执行。各专业域继续保留最终专业主权；D14 只负责编排、冲突升级，以及在各 owner 已批准结论和资源边界内合成协同姿态与安排顺序，不裁决专业结论、不批准资本、不拥有外部写入。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
+图中十三域与 F01 为当前可运行能力；D14 为规划域，注册表和校验器禁止其提前进入执行。各专业域继续保留最终专业主权；F01 只裁定实验设计、因果/增量 Claim 资格与证据等级，不作业务最终决定；D14 只负责编排、冲突升级，以及在各 owner 已批准结论和资源边界内合成协同姿态与安排顺序，不裁决专业结论、不批准资本、不拥有外部写入。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
 
 ### D01—D14 连续决策闭环
 
@@ -230,9 +235,15 @@ sequenceDiagram
 | **SPPQ** | `SPPQ-2026.07` | 供应商是否可信、采购能否承诺、生产和批次是否可以放行、事故如何恢复？ | [供应商、采购、生产与质量](supplier-procurement-production-quality-decision/SKILL.md) |
 | **LTMA** | `LTMA-2026.07` | 当前证据下能否继续商业准备，哪些动作须阻断、补证或交适格专业主体复核？ | [法律、税务、IP 与市场准入](legal-tax-intellectual-property-market-access-decision/SKILL.md) |
 
+共享底座不拥有业务最终决策主权：
+
+| Foundation | Runtime | 主要解决的问题 | 专业入口 |
+|---|---|---|---|
+| **F01 / ECAE** | `ECAE` · `controlled_pilot` | 实验是否可执行、因果量是否可识别、结果可声称到什么等级、何时必须降级或重做？ | [实验与因果评估](experiment-causal-assessment/SKILL.md) |
+
 ## 统一决策基础设施
 
-十三个专业域通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享一套底层决策原则。ERDG 是仓库级中立基础设施：负责结构安全、确定性公共计算和跨域合同校验；各 Skill 继续拥有专业模型、阈值与最终业务决策。
+十三个专业域通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享一套底层决策原则，并通过 [F01 实验与因果评估](experiment-causal-assessment/SKILL.md) 统一实验协议、估计量、CE0—CE5 证据等级、诊断、复现和因果 Claim 上限。ERDG 负责结构安全、确定性公共计算和跨域合同校验；F01 负责因果证据资格；各 Skill 继续拥有专业模型、阈值与最终业务决策。
 
 模型交互前由 [`Prompt Intake Guard`](governance/interaction/interaction-governance.md) 把请求路由为回答、补数、研究、计算或阻断；ERDG 通过后的 Decision Packet 才能编译为面向运营的 Operator Playbook。动态平台知识使用带来源、证据等级、复核日和失效条件的 [平台知识卡](governance/platform-knowledge/platform-knowledge-contract.md)；外部数据按 [Connector 合同](governance/connectors/connector-governance.md) 接入，当前均为只读合同，不授权外部写入。
 
@@ -257,7 +268,7 @@ sequenceDiagram
 - 专业主权、风险红线、停止、回滚与退出治理；
 - 仓库级自动化校验和发布门禁。
 
-十三域专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将 13 个域的 612 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 22 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。运行 `python3 scripts/validate_release_integrity.py` 计算是否达到 `controlled_pilot_engineering_ready`。L4 的授权真实回放、阈值/权重校准和独立复核单独管理；工程门通过不等于 production-ready，也不会解冻规划中的 D14。
+十三域专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将 13 个域的 790 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 29 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。F01 已完成 L1—L3、163 项测试、23 种方法的来源绑定与 13/13 消费者受控试点接受；其 91 个只读预检案例没有生产证据声明。运行 `python3 scripts/validate_release_integrity.py` 和 `python3 scripts/validate_f01_release.py --require-l3` 复算发布状态。L4 的生产双跑、真实结果校准、高级后端外部资格和非实现者独立复核单独管理；工程门通过不等于 production-ready，也不会授权外部写入或解冻规划中的 D14。
 
 系统不依赖固定的大模型供应商。模型可以持续升级，专业决策合同、计算工具、业务基准和历史资产保持连续。
 
@@ -298,6 +309,8 @@ sequenceDiagram
 | [`evaluations/`](evaluations/) | 单 Skill、跨 Skill、连续追问、对抗与极端场景 |
 | [`governance/`](governance/) | 主权、成熟度、变更影响与共享治理合同 |
 | [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG 经济、风险、证据、状态、参数、血缘与跨域决策治理底座 |
+| [`experiment-causal-assessment/`](experiment-causal-assessment/SKILL.md) | F01 实验设计、因果资格、证据分级、诊断、复现、消费者接受与 L4 预留门 |
+| [`governance/foundation-capability-registry.json`](governance/foundation-capability-registry.json) | F01/F02 共享底座身份、能力、消费者、主权和成熟度 |
 | [`governance/interaction/`](governance/interaction/interaction-governance.md) | Prompt Intake Guard 与 Decision Packet → Operator Playbook 编译控制 |
 | [`governance/platform-knowledge/`](governance/platform-knowledge/platform-knowledge-contract.md) | PLCO、AAMO、LIFD 的版本化平台知识卡与失效门 |
 | [`governance/connectors/`](governance/connectors/connector-governance.md) | SP-API、Seller Central、广告与 ERP 的只读证据接口和 Action Gateway |
@@ -310,6 +323,7 @@ sequenceDiagram
 
 - 动态平台规则、法规、价格和市场事实在执行时按日期核验。
 - 平台归因、相关性、预测和因果增量保持严格区分。
+- L4 未关闭前，真实生产决策、高风险用途、自动执行和外部写入必须失败关闭；合成或只读预检不得冒充生产证据。
 - 财务结论区分事实、用户输入、外部基准和情景假设。
 - 法律、税务、知识产权和监管事项保留适格专业主权。
 - 系统不支持虚假互动、欺骗性宣传、侵权、刷评或规避平台规则。

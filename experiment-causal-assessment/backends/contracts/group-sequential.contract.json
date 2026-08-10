@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "ECAE-BACKEND-GROUP-SEQUENTIAL-1.0",
+  "backend_id": "group_sequential",
+  "candidate_id": "group_sequential_gsdesign",
+  "parity_candidate_id": "group_sequential_rpact",
+  "status": "contract_frozen_adapter_development_pass_not_verified",
+  "input": {
+    "required": ["sided", "alpha", "power", "information_fractions", "efficacy_spending", "futility_binding", "effect_scale"],
+    "allowed": {
+      "sided": [1, 2],
+      "efficacy_spending": ["obrien_fleming", "pocock", "hwang_shih_decani", "user_supplied"],
+      "futility_binding": [true, false]
+    },
+    "optional": ["futility_spending", "spending_parameters", "null_value", "alternative_value"]
+  },
+  "output": {
+    "required": ["looks", "information_fractions", "efficacy_boundaries", "futility_boundaries", "nominal_p_values", "cumulative_alpha_spent", "crossing_decision", "design_operating_characteristics", "warnings"]
+  },
+  "invariants": [
+    "information fractions are strictly increasing and end at one within tolerance",
+    "the design is frozen before outcome-driven inspection",
+    "boundary scale and observed statistic scale are identical",
+    "cumulative alpha spent is nondecreasing and does not exceed registered alpha within tolerance",
+    "gsDesign boundaries must match rpact under equivalent conventions before verification",
+    "fixed-horizon or anytime-valid outputs cannot be inserted into this contract"
+  ],
+  "implemented_scope": {
+    "boundary_scale": "z_statistic",
+    "direction": "upper or symmetric two-sided",
+    "efficacy_spending": ["obrien_fleming", "pocock", "hwang_shih_decani", "user_supplied"],
+    "futility": "efficacy-only; binding and spending-based futility fail closed pending beta-spending parity"
+  },
+  "failure_codes": ["BACKEND_RUNTIME_UNAVAILABLE", "BACKEND_VERSION_MISMATCH", "SEQUENTIAL_DESIGN_NOT_FROZEN", "INFORMATION_FRACTION_INVALID", "ALPHA_SPENDING_INVALID", "BOUNDARY_SCALE_MISMATCH", "SEQUENTIAL_PARITY_FAILED"]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "ECAE-BACKEND-CLUSTER-CR2-1.0",
+  "backend_id": "cluster_inference",
+  "candidate_id": "cluster_cr2_clubsandwich",
+  "status": "contract_frozen_adapter_not_verified",
+  "input": {
+    "required": ["estimand", "assignment_unit", "analysis_unit", "outcome_column", "treatment_column", "cluster_column", "confidence_level", "rows"],
+    "estimand_values": ["cluster_average", "individual_average"],
+    "row_policy": {
+      "cluster_average": "exactly one row per randomized cluster; equal analysis weight unless the preregistered estimand says otherwise",
+      "individual_average": "one row per analysis unit; treatment must be constant within randomized cluster; weights must be preregistered"
+    },
+    "optional": ["pretreatment_covariates", "strata", "analysis_weights", "null_value"]
+  },
+  "output": {
+    "required": ["effect", "standard_error", "confidence_interval", "p_value", "degrees_of_freedom", "variance_type", "test_type", "cluster_count", "clusters_per_arm", "cluster_leverage", "warnings"],
+    "constants": {"variance_type": "CR2", "test_type": "Satterthwaite"}
+  },
+  "invariants": [
+    "assignment_unit equals cluster",
+    "treatment is constant within cluster",
+    "at least two clusters per arm before routing; adequacy remains a diagnostic, not a guarantee",
+    "cluster-average and individual-average estimands never silently substitute for each other",
+    "ordinary iid or individual-level robust standard errors are forbidden",
+    "non-finite values, singular design, non-positive effective degrees of freedom, or excessive leverage fail closed"
+  ],
+  "failure_codes": ["BACKEND_RUNTIME_UNAVAILABLE", "BACKEND_VERSION_MISMATCH", "ESTIMAND_NOT_FROZEN", "UNIT_MISMATCH", "TREATMENT_VARIES_WITHIN_CLUSTER", "CLUSTER_DESIGN_SINGULAR", "CLUSTER_DF_INVALID", "CLUSTER_LEVERAGE_EXTREME"]
+}
