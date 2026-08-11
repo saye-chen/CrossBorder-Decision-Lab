@@ -1,0 +1,1 @@
+{"fact_id":"REQUIRED","owner_domain":"REQUIRED","scope":{"platform":"REQUIRED","country":"REQUIRED","surface":"REQUIRED"},"source_refs":["REQUIRED"],"reviewed_at":"YYYY-MM-DD","expires_at":"YYYY-MM-DD","status":"draft","allowed_uses":["REQUIRED"],"invalidation_conditions":["REQUIRED"]}

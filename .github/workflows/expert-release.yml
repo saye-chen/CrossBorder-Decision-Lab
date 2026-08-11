@@ -17,7 +17,7 @@ jobs:
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision governance/interaction governance/platform-knowledge governance/connectors scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -97,6 +97,8 @@ jobs:
           python3 scripts/test_statistical_primitive_parity.py
           python3 scripts/test_qoderwork_skill_installation.py
           python3 scripts/validate_release_integrity.py
+          python3 scripts/validate_knowledge_quality.py
+          python3 scripts/test_knowledge_quality.py
           python3 scripts/test_full_repository_audit.py
           python3 -m unittest governance/interaction/tests/test_interaction_platform_connectors.py
       - name: Reject whitespace errors

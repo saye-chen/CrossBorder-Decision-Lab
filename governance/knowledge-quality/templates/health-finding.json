@@ -1,0 +1,1 @@
+{"finding_id":"REQUIRED","owner":"REQUIRED","detected_at":"YYYY-MM-DDTHH:MM:SSZ","due_at":"YYYY-MM-DDTHH:MM:SSZ","affected_consumers":["REQUIRED"],"freeze_action":"REQUIRED","recovery_batch_id":"REQUIRED","closure_evidence":[]}

@@ -1,0 +1,112 @@
+{
+  "contract": "CBDS-KNOWLEDGE-QUALITY-2026.07",
+  "as_of": "2026-08-11",
+  "dynamic_facts": [
+    {
+      "fact_id": "PK-AMAZON-GENERATIVE-DISCOVERY-2026-08",
+      "owner_domain": "D08",
+      "scope": {"platform": "Amazon", "country": "unspecified", "surface": "generative_discovery"},
+      "source_refs": ["governance/platform-knowledge/cards/plco-amazon-generative-discovery.json"],
+      "reviewed_at": "2026-08-07",
+      "expires_at": "2026-11-07",
+      "status": "active",
+      "allowed_uses": ["diagnostic", "experiment"],
+      "invalidation_conditions": ["source contradiction", "card expiry", "repeated experiment harm"]
+    },
+    {
+      "fact_id": "PK-AMAZON-PAID-ORGANIC-DISCOVERY-2026-08",
+      "owner_domain": "D09",
+      "scope": {"platform": "Amazon", "country": "unspecified", "surface": "paid_organic_discovery_measurement"},
+      "source_refs": ["governance/platform-knowledge/cards/aamo-amazon-ai-discovery-measurement.json"],
+      "reviewed_at": "2026-08-07",
+      "expires_at": "2026-11-07",
+      "status": "active",
+      "allowed_uses": ["diagnostic", "hypothesis", "experiment", "monitoring", "routing"],
+      "invalidation_conditions": ["official measurement contract changes", "surface taxonomy changes", "card expiry", "exposure cannot be identified"]
+    },
+    {
+      "fact_id": "PK-AMAZON-DEMAND-SIGNAL-2026-08",
+      "owner_domain": "D07",
+      "scope": {"platform": "Amazon", "country": "unspecified", "surface": "inventory_demand_sensing"},
+      "source_refs": ["governance/platform-knowledge/cards/lifd-amazon-demand-signal-isolation.json"],
+      "reviewed_at": "2026-08-07",
+      "expires_at": "2026-11-07",
+      "status": "active",
+      "allowed_uses": ["hypothesis", "monitoring", "routing"],
+      "invalidation_conditions": ["authorized sales data disproves scenario", "surface taxonomy changes", "card expiry", "supply regime changes"]
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "KQ-UNKNOWN-NOT-ZERO",
+      "owner": "repository",
+      "status": "active",
+      "source_ref": "governance/interaction/interaction-governance.md",
+      "consumers": ["D01", "D02", "D07", "D08", "D09"],
+      "impact_on_change": "freeze_consumers_and_start_reality_recovery"
+    },
+    {
+      "constraint_id": "KQ-ERDG-PASSED-PLAYBOOK",
+      "owner": "repository",
+      "status": "active",
+      "source_ref": "governance/interaction/interaction-governance.md",
+      "consumers": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13"],
+      "impact_on_change": "block_compilation_and_revalidate_packets"
+    }
+  ],
+  "deliveries": [
+    {
+      "check_id": "KQ-DELIVERY-AMAZON-LISTING-01",
+      "owner_domain": "D08",
+      "object_ref": "listing:fixture-01:v1",
+      "country": "US",
+      "platform": "Amazon",
+      "weakest_assumption": "authorized conversion evidence is missing",
+      "evidence_state": "inconclusive",
+      "counterevidence": ["observed traffic may be non-comparable"],
+      "constraint_refs": ["KQ-UNKNOWN-NOT-ZERO", "KQ-ERDG-PASSED-PLAYBOOK"],
+      "success_conditions": ["authorized conversion evidence covers the declared window"],
+      "stop_conditions": ["evidence remains missing at review cutoff"],
+      "rollback_conditions": ["withdraw proposed operator action"],
+      "result_states": ["passed", "failed", "unknown", "not_applicable"]
+    }
+  ],
+  "missing_data_routes": [
+    {
+      "route_id": "KQ-MISSING-CONVERSION-01",
+      "field": "listing_conversion_rate",
+      "authoritative_location": "authorized seller analytics",
+      "retrieval_spec": "unit=ratio; window=last_28_complete_days; grain=listing-country",
+      "decision_impact": "conversion feasibility and confidence cannot be validated",
+      "frozen_conclusions": ["scale", "approved listing action"],
+      "fallback_experiment": "controlled traffic test with predeclared guardrail",
+      "recompute_mode": "recalculation"
+    }
+  ],
+  "scale_claims": {
+    "registered_domains": 13,
+    "registered_validation_entrypoints": 31,
+    "registered_source_cases": 790,
+    "anti_tamper_mutations": 12,
+    "maturity": "controlled pilot",
+    "production_ready": false
+  },
+  "health_policy": {
+    "schedule": "weekly",
+    "required_finding_fields": ["finding_id", "owner", "detected_at", "due_at", "affected_consumers", "freeze_action", "recovery_batch_id", "closure_evidence"],
+    "auto_close": false,
+    "expired_critical_fact_action": "freeze_consumers_and_start_reality_recovery"
+  },
+  "scaffolds": [
+    "governance/knowledge-quality/templates/dynamic-fact.json",
+    "governance/knowledge-quality/templates/constraint.json",
+    "governance/knowledge-quality/templates/missing-data-route.json",
+    "governance/knowledge-quality/templates/health-finding.json",
+    "scripts/new_governed_knowledge_asset.py"
+  ],
+  "anti_gaming": {
+    "max_normalized_self_check_duplicates": 1,
+    "forbidden_evaluation_fragments": ["copy the golden answer", "special case for fixture", "raise threshold to pass"],
+    "threshold_changes_require": ["change_impact", "independent_review", "replay_evidence"]
+  }
+}
