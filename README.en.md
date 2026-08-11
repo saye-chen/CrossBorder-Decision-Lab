@@ -10,43 +10,6 @@ CrossBorder Decision Lab is built for cross-border operators, brands, investors,
 
 The system combines fourteen professional decision capabilities with three global foundations. COPO orchestrates cross-domain work; CIDM, CIM, PIPM, SPPQ, LTMA, PPFC, LIFD, MBCM, VLB, CAPM, PLCO, AAMO, and CIG retain their respective professional sovereignty. ECAE, LCCA, and ERDG govern causal eligibility, localization applicability, and shared decision contracts. Core engineering and L1–L3 release gates are complete, with maturity at `controlled_pilot`. L4 will advance through real use, outcome replay, parameter calibration, and independent assurance; until then, production automation, high-stakes use, and external writes remain unavailable.
 
-CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room reimplements external research ideas as eight deterministic candidate-signal families with multi-source field quality, five composition playbooks, effective-supply/VOC analysis, proof-bound CIDM-to-PLCO handoff, partial-failure DAG execution, R0–R4 recovery, an independent oracle, and 13 source mutations. The layer expands candidate coverage only; it cannot directly change the seven-dimension score, capital posture, or cross-domain sovereignty. The authorized 20-case blind replay, 20-person non-implementer comprehension test, and forward calibration remain open, so this is not a production-maturity claim.
-
-### OSL-v1 opportunity-signal architecture
-
-```mermaid
-flowchart TB
-    subgraph IN["1. Evidence intake"]
-      direction LR
-      RAW["External research evidence"] --> ADP["Evidence Adapter<br/>normalization · freshness · source family · lineage"]
-      ADP --> CON["Signal contract<br/>object · window · counterevidence · alternatives"]
-    end
-    subgraph CORE["2. Signal computation"]
-      direction LR
-      MOD["8 deterministic models"] <--> ORA["Independent Oracle<br/>status and metric dual calculation"]
-      ORA --> SIG["12 canonical signals"]
-    end
-    subgraph DEC["3. Decision governance"]
-      direction LR
-      PLAY["5 composition playbooks<br/>Required · Supporting<br/>Counter · Veto"] --> GATE["CIDM five gates<br/>seven-dimension score"]
-      GATE --> CARD["Rapid Decision Card<br/>Enter · Test · Observe · Reject"]
-    end
-    subgraph REC["4. Reality recovery"]
-      direction LR
-      DRIFT["Evidence invalidation<br/>field drift · definition change"] --> FREEZE["Freeze affected actions"]
-      FREEZE --> RECOMPUTE["Impact closure · domain recomputation<br/>new effective decision"]
-    end
-    CON --> MOD
-    SIG --> PLAY
-    CARD --> HAND["Governed handoff<br/>PPFC · SPPQ · LIFD · PLCO"]
-    GATE -->|redline / veto triggered| BLOCK["Blocked<br/>cannot be offset by a high score"]
-    CARD -.evidence invalidated.-> DRIFT
-    RECOMPUTE -.enters the next decision cycle.-> REENTRY["Re-enter evidence intake"]
-    EXT["External gates remain closed<br/>20-case blind replay · 20-person test · forward calibration"] -.limits maturity.-> CARD
-```
-
-The diagram shows how candidate discovery is governed; it is not a parallel investment-scoring system. Signals pass through evidence intake, contract validation, deterministic models, independent dual calculation, composition playbooks, and CIDM's existing gates. Redlines, vetoes, and evidence invalidation take precedence and trigger blocking or recovery. The signal layer cannot approve investment, inventory, page, or advertising actions.
-
 ## System Value and Long-Term Defensibility
 
 Foundation models will continue to improve, and the cost of generating individual answers will continue to decline. The durable value lies above the model: professional decision infrastructure embedded in real operating workflows.
@@ -110,56 +73,41 @@ This moves the system from “answering professional questions” toward “cont
 ### Professional capability architecture
 
 ```mermaid
-flowchart TB
+flowchart LR
     U["Operating question · event · new evidence"] --> COPO["COPO<br/>Operating posture orchestration"]
+    COPO --> CIM["CIM<br/>Competitive facts"]
+    COPO --> CIG["CIG<br/>Customer, experience, and growth"]
+    COPO --> CIDM["CIDM<br/>Capital and portfolio"]
+    COPO --> LTMA["LTMA<br/>Compliance and market access"]
+    COPO --> PPFC["PPFC<br/>Pricing, profit, and cash"]
 
-    subgraph BOUNDARY["1. Decisions and constraints"]
-      direction LR
-      CIM["CIM<br/>Competitive facts"] -.facts and continuous monitoring.-> CIDM["CIDM<br/>Capital and portfolio"]
-      LTMA["LTMA<br/>Compliance and market access"]
-      PPFC["PPFC<br/>Pricing, profit, and cash"]
-    end
-    COPO --> CIM
-    COPO --> CIDM
-    COPO --> LTMA
-    COPO --> PPFC
-
-    subgraph REALIZE["2. Product realization"]
-      direction LR
-      PIPM["PIPM<br/>Product definition"] --> SPPQ["SPPQ<br/>Supply, procurement, production, and quality"] --> LIFD["LIFD<br/>Logistics, inventory, and fulfillment"]
-    end
-    CIDM --> PIPM
+    CIDM --> PIPM["PIPM<br/>Product definition"]
+    PIPM --> SPPQ["SPPQ<br/>Supply, procurement, production, and quality"]
     LTMA -.access and continuous compliance.-> SPPQ
     PPFC -.economic and cash boundaries.-> SPPQ
+    SPPQ --> LIFD["LIFD<br/>Logistics, inventory, and fulfillment"]
 
-    subgraph GROWTH["3. Market growth"]
-      direction TB
-      MBCM["MBCM<br/>Marketing, brand, and campaigns"] --> VLB["VLB<br/>Content creative"]
-      MBCM --> CAPM["CAPM<br/>Creator and affiliate"]
-      VLB --> PLCO["PLCO<br/>Platform and conversion"]
-      VLB --> AAMO["AAMO<br/>Advertising measurement"]
-      CAPM --> PLCO
-      CAPM --> AAMO
-      PLCO --> CIG["CIG<br/>Customer, experience, and growth"]
-      AAMO --> CIG
-    end
-    LIFD --> MBCM
-    CIG --> O["Actions, customer, and operating outcomes"]
-    O --> REVIEW["4. Operating review and selective recomputation<br/>Economics · capital · competition · quality · compliance"]
-    REVIEW --> NEXT["Form the next-cycle operating posture<br/>Re-enter COPO"]
+    LIFD --> MBCM["MBCM<br/>Marketing, brand, and campaigns"]
+    MBCM --> VLB["VLB<br/>Content creative"]
+    MBCM --> CAPM["CAPM<br/>Creator and affiliate"]
+    VLB --> PLCO["PLCO<br/>Platform and conversion"]
+    VLB --> AAMO["AAMO<br/>Advertising measurement"]
+    CAPM --> PLCO
+    CAPM --> AAMO
+    PLCO --> O["Customer, partner, and operating outcomes"]
+    AAMO --> O
+    CIG --> O
+    O --> REVIEW["Operating review and selective recomputation<br/>capital · economics · competition · quality · compliance"]
+    REVIEW -->|new evidence · constraints · cycle| COPO
 
-    subgraph FOUNDATION["Global decision infrastructure"]
-      direction LR
-      E["ERDG governance control plane<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"]
-      F["ECAE experiment and causal assessment<br/>Protocols · estimands · CE0–CE5 · diagnostics · reproducibility"]
-      L["LCCA localization and country calibration<br/>Scope · freshness · conversion · comparability · transfer ceiling"]
-      Q["Qualification and boundary convergence<br/>Contract and redline validation · causal and incremental claim eligibility · localization applicability"]
-      E --> Q
-      F --> Q
-      L --> Q
-    end
-    Q -.governance and qualification boundaries.-> COPO
-    REVIEW -.outcome replay and parameter calibration.-> CAL["Calibrate ERDG · ECAE · LCCA"]
+    ERDG["ERDG governance control plane<br/>objects · evidence · calculations · economics · risk · state · parameters · lineage"] --> Q["Qualification and boundary convergence<br/>contract and redline validation · causal and incremental claim eligibility · localization applicability"]
+    ECAE["ECAE<br/>experiment, causal, and incrementality eligibility"] --> Q
+    LCCA["LCCA<br/>scope, freshness, and transfer ceiling"] --> Q
+    Q -.whole-cycle governance and qualification.-> COPO
+    Q -.claim and localization boundaries.-> O
+    REVIEW -.outcome replay and parameter calibration.-> ERDG
+    REVIEW -.experiment diagnostics and reproduction.-> ECAE
+    REVIEW -.dynamic-fact and transfer calibration.-> LCCA
 ```
 
 The fourteen professional capabilities plus ECAE, LCCA, and ERDG are within the current controlled-pilot scope. Each professional capability retains decision sovereignty. ECAE governs causal and incremental claim eligibility; LCCA governs localization scope, dynamic-fact freshness, comparability, and transferability ceilings; COPO orchestrates owner-approved conclusions and dependency order. None may override professional conclusions, approve capital outside its authority, or write externally.
@@ -220,6 +168,12 @@ sequenceDiagram
 
 The sequence shows the cross-phase spine only. The five market capabilities retain separate sovereignty and exchange standard packets. The authoritative capability registry is [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json). The whole system uses v2 handoffs and Decision Cycle; the old v1 runtime path is retired.
 
+### How one decision becomes an operating loop
+
+Consider a seller evaluating the pet-water-fountain category on Amazon US. CIDM owns entry and capital boundaries; CIM verifies competitive change; CIG fixes customer jobs and friction; PIPM defines a testable product; LTMA limits market-access and claim use; PPFC recomputes price, profit, and peak cash; SPPQ and LIFD determine whether supply, batch quality, inventory, and fulfillment can be committed; MBCM, VLB, CAPM, PLCO, and AAMO coordinate launch and growth within their respective authority.
+
+The system does not treat the first analysis as final. Sales, returns, incrementality, quality, fulfillment, and cash outcomes form an Outcome Packet. New evidence selectively recomputes only affected domains; their professional owners then add, hold, correct, reduce, or exit and issue the next current-effective operating posture.
+
 ## Professional Capabilities
 
 Choose the primary Skill by the decision that must be made. Platform coverage, professional models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
@@ -277,9 +231,46 @@ The current version provides fourteen professional decision Skills that have com
 - professional ownership, risk redlines, stopping, rollback, and exit governance;
 - repository-wide automated validation and release gates.
 
-The unified professional engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current snapshot binds 835 source cases, Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 33 professional validation entrypoints and uses 12 anti-tamper mutations. ECAE and LCCA have completed their L1–L3 controlled-pilot gates and 13/13 consumer-contract acceptances; local fixtures and read-only preflight cases make no production-evidence claim. Run the repository-wide release validator to recompute the current status. L4 production dual-runs, real-outcome calibration, external qualification, and independent non-implementer review remain separate; an engineering pass is neither production readiness nor external-write authority.
+| Evidence dimension | Current state | What it demonstrates | What it does not demonstrate |
+|---|---:|---|---|
+| Professional capabilities | 14 domains | sovereignty, independent operation, and cross-domain contracts | real operating effectiveness |
+| Global foundations | ERDG, ECAE, LCCA | governance, causal eligibility, and localization applicability | final business authority |
+| Normalized evaluations | 835 source cases | scenario, failure, and semantic coverage | 835 real operating cases |
+| Professional validation | 33 entrypoints | executable semantic and numerical recomputation | production maturity |
+| Anti-tamper validation | 12 mutation classes | critical guards cannot be silently removed or weakened | external independent assurance |
+| Current maturity | `controlled_pilot` | L1–L3 engineering gates complete; controlled pilots allowed | production automation, high-stakes use, or external writes |
+
+The unified professional engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). ECAE and LCCA have completed their L1–L3 controlled-pilot gates and 13/13 consumer-contract acceptances; local fixtures and read-only preflight cases make no production-evidence claim. Run the repository-wide release validator to recompute the current state. L4 production dual-runs, real-outcome calibration, external qualification, and independent non-implementer review remain separate.
 
 The system is not tied to a single foundation-model provider. Models can continue to improve while professional decision contracts, calculation tools, operating benchmarks, and historical assets remain continuous.
+
+## Featured Capability Update: OSL-v1
+
+CIDM includes the governed `OSL-v1` opportunity-signal layer. It clean-room reimplements external research ideas as eight deterministic candidate-signal families with multi-source field quality, five composition playbooks, effective-supply/VOC analysis, proof-bound CIDM-to-PLCO handoff, partial-failure DAG execution, R0–R4 recovery, an independent oracle, and 13 source mutations. The layer expands candidate coverage only; it cannot directly change the seven-dimension score, capital posture, or cross-domain sovereignty. The authorized 20-case blind replay, 20-person non-implementer comprehension test, and forward calibration remain open, so this is not a production-maturity claim.
+
+```mermaid
+flowchart LR
+    RAW["External research evidence"] --> ADP["Evidence Adapter<br/>normalization · freshness · source · lineage"]
+    ADP --> CON["Signal contract<br/>object · window · counterevidence · alternatives"]
+    CON --> MOD["8 deterministic models"]
+    MOD <--> ORA["Independent Oracle<br/>state and metric dual calculation"]
+    ORA --> SIG["12 canonical signals"]
+    SIG --> PLAY["5 composition playbooks<br/>Required · Supporting · Counter · Veto"]
+    PLAY --> GATE["CIDM five gates<br/>seven-dimension score"]
+    GATE --> CARD["Rapid Decision Card<br/>Enter · Test · Observe · Reject"]
+    CARD --> HAND["Governed handoff<br/>PPFC · SPPQ · LIFD · PLCO"]
+    HAND --> OUTCOME["Operating outcomes and new evidence"]
+    OUTCOME --> REVIEW["Outcome replay<br/>counterexamples · drift · calibration"]
+    REVIEW -->|next decision cycle| ADP
+    GATE -->|redline / veto| BLOCK["Blocked<br/>cannot be offset by a high score"]
+    CARD -.evidence invalidated.-> DRIFT["Evidence invalidation<br/>field drift · definition change"]
+    DRIFT --> FREEZE["Freeze affected actions"]
+    FREEZE --> RECOMPUTE["Impact closure · domain recomputation<br/>new effective decision"]
+    RECOMPUTE -.next decision cycle.-> ADP
+    EXT["External gates remain closed<br/>blind replay · non-implementer test · forward calibration"] -.limits maturity.-> CARD
+```
+
+The diagram shows how candidate discovery is governed, not a parallel investment-scoring system. Redlines, vetoes, and evidence invalidation take precedence and trigger blocking or recovery; the signal layer cannot approve investment, inventory, page, or advertising actions.
 
 ## How to Use
 

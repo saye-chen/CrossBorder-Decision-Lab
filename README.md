@@ -10,43 +10,6 @@ CrossBorder Decision Lab 服务于跨境电商经营者、品牌团队、投资�
 
 系统由十四项专业决策能力与三项全局决策基础设施组成：COPO 负责跨域编排，CIDM、CIM、PIPM、SPPQ、LTMA、PPFC、LIFD、MBCM、VLB、CAPM、PLCO、AAMO 与 CIG 分别拥有各自专业主权；ECAE、LCCA 与 ERDG 统一实验因果资格、本地化适用性和治理合同。核心工程与 L1—L3 发布门已经完成，当前成熟度为 `controlled_pilot`。L4 仍需通过真实使用、结果回放、参数校准和独立保证逐步完善；在此之前，不开放真实生产自动决策、高风险用途或外部写入。
 
-CIDM现包含受治理的`OSL-v1`机会信号层：以clean-room方式把外部研究启发归并为八类确定性候选信号，覆盖多源字段质量、五类组合剧本、有效供给/VOC、CIDM→PLCO Proof交接、部分失败DAG、R0–R4恢复、独立Oracle和13项源码mutation。该信号层只扩大候选池，不能直接改变七维评分、资本姿态或跨域主权；授权20例盲选回放、20人非实现者理解测试和前向校准仍未完成，因此不构成生产成熟度声明。
-
-### OSL-v1 机会信号结构
-
-```mermaid
-flowchart TB
-    subgraph IN["① 证据接入"]
-      direction LR
-      RAW["外部研究原始证据"] --> ADP["Evidence Adapter<br/>字段归一 · 时效 · 来源家族 · 血缘"]
-      ADP --> CON["信号合同<br/>对象 · 时间窗 · 反证 · 替代解释"]
-    end
-    subgraph CORE["② 信号计算"]
-      direction LR
-      MOD["8 类确定性模型"] <--> ORA["独立 Oracle<br/>状态与指标双算"]
-      ORA --> SIG["12 类规范信号"]
-    end
-    subgraph DEC["③ 决策治理"]
-      direction LR
-      PLAY["5 类组合剧本<br/>Required · Supporting<br/>Counter · Veto"] --> GATE["CIDM 五道门槛<br/>七维评分"]
-      GATE --> CARD["Rapid Decision Card<br/>进入 · 小测 · 观察 · 不进入"]
-    end
-    subgraph REC["④ 失效恢复"]
-      direction LR
-      DRIFT["证据失效<br/>字段漂移 · 口径变化"] --> FREEZE["冻结受影响动作"]
-      FREEZE --> RECOMPUTE["影响闭合 · 逐域重算<br/>生成新有效决策"]
-    end
-    CON --> MOD
-    SIG --> PLAY
-    CARD --> HAND["受控跨域交接<br/>PPFC · SPPQ · LIFD · PLCO"]
-    GATE -->|触发红线 / Veto| BLOCK["Blocked<br/>不可被高分补偿"]
-    CARD -.证据失效.-> DRIFT
-    RECOMPUTE -.进入下一决策周期.-> REENTRY["重新进入证据接入"]
-    EXT["外部门仍关闭<br/>20例盲选回放 · 20人非实现者测试 · 前向校准"] -.限制成熟度.-> CARD
-```
-
-这张图展示的是“候选发现如何受治理”，不是另一套投资评分器。机会信号必须经过证据接入、合同校验、确定性模型与独立双算，再进入组合剧本和 CIDM 原有门槛；任何红线、否决条件或证据失效都优先阻断并触发恢复。信号层无权直接批准投资、备货、页面或广告动作。
-
 ## 系统价值与长期壁垒
 
 大模型会持续变强，单次生成内容的成本也会持续下降。真正具有长期价值的不是某一个模型，而是建立在模型之上的专业决策基础设施。
@@ -108,56 +71,41 @@ CrossBorder Decision Lab 将跨境经营中分散、隐性的个人经验，转�
 ### 专业能力协作架构
 
 ```mermaid
-flowchart TB
+flowchart LR
     U["经营问题 · 事件 · 新证据"] --> COPO["COPO<br/>跨域经营姿态与决策编排"]
+    COPO --> CIM["CIM<br/>竞争事实"]
+    COPO --> CIG["CIG<br/>客户、体验与增长"]
+    COPO --> CIDM["CIDM<br/>资本与组合决策"]
+    COPO --> LTMA["LTMA<br/>合规与市场准入"]
+    COPO --> PPFC["PPFC<br/>定价、利润与现金"]
 
-    subgraph BOUNDARY["① 决策与约束"]
-      direction LR
-      CIM["CIM<br/>竞争事实"] -.事实与持续监测.-> CIDM["CIDM<br/>资本与组合决策"]
-      LTMA["LTMA<br/>合规与市场准入"]
-      PPFC["PPFC<br/>定价、利润与现金"]
-    end
-    COPO --> CIM
-    COPO --> CIDM
-    COPO --> LTMA
-    COPO --> PPFC
-
-    subgraph REALIZE["② 产品兑现"]
-      direction LR
-      PIPM["PIPM<br/>产品定义"] --> SPPQ["SPPQ<br/>供应采购生产质量"] --> LIFD["LIFD<br/>物流、库存与履约"]
-    end
-    CIDM --> PIPM
+    CIDM --> PIPM["PIPM<br/>产品定义"]
+    PIPM --> SPPQ["SPPQ<br/>供应采购生产质量"]
     LTMA -.准入与持续合规.-> SPPQ
     PPFC -.经济与现金边界.-> SPPQ
+    SPPQ --> LIFD["LIFD<br/>物流、库存与履约"]
 
-    subgraph GROWTH["③ 市场增长"]
-      direction TB
-      MBCM["MBCM<br/>营销、品牌与活动"] --> VLB["VLB<br/>内容创意"]
-      MBCM --> CAPM["CAPM<br/>达人联盟"]
-      VLB --> PLCO["PLCO<br/>平台与转化"]
-      VLB --> AAMO["AAMO<br/>广告测量"]
-      CAPM --> PLCO
-      CAPM --> AAMO
-      PLCO --> CIG["CIG<br/>客户、体验与增长"]
-      AAMO --> CIG
-    end
-    LIFD --> MBCM
-    CIG --> O["动作、客户与经营结果"]
-    O --> REVIEW["④ 经营复盘与选择性重算<br/>经济 · 资本 · 竞争 · 质量 · 合规"]
-    REVIEW --> NEXT["形成下一周期经营姿态<br/>重新进入 COPO"]
+    LIFD --> MBCM["MBCM<br/>营销、品牌与活动"]
+    MBCM --> VLB["VLB<br/>内容创意"]
+    MBCM --> CAPM["CAPM<br/>达人联盟"]
+    VLB --> PLCO["PLCO<br/>平台与转化"]
+    VLB --> AAMO["AAMO<br/>广告测量"]
+    CAPM --> PLCO
+    CAPM --> AAMO
+    PLCO --> O["客户、伙伴与经营结果"]
+    AAMO --> O
+    CIG --> O
+    O --> REVIEW["经营复盘与选择性重算<br/>资本 · 经济 · 竞争 · 质量 · 合规"]
+    REVIEW -->|新证据 · 新约束 · 新周期| COPO
 
-    subgraph FOUNDATION["全局决策基础设施"]
-      direction LR
-      E["ERDG 治理控制面<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"]
-      F["ECAE 实验与因果评估<br/>协议 · 估计量 · CE0—CE5 · 诊断 · 复现"]
-      L["LCCA 本地化与国家校准<br/>作用域 · 时效 · 转换 · 可比性 · 迁移上限"]
-      Q["资格与边界汇合<br/>合同与红线校验 · 因果与增量 Claim 资格 · 本地化适用性资格"]
-      E --> Q
-      F --> Q
-      L --> Q
-    end
-    Q -.治理与资格边界.-> COPO
-    REVIEW -.结果回放与参数校准.-> CAL["校准 ERDG · ECAE · LCCA"]
+    ERDG["ERDG 治理控制面<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"] --> Q["资格与边界汇合<br/>合同与红线校验 · 因果与增量 Claim 资格 · 本地化适用性资格"]
+    ECAE["ECAE<br/>实验、因果与增量资格"] --> Q
+    LCCA["LCCA<br/>作用域、时效与迁移上限"] --> Q
+    Q -.全周期治理与资格边界.-> COPO
+    Q -.Claim 与本地化边界.-> O
+    REVIEW -.结果回放与参数校准.-> ERDG
+    REVIEW -.实验诊断与复现.-> ECAE
+    REVIEW -.动态事实与迁移校准.-> LCCA
 ```
 
 十四项专业能力与 ECAE、LCCA、ERDG 均处于当前受控试点范围。各专业能力保留最终专业主权；ECAE 只裁定实验设计、因果/增量 Claim 资格与证据等级，LCCA 只裁定本地化作用域、动态事实新鲜度、可比性和迁移上限；COPO 只负责编排、冲突升级，以及在各 owner 已批准结论和资源边界内合成协同姿态与安排顺序。它们均不越权批准资本、替代专业结论或执行外部写入。
@@ -218,6 +166,12 @@ sequenceDiagram
 
 连续时序只展示跨阶段主链；市场能力组中的五项专业能力仍各自拥有主权，并通过标准 Packet 交接。完整能力注册表位于 [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json)。全系统统一使用 v2 交接与 Decision Cycle；旧 v1 运行主链已经退役。
 
+### 一个决策如何形成经营闭环
+
+例如，一家卖家准备评估美国 Amazon 宠物饮水机品类。CIDM 判断是否值得进入及投入边界，CIM 核验竞争变化，CIG 固定客户任务与阻力，PIPM 定义可验证产品，LTMA 限定准入与宣传边界，PPFC 复算价格、利润和现金峰值，SPPQ 与 LIFD 判断供应、批次、库存和履约是否可承诺，MBCM、VLB、CAPM、PLCO 与 AAMO 在各自主权内完成上市与增长协同。
+
+系统不会把一次分析当作最终答案。销量、退货、广告增量、质量、履约和现金结果形成 Outcome Packet；新结果只触发受影响域重算，由对应专业 Owner 决定追加、维持、修正、收缩或退出，并生成下一周期的当前有效经营姿态。
+
 ## 专业能力
 
 按“需要做什么决策”选择主 Skill。每个 Skill 的平台覆盖、专业模型、执行流程、输入输出和失败边界，请进入对应目录查看。
@@ -273,9 +227,46 @@ sequenceDiagram
 - 专业主权、风险红线、停止、回滚与退出治理；
 - 仓库级自动化校验和发布门禁。
 
-专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将十四项能力的 835 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 33 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。ECAE 与 LCCA 均已完成独立 L1—L3 受控试点门和 13/13 消费者合同接受；这些本地 fixture 不构成生产证据。运行总发布校验可复算当前状态；L4 的生产双跑、真实结果校准、外部资格和非实现者独立复核单独管理，工程门通过不等于 production-ready，也不会授权外部写入。
+| 证据维度 | 当前状态 | 能证明什么 | 不能证明什么 |
+|---|---:|---|---|
+| 专业能力 | 14 个域 | 专业主权、独立运行与跨域合同 | 不等于真实经营效果 |
+| 全局基础设施 | ERDG、ECAE、LCCA | 治理、因果资格和本地化适用性 | 不拥有业务最终决策权 |
+| 规范化评测 | 835 个源案例 | 场景、异常和语义覆盖 | 不等于 835 个真实经营案例 |
+| 专业验证 | 33 个入口 | 语义校验与数值复算可执行 | 不等于生产成熟 |
+| 防篡改验证 | 12 类突变 | 关键守卫不能被静默删除或放宽 | 不替代外部独立保证 |
+| 当前成熟度 | `controlled_pilot` | L1—L3 工程门完成，可受控试点 | 不授权生产自动决策、高风险用途或外部写入 |
+
+专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。ECAE 与 LCCA 均已完成独立 L1—L3 受控试点门和 13/13 消费者合同接受；本地 fixture 和只读预检不构成生产证据。运行总发布校验可复算当前状态；L4 的生产双跑、真实结果校准、外部资格和非实现者独立复核单独管理。
 
 系统不依赖固定的大模型供应商。模型可以持续升级，专业决策合同、计算工具、业务基准和历史资产保持连续。
+
+## 重点能力更新：OSL-v1
+
+CIDM 现包含受治理的 `OSL-v1` 机会信号层：以 clean-room 方式把外部研究启发归并为八类确定性候选信号，覆盖多源字段质量、五类组合剧本、有效供给/VOC、CIDM→PLCO Proof 交接、部分失败 DAG、R0–R4 恢复、独立 Oracle 和 13 项源码 mutation。该信号层只扩大候选池，不能直接改变七维评分、资本姿态或跨域主权；授权 20 例盲选回放、20 人非实现者理解测试和前向校准仍未完成，因此不构成生产成熟度声明。
+
+```mermaid
+flowchart LR
+    RAW["外部研究原始证据"] --> ADP["Evidence Adapter<br/>归一 · 时效 · 来源 · 血缘"]
+    ADP --> CON["信号合同<br/>对象 · 窗口 · 反证 · 替代解释"]
+    CON --> MOD["8 类确定性模型"]
+    MOD <--> ORA["独立 Oracle<br/>状态与指标双算"]
+    ORA --> SIG["12 类规范信号"]
+    SIG --> PLAY["5 类组合剧本<br/>Required · Supporting · Counter · Veto"]
+    PLAY --> GATE["CIDM 五道门槛<br/>七维评分"]
+    GATE --> CARD["Rapid Decision Card<br/>进入 · 小测 · 观察 · 不进入"]
+    CARD --> HAND["受控交接<br/>PPFC · SPPQ · LIFD · PLCO"]
+    HAND --> OUTCOME["经营结果与新证据"]
+    OUTCOME --> REVIEW["结果回放<br/>反例 · 漂移 · 参数校准"]
+    REVIEW -->|进入下一决策周期| ADP
+    GATE -->|红线 / Veto| BLOCK["Blocked<br/>不可被高分补偿"]
+    CARD -.证据失效.-> DRIFT["证据失效<br/>字段漂移 · 口径变化"]
+    DRIFT --> FREEZE["冻结受影响动作"]
+    FREEZE --> RECOMPUTE["影响闭合 · 逐域重算<br/>生成新有效决策"]
+    RECOMPUTE -.进入下一决策周期.-> ADP
+    EXT["外部门仍关闭<br/>盲选回放 · 非实现者测试 · 前向校准"] -.限制成熟度.-> CARD
+```
+
+这张图展示的是“候选发现如何受治理”，不是另一套投资评分器。红线、否决条件或证据失效优先阻断并触发恢复；信号层无权直接批准投资、备货、页面或广告动作。
 
 ## 如何使用
 
