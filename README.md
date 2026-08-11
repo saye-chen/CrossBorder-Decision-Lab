@@ -1,6 +1,6 @@
 # CrossBorder Decision Lab
 
-[English](README.en.md) · [十四个专业 Skill](#skill-快速定位) · [F01 与 ERDG](#统一决策基础设施) · [系统结构](#系统结构) · [使用方式](#如何使用) · [维护规则](RULES.md)
+[English](README.en.md) · [专业能力](#专业能力) · [决策基础设施](#全局决策基础设施) · [协作架构](#专业能力协作架构) · [使用方式](#如何使用) · [维护规则](RULES.md)
 
 > 面向跨境商业的专业决策基础设施，把依赖个人经验的经营判断转化为有证据、有模型、有边界、有动作、有停止规则、可持续积累的决策资产。
 
@@ -8,7 +8,7 @@
 
 CrossBorder Decision Lab 服务于跨境电商经营者、品牌团队、投资决策者与专业服务团队。它不是一组通用提示词，而是把品类投资、竞争情报、产品、供应采购生产质量、定价财务、履约、页面、广告、达人、内容、营销品牌与客户增长连接成可独立运行、跨域协同和持续进化的专业决策系统。
 
-系统当前包含十四个已完成 L1—L3 专家级仓库建设的专业决策域、ERDG（Economic, Risk & Decision Governance）治理底座，以及当前可用的 F01 实验与因果评估、F02 本地化与国家校准共享底座。D05/LTMA 覆盖商业市场准入 Gate、动作上限、Claim 使用边界、适格专业复核路由、动态规则、事故恢复和临时合同迁移；它不签发法律、税务、FTO、认证或实验室意见。系统成熟度保持 `controlled_pilot`；L4 尚未关闭，任何真实生产决策、高风险用途或外部写入均不可用。
+系统由十四项专业决策能力与三项全局决策基础设施组成：COPO 负责跨域编排，CIDM、CIM、PIPM、SPPQ、LTMA、PPFC、LIFD、MBCM、VLB、CAPM、PLCO、AAMO 与 CIG 分别拥有各自专业主权；ECAE、LCCA 与 ERDG 统一实验因果资格、本地化适用性和治理合同。核心工程与 L1—L3 发布门已经完成，当前成熟度为 `controlled_pilot`。L4 仍需通过真实使用、结果回放、参数校准和独立保证逐步完善；在此之前，不开放真实生产自动决策、高风险用途或外部写入。
 
 CIDM现包含受治理的`OSL-v1`机会信号层：以clean-room方式把外部研究启发归并为八类确定性候选信号，覆盖多源字段质量、五类组合剧本、有效供给/VOC、CIDM→PLCO Proof交接、部分失败DAG、R0–R4恢复、独立Oracle和13项源码mutation。该信号层只扩大候选池，不能直接改变七维评分、资本姿态或跨域主权；授权20例盲选回放、20人非实现者理解测试和前向校准仍未完成，因此不构成生产成熟度声明。
 
@@ -18,13 +18,13 @@ CIDM现包含受治理的`OSL-v1`机会信号层：以clean-room方式把外部�
 flowchart TB
     subgraph IN["① 证据接入"]
       direction LR
-      RAW["外部研究<br/>原始证据"] --> ADP["Evidence Adapter<br/>字段归一 · 时效 · 来源家族 · 血缘"]
+      RAW["外部研究原始证据"] --> ADP["Evidence Adapter<br/>字段归一 · 时效 · 来源家族 · 血缘"]
       ADP --> CON["信号合同<br/>对象 · 时间窗 · 反证 · 替代解释"]
     end
     subgraph CORE["② 信号计算"]
       direction LR
-      MOD["8 类<br/>确定性模型"] <--> ORA["独立 Oracle<br/>状态与指标双算"]
-      ORA --> SIG["12 类<br/>规范信号"]
+      MOD["8 类确定性模型"] <--> ORA["独立 Oracle<br/>状态与指标双算"]
+      ORA --> SIG["12 类规范信号"]
     end
     subgraph DEC["③ 决策治理"]
       direction LR
@@ -41,18 +41,8 @@ flowchart TB
     CARD --> HAND["受控跨域交接<br/>PPFC · SPPQ · LIFD · PLCO"]
     GATE -->|触发红线 / Veto| BLOCK["Blocked<br/>不可被高分补偿"]
     CARD -.证据失效.-> DRIFT
-    RECOMPUTE -.重新进入证据接入.-> RAW
+    RECOMPUTE -.进入下一决策周期.-> REENTRY["重新进入证据接入"]
     EXT["外部门仍关闭<br/>20例盲选回放 · 20人非实现者测试 · 前向校准"] -.限制成熟度.-> CARD
-    classDef evidence fill:#e8f1ff,stroke:#3269a8,color:#17324d
-    classDef signal fill:#eaf7f0,stroke:#31845c,color:#153b2a
-    classDef decision fill:#fff4d8,stroke:#a87716,color:#4d3810
-    classDef recovery fill:#f3ecff,stroke:#7652a8,color:#34234d
-    classDef stop fill:#ffe9e7,stroke:#b84a42,color:#541e1a
-    class RAW,ADP,CON evidence
-    class MOD,ORA,SIG signal
-    class PLAY,GATE,CARD,HAND decision
-    class DRIFT,FREEZE,RECOMPUTE recovery
-    class BLOCK,EXT stop
 ```
 
 这张图展示的是“候选发现如何受治理”，不是另一套投资评分器。机会信号必须经过证据接入、合同校验、确定性模型与独立双算，再进入组合剧本和 CIDM 原有门槛；任何红线、否决条件或证据失效都优先阻断并触发恢复。信号层无权直接批准投资、备货、页面或广告动作。
@@ -115,105 +105,120 @@ CrossBorder Decision Lab 将跨境经营中分散、隐性的个人经验，转�
 
 ## 系统结构
 
-### D01—D14 目标架构
+### 专业能力协作架构
 
 ```mermaid
 flowchart TB
-    U["经营问题 · 事件 · 新证据"] --> D14["D14 跨域协同姿态与决策编排<br/>受控试点"]
-    D14 --> D01["D01 CIDM<br/>资本与组合决策"]
-    D14 --> D02["D02 CIM<br/>竞争事实"]
-    D14 --> D03["D03 PIPM<br/>产品定义"]
-    D14 --> D05["D05 LTMA<br/>合规与市场准入"]
-    D14 --> D06["D06 PPFC<br/>定价、利润与现金"]
-    D01 --> D03 --> D04["D04 SPPQ<br/>供应采购生产质量"] --> D07["D07 LIFD<br/>物流、库存与履约"]
-    D07 --> D12["D12 MBCM<br/>营销、品牌与活动"]
-    D12 --> D11["D11 VLB<br/>内容创意"]
-    D12 --> D10["D10 CAPM<br/>达人联盟"]
-    D11 --> D08["D08 PLCO<br/>平台与转化"]
-    D11 --> D09["D09 AAMO<br/>广告测量"]
-    D10 --> D08
-    D10 --> D09
-    D08 --> D13["D13 CIG<br/>客户、体验与增长"]
-    D09 --> D13
-    D02 -.事实与持续监测.-> D01
-    D05 -.准入与持续合规.-> D04
-    D06 -.经济与现金边界.-> D04
-    D13 --> O["动作、客户与经营结果"]
-    O --> D06 --> D01 --> D14
-    O -.质量、竞争、规则与客户反馈.-> D02
-    O -.质量、竞争、规则与客户反馈.-> D04
-    O -.质量、竞争、规则与客户反馈.-> D05
-    E["ERDG 治理控制面<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"] -.治理.-> D14
-    F["F01 实验与因果评估<br/>协议 · 估计量 · CE0—CE5 · 诊断 · 复现"] -.因果与增量 Claim 资格.-> D01
-    F -.因果与增量 Claim 资格.-> D06
-    F -.因果与增量 Claim 资格.-> D12
-    O -.授权结果回放与校准.-> F
-    E -.合同与发布治理.-> F
-    E -.合同与红线校验.-> D01
-    E -.合同与红线校验.-> D04
-    E -.合同与红线校验.-> D12
-    O -.回放与参数校准.-> E
+    U["经营问题 · 事件 · 新证据"] --> COPO["COPO<br/>跨域经营姿态与决策编排"]
+
+    subgraph BOUNDARY["① 决策与约束"]
+      direction LR
+      CIM["CIM<br/>竞争事实"] -.事实与持续监测.-> CIDM["CIDM<br/>资本与组合决策"]
+      LTMA["LTMA<br/>合规与市场准入"]
+      PPFC["PPFC<br/>定价、利润与现金"]
+    end
+    COPO --> CIM
+    COPO --> CIDM
+    COPO --> LTMA
+    COPO --> PPFC
+
+    subgraph REALIZE["② 产品兑现"]
+      direction LR
+      PIPM["PIPM<br/>产品定义"] --> SPPQ["SPPQ<br/>供应采购生产质量"] --> LIFD["LIFD<br/>物流、库存与履约"]
+    end
+    CIDM --> PIPM
+    LTMA -.准入与持续合规.-> SPPQ
+    PPFC -.经济与现金边界.-> SPPQ
+
+    subgraph GROWTH["③ 市场增长"]
+      direction TB
+      MBCM["MBCM<br/>营销、品牌与活动"] --> VLB["VLB<br/>内容创意"]
+      MBCM --> CAPM["CAPM<br/>达人联盟"]
+      VLB --> PLCO["PLCO<br/>平台与转化"]
+      VLB --> AAMO["AAMO<br/>广告测量"]
+      CAPM --> PLCO
+      CAPM --> AAMO
+      PLCO --> CIG["CIG<br/>客户、体验与增长"]
+      AAMO --> CIG
+    end
+    LIFD --> MBCM
+    CIG --> O["动作、客户与经营结果"]
+    O --> REVIEW["④ 经营复盘与选择性重算<br/>经济 · 资本 · 竞争 · 质量 · 合规"]
+    REVIEW --> NEXT["形成下一周期经营姿态<br/>重新进入 COPO"]
+
+    subgraph FOUNDATION["全局决策基础设施"]
+      direction LR
+      E["ERDG 治理控制面<br/>对象 · 证据 · 计算 · 经济 · 风险 · 状态 · 参数 · 血缘"]
+      F["ECAE 实验与因果评估<br/>协议 · 估计量 · CE0—CE5 · 诊断 · 复现"]
+      L["LCCA 本地化与国家校准<br/>作用域 · 时效 · 转换 · 可比性 · 迁移上限"]
+      Q["资格与边界汇合<br/>合同与红线校验 · 因果与增量 Claim 资格 · 本地化适用性资格"]
+      E --> Q
+      F --> Q
+      L --> Q
+    end
+    Q -.治理与资格边界.-> COPO
+    REVIEW -.结果回放与参数校准.-> CAL["校准 ERDG · ECAE · LCCA"]
 ```
 
-图中十四域、F01 与 F02 均为当前受控试点能力。各专业域继续保留最终专业主权；F01 只裁定实验设计、因果/增量 Claim 资格与证据等级，F02 只裁定本地化作用域、动态事实新鲜度、可比性和迁移上限，二者都不作业务最终决定；D14 只负责编排、冲突升级，以及在各 owner 已批准结论和资源边界内合成协同姿态与安排顺序，不裁决专业结论、不批准资本、不拥有外部写入。ERDG 只做中立治理与确定性计算，不替代任何专业域作出业务结论。
+十四项专业能力与 ECAE、LCCA、ERDG 均处于当前受控试点范围。各专业能力保留最终专业主权；ECAE 只裁定实验设计、因果/增量 Claim 资格与证据等级，LCCA 只裁定本地化作用域、动态事实新鲜度、可比性和迁移上限；COPO 只负责编排、冲突升级，以及在各 owner 已批准结论和资源边界内合成协同姿态与安排顺序。它们均不越权批准资本、替代专业结论或执行外部写入。
 
-### D01—D14 连续决策闭环
+### 连续经营决策闭环
 
 ```mermaid
 sequenceDiagram
     actor U as 用户/经营事件
-    participant D14 as D14 编排
-    participant D02 as D02 CIM
-    participant D13 as D13 CIG
-    participant D01 as D01 CIDM
-    participant D03 as D03 PIPM
-    participant D04 as D04 SPPQ
-    participant D05 as D05 LTMA 合规与市场准入
-    participant D06 as D06 PPFC
-    participant D07 as D07 LIFD
-    participant M as D12/D11/D10/D08/D09 市场域
+    participant COPO as COPO
+    participant CIM as CIM
+    participant CIG as CIG
+    participant CIDM as CIDM
+    participant PIPM as PIPM
+    participant SPPQ as SPPQ
+    participant LTMA as LTMA 合规与市场准入
+    participant PPFC as PPFC
+    participant LIFD as LIFD
+    participant M as 品牌·内容·达人·页面·广告
     participant E as ERDG
-    U->>D14: 问题、事件或新证据
+    U->>COPO: 问题、事件或新证据
     par 事实与约束
-      D14->>D02: 竞争事实
-      D14->>D13: 客户证据
-      D14->>D06: 经济与现金边界
-      D14->>D05: 合规与准入
+      COPO->>CIM: 竞争事实
+      COPO->>CIG: 客户证据
+      COPO->>PPFC: 经济与现金边界
+      COPO->>LTMA: 合规与准入
     end
-    D14->>E: Gate G0 证据资格
-    E-->>D14: 通过 / 降级 / 阻断
-    D14->>D01: 资本姿态
-    D01-->>D14: 预算、停止与退出边界
-    D14->>D03: 产品定义
-    D03-->>D14: Product Definition Packet
+    COPO->>E: Gate G0 证据资格
+    E-->>COPO: 通过 / 降级 / 阻断
+    COPO->>CIDM: 资本姿态
+    CIDM-->>COPO: 预算、停止与退出边界
+    COPO->>PIPM: 产品定义
+    PIPM-->>COPO: Product Definition Packet
     par 产品落地
-      D14->>D04: 供应、样品、产能与质量
-      D14->>D06: 产品经济重算
-      D14->>D05: 产品正式准入
+      COPO->>SPPQ: 供应、样品、产能与质量
+      COPO->>PPFC: 产品经济重算
+      COPO->>LTMA: 产品正式准入
     end
-    D14->>E: Gate G2 产品—供应—经济—准入
-    E-->>D14: 通过 / 部分接受 / 阻断
-    D04->>D07: 合格批次、产能与交期
-    D07-->>D14: ATP/CTP、履约与逆向计划
-    D14->>M: 定位、内容、达人、页面与广告并行协作
-    M-->>D13: 转化、获客、服务与伙伴结果
-    D13-->>D14: Outcome Packet
+    COPO->>E: Gate G2 产品—供应—经济—准入
+    E-->>COPO: 通过 / 部分接受 / 阻断
+    SPPQ->>LIFD: 合格批次、产能与交期
+    LIFD-->>COPO: ATP/CTP、履约与逆向计划
+    COPO->>M: 定位、内容、达人、页面与广告并行协作
+    M-->>CIG: 转化、获客、服务与伙伴结果
+    CIG-->>COPO: Outcome Packet
     par 经营复盘
-      D14->>D06: 实际经济重算
-      D14->>D02: 竞争变化复盘
-      D14->>D04: 质量与供应恢复
-      D14->>D05: 持续合规复盘
+      COPO->>PPFC: 实际经济重算
+      COPO->>CIM: 竞争变化复盘
+      COPO->>SPPQ: 质量与供应恢复
+      COPO->>LTMA: 持续合规复盘
     end
-    D14->>E: Gate G5 血缘闭合与选择性重算
-    E-->>D14: child cycle 与影响闭包
-    D14->>D01: 实际经营结果
-    D01-->>D14: 追加 / 维持 / 收缩 / 退出
-    D14-->>U: 新的当前有效经营姿态
+    COPO->>E: Gate G5 血缘闭合与选择性重算
+    E-->>COPO: child cycle 与影响闭包
+    COPO->>CIDM: 实际经营结果
+    CIDM-->>COPO: 追加 / 维持 / 收缩 / 退出
+    COPO-->>U: 新的当前有效经营姿态
 ```
 
-连续时序只展示跨阶段主链；市场域组中的五个 Skill 仍各自拥有主权，并通过标准 Packet 交接。完整 D01—D14 注册表位于 [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json)。全系统统一使用 v2 交接与 Decision Cycle；旧 v1 运行主链已经退役。
+连续时序只展示跨阶段主链；市场能力组中的五项专业能力仍各自拥有主权，并通过标准 Packet 交接。完整能力注册表位于 [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json)。全系统统一使用 v2 交接与 Decision Cycle；旧 v1 运行主链已经退役。
 
-## Skill 快速定位
+## 专业能力
 
 按“需要做什么决策”选择主 Skill。每个 Skill 的平台覆盖、专业模型、执行流程、输入输出和失败边界，请进入对应目录查看。
 
@@ -236,14 +241,14 @@ sequenceDiagram
 
 共享底座不拥有业务最终决策主权：
 
-| Foundation | Runtime | 主要解决的问题 | 专业入口 |
+| 基础设施 | Runtime | 主要解决的问题 | 专业入口 |
 |---|---|---|---|
-| **F01 / ECAE** | `ECAE` · `controlled_pilot` | 实验是否可执行、因果量是否可识别、结果可声称到什么等级、何时必须降级或重做？ | [实验与因果评估](experiment-causal-assessment/SKILL.md) |
-| **F02 / LCCA** | `LCCA-2026.07` · `controlled_pilot` | 事实是否适用于目标市场和时点、口径是否可比、参数如何转换、跨市场结论最多能迁移到什么程度？ | [本地化与国家校准](localization-country-calibration/SKILL.md) |
+| **ECAE** | `ECAE` · `controlled_pilot` | 实验是否可执行、因果量是否可识别、结果可声称到什么等级、何时必须降级或重做？ | [实验与因果评估](experiment-causal-assessment/SKILL.md) |
+| **LCCA** | `LCCA-2026.07` · `controlled_pilot` | 事实是否适用于目标市场和时点、口径是否可比、参数如何转换、跨市场结论最多能迁移到什么程度？ | [本地化与国家校准](localization-country-calibration/SKILL.md) |
 
-## 统一决策基础设施
+## 全局决策基础设施
 
-十四个专业域通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享一套底层决策原则，通过 [F01 实验与因果评估](experiment-causal-assessment/SKILL.md) 统一实验协议、估计量、CE0—CE5 证据等级、诊断、复现和因果 Claim 上限，并通过 [F02 本地化与国家校准](localization-country-calibration/SKILL.md) 统一作用域、动态事实、币税单位时区转换、可比性和迁移等级。ERDG 负责结构安全、确定性公共计算和跨域合同校验；F01 负责因果证据资格；F02 负责本地化适用性资格；各 Skill 继续拥有专业模型、阈值与最终业务决策。
+十四项专业能力通过 [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md) 共享底层决策原则；[ECAE](experiment-causal-assessment/SKILL.md) 统一实验协议、估计量、CE0—CE5 证据等级、诊断、复现和因果 Claim 上限；[LCCA](localization-country-calibration/SKILL.md) 统一作用域、动态事实、币税单位时区转换、可比性和迁移等级。ERDG 负责结构安全、确定性公共计算和跨域合同校验；各专业能力继续拥有自己的模型、阈值与最终业务决策。
 
 模型交互前由 [`Prompt Intake Guard`](governance/interaction/interaction-governance.md) 把请求路由为回答、补数、研究、计算或阻断；ERDG 通过后的 Decision Packet 才能编译为面向运营的 Operator Playbook。动态平台知识使用带来源、证据等级、复核日和失效条件的 [平台知识卡](governance/platform-knowledge/platform-knowledge-contract.md)；外部数据按 [Connector 合同](governance/connectors/connector-governance.md) 接入，当前均为只读合同，不授权外部写入。
 
@@ -258,7 +263,7 @@ sequenceDiagram
 
 ## 当前能力
 
-当前版本已经形成十三个可独立运行、可跨域联动的专业决策 Skill，并完成：
+当前版本已经形成十四项可独立运行、可跨域联动的专业决策能力，并完成：
 
 - 专业场景与生命周期覆盖；
 - 确定性经济模型与统计估计工具；
@@ -268,7 +273,7 @@ sequenceDiagram
 - 专业主权、风险红线、停止、回滚与退出治理；
 - 仓库级自动化校验和发布门禁。
 
-十四域专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将 14 个域的 835 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 33 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。F01 与 F02 均已完成独立 L1—L3 受控试点门和 13/13 消费者合同接受；这些本地 fixture 不构成生产证据。运行 `python3 scripts/validate_release_integrity.py`、`python3 scripts/validate_f01_release.py --require-l3` 和 `python3 scripts/validate_f02_release.py --require-l3` 复算发布状态。L4 的生产双跑、真实结果校准、外部资格和非实现者独立复核单独管理；工程门通过不等于 production-ready，也不会授权外部写入。
+专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将十四项能力的 835 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 33 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。ECAE 与 LCCA 均已完成独立 L1—L3 受控试点门和 13/13 消费者合同接受；这些本地 fixture 不构成生产证据。运行总发布校验可复算当前状态；L4 的生产双跑、真实结果校准、外部资格和非实现者独立复核单独管理，工程门通过不等于 production-ready，也不会授权外部写入。
 
 系统不依赖固定的大模型供应商。模型可以持续升级，专业决策合同、计算工具、业务基准和历史资产保持连续。
 
@@ -309,9 +314,9 @@ sequenceDiagram
 | [`evaluations/`](evaluations/) | 单 Skill、跨 Skill、连续追问、对抗与极端场景 |
 | [`governance/`](governance/) | 主权、成熟度、变更影响与共享治理合同 |
 | [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG 经济、风险、证据、状态、参数、血缘与跨域决策治理底座 |
-| [`experiment-causal-assessment/`](experiment-causal-assessment/SKILL.md) | F01 实验设计、因果资格、证据分级、诊断、复现、消费者接受与 L4 预留门 |
-| [`localization-country-calibration/`](localization-country-calibration/SKILL.md) | F02 本地化作用域、动态事实、确定性转换、可比性、迁移等级、消费者接受与 L4 预留门 |
-| [`governance/foundation-capability-registry.json`](governance/foundation-capability-registry.json) | F01/F02 共享底座身份、能力、消费者、主权和成熟度 |
+| [`experiment-causal-assessment/`](experiment-causal-assessment/SKILL.md) | ECAE 实验设计、因果资格、证据分级、诊断、复现、消费者接受与 L4 预留门 |
+| [`localization-country-calibration/`](localization-country-calibration/SKILL.md) | LCCA 本地化作用域、动态事实、确定性转换、可比性、迁移等级、消费者接受与 L4 预留门 |
+| [`governance/foundation-capability-registry.json`](governance/foundation-capability-registry.json) | ECAE/LCCA 共享底座身份、能力、消费者、主权和成熟度 |
 | [`governance/interaction/`](governance/interaction/interaction-governance.md) | Prompt Intake Guard 与 Decision Packet → Operator Playbook 编译控制 |
 | [`governance/platform-knowledge/`](governance/platform-knowledge/platform-knowledge-contract.md) | PLCO、AAMO、LIFD 的版本化平台知识卡与失效门 |
 | [`governance/connectors/`](governance/connectors/connector-governance.md) | SP-API、Seller Central、广告与 ERP 的只读证据接口和 Action Gateway |
