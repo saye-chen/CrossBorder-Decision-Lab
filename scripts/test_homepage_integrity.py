@@ -50,7 +50,7 @@ class HomepageIntegrity(unittest.TestCase):
                         self.assertRegex(line.strip(), r"^classDef\s+[A-Za-z][\w-]*\s+[^;]+$")
 
     def test_osl_diagram_connects_real_nodes_and_terminates_blocked_branch(self):
-        for page, heading in ((self.zh, "### OSL-v1 机会信号结构"), (self.en, "### OSL-v1 opportunity-signal architecture")):
+        for page, heading in ((self.zh, "## 重点能力更新：OSL-v1"), (self.en, "## Featured Capability Update: OSL-v1")):
             diagram = page.split(heading, 1)[1].split("```mermaid", 1)[1].split("```", 1)[0]
             for forbidden in ("IN --> CORE", "CORE --> DEC", "BLOCK -.blocks.-> GATE", "BLOCK -.阻断.-> GATE"):
                 self.assertNotIn(forbidden, diagram)
