@@ -28,6 +28,8 @@ CORE = {
     "scripts/validate_l4_external_assurance.py",
     "scripts/test_l4_external_assurance.py",
     "scripts/validate_python_environment.py",
+    "scripts/validate_knowledge_quality.py",
+    "scripts/test_knowledge_quality.py",
 }
 
 

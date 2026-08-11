@@ -23,6 +23,14 @@
       "tests": ["scripts/test_operational_governance_depth.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations/risk-weighted-coverage-ledger.json"]
     },
+    "knowledge-and-delivery-quality-gate": {
+      "owner": "repository",
+      "authoritative_sources": ["governance/knowledge-quality/knowledge-quality-contract.md", "governance/knowledge-quality/knowledge-quality-register.json", "governance/knowledge-quality/templates"],
+      "consumers": ["governance/platform-knowledge", "governance/interaction", "governance/erdg", "README.md"],
+      "validators": ["scripts/validate_knowledge_quality.py", "scripts/validate_release_integrity.py"],
+      "tests": ["scripts/test_knowledge_quality.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["evaluations/risk-weighted-coverage-ledger.json"]
+    },
     "f01-experiment-causal-assessment-foundation": {
       "owner": "experiment-causal-assessment",
       "authoritative_sources": ["experiment-causal-assessment", "governance/f01-existing-capability-inventory.json", "governance/f01-experiment-causal-assessment-blueprint-review.md", "governance/f01-implementation-manifest.json", "governance/f01-requirements-traceability.json", "governance/foundation-capability-registry.json", "governance/foundation-capability-registry.schema.json"],

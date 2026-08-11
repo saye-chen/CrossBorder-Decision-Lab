@@ -268,7 +268,7 @@ sequenceDiagram
 - 专业主权、风险红线、停止、回滚与退出治理；
 - 仓库级自动化校验和发布门禁。
 
-十三域专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将 13 个域的 790 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 29 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。F01 已完成 L1—L3、163 项测试、23 种方法的来源绑定与 13/13 消费者受控试点接受；其 91 个只读预检案例没有生产证据声明。运行 `python3 scripts/validate_release_integrity.py` 和 `python3 scripts/validate_f01_release.py --require-l3` 复算发布状态。L4 的生产双跑、真实结果校准、高级后端外部资格和非实现者独立复核单独管理；工程门通过不等于 production-ready，也不会授权外部写入或解冻规划中的 D14。
+十三域专业工程门以 [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md) 为统一口径。当前发布快照将 13 个域的 790 个源案例、Golden、语义验证器和数值复算入口绑定到带指纹的规范化索引，执行 31 个专业验证入口，并用 12 类防篡改突变证明关键守卫不能被静默删除或放宽。F01 已完成 L1—L3、163 项测试、23 种方法的来源绑定与 13/13 消费者受控试点接受；其 91 个只读预检案例没有生产证据声明。运行 `python3 scripts/validate_release_integrity.py` 和 `python3 scripts/validate_f01_release.py --require-l3` 复算发布状态。L4 的生产双跑、真实结果校准、高级后端外部资格和非实现者独立复核单独管理；工程门通过不等于 production-ready，也不会授权外部写入或解冻规划中的 D14。
 
 系统不依赖固定的大模型供应商。模型可以持续升级，专业决策合同、计算工具、业务基准和历史资产保持连续。
 
