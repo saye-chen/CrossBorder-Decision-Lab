@@ -1,0 +1,56 @@
+{
+  "adapter_version": "AAMO-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "advertising-analysis-measurement-optimization",
+  "domain_id": "D09",
+  "runtime": "AAMO-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "receipt_schema": "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+  "consumer_runtime": "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+  "allowed_uses": [
+    "incremental_advertising_support",
+    "high_stakes_media_support"
+  ],
+  "minimum_grade_by_use": {
+    "incremental_advertising_support": "CE4",
+    "high_stakes_media_support": "CE5"
+  },
+  "required_payload_by_use": {
+    "incremental_advertising_support": [
+      "effect_estimate",
+      "effect_interval"
+    ],
+    "high_stakes_media_support": [
+      "effect_estimate",
+      "effect_interval"
+    ]
+  },
+  "unknown_incremental_value_policy": "unknown_never_zero_fill",
+  "prohibited_legacy_mappings": [
+    "legacy_incrementality_to_CE4",
+    "DiD_SCM_to_CE5"
+  ],
+  "retained_sovereignty": [
+    "advertising budget",
+    "bid",
+    "scale stop",
+    "account structure"
+  ],
+  "forbidden_writeback": [
+    "advertising budget",
+    "bid",
+    "scale stop",
+    "account structure",
+    "campaign status"
+  ],
+  "blocked_until_owner_acceptance": [
+    "causal or incremental claim",
+    "automatic business action",
+    "external write"
+  ],
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}

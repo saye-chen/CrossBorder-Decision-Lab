@@ -1,0 +1,26 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/estimand.schema.json",
+  "title":"Estimand registry object",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["estimand_type","target_population","assignment_unit","exposure_unit","analysis_unit","treatment_versions","outcome_ref","time_origin","follow_up","contrast","effect_scale","interference_contract","identification_assumptions"],
+  "properties":{
+    "estimand_type":{"enum":["ITT","ATE","ATT","ATC","CACE","LATE","GATE","CATE","TATE","PATE","policy_value","direct_effect","spillover_effect","total_effect"]},
+    "target_population":{"type":"string","minLength":1},
+    "assignment_unit":{"type":"string","minLength":1},
+    "exposure_unit":{"type":"string","minLength":1},
+    "analysis_unit":{"type":"string","minLength":1},
+    "treatment_versions":{"type":"array","minItems":2,"items":{"type":"string","minLength":1},"uniqueItems":true},
+    "outcome_ref":{"type":"string","minLength":1},
+    "time_origin":{"type":"string","minLength":1},
+    "follow_up":{"type":"string","minLength":1},
+    "contrast":{"type":"string","minLength":1},
+    "effect_scale":{"enum":["mean_difference","risk_difference","risk_ratio","odds_ratio","rate_ratio","log_ratio","elasticity","currency_difference","policy_value"]},
+    "interference_contract":{"type":"object","required":["mode","scope"],"properties":{"mode":{"enum":["no_interference","partial_interference","network_exposure_mapping","unknown"]},"scope":{"type":"string","minLength":1},"exposure_mapping_ref":{"type":"string","minLength":1}},"additionalProperties":false},
+    "identification_assumptions":{"type":"array","minItems":1,"items":{"type":"string","minLength":1},"uniqueItems":true},
+    "support_restrictions":{"type":"array","items":{"type":"string","minLength":1}},
+    "missingness_strategy":{"type":"string","minLength":1}
+  },
+  "unevaluatedProperties":false
+}

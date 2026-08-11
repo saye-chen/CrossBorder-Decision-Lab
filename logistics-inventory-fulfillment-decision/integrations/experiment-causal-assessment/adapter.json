@@ -1,0 +1,97 @@
+{
+  "adapter_version": "LIFD-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "logistics-inventory-fulfillment-decision",
+  "domain_id": "D07",
+  "runtime": "LIFD-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "handoff_schema": "experiment-causal-assessment/schemas/causal-handoff.schema.json",
+  "receipt_schema": "logistics-inventory-fulfillment-decision/schemas/ecae_inventory_receipt.schema.json",
+  "consumer_validator": "logistics-inventory-fulfillment-decision/scripts/validate_ecae_inventory_handoff.py",
+  "required_handoff_fields": [
+    "consumer",
+    "causal_result_ref",
+    "estimand_ref",
+    "causal_evidence_grade",
+    "claim_ceiling",
+    "allowed_actions",
+    "prohibited_actions",
+    "allowed_wording",
+    "prohibited_wording",
+    "applicability",
+    "invalidation_triggers",
+    "recompute_triggers",
+    "expires_at",
+    "reproducibility_bundle_ref",
+    "review_status",
+    "business_owner_decision_required",
+    "external_write"
+  ],
+  "field_mapping": {
+    "causal_result_ref": "lifd.demand_signal.f01_result_ref",
+    "causal_evidence_grade": "lifd.demand_signal.ce_grade",
+    "claim_ceiling": "lifd.demand_signal.claim_ceiling",
+    "expires_at": "lifd.demand_signal.causal_effect_expires_at",
+    "incremental_contribution": "lifd.allocation_value.incremental_contribution",
+    "reproducibility_bundle_ref": "lifd.demand_signal.replay_ref"
+  },
+  "mapping_classification": {
+    "causal_result_ref": "direct",
+    "causal_evidence_grade": "direct",
+    "claim_ceiling": "narrow_only",
+    "expires_at": "lossless",
+    "incremental_contribution": "qualified_payload_only",
+    "reproducibility_bundle_ref": "direct"
+  },
+  "allowed_uses": [
+    "incremental_demand_input",
+    "high_stakes_inventory_support"
+  ],
+  "minimum_grade_by_use": {
+    "incremental_demand_input": "CE4",
+    "high_stakes_inventory_support": "CE5"
+  },
+  "legacy_labels_retained_for_archive_only": [
+    "C0",
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "prohibited_legacy_mappings": [
+    "missing_incremental_to_zero",
+    "forecast_to_CE4"
+  ],
+  "retained_sovereignty": [
+    "route",
+    "inventory allocation",
+    "replenishment",
+    "fulfillment"
+  ],
+  "forbidden_writeback": [
+    "route",
+    "inventory allocation",
+    "replenishment",
+    "fulfillment",
+    "purchase order"
+  ],
+  "blocked_until_owner_acceptance": [
+    "incremental demand claim",
+    "incremental contribution ranking",
+    "automatic inventory allocation"
+  ],
+  "reaccept_triggers": [
+    "contract version change",
+    "claim change",
+    "scope change",
+    "expiry",
+    "invalidation trigger",
+    "recompute trigger"
+  ],
+  "unknown_incremental_value_policy": "unknown_never_zero_fill",
+  "legacy_reader_active": true,
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}

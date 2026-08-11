@@ -1,0 +1,11 @@
+{
+  "schema_version":"1.0.0",
+  "contract_id":"ECAE-BACKEND-OBSERVATIONAL-DML-1.0",
+  "backend_id":"observational_dml",
+  "candidate_id":"observational_dml_doubleml",
+  "status":"contract_frozen_adapter_not_verified",
+  "input":{"required":["rows","outcome_column","treatment_column","covariate_columns","score","folds","repetitions","seed","outcome_learner","propensity_learner","confidence_level"]},
+  "output":{"required":["effect","standard_error","confidence_interval","p_value","score","folds","repetitions","nuisance_loss","warnings"]},
+  "invariants":["score is Neyman orthogonal","nuisance predictions are out of fold","fold count repetitions seed learners and tuning policy are frozen","binary treatment overlap is diagnosed outside and inside the adapter","ATE and ATT are never silently interchanged","sensitivity and negative controls retain independent downgrade authority"],
+  "failure_codes":["CROSS_FITTING_REQUIRED","NUISANCE_LEAKAGE","DML_SCORE_INVALID","DML_TREATMENT_INVALID","DML_LEARNER_UNSUPPORTED","BACKEND_NUMERICAL_INVALID"]
+}

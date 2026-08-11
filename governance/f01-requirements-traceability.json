@@ -1,0 +1,740 @@
+{
+  "schema_version": "1.0.0",
+  "traceability_id": "F01-TRACE-1.0",
+  "blueprint_version": "F01-BLUEPRINT-1.0",
+  "requirements": [
+    {
+      "id": "F01-REQ-001",
+      "priority": "P0",
+      "statement": "F01 is a shared causal-evidence foundation and owns no business decision",
+      "blueprint_sections": [
+        "2.1",
+        "2.3",
+        "2.4"
+      ],
+      "work_package": "WP-01",
+      "artifacts": [
+        "governance/foundation-capability-registry.json",
+        "experiment-causal-assessment/references/charter-sovereignty-and-terminology.md"
+      ],
+      "tests": [
+        "scripts/validate_f01_governance.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-002",
+      "priority": "P0",
+      "statement": "F01 uses ECAE and the experiment-causal-assessment directory",
+      "blueprint_sections": [
+        "13",
+        "17"
+      ],
+      "work_package": "WP-01",
+      "artifacts": [
+        "governance/foundation-capability-registry.json"
+      ],
+      "tests": [
+        "scripts/validate_f01_governance.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-003",
+      "priority": "P0",
+      "statement": "Current distributed capabilities and conflicts are inventoried before implementation",
+      "blueprint_sections": [
+        "14.1",
+        "14.2"
+      ],
+      "work_package": "WP-00",
+      "artifacts": [
+        "governance/f01-existing-capability-inventory.json"
+      ],
+      "tests": [
+        "scripts/validate_f01_governance.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-004",
+      "priority": "P0",
+      "statement": "CE0 through CE5 have unique semantics and cannot be upgraded by consumers",
+      "blueprint_sections": [
+        "3.2",
+        "11"
+      ],
+      "work_package": "WP-09",
+      "artifacts": [
+        "experiment-causal-assessment/schemas/causal-analysis-result.schema.json",
+        "experiment-causal-assessment/scripts/grade_causal_claim.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_grade_and_handoff.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-005",
+      "priority": "P0",
+      "statement": "Identification, estimation and decision remain separate",
+      "blueprint_sections": [
+        "3.4"
+      ],
+      "work_package": "WP-03",
+      "artifacts": [
+        "experiment-causal-assessment/references/identification-estimands-and-causal-graphs.md"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_protocol_and_state.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-006",
+      "priority": "P0",
+      "statement": "CE4 and CE5 require potential-outcome and causal-graph identification contracts",
+      "blueprint_sections": [
+        "3.5"
+      ],
+      "work_package": "WP-03",
+      "artifacts": [
+        "experiment-causal-assessment/schemas/causal-question.schema.json",
+        "experiment-causal-assessment/schemas/causal-graph.schema.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_protocol_and_state.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-007",
+      "priority": "P0",
+      "statement": "Every causal analysis binds an explicit estimand, population, time and effect scale",
+      "blueprint_sections": [
+        "3.6"
+      ],
+      "work_package": "WP-03",
+      "artifacts": [
+        "experiment-causal-assessment/schemas/estimand.schema.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_protocol_and_state.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-008",
+      "priority": "P0",
+      "statement": "Core objects are versioned, hashed and distinguish unknown, missing, not-applicable and conflict",
+      "blueprint_sections": [
+        "4"
+      ],
+      "work_package": "WP-02",
+      "artifacts": [
+        "experiment-causal-assessment/schemas"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_schemas.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-009",
+      "priority": "P0",
+      "statement": "Lifecycle transitions are machine validated and preserve history",
+      "blueprint_sections": [
+        "5"
+      ],
+      "work_package": "WP-02",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/validate_state_transition.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_protocol_and_state.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-010",
+      "priority": "P0",
+      "statement": "Eligibility gates Q1 through Q10 fail closed",
+      "blueprint_sections": [
+        "6.1"
+      ],
+      "work_package": "WP-03",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/validate_experiment_protocol.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_protocol_and_state.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-011",
+      "priority": "P0",
+      "statement": "Method support is classified native, verified backend or protocol only",
+      "blueprint_sections": [
+        "6.3",
+        "12.1"
+      ],
+      "work_package": "WP-01",
+      "artifacts": [
+        "experiment-causal-assessment/references/experiment-eligibility-and-design-routing.md"
+      ],
+      "tests": [
+        "scripts/validate_f01_governance.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-012",
+      "priority": "P0",
+      "statement": "Metric contracts bind numerator, denominator, unit, window, maturity and missingness",
+      "blueprint_sections": [
+        "7.1",
+        "7.4"
+      ],
+      "work_package": "WP-03",
+      "artifacts": [
+        "experiment-causal-assessment/schemas/metric-contract.schema.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_schemas.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-013",
+      "priority": "P0",
+      "statement": "Sample and MDE calculations expose assumptions, sensitivity and precision",
+      "blueprint_sections": [
+        "7.2",
+        "7.6"
+      ],
+      "work_package": "WP-04",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/calculate_sample_size.py",
+        "experiment-causal-assessment/scripts/calculate_mde_precision.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_randomized_core.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-014",
+      "priority": "P0",
+      "statement": "Randomized analysis supports binary, continuous, count and ratio ITT",
+      "blueprint_sections": [
+        "6.3",
+        "7.4"
+      ],
+      "work_package": "WP-04",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_randomized_effect.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_randomized_core.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-015",
+      "priority": "P1",
+      "statement": "CUPED and ANCOVA use only pretreatment covariates and preserve unadjusted results",
+      "blueprint_sections": [
+        "7.5"
+      ],
+      "work_package": "WP-04",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/apply_covariate_adjustment.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_randomized_core.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-016",
+      "priority": "P0",
+      "statement": "SRM, assignment, exposure and maturity reconciliation can block claims",
+      "blueprint_sections": [
+        "8.3",
+        "11"
+      ],
+      "work_package": "WP-04",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/validate_randomization.py",
+        "experiment-causal-assessment/scripts/validate_exposure_outcome.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_randomized_core.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-017",
+      "priority": "P0",
+      "statement": "Fixed, group-sequential and anytime-valid inference cannot be mixed",
+      "blueprint_sections": [
+        "8.1",
+        "8.6"
+      ],
+      "work_package": "WP-05",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_sequential_result.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_sequential_and_multiplicity.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-018",
+      "priority": "P0",
+      "statement": "Hypothesis families preserve multiplicity across forks, reruns and windows",
+      "blueprint_sections": [
+        "8.2",
+        "8.5"
+      ],
+      "work_package": "WP-05",
+      "artifacts": [
+        "experiment-causal-assessment/schemas/hypothesis-family.schema.json",
+        "experiment-causal-assessment/scripts/adjust_multiplicity.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_sequential_and_multiplicity.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-019",
+      "priority": "P0",
+      "statement": "Guardrail harm can stop action independently of efficacy",
+      "blueprint_sections": [
+        "8.1",
+        "11"
+      ],
+      "work_package": "WP-05",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_guardrails.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_sequential_and_multiplicity.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-020",
+      "priority": "P1",
+      "statement": "Cluster inference accounts for estimand, few clusters and design-compatible uncertainty",
+      "blueprint_sections": [
+        "6.3",
+        "9.2"
+      ],
+      "work_package": "WP-06",
+      "development_status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_cluster_effect.py",
+        "experiment-causal-assessment/backends/contracts/cluster-cr2.contract.json",
+        "experiment-causal-assessment/backends/adapters/cluster_clubsandwich.R",
+        "experiment-causal-assessment/backends/backend-lock.json",
+        "experiment-causal-assessment/evaluations/backend-parity-plan.json",
+        "experiment-causal-assessment/evaluations/backend-probe-report.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_cluster_switchback.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-021",
+      "priority": "P1",
+      "statement": "Switchback analysis binds period design, carryover, washout and serial dependence",
+      "blueprint_sections": [
+        "6.3",
+        "9.2"
+      ],
+      "work_package": "WP-06",
+      "development_status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_switchback.py",
+        "experiment-causal-assessment/backends/contracts/switchback-ri.contract.json",
+        "experiment-causal-assessment/backends/adapters/switchback_ri2.R",
+        "experiment-causal-assessment/backends/backend-lock.json",
+        "experiment-causal-assessment/evaluations/backend-parity-plan.json",
+        "experiment-causal-assessment/evaluations/switchback-ri-development.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_cluster_switchback.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-022",
+      "priority": "P0",
+      "statement": "Staggered DiD uses group-time effects and rejects naive heterogeneous TWFE",
+      "blueprint_sections": [
+        "9.4"
+      ],
+      "work_package": "WP-07",
+      "development_status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_did.py",
+        "experiment-causal-assessment/backends/contracts/staggered-did.contract.json",
+        "experiment-causal-assessment/backends/adapters/staggered_did_callaway_santanna.R",
+        "experiment-causal-assessment/evaluations/wp07-parity-plan.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_quasi_experimental.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-023",
+      "priority": "P0",
+      "statement": "Synthetic counterfactual requires donor qualification, placebo and sensitivity",
+      "blueprint_sections": [
+        "9.5"
+      ],
+      "work_package": "WP-07",
+      "development_status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_synthetic_counterfactual.py",
+        "experiment-causal-assessment/backends/contracts/synthetic-control.contract.json",
+        "experiment-causal-assessment/backends/contracts/synthetic-did.contract.json",
+        "experiment-causal-assessment/backends/adapters/synthetic_control_synth.R",
+        "experiment-causal-assessment/backends/adapters/synthetic_did_synthdid.R",
+        "experiment-causal-assessment/evaluations/wp07-parity-plan.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_quasi_experimental.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-024",
+      "priority": "P1",
+      "statement": "RDD and IV use verified backends and preserve local estimand limits",
+      "blueprint_sections": [
+        "9.6"
+      ],
+      "work_package": "WP-07",
+      "development_status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_rdd_iv.py",
+        "experiment-causal-assessment/backends/contracts/rdd-local.contract.json",
+        "experiment-causal-assessment/backends/contracts/weak-iv.contract.json",
+        "experiment-causal-assessment/backends/adapters/rdd_rdrobust.py",
+        "experiment-causal-assessment/backends/adapters/weak_iv_ivmodels.py",
+        "experiment-causal-assessment/evaluations/wp07-backend-development.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_quasi_experimental.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-025",
+      "priority": "P1",
+      "statement": "Observational causal estimates require target trial, overlap, cross-fit and sensitivity",
+      "blueprint_sections": [
+        "9.6"
+      ],
+      "work_package": "WP-07",
+      "development_status": "complete",
+      "release_scope": "contract_complete_advanced_backend_fail_closed_until_l4",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_doubly_robust_effect.py",
+        "experiment-causal-assessment/scripts/evaluate_sensitivity.py",
+        "experiment-causal-assessment/backends/contracts/observational-aipw.contract.json",
+        "experiment-causal-assessment/backends/contracts/observational-dml.contract.json",
+        "experiment-causal-assessment/backends/adapters/observational_aipw.R",
+        "experiment-causal-assessment/backends/adapters/observational_dml_doubleml.py",
+        "experiment-causal-assessment/evaluations/wp07-parity-plan.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_observational_hte.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-026",
+      "priority": "P1",
+      "statement": "HTE uses honest evaluation and never claims individual true effects",
+      "blueprint_sections": [
+        "9.7"
+      ],
+      "work_package": "WP-08",
+      "development_status": "complete",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_heterogeneous_effect.py",
+        "experiment-causal-assessment/backends/contracts/hte-uplift.contract.json",
+        "experiment-causal-assessment/backends/adapters/hte_uplift_econml.py",
+        "experiment-causal-assessment/evaluations/wp08-parity-plan.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_observational_hte.py",
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-027",
+      "priority": "P1",
+      "statement": "Long-term surrogates and transport require explicit assumptions and target scope",
+      "blueprint_sections": [
+        "9.8",
+        "9.9"
+      ],
+      "work_package": "WP-08",
+      "development_status": "complete",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/evaluate_long_term_surrogate.py",
+        "experiment-causal-assessment/scripts/evaluate_transportability.py",
+        "experiment-causal-assessment/references/heterogeneity-uplift-long-term-and-transport.md",
+        "experiment-causal-assessment/evaluations/wp08-parity-plan.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_observational_hte.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-028",
+      "priority": "P0",
+      "statement": "Economic interpretation is separate from causal eligibility and uses qualified D06 F02 parameters",
+      "blueprint_sections": [
+        "10"
+      ],
+      "work_package": "WP-09",
+      "artifacts": [
+        "experiment-causal-assessment/scripts/calculate_incremental_economics.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_grade_and_handoff.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-029",
+      "priority": "P0",
+      "statement": "Handoffs carry grade, claim ceiling, invalidation and recompute triggers",
+      "blueprint_sections": [
+        "14.5"
+      ],
+      "work_package": "WP-09",
+      "artifacts": [
+        "experiment-causal-assessment/schemas/causal-handoff.schema.json",
+        "experiment-causal-assessment/scripts/build_causal_handoff.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_grade_and_handoff.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-030",
+      "priority": "P0",
+      "statement": "Reproducibility bundles bind protocol, data, code, environment, parameters and results",
+      "blueprint_sections": [
+        "4",
+        "12"
+      ],
+      "work_package": "WP-10",
+      "artifacts": [
+        "experiment-causal-assessment/schemas/reproducibility-bundle.schema.json",
+        "experiment-causal-assessment/scripts/validate_reproducibility_bundle.py"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_reproducibility.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-031",
+      "priority": "P0",
+      "statement": "All D01 through D13 consumers use explicit dual-run mapping and acceptance",
+      "blueprint_sections": [
+        "14"
+      ],
+      "work_package": "WP-11",
+      "development_status": "complete",
+      "release_scope": "controlled_pilot_acceptance_complete_production_acceptance_l4",
+      "artifacts": [
+        "experiment-causal-assessment/integrations/consumer-migration.json",
+        "experiment-causal-assessment/schemas/consumer-migration.schema.json",
+        "experiment-causal-assessment/schemas/consumer-acceptance.schema.json",
+      "experiment-causal-assessment/schemas/consumer-difference.schema.json",
+      "experiment-causal-assessment/schemas/consumer-production-plan.schema.json",
+      "experiment-causal-assessment/schemas/consumer-production-run.schema.json",
+      "experiment-causal-assessment/scripts/validate_consumer_migration.py",
+      "experiment-causal-assessment/scripts/validate_consumer_production_plan.py",
+        "experiment-causal-assessment/scripts/evaluate_consumer_production_run.py",
+      "experiment-causal-assessment/scripts/build_consumer_preflight.py",
+      "experiment-causal-assessment/scripts/build_controlled_pilot_acceptance.py",
+        "experiment-causal-assessment/scripts/evaluate_consumer_handoff.py",
+        "experiment-causal-assessment/scripts/validate_consumer_acceptance.py",
+        "experiment-causal-assessment/scripts/compare_legacy_f01.py",
+        "experiment-causal-assessment/scripts/evaluate_consumer_rollback.py",
+      "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+        "experiment-causal-assessment/evaluations/consumer-production-acceptance-readiness.json",
+        "experiment-causal-assessment/evaluations/consumer-production-preflight-summary.json",
+        "experiment-causal-assessment/evaluations/consumer-production-preflight",
+      "experiment-causal-assessment/integrations/consumer-production-acceptance-plan.json",
+      "experiment-causal-assessment/references/consumer-migration-and-acceptance.md",
+      "experiment-causal-assessment/references/consumer-production-acceptance-operator-runbook.md",
+        "creator-affiliate-partnership-management/schemas/ecae_consumer_receipt.schema.json",
+        "creator-affiliate-partnership-management/scripts/validate_ecae_handoff.py",
+        "creator-affiliate-partnership-management/integrations/experiment-causal-assessment/adapter.json",
+        "creator-affiliate-partnership-management/integrations/experiment-causal-assessment/acceptance.json",
+        "logistics-inventory-fulfillment-decision/schemas/ecae_inventory_receipt.schema.json",
+        "logistics-inventory-fulfillment-decision/scripts/validate_ecae_inventory_handoff.py",
+        "logistics-inventory-fulfillment-decision/scripts/inventory_allocation.py",
+        "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/adapter.json",
+        "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "pricing-profit-finance-cashflow-decision/schemas/ecae_financial_receipt.schema.json",
+        "pricing-profit-finance-cashflow-decision/scripts/validate_ecae_financial_handoff.py",
+        "pricing-profit-finance-cashflow-decision/scripts/calculate_incremental_economics.py",
+        "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment/adapter.json",
+        "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+        "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+        "category-investment-decision/integrations/experiment-causal-assessment/adapter.json",
+        "category-investment-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "competitive-intelligence-monitoring/integrations/experiment-causal-assessment/adapter.json",
+        "competitive-intelligence-monitoring/integrations/experiment-causal-assessment/acceptance.json",
+        "product-innovation-product-management/integrations/experiment-causal-assessment/adapter.json",
+        "product-innovation-product-management/integrations/experiment-causal-assessment/acceptance.json",
+        "supplier-procurement-production-quality-decision/integrations/experiment-causal-assessment/adapter.json",
+        "supplier-procurement-production-quality-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "legal-tax-intellectual-property-market-access-decision/integrations/experiment-causal-assessment/adapter.json",
+        "legal-tax-intellectual-property-market-access-decision/integrations/experiment-causal-assessment/acceptance.json",
+        "platform-store-listing-conversion/integrations/experiment-causal-assessment/adapter.json",
+        "platform-store-listing-conversion/integrations/experiment-causal-assessment/acceptance.json",
+        "advertising-analysis-measurement-optimization/integrations/experiment-causal-assessment/adapter.json",
+        "advertising-analysis-measurement-optimization/integrations/experiment-causal-assessment/acceptance.json",
+        "video-link-breakdown/integrations/experiment-causal-assessment/adapter.json",
+        "video-link-breakdown/integrations/experiment-causal-assessment/acceptance.json",
+        "marketing-brand-campaign-management/integrations/experiment-causal-assessment/adapter.json",
+        "marketing-brand-campaign-management/integrations/experiment-causal-assessment/acceptance.json",
+        "consumer-insights-customer-growth/integrations/experiment-causal-assessment/adapter.json",
+        "consumer-insights-customer-growth/integrations/experiment-causal-assessment/acceptance.json"
+      ],
+      "tests": [
+      "experiment-causal-assessment/tests/test_consumer_migration.py",
+      "experiment-causal-assessment/tests/test_consumer_production_acceptance.py",
+        "creator-affiliate-partnership-management/scripts/test_capm.py",
+        "creator-affiliate-partnership-management/integrations/experiment-causal-assessment/test_adapter.py",
+        "logistics-inventory-fulfillment-decision/scripts/test_models.py",
+        "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/test_adapter.py",
+        "pricing-profit-finance-cashflow-decision/scripts/test_ecae_incremental_economics.py",
+        "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment/test_adapter.py",
+        "experiment-causal-assessment/tests/test_remaining_consumer_adapters.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-032",
+      "priority": "P0",
+      "statement": "Advanced backends fail closed when unavailable or unverified",
+      "blueprint_sections": [
+        "12.1"
+      ],
+      "work_package": "WP-07",
+      "artifacts": [
+        "experiment-causal-assessment/backends/backend-registry.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_backend_contract.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-033",
+      "priority": "P0",
+      "statement": "Every executable method has analytical, simulation, parity, adversarial and mutation evidence",
+      "blueprint_sections": [
+        "15.1"
+      ],
+      "work_package": "WP-12",
+      "development_status": "complete",
+      "artifacts": [
+        "experiment-causal-assessment/evaluations/method-evidence-registry.json"
+      ],
+      "tests": [
+        "experiment-causal-assessment/tests/test_method_evidence.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-034",
+      "priority": "P0",
+      "statement": "L1 through L3 release requires owner-authorized primary-source review and independent software parity; external non-implementer review remains L4",
+      "blueprint_sections": [
+        "15",
+        "17.1"
+      ],
+      "work_package": "WP-12",
+      "development_status": "complete",
+      "artifacts": [
+        "experiment-causal-assessment/evaluations/controlled-pilot-method-review.json",
+        "experiment-causal-assessment/evaluations/method-source-registry.json",
+        "experiment-causal-assessment/evaluations/independent-review-template.json"
+      ],
+      "tests": [
+        "scripts/validate_f01_release.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-035",
+      "priority": "P0",
+      "statement": "Availability becomes current and maturity controlled_pilot only after the authoritative L1 through L3 release gate passes",
+      "blueprint_sections": [
+        "13",
+        "15"
+      ],
+      "work_package": "WP-13",
+      "development_status": "complete",
+      "artifacts": [
+        "governance/foundation-capability-registry.json"
+      ],
+      "tests": [
+        "scripts/validate_f01_release.py"
+      ],
+      "status": "complete"
+    },
+    {
+      "id": "F01-REQ-036",
+      "priority": "P0",
+      "statement": "L4 remains open until authorized real replay and external assurance",
+      "blueprint_sections": [
+        "15.5",
+        "18.3"
+      ],
+      "work_package": "WP-13",
+      "development_status": "complete",
+      "artifacts": [
+        "experiment-causal-assessment/evaluations/real-replay-template.json"
+      ],
+      "tests": [
+        "scripts/validate_f01_release.py"
+      ],
+      "status": "complete"
+    }
+  ]
+}

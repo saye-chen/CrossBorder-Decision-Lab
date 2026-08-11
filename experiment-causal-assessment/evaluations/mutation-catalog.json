@@ -1,0 +1,22 @@
+{
+  "schema_version":"1.0.0",
+  "catalog_id":"ECAE-MUTATIONS-1.0",
+  "mutations":[
+    {"id":"M01","mutation":"delete_identification_gate","expected_detection":"grade cannot exceed CE3"},
+    {"id":"M02","mutation":"upgrade_CE3_to_CE5","expected_detection":"grade trace/review gate rejects"},
+    {"id":"M03","mutation":"ignore_SRM","expected_detection":"randomization diagnostic blocks causal claim"},
+    {"id":"M04","mutation":"change_estimand_after_lock","expected_detection":"state/version validation rejects"},
+    {"id":"M05","mutation":"remove_multiplicity_adjustment","expected_detection":"family ledger remains unresolved"},
+    {"id":"M06","mutation":"ignore_switchback_carryover","expected_detection":"carryover validator rejects"},
+    {"id":"M07","mutation":"allow_post_treatment_covariate","expected_detection":"protocol/CUPED validator rejects bad control"},
+    {"id":"M08","mutation":"remove_sensitivity","expected_detection":"grade cannot exceed CE3"},
+    {"id":"M09","mutation":"consume_expired_handoff","expected_detection":"handoff/recompute gate rejects"},
+    {"id":"M10","mutation":"backend_failure_native_fallback","expected_detection":"backend contract raises BACKEND_UNAVAILABLE"},
+    {"id":"M11","mutation":"reuse_HTE_evaluation_outcomes_for_training_or_threshold_selection","expected_detection":"HTE evaluator raises HTE_EVALUATION_LEAKAGE or POLICY_VALUE_NOT_HONEST"},
+    {"id":"M12","mutation":"claim_CATE_score_as_individual_true_effect","expected_detection":"HTE evaluator raises INDIVIDUAL_CAUSAL_CLAIM_PROHIBITED"},
+    {"id":"M13","mutation":"drop_treat_all_policy_baseline","expected_detection":"HTE evaluator raises POLICY_BASELINES_INCOMPLETE"},
+    {"id":"M14","mutation":"use_favorable_surrogate_as_long_term_proof","expected_detection":"long-term evaluator raises SURROGATE_PARADOX_RISK"},
+    {"id":"M15","mutation":"inherit_source_grade_or_ignore_transport_weight_dominance","expected_detection":"transport ceiling remains bounded and blocker is emitted"}
+  ],
+  "status":"controlled_pilot_mutation_suite_pass_l4_backend_qualification_separate"
+}

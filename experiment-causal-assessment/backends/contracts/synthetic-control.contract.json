@@ -1,0 +1,11 @@
+{
+  "schema_version":"1.0.0",
+  "contract_id":"ECAE-BACKEND-SYNTHETIC-CONTROL-1.0",
+  "backend_id":"synthetic_control",
+  "candidate_id":"synthetic_control_synth",
+  "status":"contract_frozen_adapter_not_verified",
+  "input":{"required":["treated_unit","unit_column","time_column","outcome_column","intervention_time","donor_pool","predictor_columns","pre_periods","post_periods","rows"]},
+  "output":{"required":["unit_weights","effective_donor_count","weight_concentration","pre_RMSPE","post_gap","placebo_rank","leave_one_out","warnings"]},
+  "invariants":["exactly one treated unit","donor pool and intervention time are frozen before post outcomes","contaminated or structurally broken donors are excluded","weights are nonnegative and sum to one within tolerance","pre-fit and donor concentration are reported rather than hidden","in-space and time placebos plus leave-one-out remain mandatory","excellent fit alone never upgrades identification"],
+  "failure_codes":["DONOR_POOL_CONTAMINATED","SCM_TREATED_UNIT_SCOPE","SCM_OPTIMIZATION_FAILED","SCM_WEIGHT_INVALID","SCM_PRE_FIT_INVALID","SCM_PLACEBO_INCOMPLETE"]
+}

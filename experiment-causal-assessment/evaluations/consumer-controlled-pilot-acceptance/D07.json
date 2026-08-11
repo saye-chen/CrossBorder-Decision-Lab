@@ -1,0 +1,38 @@
+{
+  "acceptance_scope": "controlled_pilot_non_production",
+  "accepted_uses": [
+    "incremental_demand_input"
+  ],
+  "authorization_basis": "Explicit repository-owner instruction in the Codex task on 2026-08-10.",
+  "conditions": [
+    "controlled_pilot_non_production_only",
+    "business_owner_decision_required",
+    "production_and_high_stakes_use_requires_L4_evidence",
+    "external_write_forbidden"
+  ],
+  "consumer_owner_attestation": true,
+  "content_hash": "a0826d3db92cc95c6cd5a2007f3d8df2333d484c2e1ea11e4c9165895db7c5f5",
+  "contract_content_hash": "b16dd09136e2572a4b65a49362f9dd0c2c1380ae7d8fb68ff48b9e85d874b570",
+  "contract_version": "1.1.0",
+  "decision": "conditionally_accepted",
+  "domain_id": "D07",
+  "evidence_refs": [
+    "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment/acceptance.json",
+    "experiment-causal-assessment/evaluations/consumer-migration-local-verification.json",
+    "experiment-causal-assessment/evaluations/consumer-production-preflight/D07-evaluation.json"
+  ],
+  "expires_at": "2027-08-10T00:00:00+08:00",
+  "external_write": false,
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "producer_self_acceptance": false,
+  "production_evidence_claimed": false,
+  "record_id": "ECAE-CONSUMER-ACCEPTANCE-D07-CONTROLLED-PILOT-20260810",
+  "reviewed_at": "2026-08-10T00:00:00+08:00",
+  "reviewer": {
+    "affiliation": "consumer_domain",
+    "identity": "Miles Chen",
+    "independent_of_producer_implementation": true,
+    "role": "D07_consumer_owner"
+  },
+  "schema_version": "1.0.0"
+}

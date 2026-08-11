@@ -1,0 +1,27 @@
+{
+  "adapter_hash": "df718628b7d8f0b6d88f9541630333a8ce58d88b15b05fc30b02384880a8eaa8",
+  "automated_contract_accepted": true,
+  "checks": {
+    "consumer_sovereignty_preserved": true,
+    "domain_binding": true,
+    "expiry_invalidation_recompute": true,
+    "external_write_blocked": true,
+    "hash_tamper_detection": true,
+    "legacy_non_equivalence": true,
+    "owner_acceptance_required": true,
+    "unknown_never_zero_fill": true,
+    "use_and_payload_contract": true
+  },
+  "consumer": "competitive-intelligence-monitoring",
+  "controlled_pilot_acceptance_scope": "non_production",
+  "controlled_pilot_owner_accepted": true,
+  "evidence_scope": "consumer_local_executable_contract_non_production",
+  "external_write": false,
+  "independent_owner_accepted": false,
+  "local_fixture_status": "verified",
+  "owner_acceptance_status": "conditionally_accepted_controlled_pilot",
+  "production_difference_dispositioned": false,
+  "production_dual_run_completed": false,
+  "production_ready": false,
+  "signed_owner_acceptance_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D02.json"
+}

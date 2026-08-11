@@ -22,7 +22,7 @@
 
 ## 数据语义
 
-每个字段标记 observed/authorized/derived/inferred/causal 和 S/C等级。`attributed` 不能改名 `incremental`。成熟由退款、拒付、结算和归因窗决定，不用固定三个月。
+每个字段标记 observed/authorized/derived/inferred/causal、S0-S4、旧 C0-C3 和 F01 CE0-CE5。旧 C 标签不等价于 CE；`attributed` 不能改名 `incremental`，增量字段必须绑定经 D10 消费者侧校验的 F01 receipt。成熟由退款、拒付、结算和归因窗决定，不用固定三个月。
 
 动态阈值包含 `threshold_id/value/unit/source_evidence_id/platform/country/category/cohort/valid_from/expires_at/approved_by/fallback_if_expired`。缺失或过期时返回 `threshold_unverified`。
 

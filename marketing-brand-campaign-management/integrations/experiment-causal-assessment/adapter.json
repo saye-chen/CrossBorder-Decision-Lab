@@ -1,0 +1,57 @@
+{
+  "adapter_version": "MBCM-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "marketing-brand-campaign-management",
+  "domain_id": "D12",
+  "runtime": "MBCM-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "receipt_schema": "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+  "consumer_runtime": "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+  "allowed_uses": [
+    "incremental_campaign_support",
+    "high_stakes_campaign_support"
+  ],
+  "minimum_grade_by_use": {
+    "incremental_campaign_support": "CE4",
+    "high_stakes_campaign_support": "CE5"
+  },
+  "required_payload_by_use": {
+    "incremental_campaign_support": [
+      "effect_estimate",
+      "effect_interval"
+    ],
+    "high_stakes_campaign_support": [
+      "effect_estimate",
+      "effect_interval"
+    ]
+  },
+  "unknown_incremental_value_policy": "unknown_never_zero_fill",
+  "prohibited_legacy_mappings": [
+    "qualified_causal_claim_to_CE4",
+    "causal_claim_allowed_to_incremental"
+  ],
+  "retained_sovereignty": [
+    "brand positioning",
+    "campaign",
+    "offer",
+    "channel allocation"
+  ],
+  "forbidden_writeback": [
+    "brand positioning",
+    "campaign",
+    "offer",
+    "channel allocation",
+    "publish",
+    "budget transfer"
+  ],
+  "blocked_until_owner_acceptance": [
+    "causal or incremental claim",
+    "automatic business action",
+    "external write"
+  ],
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}

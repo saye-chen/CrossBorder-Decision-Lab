@@ -18,7 +18,7 @@
       "golden": "category-investment-decision/evaluations/golden/professional-report.md",
       "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
       "numeric_validator": "category-investment-decision/scripts/test_models.py",
-      "minimum_cases": 6,
+      "minimum_cases": 24,
       "semantic_markers": ["资本姿态", "机会损失", "组合约束", "退出纪律"]
     },
     {
@@ -29,7 +29,7 @@
       "golden": "competitive-intelligence-monitoring/evaluations/golden/professional-report.md",
       "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
       "numeric_validator": "competitive-intelligence-monitoring/scripts/test_monitoring.py",
-      "minimum_cases": 6,
+      "minimum_cases": 24,
       "semantic_markers": ["对象去重", "代理信号", "来源独立性", "变化确认"]
     },
     {
@@ -62,7 +62,7 @@
       "golden": "legal-tax-intellectual-property-market-access-decision/evaluations/golden/blocked-safety-report.json",
       "semantic_validator": "legal-tax-intellectual-property-market-access-decision/scripts/test_professional_domains.py",
       "numeric_validator": "legal-tax-intellectual-property-market-access-decision/scripts/test_decision_engine.py",
-      "minimum_cases": 14,
+      "minimum_cases": 48,
       "semantic_markers": ["action_ceiling", "counterevidence", "redlines", "professional_reviews"]
     },
     {
@@ -84,7 +84,7 @@
       "golden": "logistics-inventory-fulfillment-decision/evaluations/golden/professional-report.md",
       "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
       "numeric_validator": "logistics-inventory-fulfillment-decision/scripts/test_models.py",
-      "minimum_cases": 6,
+      "minimum_cases": 42,
       "semantic_markers": ["ATP/CTP", "库存保护", "路线容量", "反向履约"]
     },
     {
@@ -95,7 +95,7 @@
       "golden": "platform-store-listing-conversion/evaluations/golden/professional-report.md",
       "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
       "numeric_validator": "platform-store-listing-conversion/scripts/test_models.py",
-      "minimum_cases": 6,
+      "minimum_cases": 24,
       "semantic_markers": ["索引可见性", "Offer承接", "变体治理", "漏斗定位"]
     },
     {
@@ -106,7 +106,7 @@
       "golden": "advertising-analysis-measurement-optimization/evaluations/golden/professional-report.md",
       "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
       "numeric_validator": "advertising-analysis-measurement-optimization/scripts/test_causal_measurement.py",
-      "minimum_cases": 6,
+      "minimum_cases": 24,
       "semantic_markers": ["三本账", "边际效率", "增量", "归因"]
     },
     {
@@ -128,7 +128,7 @@
       "golden": "video-link-breakdown/evaluations/golden/professional-report.md",
       "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
       "numeric_validator": "video-link-breakdown/scripts/test_vlb_frameworks.py",
-      "minimum_cases": 6,
+      "minimum_cases": 24,
       "semantic_markers": ["钩子", "证明机制", "平台迁移", "疲劳"]
     },
     {
@@ -150,7 +150,7 @@
       "golden": "consumer-insights-customer-growth/evaluations/golden/professional-report.md",
       "semantic_validator": "scripts/validate_domain_professional_evaluations.py",
       "numeric_validator": "consumer-insights-customer-growth/scripts/test_growth.py",
-      "minimum_cases": 6,
+      "minimum_cases": 24,
       "semantic_markers": ["身份授权", "收入守恒", "Cohort", "净增量价值"]
     }
   ]

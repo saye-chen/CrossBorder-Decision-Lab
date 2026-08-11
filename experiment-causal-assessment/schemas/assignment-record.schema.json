@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/assignment-record.schema.json",
+  "title":"Assignment record",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["protocol_ref","assignment_unit_id","arm","allocation_probability","algorithm","algorithm_version","assigned_at","assignment_proof","population_snapshot_ref"],
+  "properties":{
+    "protocol_ref":{"type":"string","minLength":1},
+    "assignment_unit_id":{"type":"string","minLength":1},
+    "arm":{"type":"string","minLength":1},
+    "allocation_probability":{"type":"number","exclusiveMinimum":0,"maximum":1},
+    "algorithm":{"type":"string","minLength":1},
+    "algorithm_version":{"type":"string","minLength":1},
+    "assigned_at":{"type":"string","format":"date-time"},
+    "assignment_proof":{"type":"object","required":["proof_type","value"],"properties":{"proof_type":{"enum":["seed_commitment","hash_bucket","signed_manifest","randomization_table_hash"]},"value":{"type":"string","minLength":1}},"additionalProperties":false},
+    "population_snapshot_ref":{"type":"string","minLength":1},
+    "strata":{"type":"object","additionalProperties":{"type":["string","number","boolean"]}},
+    "cluster_id":{"type":"string","minLength":1}
+  },
+  "unevaluatedProperties":false
+}

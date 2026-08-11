@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-WP06-SWITCHBACK-RI2-DEVELOPMENT-2026-08-10",
+  "status": "development_pass_external_verification_open",
+  "qualification": "internal_ri2_to_hand_enumeration_parity_not_external_verification",
+  "adapter_ref": "backends/adapters/switchback_ri2.R",
+  "runtime": {"R": "4.6.1", "ri2": "0.5.0"},
+  "fixed_vector": {
+    "allowed_sequences": [[0,0,1,1],[0,1,0,1],[0,1,1,0],[1,0,0,1],[1,0,1,0],[1,1,0,0]],
+    "observed_sequence": [0,1,0,1],
+    "outcome": [1,4,2,5],
+    "observed_statistic": 3,
+    "permutation_count": 6,
+    "ri2_p_value": 0.3333333333333333,
+    "hand_p_value": 0.3333333333333333,
+    "absolute_difference": 0,
+    "status": "pass"
+  },
+  "mutations": [
+    {"mutation": "observed sequence outside registered support", "expected_error": "SEQUENCE_NOT_REGISTERED", "observed_error": "SEQUENCE_NOT_REGISTERED", "status": "pass"},
+    {"mutation": "one analyzed period reintroduces washout data", "expected_error": "WASHOUT_REINTRODUCED", "observed_error": "WASHOUT_REINTRODUCED", "status": "pass"},
+    {"mutation": "allowed sequence count exceeds exact enumeration ceiling", "expected_error": "EXACT_ENUMERATION_LIMIT_EXCEEDED", "observed_error": "EXACT_ENUMERATION_LIMIT_EXCEEDED", "status": "pass"}
+  ],
+  "unsupported_claims": [
+    "No general average treatment effect confidence interval is produced.",
+    "No sampled Monte Carlo randomization p-value is permitted.",
+    "Registered lag and periodicity terms are not estimated by the primary adapter.",
+    "The sharp-null adapter remains separate from the development-only lag, periodicity, and HAC sensitivity estimator in evaluations/switchback-sensitivity-development.json."
+  ],
+  "release_effect": {"registry_verified": false, "external_review_pending": true, "carryover_periodicity_sensitivity_pending": false, "average_effect_interval_supported": false}
+}

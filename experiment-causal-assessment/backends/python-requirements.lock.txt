@@ -1,0 +1,11 @@
+DoubleML==0.11.3
+econml==0.16.0
+ivmodels==0.10.0
+numpy==2.4.6
+pandas==3.0.5
+pyfixest==0.60.0
+rdrobust==2.0.0
+scikit-learn==1.6.1
+scipy==1.18.0
+statsmodels==0.14.6
+wildboottest==0.3.2

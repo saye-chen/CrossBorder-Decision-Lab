@@ -1,0 +1,58 @@
+{
+  "all_pass": true,
+  "checks": {
+    "cuped_linear": {
+      "oracle_theta": 2.0,
+      "pass": true,
+      "repository_theta": 2.0
+    },
+    "mde_precision_fixed": {
+      "oracle_mde": 0.2495847421543023,
+      "pass": true,
+      "repository_mde": 0.24958504823878738
+    },
+    "multiplicity_holm_bonferroni_bh": {
+      "oracle": {
+        "benjamini_hochberg": [0.030000000000000002, 0.060000000000000005, 0.2],
+        "bonferroni": [0.03, 0.12, 0.6000000000000001],
+        "holm": [0.03, 0.08, 0.2]
+      },
+      "pass": true,
+      "repository": {
+        "benjamini_hochberg": [0.03, 0.06, 0.20000000000000004],
+        "bonferroni": [0.03, 0.12, 0.6000000000000001],
+        "holm": [0.03, 0.08, 0.2]
+      }
+    },
+    "randomized_itt": {
+      "oracle": [1.5, 1.0408329997330663, 0.14954135458461518],
+      "pass": true,
+      "repository": [1.5, 1.0408329997330663, 0.14954135458461515]
+    },
+    "sample_size_fixed": {
+      "oracle_unrounded_n_per_arm": 251.16353630180953,
+      "pass": true,
+      "repository_n_per_arm": 252
+    },
+    "srm_chi_square": {
+      "oracle": [1.6, 0.2059032107320647],
+      "pass": true,
+      "repository": [1.6, 0.20590321073206852]
+    }
+  },
+  "external_write": false,
+  "limitations": [
+    "Library parity verifies frozen numerical vectors, not production effectiveness.",
+    "Guardrail rules and 2x2 DiD design assumptions use analytical and mutation evidence rather than library parity.",
+    "Advanced scientific backends are outside this native-method report and remain fail-closed."
+  ],
+  "oracle_runtime": ".venv/ecae-python/bin/python3",
+  "oracle_versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.18.0",
+    "statsmodels": "0.14.6"
+  },
+  "report_id": "ECAE-NATIVE-PARITY-2026-08-10",
+  "schema_version": "1.0.0",
+  "scope": "controlled_pilot_non_production"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/analysis-dataset-manifest.schema.json",
+  "title":"Analysis dataset manifest",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["protocol_ref","dataset_ref","snapshot_time","max_event_time","content_fingerprint","row_count","unit_count","field_contracts","filters","transformations","assignment_exposure_outcome_reconciliation","authorization_scope","privacy_minimization","quality_checks"],
+  "properties":{
+    "protocol_ref":{"type":"string","minLength":1},
+    "dataset_ref":{"type":"string","minLength":1},
+    "snapshot_time":{"type":"string","format":"date-time"},
+    "max_event_time":{"type":"string","format":"date-time"},
+    "content_fingerprint":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "row_count":{"type":"integer","minimum":0},
+    "unit_count":{"type":"integer","minimum":0},
+    "field_contracts":{"type":"array","minItems":1,"items":{"type":"object","required":["name","type","nullable","semantic_missingness"],"properties":{"name":{"type":"string","minLength":1},"type":{"type":"string","minLength":1},"nullable":{"type":"boolean"},"semantic_missingness":{"type":"string","minLength":1}},"additionalProperties":false}},
+    "filters":{"type":"array","items":{"type":"string","minLength":1}},
+    "transformations":{"type":"array","items":{"type":"object","required":["step","code_ref","input_refs","output_ref"],"properties":{"step":{"type":"string","minLength":1},"code_ref":{"type":"string","minLength":1},"input_refs":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},"output_ref":{"type":"string","minLength":1}},"additionalProperties":false}},
+    "assignment_exposure_outcome_reconciliation":{"type":"object","required":["status","assignment_units","exposure_units","outcome_units","unresolved_conflicts"],"properties":{"status":{"enum":["pass","fail","conflict"]},"assignment_units":{"type":"integer","minimum":0},"exposure_units":{"type":"integer","minimum":0},"outcome_units":{"type":"integer","minimum":0},"unresolved_conflicts":{"type":"array","items":{"type":"string","minLength":1}}},"additionalProperties":false},
+    "authorization_scope":{"type":"string","minLength":1},
+    "privacy_minimization":{"type":"string","minLength":1},
+    "quality_checks":{"type":"array","minItems":1,"items":{"type":"object","required":["check_id","status","evidence"],"properties":{"check_id":{"type":"string","minLength":1},"status":{"enum":["pass","fail","warning"]},"evidence":{"type":"string","minLength":1}},"additionalProperties":false}}
+  },
+  "unevaluatedProperties":false
+}

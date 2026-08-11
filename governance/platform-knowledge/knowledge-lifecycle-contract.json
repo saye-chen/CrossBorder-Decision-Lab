@@ -1,0 +1,17 @@
+{
+  "contract": "CBDS-PLATFORM-KNOWLEDGE-LIFECYCLE-2026.07",
+  "states": ["draft", "reviewed", "active", "stale", "invalidated", "archived"],
+  "transitions": [
+    {"from":"draft","to":"reviewed","requires":["scoped_claim","sources","reviewer","review_date","expiry","invalidation_conditions"]},
+    {"from":"reviewed","to":"active","requires":["owner_acceptance","allowed_uses","prohibited_uses","consumer_scope"]},
+    {"from":"active","to":"stale","requires":["expiry_or_refresh_failure","impact_closure"]},
+    {"from":"active","to":"invalidated","requires":["contradictory_evidence_or_failed_test","impact_closure","consumer_notification"]},
+    {"from":"stale","to":"reviewed","requires":["new_evidence","new_review","new_expiry"]},
+    {"from":"invalidated","to":"archived","requires":["decision_history_preserved","consumer_recompute_complete"]}
+  ],
+  "evidence_statuses": ["official", "research", "observed", "inferred"],
+  "promotion_requires": ["new_independent_evidence", "reviewer_identity", "scope_match", "effective_time"],
+  "consumer_responses": ["accepted", "rejected", "recompute_required", "out_of_scope"],
+  "required_hypothesis_fields": ["metric", "window", "success", "guardrail", "stop", "invalidation_condition"],
+  "prohibited": ["same_source_as_independent", "manual_expiry_override", "scope_broadening", "inference_to_causality", "direct_score_change", "direct_budget_or_bid_change", "direct_replenishment_change", "external_write"]
+}

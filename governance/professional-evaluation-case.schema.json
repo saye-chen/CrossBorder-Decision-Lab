@@ -14,6 +14,9 @@
     "source_case_id",
     "source_hash",
     "golden_hash",
+    "golden_binding",
+    "case_oracle_hash",
+    "case_execution_binding_hash",
     "mode",
     "object_ref",
     "object_version",
@@ -24,6 +27,7 @@
     "root_cause",
     "actions",
     "expected_state",
+    "expected_state_structured",
     "required_behaviors",
     "forbidden_behaviors",
     "calculations",
@@ -43,6 +47,19 @@
     "source_case_id": {"type": "string", "minLength": 2},
     "source_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "golden_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "golden_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "domain_golden_path", "domain_golden_root_hash", "case_report_path"],
+      "properties": {
+        "level": {"enum": ["domain_root", "case_report"]},
+        "domain_golden_path": {"type": "string", "minLength": 5},
+        "domain_golden_root_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "case_report_path": {"type": ["string", "null"]}
+      }
+    },
+    "case_oracle_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "case_execution_binding_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "mode": {"type": "string", "minLength": 2},
     "object_ref": {"type": "string", "minLength": 3},
     "object_version": {"type": "string", "minLength": 1},
@@ -101,6 +118,15 @@
       }
     },
     "expected_state": {"type": "string", "minLength": 1},
+    "expected_state_structured": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "source_type"],
+      "properties": {
+        "value": {},
+        "source_type": {"enum": ["scalar", "object", "array"]}
+      }
+    },
     "required_behaviors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
     "forbidden_behaviors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
     "calculations": {

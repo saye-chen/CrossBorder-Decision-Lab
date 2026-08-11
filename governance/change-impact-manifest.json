@@ -15,6 +15,22 @@
       "tests": ["scripts/test_homepage_integrity.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations", "evaluations/erdg", "evaluations/system-wide-audit-2026-07-29.md"]
     },
+    "interaction-platform-connector-governance": {
+      "owner": "repository",
+      "authoritative_sources": ["governance/interaction", "governance/connectors", "governance/platform-knowledge"],
+      "consumers": ["category-investment-decision", "competitive-intelligence-monitoring", "product-innovation-product-management", "supplier-procurement-production-quality-decision", "legal-tax-intellectual-property-market-access-decision", "pricing-profit-finance-cashflow-decision", "logistics-inventory-fulfillment-decision", "platform-store-listing-conversion", "advertising-analysis-measurement-optimization", "creator-affiliate-partnership-management", "video-link-breakdown", "marketing-brand-campaign-management", "consumer-insights-customer-growth"],
+      "validators": ["scripts/validate_operational_governance_depth.py", "governance/connectors/scripts/validate_connector_contract.py", "governance/platform-knowledge/scripts/validate_platform_cards.py"],
+      "tests": ["scripts/test_operational_governance_depth.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["evaluations/risk-weighted-coverage-ledger.json"]
+    },
+    "f01-experiment-causal-assessment-foundation": {
+      "owner": "experiment-causal-assessment",
+      "authoritative_sources": ["experiment-causal-assessment", "governance/f01-existing-capability-inventory.json", "governance/f01-experiment-causal-assessment-blueprint-review.md", "governance/f01-implementation-manifest.json", "governance/f01-requirements-traceability.json", "governance/foundation-capability-registry.json", "governance/foundation-capability-registry.schema.json"],
+      "consumers": ["category-investment-decision/integrations/experiment-causal-assessment", "competitive-intelligence-monitoring/integrations/experiment-causal-assessment", "product-innovation-product-management/integrations/experiment-causal-assessment", "supplier-procurement-production-quality-decision/integrations/experiment-causal-assessment", "legal-tax-intellectual-property-market-access-decision/integrations/experiment-causal-assessment", "pricing-profit-finance-cashflow-decision/integrations/experiment-causal-assessment", "logistics-inventory-fulfillment-decision/integrations/experiment-causal-assessment", "platform-store-listing-conversion/integrations/experiment-causal-assessment", "advertising-analysis-measurement-optimization/integrations/experiment-causal-assessment", "creator-affiliate-partnership-management/integrations/experiment-causal-assessment", "video-link-breakdown/integrations/experiment-causal-assessment", "marketing-brand-campaign-management/integrations/experiment-causal-assessment", "consumer-insights-customer-growth/integrations/experiment-causal-assessment"],
+      "validators": ["scripts/validate_f01_governance.py", "scripts/validate_f01_release.py", "scripts/validate_f01_structure.py"],
+      "tests": ["experiment-causal-assessment/tests", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["experiment-causal-assessment/evaluations"]
+    },
     "d01-d14-domain-architecture-and-handoff-v2": {
       "owner": "repository",
       "authoritative_sources": ["governance/domain-architecture-registry.json", "governance/domain-architecture-registry.schema.json", "governance/d05-ltma-blueprint.md", "governance/d05-sovereignty-and-terminology.md", "governance/d05-open-decisions.json", "legal-tax-intellectual-property-market-access-decision/SKILL.md", "governance/erdg/schemas/handoff-envelope.schema.json", "governance/erdg/schemas/decision-cycle.schema.json", "governance/erdg/scripts/validate_handoff.py", "governance/erdg/scripts/validate_decision_cycle.py"],
@@ -115,10 +131,10 @@
     },
     "thirteen-domain-professional-engineering-release": {
       "owner": "repository",
-      "authoritative_sources": ["governance/professional-engineering-release.md", "governance/professional-evaluation-registry.json", "governance/professional-evaluation-case.schema.json", "governance/release-mutation-contract.json", "scripts/build_professional_evaluation_index.py"],
+      "authoritative_sources": ["governance/professional-engineering-release.md", "governance/professional-evaluation-registry.json", "governance/professional-evaluation-case.schema.json", "governance/release-mutation-contract.json", "governance/l4-external-assurance-registry.json", "scripts/build_professional_evaluation_index.py", "scripts/build_risk_weighted_evaluation_catalogs.py", "scripts/capture_audit_workspace_baseline.py"],
       "consumers": ["README.md", "README.en.md", "RULES.md", "governance/system-audit-standard.md", ".github/workflows/expert-release.yml", "legal-tax-intellectual-property-market-access-decision/evaluations/completion-readiness.json"],
-      "validators": ["scripts/validate_professional_evaluation_registry.py", "scripts/validate_domain_professional_evaluations.py", "scripts/validate_release_integrity.py", "legal-tax-intellectual-property-market-access-decision/scripts/validate_completion_readiness.py"],
-      "tests": ["scripts/test_professional_evaluation_registry.py", "scripts/test_domain_professional_evaluations.py", "scripts/test_release_anti_cheat.py", "scripts/test_release_integrity.py", "scripts/test_full_repository_audit.py"],
+      "validators": ["scripts/validate_professional_evaluation_registry.py", "scripts/validate_domain_professional_evaluations.py", "scripts/validate_release_integrity.py", "scripts/validate_risk_weighted_coverage.py", "scripts/validate_l4_external_assurance.py", "scripts/validate_python_environment.py", "legal-tax-intellectual-property-market-access-decision/scripts/validate_completion_readiness.py"],
+      "tests": ["scripts/test_professional_evaluation_registry.py", "scripts/test_domain_professional_evaluations.py", "scripts/test_release_anti_cheat.py", "scripts/test_release_integrity.py", "scripts/test_risk_weighted_coverage.py", "scripts/test_l4_external_assurance.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations/professional-evaluation-index.json", "category-investment-decision/evaluations", "competitive-intelligence-monitoring/evaluations", "product-innovation-product-management/evaluations", "supplier-procurement-production-quality-decision/evaluations", "legal-tax-intellectual-property-market-access-decision/evaluations", "pricing-profit-finance-cashflow-decision/evaluations", "logistics-inventory-fulfillment-decision/evaluations", "platform-store-listing-conversion/evaluations", "advertising-analysis-measurement-optimization/evaluations", "creator-affiliate-partnership-management/evaluations", "video-link-breakdown/evaluations", "marketing-brand-campaign-management/evaluations", "consumer-insights-customer-growth/evaluations"]
     },
     "cim-monitoring-and-integration": {

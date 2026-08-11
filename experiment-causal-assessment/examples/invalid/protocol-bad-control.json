@@ -1,0 +1,10 @@
+{
+  "causal_question":{"question_type":"causal","estimand_ref":"ECAE-ESTIMAND-DEMO-001","causal_graph_ref":"ECAE-DAG-DEMO-001","decision_to_change":"是否上线新版主图"},
+  "protocol":{
+    "design":"two_arm_randomized","capability_tier":"native_executable",
+    "eligibility_gates":[{"gate_id":"Q1","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q2","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q3","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q4","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q5","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q6","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q7","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q8","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q9","status":"pass","rationale":"x","evidence_refs":["x"]},{"gate_id":"Q10","status":"pass","rationale":"x","evidence_refs":["x"]}],
+    "assignment":{"arms":["control","treatment"],"allocation":[0.5,0.5],"algorithm":"hash_bucket_v1"},
+    "metric_refs":["ECAE-METRIC-CONVERSION-001"],"sample_plan":{"alpha":0.05,"power":0.8,"minimum_important_effect":0.01,"baseline_source":"x","attrition_allowance":0},"sequential_paradigm":"fixed_horizon","hypothesis_family_refs":["ECAE-FAMILY-DEMO-001"],"preregistration_time":"2026-08-10T01:00:00+08:00"
+  },
+  "analysis_plan":{"sequential_paradigm":"fixed_horizon","covariates":[{"name":"clicked_after_treatment","temporal_status":"post_treatment"}]}
+}

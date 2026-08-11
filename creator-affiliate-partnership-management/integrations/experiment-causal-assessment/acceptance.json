@@ -1,0 +1,26 @@
+{
+  "adapter_hash": "22219885f5493f2b4ab5c84af47d72177cc906bb21aba0de4dd5b981caebc08d",
+  "automated_contract_accepted": true,
+  "checks": {
+    "consumer_sovereignty_preserved": true,
+    "domain_binding": true,
+    "expiry_invalidation_and_recompute": true,
+    "external_write_blocks": true,
+    "legacy_c2_c3_non_equivalence": true,
+    "missing_payload_blocks": true,
+    "owner_acceptance_required": true,
+    "schema_and_field_mapping": true
+  },
+  "consumer": "creator-affiliate-partnership-management",
+  "controlled_pilot_acceptance_scope": "non_production",
+  "controlled_pilot_owner_accepted": true,
+  "evidence_scope": "consumer_local_executable_contract_non_production",
+  "external_write": false,
+  "independent_owner_accepted": false,
+  "local_fixture_status": "verified",
+  "owner_acceptance_status": "conditionally_accepted_controlled_pilot",
+  "production_difference_dispositioned": false,
+  "production_dual_run_completed": false,
+  "production_ready": false,
+  "signed_owner_acceptance_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D10.json"
+}

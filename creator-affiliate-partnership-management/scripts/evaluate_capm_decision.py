@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 from capm_common import emit, load_json, sha256_json
 from partnership_economics import commission_ceiling, fixed_fee_ceiling
+from validate_ecae_handoff import qualified_receipt_from
 
 GATES = ("G1A", "G1B", "G2", "G3", "G4", "G5", "G6")
 STATUSES = {"pass", "blocked", "inconclusive", "not_applicable"}
@@ -39,8 +40,10 @@ def evaluate(data: dict) -> dict:
     if data["input_quality"] in {"Q0", "Q1"}:
         blocked |= candidates & HIGH_RISK
     allowed = candidates - blocked
-    causal = data.get("causal_evidence_level", "C0")
-    forbidden_claims = [] if causal in {"C2", "C3"} else ["incremental"]
+    legacy_causal = data.get("causal_evidence_level", "C0")
+    ecae_receipt = qualified_receipt_from(data)
+    incremental_qualified = bool(ecae_receipt and ecae_receipt["incremental_claim_allowed"])
+    forbidden_claims = [] if incremental_qualified else ["incremental"]
 
     calculations = {}
     economics = data.get("economics")
@@ -64,7 +67,8 @@ def evaluate(data: dict) -> dict:
         "runtime_version": "CAPM-2026.07", "decision_id": data["decision_id"], "object": obj,
         "posture": posture, "allowed_actions": sorted(allowed), "blocked_actions": sorted(blocked),
         "gates": gates, "recovery_evidence": sorted(set(recovery)), "calculations": calculations,
-        "causal_label": "incremental_eligible" if causal in {"C2", "C3"} else "attributed_or_inconclusive",
+        "causal_label": "f01_incremental_eligible" if incremental_qualified else ("legacy_c_label_non_equivalent" if legacy_causal in {"C2", "C3"} else "attributed_or_inconclusive"),
+        "ecae_consumer_receipt": ecae_receipt,
         "forbidden_claims": forbidden_claims, "input_hash": sha256_json(data),
     }
 

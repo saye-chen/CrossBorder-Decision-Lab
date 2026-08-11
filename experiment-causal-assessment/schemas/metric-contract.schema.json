@@ -1,0 +1,32 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/metric-contract.schema.json",
+  "title":"Metric contract",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["metric_name","role","metric_type","business_definition","numerator","denominator","observation_unit","analysis_unit","aggregation","direction","time_origin","observation_window","maturity_lag","source_fields","deduplication_key","missingness_rule","late_data_rule","version_owner"],
+  "properties":{
+    "metric_name":{"type":"string","minLength":1},
+    "role":{"enum":["primary","secondary","guardrail","diagnostic","economic"]},
+    "metric_type":{"enum":["binary","continuous","count","rate","ratio","currency","time_to_event"]},
+    "business_definition":{"type":"string","minLength":1},
+    "numerator":{"$ref":"common-object.schema.json#/$defs/semanticValue"},
+    "denominator":{"$ref":"common-object.schema.json#/$defs/semanticValue"},
+    "observation_unit":{"type":"string","minLength":1},
+    "analysis_unit":{"type":"string","minLength":1},
+    "aggregation":{"type":"string","minLength":1},
+    "direction":{"enum":["higher_is_better","lower_is_better","target_range"]},
+    "time_origin":{"type":"string","minLength":1},
+    "observation_window":{"type":"string","minLength":1},
+    "maturity_lag":{"type":"string","minLength":1},
+    "source_fields":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "deduplication_key":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "missingness_rule":{"type":"string","minLength":1},
+    "late_data_rule":{"type":"string","minLength":1},
+    "version_owner":{"type":"string","minLength":1},
+    "currency":{"type":"string","pattern":"^[A-Z]{3}$"},
+    "refund_cancel_rule":{"type":"string","minLength":1},
+    "outlier_rule":{"type":"string","minLength":1}
+  },
+  "unevaluatedProperties":false
+}

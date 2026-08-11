@@ -52,7 +52,7 @@ CAPM 最终决定：
 ## 九步工作流
 
 1. 锁定 `canonical_id/object_version/platform/country/currency/timezone/as_of_time`，换对象必须新建证据账。
-2. 区分 S0-S4 来源证据与 C0-C3 因果证据；利益相关方截图不得冒充后台真值。
+2. 区分 S0-S4 来源证据、仅供历史兼容的 C0-C3 标签与 F01 CE0-CE5；C2/C3 不得自动映射为 CE4/CE5 或增量资格，利益相关方截图不得冒充后台真值。
 3. 执行动作级 Gates；先声明允许上限，再进行评分或方案比较。
 4. 识别达人/联盟伙伴、合作、权利、内容、订单和计划的生命周期。
 5. 生成不行动、低风险、平衡和高承诺候选；至少给一个 walk-away。
@@ -94,13 +94,14 @@ CAPM 最终决定：
 
 ## 确定性脚本
 
-- `scripts/partnership_economics.py`：C01/C02/C03/C08/C12，成本去重与成熟贡献。
+- `scripts/partnership_economics.py`：C01/C02/C03/C08/C12，成本去重、成熟贡献与 F01 增量资格隔离。
 - `scripts/evaluate_capm_decision.py`：端到端执行输入质量、Gates、动作上限、经济与因果标签。
+- `scripts/validate_ecae_handoff.py`：实时校验 D10 handoff、消费者签收、CE/范围/时效并生成 CAPM receipt。
 - `scripts/reverse_funnel.py`：触达—回复—接样—发布反向漏斗。
 - `scripts/portfolio_concentration.py`：多基准 HHI、Shannon、Top1/Top3。
 - `scripts/affiliate_order_reconciliation.py`：订单、重复、作弊、退款拒付守恒。
 - `scripts/validate_rights_contract.py`：用途级权利与到期/撤回阻断。
-- `scripts/validate_cross_skill_handoff.py`：统一信封、版本、用途、接收与幂等。
+- `scripts/validate_cross_skill_handoff.py`：统一信封、版本、用途、接收与幂等；增量字段必须携带有效 F01 consumer receipt。
 - `scripts/decision_state.py`：连续报告继承、证据撤回与重算闭包。
 - `scripts/validate_decision_contract.py`：共享决策合同入口。
 - `scripts/validate_historical_replay.py`：真实回放与生产状态门。

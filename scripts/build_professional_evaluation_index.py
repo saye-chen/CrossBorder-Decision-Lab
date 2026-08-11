@@ -62,6 +62,18 @@ def normalize(row: dict[str, Any], case: dict[str, Any], golden_hash: str) -> di
     rollback = "restore_last_validated_version_and_recompute_dependents"
     claim_id = f"CL-{source_id}"
     root_cause_id = f"RC-{source_id}"
+    oracle = {
+        "expected": expected,
+        "required": required,
+        "forbidden": forbidden,
+        "mutation": case.get("mutation"),
+    }
+    execution_binding = {
+        "source_case_hash": source_hash,
+        "semantic_validator": row["semantic_validator"],
+        "numeric_validator": row["numeric_validator"],
+        "runtime": row["runtime"],
+    }
     return {
         "schema_version": "1.0.0",
         "case_id": f"PRO-{row['domain_id']}-{source_id}",
@@ -72,6 +84,14 @@ def normalize(row: dict[str, Any], case: dict[str, Any], golden_hash: str) -> di
         "source_case_id": source_id,
         "source_hash": source_hash,
         "golden_hash": golden_hash,
+        "golden_binding": {
+            "level": "domain_root",
+            "domain_golden_path": row["golden"],
+            "domain_golden_root_hash": golden_hash,
+            "case_report_path": None,
+        },
+        "case_oracle_hash": digest_json(oracle),
+        "case_execution_binding_hash": digest_json(execution_binding),
         "mode": str(first(case, "mode", "group", "category", "family") or "standard"),
         "object_ref": object_ref,
         "object_version": version,
@@ -99,6 +119,10 @@ def normalize(row: dict[str, Any], case: dict[str, Any], golden_hash: str) -> di
             "rollback": rollback,
         }],
         "expected_state": expected_state,
+        "expected_state_structured": {
+            "value": expected if expected is not None else "assertion_defined",
+            "source_type": "object" if isinstance(expected, dict) else "array" if isinstance(expected, list) else "scalar",
+        },
         "required_behaviors": required,
         "forbidden_behaviors": forbidden,
         "calculations": [{

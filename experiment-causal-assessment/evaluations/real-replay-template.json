@@ -1,0 +1,12 @@
+{
+  "schema_version":"1.0.0",
+  "replay_id":"ECAE-L4-REPLAY-UNASSIGNED",
+  "status":"not_authorized",
+  "authorization":{"data_owner":null,"scope":null,"purpose":null,"minimum_data":null,"retention":null,"approved_at":null},
+  "historical_information_cutoff":null,
+  "protocol_ref":null,
+  "data_snapshot_hash":null,
+  "decision_replay_result":null,
+  "external_assurance":{"reviewer":null,"scope":null,"result":null,"signed_at":null},
+  "l4_gate_closed":false
+}

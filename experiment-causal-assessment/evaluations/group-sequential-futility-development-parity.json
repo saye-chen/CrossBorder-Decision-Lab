@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-WP06-GROUP-SEQUENTIAL-FUTILITY-PARITY-2026-08-10",
+  "status": "development_pass_external_verification_open",
+  "qualification": "development_parity_not_independent_external_verification",
+  "source_script_ref": "scripts/probe_group_sequential_futility_parity.R",
+  "runtimes": {"R": "4.5.3", "gsDesign": "3.10.1", "rpact": "4.4.0"},
+  "normalization": {"one_sided_alpha": 0.025, "beta": 0.2, "rpact_final_futility_equals_final_efficacy": true, "binding_test_type": 3, "nonbinding_test_type": 4},
+  "tolerances": {"boundary": 0.00003, "spending": 0.00000002},
+  "vectors": [
+    {
+      "vector_id": "binding_hsd_three_looks", "binding_futility": true, "beta_spending": "hwang_shih_decani", "information_fractions": [0.33, 0.67, 1],
+      "gsDesign": {"upper_boundaries": [3.7306652931904942, 2.5034560821797012, 1.9587864009139133], "futility_boundaries": [-0.24926091431973019, 0.908536610942438, 1.9587864009139133], "cumulative_alpha": [0.0000954873997267569, 0.006175597249909792, 0.025000000000000133], "cumulative_beta": [0.02926229852821264, 0.08824600885373866, 0.2]},
+      "rpact": {"upper_boundaries": [3.7306652931904942, 2.503456734120846, 1.9588028714060783], "futility_boundaries": [-0.24925195299493727, 0.9085493539460003, 1.9588028714060783], "cumulative_alpha": [0.0000954873997267569, 0.006175597216978912, 0.025], "cumulative_beta": [0.029262298528212643, 0.08824600828301589, 0.19999999960870363]},
+      "maximum_absolute_differences": {"upper": 0.00001647049216502161, "lower": 0.00001647049216502161, "alpha": 0.00000000003293088024491908, "beta": 0.0000000005707227745954668}, "accepted": true
+    },
+    {
+      "vector_id": "nonbinding_hsd_three_looks", "binding_futility": false, "beta_spending": "hwang_shih_decani", "information_fractions": [0.33, 0.67, 1],
+      "gsDesign": {"upper_boundaries": [3.7306652931904942, 2.5038709022881944, 1.9937099188719578], "futility_boundaries": [-0.230269595079432, 0.9355972645257219, 1.9937099188719578], "cumulative_alpha": [0.0000954873997267569, 0.006175597249909792, 0.025000000000000133], "cumulative_beta": [0.02926229852821264, 0.08824600885373866, 0.2]},
+      "rpact": {"upper_boundaries": [3.7306652931904942, 2.5038713589310646, 1.9937098547816277], "futility_boundaries": [-0.23026963783289714, 0.9355971845798194, 1.9937098547816277], "cumulative_alpha": [0.0000954873997267569, 0.006175597216978912, 0.025], "cumulative_beta": [0.02926229833677371, 0.08824600853899718, 0.19999999821544706]},
+      "maximum_absolute_differences": {"upper": 0.00000045664287018354344, "lower": 0.00000007994590245363753, "alpha": 0.00000000003293088024491908, "beta": 0.0000000017845529498572432}, "accepted": true
+    },
+    {
+      "vector_id": "binding_pocock_four_looks", "binding_futility": true, "beta_spending": "pocock", "information_fractions": [0.25, 0.5, 0.75, 1],
+      "gsDesign": {"upper_boundaries": [4.332633646049565, 2.962828378422216, 2.341419924526086, 1.8571648906330978], "futility_boundaries": [0.05333358130048871, 0.7926424447264907, 1.3587141106020038, 1.8571648906330978], "cumulative_alpha": [0.000007366808435937955, 0.0015253227579890005, 0.009649324953512117, 0.025000000000000133], "cumulative_beta": [0.07147480390175769, 0.1240229013916555, 0.16559778784857396, 0.2]},
+      "rpact": {"upper_boundaries": [4.332633646049565, 2.962829150259495, 2.3414206728339195, 1.8571749851107597], "futility_boundaries": [0.05333816081420473, 0.7926489268429577, 1.3587220679037273, 1.8571749851107597], "cumulative_alpha": [0.000007366808435937955, 0.0015253227574705264, 0.009649325119183372, 0.025], "cumulative_beta": [0.07147480390175774, 0.12402290095910962, 0.16559778828031316, 0.19999999988277056]},
+      "maximum_absolute_differences": {"upper": 0.000010094477661981571, "lower": 0.000010094477661981571, "alpha": 0.00000000016567125449284958, "beta": 0.0000000004325458879961275}, "accepted": true
+    },
+    {
+      "vector_id": "nonbinding_obf_four_looks", "binding_futility": false, "beta_spending": "obrien_fleming", "information_fractions": [0.25, 0.5, 0.75, 1],
+      "gsDesign": {"upper_boundaries": [4.332633646049565, 2.9631308419796887, 2.359044391859281, 2.0140903572895694], "futility_boundaries": [-0.8202857790579592, 0.6098062099049637, 1.4016987714099336, 2.0140903572895694], "cumulative_alpha": [0.000007366808435937955, 0.0015253227579890005, 0.009649324953512117, 0.025000000000000133], "cumulative_beta": [0.010374122807339958, 0.06992632672050636, 0.13892441763937158, 0.19999999999999996]},
+      "rpact": {"upper_boundaries": [4.332633646049565, 2.9631315991282463, 2.359044276177883, 2.0140901431441307], "futility_boundaries": [-0.8202858781593396, 0.6098060826770961, 1.4016986242495477, 2.0140901431441307], "cumulative_alpha": [0.000007366808435937955, 0.0015253227574705264, 0.009649325119183372, 0.025], "cumulative_beta": [0.010374122738540242, 0.06992632674683211, 0.13892441742341138, 0.19999999840080465]},
+      "maximum_absolute_differences": {"upper": 0.0000007571485576285397, "lower": 0.0000002141454387150077, "alpha": 0.00000000016567125449284958, "beta": 0.0000000015991953039584672}, "accepted": true
+    }
+  ],
+  "all_vectors_accepted": true,
+  "release_effect": {"registry_verified": false, "external_review_pending": true, "operating_characteristic_simulation_pending": true}
+}

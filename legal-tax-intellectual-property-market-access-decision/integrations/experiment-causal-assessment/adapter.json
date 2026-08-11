@@ -1,0 +1,50 @@
+{
+  "adapter_version": "LTMA-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "legal-tax-intellectual-property-market-access-decision",
+  "domain_id": "D05",
+  "runtime": "LTMA-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "receipt_schema": "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+  "consumer_runtime": "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+  "allowed_uses": [
+    "experiment_evidence_context",
+    "causal_claim_support"
+  ],
+  "minimum_grade_by_use": {
+    "experiment_evidence_context": "CE3",
+    "causal_claim_support": "CE4"
+  },
+  "required_payload_by_use": {
+    "experiment_evidence_context": [],
+    "causal_claim_support": []
+  },
+  "unknown_incremental_value_policy": "unknown_never_zero_fill",
+  "prohibited_legacy_mappings": [
+    "legal_eligible_to_CE4",
+    "market_access_to_incremental"
+  ],
+  "retained_sovereignty": [
+    "legal opinion",
+    "tax treatment",
+    "IP decision",
+    "market access"
+  ],
+  "forbidden_writeback": [
+    "legal opinion",
+    "tax treatment",
+    "IP decision",
+    "market access",
+    "professional approval"
+  ],
+  "blocked_until_owner_acceptance": [
+    "causal or incremental claim",
+    "automatic business action",
+    "external write"
+  ],
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}

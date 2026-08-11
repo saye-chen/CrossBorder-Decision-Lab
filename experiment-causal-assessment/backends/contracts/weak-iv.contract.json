@@ -1,0 +1,11 @@
+{
+  "schema_version":"1.0.0",
+  "contract_id":"ECAE-BACKEND-WEAK-IV-1.0",
+  "backend_id":"weak_iv",
+  "candidate_id":"weak_iv_ivmodels",
+  "status":"contract_frozen_adapter_not_verified",
+  "input":{"required":["outcome","endogenous","instruments","estimator","null_value","weak_robust_test","confidence_level"],"optional":["exogenous"]},
+  "output":{"required":["effect","estimator","first_stage_rank_test","weak_robust_test","weak_robust_results","weak_robust_confidence_sets","null_value","warnings"]},
+  "invariants":["2SLS and LIML labels are explicit","weak-instrument-robust inference is reported regardless of first-stage strength","first-stage evidence never proves exclusion independence or monotonicity","Anderson-Rubin or conditional likelihood-ratio inference cannot be replaced by a Wald interval","causal interpretation is LATE or CACE for the registered complier population only"],
+  "failure_codes":["IV_CONTRACT_INCOMPLETE","IV_ESTIMAND_INVALID","IV_RANK_INVALID","WEAK_IV_INFERENCE_REQUIRED","BACKEND_NUMERICAL_INVALID"]
+}

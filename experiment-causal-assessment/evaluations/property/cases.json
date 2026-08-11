@@ -1,0 +1,8 @@
+{
+  "schema_version":"1.0.0","case_family":"property","cases":[
+    {"case_id":"ECAE-PROP-01","property":"swapping arms flips effect and interval","test_ref":"tests/test_property_simulation.py::test_group_swap_flips_effect_and_interval"},
+    {"case_id":"ECAE-PROP-02","property":"positive unit scaling preserves p-value","test_ref":"tests/test_property_simulation.py::test_unit_scaling_preserves_p_and_scales_effect"},
+    {"case_id":"ECAE-PROP-03","property":"larger MDE cannot require more sample","test_ref":"tests/test_property_simulation.py::test_larger_mde_needs_no_more_sample"},
+    {"case_id":"ECAE-PROP-04","property":"canonical hash is object-key-order invariant","test_ref":"tests/test_property_simulation.py::test_hash_is_key_order_invariant"}
+  ]
+}

@@ -22,9 +22,10 @@ PLACEHOLDERS = (
 )
 REQUIRED_CASE_FIELDS = {
     "schema_version", "case_id", "domain_id", "skill", "runtime", "source_catalog",
-    "source_case_id", "source_hash", "golden_hash", "mode", "object_ref", "object_version",
+    "source_case_id", "source_hash", "golden_hash", "golden_binding", "case_oracle_hash",
+    "case_execution_binding_hash", "mode", "object_ref", "object_version",
     "inputs", "evidence", "counterevidence", "claims", "root_cause", "actions", "expected_state", "required_behaviors",
-    "forbidden_behaviors", "calculations", "sovereignty", "state_transition", "rollback",
+    "expected_state_structured", "forbidden_behaviors", "calculations", "sovereignty", "state_transition", "rollback",
     "semantic_assertions", "evidence_fingerprint",
 }
 
@@ -39,6 +40,23 @@ def digest_json(value: Any) -> str:
 
 def digest_path(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def first_source_value(case: dict[str, Any], *names: str) -> Any:
+    for name in names:
+        if name in case and case[name] not in (None, "", [], {}):
+            return case[name]
+    return None
+
+
+def source_strings(value: Any) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [canonical(x) if isinstance(x, (dict, list)) else str(x) for x in value]
+    if isinstance(value, dict):
+        return [canonical(value)]
+    return [str(value)]
 
 
 def current_domains() -> dict[str, dict[str, Any]]:
@@ -148,6 +166,34 @@ def validate(registry: dict[str, Any] | None = None, index: dict[str, Any] | Non
         golden_path = ROOT / str(row.get("golden", ""))
         if golden_path.is_file() and case["golden_hash"] != digest_path(golden_path):
             errors.append(f"{case['case_id']}: golden fingerprint drift")
+        binding = case.get("golden_binding", {})
+        if binding.get("level") != "domain_root" or binding.get("case_report_path") is not None:
+            errors.append(f"{case['case_id']}: domain golden is misrepresented as a case report")
+        if binding.get("domain_golden_path") != row.get("golden"):
+            errors.append(f"{case['case_id']}: golden binding path drift")
+        if binding.get("domain_golden_root_hash") != case.get("golden_hash"):
+            errors.append(f"{case['case_id']}: golden binding root hash drift")
+        expected_value = first_source_value(source, "expected_status", "expected_state", "expected", "expected_output", "expected_guard")
+        oracle = {
+            "expected": expected_value,
+            "required": source_strings(first_source_value(source, "must", "assertions", "required_behaviors")) or list(row.get("semantic_markers", [])),
+            "forbidden": source_strings(first_source_value(source, "forbidden", "forbidden_behaviors")) or ["跨域越权", "把合成评测当作L4证据"],
+            "mutation": source.get("mutation"),
+        }
+        execution_binding = {
+            "source_case_hash": expected_hash,
+            "semantic_validator": row.get("semantic_validator"),
+            "numeric_validator": row.get("numeric_validator"),
+            "runtime": row.get("runtime"),
+        }
+        if case.get("case_oracle_hash") != digest_json(oracle):
+            errors.append(f"{case['case_id']}: case oracle hash drift")
+        if case.get("case_execution_binding_hash") != digest_json(execution_binding):
+            errors.append(f"{case['case_id']}: execution binding hash drift")
+        structured = case.get("expected_state_structured", {})
+        expected_type = "object" if isinstance(expected_value, dict) else "array" if isinstance(expected_value, list) else "scalar"
+        if structured.get("value") != (expected_value if expected_value is not None else "assertion_defined") or structured.get("source_type") != expected_type:
+            errors.append(f"{case['case_id']}: structured expected state drift")
         if case["skill"] != row.get("skill") or case["runtime"] != row.get("runtime"):
             errors.append(f"{case['case_id']}: owner/runtime mismatch")
         if not case["evidence"] or not case["counterevidence"]:

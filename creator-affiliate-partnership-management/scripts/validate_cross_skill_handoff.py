@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime
 from capm_common import canonical_json, emit, load_json, sha256_json
+from validate_ecae_handoff import validate_receipt
 
 
 STATUSES = {"proposed", "validated", "blocked", "inconclusive", "superseded"}
@@ -38,8 +39,13 @@ def validate(data: dict, seen_idempotency_keys: set[str] | None = None) -> dict:
     causal = data.get("causal_evidence_level")
     if causal not in {"C0", "C1", "C2", "C3"}:
         errors.append("invalid:causal_evidence_level")
-    if causal not in {"C2", "C3"} and "incremental" in canonical_json(data.get("payload", {})).lower():
-        errors.append("invalid:incremental_without_causal_evidence")
+    payload = data.get("payload", {})
+    receipt = payload.get("ecae_consumer_receipt") if isinstance(payload, dict) else None
+    receipt_errors = validate_receipt(receipt) if isinstance(receipt, dict) else ["missing"]
+    receipt_qualified = isinstance(receipt, dict) and not receipt_errors and receipt.get("incremental_claim_allowed") is True
+    semantic_payload = {key:value for key,value in payload.items() if key != "ecae_consumer_receipt"} if isinstance(payload, dict) else payload
+    if "incremental" in canonical_json(semantic_payload).lower() and not receipt_qualified:
+        errors.append("invalid:incremental_without_f01_consumer_receipt")
     validity = data.get("validity", {})
     try:
         start = datetime.fromisoformat(validity["valid_from"].replace("Z", "+00:00"))

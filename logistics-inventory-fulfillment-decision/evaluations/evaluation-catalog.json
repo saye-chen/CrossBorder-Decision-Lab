@@ -236,6 +236,1650 @@
         "value": "stale",
         "expected": "blocked"
       }
+    },
+    {
+      "id": "LIFD-RW-01",
+      "name": "ATP_CTP多平台争用-standard",
+      "mode": "standard",
+      "object_ref": "D07-ATP_CTP多平台争用@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-581d910197d8",
+        "E-LINEAGE-7c5d2675dec2"
+      ],
+      "counterevidence": [
+        "E-COUNTER-a5e0ef508e89"
+      ],
+      "expected_status": "allocate",
+      "must": [
+        "ATP_CTP多平台争用",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以ATP_CTP多平台争用为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为allocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且ATP_CTP多平台争用守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:581d910197d87c5d2675dec2a5e0ef508e89dcf91d00aa4c2a382e6cf1a12f8c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "ATP_CTP多平台争用:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-02",
+      "name": "ATP_CTP多平台争用-conflict",
+      "mode": "conflict",
+      "object_ref": "D07-ATP_CTP多平台争用@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-d4582759ddfc",
+        "E-LINEAGE-3aebbc88328a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-78fe50481fd3"
+      ],
+      "expected_status": "constrain",
+      "must": [
+        "ATP_CTP多平台争用",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以ATP_CTP多平台争用为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为constrain。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且ATP_CTP多平台争用守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d4582759ddfc3aebbc88328a78fe50481fd3c9528940699f65c684d05f3acf62",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "ATP_CTP多平台争用:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-03",
+      "name": "ATP_CTP多平台争用-extreme",
+      "mode": "extreme",
+      "object_ref": "D07-ATP_CTP多平台争用@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-d071d4d6b915",
+        "E-LINEAGE-57f1405a8312"
+      ],
+      "counterevidence": [
+        "E-COUNTER-89ed160e824e"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "ATP_CTP多平台争用",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以ATP_CTP多平台争用为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且ATP_CTP多平台争用守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d071d4d6b91557f1405a831289ed160e824e6097bde7dda56c55abb1c8bfb43e",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "ATP_CTP多平台争用:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-04",
+      "name": "ATP_CTP多平台争用-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D07-ATP_CTP多平台争用@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-64964f3bf24b",
+        "E-LINEAGE-09ccc2c41c8a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9cfec5e30af6"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "ATP_CTP多平台争用",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以ATP_CTP多平台争用为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且ATP_CTP多平台争用守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:64964f3bf24b09ccc2c41c8a9cfec5e30af6ae1fc66f6bbdb7727c7896ba8989",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "ATP_CTP多平台争用:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-05",
+      "name": "ATP_CTP多平台争用-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D07-ATP_CTP多平台争用@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-4c95ae2764c4",
+        "E-LINEAGE-012271e54579"
+      ],
+      "counterevidence": [
+        "E-COUNTER-67befbc8e4b5"
+      ],
+      "expected_status": "rollback",
+      "must": [
+        "ATP_CTP多平台争用",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以ATP_CTP多平台争用为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为rollback。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且ATP_CTP多平台争用守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:4c95ae2764c4012271e5457967befbc8e4b53b2676b81d3f2af54c508528b7e7",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "ATP_CTP多平台争用:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-06",
+      "name": "ATP_CTP多平台争用-recovery",
+      "mode": "recovery",
+      "object_ref": "D07-ATP_CTP多平台争用@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-6a2625b76e81",
+        "E-LINEAGE-fa7588cd824d"
+      ],
+      "counterevidence": [
+        "E-COUNTER-319614bdd62a"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "ATP_CTP多平台争用",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以ATP_CTP多平台争用为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且ATP_CTP多平台争用守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:6a2625b76e81fa7588cd824d319614bdd62a0370ef9bfd8fb935b19da84fe20d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "ATP_CTP多平台争用:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-07",
+      "name": "多仓库存保护分配-standard",
+      "mode": "standard",
+      "object_ref": "D07-多仓库存保护分配@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-163b7d975f7f",
+        "E-LINEAGE-f4708e9bf646"
+      ],
+      "counterevidence": [
+        "E-COUNTER-52f8ed720016"
+      ],
+      "expected_status": "allocate",
+      "must": [
+        "多仓库存保护分配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多仓库存保护分配为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为allocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多仓库存保护分配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:163b7d975f7ff4708e9bf64652f8ed72001667b04f31aa7414162d0e63ce03f8",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多仓库存保护分配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-08",
+      "name": "多仓库存保护分配-conflict",
+      "mode": "conflict",
+      "object_ref": "D07-多仓库存保护分配@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-8c46e788a982",
+        "E-LINEAGE-c8feb3d6795b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-42820bf6f749"
+      ],
+      "expected_status": "constrain",
+      "must": [
+        "多仓库存保护分配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多仓库存保护分配为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为constrain。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多仓库存保护分配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8c46e788a982c8feb3d6795b42820bf6f749e331c87601b5ae8f46cf4233f2b1",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多仓库存保护分配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-09",
+      "name": "多仓库存保护分配-extreme",
+      "mode": "extreme",
+      "object_ref": "D07-多仓库存保护分配@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-14dacc71d951",
+        "E-LINEAGE-d1c956b343a3"
+      ],
+      "counterevidence": [
+        "E-COUNTER-cf89cad749f4"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "多仓库存保护分配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多仓库存保护分配为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多仓库存保护分配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:14dacc71d951d1c956b343a3cf89cad749f42e77b6485af848b9c3e1eea2c0eb",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多仓库存保护分配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-10",
+      "name": "多仓库存保护分配-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D07-多仓库存保护分配@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-7cebff35d510",
+        "E-LINEAGE-cf29e875d73d"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9995a6346fdb"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "多仓库存保护分配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多仓库存保护分配为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多仓库存保护分配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:7cebff35d510cf29e875d73d9995a6346fdbe489d1b3147e89bfc97a68760769",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多仓库存保护分配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-11",
+      "name": "多仓库存保护分配-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D07-多仓库存保护分配@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-3822cbc3000e",
+        "E-LINEAGE-a3ace72da69f"
+      ],
+      "counterevidence": [
+        "E-COUNTER-538343d52db7"
+      ],
+      "expected_status": "rollback",
+      "must": [
+        "多仓库存保护分配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多仓库存保护分配为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为rollback。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多仓库存保护分配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3822cbc3000ea3ace72da69f538343d52db7ed1cdfefa3656e49e021f7f3109c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多仓库存保护分配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-12",
+      "name": "多仓库存保护分配-recovery",
+      "mode": "recovery",
+      "object_ref": "D07-多仓库存保护分配@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-e057aa69b640",
+        "E-LINEAGE-376681a9fa6a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-323a8f57ee6a"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "多仓库存保护分配",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以多仓库存保护分配为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且多仓库存保护分配守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:e057aa69b640376681a9fa6a323a8f57ee6ae348448482716c37879401ddea46",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "多仓库存保护分配:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-13",
+      "name": "海空陆路线容量切换-standard",
+      "mode": "standard",
+      "object_ref": "D07-海空陆路线容量切换@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-0c653b0ad874",
+        "E-LINEAGE-c9aa739a5e16"
+      ],
+      "counterevidence": [
+        "E-COUNTER-eb823410d36e"
+      ],
+      "expected_status": "allocate",
+      "must": [
+        "海空陆路线容量切换",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以海空陆路线容量切换为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为allocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且海空陆路线容量切换守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:0c653b0ad874c9aa739a5e16eb823410d36e420012085b138b470628af9d59e2",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "海空陆路线容量切换:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-14",
+      "name": "海空陆路线容量切换-conflict",
+      "mode": "conflict",
+      "object_ref": "D07-海空陆路线容量切换@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-9830de843137",
+        "E-LINEAGE-56ff5bb83142"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4ed65aca1a6d"
+      ],
+      "expected_status": "constrain",
+      "must": [
+        "海空陆路线容量切换",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以海空陆路线容量切换为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为constrain。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且海空陆路线容量切换守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:9830de84313756ff5bb831424ed65aca1a6d0a54d13d077d203987430f24c1e6",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "海空陆路线容量切换:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-15",
+      "name": "海空陆路线容量切换-extreme",
+      "mode": "extreme",
+      "object_ref": "D07-海空陆路线容量切换@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-f7c116d3752a",
+        "E-LINEAGE-2defc486576a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-adb30aeeb462"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "海空陆路线容量切换",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以海空陆路线容量切换为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且海空陆路线容量切换守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f7c116d3752a2defc486576aadb30aeeb46254f69371940fa26b688c04f03a83",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "海空陆路线容量切换:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-16",
+      "name": "海空陆路线容量切换-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D07-海空陆路线容量切换@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-d5317a5d6d21",
+        "E-LINEAGE-5e9f8544234b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-1ca97a6a37c3"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "海空陆路线容量切换",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以海空陆路线容量切换为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且海空陆路线容量切换守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d5317a5d6d215e9f8544234b1ca97a6a37c35316a7a9c014ac88812166cea935",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "海空陆路线容量切换:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-17",
+      "name": "海空陆路线容量切换-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D07-海空陆路线容量切换@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-facf32ec7de9",
+        "E-LINEAGE-eae4cd07362a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-76bc4837d5d4"
+      ],
+      "expected_status": "rollback",
+      "must": [
+        "海空陆路线容量切换",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以海空陆路线容量切换为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为rollback。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且海空陆路线容量切换守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:facf32ec7de9eae4cd07362a76bc4837d5d4eb921a64d2104189b669619424cb",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "海空陆路线容量切换:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-18",
+      "name": "海空陆路线容量切换-recovery",
+      "mode": "recovery",
+      "object_ref": "D07-海空陆路线容量切换@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-792dd3d7ba5a",
+        "E-LINEAGE-8ad605a0cd9e"
+      ],
+      "counterevidence": [
+        "E-COUNTER-89c5ae8e697b"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "海空陆路线容量切换",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以海空陆路线容量切换为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且海空陆路线容量切换守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:792dd3d7ba5a8ad605a0cd9e89c5ae8e697b9a57c85fb84f0d68390f4a37273e",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "海空陆路线容量切换:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-19",
+      "name": "旺季补货与需求漂移-standard",
+      "mode": "standard",
+      "object_ref": "D07-旺季补货与需求漂移@v19",
+      "object_version": "v19",
+      "evidence": [
+        "E-SUPPORT-23261578a6be",
+        "E-LINEAGE-7063be177721"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b7481025420e"
+      ],
+      "expected_status": "allocate",
+      "must": [
+        "旺季补货与需求漂移",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以旺季补货与需求漂移为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为allocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且旺季补货与需求漂移守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:23261578a6be7063be177721b7481025420e07c05298908c81e43bae05114061",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "旺季补货与需求漂移:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-20",
+      "name": "旺季补货与需求漂移-conflict",
+      "mode": "conflict",
+      "object_ref": "D07-旺季补货与需求漂移@v20",
+      "object_version": "v20",
+      "evidence": [
+        "E-SUPPORT-4ad6a3f37aab",
+        "E-LINEAGE-e1de5b09d1a3"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9e5765f07cd2"
+      ],
+      "expected_status": "constrain",
+      "must": [
+        "旺季补货与需求漂移",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以旺季补货与需求漂移为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为constrain。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且旺季补货与需求漂移守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:4ad6a3f37aabe1de5b09d1a39e5765f07cd2c66ab767a042df3c638cbf0f35cf",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "旺季补货与需求漂移:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-21",
+      "name": "旺季补货与需求漂移-extreme",
+      "mode": "extreme",
+      "object_ref": "D07-旺季补货与需求漂移@v21",
+      "object_version": "v21",
+      "evidence": [
+        "E-SUPPORT-8dc353b8937e",
+        "E-LINEAGE-0e765f687782"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b049dc636486"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "旺季补货与需求漂移",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以旺季补货与需求漂移为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且旺季补货与需求漂移守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8dc353b8937e0e765f687782b049dc6364866a61ba4265c336db4995582b29e1",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "旺季补货与需求漂移:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-22",
+      "name": "旺季补货与需求漂移-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D07-旺季补货与需求漂移@v22",
+      "object_version": "v22",
+      "evidence": [
+        "E-SUPPORT-408a44094dac",
+        "E-LINEAGE-91e342d32bcf"
+      ],
+      "counterevidence": [
+        "E-COUNTER-2ff190adecda"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "旺季补货与需求漂移",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以旺季补货与需求漂移为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且旺季补货与需求漂移守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:408a44094dac91e342d32bcf2ff190adecda987e6090cc629cdd94d1801dc98a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "旺季补货与需求漂移:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-23",
+      "name": "旺季补货与需求漂移-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D07-旺季补货与需求漂移@v23",
+      "object_version": "v23",
+      "evidence": [
+        "E-SUPPORT-8328d295b536",
+        "E-LINEAGE-7abfb59e2373"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b079b89cef94"
+      ],
+      "expected_status": "rollback",
+      "must": [
+        "旺季补货与需求漂移",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以旺季补货与需求漂移为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为rollback。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且旺季补货与需求漂移守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:8328d295b5367abfb59e2373b079b89cef94ff7bee18ffb5fc87597034499c44",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "旺季补货与需求漂移:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-24",
+      "name": "旺季补货与需求漂移-recovery",
+      "mode": "recovery",
+      "object_ref": "D07-旺季补货与需求漂移@v24",
+      "object_version": "v24",
+      "evidence": [
+        "E-SUPPORT-461273f3bfbe",
+        "E-LINEAGE-19f3d1fe85f8"
+      ],
+      "counterevidence": [
+        "E-COUNTER-a53bdfb79005"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "旺季补货与需求漂移",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以旺季补货与需求漂移为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且旺季补货与需求漂移守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:461273f3bfbe19f3d1fe85f8a53bdfb790059c53421ee710c6c59dcda9d52983",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "旺季补货与需求漂移:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-25",
+      "name": "仓容订单容量守恒-standard",
+      "mode": "standard",
+      "object_ref": "D07-仓容订单容量守恒@v25",
+      "object_version": "v25",
+      "evidence": [
+        "E-SUPPORT-cf4848fac261",
+        "E-LINEAGE-02e828f0f823"
+      ],
+      "counterevidence": [
+        "E-COUNTER-576fa6b1d5cf"
+      ],
+      "expected_status": "allocate",
+      "must": [
+        "仓容订单容量守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以仓容订单容量守恒为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为allocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且仓容订单容量守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:cf4848fac26102e828f0f823576fa6b1d5cf7dbce910f781578fb732f6792ee2",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "仓容订单容量守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-26",
+      "name": "仓容订单容量守恒-conflict",
+      "mode": "conflict",
+      "object_ref": "D07-仓容订单容量守恒@v26",
+      "object_version": "v26",
+      "evidence": [
+        "E-SUPPORT-5d64a3c6974f",
+        "E-LINEAGE-9e74f1ce0c51"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9b2e64b3e09b"
+      ],
+      "expected_status": "constrain",
+      "must": [
+        "仓容订单容量守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以仓容订单容量守恒为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为constrain。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且仓容订单容量守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:5d64a3c6974f9e74f1ce0c519b2e64b3e09b59419d7d8f373bbfad8c8a70423d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "仓容订单容量守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-27",
+      "name": "仓容订单容量守恒-extreme",
+      "mode": "extreme",
+      "object_ref": "D07-仓容订单容量守恒@v27",
+      "object_version": "v27",
+      "evidence": [
+        "E-SUPPORT-d59879b36811",
+        "E-LINEAGE-ae57f7e4f5c8"
+      ],
+      "counterevidence": [
+        "E-COUNTER-9258d36b40f7"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "仓容订单容量守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以仓容订单容量守恒为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且仓容订单容量守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d59879b36811ae57f7e4f5c89258d36b40f7f818e1e78aa22f7a7d32c8529c3d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "仓容订单容量守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-28",
+      "name": "仓容订单容量守恒-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D07-仓容订单容量守恒@v28",
+      "object_version": "v28",
+      "evidence": [
+        "E-SUPPORT-1f1648d071d3",
+        "E-LINEAGE-4cb5c029de16"
+      ],
+      "counterevidence": [
+        "E-COUNTER-ee7174310896"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "仓容订单容量守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以仓容订单容量守恒为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且仓容订单容量守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:1f1648d071d34cb5c029de16ee7174310896deea5ca100498f4a98e03a0630bd",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "仓容订单容量守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-29",
+      "name": "仓容订单容量守恒-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D07-仓容订单容量守恒@v29",
+      "object_version": "v29",
+      "evidence": [
+        "E-SUPPORT-3181d2c37b16",
+        "E-LINEAGE-977ddb42c50b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-dc4b756804cb"
+      ],
+      "expected_status": "rollback",
+      "must": [
+        "仓容订单容量守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以仓容订单容量守恒为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为rollback。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且仓容订单容量守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3181d2c37b16977ddb42c50bdc4b756804cbebbf95c8ecccf7978baa11e248d3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "仓容订单容量守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-30",
+      "name": "仓容订单容量守恒-recovery",
+      "mode": "recovery",
+      "object_ref": "D07-仓容订单容量守恒@v30",
+      "object_version": "v30",
+      "evidence": [
+        "E-SUPPORT-d00bb34d60d0",
+        "E-LINEAGE-fdb3670f0a97"
+      ],
+      "counterevidence": [
+        "E-COUNTER-e923a8f8e5ab"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "仓容订单容量守恒",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以仓容订单容量守恒为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且仓容订单容量守恒守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:d00bb34d60d0fdb3670f0a97e923a8f8e5ab35ab94d9f0afa2cdef34d7d53e57",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "仓容订单容量守恒:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-31",
+      "name": "逆向退货退供召回-standard",
+      "mode": "standard",
+      "object_ref": "D07-逆向退货退供召回@v31",
+      "object_version": "v31",
+      "evidence": [
+        "E-SUPPORT-78450a8a01e1",
+        "E-LINEAGE-bf3f36e5b56d"
+      ],
+      "counterevidence": [
+        "E-COUNTER-d47267191021"
+      ],
+      "expected_status": "allocate",
+      "must": [
+        "逆向退货退供召回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以逆向退货退供召回为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为allocate。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且逆向退货退供召回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:78450a8a01e1bf3f36e5b56dd472671910217a3d5aebb1801d57dbbbc6b7d61a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "逆向退货退供召回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-32",
+      "name": "逆向退货退供召回-conflict",
+      "mode": "conflict",
+      "object_ref": "D07-逆向退货退供召回@v32",
+      "object_version": "v32",
+      "evidence": [
+        "E-SUPPORT-2a1b27c112eb",
+        "E-LINEAGE-0cb592d5ca4d"
+      ],
+      "counterevidence": [
+        "E-COUNTER-70c807b6a4bd"
+      ],
+      "expected_status": "constrain",
+      "must": [
+        "逆向退货退供召回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以逆向退货退供召回为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为constrain。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且逆向退货退供召回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:2a1b27c112eb0cb592d5ca4d70c807b6a4bd774a11ab2f390966be5ac29c7315",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "逆向退货退供召回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-33",
+      "name": "逆向退货退供召回-extreme",
+      "mode": "extreme",
+      "object_ref": "D07-逆向退货退供召回@v33",
+      "object_version": "v33",
+      "evidence": [
+        "E-SUPPORT-23c8bcd8e47d",
+        "E-LINEAGE-e28f2bc5b38c"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f26866fb96c7"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "逆向退货退供召回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以逆向退货退供召回为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且逆向退货退供召回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:23c8bcd8e47de28f2bc5b38cf26866fb96c72b1a57e1abb80522687038d1f95a",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "逆向退货退供召回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-34",
+      "name": "逆向退货退供召回-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D07-逆向退货退供召回@v34",
+      "object_version": "v34",
+      "evidence": [
+        "E-SUPPORT-846ed9b5bdf3",
+        "E-LINEAGE-1e8b82fa5380"
+      ],
+      "counterevidence": [
+        "E-COUNTER-7f266b6d045e"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "逆向退货退供召回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以逆向退货退供召回为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且逆向退货退供召回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:846ed9b5bdf31e8b82fa53807f266b6d045e1993b1560f2a3961e6db7b6e8104",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "逆向退货退供召回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-35",
+      "name": "逆向退货退供召回-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D07-逆向退货退供召回@v35",
+      "object_version": "v35",
+      "evidence": [
+        "E-SUPPORT-3be89838618b",
+        "E-LINEAGE-5447f0b77f71"
+      ],
+      "counterevidence": [
+        "E-COUNTER-a0de30f08243"
+      ],
+      "expected_status": "rollback",
+      "must": [
+        "逆向退货退供召回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以逆向退货退供召回为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为rollback。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且逆向退货退供召回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3be89838618b5447f0b77f71a0de30f08243ac9a1ffd364b6f56813bea441524",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "逆向退货退供召回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "LIFD-RW-36",
+      "name": "逆向退货退供召回-recovery",
+      "mode": "recovery",
+      "object_ref": "D07-逆向退货退供召回@v36",
+      "object_version": "v36",
+      "evidence": [
+        "E-SUPPORT-33f301745e86",
+        "E-LINEAGE-7cd61634d02b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-be97b53cc185"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "逆向退货退供召回",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以逆向退货退供召回为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖continuity门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且逆向退货退供召回守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:33f301745e867cd61634d02bbe97b53cc185da35bb522cc826aee4a322018bad",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "逆向退货退供召回:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
     }
-  ]
+  ],
+  "catalog": "D07-EVAL",
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 42,
+    "mechanisms": [
+      "ATP_CTP多平台争用",
+      "多仓库存保护分配",
+      "海空陆路线容量切换",
+      "旺季补货与需求漂移",
+      "仓容订单容量守恒",
+      "逆向退货退供召回",
+      "海外库存清算退出"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

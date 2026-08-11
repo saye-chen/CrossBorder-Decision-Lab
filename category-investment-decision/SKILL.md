@@ -432,3 +432,7 @@ VOC/竞品取证不是独立报告孤岛：高信号发现必须直接连接五�
 ## ERDG 共享治理接入
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/category-investment-decision/adapter.json` 声明 CIDM 主权；ERDG 失败时不得形成生效动作。
+
+## F01 因果证据消费者接入
+
+通过 `integrations/experiment-causal-assessment/adapter.json` 接收与本域用途、CE 门槛、payload、适用范围和有效期绑定的 F01 回执。待签、低等级、过期、范围不符、缺字段或哈希不一致时保持 `unknown`，不得把旧标签、归因或预测升级为因果/增量。F01 只提供合格证据；品类投资姿态、资本预算与进入/追加/收缩/退出主权仍归 CIDM，且 `external_write=false`。

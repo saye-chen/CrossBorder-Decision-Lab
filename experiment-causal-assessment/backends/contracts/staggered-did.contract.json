@@ -1,0 +1,11 @@
+{
+  "schema_version":"1.0.0",
+  "contract_id":"ECAE-BACKEND-STAGGERED-DID-1.0",
+  "backend_id":"staggered_did",
+  "candidate_id":"staggered_did_callaway_santanna",
+  "status":"contract_frozen_adapter_not_verified",
+  "input":{"required":["outcome_column","time_column","unit_column","first_treatment_time_column","control_group","anticipation_periods","confidence_level","bootstrap_iterations","rows"],"allowed":{"control_group":["never_treated","not_yet_treated"],"estimator":["group_time_ATT"]}},
+  "output":{"required":["group_time_ATT","aggregation_weights","event_time_effects","simultaneous_intervals","pretrend_diagnostics","control_group","warnings"]},
+  "invariants":["group-time ATT is primary and naive TWFE is never substituted","first treatment time is stable per unit and treatment reversal follows the frozen policy","never-treated or not-yet-treated controls are explicit","covariates are pretreatment","event-study uncertainty uses simultaneous bands","group-time cells and aggregation weights remain visible","anticipation and composition sensitivity retain downgrade authority"],
+  "failure_codes":["NAIVE_TWFE_PROHIBITED","TREATMENT_TIMING_INVALID","INVALID_STAGGERED_CONTROL","BAD_CONTROL","POINTWISE_EVENT_STUDY_PROHIBITED","BACKEND_NUMERICAL_INVALID"]
+}

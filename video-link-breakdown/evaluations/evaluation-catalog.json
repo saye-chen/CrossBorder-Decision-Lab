@@ -237,6 +237,837 @@
         "value": "stale",
         "expected": "blocked"
       }
+    },
+    {
+      "id": "VLB-RW-01",
+      "name": "钩子与证明机制-standard",
+      "mode": "standard",
+      "object_ref": "D11-钩子与证明机制@v1",
+      "object_version": "v1",
+      "evidence": [
+        "E-SUPPORT-fc84ddd35256",
+        "E-LINEAGE-6a2f276b7b83"
+      ],
+      "counterevidence": [
+        "E-COUNTER-8597919ff6f8"
+      ],
+      "expected_status": "proposed",
+      "must": [
+        "钩子与证明机制",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以钩子与证明机制为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为proposed。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且钩子与证明机制守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:fc84ddd352566a2f276b7b838597919ff6f844f2946c8ac95e0e8dcff51d6a40",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "钩子与证明机制:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-02",
+      "name": "钩子与证明机制-conflict",
+      "mode": "conflict",
+      "object_ref": "D11-钩子与证明机制@v2",
+      "object_version": "v2",
+      "evidence": [
+        "E-SUPPORT-1532e0b36d8a",
+        "E-LINEAGE-cfa76e1f63be"
+      ],
+      "counterevidence": [
+        "E-COUNTER-f88a36b229e3"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "钩子与证明机制",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以钩子与证明机制为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且钩子与证明机制守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:1532e0b36d8acfa76e1f63bef88a36b229e362facb9734cb254f2b7dc7ae24f7",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "钩子与证明机制:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-03",
+      "name": "钩子与证明机制-extreme",
+      "mode": "extreme",
+      "object_ref": "D11-钩子与证明机制@v3",
+      "object_version": "v3",
+      "evidence": [
+        "E-SUPPORT-89ee749898f3",
+        "E-LINEAGE-b28caa8447fc"
+      ],
+      "counterevidence": [
+        "E-COUNTER-30820978ab94"
+      ],
+      "expected_status": "test",
+      "must": [
+        "钩子与证明机制",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以钩子与证明机制为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且钩子与证明机制守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:89ee749898f3b28caa8447fc30820978ab94cdbc4b782cb7711de2ce1b8d12dd",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "钩子与证明机制:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-04",
+      "name": "钩子与证明机制-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D11-钩子与证明机制@v4",
+      "object_version": "v4",
+      "evidence": [
+        "E-SUPPORT-03179ea87142",
+        "E-LINEAGE-b3cfc56a79da"
+      ],
+      "counterevidence": [
+        "E-COUNTER-facbaf31fc0f"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "钩子与证明机制",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以钩子与证明机制为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且钩子与证明机制守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:03179ea87142b3cfc56a79dafacbaf31fc0fbd84aaea62e9f2a36de71f62a71d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "钩子与证明机制:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-05",
+      "name": "钩子与证明机制-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D11-钩子与证明机制@v5",
+      "object_version": "v5",
+      "evidence": [
+        "E-SUPPORT-da3761abb5bb",
+        "E-LINEAGE-f8ae40a367fd"
+      ],
+      "counterevidence": [
+        "E-COUNTER-07f81d027f79"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "钩子与证明机制",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以钩子与证明机制为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且钩子与证明机制守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:da3761abb5bbf8ae40a367fd07f81d027f79d62705eb3857a1199eefc1905648",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "钩子与证明机制:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-06",
+      "name": "钩子与证明机制-recovery",
+      "mode": "recovery",
+      "object_ref": "D11-钩子与证明机制@v6",
+      "object_version": "v6",
+      "evidence": [
+        "E-SUPPORT-83747ec41bc1",
+        "E-LINEAGE-ebb6b8fd46de"
+      ],
+      "counterevidence": [
+        "E-COUNTER-ac1287fc9e72"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "钩子与证明机制",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以钩子与证明机制为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且钩子与证明机制守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:83747ec41bc1ebb6b8fd46deac1287fc9e721c066e1e6b28ba356403a727182d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "钩子与证明机制:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-07",
+      "name": "素材权利与Claim-standard",
+      "mode": "standard",
+      "object_ref": "D11-素材权利与Claim@v7",
+      "object_version": "v7",
+      "evidence": [
+        "E-SUPPORT-b1b4b1c9bb5a",
+        "E-LINEAGE-95ca77544270"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b8342c94034a"
+      ],
+      "expected_status": "proposed",
+      "must": [
+        "素材权利与Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以素材权利与Claim为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为proposed。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且素材权利与Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:b1b4b1c9bb5a95ca77544270b8342c94034a7b7ac68b5d7a07c650f5b74d61e6",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "素材权利与Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-08",
+      "name": "素材权利与Claim-conflict",
+      "mode": "conflict",
+      "object_ref": "D11-素材权利与Claim@v8",
+      "object_version": "v8",
+      "evidence": [
+        "E-SUPPORT-f7a8c639a9b2",
+        "E-LINEAGE-cfa5f90aa5f2"
+      ],
+      "counterevidence": [
+        "E-COUNTER-5c69c8999fbb"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "素材权利与Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以素材权利与Claim为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且素材权利与Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f7a8c639a9b2cfa5f90aa5f25c69c8999fbb2269819a978a158011007e6e92c9",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "素材权利与Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-09",
+      "name": "素材权利与Claim-extreme",
+      "mode": "extreme",
+      "object_ref": "D11-素材权利与Claim@v9",
+      "object_version": "v9",
+      "evidence": [
+        "E-SUPPORT-3df89384cb92",
+        "E-LINEAGE-cf1c0991fb2b"
+      ],
+      "counterevidence": [
+        "E-COUNTER-df14ddb944f5"
+      ],
+      "expected_status": "test",
+      "must": [
+        "素材权利与Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以素材权利与Claim为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且素材权利与Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:3df89384cb92cf1c0991fb2bdf14ddb944f5f579ff57816d444090a7aaf5c675",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "素材权利与Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-10",
+      "name": "素材权利与Claim-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D11-素材权利与Claim@v10",
+      "object_version": "v10",
+      "evidence": [
+        "E-SUPPORT-0308f51bf04b",
+        "E-LINEAGE-ad841bb1db44"
+      ],
+      "counterevidence": [
+        "E-COUNTER-fd3143d9adfe"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "素材权利与Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以素材权利与Claim为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且素材权利与Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:0308f51bf04bad841bb1db44fd3143d9adfe2e310ecfc6f7e9f6bd97dd5a4733",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "素材权利与Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-11",
+      "name": "素材权利与Claim-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D11-素材权利与Claim@v11",
+      "object_version": "v11",
+      "evidence": [
+        "E-SUPPORT-f0dc8a03c73c",
+        "E-LINEAGE-afa4a1a76adc"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4c24364a8b46"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "素材权利与Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以素材权利与Claim为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且素材权利与Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f0dc8a03c73cafa4a1a76adc4c24364a8b46752daac186ebc7a8c25f8860034e",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "素材权利与Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-12",
+      "name": "素材权利与Claim-recovery",
+      "mode": "recovery",
+      "object_ref": "D11-素材权利与Claim@v12",
+      "object_version": "v12",
+      "evidence": [
+        "E-SUPPORT-eb76948343e9",
+        "E-LINEAGE-7bd2130be2ef"
+      ],
+      "counterevidence": [
+        "E-COUNTER-4925e1989850"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "素材权利与Claim",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以素材权利与Claim为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且素材权利与Claim守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:eb76948343e97bd2130be2ef4925e19898503c4e246db5b93c6516c1c8c46882",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "素材权利与Claim:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-13",
+      "name": "疲劳刷新-standard",
+      "mode": "standard",
+      "object_ref": "D11-疲劳刷新@v13",
+      "object_version": "v13",
+      "evidence": [
+        "E-SUPPORT-fd313e43742a",
+        "E-LINEAGE-5a0254b549e3"
+      ],
+      "counterevidence": [
+        "E-COUNTER-826ef5c0b915"
+      ],
+      "expected_status": "proposed",
+      "must": [
+        "疲劳刷新",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以疲劳刷新为主机制处理standard场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为proposed。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且疲劳刷新守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:fd313e43742a5a0254b549e3826ef5c0b9156ea8331f72b59722c06b30ae898c",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "疲劳刷新:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-14",
+      "name": "疲劳刷新-conflict",
+      "mode": "conflict",
+      "object_ref": "D11-疲劳刷新@v14",
+      "object_version": "v14",
+      "evidence": [
+        "E-SUPPORT-7a47da355025",
+        "E-LINEAGE-f4a2a38fdf45"
+      ],
+      "counterevidence": [
+        "E-COUNTER-bf62d69f3a21"
+      ],
+      "expected_status": "blocked",
+      "must": [
+        "疲劳刷新",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以疲劳刷新为主机制处理conflict场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为blocked。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且疲劳刷新守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:7a47da355025f4a2a38fdf45bf62d69f3a2119009cd6df585ccb7ce1f07e83b3",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "疲劳刷新:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-15",
+      "name": "疲劳刷新-extreme",
+      "mode": "extreme",
+      "object_ref": "D11-疲劳刷新@v15",
+      "object_version": "v15",
+      "evidence": [
+        "E-SUPPORT-1273606cca30",
+        "E-LINEAGE-ee7d131dd6fb"
+      ],
+      "counterevidence": [
+        "E-COUNTER-c0058e5df96e"
+      ],
+      "expected_status": "test",
+      "must": [
+        "疲劳刷新",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以疲劳刷新为主机制处理extreme场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为test。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且疲劳刷新守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:1273606cca30ee7d131dd6fbc0058e5df96e53ad6ef81fb21c67cbd889174de8",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "疲劳刷新:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-16",
+      "name": "疲劳刷新-multi_turn",
+      "mode": "multi_turn",
+      "object_ref": "D11-疲劳刷新@v16",
+      "object_version": "v16",
+      "evidence": [
+        "E-SUPPORT-008f2b47c455",
+        "E-LINEAGE-6da384b0db98"
+      ],
+      "counterevidence": [
+        "E-COUNTER-8614f1527783"
+      ],
+      "expected_status": "recompute",
+      "must": [
+        "疲劳刷新",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以疲劳刷新为主机制处理multi_turn场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为recompute。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且疲劳刷新守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:008f2b47c4556da384b0db988614f1527783d7fc2e666f3948d0e80af8c20a5d",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "疲劳刷新:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-17",
+      "name": "疲劳刷新-adversarial",
+      "mode": "adversarial",
+      "object_ref": "D11-疲劳刷新@v17",
+      "object_version": "v17",
+      "evidence": [
+        "E-SUPPORT-bb91efc3cbc1",
+        "E-LINEAGE-f115d2fbc84a"
+      ],
+      "counterevidence": [
+        "E-COUNTER-e5d9265c80b2"
+      ],
+      "expected_status": "rejected",
+      "must": [
+        "疲劳刷新",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以疲劳刷新为主机制处理adversarial场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为rejected。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且疲劳刷新守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:bb91efc3cbc1f115d2fbc84ae5d9265c80b2302bdd2d3700b2cfec2a3fb04369",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "疲劳刷新:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
+    },
+    {
+      "id": "VLB-RW-18",
+      "name": "疲劳刷新-recovery",
+      "mode": "recovery",
+      "object_ref": "D11-疲劳刷新@v18",
+      "object_version": "v18",
+      "evidence": [
+        "E-SUPPORT-f2aca97f2004",
+        "E-LINEAGE-20dc16a3f2d9"
+      ],
+      "counterevidence": [
+        "E-COUNTER-b9a4216cd100"
+      ],
+      "expected_status": "controlled_recovery",
+      "must": [
+        "疲劳刷新",
+        "对象版本",
+        "证据与反证",
+        "停止条件",
+        "恢复或回滚",
+        "主权边界"
+      ],
+      "forbidden": [
+        "external_write",
+        "redline_compensation",
+        "synthetic_l4",
+        "unknown_as_zero"
+      ],
+      "rationale": "以疲劳刷新为主机制处理recovery场景；支持证据与反证冲突时保持最窄动作上限，不得由其他域评分覆盖domain_specific门，预期状态为controlled_recovery。",
+      "flip_condition": "仅当反证关闭、对象版本一致、责任人复核且疲劳刷新守卫重新通过时重算。",
+      "evidence_binding": {
+        "source": "synthetic_engineering_fixture",
+        "fingerprint": "sha256:f2aca97f200420dc16a3f2d9b9a4216cd100b2b57308fa34ca299b267af0dc98",
+        "biz_time": "2026-08-10",
+        "valid_until": "2026-09-10",
+        "l4_eligible": false
+      },
+      "mutation": {
+        "field": "object_version",
+        "value": "stale_or_mismatched",
+        "expected": "blocked",
+        "guard": "疲劳刷新:version_lineage"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_impacted_consumers"
     }
-  ]
+  ],
+  "catalog": "D11-EVAL",
+  "coverage_contract": {
+    "method": "risk_weighted_mechanism_x_failure_mode",
+    "target": 24,
+    "mechanisms": [
+      "钩子与证明机制",
+      "素材权利与Claim",
+      "疲劳刷新",
+      "跨平台国家迁移"
+    ],
+    "modes": [
+      "standard",
+      "conflict",
+      "extreme",
+      "multi_turn",
+      "adversarial",
+      "recovery"
+    ],
+    "synthetic_engineering_only": true,
+    "l4_inference_forbidden": true
+  }
 }

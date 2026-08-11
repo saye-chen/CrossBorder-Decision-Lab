@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","case_family":"cross_domain","cases":[
+    {"case_id":"ECAE-XD-01","consumer":"D08","expected":"accept only fresh scope-bound CE handoff; retain listing action sovereignty","status":"contract_tested","test_ref":"tests/test_grade_and_handoff.py::test_handoff_hash_and_schema"},
+    {"case_id":"ECAE-XD-02","consumer":"D10","expected":"legacy C2/C3 strings require semantic review and never auto-upgrade","status":"contract_tested","test_ref":"tests/test_consumer_migration.py::test_legacy_mappings_do_not_auto_upgrade"},
+    {"case_id":"ECAE-XD-03","consumers":"D01-D13","expected":"scope-bound controlled-pilot owner acceptance is required and production acceptance remains separate","status":"contract_tested","test_ref":"tests/test_consumer_migration.py::ConsumerHandoffTests.test_qualified_handoff_is_accepted_for_all_thirteen_controlled_pilot_uses"}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "adapter_hash": "8fb76f70e9890765bd778f25fdb8d9d70e288cad1117f6467d38ca510791e8ad",
+  "automated_contract_accepted": true,
+  "checks": {
+    "domain_binding": true,
+    "expiry_invalidation_and_recompute": true,
+    "external_write_blocks": true,
+    "inventory_sovereignty_preserved": true,
+    "legacy_incremental_input_blocked": true,
+    "missing_incremental_never_zero_filled": true,
+    "owner_acceptance_required": true,
+    "schema_and_field_mapping": true
+  },
+  "consumer": "logistics-inventory-fulfillment-decision",
+  "controlled_pilot_acceptance_scope": "non_production",
+  "controlled_pilot_owner_accepted": true,
+  "evidence_scope": "consumer_local_executable_contract_non_production",
+  "external_write": false,
+  "independent_owner_accepted": false,
+  "local_fixture_status": "verified",
+  "owner_acceptance_status": "conditionally_accepted_controlled_pilot",
+  "production_difference_dispositioned": false,
+  "production_dual_run_completed": false,
+  "production_ready": false,
+  "signed_owner_acceptance_ref": "experiment-causal-assessment/evaluations/consumer-controlled-pilot-acceptance/D07.json"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "ECAE-BACKEND-SWITCHBACK-RI-1.0",
+  "backend_id": "switchback_inference",
+  "candidate_id": "switchback_randomization_ri2",
+  "status": "contract_frozen_exact_sharp_null_adapter_development_not_verified",
+  "input": {
+    "required": ["randomization_scheme", "allowed_sequences", "observed_sequence", "period_id", "period_start", "period_end", "arm", "outcome", "washout_excluded", "test_statistic", "sharp_null", "seed_contract"],
+    "optional": ["block_id", "unit_id", "periodicity_terms", "lagged_treatment_terms", "analysis_weights", "maximum_enumerations"]
+  },
+  "output": {
+    "required": ["observed_statistic", "randomization_p_value", "enumerated_or_sampled", "permutation_count", "assignment_probabilities", "seed_proof", "lag_sensitivity", "periodicity_diagnostic", "serial_dependence_diagnostic", "carryover_diagnostic", "warnings"]
+  },
+  "invariants": [
+    "permutations come only from the preregistered allowed sequence set",
+    "washout rows never re-enter the primary statistic",
+    "the test statistic is frozen before outcomes are inspected",
+    "a sharp-null randomization p-value is not mislabeled as a general average-effect confidence interval",
+    "carryover and periodicity diagnostics have independent downgrade authority",
+    "serial dependence is handled at period or randomization level, never by treating orders as iid"
+  ],
+  "implemented_scope": {
+    "test_statistic": "difference_in_period_means",
+    "sharp_null": "zero additive sharp null only",
+    "assignment_model": "uniform over explicitly registered allowed sequences",
+    "enumeration": "exact only; sampled Monte Carlo p-values fail closed",
+    "confidence_interval": "unsupported; randomization p-value cannot be relabeled as a general average-effect interval",
+    "diagnostics": "periodicity, lag and carryover terms are surfaced but require independent sensitivity analysis"
+  },
+  "failure_codes": ["BACKEND_RUNTIME_UNAVAILABLE", "BACKEND_VERSION_MISMATCH", "SEQUENCE_NOT_REGISTERED", "ASSIGNMENT_PROBABILITY_INVALID", "WASHOUT_REINTRODUCED", "CARRYOVER_UNCONTROLLED", "PERIODICITY_CONFOUNDED", "SERIAL_DEPENDENCE_UNRESOLVED", "RANDOMIZATION_PARITY_FAILED"]
+}

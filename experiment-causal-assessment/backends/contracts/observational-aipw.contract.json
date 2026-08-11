@@ -1,0 +1,11 @@
+{
+  "schema_version":"1.0.0",
+  "contract_id":"ECAE-BACKEND-OBSERVATIONAL-AIPW-1.0",
+  "backend_id":"observational_aipw",
+  "candidate_id":"observational_aipw_r",
+  "status":"contract_frozen_adapter_not_verified",
+  "input":{"required":["outcome","treatment","covariates","estimand","folds","seed","outcome_learners","propensity_learners","propensity_bounds","confidence_level"]},
+  "output":{"required":["effect","standard_error","confidence_interval","influence_curve_summary","propensity_summary","effective_sample","folds","seed","warnings"]},
+  "invariants":["all covariates are DAG-justified and pretreatment","both outcome and propensity predictions used by the score are out of fold","propensity clipping and the resulting estimand policy are disclosed","influence-function uncertainty is reported","one nuisance model being correct is an assumption not an observed guarantee","negative controls and unmeasured-confounding sensitivity remain outside-backend downgrade authorities"],
+  "failure_codes":["BAD_CONTROL","CROSS_FITTING_REQUIRED","NUISANCE_LEAKAGE","OVERLAP_NOT_ESTABLISHED","PROPENSITY_BOUND_INVALID","BACKEND_NUMERICAL_INVALID"]
+}

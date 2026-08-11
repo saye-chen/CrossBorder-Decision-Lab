@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ECAE-WP06-ISOLATED-PROBE-2026-08-10",
+  "status": "candidate_probe_and_three_adapter_development_complete_verification_open",
+  "environment": {
+    "os": "macOS arm64",
+    "python": "3.12.13 isolated temporary environment",
+    "r_runtime": "4.6.1 isolated temporary conda-forge environment",
+    "r_library": "isolated temporary source-install library",
+    "persistent_runtime_mutation": false
+  },
+  "mutation_scope": {"project_dependencies": false, "system_runtime": false, "temporary_isolated_environment": true},
+  "results": [
+    {"candidate_id": "cluster_crv3_pyfixest", "package": "pyfixest", "version": "0.60.0", "install": "pass", "import": "pass", "crv3_fixed_vector": "pass", "randomization_inference_fixed_vector": "fail_key_error", "binding_decision": "not_verified"},
+    {"candidate_id": "cluster_wild_bootstrap", "package": "wildboottest", "version": "0.3.2", "install": "pass", "p_value_fixed_vector": "pass", "confidence_interval": "unsupported", "binding_decision": "component_only_not_verified"},
+    {"candidate_id": "anytime_confseq", "package": "confseq", "version": "0.0.11", "install": "fail_missing_boost_headers", "import": "not_run", "binding_decision": "rejected"},
+    {
+      "candidate_id": "cluster_cr2_clubsandwich",
+      "package": "clubSandwich",
+      "version": "0.7.0",
+      "install": "pass_source_exact_version_after_isolated_compiler_bootstrap",
+      "adapter_ref": "backends/adapters/cluster_clubsandwich.R",
+      "adapter_fixed_vector": {
+        "status": "pass",
+        "effect": 2.4999999999999996,
+        "cr2_standard_error": 0.6038073644245597,
+        "satterthwaite_degrees_of_freedom": 6.000000000000001,
+        "two_sided_p_value": 0.006075947389614654,
+        "confidence_level": 0.95,
+        "confidence_interval": [1.022536604180935, 3.977463395819064]
+      },
+      "adversarial_vector": {"within_cluster_treatment_mutation": "pass_rejected_TREATMENT_VARIES_WITHIN_CLUSTER"},
+      "resolved_probe_failure": "initial source compilation lacked an isolated compiler wrapper; exact compiler meta-packages were added only inside the temporary runtime and the retry passed",
+      "binding_decision": "adapter_development_pass_external_parity_and_simulation_pending"
+    },
+    {"candidate_id": "group_sequential_gsdesign", "package": "gsDesign", "version": "3.10.1", "install": "pass_source_exact_version_in_isolated_temporary_runtime", "adapter_ref": "backends/adapters/group_sequential_gsdesign.R", "development_parity_ref": "evaluations/group-sequential-development-parity.json", "binding_decision": "adapter_development_pass_external_parity_simulation_and_review_pending"},
+    {"candidate_id": "group_sequential_rpact", "package": "rpact", "version": "4.4.0", "install": "pass_source_exact_version_in_isolated_temporary_runtime", "qualification_check": {"initial_launch": "not_run_missing_testthat", "resolved_dependency": "testthat 3.3.2 temporary install", "subset_pass": 110, "fail": 0, "warn": 0, "skip": 0, "available_full_test_count": 39065, "status": "incomplete_credentials_required_for_full_set"}, "development_parity_role": "independent_software_oracle_not_independent_reviewer", "binding_decision": "development_parity_oracle_pass_external_verification_pending"},
+    {"candidate_id": "switchback_randomization_ri2", "package": "ri2", "version": "0.5.0", "install": "pass_source_exact_version_in_isolated_temporary_runtime", "adapter_ref": "backends/adapters/switchback_ri2.R", "development_report_ref": "evaluations/switchback-ri-development.json", "binding_decision": "exact_sharp_null_adapter_development_external_parity_and_diagnostic_sensitivity_pending"}
+  ],
+  "release_effect": {"registry_verified_count": 0, "wp06_complete": false, "l2_or_l3_promotion": false}
+}

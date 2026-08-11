@@ -1,0 +1,14 @@
+{
+  "contract": "LIFD-DECISION-CHAIN-COVERAGE-2026.07",
+  "engineering_only": true,
+  "l4_eligible": false,
+  "chains": [
+    {"mechanism":"ATP_CTP多平台争用","scripts":["inventory_ledger.py","inventory_allocation.py"],"hard_guard":"inventory_conservation","recovery":"release_or_reallocate_protected_inventory"},
+    {"mechanism":"多仓库存保护分配","scripts":["multi_warehouse_flow.py","inventory_allocation.py"],"hard_guard":"warehouse_flow_conservation","recovery":"restore_last_feasible_allocation"},
+    {"mechanism":"海空陆路线容量切换","scripts":["network_routing.py","lead_time_service.py"],"hard_guard":"capacity_and_service_feasibility","recovery":"route_to_last_validated_lane"},
+    {"mechanism":"旺季补货与需求漂移","scripts":["demand_forecast.py","replenishment.py"],"hard_guard":"protection_floor","recovery":"freeze_order_and_reforecast"},
+    {"mechanism":"仓容订单容量守恒","scripts":["warehouse_capacity.py","order_capacity.py"],"hard_guard":"queue_and_dispatch_capacity","recovery":"constrain_intake_and_clear_queue"},
+    {"mechanism":"逆向退货退供召回","scripts":["reverse_exit.py","traceability_recall.py"],"hard_guard":"affected_unit_traceability","recovery":"quarantine_trace_and_dispose_or_return"},
+    {"mechanism":"海外库存清算退出","scripts":["reverse_exit.py","logistics_economics.py"],"hard_guard":"cash_and_disposition_ceiling","recovery":"restore_approved_exit_plan"}
+  ]
+}

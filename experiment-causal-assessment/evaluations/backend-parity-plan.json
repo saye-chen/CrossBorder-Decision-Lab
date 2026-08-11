@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "ECAE-WP06-PARITY-PLAN-2026-08-10",
+  "status": "frozen_not_executed",
+  "global_rules": {
+    "candidate_selection_is_not_evidence": true,
+    "same_package_wrappers_are_not_independent": true,
+    "monte_carlo_seed_and_generator_are_mandatory": true,
+    "failed_or_missing_vectors_block_verification": true,
+    "default_tolerances": {
+      "point_estimate_absolute": 1e-10,
+      "standard_error_absolute": 1e-8,
+      "boundary_absolute": 1e-8,
+      "cumulative_alpha_absolute": 1e-8,
+      "deterministic_p_value_absolute": 1e-10
+    },
+    "simulation_acceptance": "coverage and type-I error must fall inside preregistered 99% Monte Carlo intervals; bias limits are estimand-scale specific"
+  },
+  "suites": [
+    {
+      "suite_id": "cluster_cr2",
+      "backend_id": "cluster_inference",
+      "primary": "clubSandwich 0.7.0",
+      "truth_or_oracle": ["closed-form OLS coefficient", "hand-computed CR2 matrices on small frozen designs", "exhaustive leave-cluster perturbation diagnostics", "independent component comparison where estimators are genuinely equivalent"],
+      "vectors": [
+        "balanced equal-size clusters with zero and non-zero effects",
+        "unequal cluster sizes under both cluster-average and individual-average estimands",
+        "cluster size correlated with treatment effect",
+        "four, six, ten, and forty clusters with treatment imbalance",
+        "high-leverage cluster and single-cluster deletion",
+        "stratified or matched cluster design",
+        "zero within-cluster variance",
+        "singular design and non-positive effective degrees of freedom",
+        "null DGP with ICC grid 0, 0.05, 0.2, and 0.6",
+        "heavy-tailed and heteroskedastic cluster shocks"
+      ],
+      "operating_characteristics": ["bias", "coverage", "type_I_error", "interval_length", "df_distribution", "failure_rate"],
+      "minimum_simulation_replications_per_cell": 20000,
+      "open_gate": "R runtime, adapter, frozen numeric truth vectors, external parity, and independent review are absent"
+    },
+    {
+      "suite_id": "group_sequential",
+      "backend_id": "group_sequential",
+      "primary": "gsDesign 3.10.1",
+      "independent_oracle": "rpact 4.4.0",
+      "truth_or_oracle": ["canonical one-look design reduces to fixed horizon", "closed-form spending-function checks where available", "gsDesign-to-rpact independent implementation parity"],
+      "vectors": [
+        "one-sided and two-sided designs",
+        "two, three, five, and ten looks",
+        "equal and unequal information fractions",
+        "O'Brien-Fleming, Pocock, Hwang-Shih-DeCani, and user-supplied spending",
+        "binding and non-binding futility",
+        "early efficacy crossing, futility crossing, and no crossing",
+        "observed information differing from calendar schedule",
+        "invalid non-monotone information and alpha spending",
+        "boundary-scale and sidedness convention mismatch"
+      ],
+      "operating_characteristics": ["familywise_type_I_error", "power", "expected_information", "crossing_probability_by_look", "maximum_alpha_overspend"],
+      "minimum_simulation_replications_per_cell": 100000,
+      "open_gate": "R runtime and convention-normalized dual-engine parity are absent"
+    },
+    {
+      "suite_id": "switchback_randomization",
+      "backend_id": "switchback_inference",
+      "primary": "ri2 0.5.0",
+      "truth_or_oracle": ["exhaustive allowed-sequence enumeration for small designs", "hand-computed sharp-null p-values", "seeded sampled-permutation convergence to exhaustive distribution"],
+      "vectors": [
+        "balanced alternating and randomized blocked sequences",
+        "unequal assignment probabilities",
+        "washout exclusion mutation",
+        "lag-0 through lag-3 carryover",
+        "hour-of-day and day-of-week periodicity",
+        "AR(1) period shocks from -0.5 through 0.8",
+        "monotone time trend confounded with treatment",
+        "few effective switches",
+        "sequence outside registered support",
+        "simultaneous system change"
+      ],
+      "operating_characteristics": ["sharp_null_type_I_error", "p_value_discreteness", "power", "carryover_bias", "false_precision_rate", "failure_rate"],
+      "minimum_simulation_replications_per_cell": 50000,
+      "open_gate": "R runtime, sequence adapter, serial-dependence estimator, external parity, and independent review are absent"
+    },
+    {
+      "suite_id": "anytime_valid",
+      "backend_id": "anytime_valid",
+      "primary": null,
+      "truth_or_oracle": ["Ville inequality checks", "closed-form boundary cases", "independent e-process implementation"],
+      "vectors": ["null optional stopping", "continuous monitoring", "bounded and heavy-tailed outcomes", "delayed outcomes", "adaptive allocation", "observation-process misspecification"],
+      "operating_characteristics": ["time_uniform_coverage", "type_I_error_under_optional_stopping", "average_width", "stopping_time"],
+      "minimum_simulation_replications_per_cell": 100000,
+      "open_gate": "No candidate passed selection; confseq 0.0.11 was rejected"
+    }
+  ]
+}

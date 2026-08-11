@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "ECAE-WP08-PARITY-AND-CALIBRATION-2026-08-10",
+  "status": "preregistered_plan_not_executed",
+  "policy": {
+    "development_execution_is_not_verification": true,
+    "evaluation_outcomes_may_not_select_model_group_threshold_or_policy": true,
+    "positive_model_diagnostics_do_not_imply_policy_value": true,
+    "source_grade_does_not_transfer_to_target": true,
+    "surrogate_effect_does_not_equal_long_term_effect": true
+  },
+  "hte_truth_suite": {
+    "estimands": ["predefined_GATE", "CATE_ranking", "RATE_AUTOC", "Qini", "policy_value_vs_treat_all_none_current"],
+    "DGP_axes": {
+      "source_design": ["randomized", "unconfounded_observational"],
+      "heterogeneity": ["none", "sparse", "diffuse", "threshold", "smooth", "sign_changing"],
+      "average_effect": ["negative", "zero", "positive"],
+      "overlap": ["strong", "moderate", "restricted", "violated"],
+      "sample_size": [400, 1000, 5000],
+      "modifier_dimension": [2, 10, 50],
+      "noise": ["Gaussian", "skewed", "heavy_tail"],
+      "policy_capacity": [0.1, 0.25, 0.5, 1.0],
+      "drift": ["none", "covariate", "effect_modifier", "treatment_version"]
+    },
+    "independent_oracles": [
+      "analytic randomized GATE and policy-value hand calculations",
+      "EconML 0.16.0 CausalForestDML plus DRTester",
+      "grf 2.6.1 causal_forest test_calibration and rank_average_treatment_effect",
+      "direct evaluation-set AIPW policy-value oracle"
+    ],
+    "acceptance": [
+      "nominal interval coverage and type-I error use max(0.005, 3*MCSE) preregistered bands",
+      "null heterogeneity must not create positive BLP RATE Qini or personalization support above the registered family error",
+      "GATE family coverage is simultaneous and group definitions are fixed before evaluation",
+      "ranking metrics must preserve sign and agree within registered numerical tolerances across independent implementations",
+      "policy value must cover the analytic truth and reject a learned policy when treat-all treat-none or current policy dominates",
+      "overlap violations must fail or change to an explicitly restricted estimand",
+      "repeated splits and seeds must quantify split instability rather than select the most favorable run"
+    ]
+  },
+  "surrogate_suite": {
+    "regimes": [
+      "valid surrogacy and comparability",
+      "direct treatment path not mediated by registered surrogates",
+      "sample comparability violation",
+      "surrogate paradox with favorable short-term and harmful long-term effect",
+      "treatment-family shift",
+      "immature outcome and informative censoring",
+      "competing-risk estimand mismatch"
+    ],
+    "required_behavior": [
+      "only valid registered regimes may become qualified for bounded external estimation",
+      "surrogate endpoint only remains at CE3",
+      "favorable proxy effects never determine the sign of the long-term causal effect",
+      "time-varying confounding routes to longitudinal g-method protocol_only",
+      "failure-case and assumption-violation sensitivity remains visible"
+    ]
+  },
+  "transport_suite": {
+    "regimes": [
+      "selection on complete measured effect modifiers",
+      "omitted effect modifier",
+      "sampling-score misspecification",
+      "near-positivity violation and weight dominance",
+      "source-target estimand mismatch",
+      "treatment-version and outcome-measurement shift",
+      "temporal drift",
+      "restricted-target rescue",
+      "bridge validation pending and failed"
+    ],
+    "oracles": ["closed-form two-stratum transport", "inverse-odds sampling weights", "outcome standardization", "doubly robust transport"],
+    "required_behavior": [
+      "transported point estimates and intervals agree with closed-form truth within preregistered tolerance",
+      "effective sample size weight concentration and tail diagnostics bind claim scope",
+      "source CE5 never automatically becomes target CE5",
+      "F02 applicability and target bridge validation remain independent noncompensable gates"
+    ]
+  },
+  "mutations": [
+    "reuse evaluation outcomes for model or policy selection",
+    "claim row-level CATE as individual true effect",
+    "drop treat-all or treat-none baseline",
+    "choose policy threshold on evaluation outcomes",
+    "treat negative Qini as positive heterogeneity because p is small",
+    "replace long-term outcome with a correlated proxy",
+    "delete surrogate failure cases",
+    "inherit source grade in the target",
+    "ignore transport weight dominance",
+    "remove F02 applicability gate",
+    "fallback from unavailable HTE backend to uplift bins"
+  ],
+  "release_requirements": [
+    "persistent exact runtimes and adapter hashes",
+    "completed truth grids with seeds code hashes and Monte Carlo bands",
+    "external differential parity evidence",
+    "backend-output mutation results",
+    "independent qualified review with conflict disclosure and expiry"
+  ]
+}

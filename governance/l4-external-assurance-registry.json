@@ -1,0 +1,25 @@
+{
+  "contract": "CBDS-L4-EXTERNAL-ASSURANCE-2026.07",
+  "authority": "governance/system-audit-standard.md#7-l4-production-maturity-standard",
+  "system_status": "separate_not_passed",
+  "production_ready": false,
+  "minimum_authorized_replays_per_domain": 3,
+  "required_case_fields": ["case_id", "authorization_ref", "deidentification_record", "object_scope", "input_hash", "model_version", "parameter_version", "output_hash", "mature_outcome", "baseline_or_counterfactual", "calibration_record", "drift_record", "rollback_record", "independent_reviewer", "review_decision"],
+  "prohibited_evidence": ["synthetic_fixture", "golden_report", "automated_assertion", "self_attestation", "unsigned_template"],
+  "domains": [
+    {"domain_id":"D01","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D02","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D03","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D04","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D05","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","qualified_professional_signoff","independent_review"]},
+    {"domain_id":"D06","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D07","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D08","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D09","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D10","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D11","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D12","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D13","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]}
+  ],
+  "system_exit_conditions": ["all_critical_path_domains_pass", "all_cases_authorized_and_deidentified", "mature_outcomes_and_counterfactuals_present", "calibration_drift_incident_and_rollback_reviewed", "independent_nonimplementer_signoff", "qualified_approval_for_reserved_matters"]
+}

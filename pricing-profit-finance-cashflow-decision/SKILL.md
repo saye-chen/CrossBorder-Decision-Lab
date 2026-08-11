@@ -147,6 +147,8 @@ description: 默认用中文执行专家级跨境定价、利润、财务约束�
 - `scripts/evaluate_mixed_batch_scenario.py`：复算样品容量、唯一订单、五方主张、成本去重、批次利润、库存 NRV 和现金峰值；
 - `scripts/evaluate_business_model_scenario.py`：复算边际扩量、因果动作上限、NRV、B2B、订阅、套装、预售、CAC 与联合压力；
 - `scripts/evaluate_consumer_financial_boundaries.py`：消费业务域提交的事实并复算物流成本、伙伴佣金、促销和页面可恢复价值的共享财务边界；
+- `scripts/validate_ecae_financial_handoff.py`：构建并校验 D06 消费者侧 F01 回执；只有已接受、未过期、哈希一致的 CE4/CE5 效应与经济参数快照可进入增量经济；
+- `scripts/calculate_incremental_economics.py`：由 D06 以 Decimal 复算合格效应的增量价值区间；无合格回执时只允许显式 `noncausal_scenario`，禁止把归因或裸旧字段写成增量；
 - `scripts/validate_evaluation_execution.py`：逐一执行 55 个登记场景绑定的正向和反例断言，任何缺绑、错绑或执行失败均阻断；
 - `scripts/validate_migration_compatibility.py`：校验权威源与消费者清单、同快照等价案例、退役阻断和无外部写回滚；
 - `scripts/validate_consumer_adapters.py`：执行七个业务消费者的字段适配门，并对 CIDM、AAMO、CIG、LIFD、CAPM、MBCM、PLCO 运行真实旧脚本与 PPFC 双轨等价；

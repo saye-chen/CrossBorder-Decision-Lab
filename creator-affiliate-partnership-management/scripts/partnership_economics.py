@@ -3,6 +3,7 @@
 from __future__ import annotations
 import argparse
 from capm_common import emit, load_json, require_number, sha256_json
+from validate_ecae_handoff import qualified_receipt_from
 
 
 def unique_costs(costs: list[dict]) -> tuple[float, list[str]]:
@@ -44,11 +45,16 @@ def fixed_fee_ceiling(data: dict) -> dict:
 def partnership_return(data: dict) -> dict:
     investment = require_number(data.get("controllable_investment"), "controllable_investment", minimum=1e-12)
     contribution = require_number(data.get("contribution"), "contribution", minimum=None)
-    causal = data.get("causal_evidence_level", "C0")
-    metric = "incremental_return" if causal in {"C2", "C3"} else "attributed_return"
-    return {"status": "validated" if causal in {"C2", "C3"} else "inconclusive",
+    legacy_causal = data.get("causal_evidence_level", "C0")
+    receipt = qualified_receipt_from(data)
+    incremental_qualified = bool(receipt and receipt["incremental_claim_allowed"])
+    metric = "incremental_return" if incremental_qualified else "attributed_return"
+    return {"status": "validated" if incremental_qualified else "inconclusive",
             "metric": metric, "value": (contribution - investment) / investment,
-            "forbidden_metric": None if causal in {"C2", "C3"} else "incremental_return"}
+            "forbidden_metric": None if incremental_qualified else "incremental_return",
+            "legacy_causal_label": legacy_causal,
+            "legacy_label_non_equivalent": legacy_causal in {"C2", "C3"},
+            "ecae_consumer_receipt": receipt}
 
 
 def program_profit(data: dict) -> dict:
@@ -72,9 +78,14 @@ def program_profit(data: dict) -> dict:
     for _, _, amount in ordered_events:
         balance += amount; trough = min(trough, balance)
     status = "blocked" if profits[0] < 0 or trough < 0 else "validated"
+    receipt = qualified_receipt_from(data)
+    incremental_qualified = bool(receipt and receipt["incremental_claim_allowed"])
     return {"status": status, "profit_low": profits[0], "profit_mid": profits[1], "profit_high": profits[2],
             "program_cost": costs, "cost_ids": ids, "cash_trough": trough, "ending_cash": balance,
-            "partner_exit_rule": "marginal_value_and_obligations_review_required"}
+            "partner_exit_rule": "marginal_value_and_obligations_review_required",
+            "evidence_semantics": "qualified_incremental" if incremental_qualified else "scenario_not_incremental",
+            "forbidden_claim": None if incremental_qualified else "incremental_program_profit",
+            "ecae_consumer_receipt": receipt}
 
 
 ACTIONS = {"commission_ceiling": commission_ceiling, "fixed_fee_ceiling": fixed_fee_ceiling,

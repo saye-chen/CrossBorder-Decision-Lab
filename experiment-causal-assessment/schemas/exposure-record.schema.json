@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://crossborder-decision-lab.local/ecae/schemas/exposure-record.schema.json",
+  "title":"Exposure record",
+  "allOf":[{"$ref":"common-object.schema.json#/$defs/baseObject"}],
+  "type":"object",
+  "required":["assignment_ref","exposure_unit_id","assigned_arm","actual_exposure","eligible_for_exposure","first_exposure_at","last_exposure_at","compliance_status","contamination_status","measurement_source"],
+  "properties":{
+    "assignment_ref":{"type":"string","minLength":1},
+    "exposure_unit_id":{"type":"string","minLength":1},
+    "assigned_arm":{"type":"string","minLength":1},
+    "actual_exposure":{"$ref":"common-object.schema.json#/$defs/semanticValue"},
+    "eligible_for_exposure":{"type":"boolean"},
+    "first_exposure_at":{"$ref":"common-object.schema.json#/$defs/semanticValue"},
+    "last_exposure_at":{"$ref":"common-object.schema.json#/$defs/semanticValue"},
+    "compliance_status":{"enum":["compliant","never_taker","always_taker","crossover","partial","unknown"]},
+    "contamination_status":{"enum":["none","suspected","confirmed","unknown"]},
+    "measurement_source":{"type":"string","minLength":1},
+    "spillover_exposure":{"$ref":"common-object.schema.json#/$defs/semanticValue"}
+  },
+  "unevaluatedProperties":false
+}

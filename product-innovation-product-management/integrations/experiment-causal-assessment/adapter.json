@@ -1,0 +1,48 @@
+{
+  "adapter_version": "PIPM-ECAE-CONSUMER-1.0",
+  "producer": "experiment-causal-assessment",
+  "consumer": "product-innovation-product-management",
+  "domain_id": "D03",
+  "runtime": "PIPM-2026.07",
+  "migration_id": "ECAE-CONSUMER-MIGRATION-1.1",
+  "consumer_contract_version": "1.1.0",
+  "receipt_schema": "experiment-causal-assessment/schemas/domain-consumer-receipt.schema.json",
+  "consumer_runtime": "experiment-causal-assessment/scripts/domain_consumer_adapter.py",
+  "allowed_uses": [
+    "causal_product_validation",
+    "high_stakes_release_support"
+  ],
+  "minimum_grade_by_use": {
+    "causal_product_validation": "CE4",
+    "high_stakes_release_support": "CE5"
+  },
+  "required_payload_by_use": {
+    "causal_product_validation": [],
+    "high_stakes_release_support": []
+  },
+  "unknown_incremental_value_policy": "unknown_never_zero_fill",
+  "prohibited_legacy_mappings": [
+    "validation_pass_to_CE4",
+    "launch_to_incremental"
+  ],
+  "retained_sovereignty": [
+    "product definition",
+    "roadmap",
+    "release"
+  ],
+  "forbidden_writeback": [
+    "product definition",
+    "roadmap",
+    "release",
+    "specification"
+  ],
+  "blocked_until_owner_acceptance": [
+    "causal or incremental claim",
+    "automatic business action",
+    "external write"
+  ],
+  "automated_contract_accepted": true,
+  "independent_owner_accepted": false,
+  "production_dual_run_completed": false,
+  "external_write": false
+}
