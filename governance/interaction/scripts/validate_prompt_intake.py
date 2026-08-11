@@ -31,7 +31,7 @@ def validate(payload: dict) -> list[str]:
     if errors: return errors
     if payload["contract"] != "CBDS-INTERACTION-2026.07": errors.append("unsupported interaction contract")
     domains = {d["domain_id"] for d in json.loads(REGISTRY.read_text())["domains"] if d["availability"] == "current"}
-    if payload["domain_id"] not in domains: errors.append("domain must be a current D01-D13 owner")
+    if payload["domain_id"] not in domains: errors.append("domain must be a current D01-D14 owner")
     try: _time(payload["as_of_time"])
     except (TypeError, ValueError): errors.append("as_of_time must be timezone-aware ISO date-time")
     route = payload["route"]

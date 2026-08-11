@@ -63,7 +63,7 @@
     },
     {
       "path": "scripts/test_full_repository_audit.py",
-      "sha256": "sha256:cd6caff6fa13990781a6c92f506fddee8e3f88fbe5df76be833ffad440e0ffd4"
+      "sha256": "sha256:78333d892b411de0917917f9eccfe8f8626a20b854a245f92dda064c9f7b6257"
     }
   ],
   "generated_at": "2026-07-28T00:00:00Z",

@@ -145,7 +145,7 @@
       "tests": ["scripts/test_governance.py", "scripts/test_release_compliance.py", "scripts/test_score_system_audit.py", "scripts/test_system_audit_evidence.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations/golden", "evaluations/golden-reports", "evaluations/adversarial-cases", "evaluations/methodology-comparison-2026-07-29.md"]
     },
-    "thirteen-domain-professional-engineering-release": {
+    "fourteen-domain-professional-engineering-release": {
       "owner": "repository",
       "authoritative_sources": ["governance/professional-engineering-release.md", "governance/professional-evaluation-registry.json", "governance/professional-evaluation-case.schema.json", "governance/release-mutation-contract.json", "governance/l4-external-assurance-registry.json", "scripts/build_professional_evaluation_index.py", "scripts/build_risk_weighted_evaluation_catalogs.py", "scripts/capture_audit_workspace_baseline.py"],
       "consumers": ["README.md", "README.en.md", "RULES.md", "governance/system-audit-standard.md", ".github/workflows/expert-release.yml", "legal-tax-intellectual-property-market-access-decision/evaluations/completion-readiness.json"],
@@ -302,6 +302,15 @@
       "validators": ["category-investment-decision/scripts/validate_opportunity_governance.py", "category-investment-decision/scripts/validate_osl_professional_report.py", "category-investment-decision/scripts/validate_osl_six_domain_incident.py", "scripts/validate_cidm_opportunity_governance.py"],
       "tests": ["category-investment-decision/tests/test_opportunity_signal_governance.py", "category-investment-decision/scripts/test_independent_opportunity_oracles.py", "category-investment-decision/scripts/test_opportunity_source_mutations.py", "scripts/test_cidm_osl_professional_delivery.py", "scripts/test_cidm_osl_six_domain_incident.py", "scripts/test_cidm_opportunity_governance.py", "scripts/test_full_repository_audit.py"],
       "evaluations": ["evaluations/golden-reports/cidm-osl-opportunity-full.md", "category-investment-decision/evaluations/osl-six-domain-incident.json", "category-investment-decision/evaluations/opportunity-oracle-fixtures.json"]
+    },
+    "copo-controlled-pilot-release-and-ppfc-period-bridge": {
+      "owner": "D14-and-D06",
+      "authoritative_sources": ["cross-domain-operating-posture-orchestration", "governance/copo-blueprint-implementation-manifest.json", "pricing-profit-finance-cashflow-decision/schemas/period-delta-bridge.schema.json", "pricing-profit-finance-cashflow-decision/scripts/build_period_delta_bridge.py", "governance/ppfc-blueprint-implementation-manifest.json"],
+      "consumers": ["cross-domain-operating-posture-orchestration/SKILL.md", "governance/domain-architecture-registry.json", "governance/domain-maturity-status.json", "governance/professional-evaluation-registry.json", "pricing-profit-finance-cashflow-decision/SKILL.md", ".github/workflows/expert-release.yml"],
+      "validators": ["cross-domain-operating-posture-orchestration/scripts/validate_copo.py", "cross-domain-operating-posture-orchestration/scripts/validate_decision_contract.py", "scripts/validate_release_integrity.py", "pricing-profit-finance-cashflow-decision/scripts/validate_structure_contract.py", "scripts/test_ci_workflow_security.py"],
+      "tests": ["cross-domain-operating-posture-orchestration/tests/test_copo.py", "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py", "cross-domain-operating-posture-orchestration/tests/test_continuous_cycle.py", "cross-domain-operating-posture-orchestration/tests/test_behavior_mutations.py", "pricing-profit-finance-cashflow-decision/scripts/test_period_delta_bridge.py", "scripts/test_full_repository_audit.py"],
+      "evaluations": ["cross-domain-operating-posture-orchestration/evaluations/external-audit-remediation-2026-08-11.json"],
+      "release_constraint": "D14 is current at controlled-pilot maturity; L4 production readiness and external write remain unavailable"
     },
     "mbcm-runtime-and-contracts": {
       "owner": "marketing-brand-campaign-management",

@@ -1,0 +1,21 @@
+{
+ "mutations":[
+  {"id":"d14_professional_final","test":"test_d14_cannot_support_domain_finding"},
+  {"id":"d14_capital_approval","test":"test_registry_is_independent_sovereignty_oracle"},
+  {"id":"remove_noncompensable_gate","test":"test_any_required_gate_blocks_scale"},
+  {"id":"partial_failure_overall_pass","test":"test_partial_acceptance_stays_explicit"},
+  {"id":"missing_owner_approved","test":"test_missing_required_owner_never_approves"},
+  {"id":"ce1_ce3_to_causal","test":"test_only_f01_qualifies_causality"},
+  {"id":"f02_not_comparable_aggregated","test":"test_noncomparability_is_noncompensable"},
+  {"id":"expired_current","test":"test_stale_receipt_cannot_overwrite"},
+  {"id":"old_overwrites_new","test":"test_stale_receipt_cannot_overwrite"},
+  {"id":"conflict_majority_vote","test":"test_conflict_not_closed_by_vote"},
+  {"id":"posture_approves_action","test":"test_coordination_plan_cannot_invent_action"},
+  {"id":"plan_invents_action","test":"test_coordination_plan_cannot_use_d14_action"},
+  {"id":"view_recomputes_gate","test":"test_views_are_render_only"},
+  {"id":"external_write_true","test":"test_external_write_mutation_is_killed"},
+  {"id":"manual_completion","test":"test_manual_completion_cannot_override_gate"},
+  {"id":"same_source_independence","test":"test_same_source_cannot_fake_independence"}
+ ],
+ "test_module":"tests/test_copo.py","adversarial_runner":"scripts/run_mutation_suite.py","behavior_replacement_runner":"scripts/run_behavior_mutations.py","status":"behavior_replacements_executed","external_write":false
+}

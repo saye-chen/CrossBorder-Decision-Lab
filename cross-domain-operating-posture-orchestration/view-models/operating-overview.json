@@ -1,0 +1,1 @@
+{"view":"operating_overview","source_contracts":["operating_scope","domain_receipt","operating_posture"],"renders":["scope","owner_metrics","freshness","gates","blocks","unknowns","current_posture"],"computes":[],"external_write":false}

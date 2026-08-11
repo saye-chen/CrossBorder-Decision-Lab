@@ -1,0 +1,24 @@
+{
+  "audit_source":"user_supplied_external_audit_and_third_review_2026-08-11","remediation_status":"third_review_p0_findings_implemented_awaiting_auditor_reverification","release_posture":"controlled_pilot_release_eligible","independent_engineering_review_performed":true,"auditor_reverification_received":false,"l4_independent_signoff":false,
+  "findings":[
+    {"id":"P0-01","issue":"posture_bypasses_typed_receipts","status":"fixed","evidence":["scripts/copo.py","tests/test_copo.py::test_posture_cannot_bypass_typed_receipt_validation"]},
+    {"id":"P0-02","issue":"plan_accepts_expired_bad_hash_receipts","status":"fixed","evidence":["scripts/copo.py","tests/test_copo.py::test_plan_rejects_expired_or_bad_hash_receipt_before_sequencing"]},
+    {"id":"P1-01","issue":"diagnostic_graph_integrity","status":"fixed","evidence":["scripts/copo.py","tests/test_copo.py::test_graph_rejects_duplicate_nodes_and_self_loops","tests/test_copo.py::test_graph_rejects_cycles_and_invalidated_support"]},
+    {"id":"P1-02","issue":"mutation_claim_stronger_than_mechanism","status":"fixed","evidence":["scripts/run_behavior_mutations.py","tests/test_behavior_mutations.py"]},
+    {"id":"P1-03","issue":"scenario_hardcoded_results","status":"fixed","evidence":["scripts/evaluate_scenario_case.py","tests/test_scenario_catalog.py"]},
+    {"id":"P1-04","issue":"ppfc_runtime_schema_bypass","status":"fixed","evidence":["pricing-profit-finance-cashflow-decision/scripts/build_period_delta_bridge.py","pricing-profit-finance-cashflow-decision/scripts/test_period_delta_bridge.py"]},
+    {"id":"P1-05","issue":"ppfc_window_evidence_scope_not_frozen","status":"fixed","evidence":["pricing-profit-finance-cashflow-decision/schemas/period-delta-bridge.schema.json","pricing-profit-finance-cashflow-decision/scripts/test_period_delta_bridge.py"]},
+    {"id":"P2-01","issue":"ppfc_action_ceiling_ambiguous","status":"fixed","resolution":"reconciliation_only"},
+    {"id":"P2-02","issue":"ci_actions_permissions_timeouts","status":"fixed","evidence":[".github/workflows/expert-release.yml",".github/workflows/knowledge-health.yml","scripts/test_ci_workflow_security.py"]},
+    {"id":"P2-03","issue":"new_capability_not_in_ci","status":"fixed_current_domain_release_gate","note":"D14 is included in CI and the current-domain professional release gate"},
+    {"id":"P1-06","issue":"caller_supplied_trusted_ledger","status":"fixed_awaiting_auditor_reverification","evidence":["schemas/trusted-packet-ledger.schema.json","contracts/trusted-ledger-keys.json","tests/test_copo.py::test_self_consistent_forged_ledger_is_rejected_without_erdg_signature"]},
+    {"id":"P1-07","issue":"operating_scope_direct_bypass","status":"fixed_awaiting_auditor_reverification","evidence":["scripts/copo.py::validate_scope","tests/test_copo.py::test_scope_schema_and_time_semantics_are_one_unbypassable_entrypoint"]},
+    {"id":"P2-04","issue":"decision_contract_name_stronger_than_behavior","status":"fixed_awaiting_auditor_reverification","evidence":["schemas/decision-bundle.schema.json","scripts/validate_decision_contract.py","tests/test_decision_bundle.py"]},
+    {"id":"P0-03","issue":"caller_can_weaken_canonical_scenario_route","status":"fixed_awaiting_auditor_reverification","evidence":["scripts/copo.py::validate_canonical_route","tests/test_decision_bundle.py::test_caller_cannot_weaken_authoritative_route"]},
+    {"id":"P0-04","issue":"signed_ledger_does_not_bind_approved_action_content","status":"fixed_awaiting_auditor_reverification","evidence":["scripts/copo.py::receipt_signed_payload","tests/test_decision_bundle.py::test_signed_hash_covers_approved_action_content"]},
+    {"id":"P2-05","issue":"ledger_entry_and_issue_time_validity","status":"fixed","evidence":["scripts/copo.py::validate_trusted_ledger"]},
+    {"id":"P2-06","issue":"same_repository_trust_anchor","status":"fixed_for_controlled_pilot","evidence":[".github/workflows/expert-release.yml::ERDG_TRUSTED_KEY_FINGERPRINT"],"l4_note":"independent_control_plane_remains_l4"}
+  ],
+  "remaining_l4_only":["14_domain_authorized_real_replays","mature_outcome_calibration","independent_l4_signoff"],
+  "external_write":false
+}

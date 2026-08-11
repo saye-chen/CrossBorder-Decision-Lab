@@ -123,14 +123,18 @@ class DomainArchitectureTest(unittest.TestCase):
     def test_current_v2_evidence_handoff_is_accepted(self):
         self.assertEqual(handoff.validate(evidence_packet()), [])
 
-    def test_planned_domain_cannot_execute(self):
+    def test_d14_current_domain_accepts_v2_handoff(self):
         payload = evidence_packet()
         payload["target"] = endpoint(
-            "D14", "cross-domain-operating-posture-orchestration", "planned"
+            "D14", "cross-domain-operating-posture-orchestration", "current"
         )
         payload["authority"]["target_authority"] = "task_orchestration"
         failures = handoff.validate(payload)
-        self.assertTrue(any("planned" in failure and "cannot execute" in failure for failure in failures), failures)
+        payload["runtime_versions"] = {
+            "competitive-intelligence-monitoring": "CIM-2026.07",
+            "cross-domain-operating-posture-orchestration": "COPO-2026.07",
+        }
+        self.assertEqual(handoff.validate(payload), [])
 
     def test_d05_current_domain_accepts_v2_handoff(self):
         plan = ROOT / "governance/d05-ltma-blueprint.md"
@@ -191,17 +195,16 @@ class DomainArchitectureTest(unittest.TestCase):
         self.assertTrue(any("owner must be D01" in error for error in errors), errors)
         self.assertTrue(any("passed gate has incomplete stages" in error for error in errors), errors)
 
-    def test_decision_cycle_blocks_planned_domain_execution(self):
+    def test_decision_cycle_accepts_current_d14_orchestration(self):
         payload = decision_cycle()
         payload["participants"].append(
-            {"domain_id": "D14", "role": "orchestrator", "availability": "planned", "status": "running"}
+            {"domain_id": "D14", "role": "orchestrator", "availability": "current", "status": "running"}
         )
         payload["stages"].append(
             {"stage_id": "ORCHESTRATE", "phase": "qualify", "dependencies": ["INVEST"], "participant_domains": ["D14"], "status": "running", "required_packet_types": ["constraint"]}
         )
         errors = cycle.validate(payload)
-        self.assertTrue(any("unavailable domain cannot execute" in error for error in errors), errors)
-        self.assertTrue(any("stage cannot execute unavailable domains" in error for error in errors), errors)
+        self.assertEqual(errors, [])
 
     def test_registry_is_source_for_owner_and_version_maps(self):
         compat = load_module(

@@ -1,0 +1,1 @@
+{"adapter":"ecae-to-copo","contract":"ECAE-1.0","consumer":"D14","availability":"controlled_pilot","consumer_acceptance":"passed","rollback_verified":true,"accepted_states":["accept","partial_accept","reject","expired","invalidated","request_recompute"],"causal_wording_requires":["CE4","CE5"],"production_accepted":false,"external_write":false}

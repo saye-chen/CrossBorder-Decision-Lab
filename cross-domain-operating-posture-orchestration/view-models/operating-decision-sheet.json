@@ -1,0 +1,1 @@
+{"view":"operating_decision_sheet","source_contracts":["posture_candidate","operating_posture"],"renders":["no_action","repair","maintain","scale","contract","exit","owner_decisions"],"computes":[],"external_write":false}

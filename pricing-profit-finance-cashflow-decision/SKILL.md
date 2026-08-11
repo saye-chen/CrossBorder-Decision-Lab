@@ -120,6 +120,7 @@ description: 默认用中文执行专家级跨境定价、利润、财务约束�
 - [证据记录 Schema](schemas/evidence-record.schema.json)；
 - [经济对账包 Schema](schemas/economic-reconciliation.schema.json)；
 - [对账结果 Schema](schemas/reconciliation-result.schema.json)。
+- [期间收入与利润差额桥 Schema](schemas/period-delta-bridge.schema.json)。
 - [跨域信封 Schema](schemas/cross-domain-envelope.schema.json)；
 - [异常报告 Schema](schemas/exception-report.schema.json)。
 - [临时本地化合同 Schema](schemas/localization-temporary-contract.schema.json)；
@@ -130,6 +131,8 @@ description: 默认用中文执行专家级跨境定价、利润、财务约束�
 - [混合批次场景 Schema](schemas/mixed-batch-scenario.schema.json)。
 
 运行 `python3 scripts/reconcile_economic_ledger.py --input <input.json> --output <output.json>` 进行确定性对账。关键身份、币税、单位、唯一性或守恒失败时必须返回非零状态；不得继续生成可执行定价结论。
+
+运行 `python3 scripts/build_period_delta_bridge.py <input.json> --output <output.json>` 在对象、版本、币税、单位、时区和窗口冻结后构建期间收入与经营利润差额桥。该桥由 D06 签发，只允许 D14 引用作跨域财务守恒；不得被解释为因果、资本批准或业务动作批准。
 
 模型计算使用：
 
@@ -149,6 +152,7 @@ description: 默认用中文执行专家级跨境定价、利润、财务约束�
 - `scripts/evaluate_consumer_financial_boundaries.py`：消费业务域提交的事实并复算物流成本、伙伴佣金、促销和页面可恢复价值的共享财务边界；
 - `scripts/validate_ecae_financial_handoff.py`：构建并校验 D06 消费者侧 F01 回执；只有已接受、未过期、哈希一致的 CE4/CE5 效应与经济参数快照可进入增量经济；
 - `scripts/calculate_incremental_economics.py`：由 D06 以 Decimal 复算合格效应的增量价值区间；无合格回执时只允许显式 `noncausal_scenario`，禁止把归因或裸旧字段写成增量；
+- `scripts/build_period_delta_bridge.py`：以 Decimal 复算期间净收入和经营利润差额桥，分别验证期内恒等式与跨期差额守恒；
 - `scripts/validate_evaluation_execution.py`：逐一执行 55 个登记场景绑定的正向和反例断言，任何缺绑、错绑或执行失败均阻断；
 - `scripts/validate_migration_compatibility.py`：校验权威源与消费者清单、同快照等价案例、退役阻断和无外部写回滚；
 - `scripts/validate_consumer_adapters.py`：执行七个业务消费者的字段适配门，并对 CIDM、AAMO、CIG、LIFD、CAPM、MBCM、PLCO 运行真实旧脚本与 PPFC 双轨等价；

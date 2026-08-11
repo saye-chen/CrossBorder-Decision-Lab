@@ -1,0 +1,4 @@
+interface:
+  display_name: "跨域经营姿态与决策编排"
+  short_description: "编排多专业域诊断、冲突升级、经营姿态合成与持续复盘"
+  default_prompt: "Use $cross-domain-operating-posture-orchestration to orchestrate this cross-domain operating decision within owner-approved boundaries."

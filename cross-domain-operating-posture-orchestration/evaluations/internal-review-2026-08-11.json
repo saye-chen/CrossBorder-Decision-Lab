@@ -1,0 +1,13 @@
+{
+  "review":"D14-INTERNAL-REVIEW-2026-08-11-01","reviewer_role":"implementer_self_review","independent_nonimplementer_review":false,"status":"superseded_by_external_audit_2026-08-11",
+  "findings":[
+    {"id":"P0-01","issue":"cross_owner_approval_borrowing","status":"fixed","evidence":"tests/test_copo.py::test_cross_owner_cannot_borrow_approval"},
+    {"id":"P0-02","issue":"blocked_receipt_treated_as_accepted","status":"fixed","evidence":"tests/test_copo.py::test_blocked_receipt_is_not_accepted"},
+    {"id":"P0-03","issue":"approved_posture_with_blocked_gate","status":"fixed","evidence":"tests/test_copo.py::test_approved_posture_requires_approval_and_nonblocked_gates"},
+    {"id":"P1-01","issue":"same_message_id_different_content","status":"fixed","evidence":"tests/test_continuous_cycle.py::test_same_message_id_with_different_content_is_rejected"},
+    {"id":"P1-02","issue":"static_scenario_outcome_mapping","status":"fixed","evidence":"scripts/evaluate_scenario_case.py"},
+    {"id":"P1-03","issue":"missing_shared_governance_metadata","status":"fixed","evidence":"scripts/validate_copo.py"},
+    {"id":"P1-04","issue":"negative_reversal_or_cost","status":"fixed","evidence":"pricing-profit-finance-cashflow-decision/scripts/test_period_delta_bridge.py"}
+  ],
+  "open_gate":"independent_nonimplementer_review","external_write":false
+}

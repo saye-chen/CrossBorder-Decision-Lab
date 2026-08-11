@@ -19,7 +19,8 @@
     {"domain_id":"D10","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
     {"domain_id":"D11","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
     {"domain_id":"D12","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
-    {"domain_id":"D13","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]}
+    {"domain_id":"D13","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","independent_review"]},
+    {"domain_id":"D14","status":"controlled_external_gate","cases":[],"missing":["3_authorized_mature_replays","mature_outcome_calibration","independent_review"]}
   ],
   "system_exit_conditions": ["all_critical_path_domains_pass", "all_cases_authorized_and_deidentified", "mature_outcomes_and_counterfactuals_present", "calibration_drift_incident_and_rollback_reviewed", "independent_nonimplementer_signoff", "qualified_approval_for_reserved_matters"]
 }

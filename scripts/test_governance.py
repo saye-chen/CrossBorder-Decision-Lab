@@ -13,7 +13,7 @@ class ImpactGovernance(unittest.TestCase):
         status = subprocess.run(["python3", str(ROOT/"scripts/validate_domain_maturity.py")], capture_output=True, text=True)
         self.assertEqual(status.returncode, 0, (status.stdout, status.stderr))
         ledger = json.loads((ROOT/"governance/domain-maturity-status.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(ledger["domains"]), 13)
+        self.assertEqual(len(ledger["domains"]), 14)
         self.assertTrue(all(d["maturity"] == "controlled pilot" and d["l4"] == "not_passed" and d["authorized_real_cases"] == 0 for d in ledger["domains"]))
         for domain in ledger["domains"][:5]:
             replay = ROOT/domain["replay_manifest"]

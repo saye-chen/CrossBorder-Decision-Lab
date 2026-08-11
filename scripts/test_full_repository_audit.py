@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Executable release audit for thirteen expert-level L1-L3 repository skills."""
+"""Executable release audit for fourteen expert-level L1-L3 repository skills."""
 from __future__ import annotations
 import importlib.util
 import json
@@ -93,6 +93,13 @@ class FullRepositoryAudit(unittest.TestCase):
   self.assertEqual((row["l2"],row["l3"],row["l4"],row["maturity"]),("wp9_passed","passed_automated_gate","not_passed","controlled pilot"))
   result=subprocess.run([sys.executable,str(ROOT/name/"scripts/validate_wp2_structure.py")],capture_output=True,text=True)
   self.assertEqual(result.returncode,0,(result.stdout,result.stderr))
+
+ def test_01d_copo_controlled_pilot_gate_executes_without_l4_claim(self):
+  name, runtime = "cross-domain-operating-posture-orchestration", "COPO-2026.07"
+  self.assertIn(runtime, (ROOT/name/"SKILL.md").read_text())
+  result=subprocess.run([sys.executable,str(ROOT/name/"scripts/validate_decision_contract.py")],capture_output=True,text=True)
+  self.assertEqual(result.returncode,0,(result.stdout,result.stderr))
+  self.assertIn("L4_EXTERNAL_ASSURANCE=NOT_PASSED", subprocess.run([sys.executable,str(ROOT/name/"scripts/validate_copo.py")],capture_output=True,text=True).stdout)
 
  def test_02_each_skill_independently_accepts_its_owned_contract(self):
   with tempfile.TemporaryDirectory() as td:

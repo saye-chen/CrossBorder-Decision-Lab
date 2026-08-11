@@ -1,0 +1,19 @@
+{
+  "blueprint":"D14-BLUEPRINT-1.0","runtime":"COPO-2026.07","availability":"current","release_authorized":true,"release_tier":"controlled_pilot","l4":"not_passed","production_ready":false,
+  "work_packages":[
+    {"id":"WP-00","status":"complete","evidence":["cross-domain-operating-posture-orchestration/references/wp00-interface-inventory.md"]},
+    {"id":"WP-01","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/contracts/charter.json"]},
+    {"id":"WP-02","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/schemas/operating-scope.schema.json","cross-domain-operating-posture-orchestration/scripts/copo.py"]},
+    {"id":"WP-03","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/contracts/scenarios.json","cross-domain-operating-posture-orchestration/scripts/copo.py"]},
+    {"id":"WP-04","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/schemas/diagnostic-graph.schema.json","cross-domain-operating-posture-orchestration/scripts/copo.py"]},
+    {"id":"WP-05","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/schemas/cross-domain-conflict.schema.json","cross-domain-operating-posture-orchestration/scripts/copo.py"]},
+    {"id":"WP-06","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/schemas/posture-candidate.schema.json","cross-domain-operating-posture-orchestration/scripts/copo.py"]},
+    {"id":"WP-07","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/schemas/operating-posture.schema.json","cross-domain-operating-posture-orchestration/scripts/copo.py"]},
+    {"id":"WP-08","status":"controlled_pilot_consumer_acceptance_passed_production_not_accepted","evidence":["cross-domain-operating-posture-orchestration/integrations/experiment-causal-assessment/adapter.json","cross-domain-operating-posture-orchestration/integrations/localization-country-calibration/adapter.json","cross-domain-operating-posture-orchestration/integrations/erdg/adapter.json"]},
+    {"id":"WP-09","status":"implemented_initial","evidence":["cross-domain-operating-posture-orchestration/schemas/coordination-plan.schema.json","cross-domain-operating-posture-orchestration/view-models"]},
+    {"id":"WP-10","status":"second_review_findings_implemented_awaiting_auditor_reverification","evidence":["cross-domain-operating-posture-orchestration/tests/test_copo.py","cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py","cross-domain-operating-posture-orchestration/tests/test_behavior_mutations.py","cross-domain-operating-posture-orchestration/evaluations/external-audit-remediation-2026-08-11.json"]},
+    {"id":"WP-11","status":"second_review_findings_implemented_awaiting_auditor_reverification","evidence":["cross-domain-operating-posture-orchestration/schemas/outcome-replay.schema.json","cross-domain-operating-posture-orchestration/scripts/copo.py","cross-domain-operating-posture-orchestration/tests/test_continuous_cycle.py","cross-domain-operating-posture-orchestration/evaluations/external-audit-remediation-2026-08-11.json"]},
+    {"id":"WP-12","status":"complete_controlled_pilot_atomic_release","evidence":["cross-domain-operating-posture-orchestration/SKILL.md","cross-domain-operating-posture-orchestration/agents/openai.yaml","governance/domain-architecture-registry.json","governance/domain-maturity-status.json","governance/professional-evaluation-registry.json","evaluations/professional-evaluation-index.json"],"remaining_l4_dependencies":["3_authorized_mature_replays","mature_outcome_calibration","independent_l4_signoff"]}
+  ],
+  "external_write":false
+}

@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "authority": "governance/professional-evaluation-registry.json",
   "l4_external_assurance": "separate_not_inferred",
-  "domain_count": 13,
-  "case_count": 790,
+  "domain_count": 14,
+  "case_count": 835,
   "domains": [
     {
       "domain_id": "D01",
@@ -95,6 +95,13 @@
       "source_case_count": 24,
       "source_catalog_hash": "d63f0fcc5df437e69a53ef1f7683e11e38095c795ccaaac8a124d47a09dcc0d7",
       "golden_hash": "ad471d637e326d437c848302f5d2b0202ae5fa3b13a316b4996f2b73c4f42507"
+    },
+    {
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "source_case_count": 45,
+      "source_catalog_hash": "919968d543cbfdd18356c7101bf275e17701bf549727672abd18d89325ed7669",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5"
     }
   ],
   "cases": [
@@ -104966,6 +104973,5271 @@
         "主权边界不可越权"
       ],
       "evidence_fingerprint": "71187bbe2557437627d47eeb90a58a8309729296709522b809eeb105c930739a"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-01",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-01",
+      "source_hash": "d0e1f7a07e09c6c1643af46e74d3189cddfc9a2f624fad6fdaf90786573d0339",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "826139b09e5f2a02eeaab7ba3e492ba2f1b919dba024d73deb112b6b20f5aa71",
+      "case_execution_binding_hash": "c45c9c140341550e0acfb8fc229078c9e71b293446e47467a50434e554596a27",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-01"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-01"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-01",
+          "assertion": "owner_approval_pending",
+          "evidence_refs": [
+            "source-case:SD-01"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-01"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-01",
+        "assertion": "domain_adjudication_required_for:SD-01",
+        "evidence_refs": [
+          "source-case:SD-01"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-01"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-01",
+          "root_cause_ref": "RC-SD-01",
+          "success_condition": "owner_approval_pending",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "owner_approval_pending",
+      "expected_state_structured": {
+        "value": "owner_approval_pending",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "owner_approval_pending",
+        "trigger": "evaluate:SD-01"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "d0e1f7a07e09c6c1643af46e74d3189cddfc9a2f624fad6fdaf90786573d0339"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-02",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-02",
+      "source_hash": "2c66e37ece8d7638ca4c37a7eb19c72ba1fa7101507d2ea3ca17ba874241ac21",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
+      "case_execution_binding_hash": "09713f53fa15d35bea8bceabe01d82b6de60d29e19c76dab76a7cca3c898fd5c",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-02"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-02"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-02",
+          "assertion": "inconclusive",
+          "evidence_refs": [
+            "source-case:SD-02"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-02"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-02",
+        "assertion": "domain_adjudication_required_for:SD-02",
+        "evidence_refs": [
+          "source-case:SD-02"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-02"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-02",
+          "root_cause_ref": "RC-SD-02",
+          "success_condition": "inconclusive",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "inconclusive",
+      "expected_state_structured": {
+        "value": "inconclusive",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "inconclusive",
+        "trigger": "evaluate:SD-02"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "2c66e37ece8d7638ca4c37a7eb19c72ba1fa7101507d2ea3ca17ba874241ac21"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-03",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-03",
+      "source_hash": "8f09b9660c2e9c4c62b89278398b8b4ed3aed44a5ddf2fa9c33220dbcae6e48c",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "ba938863d9750063888dab9e7afefb526b566840f1cdd06f25650d313f52b5bb",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-03"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-03"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-03",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:SD-03"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-03"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-03",
+        "assertion": "domain_adjudication_required_for:SD-03",
+        "evidence_refs": [
+          "source-case:SD-03"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-03"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-03",
+          "root_cause_ref": "RC-SD-03",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:SD-03"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "8f09b9660c2e9c4c62b89278398b8b4ed3aed44a5ddf2fa9c33220dbcae6e48c"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-04",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-04",
+      "source_hash": "6cc5483760d1a36310634f9680a74ef51e10893239a2e8f049609d1d23a00c9f",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "f3d4c17379d4f25f0bc0ac9decbe7efadfd126c673e2c0fc7f4f38c48a7e5390",
+      "case_execution_binding_hash": "4a68941bbd40102b64c97f287219071d12b66feb22ff254efd5c252eaaa7e1a7",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-04"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-04"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-04",
+          "assertion": "noncausal_only",
+          "evidence_refs": [
+            "source-case:SD-04"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-04"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-04",
+        "assertion": "domain_adjudication_required_for:SD-04",
+        "evidence_refs": [
+          "source-case:SD-04"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-04"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-04",
+          "root_cause_ref": "RC-SD-04",
+          "success_condition": "noncausal_only",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "noncausal_only",
+      "expected_state_structured": {
+        "value": "noncausal_only",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "noncausal_only",
+        "trigger": "evaluate:SD-04"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "6cc5483760d1a36310634f9680a74ef51e10893239a2e8f049609d1d23a00c9f"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-05",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-05",
+      "source_hash": "60b0c824397bfe9e0febb2dae941d87fc7e297e4560f35683e0fe7c972f35135",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
+      "case_execution_binding_hash": "b2794d5112659d012e5cd84b324c608c03640b8362418e34913bf4e089cbfdf0",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-05"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-05"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-05",
+          "assertion": "inconclusive",
+          "evidence_refs": [
+            "source-case:SD-05"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-05"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-05",
+        "assertion": "domain_adjudication_required_for:SD-05",
+        "evidence_refs": [
+          "source-case:SD-05"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-05"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-05",
+          "root_cause_ref": "RC-SD-05",
+          "success_condition": "inconclusive",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "inconclusive",
+      "expected_state_structured": {
+        "value": "inconclusive",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "inconclusive",
+        "trigger": "evaluate:SD-05"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "60b0c824397bfe9e0febb2dae941d87fc7e297e4560f35683e0fe7c972f35135"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-06",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-06",
+      "source_hash": "fe64fa0fb6e25aa1dbf5de49dc3535b3167923de87a70ed3b0e4b2a293955369",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
+      "case_execution_binding_hash": "aa0e1031984160ada1555a45b05d77301342f6f96483adb423bc447403dec0ef",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-06"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-06"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-06",
+          "assertion": "partially_qualified",
+          "evidence_refs": [
+            "source-case:SD-06"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-06"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-06",
+        "assertion": "domain_adjudication_required_for:SD-06",
+        "evidence_refs": [
+          "source-case:SD-06"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-06"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-06",
+          "root_cause_ref": "RC-SD-06",
+          "success_condition": "partially_qualified",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "partially_qualified",
+      "expected_state_structured": {
+        "value": "partially_qualified",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "partially_qualified",
+        "trigger": "evaluate:SD-06"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "fe64fa0fb6e25aa1dbf5de49dc3535b3167923de87a70ed3b0e4b2a293955369"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-07",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-07",
+      "source_hash": "e38505c6333e5f22fc95a142d333c927d9b38ae4c004644062ca1ecfcaaa7cf2",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "d8f5a841df90fc5a2af4ec62f1bb2016d6e516a4a446c90376fec8f97ea508e2",
+      "case_execution_binding_hash": "59556abf3f0a01069ed054d11a399fa7c20fb9ebea82832e037dd29758a80028",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-07"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-07"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-07",
+          "assertion": "conflict_pending",
+          "evidence_refs": [
+            "source-case:SD-07"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-07"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-07",
+        "assertion": "domain_adjudication_required_for:SD-07",
+        "evidence_refs": [
+          "source-case:SD-07"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-07"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-07",
+          "root_cause_ref": "RC-SD-07",
+          "success_condition": "conflict_pending",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "conflict_pending",
+      "expected_state_structured": {
+        "value": "conflict_pending",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "conflict_pending",
+        "trigger": "evaluate:SD-07"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "e38505c6333e5f22fc95a142d333c927d9b38ae4c004644062ca1ecfcaaa7cf2"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-08",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-08",
+      "source_hash": "b3dd9940af26c013c81df41a30848c29ab36b9aa788b494d5946a72c577ef64f",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "9a1252610ed07bd1fa2f63a294cf770c28b37534c639967c1cfbe16506e304a9",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-08"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-08"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-08",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:SD-08"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-08"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-08",
+        "assertion": "domain_adjudication_required_for:SD-08",
+        "evidence_refs": [
+          "source-case:SD-08"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-08"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-08",
+          "root_cause_ref": "RC-SD-08",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:SD-08"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "b3dd9940af26c013c81df41a30848c29ab36b9aa788b494d5946a72c577ef64f"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-09",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-09",
+      "source_hash": "7d54203e3e82c8658443afbcb63888254da28d1d3365eaa53bc0b1a9de00eac7",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
+      "case_execution_binding_hash": "a530469c79e4443b5325e60bde6b87e3dac053f669223035b878d313076aa80c",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-09"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-09"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-09",
+          "assertion": "recompute_required",
+          "evidence_refs": [
+            "source-case:SD-09"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-09"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-09",
+        "assertion": "domain_adjudication_required_for:SD-09",
+        "evidence_refs": [
+          "source-case:SD-09"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-09"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-09",
+          "root_cause_ref": "RC-SD-09",
+          "success_condition": "recompute_required",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "recompute_required",
+      "expected_state_structured": {
+        "value": "recompute_required",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "recompute_required",
+        "trigger": "evaluate:SD-09"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "7d54203e3e82c8658443afbcb63888254da28d1d3365eaa53bc0b1a9de00eac7"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-10",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-10",
+      "source_hash": "762edca992ddc326a263bcf1c6404cd92710f02210df4f6c393989771f533a9b",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
+      "case_execution_binding_hash": "2536c77fddd94787bead7d4aff50e57ee8dca86cd6826627cb2575e7a3bbcb03",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-10"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-10"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-10",
+          "assertion": "partially_qualified",
+          "evidence_refs": [
+            "source-case:SD-10"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-10"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-10",
+        "assertion": "domain_adjudication_required_for:SD-10",
+        "evidence_refs": [
+          "source-case:SD-10"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-10"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-10",
+          "root_cause_ref": "RC-SD-10",
+          "success_condition": "partially_qualified",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "partially_qualified",
+      "expected_state_structured": {
+        "value": "partially_qualified",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "partially_qualified",
+        "trigger": "evaluate:SD-10"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "762edca992ddc326a263bcf1c6404cd92710f02210df4f6c393989771f533a9b"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-11",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-11",
+      "source_hash": "8b225df52d20b54b6a1084043ff42c98f8a7642c8a6e18a4e8922638bb76cbca",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
+      "case_execution_binding_hash": "167ca20dda48988831838bd62c06063be6dc298d17d7366409fa41ea31e34275",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-11"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-11"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-11",
+          "assertion": "recompute_required",
+          "evidence_refs": [
+            "source-case:SD-11"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-11"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-11",
+        "assertion": "domain_adjudication_required_for:SD-11",
+        "evidence_refs": [
+          "source-case:SD-11"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-11"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-11",
+          "root_cause_ref": "RC-SD-11",
+          "success_condition": "recompute_required",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "recompute_required",
+      "expected_state_structured": {
+        "value": "recompute_required",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "recompute_required",
+        "trigger": "evaluate:SD-11"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "8b225df52d20b54b6a1084043ff42c98f8a7642c8a6e18a4e8922638bb76cbca"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-12",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-12",
+      "source_hash": "a83eca4d83c63b5134be6487a4fd1a74d9a4edaf8f3628f3c10d7cc02950679b",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "1abf9c3be6abe007aabdc658de5936d25a415f7b42f986238c632286eea7dd07",
+      "case_execution_binding_hash": "4a4ee1d27f492effbf66cdfc3686561df038195eef1f44511fa7ec2da44a4bf0",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-12"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-12"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-12",
+          "assertion": "idempotent_no_change",
+          "evidence_refs": [
+            "source-case:SD-12"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-12"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-12",
+        "assertion": "domain_adjudication_required_for:SD-12",
+        "evidence_refs": [
+          "source-case:SD-12"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-12"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-12",
+          "root_cause_ref": "RC-SD-12",
+          "success_condition": "idempotent_no_change",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "idempotent_no_change",
+      "expected_state_structured": {
+        "value": "idempotent_no_change",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "idempotent_no_change",
+        "trigger": "evaluate:SD-12"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "a83eca4d83c63b5134be6487a4fd1a74d9a4edaf8f3628f3c10d7cc02950679b"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-13",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-13",
+      "source_hash": "9437f8de020e38e7851a6a6ca10e2f7475e4cdb0b9d415621248b7488a253088",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "43090f032d6a72f2d1bd57b69d17258fe6035ec698ce61e66996e2314f1208f5",
+      "case_execution_binding_hash": "257e00424a33e9b6ce66061ef6a83a6cb44321e17eee81cf82a6f88533acff1b",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-13"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-13"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-13",
+          "assertion": "new_child_cycle",
+          "evidence_refs": [
+            "source-case:SD-13"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-13"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-13",
+        "assertion": "domain_adjudication_required_for:SD-13",
+        "evidence_refs": [
+          "source-case:SD-13"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-13"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-13",
+          "root_cause_ref": "RC-SD-13",
+          "success_condition": "new_child_cycle",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "new_child_cycle",
+      "expected_state_structured": {
+        "value": "new_child_cycle",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "new_child_cycle",
+        "trigger": "evaluate:SD-13"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "9437f8de020e38e7851a6a6ca10e2f7475e4cdb0b9d415621248b7488a253088"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-14",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-14",
+      "source_hash": "651b28c903b3a376b051522e367290fa8af3029996b68e4b32c5b2327fe9a74c",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "6833b343ca2856f2b6ea4f88461680f1f4354f89acae2d672f2bc4dcb58fd284",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-14"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-14"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-14",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:SD-14"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-14"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-14",
+        "assertion": "domain_adjudication_required_for:SD-14",
+        "evidence_refs": [
+          "source-case:SD-14"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-14"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-14",
+          "root_cause_ref": "RC-SD-14",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:SD-14"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "651b28c903b3a376b051522e367290fa8af3029996b68e4b32c5b2327fe9a74c"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SD-15",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SD-15",
+      "source_hash": "c6ec6e66d139866d701f49794450af6b9d2f900255e7164eb93a809881440cbd",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "a21cc0a3db036a1261a0afaf0c5df5f379497f242f6ea6ea96a842255256d6f4",
+      "case_execution_binding_hash": "c397d921e057999b581f8641ec673d29d1fd7a63dc99831ac44ecbebd855f74f",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SD-15"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SD-15"
+      ],
+      "claims": [
+        {
+          "id": "CL-SD-15",
+          "assertion": "rolled_back",
+          "evidence_refs": [
+            "source-case:SD-15"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SD-15"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SD-15",
+        "assertion": "domain_adjudication_required_for:SD-15",
+        "evidence_refs": [
+          "source-case:SD-15"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SD-15"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SD-15",
+          "root_cause_ref": "RC-SD-15",
+          "success_condition": "rolled_back",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "rolled_back",
+      "expected_state_structured": {
+        "value": "rolled_back",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "rolled_back",
+        "trigger": "evaluate:SD-15"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "c6ec6e66d139866d701f49794450af6b9d2f900255e7164eb93a809881440cbd"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-01",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-01",
+      "source_hash": "4d0cf69c60181efda6fde892ed52b62778a3ffe4cb7d7284bbc931029cc4e646",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "826139b09e5f2a02eeaab7ba3e492ba2f1b919dba024d73deb112b6b20f5aa71",
+      "case_execution_binding_hash": "17cc8be2fa3fa9b68a54afe63dc38984f70aa60d427926808a6f1b7ffdfe2463",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-01"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-01"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-01",
+          "assertion": "owner_approval_pending",
+          "evidence_refs": [
+            "source-case:PD-01"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-01"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-01",
+        "assertion": "domain_adjudication_required_for:PD-01",
+        "evidence_refs": [
+          "source-case:PD-01"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-01"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-01",
+          "root_cause_ref": "RC-PD-01",
+          "success_condition": "owner_approval_pending",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "owner_approval_pending",
+      "expected_state_structured": {
+        "value": "owner_approval_pending",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "owner_approval_pending",
+        "trigger": "evaluate:PD-01"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "4d0cf69c60181efda6fde892ed52b62778a3ffe4cb7d7284bbc931029cc4e646"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-02",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-02",
+      "source_hash": "789e24aab181cf95b7882c6b06526f0abd9261531fc14f74c22d5a4613539319",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
+      "case_execution_binding_hash": "b512628931e8786bfed6b32cf7ff0481c7a6af7e794db2c6c115b21f525f4334",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-02"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-02"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-02",
+          "assertion": "inconclusive",
+          "evidence_refs": [
+            "source-case:PD-02"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-02"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-02",
+        "assertion": "domain_adjudication_required_for:PD-02",
+        "evidence_refs": [
+          "source-case:PD-02"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-02"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-02",
+          "root_cause_ref": "RC-PD-02",
+          "success_condition": "inconclusive",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "inconclusive",
+      "expected_state_structured": {
+        "value": "inconclusive",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "inconclusive",
+        "trigger": "evaluate:PD-02"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "789e24aab181cf95b7882c6b06526f0abd9261531fc14f74c22d5a4613539319"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-03",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-03",
+      "source_hash": "680850940849778a9315d42a9edb530ad234e2884c005c9a1603abfd1c823aaf",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "d47b3b68aa9fcb3b0d6b7e205e9a35cdc63b0051af736fe7828f6480eac9b9ad",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-03"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-03"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-03",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:PD-03"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-03"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-03",
+        "assertion": "domain_adjudication_required_for:PD-03",
+        "evidence_refs": [
+          "source-case:PD-03"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-03"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-03",
+          "root_cause_ref": "RC-PD-03",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:PD-03"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "680850940849778a9315d42a9edb530ad234e2884c005c9a1603abfd1c823aaf"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-04",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-04",
+      "source_hash": "ff5bc3498f9aed241d24e64c673b4941ac8ea8fc8f68ea13019814f2f40e02c8",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "f3d4c17379d4f25f0bc0ac9decbe7efadfd126c673e2c0fc7f4f38c48a7e5390",
+      "case_execution_binding_hash": "f899beebde63e9696583c673a9d115fe7e7637bf3840eb69829e409741e55ffe",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-04"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-04"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-04",
+          "assertion": "noncausal_only",
+          "evidence_refs": [
+            "source-case:PD-04"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-04"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-04",
+        "assertion": "domain_adjudication_required_for:PD-04",
+        "evidence_refs": [
+          "source-case:PD-04"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-04"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-04",
+          "root_cause_ref": "RC-PD-04",
+          "success_condition": "noncausal_only",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "noncausal_only",
+      "expected_state_structured": {
+        "value": "noncausal_only",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "noncausal_only",
+        "trigger": "evaluate:PD-04"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "ff5bc3498f9aed241d24e64c673b4941ac8ea8fc8f68ea13019814f2f40e02c8"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-05",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-05",
+      "source_hash": "9e4a073d44a23ce471a34cb8b92eae90429cb54a140a2aae135bccdb7bf0c7ba",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
+      "case_execution_binding_hash": "c7c11d6485dcb3b58cc53ae0c179c401d27c927553dfc638d96aeb97ec874c27",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-05"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-05"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-05",
+          "assertion": "inconclusive",
+          "evidence_refs": [
+            "source-case:PD-05"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-05"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-05",
+        "assertion": "domain_adjudication_required_for:PD-05",
+        "evidence_refs": [
+          "source-case:PD-05"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-05"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-05",
+          "root_cause_ref": "RC-PD-05",
+          "success_condition": "inconclusive",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "inconclusive",
+      "expected_state_structured": {
+        "value": "inconclusive",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "inconclusive",
+        "trigger": "evaluate:PD-05"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "9e4a073d44a23ce471a34cb8b92eae90429cb54a140a2aae135bccdb7bf0c7ba"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-06",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-06",
+      "source_hash": "f9274a4cca15d816740a539e4b17c60960b2cf87720b3677346bba5760604580",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
+      "case_execution_binding_hash": "ee6f87591b1479823431219ed91a25b41b88322a0c991ae3764100a49a9c03fe",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-06"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-06"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-06",
+          "assertion": "partially_qualified",
+          "evidence_refs": [
+            "source-case:PD-06"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-06"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-06",
+        "assertion": "domain_adjudication_required_for:PD-06",
+        "evidence_refs": [
+          "source-case:PD-06"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-06"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-06",
+          "root_cause_ref": "RC-PD-06",
+          "success_condition": "partially_qualified",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "partially_qualified",
+      "expected_state_structured": {
+        "value": "partially_qualified",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "partially_qualified",
+        "trigger": "evaluate:PD-06"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "f9274a4cca15d816740a539e4b17c60960b2cf87720b3677346bba5760604580"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-07",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-07",
+      "source_hash": "c6471e7e5a4acbd37784bcc56bdf051f01734c160b713b7722d292804658dba9",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "d8f5a841df90fc5a2af4ec62f1bb2016d6e516a4a446c90376fec8f97ea508e2",
+      "case_execution_binding_hash": "ea357c07b449f96c293a0e872712a521e49a5e52530733eaddd9108c4d63c98b",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-07"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-07"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-07",
+          "assertion": "conflict_pending",
+          "evidence_refs": [
+            "source-case:PD-07"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-07"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-07",
+        "assertion": "domain_adjudication_required_for:PD-07",
+        "evidence_refs": [
+          "source-case:PD-07"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-07"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-07",
+          "root_cause_ref": "RC-PD-07",
+          "success_condition": "conflict_pending",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "conflict_pending",
+      "expected_state_structured": {
+        "value": "conflict_pending",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "conflict_pending",
+        "trigger": "evaluate:PD-07"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "c6471e7e5a4acbd37784bcc56bdf051f01734c160b713b7722d292804658dba9"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-08",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-08",
+      "source_hash": "60ead0ce2bf61186e968be49ddcdd87c46aa558b3ee95007ebff93e432af141b",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "241c73bce2d7acd4946f559627b7b0458d78e92b887fd96ed18d3003dce8724e",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-08"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-08"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-08",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:PD-08"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-08"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-08",
+        "assertion": "domain_adjudication_required_for:PD-08",
+        "evidence_refs": [
+          "source-case:PD-08"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-08"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-08",
+          "root_cause_ref": "RC-PD-08",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:PD-08"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "60ead0ce2bf61186e968be49ddcdd87c46aa558b3ee95007ebff93e432af141b"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-09",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-09",
+      "source_hash": "6fa0a61576966a29c0d0bf5102fd41b439441e49a42012844b56e66891b422c5",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
+      "case_execution_binding_hash": "2a1c783ba805db4cf376619b609f24b87531d5fb0136aef9c52c866d01dd2fec",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-09"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-09"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-09",
+          "assertion": "recompute_required",
+          "evidence_refs": [
+            "source-case:PD-09"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-09"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-09",
+        "assertion": "domain_adjudication_required_for:PD-09",
+        "evidence_refs": [
+          "source-case:PD-09"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-09"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-09",
+          "root_cause_ref": "RC-PD-09",
+          "success_condition": "recompute_required",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "recompute_required",
+      "expected_state_structured": {
+        "value": "recompute_required",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "recompute_required",
+        "trigger": "evaluate:PD-09"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "6fa0a61576966a29c0d0bf5102fd41b439441e49a42012844b56e66891b422c5"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-10",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-10",
+      "source_hash": "b22045427bac52fa0eb95c76993386dca62345aa7e439dabcec960cd3f56b3af",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
+      "case_execution_binding_hash": "4e2c7c3c83c8a975f5638d7e3a40cd9f285bc91c5adaee5a1bb3738f25294e0d",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-10"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-10"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-10",
+          "assertion": "partially_qualified",
+          "evidence_refs": [
+            "source-case:PD-10"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-10"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-10",
+        "assertion": "domain_adjudication_required_for:PD-10",
+        "evidence_refs": [
+          "source-case:PD-10"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-10"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-10",
+          "root_cause_ref": "RC-PD-10",
+          "success_condition": "partially_qualified",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "partially_qualified",
+      "expected_state_structured": {
+        "value": "partially_qualified",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "partially_qualified",
+        "trigger": "evaluate:PD-10"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "b22045427bac52fa0eb95c76993386dca62345aa7e439dabcec960cd3f56b3af"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-11",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-11",
+      "source_hash": "a78a3f00db9100925300d20ab75591902bad393ba89419a3f0e733c8e16befb1",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
+      "case_execution_binding_hash": "08ca4b75439f7ddb792a9a7d021668008d9ee5fbdc5ac5a9a3d5cff1c10daed9",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-11"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-11"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-11",
+          "assertion": "recompute_required",
+          "evidence_refs": [
+            "source-case:PD-11"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-11"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-11",
+        "assertion": "domain_adjudication_required_for:PD-11",
+        "evidence_refs": [
+          "source-case:PD-11"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-11"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-11",
+          "root_cause_ref": "RC-PD-11",
+          "success_condition": "recompute_required",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "recompute_required",
+      "expected_state_structured": {
+        "value": "recompute_required",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "recompute_required",
+        "trigger": "evaluate:PD-11"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "a78a3f00db9100925300d20ab75591902bad393ba89419a3f0e733c8e16befb1"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-12",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-12",
+      "source_hash": "99bbf3e21b5b0dc605b466c8800a14aa1cc339da0496b4d50e5cf721c97cd3f7",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "1abf9c3be6abe007aabdc658de5936d25a415f7b42f986238c632286eea7dd07",
+      "case_execution_binding_hash": "5ac07fb0a174e76241f5a7c43942adf0bf4a43a8a302725b278d5349129d41bc",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-12"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-12"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-12",
+          "assertion": "idempotent_no_change",
+          "evidence_refs": [
+            "source-case:PD-12"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-12"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-12",
+        "assertion": "domain_adjudication_required_for:PD-12",
+        "evidence_refs": [
+          "source-case:PD-12"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-12"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-12",
+          "root_cause_ref": "RC-PD-12",
+          "success_condition": "idempotent_no_change",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "idempotent_no_change",
+      "expected_state_structured": {
+        "value": "idempotent_no_change",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "idempotent_no_change",
+        "trigger": "evaluate:PD-12"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "99bbf3e21b5b0dc605b466c8800a14aa1cc339da0496b4d50e5cf721c97cd3f7"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-13",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-13",
+      "source_hash": "2ed2d19a2880f121cb91ef97cabccdefe751cf34ba694839f2b418c6cfa914c9",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "43090f032d6a72f2d1bd57b69d17258fe6035ec698ce61e66996e2314f1208f5",
+      "case_execution_binding_hash": "cc96f9b88c876d2f7a1f3c803322ef3685a60981c4e58d1a60f81181e3ddbb7f",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-13"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-13"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-13",
+          "assertion": "new_child_cycle",
+          "evidence_refs": [
+            "source-case:PD-13"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-13"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-13",
+        "assertion": "domain_adjudication_required_for:PD-13",
+        "evidence_refs": [
+          "source-case:PD-13"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-13"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-13",
+          "root_cause_ref": "RC-PD-13",
+          "success_condition": "new_child_cycle",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "new_child_cycle",
+      "expected_state_structured": {
+        "value": "new_child_cycle",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "new_child_cycle",
+        "trigger": "evaluate:PD-13"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "2ed2d19a2880f121cb91ef97cabccdefe751cf34ba694839f2b418c6cfa914c9"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-14",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-14",
+      "source_hash": "a3f47ee717c935d1764a0148c1152b289a78588a917777c60c1697ec0a337519",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "717606e297d6070faf20b99a2bde6aee0796a86f252f2253d9ee1ee77dcf53dc",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-14"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-14"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-14",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:PD-14"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-14"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-14",
+        "assertion": "domain_adjudication_required_for:PD-14",
+        "evidence_refs": [
+          "source-case:PD-14"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-14"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-14",
+          "root_cause_ref": "RC-PD-14",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:PD-14"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "a3f47ee717c935d1764a0148c1152b289a78588a917777c60c1697ec0a337519"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-PD-15",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "PD-15",
+      "source_hash": "28d11688fab2f5965f0a7916f600cdeaf97c96f5ff430c2e7252e893f3b882e4",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "a21cc0a3db036a1261a0afaf0c5df5f379497f242f6ea6ea96a842255256d6f4",
+      "case_execution_binding_hash": "94e2c7626f6a6efd57c86c54135be8baddd0eb3deebadc0653473475ca1be418",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:PD-15"
+      ],
+      "counterevidence": [
+        "mutation-oracle:PD-15"
+      ],
+      "claims": [
+        {
+          "id": "CL-PD-15",
+          "assertion": "rolled_back",
+          "evidence_refs": [
+            "source-case:PD-15"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:PD-15"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-PD-15",
+        "assertion": "domain_adjudication_required_for:PD-15",
+        "evidence_refs": [
+          "source-case:PD-15"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:PD-15"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:PD-15",
+          "root_cause_ref": "RC-PD-15",
+          "success_condition": "rolled_back",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "rolled_back",
+      "expected_state_structured": {
+        "value": "rolled_back",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "rolled_back",
+        "trigger": "evaluate:PD-15"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "28d11688fab2f5965f0a7916f600cdeaf97c96f5ff430c2e7252e893f3b882e4"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-01",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-01",
+      "source_hash": "a17ce48e15005d58a90580c2af0f57e797392428804ef43151444672d39457b6",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "826139b09e5f2a02eeaab7ba3e492ba2f1b919dba024d73deb112b6b20f5aa71",
+      "case_execution_binding_hash": "06d1e954f94df17d35dae48e7fa1555d7057631a26937fee496afe47da2c5039",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-01"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-01"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-01",
+          "assertion": "owner_approval_pending",
+          "evidence_refs": [
+            "source-case:SR-01"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-01"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-01",
+        "assertion": "domain_adjudication_required_for:SR-01",
+        "evidence_refs": [
+          "source-case:SR-01"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-01"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-01",
+          "root_cause_ref": "RC-SR-01",
+          "success_condition": "owner_approval_pending",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "owner_approval_pending",
+      "expected_state_structured": {
+        "value": "owner_approval_pending",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "owner_approval_pending",
+        "trigger": "evaluate:SR-01"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "a17ce48e15005d58a90580c2af0f57e797392428804ef43151444672d39457b6"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-02",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-02",
+      "source_hash": "ae628dec9bcd3c5694e3b97988b5b10e28a6840056f579a2b75ad1e2dd1d700e",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
+      "case_execution_binding_hash": "0b416d974729c5ebab2ec814bebbce88dd66b28bba5672eb0a7a8270fbc43b5b",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-02"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-02"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-02",
+          "assertion": "inconclusive",
+          "evidence_refs": [
+            "source-case:SR-02"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-02"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-02",
+        "assertion": "domain_adjudication_required_for:SR-02",
+        "evidence_refs": [
+          "source-case:SR-02"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-02"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-02",
+          "root_cause_ref": "RC-SR-02",
+          "success_condition": "inconclusive",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "inconclusive",
+      "expected_state_structured": {
+        "value": "inconclusive",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "inconclusive",
+        "trigger": "evaluate:SR-02"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "ae628dec9bcd3c5694e3b97988b5b10e28a6840056f579a2b75ad1e2dd1d700e"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-03",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-03",
+      "source_hash": "3003089c0c732ed3769ed6969476af1657d33fada696c12a54e1e5cecf1b1075",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "d001639272964a406bed6092bd1633b8c5b9d910d12249fee7e7c64ffbf20a62",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-03"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-03"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-03",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:SR-03"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-03"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-03",
+        "assertion": "domain_adjudication_required_for:SR-03",
+        "evidence_refs": [
+          "source-case:SR-03"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-03"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-03",
+          "root_cause_ref": "RC-SR-03",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:SR-03"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "3003089c0c732ed3769ed6969476af1657d33fada696c12a54e1e5cecf1b1075"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-04",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-04",
+      "source_hash": "16b859313f394073542c3330f42075d7517ee1e8bb434b239e8513846ab18a82",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "f3d4c17379d4f25f0bc0ac9decbe7efadfd126c673e2c0fc7f4f38c48a7e5390",
+      "case_execution_binding_hash": "b02fce77167f5a3bc7e461e9f9402b1efc1a316d0060998923354dae88955eaa",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-04"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-04"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-04",
+          "assertion": "noncausal_only",
+          "evidence_refs": [
+            "source-case:SR-04"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-04"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-04",
+        "assertion": "domain_adjudication_required_for:SR-04",
+        "evidence_refs": [
+          "source-case:SR-04"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-04"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-04",
+          "root_cause_ref": "RC-SR-04",
+          "success_condition": "noncausal_only",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "noncausal_only",
+      "expected_state_structured": {
+        "value": "noncausal_only",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "noncausal_only",
+        "trigger": "evaluate:SR-04"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "16b859313f394073542c3330f42075d7517ee1e8bb434b239e8513846ab18a82"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-05",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-05",
+      "source_hash": "103b8ccb8e4c538ea9fe5324b84f8e2ee1881b0be3a85b601e1142a7867e5bfc",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
+      "case_execution_binding_hash": "e65de83a444f4e7615f5daf8266de143a9364a2f04e2b8e4fac9158b29a98f40",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-05"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-05"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-05",
+          "assertion": "inconclusive",
+          "evidence_refs": [
+            "source-case:SR-05"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-05"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-05",
+        "assertion": "domain_adjudication_required_for:SR-05",
+        "evidence_refs": [
+          "source-case:SR-05"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-05"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-05",
+          "root_cause_ref": "RC-SR-05",
+          "success_condition": "inconclusive",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "inconclusive",
+      "expected_state_structured": {
+        "value": "inconclusive",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "inconclusive",
+        "trigger": "evaluate:SR-05"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "103b8ccb8e4c538ea9fe5324b84f8e2ee1881b0be3a85b601e1142a7867e5bfc"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-06",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-06",
+      "source_hash": "ef7da4666aee4ab9a5acb9c8e1db73267f7b39102000c0f49513a687dc096b47",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
+      "case_execution_binding_hash": "792d3d1c860380f3f14b36e0633de01e8c722a17e6eb9e009936f829e01a2b2f",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-06"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-06"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-06",
+          "assertion": "partially_qualified",
+          "evidence_refs": [
+            "source-case:SR-06"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-06"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-06",
+        "assertion": "domain_adjudication_required_for:SR-06",
+        "evidence_refs": [
+          "source-case:SR-06"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-06"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-06",
+          "root_cause_ref": "RC-SR-06",
+          "success_condition": "partially_qualified",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "partially_qualified",
+      "expected_state_structured": {
+        "value": "partially_qualified",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "partially_qualified",
+        "trigger": "evaluate:SR-06"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "ef7da4666aee4ab9a5acb9c8e1db73267f7b39102000c0f49513a687dc096b47"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-07",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-07",
+      "source_hash": "ac599a2224cf4d04eb97554f5b226f31d1cce4ae7d9ee91d80017f803f8606dd",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "d8f5a841df90fc5a2af4ec62f1bb2016d6e516a4a446c90376fec8f97ea508e2",
+      "case_execution_binding_hash": "67a58908381af29ce69fb08115b8cc034d0618f8b2af5baa4d9a7fdc6d677a12",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-07"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-07"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-07",
+          "assertion": "conflict_pending",
+          "evidence_refs": [
+            "source-case:SR-07"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-07"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-07",
+        "assertion": "domain_adjudication_required_for:SR-07",
+        "evidence_refs": [
+          "source-case:SR-07"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-07"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-07",
+          "root_cause_ref": "RC-SR-07",
+          "success_condition": "conflict_pending",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "conflict_pending",
+      "expected_state_structured": {
+        "value": "conflict_pending",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "conflict_pending",
+        "trigger": "evaluate:SR-07"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "ac599a2224cf4d04eb97554f5b226f31d1cce4ae7d9ee91d80017f803f8606dd"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-08",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-08",
+      "source_hash": "61f2e52ce1dd1e89b4e0eca0e1cf6aa57409bb6751fa4354cea755e412eee0a4",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "85ffb4cc6b7d3abf3437f9ab1c92bceee4778e59ae0bd34f5387e52f171d8a92",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-08"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-08"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-08",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:SR-08"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-08"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-08",
+        "assertion": "domain_adjudication_required_for:SR-08",
+        "evidence_refs": [
+          "source-case:SR-08"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-08"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-08",
+          "root_cause_ref": "RC-SR-08",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:SR-08"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "61f2e52ce1dd1e89b4e0eca0e1cf6aa57409bb6751fa4354cea755e412eee0a4"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-09",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-09",
+      "source_hash": "416b5261bf16aa5cd4b31dad88e3a9e3f505e559b92dadbca3e7b0bea878df1f",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
+      "case_execution_binding_hash": "197ff8f8aa5ec0ae04094a6df6a3d0c54ff75b4b7229f88881bd17b630cbc437",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-09"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-09"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-09",
+          "assertion": "recompute_required",
+          "evidence_refs": [
+            "source-case:SR-09"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-09"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-09",
+        "assertion": "domain_adjudication_required_for:SR-09",
+        "evidence_refs": [
+          "source-case:SR-09"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-09"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-09",
+          "root_cause_ref": "RC-SR-09",
+          "success_condition": "recompute_required",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "recompute_required",
+      "expected_state_structured": {
+        "value": "recompute_required",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "recompute_required",
+        "trigger": "evaluate:SR-09"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "416b5261bf16aa5cd4b31dad88e3a9e3f505e559b92dadbca3e7b0bea878df1f"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-10",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-10",
+      "source_hash": "4cc993e475a0d8c99e0b8af8f34be16be49699efdb3348d03c4ccd0c42b62c52",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
+      "case_execution_binding_hash": "9cdc316d6ebcb812098db3fc1e2cf8e05fee1169b28d64209449947127f28d2e",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-10"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-10"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-10",
+          "assertion": "partially_qualified",
+          "evidence_refs": [
+            "source-case:SR-10"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-10"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-10",
+        "assertion": "domain_adjudication_required_for:SR-10",
+        "evidence_refs": [
+          "source-case:SR-10"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-10"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-10",
+          "root_cause_ref": "RC-SR-10",
+          "success_condition": "partially_qualified",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "partially_qualified",
+      "expected_state_structured": {
+        "value": "partially_qualified",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "partially_qualified",
+        "trigger": "evaluate:SR-10"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "4cc993e475a0d8c99e0b8af8f34be16be49699efdb3348d03c4ccd0c42b62c52"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-11",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-11",
+      "source_hash": "ac8af71a86e83d533281666d45f5e305bf54424e1e2455acb0f446b4ae2d7399",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
+      "case_execution_binding_hash": "4866a4a1f4335bf14c1c839113a0bb42194ff15345550aa06305bf932f46064f",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-11"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-11"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-11",
+          "assertion": "recompute_required",
+          "evidence_refs": [
+            "source-case:SR-11"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-11"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-11",
+        "assertion": "domain_adjudication_required_for:SR-11",
+        "evidence_refs": [
+          "source-case:SR-11"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-11"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-11",
+          "root_cause_ref": "RC-SR-11",
+          "success_condition": "recompute_required",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "recompute_required",
+      "expected_state_structured": {
+        "value": "recompute_required",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "recompute_required",
+        "trigger": "evaluate:SR-11"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "ac8af71a86e83d533281666d45f5e305bf54424e1e2455acb0f446b4ae2d7399"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-12",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-12",
+      "source_hash": "a7a4b6e624823464bffccf04061271d600fb39878a5cd93c280e276bdbd33c10",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "1abf9c3be6abe007aabdc658de5936d25a415f7b42f986238c632286eea7dd07",
+      "case_execution_binding_hash": "cc18e6ac2bf216c0d3a0719cfd1fc8f4fafccaf64c79043e065980f240a9226b",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-12"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-12"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-12",
+          "assertion": "idempotent_no_change",
+          "evidence_refs": [
+            "source-case:SR-12"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-12"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-12",
+        "assertion": "domain_adjudication_required_for:SR-12",
+        "evidence_refs": [
+          "source-case:SR-12"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-12"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-12",
+          "root_cause_ref": "RC-SR-12",
+          "success_condition": "idempotent_no_change",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "idempotent_no_change",
+      "expected_state_structured": {
+        "value": "idempotent_no_change",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "idempotent_no_change",
+        "trigger": "evaluate:SR-12"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "a7a4b6e624823464bffccf04061271d600fb39878a5cd93c280e276bdbd33c10"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-13",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-13",
+      "source_hash": "a239e8afdfbdbf45d8d52086ec97d6b89f3c65a4102d4c7d0835e722ec656b4b",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "43090f032d6a72f2d1bd57b69d17258fe6035ec698ce61e66996e2314f1208f5",
+      "case_execution_binding_hash": "1bf46e29d7a918bdbae44e6c6675ec766166b59f86b41b830d1a799807227283",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-13"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-13"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-13",
+          "assertion": "new_child_cycle",
+          "evidence_refs": [
+            "source-case:SR-13"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-13"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-13",
+        "assertion": "domain_adjudication_required_for:SR-13",
+        "evidence_refs": [
+          "source-case:SR-13"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-13"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-13",
+          "root_cause_ref": "RC-SR-13",
+          "success_condition": "new_child_cycle",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "new_child_cycle",
+      "expected_state_structured": {
+        "value": "new_child_cycle",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "new_child_cycle",
+        "trigger": "evaluate:SR-13"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "a239e8afdfbdbf45d8d52086ec97d6b89f3c65a4102d4c7d0835e722ec656b4b"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-14",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-14",
+      "source_hash": "ba802fcac58616eb57c045d56c6745e4a669422a97bb3e3e3ae80ff043ca8d1e",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
+      "case_execution_binding_hash": "3f6da4564414fb138fa64f0c6632222f0056b3e1270de1d4559c9a050cc1426f",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-14"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-14"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-14",
+          "assertion": "blocked",
+          "evidence_refs": [
+            "source-case:SR-14"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-14"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-14",
+        "assertion": "domain_adjudication_required_for:SR-14",
+        "evidence_refs": [
+          "source-case:SR-14"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-14"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-14",
+          "root_cause_ref": "RC-SR-14",
+          "success_condition": "blocked",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "blocked",
+      "expected_state_structured": {
+        "value": "blocked",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "blocked",
+        "trigger": "evaluate:SR-14"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "ba802fcac58616eb57c045d56c6745e4a669422a97bb3e3e3ae80ff043ca8d1e"
+    },
+    {
+      "schema_version": "1.0.0",
+      "case_id": "PRO-D14-SR-15",
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "source_case_id": "SR-15",
+      "source_hash": "b1a5c91ef3b500046230fe6871a146ddd3024353734628bd02153869921938b7",
+      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_binding": {
+        "level": "domain_root",
+        "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "case_report_path": null
+      },
+      "case_oracle_hash": "a21cc0a3db036a1261a0afaf0c5df5f379497f242f6ea6ea96a842255256d6f4",
+      "case_execution_binding_hash": "40dcc8e5c526b9d552532e388c0aa1894825cd02ede7efeb63aaa5051b000add",
+      "mode": "standard",
+      "object_ref": "D14:evaluation-object@v1",
+      "object_version": "v1",
+      "inputs": {
+        "provided": [
+          "expected",
+          "id",
+          "scenario",
+          "variant"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "source-case:SR-15"
+      ],
+      "counterevidence": [
+        "mutation-oracle:SR-15"
+      ],
+      "claims": [
+        {
+          "id": "CL-SR-15",
+          "assertion": "rolled_back",
+          "evidence_refs": [
+            "source-case:SR-15"
+          ],
+          "counterevidence_refs": [
+            "mutation-oracle:SR-15"
+          ],
+          "decision_impact": "sets_the_bounded_domain_action_ceiling"
+        }
+      ],
+      "root_cause": {
+        "id": "RC-SR-15",
+        "assertion": "domain_adjudication_required_for:SR-15",
+        "evidence_refs": [
+          "source-case:SR-15"
+        ],
+        "counterevidence_refs": [
+          "mutation-oracle:SR-15"
+        ]
+      },
+      "actions": [
+        {
+          "action": "execute_required_behavior_for:SR-15",
+          "root_cause_ref": "RC-SR-15",
+          "success_condition": "rolled_back",
+          "stop_condition": "跨域越权",
+          "rollback": "restore_last_validated_version_and_recompute_dependents"
+        }
+      ],
+      "expected_state": "rolled_back",
+      "expected_state_structured": {
+        "value": "rolled_back",
+        "source_type": "scalar"
+      },
+      "required_behaviors": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界"
+      ],
+      "forbidden_behaviors": [
+        "跨域越权",
+        "把合成评测当作L4证据"
+      ],
+      "calculations": [
+        {
+          "status": "not_applicable",
+          "validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py"
+        }
+      ],
+      "sovereignty": {
+        "owner": "cross-domain-operating-posture-orchestration",
+        "allowed_uses": [
+          "decision_support",
+          "engineering_evaluation"
+        ],
+        "forbidden_uses": [
+          "external_write",
+          "production_ready",
+          "l4_claim"
+        ]
+      },
+      "state_transition": {
+        "from": "unassessed",
+        "to": "rolled_back",
+        "trigger": "evaluate:SR-15"
+      },
+      "rollback": "restore_last_validated_version_and_recompute_dependents",
+      "semantic_assertions": [
+        "经营姿态合成",
+        "依赖编排",
+        "冲突升级",
+        "主权边界",
+        "反证必须能够改变结论",
+        "主权边界不可越权"
+      ],
+      "evidence_fingerprint": "b1a5c91ef3b500046230fe6871a146ddd3024353734628bd02153869921938b7"
     }
   ]
 }

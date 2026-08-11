@@ -1,0 +1,1 @@
+{"view":"problem_diagnosis","source_contracts":["diagnostic_graph","cross_domain_conflict"],"renders":["observed_change","candidate_explanation","domain_support","counter_evidence","causal_grade","conflicts"],"computes":[],"external_write":false}

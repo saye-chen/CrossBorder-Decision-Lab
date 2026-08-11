@@ -4,7 +4,7 @@
   "normalized_index": "evaluations/professional-evaluation-index.json",
   "normalized_schema": "governance/professional-evaluation-case.schema.json",
   "policy": {
-    "scope": "all current D01-D13 domains",
+    "scope": "all current D01-D14 domains",
     "engineering_gate": "computed from repository evidence",
     "l4_external_assurance": "reported separately and never inferred from synthetic evaluations",
     "compatibility_paths_are_authoritative": false
@@ -152,6 +152,17 @@
       "numeric_validator": "consumer-insights-customer-growth/scripts/test_growth.py",
       "minimum_cases": 24,
       "semantic_markers": ["身份授权", "收入守恒", "Cohort", "净增量价值"]
+    },
+    {
+      "domain_id": "D14",
+      "skill": "cross-domain-operating-posture-orchestration",
+      "runtime": "COPO-2026.07",
+      "catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
+      "golden": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
+      "semantic_validator": "cross-domain-operating-posture-orchestration/tests/test_copo.py",
+      "numeric_validator": "cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py",
+      "minimum_cases": 45,
+      "semantic_markers": ["经营姿态合成", "依赖编排", "冲突升级", "主权边界"]
     }
   ]
 }

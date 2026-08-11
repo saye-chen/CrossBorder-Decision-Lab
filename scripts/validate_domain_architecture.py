@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the D01-D14 target architecture without treating planned domains as live."""
+"""Validate the current D01-D14 target architecture and sovereignty boundaries."""
 from __future__ import annotations
 
 import json
@@ -194,4 +194,4 @@ if __name__ == "__main__":
     failures = validate()
     if failures:
         raise SystemExit("Domain architecture validation failed:\n- " + "\n- ".join(failures))
-    print("Domain architecture validation passed for D01-D14; 13 current and D14 planned.")
+    print("Domain architecture validation passed for 14 current domains (D01-D14).")

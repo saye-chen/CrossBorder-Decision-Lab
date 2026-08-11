@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail closed when the 13-domain professional evaluation evidence drifts."""
+"""Fail closed when current-domain professional evaluation evidence drifts."""
 from __future__ import annotations
 
 import hashlib
@@ -77,8 +77,8 @@ def validate(registry: dict[str, Any] | None = None, index: dict[str, Any] | Non
     rows = registry.get("domains", [])
     current = current_domains()
     by_domain = {x.get("domain_id"): x for x in rows}
-    if set(by_domain) != set(current) or len(rows) != 13:
-        errors.append("registry must cover exactly current D01-D13 once")
+    if set(by_domain) != set(current) or len(rows) != len(current):
+        errors.append("registry must cover every current domain exactly once")
     policy = registry.get("policy", {})
     if policy.get("l4_external_assurance") != "reported separately and never inferred from synthetic evaluations":
         errors.append("L4 separation policy missing")
@@ -124,7 +124,7 @@ def validate(registry: dict[str, Any] | None = None, index: dict[str, Any] | Non
                 errors.append(f"{domain_id}: placeholder in golden: {token}")
 
     normalized = index.get("cases", [])
-    if index.get("domain_count") != 13 or index.get("l4_external_assurance") != "separate_not_inferred":
+    if index.get("domain_count") != len(current) or index.get("l4_external_assurance") != "separate_not_inferred":
         errors.append("normalized index scope or L4 separation invalid")
     if index.get("case_count") != expected_count or len(normalized) != expected_count:
         errors.append("normalized index case count does not match authoritative catalogs")
@@ -132,8 +132,8 @@ def validate(registry: dict[str, Any] | None = None, index: dict[str, Any] | Non
         errors.append("normalized case ids are not unique")
     indexed_keys: set[tuple[str, str]] = set()
     index_domains = {x.get("domain_id"): x for x in index.get("domains", [])}
-    if set(index_domains) != set(current) or len(index.get("domains", [])) != 13:
-        errors.append("normalized domain index must cover current D01-D13 exactly once")
+    if set(index_domains) != set(current) or len(index.get("domains", [])) != len(current):
+        errors.append("normalized domain index must cover every current domain exactly once")
     for domain_id, row in by_domain.items():
         if domain_id not in current:
             continue

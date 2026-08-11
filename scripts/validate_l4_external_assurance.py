@@ -15,10 +15,10 @@ def evaluate(registry: dict | None = None) -> tuple[list[str], bool]:
     errors: list[str] = []
     registry = registry or json.loads(REGISTRY.read_text())
     architecture = json.loads((ROOT / "governance/domain-architecture-registry.json").read_text())
-    current = {x["domain_id"] for x in architecture["domains"] if x["availability"] == "current" and x["domain_id"] != "D14"}
+    current = {x["domain_id"] for x in architecture["domains"] if x["availability"] == "current"}
     rows = registry.get("domains", [])
-    if {x.get("domain_id") for x in rows} != current or len(rows) != 13:
-        errors.append("L4 registry must cover D01-D13 exactly once")
+    if {x.get("domain_id") for x in rows} != current or len(rows) != len(current):
+        errors.append("L4 registry must cover every current domain exactly once")
     minimum = registry.get("minimum_authorized_replays_per_domain")
     required = set(registry.get("required_case_fields", []))
     prohibited = set(registry.get("prohibited_evidence", []))
