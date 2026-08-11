@@ -1,0 +1,1 @@
+{"consumer_id":"D07","contract":"LCCA-HANDOFF-1.0","owned_decision":"logistics_inventory_fulfillment","forbidden_inference":"comparable_route_authorizes_replenishment","failure_closed":true,"rollback_supported":true,"external_write":false}

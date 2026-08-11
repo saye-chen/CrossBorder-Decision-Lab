@@ -49,7 +49,7 @@
       "foundation_id": "F02",
       "name": "localization-country-calibration",
       "runtime_prefix": "LCCA",
-      "availability": "planned",
+      "availability": "current",
       "capability_type": "shared_decision_foundation",
       "owns_business_decisions": false,
       "claim_authorities": [
@@ -72,7 +72,7 @@
       "consumers": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13", "D14"],
       "blocking_gates": ["LOCALIZATION_SCOPE", "COMPARABILITY", "DYNAMIC_FACT_FRESHNESS"],
       "external_write_authority": false,
-      "maturity": "planned"
+      "maturity": "controlled_pilot"
     }
   ]
 }

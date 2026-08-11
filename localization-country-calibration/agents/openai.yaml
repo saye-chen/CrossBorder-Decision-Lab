@@ -1,0 +1,4 @@
+interface:
+  display_name: "本地化与国家校准"
+  short_description: "校验跨市场作用域、动态事实、确定性转换、可比性和迁移等级"
+  default_prompt: "使用 $localization-country-calibration 校验目标市场作用域、动态事实、可比性与迁移上限，不替代专业域作最终决定。"

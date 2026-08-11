@@ -57,7 +57,7 @@ def validate() -> list[str]:
 
     current = {item["skill"] for item in domains if item["availability"] == "current"}
     unavailable = {item["skill"] for item in domains if item["availability"] in {"next_build", "planned"}}
-    non_domain_skills = {"article-draft-publisher", "authored-voice", "experiment-causal-assessment"}
+    non_domain_skills = {"article-draft-publisher", "authored-voice", "experiment-causal-assessment", "localization-country-calibration"}
     discovered = {path.parent.name for path in ROOT.glob("*/SKILL.md")} - non_domain_skills
     if current != discovered:
         errors.append(f"current registry/repository mismatch missing={sorted(discovered-current)} extra={sorted(current-discovered)}")
@@ -71,8 +71,11 @@ def validate() -> list[str]:
         errors.append(f"current registry/maturity mismatch missing={sorted(current-mature_skills)} extra={sorted(mature_skills-current)}")
 
     adapters = {path.parent.name for path in (ROOT / "governance/erdg/adapters").glob("*/adapter.json")}
-    if adapters != current:
-        errors.append(f"current registry/adapter mismatch missing={sorted(current-adapters)} extra={sorted(adapters-current)}")
+    foundations = json.loads((ROOT / "governance/foundation-capability-registry.json").read_text(encoding="utf-8"))
+    current_foundations = {item["name"] for item in foundations["foundations"] if item["availability"] == "current" and item["foundation_id"] == "F02"}
+    expected_adapters = current | current_foundations
+    if adapters != expected_adapters:
+        errors.append(f"current registry/adapter mismatch missing={sorted(expected_adapters-adapters)} extra={sorted(adapters-expected_adapters)}")
     for skill in sorted(current):
         adapter_path = ROOT / "governance/erdg/adapters" / skill / "adapter.json"
         try:

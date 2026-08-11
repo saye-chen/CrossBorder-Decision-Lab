@@ -17,7 +17,7 @@ jobs:
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision localization-country-calibration governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -78,6 +78,8 @@ jobs:
           python3 legal-tax-intellectual-property-market-access-decision/scripts/test_integration_migration.py
           python3 legal-tax-intellectual-property-market-access-decision/scripts/test_release_candidate.py
           python3 legal-tax-intellectual-property-market-access-decision/scripts/validate_release_candidate.py
+          python3 -m unittest discover -s localization-country-calibration/tests -p 'test_*.py'
+          python3 scripts/validate_f02_release.py --require-l3
           python3 scripts/test_logistics_stress.py
       - name: Cross-domain and thirteen-skill expert release tests
         run: |
