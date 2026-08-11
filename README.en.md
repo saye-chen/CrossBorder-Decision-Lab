@@ -6,9 +6,9 @@
 
 Current release train: `2026.07`; target architecture: `CBDS-ARCH-2026.07`; shared contract: `ERDG-CONTRACT-2026.07`.
 
-CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, legal/tax/IP/market access, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into thirteen professional domains that can operate independently and collaborate under shared decision contracts.
+CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, legal/tax/IP/market access, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into fourteen professional domains that can operate independently and collaborate under shared decision contracts.
 
-The system includes thirteen professional domains with complete core workflows and expert-level L1–L3 repository gates, ERDG, and the current F01 experiment/causal-assessment and F02 localization/country-calibration foundations. D05/LTMA adds commercial market-access gates, action ceilings, claim-use boundaries, qualified professional-review routing, dynamic-rule controls, and incident recovery. It does not issue legal, tax, FTO, certification, or laboratory opinions. System maturity remains `controlled_pilot`; L4 is open, so real production decisions, high-stakes use, and external writes are unavailable.
+The system includes fourteen professional domains with complete core workflows and expert-level L1–L3 repository gates, ERDG, and the current F01 experiment/causal-assessment and F02 localization/country-calibration foundations. D05/LTMA adds commercial market-access gates, action ceilings, claim-use boundaries, qualified professional-review routing, dynamic-rule controls, and incident recovery. It does not issue legal, tax, FTO, certification, or laboratory opinions. System maturity remains `controlled_pilot`; L4 is open, so real production decisions, high-stakes use, and external writes are unavailable.
 
 CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room reimplements external research ideas as eight deterministic candidate-signal families with multi-source field quality, five composition playbooks, effective-supply/VOC analysis, proof-bound CIDM-to-PLCO handoff, partial-failure DAG execution, R0–R4 recovery, an independent oracle, and 13 source mutations. The layer expands candidate coverage only; it cannot directly change the seven-dimension score, capital posture, or cross-domain sovereignty. The authorized 20-case blind replay, 20-person non-implementer comprehension test, and forward calibration remain open, so this is not a production-maturity claim.
 
@@ -121,7 +121,7 @@ This moves the system from “answering professional questions” toward “cont
 
 ```mermaid
 flowchart TB
-    U["Operating question · event · new evidence"] --> D14["D14 coordinated posture and orchestration<br/>Planned"]
+    U["Operating question · event · new evidence"] --> D14["D14 coordinated posture and orchestration<br/>Controlled pilot"]
     D14 --> D01["D01 CIDM<br/>Capital and portfolio"]
     D14 --> D02["D02 CIM<br/>Competitive facts"]
     D14 --> D03["D03 PIPM<br/>Product definition"]
@@ -262,7 +262,7 @@ Before domain reasoning, the [`Prompt Intake Guard`](governance/interaction/inte
 
 ## Current Capabilities
 
-The current version provides thirteen professional decision Skills that have completed their expert-level L1–L3 repository gates and can operate independently or collaborate across domains. It includes:
+The current version provides fourteen professional decision Skills that have completed their expert-level L1–L3 repository gates and can operate independently or collaborate across domains. It includes:
 
 - professional scenario and lifecycle coverage;
 - deterministic economics and statistical estimation tools;
