@@ -1,0 +1,19 @@
+{
+  "schema_version":"1.0.0","migration_id":"LCCA-CONSUMER-MIGRATION-1.0","source_contract":"F02-temporary-localization-contract-v1","target_contract":"LCCA-1.0","state":"cutover_ready",
+  "consumers":[
+    {"consumer_id":"D01","owner":"category-investment-decision","adapter_ref":"category-investment-decision/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D02","owner":"competitive-intelligence-monitoring","adapter_ref":"competitive-intelligence-monitoring/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D03","owner":"product-innovation-product-management","adapter_ref":"product-innovation-product-management/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D04","owner":"supplier-procurement-production-quality-decision","adapter_ref":"supplier-procurement-production-quality-decision/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D05","owner":"legal-tax-intellectual-property-market-access-decision","adapter_ref":"legal-tax-intellectual-property-market-access-decision/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D06","owner":"pricing-profit-finance-cashflow-decision","adapter_ref":"pricing-profit-finance-cashflow-decision/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D07","owner":"logistics-inventory-fulfillment-decision","adapter_ref":"logistics-inventory-fulfillment-decision/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D08","owner":"platform-store-listing-conversion","adapter_ref":"platform-store-listing-conversion/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D09","owner":"advertising-analysis-measurement-optimization","adapter_ref":"advertising-analysis-measurement-optimization/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D10","owner":"creator-affiliate-partnership-management","adapter_ref":"creator-affiliate-partnership-management/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D11","owner":"video-link-breakdown","adapter_ref":"video-link-breakdown/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D12","owner":"marketing-brand-campaign-management","adapter_ref":"marketing-brand-campaign-management/integrations/localization-country-calibration/adapter.json"},
+    {"consumer_id":"D13","owner":"consumer-insights-customer-growth","adapter_ref":"consumer-insights-customer-growth/integrations/localization-country-calibration/adapter.json"}
+  ],
+  "completion_gate":{"controlled_pilot_acceptance_complete":true,"production_acceptance_complete":false,"external_write":false}
+}

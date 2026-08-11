@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "blueprint_hash_match": true,
+    "consumer_adapters_13_of_13": true,
+    "missing_artifacts": [],
+    "tests": {
+      "output": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.041s\n\nOK\n",
+      "pass": true
+    }
+  },
+  "f02_release_audit": {
+    "availability": "current",
+    "controlled_pilot_released": true,
+    "l1_structure": true,
+    "l2_contract": true,
+    "l3_expert": true,
+    "l4_external_assurance": false,
+    "manifest_consistent": true,
+    "maturity": "controlled_pilot",
+    "premature_promotion": false,
+    "remaining_gate_class": "L4_EXTERNAL_ONLY"
+  },
+  "l4_blockers": {
+    "authorized_real_replay_pending": true,
+    "independent_nonimplementer_review_pending": true,
+    "production_consumer_acceptance_pending": true
+  },
+  "policy": {
+    "external_write": false,
+    "production_ready": false
+  },
+  "schema_version": "1.0.0"
+}

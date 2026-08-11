@@ -11,6 +11,7 @@ import tempfile
 import unittest
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
+F02_RUNTIME="LCCA-2026.07"
 SKILLS={
  "category-investment-decision":("investment","CIDM-2026.07","cidm"),
  "competitive-intelligence-monitoring":("competition","CIM-2026.07","cim"),
@@ -54,6 +55,15 @@ def shared_payload(skill,decision_type,runtime):
  return payload
 
 class FullRepositoryAudit(unittest.TestCase):
+ def test_00_f02_release_is_exercised_without_l4_claim(self):
+  self.assertEqual(F02_RUNTIME,"LCCA-2026.07")
+  result=subprocess.run([sys.executable,str(ROOT/'scripts/validate_f02_release.py'),'--require-l3'],capture_output=True,text=True)
+  self.assertEqual(result.returncode,0,(result.stdout,result.stderr))
+  audit=json.loads(result.stdout)
+  self.assertTrue(audit['f02_release_audit']['l3_expert'])
+  self.assertFalse(audit['f02_release_audit']['l4_external_assurance'])
+  self.assertFalse(audit['policy']['production_ready'])
+  self.assertFalse(audit['policy']['external_write'])
  def test_01_all_registered_skills_structurally_validate(self):
   for name in SKILLS:
    self.assertEqual(structural_validation_errors(name),[],name)
