@@ -1,6 +1,6 @@
 # CrossBorder Decision Lab
 
-[中文首页](README.md) · [Skill Directory](#skill-directory) · [F01 and ERDG](#shared-decision-infrastructure) · [System Architecture](#system-architecture) · [How to Use](#how-to-use)
+[中文首页](README.md) · [Professional Capabilities](#professional-capabilities) · [Decision Infrastructure](#global-decision-infrastructure) · [Collaboration Architecture](#professional-capability-architecture) · [How to Use](#how-to-use)
 
 > Professional decision infrastructure for cross-border commerce—turning experience-dependent judgment into evidence-based, model-backed, actionable, and compounding decision assets.
 
@@ -8,7 +8,7 @@ Current release train: `2026.07`; target architecture: `CBDS-ARCH-2026.07`; shar
 
 CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, legal/tax/IP/market access, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into fourteen professional domains that can operate independently and collaborate under shared decision contracts.
 
-The system includes fourteen professional domains with complete core workflows and expert-level L1–L3 repository gates, ERDG, and the current F01 experiment/causal-assessment and F02 localization/country-calibration foundations. D05/LTMA adds commercial market-access gates, action ceilings, claim-use boundaries, qualified professional-review routing, dynamic-rule controls, and incident recovery. It does not issue legal, tax, FTO, certification, or laboratory opinions. System maturity remains `controlled_pilot`; L4 is open, so real production decisions, high-stakes use, and external writes are unavailable.
+The system combines fourteen professional decision capabilities with three global foundations. COPO orchestrates cross-domain work; CIDM, CIM, PIPM, SPPQ, LTMA, PPFC, LIFD, MBCM, VLB, CAPM, PLCO, AAMO, and CIG retain their respective professional sovereignty. ECAE, LCCA, and ERDG govern causal eligibility, localization applicability, and shared decision contracts. Core engineering and L1–L3 release gates are complete, with maturity at `controlled_pilot`. L4 will advance through real use, outcome replay, parameter calibration, and independent assurance; until then, production automation, high-stakes use, and external writes remain unavailable.
 
 CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room reimplements external research ideas as eight deterministic candidate-signal families with multi-source field quality, five composition playbooks, effective-supply/VOC analysis, proof-bound CIDM-to-PLCO handoff, partial-failure DAG execution, R0–R4 recovery, an independent oracle, and 13 source mutations. The layer expands candidate coverage only; it cannot directly change the seven-dimension score, capital posture, or cross-domain sovereignty. The authorized 20-case blind replay, 20-person non-implementer comprehension test, and forward calibration remain open, so this is not a production-maturity claim.
 
@@ -18,13 +18,13 @@ CIDM now includes the governed `OSL-v1` opportunity-signal layer. It clean-room 
 flowchart TB
     subgraph IN["1. Evidence intake"]
       direction LR
-      RAW["External research<br/>raw evidence"] --> ADP["Evidence Adapter<br/>normalization · freshness · source family · lineage"]
+      RAW["External research evidence"] --> ADP["Evidence Adapter<br/>normalization · freshness · source family · lineage"]
       ADP --> CON["Signal contract<br/>object · window · counterevidence · alternatives"]
     end
     subgraph CORE["2. Signal computation"]
       direction LR
-      MOD["8 deterministic<br/>models"] <--> ORA["Independent Oracle<br/>status and metric dual calculation"]
-      ORA --> SIG["12 canonical<br/>signals"]
+      MOD["8 deterministic models"] <--> ORA["Independent Oracle<br/>status and metric dual calculation"]
+      ORA --> SIG["12 canonical signals"]
     end
     subgraph DEC["3. Decision governance"]
       direction LR
@@ -41,18 +41,8 @@ flowchart TB
     CARD --> HAND["Governed handoff<br/>PPFC · SPPQ · LIFD · PLCO"]
     GATE -->|redline / veto triggered| BLOCK["Blocked<br/>cannot be offset by a high score"]
     CARD -.evidence invalidated.-> DRIFT
-    RECOMPUTE -.re-enters evidence intake.-> RAW
+    RECOMPUTE -.enters the next decision cycle.-> REENTRY["Re-enter evidence intake"]
     EXT["External gates remain closed<br/>20-case blind replay · 20-person test · forward calibration"] -.limits maturity.-> CARD
-    classDef evidence fill:#e8f1ff,stroke:#3269a8,color:#17324d
-    classDef signal fill:#eaf7f0,stroke:#31845c,color:#153b2a
-    classDef decision fill:#fff4d8,stroke:#a87716,color:#4d3810
-    classDef recovery fill:#f3ecff,stroke:#7652a8,color:#34234d
-    classDef stop fill:#ffe9e7,stroke:#b84a42,color:#541e1a
-    class RAW,ADP,CON evidence
-    class MOD,ORA,SIG signal
-    class PLAY,GATE,CARD,HAND decision
-    class DRIFT,FREEZE,RECOMPUTE recovery
-    class BLOCK,EXT stop
 ```
 
 The diagram shows how candidate discovery is governed; it is not a parallel investment-scoring system. Signals pass through evidence intake, contract validation, deterministic models, independent dual calculation, composition playbooks, and CIDM's existing gates. Redlines, vetoes, and evidence invalidation take precedence and trigger blocking or recovery. The signal layer cannot approve investment, inventory, page, or advertising actions.
@@ -117,105 +107,120 @@ This moves the system from “answering professional questions” toward “cont
 
 ## System Architecture
 
-### D01-D14 target architecture
+### Professional capability architecture
 
 ```mermaid
 flowchart TB
-    U["Operating question · event · new evidence"] --> D14["D14 coordinated posture and orchestration<br/>Controlled pilot"]
-    D14 --> D01["D01 CIDM<br/>Capital and portfolio"]
-    D14 --> D02["D02 CIM<br/>Competitive facts"]
-    D14 --> D03["D03 PIPM<br/>Product definition"]
-    D14 --> D05["D05 LTMA<br/>Compliance and market access"]
-    D14 --> D06["D06 PPFC<br/>Pricing, profit, and cash"]
-    D01 --> D03 --> D04["D04 SPPQ<br/>Supply, procurement, production, and quality"] --> D07["D07 LIFD<br/>Logistics, inventory, and fulfillment"]
-    D07 --> D12["D12 MBCM<br/>Marketing, brand, and campaigns"]
-    D12 --> D11["D11 VLB<br/>Content creative"]
-    D12 --> D10["D10 CAPM<br/>Creator and affiliate"]
-    D11 --> D08["D08 PLCO<br/>Platform and conversion"]
-    D11 --> D09["D09 AAMO<br/>Advertising measurement"]
-    D10 --> D08
-    D10 --> D09
-    D08 --> D13["D13 CIG<br/>Customer, experience, and growth"]
-    D09 --> D13
-    D02 -.facts and continuous monitoring.-> D01
-    D05 -.access and continuous compliance.-> D04
-    D06 -.economic and cash boundaries.-> D04
-    D13 --> O["Actions, customer, and operating outcomes"]
-    O --> D06 --> D01 --> D14
-    O -.quality, competition, rules, and customer feedback.-> D02
-    O -.quality, competition, rules, and customer feedback.-> D04
-    O -.quality, competition, rules, and customer feedback.-> D05
-    E["ERDG governance control plane<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"] -.governs.-> D14
-    F["F01 experiment and causal assessment<br/>Protocols · estimands · CE0–CE5 · diagnostics · reproducibility"] -.causal and incremental claim eligibility.-> D01
-    F -.causal and incremental claim eligibility.-> D06
-    F -.causal and incremental claim eligibility.-> D12
-    O -.authorized outcome replay and calibration.-> F
-    E -.contract and release governance.-> F
-    E -.contract and redline validation.-> D01
-    E -.contract and redline validation.-> D04
-    E -.contract and redline validation.-> D12
-    O -.replay and parameter calibration.-> E
+    U["Operating question · event · new evidence"] --> COPO["COPO<br/>Operating posture orchestration"]
+
+    subgraph BOUNDARY["1. Decisions and constraints"]
+      direction LR
+      CIM["CIM<br/>Competitive facts"] -.facts and continuous monitoring.-> CIDM["CIDM<br/>Capital and portfolio"]
+      LTMA["LTMA<br/>Compliance and market access"]
+      PPFC["PPFC<br/>Pricing, profit, and cash"]
+    end
+    COPO --> CIM
+    COPO --> CIDM
+    COPO --> LTMA
+    COPO --> PPFC
+
+    subgraph REALIZE["2. Product realization"]
+      direction LR
+      PIPM["PIPM<br/>Product definition"] --> SPPQ["SPPQ<br/>Supply, procurement, production, and quality"] --> LIFD["LIFD<br/>Logistics, inventory, and fulfillment"]
+    end
+    CIDM --> PIPM
+    LTMA -.access and continuous compliance.-> SPPQ
+    PPFC -.economic and cash boundaries.-> SPPQ
+
+    subgraph GROWTH["3. Market growth"]
+      direction TB
+      MBCM["MBCM<br/>Marketing, brand, and campaigns"] --> VLB["VLB<br/>Content creative"]
+      MBCM --> CAPM["CAPM<br/>Creator and affiliate"]
+      VLB --> PLCO["PLCO<br/>Platform and conversion"]
+      VLB --> AAMO["AAMO<br/>Advertising measurement"]
+      CAPM --> PLCO
+      CAPM --> AAMO
+      PLCO --> CIG["CIG<br/>Customer, experience, and growth"]
+      AAMO --> CIG
+    end
+    LIFD --> MBCM
+    CIG --> O["Actions, customer, and operating outcomes"]
+    O --> REVIEW["4. Operating review and selective recomputation<br/>Economics · capital · competition · quality · compliance"]
+    REVIEW --> NEXT["Form the next-cycle operating posture<br/>Re-enter COPO"]
+
+    subgraph FOUNDATION["Global decision infrastructure"]
+      direction LR
+      E["ERDG governance control plane<br/>Objects · evidence · calculations · economics · risk · state · parameters · lineage"]
+      F["ECAE experiment and causal assessment<br/>Protocols · estimands · CE0–CE5 · diagnostics · reproducibility"]
+      L["LCCA localization and country calibration<br/>Scope · freshness · conversion · comparability · transfer ceiling"]
+      Q["Qualification and boundary convergence<br/>Contract and redline validation · causal and incremental claim eligibility · localization applicability"]
+      E --> Q
+      F --> Q
+      L --> Q
+    end
+    Q -.governance and qualification boundaries.-> COPO
+    REVIEW -.outcome replay and parameter calibration.-> CAL["Calibrate ERDG · ECAE · LCCA"]
 ```
 
-Fourteen domains, F01, and F02 are current controlled-pilot capabilities. Every professional domain retains its decision sovereignty. F01 governs causal/incremental claim eligibility; F02 governs localization scope, dynamic-fact freshness, comparability, and transferability ceilings. Neither makes the final business decision. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally.
+The fourteen professional capabilities plus ECAE, LCCA, and ERDG are within the current controlled-pilot scope. Each professional capability retains decision sovereignty. ECAE governs causal and incremental claim eligibility; LCCA governs localization scope, dynamic-fact freshness, comparability, and transferability ceilings; COPO orchestrates owner-approved conclusions and dependency order. None may override professional conclusions, approve capital outside its authority, or write externally.
 
-### Continuous D01-D14 decision loop
+### Continuous operating decision loop
 
 ```mermaid
 sequenceDiagram
     actor U as User/operating event
-    participant D14 as D14 orchestration
-    participant D02 as D02 CIM
-    participant D13 as D13 CIG
-    participant D01 as D01 CIDM
-    participant D03 as D03 PIPM
-    participant D04 as D04 SPPQ
-    participant D05 as D05 LTMA compliance and market access
-    participant D06 as D06 PPFC
-    participant D07 as D07 LIFD
-    participant M as D12/D11/D10/D08/D09 market domains
+    participant COPO as COPO
+    participant CIM as CIM
+    participant CIG as CIG
+    participant CIDM as CIDM
+    participant PIPM as PIPM
+    participant SPPQ as SPPQ
+    participant LTMA as LTMA compliance and market access
+    participant PPFC as PPFC
+    participant LIFD as LIFD
+    participant M as Brand · content · creator · page · media
     participant E as ERDG
-    U->>D14: Question, event, or new evidence
+    U->>COPO: Question, event, or new evidence
     par Facts and constraints
-      D14->>D02: Competitive facts
-      D14->>D13: Customer evidence
-      D14->>D06: Economic and cash boundaries
-      D14->>D05: Compliance and market access
+      COPO->>CIM: Competitive facts
+      COPO->>CIG: Customer evidence
+      COPO->>PPFC: Economic and cash boundaries
+      COPO->>LTMA: Compliance and market access
     end
-    D14->>E: G0 evidence qualification
-    E-->>D14: Pass / degrade / block
-    D14->>D01: Capital posture
-    D01-->>D14: Budget, stop, and exit boundaries
-    D14->>D03: Product definition
-    D03-->>D14: Product Definition Packet
+    COPO->>E: G0 evidence qualification
+    E-->>COPO: Pass / degrade / block
+    COPO->>CIDM: Capital posture
+    CIDM-->>COPO: Budget, stop, and exit boundaries
+    COPO->>PIPM: Product definition
+    PIPM-->>COPO: Product Definition Packet
     par Product realization
-      D14->>D04: Supplier, sample, capacity, and quality
-      D14->>D06: Product economics recomputation
-      D14->>D05: Formal product access
+      COPO->>SPPQ: Supplier, sample, capacity, and quality
+      COPO->>PPFC: Product economics recomputation
+      COPO->>LTMA: Formal product access
     end
-    D14->>E: G2 product-supply-economics-access
-    E-->>D14: Pass / partially accept / block
-    D04->>D07: Qualified batch, capacity, and lead time
-    D07-->>D14: ATP/CTP, fulfillment, and reverse plan
-    D14->>M: Parallel positioning, content, creator, page, and media work
-    M-->>D13: Conversion, acquisition, service, and partner outcomes
-    D13-->>D14: Outcome Packet
+    COPO->>E: G2 product-supply-economics-access
+    E-->>COPO: Pass / partially accept / block
+    SPPQ->>LIFD: Qualified batch, capacity, and lead time
+    LIFD-->>COPO: ATP/CTP, fulfillment, and reverse plan
+    COPO->>M: Parallel positioning, content, creator, page, and media work
+    M-->>CIG: Conversion, acquisition, service, and partner outcomes
+    CIG-->>COPO: Outcome Packet
     par Operating review
-      D14->>D06: Actual economics
-      D14->>D02: Competitive change review
-      D14->>D04: Quality and supplier recovery
-      D14->>D05: Continuous compliance review
+      COPO->>PPFC: Actual economics
+      COPO->>CIM: Competitive change review
+      COPO->>SPPQ: Quality and supplier recovery
+      COPO->>LTMA: Continuous compliance review
     end
-    D14->>E: G5 lineage closure and selective recomputation
-    E-->>D14: Child cycle and impact closure
-    D14->>D01: Actual operating results
-    D01-->>D14: Add / hold / reduce / exit
-    D14-->>U: New current effective operating posture
+    COPO->>E: G5 lineage closure and selective recomputation
+    E-->>COPO: Child cycle and impact closure
+    COPO->>CIDM: Actual operating results
+    CIDM-->>COPO: Add / hold / reduce / exit
+    COPO-->>U: New current effective operating posture
 ```
 
-The sequence shows the cross-phase spine only. The five market Skills keep separate sovereignty and exchange standard packets. The authoritative D01-D14 registry is [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json). The whole system now uses v2 handoffs and Decision Cycle; the old v1 runtime path is retired.
+The sequence shows the cross-phase spine only. The five market capabilities retain separate sovereignty and exchange standard packets. The authoritative capability registry is [`governance/domain-architecture-registry.json`](governance/domain-architecture-registry.json). The whole system uses v2 handoffs and Decision Cycle; the old v1 runtime path is retired.
 
-## Skill Directory
+## Professional Capabilities
 
 Choose the primary Skill by the decision that must be made. Platform coverage, professional models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
 
@@ -242,12 +247,12 @@ Shared foundations do not own final business decisions:
 
 | Foundation | Runtime | Question answered | Entry |
 |---|---|---|---|
-| **F01 / ECAE** | `ECAE` · `controlled_pilot` | Is an experiment executable, is the estimand identifiable, what claim grade is allowed, and when must the result be downgraded or redesigned? | [Experiment and Causal Assessment](experiment-causal-assessment/SKILL.md) |
-| **F02 / LCCA** | `LCCA-2026.07` · `controlled_pilot` | Is a fact applicable to the target market and time, are scopes comparable, how must parameters be converted, and what is the transfer ceiling? | [Localization and Country Calibration](localization-country-calibration/SKILL.md) |
+| **ECAE** | `ECAE` · `controlled_pilot` | Is an experiment executable, is the estimand identifiable, what claim grade is allowed, and when must the result be downgraded or redesigned? | [Experiment and Causal Assessment](experiment-causal-assessment/SKILL.md) |
+| **LCCA** | `LCCA-2026.07` · `controlled_pilot` | Is a fact applicable to the target market and time, are scopes comparable, how must parameters be converted, and what is the transfer ceiling? | [Localization and Country Calibration](localization-country-calibration/SKILL.md) |
 
-## Shared Decision Infrastructure
+## Global Decision Infrastructure
 
-The thirteen domains share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md), use [F01 Experiment and Causal Assessment](experiment-causal-assessment/SKILL.md) for causal-evidence eligibility, and use [F02 Localization and Country Calibration](localization-country-calibration/SKILL.md) for scope, dynamic facts, deterministic conversions, comparability, and transferability ceilings. Every Skill retains its professional models, thresholds, and final business decisions.
+The fourteen professional capabilities share [`ERDG-CONTRACT-2026.07`](governance/erdg/ERDG.md). [ECAE](experiment-causal-assessment/SKILL.md) governs causal-evidence eligibility, while [LCCA](localization-country-calibration/SKILL.md) governs scope, dynamic facts, deterministic conversions, comparability, and transferability ceilings. Every capability retains its professional models, thresholds, and final business decisions.
 
 Before domain reasoning, the [`Prompt Intake Guard`](governance/interaction/interaction-governance.md) routes a request to answer, ask, research, calculate, or block. Only ERDG-passed Decision Packets can compile into operator-facing Playbooks. Dynamic platform claims use [versioned knowledge cards](governance/platform-knowledge/platform-knowledge-contract.md) with evidence status, sources, review dates, and invalidation conditions. External evidence follows the [Connector contract](governance/connectors/connector-governance.md); all current manifests are read-only contracts and grant no external-write authority.
 
@@ -272,7 +277,7 @@ The current version provides fourteen professional decision Skills that have com
 - professional ownership, risk redlines, stopping, rollback, and exit governance;
 - repository-wide automated validation and release gates.
 
-The unified fourteen-domain engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current release snapshot binds 835 source cases across 14 domains, their Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 33 professional validation entrypoints and uses 12 anti-tamper mutations. F01 has passed L1–L3, 163 tests, source binding for 23 methods, and 13/13 controlled-pilot consumer acceptances; its 91 read-only preflight cases make no production-evidence claim. Run `python3 scripts/validate_release_integrity.py` and `python3 scripts/validate_f01_release.py --require-l3` to recompute release status. L4 production dual-runs, real-outcome calibration, advanced-backend external qualification, and independent non-implementer review remain separate; an engineering pass is not production readiness, external-write authority.
+The unified professional engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current snapshot binds 835 source cases, Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 33 professional validation entrypoints and uses 12 anti-tamper mutations. ECAE and LCCA have completed their L1–L3 controlled-pilot gates and 13/13 consumer-contract acceptances; local fixtures and read-only preflight cases make no production-evidence claim. Run the repository-wide release validator to recompute the current status. L4 production dual-runs, real-outcome calibration, external qualification, and independent non-implementer review remain separate; an engineering pass is neither production readiness nor external-write authority.
 
 The system is not tied to a single foundation-model provider. Models can continue to improve while professional decision contracts, calculation tools, operating benchmarks, and historical assets remain continuous.
 
@@ -309,13 +314,13 @@ Operating actions and results update benchmarks, parameters, counterexamples, an
 
 | Location | Purpose |
 |---|---|
-| Thirteen Skill directories | Professional workflows, models, references, and tests |
+| Fourteen professional capability directories | Professional workflows, models, references, and tests |
 | [`evaluations/`](evaluations/) | Single-Skill, cross-Skill, multi-turn, adversarial, and extreme scenarios |
 | [`governance/`](governance/) | Ownership, maturity, change-impact, and shared contracts |
 | [`governance/erdg/`](governance/erdg/ERDG.md) | ERDG economics, risk, evidence, state, parameters, lineage, and cross-domain governance |
-| [`experiment-causal-assessment/`](experiment-causal-assessment/SKILL.md) | F01 experiment design, causal qualification, evidence grades, diagnostics, reproducibility, consumer acceptance, and reserved L4 gates |
-| [`localization-country-calibration/`](localization-country-calibration/SKILL.md) | F02 localization scope, dynamic facts, deterministic conversion, comparability, transferability, consumer acceptance, and reserved L4 gates |
-| [`governance/foundation-capability-registry.json`](governance/foundation-capability-registry.json) | F01/F02 identities, capabilities, consumers, sovereignty, and maturity |
+| [`experiment-causal-assessment/`](experiment-causal-assessment/SKILL.md) | ECAE experiment design, causal qualification, evidence grades, diagnostics, reproducibility, consumer acceptance, and reserved L4 gates |
+| [`localization-country-calibration/`](localization-country-calibration/SKILL.md) | LCCA localization scope, dynamic facts, deterministic conversion, comparability, transferability, consumer acceptance, and reserved L4 gates |
+| [`governance/foundation-capability-registry.json`](governance/foundation-capability-registry.json) | ECAE/LCCA identities, capabilities, consumers, sovereignty, and maturity |
 | [`governance/interaction/`](governance/interaction/interaction-governance.md) | Prompt Intake Guard and controlled Decision Packet-to-Operator Playbook compilation |
 | [`governance/platform-knowledge/`](governance/platform-knowledge/platform-knowledge-contract.md) | Versioned, expiring platform knowledge cards for PLCO, AAMO, and LIFD |
 | [`governance/connectors/`](governance/connectors/connector-governance.md) | Read-only SP-API, Seller Central, ads, and ERP evidence contracts plus Action Gateway |
