@@ -1,0 +1,1 @@
+{"adapter":"lcca-to-copo","contract":"LCCA-1.0","consumer":"D14","availability":"controlled_pilot","consumer_acceptance":"passed","rollback_verified":true,"accepted_states":["accept","partial_accept","reject","expired","invalidated","request_recompute"],"noncomparable_action_ceiling":"analysis_only","production_accepted":false,"external_write":false}

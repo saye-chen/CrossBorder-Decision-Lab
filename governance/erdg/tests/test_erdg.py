@@ -24,6 +24,7 @@ EXPECTED_SKILLS = {
     "product-innovation-product-management",
     "supplier-procurement-production-quality-decision",
     "legal-tax-intellectual-property-market-access-decision",
+    "cross-domain-operating-posture-orchestration",
     "localization-country-calibration",
 }
 sys.path.insert(0, str(SCRIPTS))

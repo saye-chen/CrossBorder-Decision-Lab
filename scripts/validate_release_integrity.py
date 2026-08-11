@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Top-level professional engineering gate for all thirteen current domains."""
+"""Top-level professional engineering gate for every current domain."""
 from __future__ import annotations
 
 import json
@@ -45,8 +45,11 @@ def command_paths() -> list[str]:
 def validate(run_commands: bool = True) -> list[str]:
     errors: list[str] = []
     registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
-    if len(registry.get("domains", [])) != 13:
-        errors.append("professional registry is not thirteen-domain complete")
+    architecture = json.loads((ROOT / "governance/domain-architecture-registry.json").read_text(encoding="utf-8"))
+    current = {row["domain_id"] for row in architecture["domains"] if row["availability"] == "current"}
+    registered = {row.get("domain_id") for row in registry.get("domains", [])}
+    if registered != current or len(registry.get("domains", [])) != len(current):
+        errors.append("professional registry does not cover every current domain exactly once")
     mutation_contract = json.loads(MUTATIONS.read_text(encoding="utf-8"))
     mutation_ids = {x.get("id") for x in mutation_contract.get("mutations", [])}
     if mutation_ids != EXPECTED_MUTATIONS or len(mutation_contract.get("mutations", [])) != 12:

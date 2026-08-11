@@ -1,0 +1,9 @@
+{
+  "blueprint": "D14-BLUEPRINT-1.0",
+  "runtime": "COPO-2026.07",
+  "availability": "current",
+  "owns": ["task_orchestration", "dependency_plan", "conflict_escalation", "operating_posture_synthesis", "approved_resource_sequencing"],
+  "forbidden": ["professional_final_decision", "causal_qualification", "localization_qualification", "capital_approval", "business_action_approval", "external_write"],
+  "requires_owner_approved_inputs": true,
+  "external_write": false
+}

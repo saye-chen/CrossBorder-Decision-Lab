@@ -154,7 +154,7 @@
       "blocking_gates": ["G0_EVIDENCE", "G4_ACTION_QUALIFICATION", "G5_OUTCOME_REPLAY"], "external_write_authority": false
     },
     {
-      "domain_id": "D14", "skill": "cross-domain-operating-posture-orchestration", "runtime_prefix": "COPO", "availability": "planned",
+      "domain_id": "D14", "skill": "cross-domain-operating-posture-orchestration", "runtime_prefix": "COPO", "availability": "current",
       "architecture_roles": ["orchestration"],
       "owned_decision_types": ["task_orchestration", "dependency_plan", "conflict_escalation", "operating_posture_synthesis", "approved_resource_sequencing"],
       "decision_authorities": ["task orchestration", "dependency planning", "conflict escalation", "owner-approved operating posture synthesis", "resource sequencing within approved envelopes"],

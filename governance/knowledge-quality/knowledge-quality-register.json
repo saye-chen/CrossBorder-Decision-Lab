@@ -50,7 +50,7 @@
       "owner": "repository",
       "status": "active",
       "source_ref": "governance/interaction/interaction-governance.md",
-      "consumers": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13"],
+      "consumers": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13", "D14"],
       "impact_on_change": "block_compilation_and_revalidate_packets"
     }
   ],
@@ -84,9 +84,9 @@
     }
   ],
   "scale_claims": {
-    "registered_domains": 13,
-    "registered_validation_entrypoints": 31,
-    "registered_source_cases": 790,
+    "registered_domains": 14,
+    "registered_validation_entrypoints": 33,
+    "registered_source_cases": 835,
     "anti_tamper_mutations": 12,
     "maturity": "controlled pilot",
     "production_ready": false

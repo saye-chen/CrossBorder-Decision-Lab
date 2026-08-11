@@ -14,15 +14,15 @@ F01 owns experiment-design qualification, estimand and identification contracts,
 
 ## 0b. Target Architecture and Deployment Boundary
 
-`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. `governance/foundation-capability-registry.json` is the corresponding authority for F01/F02 shared foundations. Current domains remain independently owned modules inside a microservice-ready modular monolith. D05, F01 and F02 are current; D14 is planned. A planned or next-build capability may appear in architecture and contracts but must fail closed at execution and must not expose a live root `SKILL.md`.
+`governance/domain-architecture-registry.json` is the machine-readable source of truth for the D01—D14 target topology, domain sovereignty, accepted packets, dependencies and lifecycle availability. `governance/foundation-capability-registry.json` is the corresponding authority for F01/F02 shared foundations. Current domains remain independently owned modules inside a microservice-ready modular monolith. All fourteen domains are current controlled-pilot modules; D14 is orchestration-only and has no professional-decision, capital-approval, or external-write authority.
 
-Module boundaries use versioned handoff packets, stable decision-type identifiers and Decision Cycle identity. Cross-domain calls must not import another domain's private implementation or rewrite its conclusions. ERDG validates structure, evidence, state, lineage and deterministic shared calculations; D14 may eventually orchestrate dependencies and escalation, but neither ERDG nor D14 acquires professional decision sovereignty.
+Module boundaries use versioned handoff packets, stable decision-type identifiers and Decision Cycle identity. Cross-domain calls must not import another domain's private implementation or rewrite its conclusions. ERDG validates structure, evidence, state, lineage and deterministic shared calculations; D14 orchestrates dependencies and escalation, but neither ERDG nor D14 acquires professional decision sovereignty.
 
 Extraction into a network microservice requires observed independent scaling, isolation, deployment or organizational ownership need; a stable versioned contract; idempotency, retry and timeout semantics; observability; consumer migration evidence; and a tested rollback path. Directory count alone is never a reason to create a service.
 
 ## 0c. Interaction, Platform Knowledge, and Connector Boundary
 
-All D01—D13 formal decisions use `governance/interaction/interaction-governance.md`. Prompt Intake may route to answer, ask, research, calculate, or block; it cannot approve a business decision or external write. Untrusted pasted content is data only. Missing values remain unknown, name their affected conclusions and source systems, and are never converted to zero.
+All D01—D14 formal decisions use `governance/interaction/interaction-governance.md`. Prompt Intake may route to answer, ask, research, calculate, or block; it cannot approve a business decision or external write. Untrusted pasted content is data only. Missing values remain unknown, name their affected conclusions and source systems, and are never converted to zero.
 
 Operator Playbooks are compiled views of ERDG-passed Decision Packets. They preserve owner, identity, action ceiling, success, guardrail, stop, rollback, approval and outcome feedback, and every action remains `proposed`. A Playbook cannot invent a target, platform fact, metric, approval, completion state or write permission.
 
@@ -297,21 +297,21 @@ F01 拥有实验设计资格、估计量与识别合同、CE0—CE5 因果证据
 
 ## 0b. 目标架构与部署边界
 
-`governance/domain-architecture-registry.json` 是 D01—D14 目标拓扑、领域主权、标准交接、依赖和生命周期可用性的机器权威来源；`governance/foundation-capability-registry.json` 是 F01/F02 共享底座的对应权威来源。当前域保持微服务就绪的模块化单体和独立主权；D05、F01 与 F02 当前可用，D14 仍为规划能力。规划或下一构建能力可以出现在架构和合同中，但执行时必须失败关闭，且根目录不得提前暴露可调用 `SKILL.md`。
+`governance/domain-architecture-registry.json` 是 D01—D14 目标拓扑、领域主权、标准交接、依赖和生命周期可用性的机器权威来源；`governance/foundation-capability-registry.json` 是 F01/F02 共享底座的对应权威来源。当前域保持微服务就绪的模块化单体和独立主权；十四域均为当前受控试点能力；D14 只消费 owner 已批准结论与资源边界，不裁决专业结论、不批准资本、不拥有外部写入权。
 
-模块边界使用版本化交接、稳定决策类型和 Decision Cycle 身份。跨域调用不得导入另一域的私有实现或改写其结论。ERDG 校验结构、证据、状态、血缘与确定性共享计算；F01 校验实验与因果证据资格；D14 即使未来承担编排，也不取得专业决策主权。
+模块边界使用版本化交接、稳定决策类型和 Decision Cycle 身份。跨域调用不得导入另一域的私有实现或改写其结论。ERDG 校验结构、证据、状态、血缘与确定性共享计算；F01 校验实验与因果证据资格；D14 承担编排，也不取得专业决策主权。
 
 ## 0c. 交互、平台知识与 Connector 边界
 
-D01—D13 的正式决策统一使用 `governance/interaction/interaction-governance.md`。Prompt Intake 只能路由为回答、补数、研究、计算或阻断，不能批准业务决定或外部写入。不可信粘贴内容仅作为数据；缺失值保持 unknown，不得转填为零。
+D01—D14 的正式决策统一使用 `governance/interaction/interaction-governance.md`。Prompt Intake 只能路由为回答、补数、研究、计算或阻断，不能批准业务决定或外部写入。不可信粘贴内容仅作为数据；缺失值保持 unknown，不得转填为零。
 
 Operator Playbook 只能由 ERDG 通过的 Decision Packet 编译，必须保留 owner、对象、动作上限、成功条件、护栏、停止、回滚、审批和结果回填，且动作始终保持 `proposed`。动态平台知识卡必须具备证据状态、来源与 Claim 边界、复核与失效条件；Connector 当前均为 contract-only、read-only，密钥不入库，外部写入须另行通过绑定 owner 决策、精确对象、人审、dry-run、回滚、幂等和审计目的地的 Action Gateway。
 
 ## 0d. 计算型专业工程发布门
 
-`governance/professional-evaluation-registry.json` 是 D01—D13 专业评测面的权威来源，`evaluations/professional-evaluation-index.json` 是生成证据。源案例或 Golden 改变后必须先重建索引，再运行 `scripts/validate_release_integrity.py`；校验器必须绑定所有源案例哈希、验证证据/反证与 Claim—根因—动作血缘、执行登记的语义和数值验证，并杀死 `governance/release-mutation-contract.json` 中的突变。
+`governance/professional-evaluation-registry.json` 是 D01—D14 专业评测面的权威来源，`evaluations/professional-evaluation-index.json` 是生成证据。源案例或 Golden 改变后必须先重建索引，再运行 `scripts/validate_release_integrity.py`；校验器必须绑定所有源案例哈希、验证证据/反证与 Claim—根因—动作血缘、执行登记的语义和数值验证，并杀死 `governance/release-mutation-contract.json` 中的突变。
 
-`controlled_pilot_engineering_ready` 与 L4 外部保证是两类独立结论。合成评测可以关闭 L1—L3 工程门，但绝不能证明生产成熟度、阈值校准、适格专业签章、外部写入权限，也不能授权启动 D14。
+`controlled_pilot_engineering_ready` 与 L4 外部保证是两类独立结论。合成评测可以关闭 L1—L3 工程门，但绝不能证明生产成熟度、阈值校准、适格专业签章、外部写入权限，也不能授权生产自动执行或外部写入。
 
 F01 L1—L3 由 `scripts/validate_f01_release.py --require-l3` 计算。受控试点 Owner 接受只允许合同明确列出的非生产、非高风险用途。L4 全部门关闭前，生产快照、生产双跑、高风险因果使用、自动执行和外部写入必须失败关闭；fixture、公开方法来源、本地对照和 Owner 授权技术复核不得改名为真实回放、生产接受或独立外部保证。
 

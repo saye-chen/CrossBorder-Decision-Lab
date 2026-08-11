@@ -1,0 +1,14 @@
+{
+  "runtime":"COPO-2026.07","availability":"controlled_pilot","synthetic_only":true,"l4_claimed":false,
+  "suites":[
+    {"id":"schema","entrypoint":"scripts/validate_copo.py","covers":["14_minimum_schemas","controlled_pilot_boundaries","scenario_dependencies"]},
+    {"id":"semantic","entrypoint":"tests/test_copo.py","covers":["scope","routing","sovereignty","receipts","diagnostic_graph","conflicts","noncompensable_gates","coordination_plan","impact_closure","current_effective_posture"]},
+    {"id":"decision_bundle","entrypoint":"tests/test_decision_bundle.py","covers":["erdg_signed_ledger","scope_unified_validation","runtime_delivery_bundle"]},
+    {"id":"launch_cases_45","entrypoint":"tests/test_scenario_catalog.py","covers":["sales_decline_15","profit_deterioration_15","scale_readiness_15"]},
+    {"id":"continuous_cycle","entrypoint":"tests/test_continuous_cycle.py","covers":["13_domain_receipts","idempotency","child_cycle","late_version","impact_closure","outcome_replay"]},
+    {"id":"adversarial_assertions","entrypoint":"tests/test_mutation_suite.py","covers":["16_adversarial_assertions"]},
+    {"id":"behavior_mutation_execution","entrypoint":"tests/test_behavior_mutations.py","covers":["16_behavior_replacements_killed"]}
+  ],
+  "open_release_dependencies":["l4_authorized_real_replays","mature_outcome_calibration","independent_l4_signoff"],
+  "external_write":false
+}

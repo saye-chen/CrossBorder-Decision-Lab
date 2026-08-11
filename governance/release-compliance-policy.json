@@ -17,6 +17,12 @@
       "declared_license": "MIT",
       "source": "https://github.com/python-jsonschema/jsonschema",
       "legal_conclusion": false
+    },
+    {
+      "requirement": "cryptography==48.0.0",
+      "declared_license": "Apache-2.0 OR BSD-3-Clause",
+      "source": "https://github.com/pyca/cryptography",
+      "legal_conclusion": false
     }
   ],
   "data_privacy": {

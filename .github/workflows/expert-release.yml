@@ -4,20 +4,25 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     env:
       PYTHONPYCACHEPREFIX: /tmp/crossborder-decision-lab-pycache
+      ERDG_TRUSTED_KEY_FINGERPRINT: ${{ vars.ERDG_TRUSTED_KEY_FINGERPRINT }}
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.11"
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision localization-country-calibration governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision localization-country-calibration cross-domain-operating-posture-orchestration governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -38,6 +43,7 @@ jobs:
           python3 marketing-brand-campaign-management/scripts/test_mbcm.py
           python3 marketing-brand-campaign-management/scripts/test_marketing_science.py
           python3 pricing-profit-finance-cashflow-decision/scripts/test_structure_contract.py
+          python3 pricing-profit-finance-cashflow-decision/scripts/test_period_delta_bridge.py
           python3 pricing-profit-finance-cashflow-decision/scripts/test_pricing_models.py
           python3 pricing-profit-finance-cashflow-decision/scripts/test_cross_domain_contract.py
           python3 pricing-profit-finance-cashflow-decision/scripts/test_localization_contract.py
@@ -81,7 +87,16 @@ jobs:
           python3 -m unittest discover -s localization-country-calibration/tests -p 'test_*.py'
           python3 scripts/validate_f02_release.py --require-l3
           python3 scripts/test_logistics_stress.py
-      - name: Cross-domain and thirteen-skill expert release tests
+      - name: D14 controlled-pilot release gate (L4 remains separate)
+        run: |
+          python3 cross-domain-operating-posture-orchestration/scripts/validate_copo.py
+          python3 cross-domain-operating-posture-orchestration/tests/test_copo.py
+          python3 cross-domain-operating-posture-orchestration/tests/test_decision_bundle.py
+          python3 cross-domain-operating-posture-orchestration/tests/test_scenario_catalog.py
+          python3 cross-domain-operating-posture-orchestration/tests/test_continuous_cycle.py
+          python3 cross-domain-operating-posture-orchestration/tests/test_mutation_suite.py
+          python3 cross-domain-operating-posture-orchestration/tests/test_behavior_mutations.py
+      - name: Cross-domain and fourteen-skill expert release tests
         run: |
           python3 scripts/test_category_semantics.py
           python3 scripts/test_cross_skill_integration.py
@@ -101,6 +116,7 @@ jobs:
           python3 scripts/validate_release_integrity.py
           python3 scripts/validate_knowledge_quality.py
           python3 scripts/test_knowledge_quality.py
+          python3 scripts/test_ci_workflow_security.py
           python3 scripts/test_full_repository_audit.py
           python3 -m unittest governance/interaction/tests/test_interaction_platform_connectors.py
       - name: Reject whitespace errors

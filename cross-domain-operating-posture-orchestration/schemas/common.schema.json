@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://crossborder.local/copo/common.schema.json",
+  "$defs":{
+    "hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "id":{"type":"string","minLength":1},
+    "domain":{"type":"string","pattern":"^(D(0[1-9]|1[0-4])|F0[12]|ERDG)$"},
+    "governance":{"type":"object","additionalProperties":false,"required":["schema_version","runtime_version","object_version","as_of_time","owner","status","allowed_uses","forbidden_uses","input_hash","content_hash","state_hash"],"properties":{"schema_version":{"const":"2.0.0"},"runtime_version":{"const":"COPO-2026.07"},"object_version":{"$ref":"#/$defs/id"},"as_of_time":{"type":"string","format":"date-time"},"owner":{"$ref":"#/$defs/domain"},"status":{"$ref":"#/$defs/id"},"allowed_uses":{"type":"array","minItems":1,"uniqueItems":true,"items":{"$ref":"#/$defs/id"}},"forbidden_uses":{"type":"array","minItems":1,"uniqueItems":true,"items":{"$ref":"#/$defs/id"}},"input_hash":{"$ref":"#/$defs/hash"},"content_hash":{"$ref":"#/$defs/hash"},"state_hash":{"$ref":"#/$defs/hash"}}}
+  }
+}

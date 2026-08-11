@@ -1,0 +1,1 @@
+{"view":"decision_replay","source_contracts":["operating_posture","coordination_plan","outcome_replay"],"renders":["parent_child_cycles","object_versions","decisions","owner_actions","actual_outcomes","deviations","incidents","recompute"],"computes":[],"external_write":false}

@@ -1,0 +1,23 @@
+{
+  "sales_decline": {
+    "mode": "hybrid",
+    "required_owners": ["D06", "D08", "D09", "F02", "ERDG"],
+    "conditional_owners": ["D02", "D07", "D13", "F01"],
+    "gates": ["scope_comparable", "financial_reconciliation", "owner_sovereignty"],
+    "dependencies": {"D06": [], "D08": [], "D09": [], "F02": [], "ERDG": [], "F01": ["D06", "D08", "D09"]}
+  },
+  "profit_deterioration": {
+    "mode": "hybrid",
+    "required_owners": ["D06", "F02", "ERDG"],
+    "conditional_owners": ["D04", "D07", "D09", "D10", "D12", "D13", "F01"],
+    "gates": ["cash_survival", "financial_reconciliation", "owner_sovereignty"],
+    "dependencies": {"D06": [], "F02": [], "ERDG": [], "F01": ["D06"]}
+  },
+  "scale_readiness": {
+    "mode": "hybrid",
+    "required_owners": ["D01", "D04", "D05", "D06", "D07", "D08", "D09", "D13", "F02", "ERDG"],
+    "conditional_owners": ["D03", "D10", "D11", "D12", "F01"],
+    "gates": ["capital", "marginal_economics_cash", "supply_quality", "inventory_fulfillment", "market_access_claim", "market_service_absorption"],
+    "dependencies": {"D01": [], "D04": [], "D05": [], "D06": [], "D07": ["D04"], "D08": [], "D09": ["D06", "D07", "D08"], "D13": [], "F02": [], "ERDG": []}
+  }
+}

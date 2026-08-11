@@ -237,6 +237,13 @@
       "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_acceptance_and_release.py", "pricing-profit-finance-cashflow-decision/scripts/test_l3_audit_matrix.py", "pricing-profit-finance-cashflow-decision/scripts/test_historical_replay.py", "scripts/test_full_repository_audit.py"]
     },
     {
+      "id": "D06-COPO-PERIOD-BRIDGE",
+      "capability": "runtime-schema-enforced period revenue and operating-profit delta bridge with IANA timezone, comparable windows, evidence snapshot binding and reconciliation-only ceiling",
+      "status": "fixed",
+      "evidence": ["pricing-profit-finance-cashflow-decision/schemas/period-delta-bridge.schema.json", "pricing-profit-finance-cashflow-decision/scripts/build_period_delta_bridge.py", "pricing-profit-finance-cashflow-decision/SKILL.md"],
+      "tests": ["pricing-profit-finance-cashflow-decision/scripts/test_period_delta_bridge.py", "pricing-profit-finance-cashflow-decision/scripts/validate_structure_contract.py"]
+    },
+    {
       "id": "D06-L4",
       "capability": "authorized deidentified mature heterogeneous historical replay and independent review",
       "status": "controlled_external_gate",

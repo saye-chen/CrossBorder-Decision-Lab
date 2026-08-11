@@ -155,18 +155,16 @@ flowchart TB
     E -.contract and redline validation.-> D04
     E -.contract and redline validation.-> D12
     O -.replay and parameter calibration.-> E
-    classDef planned stroke-dasharray:6 5
-    class D14 planned
 ```
 
-Thirteen domains, F01, and F02 are currently runnable; D14 remains planned and is blocked from execution by the registry validator. Every professional domain retains its decision sovereignty. F01 governs causal/incremental claim eligibility; F02 governs localization scope, dynamic-fact freshness, comparability, and transferability ceilings. Neither makes the final business decision. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally.
+Fourteen domains, F01, and F02 are current controlled-pilot capabilities. Every professional domain retains its decision sovereignty. F01 governs causal/incremental claim eligibility; F02 governs localization scope, dynamic-fact freshness, comparability, and transferability ceilings. Neither makes the final business decision. D14 only orchestrates, escalates conflicts, synthesizes a coordinated posture from owner-approved decisions, and sequences work within approved resource envelopes; it cannot adjudicate professional conclusions, approve capital, or write externally.
 
 ### Continuous D01-D14 decision loop
 
 ```mermaid
 sequenceDiagram
     actor U as User/operating event
-    participant D14 as D14 orchestration (planned)
+    participant D14 as D14 orchestration
     participant D02 as D02 CIM
     participant D13 as D13 CIG
     participant D01 as D01 CIDM
@@ -236,6 +234,7 @@ Choose the primary Skill by the decision that must be made. Platform coverage, p
 | PIPM | `PIPM-2026.07` | Turn opportunities into traceable product definitions, specifications, MVPs, and roadmaps | [Product Innovation and Product Management](product-innovation-product-management/SKILL.md) |
 | SPPQ | `SPPQ-2026.07` | Qualify suppliers, govern procurement commitments, release production and batches, and recover supply or quality failures | [Supplier, Procurement, Production, and Quality](supplier-procurement-production-quality-decision/SKILL.md) |
 | LTMA | `LTMA-2026.07` | Gate commercial market access, cap actions, bound claims, and route qualified professional review | [Legal, Tax, IP, and Market Access](legal-tax-intellectual-property-market-access-decision/SKILL.md) |
+| COPO | `COPO-2026.07` | Diagnose multi-domain problems, escalate conflicts, synthesize owner-approved operating postures, and sequence dependencies | [Cross-domain Operating Posture Orchestration](cross-domain-operating-posture-orchestration/SKILL.md) |
 
 Detailed platform coverage, models, workflows, inputs, outputs, and failure boundaries live inside each Skill.
 
@@ -273,7 +272,7 @@ The current version provides thirteen professional decision Skills that have com
 - professional ownership, risk redlines, stopping, rollback, and exit governance;
 - repository-wide automated validation and release gates.
 
-The unified thirteen-domain engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current release snapshot binds 790 source cases across 13 domains, their Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 31 professional validation entrypoints and uses 12 anti-tamper mutations. F01 has passed L1–L3, 163 tests, source binding for 23 methods, and 13/13 controlled-pilot consumer acceptances; its 91 read-only preflight cases make no production-evidence claim. Run `python3 scripts/validate_release_integrity.py` and `python3 scripts/validate_f01_release.py --require-l3` to recompute release status. L4 production dual-runs, real-outcome calibration, advanced-backend external qualification, and independent non-implementer review remain separate; an engineering pass is not production readiness, external-write authority, or permission to unfreeze D14.
+The unified fourteen-domain engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The current release snapshot binds 835 source cases across 14 domains, their Goldens, semantic validators, and numerical recomputation entrypoints to a fingerprinted normalized index; it executes 33 professional validation entrypoints and uses 12 anti-tamper mutations. F01 has passed L1–L3, 163 tests, source binding for 23 methods, and 13/13 controlled-pilot consumer acceptances; its 91 read-only preflight cases make no production-evidence claim. Run `python3 scripts/validate_release_integrity.py` and `python3 scripts/validate_f01_release.py --require-l3` to recompute release status. L4 production dual-runs, real-outcome calibration, advanced-backend external qualification, and independent non-implementer review remain separate; an engineering pass is not production readiness, external-write authority.
 
 The system is not tied to a single foundation-model provider. Models can continue to improve while professional decision contracts, calculation tools, operating benchmarks, and historical assets remain continuous.
 
