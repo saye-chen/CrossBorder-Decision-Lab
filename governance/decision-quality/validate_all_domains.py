@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 REGISTRY = Path(__file__).with_name("domain-registry.json")
-CONTRACT_MARKERS = ("decision-quality/validate_domain_quality.py", "decision-quality/validate_all_domains.py", "DQ-CONTRACT-2026.08")
+CONTRACT_MARKERS = ("decision-quality/validate_domain_quality.py", "decision-quality/validate_all_domains.py", "DQ-CONTRACT-2026.07")
 
 
 def audit_registry() -> dict:
