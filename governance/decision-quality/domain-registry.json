@@ -1,0 +1,25 @@
+{
+  "contract_version": "DQ-CONTRACT-2026.08",
+  "required_domains": [
+    "advertising-analysis-measurement-optimization",
+    "category-investment-decision",
+    "competitive-intelligence-monitoring",
+    "consumer-insights-customer-growth",
+    "creator-affiliate-partnership-management",
+    "experiment-causal-assessment",
+    "legal-tax-intellectual-property-market-access-decision",
+    "localization-country-calibration",
+    "logistics-inventory-fulfillment-decision",
+    "marketing-brand-campaign-management",
+    "platform-store-listing-conversion",
+    "pricing-profit-finance-cashflow-decision",
+    "product-innovation-product-management",
+    "supplier-procurement-production-quality-decision",
+    "video-link-breakdown",
+    "cross-domain-operating-posture-orchestration"
+  ],
+  "universal_decision_chain": [
+    "object", "conclusion", "evidence", "counter_evidence", "assumptions",
+    "gates", "analysis", "action", "success", "stop", "rollback", "unknowns"
+  ]
+}

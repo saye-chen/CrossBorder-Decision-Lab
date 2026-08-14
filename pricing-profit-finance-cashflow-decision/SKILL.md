@@ -9,6 +9,8 @@ description: 默认用中文执行专家级跨境定价、利润、财务约束�
 目标合同：`ERDG-CONTRACT-2026.07`、`PPFC-CONTRACT-2026.07`、`PPFC-XDOMAIN-2026.07`、`F02-temporary-localization-contract-v1`；已注册 ERDG 适配器，但不等于完成域或生产就绪。
 成熟度：工作包 10；L1 已通过，L2 已通过，L3 Expert 已通过，L4 `controlled pilot`
 
+跨域统一硬门禁：正式报告和财务 handoff 交付前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`；缺少对象、证据、反证、假设、计算、动作、成功/停止/回滚或用途边界时，禁止输出可执行财务结论。
+
 ## 统一交互与执行控制
 
 正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，缺失金额不得置零且不得自动调价、付款或形成财务承诺。

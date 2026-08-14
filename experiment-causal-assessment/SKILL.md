@@ -5,6 +5,8 @@ description: 默认用中文执行跨境电商实验设计、因果识别、净�
 
 # 实验与因果评估底座（ECAE）
 
+跨域统一硬门禁：实验报告或 F01 handoff 交付前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`；缺少反事实、证据等级、成功/停止/回滚和适用范围时保持 `blocked`。
+
 ## 目标与不可突破边界
 
 将业务问题编译为可审计的因果问题、估计对象、设计、分析和证据等级，回答“指定动作对指定总体、指标与时间窗造成了多大净增量，以及结论在什么边界内可用于什么决定”。

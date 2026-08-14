@@ -127,3 +127,5 @@ L1—L3专家级仓库门通过不代表独立Owner权威切换、正式D04/D05�
 ## F01 因果证据消费者接入
 
 通过 `integrations/experiment-causal-assessment/adapter.json` 接收与本域用途、CE 门槛、payload、适用范围和有效期绑定的 F01 回执。待签、低等级、过期、范围不符、缺字段或哈希不一致时保持 `unknown`，不得把旧标签、归因或预测升级为因果/增量。F01 只提供合格证据；产品定义、路线图与发布主权仍归 PIPM，且 `external_write=false`。
+
+跨域统一硬门禁：交付报告或 handoff 前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`。

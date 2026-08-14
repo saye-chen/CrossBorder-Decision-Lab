@@ -5,6 +5,8 @@ description: 默认用中文执行专家级跨境物流、库存与履约决策�
 
 # 物流、库存与履约决策
 
+跨域统一硬门禁：物流/库存报告或 handoff 交付前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`。
+
 运行时版本：`LIFD-2026.07`。
 
 成熟度：`controlled pilot`；授权真实历史回放门未通过，不得声明 `production ready`。

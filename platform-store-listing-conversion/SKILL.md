@@ -5,6 +5,8 @@ description: 默认用中文执行专家级跨境平台、店铺、Listing 与�
 
 # 平台、店铺、Listing 与转化
 
+跨域统一硬门禁：页面/Listing 报告或 handoff 交付前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`。
+
 运行时版本：`PLCO-2026.07`。
 
 成熟度：`controlled pilot`；真实历史回放未完成。
