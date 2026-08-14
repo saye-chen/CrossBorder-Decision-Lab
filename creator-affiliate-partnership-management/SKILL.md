@@ -133,3 +133,5 @@ CAPM 最终决定：
 ## ERDG 共享治理接入
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/creator-affiliate-partnership-management/adapter.json` 声明 CAPM 主权；ERDG 失败时不得形成生效动作。
+
+跨域统一硬门禁：交付报告或 handoff 前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`。

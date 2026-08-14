@@ -5,6 +5,8 @@ description: 默认用中文执行跨境国家、平台、语言、币税、单�
 
 # 本地化与国家校准底座（LCCA）
 
+跨域统一硬门禁：国家校准报告或 handoff 交付前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`。
+
 运行时版本：`LCCA-2026.07`。
 
 ERDG contract: `ERDG-CONTRACT-2026.07`

@@ -9,6 +9,8 @@ description: 默认用中文执行专家级跨境市场营销、品牌与活动�
 
 成熟度：`controlled pilot`；授权真实历史回放门通过前不得声明`production ready`。
 
+跨域统一硬门禁：正式报告和营销 handoff 交付前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`；结构完整但缺少反证、成功护栏、停止/回滚和重算触发器时仍为 `blocked`。
+
 ## 统一交互与执行控制
 
 正式决策、缺失数据、粘贴外部内容或潜在外部动作先读取 [交互治理协议](../governance/interaction/interaction-governance.md) 并执行 Prompt Intake Guard；仅从 ERDG 校验通过的 Decision Packet 编译 Operator Playbook。Connector 只按 [受控连接器治理](../governance/connectors/connector-governance.md) 提供证据，不得自动发布活动、触达客户或改写其他域资源结论。
