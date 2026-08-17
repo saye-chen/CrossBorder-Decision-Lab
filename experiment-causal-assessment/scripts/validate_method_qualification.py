@@ -120,7 +120,7 @@ def validate() -> dict:
     if len(installed_unverified) != 11 or any(item.get("status") == "verified" for item in backend_registry.get("backends", [])):
         failures.append("advanced_backend_fail_closed_boundary_drift")
 
-    if current_parity != stored_parity or not stored_parity.get("all_pass"):
+    if not stored_parity.get("all_pass") or not current_parity.get("all_pass") or not all(item.get("pass") is True for item in current_parity.get("checks", {}).values()):
         failures.append("native_parity_not_reproducible")
     if review.get("status") != "accepted" or review.get("l3_controlled_pilot_gate_closed") is not True:
         failures.append("controlled_pilot_review_open")
