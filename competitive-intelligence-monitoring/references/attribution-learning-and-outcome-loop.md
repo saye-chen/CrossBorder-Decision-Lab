@@ -52,7 +52,7 @@
 - 高置信归因需要至少三个一致且尽量独立的信号；否则给验证任务。
 - 事件卡写明 owner、允许用途、禁止用途、责任域、成功、停止和复核日期。
 - 下游动作由对应主权域决定；CIM只跟踪是否执行和结果是否支持原假设。
-- 到期归因标记 validated/refuted/unresolved，并保留原版本与修订原因。
+- 到期归因标记 validated/falsified/inconclusive，并保留原版本与修订原因。
 
 ## attribution-learning-and-outcome-loop 专属决策内核
 
@@ -61,6 +61,6 @@
 | 核心机制 | 事件→假设→下游动作→结果→归因复核形成版本闭环 |
 | 计算或判定 | 命中率保留分母、置信等级和无法判断；不只统计成功 |
 | 主要失效 | 结果改善自动归因、只回收正例、动作并发污染 |
-| 决策动作 | 到期逐项validated/refuted/unresolved并修订阈值 |
+| 决策动作 | 到期逐项validated/falsified/inconclusive并修订阈值 |
 
 本节必须由该模块自己的证据和失败测试验证，不得用通用附录或其他reference代替。

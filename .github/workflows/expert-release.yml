@@ -22,7 +22,7 @@ jobs:
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision localization-country-calibration cross-domain-operating-posture-orchestration governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management legal-tax-intellectual-property-market-access-decision localization-country-calibration cross-domain-operating-posture-orchestration experiment-causal-assessment governance/decision-quality governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -86,6 +86,7 @@ jobs:
           python3 legal-tax-intellectual-property-market-access-decision/scripts/validate_release_candidate.py
           python3 -m unittest discover -s localization-country-calibration/tests -p 'test_*.py'
           python3 scripts/validate_f02_release.py --require-l3
+          python3 scripts/validate_f01_release.py --require-l3
           python3 scripts/test_logistics_stress.py
       - name: D14 controlled-pilot release gate (L4 remains separate)
         run: |
@@ -113,7 +114,10 @@ jobs:
           python3 scripts/test_mbcm_integration.py
           python3 scripts/test_statistical_primitive_parity.py
           python3 scripts/test_qoderwork_skill_installation.py
+          python3 governance/decision-quality/validate_all_domains.py
+          (cd governance/decision-quality && python3 -m unittest discover -p 'test_*.py')
           python3 scripts/validate_release_integrity.py
+          python3 scripts/validate_synthetic_boundaries.py
           python3 scripts/validate_knowledge_quality.py
           python3 scripts/test_knowledge_quality.py
           python3 scripts/test_ci_workflow_security.py

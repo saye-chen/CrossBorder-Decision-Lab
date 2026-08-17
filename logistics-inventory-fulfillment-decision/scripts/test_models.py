@@ -60,7 +60,7 @@ class D07Models(unittest.TestCase):
         self.assertIn("cash_capacity",rejected["cash_short"])
 
     def test_replenishment_emits_operational_dates(self):
-        out=run("replenishment.py",{"order_date":"2026-07-17","expected_protection_demand":100,"target_demand_quantile":120,"target_inventory_position":150,"current_inventory_position":20,"supplier_confirmation_days":1,"production_days":4,"quality_release_days":1,"origin_handling_days":1,"main_haul_days":4,"customs_days":1,"inbound_days":2,"receiving_putaway_days":1})
+        out=run("replenishment.py",{"order_date":"2026-07-17","opening_available":20,"expected_protection_demand":100,"target_demand_quantile":120,"target_inventory_position":150,"current_inventory_position":20,"supplier_confirmation_days":1,"production_days":4,"quality_release_days":1,"origin_handling_days":1,"main_haul_days":4,"customs_days":1,"inbound_days":2,"receiving_putaway_days":1})
         self.assertEqual(out["schedule"]["confirmed_date"],"2026-07-18")
         self.assertEqual(out["schedule"]["available_to_sell_date"],"2026-08-01")
 

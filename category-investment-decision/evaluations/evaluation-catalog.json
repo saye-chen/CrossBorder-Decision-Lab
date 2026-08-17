@@ -31,7 +31,7 @@
       "flip_condition": "若Top5集中度降至55%以下或组合可承受升至$9,000，结论翻转为Invest。",
       "evidence_binding": {
         "source": "授权后台快照+第三方排名API",
-        "fingerprint": "sha256:a3f8c2",
+        "fingerprint": "synthetic:a3f8c2",
         "biz_time": "2026-08-01",
         "valid_until": "2026-09-01"
       },
@@ -70,7 +70,7 @@
       "flip_condition": "若品类B供应链验证失败或品类A采购成本降至$5.5以下，重新排序。",
       "evidence_binding": {
         "source": "组合财务快照",
-        "fingerprint": "sha256:b7d1e4",
+        "fingerprint": "synthetic:b7d1e4",
         "biz_time": "2026-08-02",
         "valid_until": "2026-08-15"
       },
@@ -110,7 +110,7 @@
       "flip_condition": "仅当供应商获得CE认证且REACH注册完成，门才关闭。",
       "evidence_binding": {
         "source": "合规数据库+供应商声明",
-        "fingerprint": "sha256:c9a2f1",
+        "fingerprint": "synthetic:c9a2f1",
         "biz_time": "2026-08-03",
         "valid_until": "2026-08-10"
       },
@@ -149,7 +149,7 @@
       "flip_condition": "若UK站客单价升至£25或FBA费率谈判至32%，结论可翻转。",
       "evidence_binding": {
         "source": "UK站后台+HMRC税率表",
-        "fingerprint": "sha256:d4e8b3",
+        "fingerprint": "synthetic:d4e8b3",
         "biz_time": "2026-08-01",
         "valid_until": "2026-09-01"
       },
@@ -188,7 +188,7 @@
       "flip_condition": "若Q4预售数据确认+15%以上增长或持有成本降至$600/月，可重新评估。",
       "evidence_binding": {
         "source": "Google Trends+历史销售数据",
-        "fingerprint": "sha256:e1f5a7",
+        "fingerprint": "synthetic:e1f5a7",
         "biz_time": "2026-08-04",
         "valid_until": "2026-08-18"
       },
@@ -227,7 +227,7 @@
       "flip_condition": "第3批不良率<3%且累计投入<$5,740(=$8,200×70%)，可升级为Invest。",
       "evidence_binding": {
         "source": "质检报告+历史决策记录",
-        "fingerprint": "sha256:f2a6c8",
+        "fingerprint": "synthetic:f2a6c8",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-20"
       },

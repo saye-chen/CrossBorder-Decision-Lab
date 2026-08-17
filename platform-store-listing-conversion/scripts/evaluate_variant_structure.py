@@ -8,8 +8,6 @@ def evaluate(data):
         if not vid or vid in seen: issues.append({"variant_id":vid,"issue":"missing_or_duplicate_id"})
         seen.add(vid); attrs=tuple(sorted(v.get("attributes",{}).items()))
         if not attrs: issues.append({"variant_id":vid,"issue":"missing_attributes"})
-        sig=str(attrs)
-        if sig in {x[0] for x in []}: pass
         inv=integer(v.get("inventory",0),f"{vid}.inventory"); total+=inv
         if v.get("product_identity")!=data.get("product_identity"): issues.append({"variant_id":vid,"issue":"different_product_identity"})
     signatures=[tuple(sorted(v.get("attributes",{}).items())) for v in variants]

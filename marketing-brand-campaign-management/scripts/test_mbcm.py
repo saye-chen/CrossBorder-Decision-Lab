@@ -44,6 +44,14 @@ class Models(unittest.TestCase):
           "incremental_offer_cost":50,"incremental_fixed_cost":20,"ci_lower_orders":-2,"ci_upper_orders":42,"currency":"USD"})
         self.assertEqual(x["incremental_orders"],20); self.assertEqual(x["mature_incremental_contribution"],130)
         self.assertFalse(x["causal_claim_allowed"]); self.assertFalse(x["attribution_equals_incrementality"])
+
+    def test_incrementality_requires_qualified_evidence_for_causal_claim(self):
+        x=incrementality_bridge.calculate({"observed_orders":120,"attributed_orders":90,"counterfactual_orders":100,
+          "incremental_net_revenue":500,"incremental_cogs":100,"incremental_fulfillment":50,
+          "incremental_platform_fees":50,"incremental_service_returns":20,"incremental_channel_cost":50,
+          "incremental_offer_cost":50,"incremental_fixed_cost":50,"ci_lower_orders":10,"ci_upper_orders":30,
+          "currency":"USD","incrementality_evidence_status":"qualified"})
+        self.assertTrue(x["causal_claim_allowed"])
     def test_pull_forward_cannibalization(self):
         x=pull_forward_cannibalization.calculate({"expected_post_units":100,"observed_post_units":80,
           "baseline_cm_per_unit":5,"siblings":[{"counterfactual_units":50,"observed_units":40,"baseline_cm":4}],

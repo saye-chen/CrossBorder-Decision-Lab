@@ -4,10 +4,17 @@ from plco_common import integer, number, required, run_cli
 
 def evaluate(data):
     required(data,("control","treatment","primary_metric","mature"))
+    if not isinstance(data["mature"], bool):
+        return {"status":"invalid","errors":["mature must be boolean"]}
     c=data["control"]; t=data["treatment"]
     nc=integer(c.get("n"),"control.n"); nt=integer(t.get("n"),"treatment.n")
     xc=integer(c.get("successes"),"control.successes"); xt=integer(t.get("successes"),"treatment.successes")
     errors=[]
+    minimum_sample=int(data.get("minimum_sample_per_arm", 30))
+    if minimum_sample < 2:
+        errors.append("minimum_sample_per_arm must be at least 2")
+    elif nc < minimum_sample or nt < minimum_sample:
+        errors.append("insufficient_sample_per_arm")
     if xc>nc or xt>nt: errors.append("successes exceed exposure")
     if nc==0 or nt==0: errors.append("zero exposure")
     if errors: return {"status":"invalid","errors":errors}

@@ -22,6 +22,7 @@ def did(p):
     effect=(mean(ta)-mean(tb))-(mean(ca)-mean(cb))
     gaps=[a-b for a,b in zip(tb,cb)]; trend=ols(list(range(len(gaps))),gaps,"pretrend")
     threshold=float(p.get("maximum_pretrend_slope",0.05))
+    if not math.isfinite(threshold) or threshold < 0: raise ValueError("maximum_pretrend_slope must be finite and non-negative")
     residual=trend["residuals"]; se=math.sqrt((variance(residual) if len(residual)>1 else 0)/len(gaps)+
                                              variance(ta)/len(ta)+variance(ca)/len(ca))
     parallel=abs(trend["slope"])<=threshold
@@ -38,7 +39,9 @@ def synthetic(p):
     donors=[numbers(x,f"donor_pre[{i}]",len(treated)) for i,x in enumerate(donors)]
     if any(len(x)!=len(treated) for x in donors): raise ValueError("donor periods must align")
     weights=[1/len(donors)]*len(donors); lr=float(p.get("learning_rate",.05))
-    for _ in range(int(p.get("iterations",2000))):
+    iterations_value=float(p.get("iterations",2000))
+    if not math.isfinite(iterations_value) or iterations_value < 1 or iterations_value != int(iterations_value): raise ValueError("iterations must be a positive integer")
+    for _ in range(int(iterations_value)):
         pred=[sum(weights[j]*donors[j][i] for j in range(len(donors))) for i in range(len(treated))]
         grad=[2*sum((pred[i]-treated[i])*donors[j][i] for i in range(len(treated)))/len(treated) for j in range(len(donors))]
         weights=project_simplex([w-lr*g for w,g in zip(weights,grad)])
@@ -49,6 +52,7 @@ def synthetic(p):
     counter=[sum(weights[j]*float(donor_post[j][i]) for j in range(len(donors))) for i in range(len(treated_post))]
     effects=[a-b for a,b in zip(treated_post,counter)]; effect=mean(effects)
     threshold=float(p.get("maximum_pre_rmse",max(1.0,.1*abs(mean(treated)))))
+    if not math.isfinite(threshold) or threshold < 0: raise ValueError("maximum_pre_rmse must be finite and non-negative")
     return {"method":"synthetic_control","estimand":"average_post_treatment_gap","effect":effect,
             "weights":weights,"counterfactual_post":counter,"identified":rmse<=threshold,
             "diagnostics":{"pre_rmse":rmse,"maximum_pre_rmse":threshold,"weights_sum":sum(weights)},

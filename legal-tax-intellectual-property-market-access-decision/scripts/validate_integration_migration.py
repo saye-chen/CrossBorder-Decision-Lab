@@ -37,8 +37,30 @@ def validate_response(value):
 def validate_migration(value):
     errors=schema_errors("formal-migration.schema.json",value)
     if errors: return errors
+    mappings=value.get("mappings",[])
+    if not isinstance(mappings,list) or not mappings: errors.append("migration mappings must be non-empty")
+    if any(not isinstance(m,dict) or not m.get("source_field") or (m.get("classification")=="lossless" and not m.get("target_field")) for m in mappings): errors.append("lossless migration mappings require source and target fields")
+    consumers=value.get("consumer_acceptance",[])
+    if not isinstance(consumers,list) or not consumers: errors.append("consumer acceptance must be non-empty")
+    if any(c.get("status") not in {"accepted","rejected","pending"} for c in consumers if isinstance(c,dict)): errors.append("invalid consumer acceptance status")
+    if value.get("rollback_status") not in {"ready","triggered","completed","not_required"}: errors.append("invalid rollback status")
     if any(m["criticality"]=="safety_critical" and m["classification"]!="lossless" for m in value["mappings"]): errors.append("safety critical mappings must be lossless")
     statuses={x["status"] for x in value["consumer_acceptance"]}
     if statuses!={"accepted"} and value["rollback_status"] not in {"ready","triggered","completed"}: errors.append("unaccepted consumers require rollback readiness")
     if value["action_ceiling_comparison"] in {"higher","incomparable"}: errors.append("migration cannot raise or obscure action ceiling")
     return errors
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("adapter", type=Path)
+    parser.add_argument("response", type=Path)
+    parser.add_argument("migration", type=Path)
+    args = parser.parse_args()
+    adapter_errors = validate_adapter(load(args.adapter))
+    response_errors = validate_response(load(args.response))
+    migration_errors = validate_migration(load(args.migration))
+    errors = [f"adapter:{x}" for x in adapter_errors] + [f"response:{x}" for x in response_errors] + [f"migration:{x}" for x in migration_errors]
+    print(json.dumps({"status": "pass" if not errors else "blocked", "errors": errors}, ensure_ascii=False, indent=2))
+    raise SystemExit(0 if not errors else 1)

@@ -205,6 +205,10 @@ def compute_score(video_type, scores, confidence=None):
         "breakdown": breakdown,
         "confidence": confidence,
     }
+    if confidence == "low" and missing:
+        result["confidence_basis"] = (
+            "partial_dimensions" if len(missing) <= 2 else "insufficient_dimensions"
+        )
 
     # Flag missing dimensions
     missing_dims = [

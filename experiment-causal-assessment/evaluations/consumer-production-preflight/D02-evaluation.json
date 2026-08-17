@@ -89,7 +89,7 @@
   "external_write": false,
   "fail_closed_semantic_failures": [],
   "next_state": "evidence_incomplete_or_nonproduction",
-  "package_hash": "c461aacf7b8ef3a9abb354180265485a7370c17f2ac70cdf0ba9aae09d6a7f18",
+  "package_hash": "08b0e59aeb0f4734bca79ecab035fb9a17ee2f36be0b8e37221c88e8ff1988c0",
   "producer_self_acceptance_forbidden": true,
   "rollback_drill_pass": true,
   "run_class": "fixture_non_production",

@@ -8,17 +8,22 @@ def finite(x,name):
     if not math.isfinite(x): raise ValueError(f"{name} must be finite")
     return x
 
+def nonnegative(x,name):
+    value=finite(x,name)
+    if value < 0: raise ValueError(f"{name} must be non-negative")
+    return value
+
 def calculate(d):
     revenue=finite(d["revenue"],"revenue"); margin=finite(d["pre_ad_cm_rate"],"pre_ad_cm_rate")
     if revenue < 0 or not 0 < margin <= 1: raise ValueError("invalid revenue or pre_ad_cm_rate")
     mode=d["mode"].lower(); spend=0.0
-    if mode=="cpc": spend=finite(d["clicks"],"clicks")*finite(d["cpc"],"cpc")
-    elif mode=="cpm": spend=finite(d["impressions"],"impressions")/1000*finite(d["cpm"],"cpm")
-    elif mode=="cpv": spend=finite(d["views"],"views")*finite(d["cpv"],"cpv")
-    elif mode=="cpa": spend=finite(d["actions"],"actions")*finite(d["cpa"],"cpa")
+    if mode=="cpc": spend=nonnegative(d["clicks"],"clicks")*nonnegative(d["cpc"],"cpc")
+    elif mode=="cpm": spend=nonnegative(d["impressions"],"impressions")/1000*nonnegative(d["cpm"],"cpm")
+    elif mode=="cpv": spend=nonnegative(d["views"],"views")*nonnegative(d["cpv"],"cpv")
+    elif mode=="cpa": spend=nonnegative(d["actions"],"actions")*nonnegative(d["cpa"],"cpa")
     elif mode=="cps": spend=revenue*finite(d["cps_rate"],"cps_rate")
-    elif mode=="fixed": spend=finite(d["fixed_cost"],"fixed_cost")
-    elif mode=="mixed": spend=finite(d.get("fixed_cost",0),"fixed_cost")+finite(d.get("variable_spend",0),"variable_spend")+revenue*finite(d.get("cps_rate",0),"cps_rate")
+    elif mode=="fixed": spend=nonnegative(d["fixed_cost"],"fixed_cost")
+    elif mode=="mixed": spend=nonnegative(d.get("fixed_cost",0),"fixed_cost")+nonnegative(d.get("variable_spend",0),"variable_spend")+revenue*nonnegative(d.get("cps_rate",0),"cps_rate")
     else: raise ValueError("unsupported mode")
     if spend < 0: raise ValueError("spend must be non-negative")
     contribution=revenue*margin-spend

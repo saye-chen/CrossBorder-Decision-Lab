@@ -31,7 +31,7 @@
       "flip_condition": "在途货物到达且ATP升至3,000+，D03缺口可补。",
       "evidence_binding": {
         "source": "库存快照+在途追踪",
-        "fingerprint": "sha256:lifd1a1",
+        "fingerprint": "synthetic:lifd1a1",
         "biz_time": "2026-08-04",
         "valid_until": "2026-08-06"
       },
@@ -70,7 +70,7 @@
       "flip_condition": "清关完成且FBA入仓确认，级联影响解除。",
       "evidence_binding": {
         "source": "清关状态+FBA入仓日志",
-        "fingerprint": "sha256:lifd2b2",
+        "fingerprint": "synthetic:lifd2b2",
         "biz_time": "2026-08-03",
         "valid_until": "2026-08-07"
       },
@@ -110,7 +110,7 @@
       "flip_condition": "承运商更新UN38.3资质或使用已认证替代路线。",
       "evidence_binding": {
         "source": "危险品证书+承运商资质",
-        "fingerprint": "sha256:lifd3c3",
+        "fingerprint": "synthetic:lifd3c3",
         "biz_time": "2026-08-01",
         "valid_until": "2026-08-04"
       },
@@ -149,7 +149,7 @@
       "flip_condition": "调拨完成且东仓ATP>1,600，同时西仓保留≥200安全库存。",
       "evidence_binding": {
         "source": "多仓库存快照+运费表",
-        "fingerprint": "sha256:lifd4d4",
+        "fingerprint": "synthetic:lifd4d4",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-08"
       },
@@ -188,7 +188,7 @@
       "flip_condition": "承运商连续14天实际时效回到承诺范围内，或切换至时效稳定的备选承运商。",
       "evidence_binding": {
         "source": "承运商时效追踪+SLA",
-        "fingerprint": "sha256:lifd5e5",
+        "fingerprint": "synthetic:lifd5e5",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-12"
       },
@@ -227,7 +227,7 @@
       "flip_condition": "若该SKU UK站有促销可加速至月销100+件，保留库存继续销售。",
       "evidence_binding": {
         "source": "海外仓库存+销售趋势",
-        "fingerprint": "sha256:lifd6f6",
+        "fingerprint": "synthetic:lifd6f6",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-12"
       },

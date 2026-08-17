@@ -6,7 +6,7 @@ def run(d):
         if not p.get("compliance_pass",False) or not p.get("title_clear",False):
             paths.append({"id":p.get("id"),"eligible":False,"reason":"compliance_or_title"});continue
         proceeds=n(p,"cash_proceeds")*num(p.get("collection_probability",1),"collection_probability",0)
-        if p.get("collection_probability",1)>1: raise ValueError("collection_probability must be <= 1")
+        if not 0 <= p.get("collection_probability",1) <= 1: raise ValueError("collection_probability must be in [0, 1]")
         costs=sum(n(p,k) for k in ["preparation_rework","transfer_freight","duties_taxes_fees","commission","brand_deidentification","claims_liability","termination_closeout","downside_reserve"])
         rate=num(p.get("annual_discount_rate",d.get("annual_discount_rate",0)),"annual_discount_rate",0)
         cash_days=n(p,"cash_days");discounted=(proceeds-costs)/((1+rate)**(cash_days/365))

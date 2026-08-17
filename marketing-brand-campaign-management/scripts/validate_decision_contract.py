@@ -15,7 +15,9 @@ SPEC.loader.exec_module(CORE)
 QUESTIONS={f"Q{i:02d}" for i in range(1,14)}
 STAGES={f"L{i}" for i in range(9)}
 def validate(d):
-    if "mode" in d and "decision_owner" in d:
+    if "mode" in d or "decision_owner" in d:
+        if "mode" not in d or "decision_owner" not in d:
+            raise ModelError("erdg:mode_and_decision_owner_required_together")
         errors=CORE.validate(d)
         if errors:
             raise ModelError("erdg:"+("|".join(errors)))

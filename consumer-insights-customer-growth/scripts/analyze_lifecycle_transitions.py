@@ -7,7 +7,10 @@ from pathlib import Path
 def main():
     p=argparse.ArgumentParser();p.add_argument("--input",required=True);p.add_argument("--output",required=True);a=p.parse_args();hist=defaultdict(list)
     with open(a.input,encoding="utf-8",newline="") as f:
-        for r in csv.DictReader(f):hist[r["customer_key"]].append((datetime.fromisoformat(r["snapshot_at"].replace("Z","+00:00")),r["state"]))
+        for r in csv.DictReader(f):
+            observed=datetime.fromisoformat(r["snapshot_at"].replace("Z","+00:00"))
+            if observed.tzinfo is None: raise ValueError("snapshot_at timezone required")
+            hist[r["customer_key"]].append((observed,r["state"]))
     counts=Counter()
     for rows in hist.values():
         rows.sort()

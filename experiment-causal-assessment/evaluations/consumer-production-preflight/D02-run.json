@@ -198,8 +198,8 @@
       "local://f01-source-tree"
     ],
     "f01_commit_hash": null,
-    "f01_source_tree_hash": "1de97c34bb78aecbf0b6aca55c6d7079e0697b966636c4d370255ca2f9e485f8",
-    "legacy_code_hash": "ed7e900206bef5ac19b2fb16bbc474ceeba6e443e28650d07cefafb7e05d6789",
+    "f01_source_tree_hash": "ac170929a14acf98bfc81b7c51cbd853fa7c0d58f93a86d3f5ba7ce023e6c306",
+    "legacy_code_hash": "8e53ff740c363acefceecf1a251f88ce266fa21a0bb864db26af0abb29a9956b",
     "legacy_code_ref": "repository://D02/legacy-assets"
   },
   "data_snapshot": {

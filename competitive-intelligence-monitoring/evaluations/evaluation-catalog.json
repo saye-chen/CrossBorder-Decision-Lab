@@ -31,7 +31,7 @@
       "flip_condition": "仅当3个ASIN分别来自不同供应商注册ID，身份才成立。",
       "evidence_binding": {
         "source": "ASIN快照+供应商注册库",
-        "fingerprint": "sha256:cim1a1",
+        "fingerprint": "synthetic:cim1a1",
         "biz_time": "2026-08-01",
         "valid_until": "2026-08-08"
       },
@@ -70,7 +70,7 @@
       "flip_condition": "若授权后台API确认降幅>-10%或第二个独立爬虫源确认-15%，结论更新。",
       "evidence_binding": {
         "source": "爬虫快照+后台API",
-        "fingerprint": "sha256:cim2b2",
+        "fingerprint": "synthetic:cim2b2",
         "biz_time": "2026-08-02",
         "valid_until": "2026-08-05"
       },
@@ -109,7 +109,7 @@
       "flip_condition": "若72h内排名稳定在Top15且评论数+50以上，归因为有效增长。",
       "evidence_binding": {
         "source": "BSR追踪+评论快照",
-        "fingerprint": "sha256:cim3c3",
+        "fingerprint": "synthetic:cim3c3",
         "biz_time": "2026-08-03",
         "valid_until": "2026-08-06"
       },
@@ -148,7 +148,7 @@
       "flip_condition": "UK站独立核验完成且HHI修正后，才可使用UK站专属竞争评估。",
       "evidence_binding": {
         "source": "US+UK站后台数据",
-        "fingerprint": "sha256:cim4d4",
+        "fingerprint": "synthetic:cim4d4",
         "biz_time": "2026-08-01",
         "valid_until": "2026-08-15"
       },
@@ -188,7 +188,7 @@
       "flip_condition": "恢复数据采集且连续7天有效证据后，可重新激活监控。",
       "evidence_binding": {
         "source": "爬虫日志+API密钥状态",
-        "fingerprint": "sha256:cim5e5",
+        "fingerprint": "synthetic:cim5e5",
         "biz_time": "2026-07-20",
         "valid_until": "2026-08-03"
       },
@@ -227,7 +227,7 @@
       "flip_condition": "新基线建立且与旧基线偏差<10%，可恢复正常监控频率。",
       "evidence_binding": {
         "source": "恢复日志+新基线数据",
-        "fingerprint": "sha256:cim6f6",
+        "fingerprint": "synthetic:cim6f6",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-12"
       },

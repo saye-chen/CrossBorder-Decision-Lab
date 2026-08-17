@@ -23,6 +23,7 @@ class L3AuditMatrixTests(unittest.TestCase):
         result = validate(self.matrix)
         self.assertTrue(result["valid"], result["errors"])
         self.assertEqual(result["dimensions_passed"], 8)
+        self.assertEqual(result["scenario_count"], 17)
         self.assertEqual(result["golden_reports_valid"], 3)
         self.assertEqual(result["l4_status"], "controlled pilot")
 

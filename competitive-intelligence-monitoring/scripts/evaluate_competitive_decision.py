@@ -19,7 +19,7 @@ def evaluate(d):
  for i,s in enumerate(snapshots):
   if s.get("object_id")!=object_id:errors.append(f"mixed_object:{i}")
   try:times.append(datetime.fromisoformat(str(s.get("observed_at")).replace("Z","+00:00")))
-  except ValueError:errors.append(f"invalid_time:{i}")
+  except (TypeError,ValueError,AttributeError):errors.append(f"invalid_time:{i}")
   if not s.get("display_condition"):errors.append(f"missing_display_condition:{i}")
  if times!=sorted(times):errors.append("snapshots_not_sorted")
  signals=d.get("signals",[]);confirmed=[];proxies=[]

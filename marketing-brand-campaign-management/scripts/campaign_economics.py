@@ -24,10 +24,10 @@ def calculate(d):
     stressed_gross=q*volume_factor*price*price_factor
     stressed_variable=sum(costs[k] for k in ("merchant_discount","refunds","tax","cogs","fulfillment",
                                              "platform_fees","service_cost","channel_cost","offer_cost"))
-    stressed_contribution=stressed_gross-stressed_variable*variable_cost_factor-costs["campaign_fixed_cost"]
+    stressed_contribution=stressed_gross-stressed_variable*volume_factor*variable_cost_factor-costs["campaign_fixed_cost"]
     first_flip=None
     if gross>0:
-        first_flip=(stressed_variable*variable_cost_factor+costs["campaign_fixed_cost"])/(q*price) if q*price else None
+        first_flip=(stressed_variable*variable_cost_factor+costs["campaign_fixed_cost"])/(q*price*price_factor) if q*price*price_factor else None
     return {"currency":currency,"gross_revenue":gross,"net_revenue":net,
             "contribution_before_marketing":before,"campaign_contribution":contribution,
             "contribution_per_mature_order":contribution/q if q else None,

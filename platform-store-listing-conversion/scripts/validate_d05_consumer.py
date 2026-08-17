@@ -11,3 +11,13 @@ def validate(p):
  if not allowed<=claims:e.append("D08 claim boundary references unknown claim")
  if any(x.get("claim_id") not in allowed and x.get("publish") for x in p.get("claims",[])):e.append("D08 cannot publish claim outside D05 boundary")
  return e
+
+if __name__ == "__main__":
+ import argparse, json
+ from pathlib import Path
+ parser=argparse.ArgumentParser(description=__doc__); parser.add_argument("input",type=Path); args=parser.parse_args()
+ try: payload=json.loads(args.input.read_text(encoding="utf-8")); errors=validate(payload)
+ except (OSError,json.JSONDecodeError,TypeError,ValueError) as exc:
+  print(json.dumps({"status":"error","errors":[str(exc)]},ensure_ascii=False)); raise SystemExit(2)
+ print(json.dumps({"status":"pass" if not errors else "blocked","errors":errors},ensure_ascii=False,indent=2))
+ raise SystemExit(0 if not errors else 1)

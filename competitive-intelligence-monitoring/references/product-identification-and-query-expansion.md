@@ -99,7 +99,7 @@ assumptions / unresolved_fields：
 - 高置信归因需要至少三个一致且尽量独立的信号；否则给验证任务。
 - 事件卡写明 owner、允许用途、禁止用途、责任域、成功、停止和复核日期。
 - 下游动作由对应主权域决定；CIM只跟踪是否执行和结果是否支持原假设。
-- 到期归因标记 validated/refuted/unresolved，并保留原版本与修订原因。
+- 到期归因标记 validated/falsified/inconclusive，并保留原版本与修订原因。
 
 ## product-identification-and-query-expansion 专属决策内核
 

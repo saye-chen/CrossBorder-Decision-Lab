@@ -21,9 +21,13 @@ def calculate(d):
     contribution=revenue-costs
     inc_orders=observed-counter
     if not (low<=inc_orders<=high): raise ModelError("confidence_interval:does_not_contain_point_estimate")
+    evidence_status=d.get("incrementality_evidence_status", "unknown")
+    if evidence_status not in {"qualified", "unknown", "blocked"}:
+        raise ModelError("incrementality_evidence_status:invalid")
     return {"currency":text(d["currency"],"currency"),"observed_orders":observed,"attributed_orders":attributed,
             "incremental_orders":inc_orders,"incremental_order_interval":[low,high],
             "mature_incremental_contribution":contribution,
-            "causal_claim_allowed":low>0 and contribution>0,
+            "incrementality_evidence_status":evidence_status,
+            "causal_claim_allowed":evidence_status == "qualified" and low>0 and contribution>0,
             "attribution_equals_incrementality":attributed==inc_orders}
 if __name__=="__main__": run_cli(calculate,"incrementality_bridge")

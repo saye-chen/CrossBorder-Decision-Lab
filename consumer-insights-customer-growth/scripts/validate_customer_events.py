@@ -6,7 +6,10 @@ from pathlib import Path
 
 REQUIRED = {"event_id", "event_time", "ingest_time", "customer_key", "market", "channel", "event_type", "consent_state", "source"}
 
-def parse_time(value): return datetime.fromisoformat(value.replace("Z", "+00:00"))
+def parse_time(value):
+    dt=datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if dt.tzinfo is None: raise ValueError("timezone required")
+    return dt
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument("--input",required=True); p.add_argument("--output",required=True); a=p.parse_args()
@@ -23,7 +26,7 @@ def main():
             seen.add(eid)
             try:
                 if parse_time(row["ingest_time"]) < parse_time(row["event_time"]): issues.append({"row":n,"type":"ingest_before_event"})
-            except (KeyError,ValueError): issues.append({"row":n,"type":"invalid_time"})
+            except (KeyError,ValueError,TypeError,AttributeError): issues.append({"row":n,"type":"invalid_time"})
             if row.get("consent_state") not in {"granted","denied","withdrawn","unknown"}: issues.append({"row":n,"type":"invalid_consent_state"})
             for field in ("quantity","amount"):
                 if row.get(field):

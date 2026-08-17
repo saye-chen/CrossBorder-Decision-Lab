@@ -21,7 +21,10 @@ FORBIDDEN_SOURCES = {"synthetic", "golden", "fixture", "demo"}
 
 
 def parse_time(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None:
+        raise ValueError("timezone required")
+    return parsed
 
 
 def digest(path: Path) -> str:
@@ -46,7 +49,8 @@ def validate(payload: dict, base: Path) -> dict:
         if case_id in ids:
             errors.append(f"duplicate_case_id:{case_id}")
         ids.add(case_id)
-        if str(case.get("source_type", "")).lower() in FORBIDDEN_SOURCES:
+        source_type = str(case.get("source_type", "")).strip().lower().replace("-", "_").replace(" ", "_")
+        if source_type in FORBIDDEN_SOURCES:
             errors.append(f"case_{index}_synthetic_source_forbidden")
         if case.get("page_version_before") == case.get("page_version_after"):
             errors.append(f"case_{index}_page_version_not_changed")
@@ -80,7 +84,7 @@ def validate(payload: dict, base: Path) -> dict:
         if not isinstance(incident,dict) or not isinstance(incident.get("incident_observed"),bool) or not isinstance(incident.get("rollback_tested"),bool): errors.append(f"case_{index}_incident_rollback_invalid")
         drift=case.get("drift_assessment",{})
         if not isinstance(drift,dict) or drift.get("status") not in {"stable","drifted","inconclusive"} or not drift.get("checked_at"): errors.append(f"case_{index}_drift_invalid")
-        if artifacts_ok and str(case.get("source_type", "")).lower() not in FORBIDDEN_SOURCES and not missing:
+        if artifacts_ok and source_type not in FORBIDDEN_SOURCES and not missing:
             authorized += 1
 
     if authorized < minimum:

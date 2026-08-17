@@ -48,7 +48,7 @@ class GrowthScripts(unittest.TestCase):
             td=Path(td); events=td/"events.csv"; out=td/"out.json"
             fields=["event_id","event_time","ingest_time","customer_key","market","channel","event_type","consent_state","source"]
             with events.open("w",newline="",encoding="utf-8") as f:
-                w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerow(dict(zip(fields,["e1","2026-01-01T00:00:00","2026-01-01T01:00:00","c1","US","web","purchase","granted","shop"])))
+                w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerow(dict(zip(fields,["e1","2026-01-01T00:00:00+00:00","2026-01-01T01:00:00+00:00","c1","US","web","purchase","granted","shop"])))
             run("validate_customer_events.py","--input",events,"--output",out); self.assertTrue(json.loads(out.read_text())["valid"])
             orders=td/"orders.csv"
             with orders.open("w",newline="",encoding="utf-8") as f:
@@ -59,8 +59,8 @@ class GrowthScripts(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             td=Path(td); orders=td/"orders.csv"; out=td/"out.json"
             with orders.open("w",newline="",encoding="utf-8") as f:
-                fields=["customer_key","order_time"]; w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows([{"customer_key":"c1","order_time":"2026-01-01T00:00:00"},{"customer_key":"c1","order_time":"2026-02-01T00:00:00"}])
-            run("analyze_cohort_retention.py","--input",orders,"--as-of","2026-02-28","--output",out); self.assertEqual(json.loads(out.read_text())[0]["cells"][1]["retention"],1)
+                fields=["customer_key","order_time"]; w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows([{"customer_key":"c1","order_time":"2026-01-01T00:00:00Z"},{"customer_key":"c1","order_time":"2026-02-01T00:00:00Z"}])
+            run("analyze_cohort_retention.py","--input",orders,"--as-of","2026-02-28T00:00:00Z","--output",out); self.assertIsNone(json.loads(out.read_text())[0]["cells"][1]["retention"])
             inp=td/"in.json"; inp.write_text(json.dumps({"expected_contribution_margins":[60,60],"survival":[1,.5],"cac":50}),encoding="utf-8")
             run("calculate_clv.py","--input",inp,"--output",out); self.assertEqual(json.loads(out.read_text())["payback_period"],1)
             inp.write_text(json.dumps({"treatment":{"successes":150,"n":1000},"control":{"successes":100,"n":1000},"contribution_margin_per_incremental_success":20}),encoding="utf-8")
@@ -81,7 +81,7 @@ class GrowthScripts(unittest.TestCase):
             run("audit_voc_labels.py","--input",voc,"--output",out);self.assertEqual(json.loads(out.read_text())["groups"][0]["agreement"],1)
             states=td/"states.csv"
             with states.open("w",newline="",encoding="utf-8") as f:
-                fields=["customer_key","snapshot_at","state"];w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows([{"customer_key":"c1","snapshot_at":"2026-01-01","state":"new"},{"customer_key":"c1","snapshot_at":"2026-02-01","state":"active"}])
+                fields=["customer_key","snapshot_at","state"];w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows([{"customer_key":"c1","snapshot_at":"2026-01-01T00:00:00Z","state":"new"},{"customer_key":"c1","snapshot_at":"2026-02-01T00:00:00Z","state":"active"}])
             run("analyze_lifecycle_transitions.py","--input",states,"--output",out);self.assertEqual(json.loads(out.read_text())["transitions"][0]["probability"],1)
             uplift=td/"uplift.csv"
             with uplift.open("w",newline="",encoding="utf-8") as f:

@@ -13,7 +13,9 @@ SCHEMAS = ROOT / "schemas"
 
 
 def parse_time(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None: raise ValueError("timezone required")
+    return parsed
 
 
 def validate_schema(name: str, value: dict) -> list[str]:

@@ -27,7 +27,9 @@ def validate(data: dict) -> dict:
     if not isinstance(data.get("evidence_ids"), list) or not data["evidence_ids"]:
         raise ValueError("evidence_ids must be non-empty")
     start, end = parse_time(data["start_at"], "start_at"), parse_time(data["end_at"], "end_at")
-    as_of = parse_time(data.get("as_of_time", datetime.now(timezone.utc).isoformat()), "as_of_time")
+    if not data.get("as_of_time"):
+        raise ValueError("as_of_time is required for deterministic rights validation")
+    as_of = parse_time(data["as_of_time"], "as_of_time")
     if start >= end:
         raise ValueError("rights start must be before end")
     blocked = []

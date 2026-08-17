@@ -39,7 +39,7 @@ def analyze(rows: list[dict]) -> dict:
             "contribution_profit": profit,
             "mature_revenue_low": revenue_low,
             "contribution_profit_low": profit_low,
-            "maturity": row.get("maturity", "mature"),
+            "maturity": row.get("maturity", "blocked"),
         })
     normalized.sort(key=lambda row: row["spend"])
     if len({row["spend"] for row in normalized}) != len(normalized):
@@ -63,9 +63,9 @@ def analyze(rows: list[dict]) -> dict:
             if delta_spend <= 0:
                 raise ValueError("spend stages must increase")
             result["marginal_roas"] = (row["mature_revenue"] - previous["mature_revenue"]) / delta_spend
-            result["marginal_roas_low"] = (row["mature_revenue_low"] - previous["mature_revenue_low"]) / delta_spend
+            result["marginal_roas_low"] = (row["mature_revenue_low"] - previous["mature_revenue"]) / delta_spend
             result["marginal_contribution"] = (row["contribution_profit"] - previous["contribution_profit"]) / delta_spend
-            result["marginal_contribution_low"] = (row["contribution_profit_low"] - previous["contribution_profit_low"]) / delta_spend
+            result["marginal_contribution_low"] = (row["contribution_profit_low"] - previous["contribution_profit"]) / delta_spend
             if row["maturity"] != "mature":
                 result["decision"] = "Inconclusive"
             elif result["marginal_contribution_low"] > 0:

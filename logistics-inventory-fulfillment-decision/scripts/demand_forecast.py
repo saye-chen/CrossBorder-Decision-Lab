@@ -24,7 +24,7 @@ def run(d):
         pred=croston(hist[:i],num(d.get("croston_alpha",.2),"croston_alpha",0)) if method=="croston" else sum(hist[i-window:i])/window;errors.append(hist[i]-pred)
     abs_errors=[abs(x) for x in errors] or [0]
     q=num(d.get("interval_quantile",.9),"interval_quantile",0)
-    if q>1: raise ValueError("interval_quantile must be <= 1")
+    if not 0 <= q <= 1: raise ValueError("interval_quantile must be in [0, 1]")
     spread=quantile(abs_errors,q)
     actual=d.get("actual");metrics=None
     if actual:

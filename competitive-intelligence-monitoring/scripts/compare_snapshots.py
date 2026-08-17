@@ -4,6 +4,7 @@
 import argparse
 import json
 from pathlib import Path
+from snapshot_schema import canonicalize
 
 
 def flatten(value, prefix=""):
@@ -22,8 +23,8 @@ def main():
     parser.add_argument("--current", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
-    previous = json.loads(Path(args.previous).read_text(encoding="utf-8"))
-    current = json.loads(Path(args.current).read_text(encoding="utf-8"))
+    previous = canonicalize(json.loads(Path(args.previous).read_text(encoding="utf-8")))
+    current = canonicalize(json.loads(Path(args.current).read_text(encoding="utf-8")))
     old, new = flatten(previous), flatten(current)
     changes = []
     for field in sorted(set(old) | set(new)):

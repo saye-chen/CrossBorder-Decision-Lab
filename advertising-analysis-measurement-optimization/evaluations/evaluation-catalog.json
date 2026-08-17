@@ -31,7 +31,7 @@
       "flip_condition": "增量比例升至45%以上或蚕食归零后净ROAS>2.5。",
       "evidence_binding": {
         "source": "广告报表+geo-holdout实验",
-        "fingerprint": "sha256:aamo1a1",
+        "fingerprint": "synthetic:aamo1a1",
         "biz_time": "2026-08-01",
         "valid_until": "2026-08-08"
       },
@@ -70,7 +70,7 @@
       "flip_condition": "brand-off实验显示自然搜索恢复>$2,000/周，蚕食成立。",
       "evidence_binding": {
         "source": "PMax报表+自然搜索趋势",
-        "fingerprint": "sha256:aamo2b2",
+        "fingerprint": "synthetic:aamo2b2",
         "biz_time": "2026-08-02",
         "valid_until": "2026-08-09"
       },
@@ -110,7 +110,7 @@
       "flip_condition": "追踪恢复且连续7天完整数据后，才可重新计算ROAS。",
       "evidence_binding": {
         "source": "GTM日志+广告追踪状态",
-        "fingerprint": "sha256:aamo3c3",
+        "fingerprint": "synthetic:aamo3c3",
         "biz_time": "2026-08-03",
         "valid_until": "2026-08-06"
       },
@@ -149,7 +149,7 @@
       "flip_condition": "补货到达且库存>14天覆盖量后，广告恢复至断货前70%。",
       "evidence_binding": {
         "source": "库存快照+广告花费",
-        "fingerprint": "sha256:aamo4d4",
+        "fingerprint": "synthetic:aamo4d4",
         "biz_time": "2026-08-04",
         "valid_until": "2026-08-05"
       },
@@ -188,7 +188,7 @@
       "flip_condition": "边际ROAS回升至2.0以上或预算回调至$3,500后效率恢复。",
       "evidence_binding": {
         "source": "预算变更日志+边际效率曲线",
-        "fingerprint": "sha256:aamo5e5",
+        "fingerprint": "synthetic:aamo5e5",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-12"
       },
@@ -227,7 +227,7 @@
       "flip_condition": "退款率降至12%以下且真实ROAS回升至3.0以上。",
       "evidence_binding": {
         "source": "退款数据+广告归因",
-        "fingerprint": "sha256:aamo6f6",
+        "fingerprint": "synthetic:aamo6f6",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-19"
       },

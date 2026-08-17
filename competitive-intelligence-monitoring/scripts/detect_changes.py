@@ -6,6 +6,7 @@ import json
 import math
 import statistics
 from pathlib import Path
+from snapshot_schema import canonicalize_many
 
 
 DEFAULT_THRESHOLDS = {"price": 0.10, "rating": 0.30, "rank": 0.30, "sku_count": 10.0}
@@ -18,7 +19,7 @@ def main():
     parser.add_argument("--baseline-periods", type=int, default=8)
     parser.add_argument("--calibration", help="Optional JSON with field thresholds and calibration metadata")
     args = parser.parse_args()
-    rows = json.loads(Path(args.input).read_text(encoding="utf-8"))
+    rows = canonicalize_many(json.loads(Path(args.input).read_text(encoding="utf-8")))
     if not isinstance(rows, list) or len(rows) < 2:
         raise SystemExit("input must be a JSON list with at least two snapshots")
     if any(not isinstance(row, dict) for row in rows):

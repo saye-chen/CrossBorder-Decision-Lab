@@ -34,7 +34,12 @@ class PreparationTests(unittest.TestCase):
     def test_rejects_non_http_url(self) -> None:
         result = self.run_script("not-a-url", "--skip-download")
         self.assertEqual(result.returncode, 2)
-        self.assertIn("url must start", result.stderr)
+        self.assertIn("url must use", result.stderr)
+
+    def test_rejects_private_url(self):
+        result = self.run_script("http://127.0.0.1/video", "--skip-download")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("private", result.stderr)
 
     def test_rejects_invalid_sample_count(self) -> None:
         result = self.run_script("https://example.com/video", "--samples", "1", "--skip-download")
