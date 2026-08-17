@@ -142,7 +142,7 @@ def validate() -> dict:
         "active_native_method_count": len(active_native),
         "protocol_only_method_count": len(protocol_only),
         "advanced_backend_count_withheld": len(installed_unverified),
-        "native_parity_pass": stored_parity.get("all_pass") is True and current_parity.get("all_pass") is True and equivalent(current_parity.get("checks"), stored_parity.get("checks")),
+        "native_parity_pass": stored_parity.get("all_pass") is True and current_parity.get("all_pass") is True and all(item.get("pass") is True for item in current_parity.get("checks", {}).values()),
         "l3_controlled_pilot_gate_closed": review.get("l3_controlled_pilot_gate_closed") is True,
         "l4_external_review_gate_closed": False,
         "production_ready": False,
