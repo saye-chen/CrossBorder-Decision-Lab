@@ -10,6 +10,17 @@ CrossBorder Decision Lab is built for cross-border operators, brands, investors,
 
 The system combines fourteen professional decision capabilities with three global foundations. COPO orchestrates cross-domain work; CIDM, CIM, PIPM, SPPQ, LTMA, PPFC, LIFD, MBCM, VLB, CAPM, PLCO, AAMO, and CIG retain their respective professional sovereignty. ECAE, LCCA, and ERDG govern causal eligibility, localization applicability, and shared decision contracts. Core engineering and L1–L3 release gates are complete, with maturity at `controlled_pilot`. L4 will advance through real use, outcome replay, parameter calibration, and independent assurance; until then, production automation, high-stakes use, and external writes remain unavailable.
 
+## Guidance for Real-World Use
+
+CrossBorder Decision Lab creates the most value when it is embedded in real operating workflows, not used only for abstract questions or examples. Bring your actual operating data, business context, constraints, decisions already made, actions taken, and subsequent outcomes into the relevant capability. The more complete and continuous the evidence, and the more verifiable the outcomes, the better the system can surface blind spots, recompute economics, calibrate thresholds, and build operating benchmarks for your business.
+
+Before using real data, remove or replace passwords, API keys, customer identities, order-level privacy, unpublished financial information, and any other sensitive material that should not be shared. The project remains in `controlled_pilot`; its outputs should support decision-making and review, not directly replace professional judgment, approval, or high-stakes operating decisions.
+
+For questions, suggestions, or submissions of real cases, data structures, decision processes, and outcome reviews, contact:
+
+- `chensaye1@gmail.com`
+- `chensaye1@outlook.com`
+
 ## System Value and Long-Term Defensibility
 
 Foundation models will continue to improve, and the cost of generating individual answers will continue to decline. The durable value lies above the model: professional decision infrastructure embedded in real operating workflows.
