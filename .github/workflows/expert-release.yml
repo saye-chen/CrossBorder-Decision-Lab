@@ -2,7 +2,12 @@ name: Expert Release Gate
 
 on:
   push:
+    branches: [main]
   pull_request:
+
+concurrency:
+  group: expert-release-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -19,8 +24,14 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            experiment-causal-assessment/backends/python-requirements.lock.txt
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
+      - name: Refresh controlled-pilot generated bindings
+        run: python3 experiment-causal-assessment/scripts/build_consumer_preflight.py
       - name: Prepare locked ECAE oracle runtime
         run: |
           python3 -m venv .venv/ecae-python
