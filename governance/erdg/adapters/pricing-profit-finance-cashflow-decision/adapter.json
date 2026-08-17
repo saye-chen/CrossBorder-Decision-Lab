@@ -2,7 +2,7 @@
   "adapter": "pricing-profit-finance-cashflow-decision-erdg",
   "version":"2.0.0",
   "runtime_prefix": "PPFC",
-  "owned_decision_types": ["price_architecture", "new_product_price", "reprice", "promotion_economics", "unit_economics", "break_even", "budget_constraint", "cashflow", "financial_risk", "clearance_exit"],
+  "owned_decision_types": ["pricing", "pricing_profit", "unit_economics", "financial_constraint", "cashflow"],
   "contract": "ERDG-CONTRACT-2026.07",
   "handoff_schema": "governance/erdg/schemas/handoff-envelope.schema.json", "decision_cycle_schema": "governance/erdg/schemas/decision-cycle.schema.json", "accepts_v1": false, "external_write": false
 }
