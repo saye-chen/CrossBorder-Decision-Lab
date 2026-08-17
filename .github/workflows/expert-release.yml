@@ -18,9 +18,14 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
-          python-version: "3.11"
+          python-version: "3.12"
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
+      - name: Prepare locked ECAE oracle runtime
+        run: |
+          python3 -m venv .venv/ecae-python
+          .venv/ecae-python/bin/python -m pip install --upgrade pip
+          .venv/ecae-python/bin/python -m pip install -r experiment-causal-assessment/backends/python-requirements.lock.txt
       - name: Compile deterministic tools
         run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management legal-tax-intellectual-property-market-access-decision localization-country-calibration cross-domain-operating-posture-orchestration experiment-causal-assessment governance/decision-quality governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
       - name: Domain model tests
