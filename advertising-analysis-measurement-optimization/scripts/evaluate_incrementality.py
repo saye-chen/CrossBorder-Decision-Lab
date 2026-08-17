@@ -39,7 +39,7 @@ def evaluate(payload: dict) -> dict:
         raise ValueError("invalid z, incremental_spend, or contribution_margin_rate")
 
     maturity = payload.get("maturity", {})
-    maturity_states = {key: maturity.get(key, "mature") for key in ("assignment", "exposure", "outcome", "refund")}
+    maturity_states = {key: maturity.get(key, "blocked") for key in ("assignment", "exposure", "outcome", "refund")}
     invalid_maturity = {key: value for key, value in maturity_states.items() if value not in {"mature", "immature", "blocked"}}
     if invalid_maturity:
         raise ValueError(f"invalid maturity states: {invalid_maturity}")
@@ -49,6 +49,7 @@ def evaluate(payload: dict) -> dict:
     effect = treatment_mean - control_mean
     standard_error = math.sqrt(treatment["variance"] / treatment["n"] + control["variance"] / control["n"])
     lower, upper = effect - z * standard_error, effect + z * standard_error
+    inference_status = "positive" if lower > 0 else "negative" if upper < 0 else "undetermined"
     incremental_value = effect * treatment["assigned"]
     contribution = incremental_value * margin - spend
 
@@ -57,12 +58,15 @@ def evaluate(payload: dict) -> dict:
         observed = finite(item.get("observed"), f"guardrail.{item.get('id')}.observed")
         limit = finite(item.get("limit"), f"guardrail.{item.get('id')}.limit")
         direction = item.get("direction", "max")
+        if direction not in {"max", "min"}: raise ValueError(f"guardrail.{item.get('id')}.direction must be max or min")
         passed = observed <= limit if direction == "max" else observed >= limit
         guardrails.append({"id": item.get("id"), "passed": passed, "observed": observed, "limit": limit})
 
     exposure_rate = treatment["exposed"] / treatment["assigned"] if treatment["assigned"] else 0
     blockers = [key for key, value in maturity_states.items() if value != "mature"]
-    if exposure_rate < finite(payload.get("minimum_exposure_rate", 0), "minimum_exposure_rate"):
+    minimum_exposure_rate = finite(payload.get("minimum_exposure_rate", 0), "minimum_exposure_rate")
+    if not 0 <= minimum_exposure_rate <= 1: raise ValueError("minimum_exposure_rate must be in [0, 1]")
+    if exposure_rate < minimum_exposure_rate:
         blockers.append("low_exposure")
     if any(not item["passed"] for item in guardrails):
         blockers.append("guardrail")
@@ -71,7 +75,7 @@ def evaluate(payload: dict) -> dict:
         decision = "Inconclusive" if "guardrail" not in blockers else "Stop"
     elif lower > 0 and contribution > 0:
         decision = "Go"
-    elif upper < 0 or contribution < 0 and upper <= 0:
+    elif upper < 0 or contribution < 0:
         decision = "Stop"
     else:
         decision = "Inconclusive"
@@ -83,6 +87,7 @@ def evaluate(payload: dict) -> dict:
         "incremental_value_per_unit": effect,
         "standard_error": standard_error,
         "ci": [lower, upper],
+        "inference_status": inference_status,
         "incremental_value": incremental_value,
         "incremental_contribution": contribution,
         "iroas": incremental_value / spend if spend else None,

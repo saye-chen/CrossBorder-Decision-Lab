@@ -166,6 +166,7 @@ def gates(target: str, status: str, allowed: list[str], candidates: list[str]) -
     for gate in ("G1A", "G1B", "G2", "G3", "G4", "G5", "G6"):
         state = status if gate == target else "pass"
         result[gate] = {"status": state, "blocked_actions": sorted(set(candidates) - set(allowed)) if gate == target else [],
+                        "evidence_ids": [f"gate:{gate}:fixture"],
                         "recovery_evidence": [f"{gate.lower()}_recovery"] if state != "pass" else [],
                         "owner_skill": "creator-affiliate-partnership-management"}
     return result
@@ -176,7 +177,8 @@ def executable(case_id: str, prompt: str, quality: str, target: str, status: str
            "object": {"canonical_id": f"object-{case_id.lower()}", "object_version": "v1", "object_type": "partnership"},
            "scope": {"platform": "TikTok", "country": "US", "currency": "USD", "timezone": "America/New_York", "as_of_time": "2026-07-22T00:00:00Z"},
            "input_quality": quality, "causal_evidence_level": causal,
-           "evidence": [{"evidence_id": f"E-{case_id}", "level": "S3" if quality in {"Q2", "Q3"} else "S1"}],
+           "evidence": ([{"evidence_id": f"E-{case_id}", "level": "S3" if quality in {"Q2", "Q3"} else "S1"}]
+                        + [{"evidence_id": f"gate:{gate}:fixture", "level": "S1"} for gate in ("G1A", "G1B", "G2", "G3", "G4", "G5", "G6")]),
            "gates": gates(target, status, allowed, candidates), "candidate_actions": candidates}
     expected_allowed = set(allowed)
     if quality in {"Q0", "Q1"}: expected_allowed -= HIGH_RISK

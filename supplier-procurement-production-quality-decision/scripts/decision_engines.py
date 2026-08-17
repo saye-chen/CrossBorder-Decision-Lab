@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from sppq_core import ModelError, digest, evaluate
+import json
+import hashlib
 
 REQUIRED_MODELS = {
     "supplier_selection": ["capacity", "concentration"],
@@ -25,6 +27,13 @@ def evidence_failures(kind,d):
     for index, row in enumerate(rows):
         if not row.get("id") or not row.get("object_version") or len(str(row.get("hash", ""))) != 64:
             failures.append(f"invalid_evidence_binding:{index}")
+        else:
+            unsigned={k:row[k] for k in ("id","object_version","supported_fields","input_hashes") if k in row}
+            expected=hashlib.sha256(json.dumps(unsigned,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()).hexdigest()
+            if len(set(str(row.get("hash")))) == 1:
+                failures.append(f"placeholder_evidence_binding:{index}")
+            elif row.get("hash") != expected:
+                failures.append(f"evidence_binding_hash_mismatch:{index}")
     for model in REQUIRED_MODELS[kind]:
         field=f"model_inputs.{model}"
         supporting=[row for row in rows if field in row.get("supported_fields",[])]

@@ -32,6 +32,12 @@ def validate(data: dict, seen_idempotency_keys: set[str] | None = None) -> dict:
             errors.append(f"invalid:{party}_runtime_format")
     if data.get("source_evidence_level") not in {"S0", "S1", "S2", "S3", "S4"}:
         errors.append("invalid:source_evidence_level")
+    for field in ("claim_ids", "evidence_ids", "calculation_ids", "allowed_uses", "forbidden_uses", "blocked_actions"):
+        values = data.get(field)
+        if not isinstance(values, list) or any(not isinstance(value, str) or not value.strip() for value in values):
+            errors.append(f"invalid:{field}")
+        elif len(values) != len(set(values)):
+            errors.append(f"duplicate:{field}")
     if set(data.get("allowed_uses", [])) & set(data.get("forbidden_uses", [])):
         errors.append("conflict:allowed_forbidden_uses")
     if data.get("status") == "validated" and not data.get("evidence_ids"):
@@ -44,14 +50,18 @@ def validate(data: dict, seen_idempotency_keys: set[str] | None = None) -> dict:
     receipt_errors = validate_receipt(receipt) if isinstance(receipt, dict) else ["missing"]
     receipt_qualified = isinstance(receipt, dict) and not receipt_errors and receipt.get("incremental_claim_allowed") is True
     semantic_payload = {key:value for key,value in payload.items() if key != "ecae_consumer_receipt"} if isinstance(payload, dict) else payload
-    if "incremental" in canonical_json(semantic_payload).lower() and not receipt_qualified:
+    serialized_payload = canonical_json(semantic_payload).lower()
+    incrementality_markers = ("incremental", "true lift", "uplift", "causal lift")
+    if any(marker in serialized_payload for marker in incrementality_markers) and not receipt_qualified:
         errors.append("invalid:incremental_without_f01_consumer_receipt")
     validity = data.get("validity", {})
     try:
         start = datetime.fromisoformat(validity["valid_from"].replace("Z", "+00:00"))
         end = datetime.fromisoformat(validity["expires_at"].replace("Z", "+00:00"))
+        if start.tzinfo is None or end.tzinfo is None: raise ValueError("timezone required")
         if start >= end: errors.append("invalid:validity_period")
         scope_time = datetime.fromisoformat(data.get("scope", {}).get("as_of_time", "").replace("Z", "+00:00"))
+        if scope_time.tzinfo is None: raise ValueError("timezone required")
         if scope_time >= end: errors.append("invalid:expired_message")
     except Exception:
         errors.append("invalid:validity_time")
@@ -60,6 +70,8 @@ def validate(data: dict, seen_idempotency_keys: set[str] | None = None) -> dict:
         value = lineage.get(field, "")
         if len(value) != 64 or any(c not in "0123456789abcdef" for c in value.lower()):
             errors.append(f"invalid:{field}")
+        elif value.lower() == "0" * 64:
+            errors.append(f"placeholder:{field}")
     if lineage.get("input_hash") != input_lineage_hash(data):
         errors.append("invalid:input_hash_mismatch")
     receiver = data.get("receiver", {})
@@ -69,6 +81,12 @@ def validate(data: dict, seen_idempotency_keys: set[str] | None = None) -> dict:
     receipt = data.get("accepted_by_receiver", {})
     if accepted in {"accepted", "rejected"} and not receipt.get("checked_at"):
         errors.append("invalid:receiver_decision_without_checked_at")
+    if receipt.get("checked_at"):
+        try:
+            checked_at = datetime.fromisoformat(str(receipt["checked_at"]).replace("Z", "+00:00"))
+            if checked_at.tzinfo is None: raise ValueError("timezone required")
+        except (TypeError, ValueError):
+            errors.append("invalid:receiver_checked_at")
     if accepted == "pending" and receipt.get("checked_at"):
         errors.append("invalid:pending_with_checked_at")
     if not data.get("idempotency_key"):

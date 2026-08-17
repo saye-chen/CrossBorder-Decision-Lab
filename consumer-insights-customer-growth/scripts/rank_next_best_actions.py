@@ -18,7 +18,7 @@ def main():
     eligible.sort(key=lambda x:x["net_incremental_value"],reverse=True); selected=[]; spent=0
     chosen=set()
     for r in eligible:
-        cost=float(r.get("incentive_cost",0))+float(r.get("contact_cost",0))
+        cost=sum(float(r.get(k,0)) for k in ("incentive_cost","contact_cost","fatigue_cost","risk_cost"))
         if r.get("customer_key") in chosen: r["rejection_reasons"]=["one_action_per_customer"]; rejected.append(r)
         elif spent+cost<=a.budget: selected.append(r); spent+=cost; chosen.add(r.get("customer_key"))
         else: r["rejection_reasons"]=["budget"]; rejected.append(r)

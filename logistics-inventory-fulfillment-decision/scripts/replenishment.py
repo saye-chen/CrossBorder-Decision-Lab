@@ -4,12 +4,16 @@ from datetime import date,timedelta
 from common import main,n
 def ceil_step(x,step): return math.ceil(max(0,x)/step)*step
 def run(d):
+    required={"expected_protection_demand","target_demand_quantile",
+              "target_inventory_position","current_inventory_position",
+              "opening_available"}
+    missing=sorted(key for key in required if key not in d)
+    if missing: raise ValueError(f"missing required inventory inputs: {', '.join(missing)}")
     expected=n(d,"expected_protection_demand");quantile=n(d,"target_demand_quantile");
     if quantile<expected: raise ValueError("target quantile must be >= expected demand")
     safety=quantile-expected;rop=quantile
     raw=n(d,"target_inventory_position")-n(d,"current_inventory_position")
     step=n(d,"case_pack",1);qty=max(n(d,"moq"),ceil_step(raw,step)) if raw>0 else 0
-    caps=[n(d,k,float("inf")) for k in []]
     for k in ["supplier_capacity","cash_capacity_units","warehouse_capacity_units","lifecycle_cap","shelf_life_cap"]:
         if k in d: qty=min(qty,n(d,k))
     qty=math.floor(qty/step)*step if qty else 0

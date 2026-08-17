@@ -4,11 +4,13 @@
 from __future__ import annotations
 
 import argparse
+import ipaddress
 import json
 import re
 import subprocess
 import sys
 import tempfile
+from urllib.parse import urlparse
 from pathlib import Path
 from typing import Any
 
@@ -18,16 +20,27 @@ def ensure_package(import_name: str, package_name: str | None = None, install_mi
         __import__(import_name)
         return True
     except ImportError:
-        if not install_missing:
-            return False
-        package_name = package_name or import_name
-        cmd = [sys.executable, "-m", "pip", "install", "--user", package_name]
-        try:
-            subprocess.run(cmd, check=True)
-            __import__(import_name)
-            return True
-        except Exception:
-            return False
+        # Runtime package installation is deliberately disabled: this tool may
+        # process untrusted URLs and must not execute package-manager code.
+        return False
+
+
+def validate_remote_url(raw: str) -> str | None:
+    parsed = urlparse(raw)
+    if parsed.scheme.lower() not in {"http", "https"} or not parsed.hostname:
+        return "url must use http:// or https:// and include a hostname"
+    host = parsed.hostname.rstrip(".").lower()
+    if host in {"localhost", "localhost.localdomain"} or host.endswith(".localhost"):
+        return "local hostnames are not allowed"
+    try:
+        address = ipaddress.ip_address(host)
+        if address.is_private or address.is_loopback or address.is_link_local or address.is_reserved:
+            return "private, loopback, link-local, and reserved IPs are not allowed"
+    except ValueError:
+        pass
+    if parsed.username or parsed.password:
+        return "URLs with embedded credentials are not allowed"
+    return None
 
 
 def slugify(text: str) -> str:
@@ -139,13 +152,14 @@ def main() -> int:
     parser.add_argument(
         "--install-missing",
         action="store_true",
-        help="explicitly allow installation of missing Python packages into the user site",
+        help="deprecated compatibility flag; dependencies must be installed in the controlled environment",
     )
     parser.add_argument("--keep-video", action="store_true", help="keep downloaded video after frame extraction")
     args = parser.parse_args()
 
-    if not re.match(r"^https?://", args.url, re.IGNORECASE):
-        parser.error("url must start with http:// or https://")
+    url_error = validate_remote_url(args.url)
+    if url_error:
+        parser.error(url_error)
     if args.samples < 2 or args.samples > 120:
         parser.error("--samples must be between 2 and 120")
 
@@ -163,8 +177,8 @@ def main() -> int:
     if not ensure_package("yt_dlp", "yt-dlp", args.install_missing):
         summary["needs_user_input"] = True
         summary["errors"].append(
-            "yt-dlp unavailable; install it explicitly or rerun with --install-missing, "
-            "otherwise ask user for video file or screenshots/transcript"
+            "yt-dlp unavailable; install it in the controlled environment or provide "
+            "a local video file, screenshots, or transcript"
         )
         (out_dir / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2))
         print(json.dumps(summary, ensure_ascii=False, indent=2))
@@ -186,7 +200,8 @@ def main() -> int:
             info = {}
         else:
             summary["info"] = compact_info(info)
-            (out_dir / "metadata.full.json").write_text(json.dumps(info, ensure_ascii=False, indent=2, default=str))
+            # Keep only the allow-listed compact metadata; full extractor
+            # payloads may contain request headers, cookies, or signed URLs.
     except Exception as exc:
         summary["errors"].append(f"metadata extraction failed: {exc}")
         info = {}

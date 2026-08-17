@@ -2,7 +2,12 @@ name: Expert Release Gate
 
 on:
   push:
+    branches: [main]
   pull_request:
+
+concurrency:
+  group: expert-release-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -18,11 +23,22 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
-          python-version: "3.11"
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            experiment-causal-assessment/backends/python-requirements.lock.txt
       - name: Install locked validation dependencies
         run: python3 -m pip install -r requirements-dev.txt
+      - name: Refresh controlled-pilot generated bindings
+        run: python3 experiment-causal-assessment/scripts/build_consumer_preflight.py
+      - name: Prepare locked ECAE oracle runtime
+        run: |
+          python3 -m venv .venv/ecae-python
+          .venv/ecae-python/bin/python -m pip install --upgrade pip
+          .venv/ecae-python/bin/python -m pip install -r experiment-causal-assessment/backends/python-requirements.lock.txt
       - name: Compile deterministic tools
-        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management supplier-procurement-production-quality-decision legal-tax-intellectual-property-market-access-decision localization-country-calibration cross-domain-operating-posture-orchestration governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
+        run: python3 -m compileall -q category-investment-decision competitive-intelligence-monitoring video-link-breakdown consumer-insights-customer-growth advertising-analysis-measurement-optimization logistics-inventory-fulfillment-decision platform-store-listing-conversion creator-affiliate-partnership-management marketing-brand-campaign-management pricing-profit-finance-cashflow-decision product-innovation-product-management legal-tax-intellectual-property-market-access-decision localization-country-calibration cross-domain-operating-posture-orchestration experiment-causal-assessment governance/decision-quality governance/interaction governance/platform-knowledge governance/knowledge-quality governance/connectors scripts
       - name: Domain model tests
         run: |
           python3 category-investment-decision/scripts/test_models.py
@@ -86,6 +102,7 @@ jobs:
           python3 legal-tax-intellectual-property-market-access-decision/scripts/validate_release_candidate.py
           python3 -m unittest discover -s localization-country-calibration/tests -p 'test_*.py'
           python3 scripts/validate_f02_release.py --require-l3
+          python3 scripts/validate_f01_release.py --require-l3
           python3 scripts/test_logistics_stress.py
       - name: D14 controlled-pilot release gate (L4 remains separate)
         run: |
@@ -113,7 +130,10 @@ jobs:
           python3 scripts/test_mbcm_integration.py
           python3 scripts/test_statistical_primitive_parity.py
           python3 scripts/test_qoderwork_skill_installation.py
+          python3 governance/decision-quality/validate_all_domains.py
+          (cd governance/decision-quality && python3 -m unittest discover -p 'test_*.py')
           python3 scripts/validate_release_integrity.py
+          python3 scripts/validate_synthetic_boundaries.py
           python3 scripts/validate_knowledge_quality.py
           python3 scripts/test_knowledge_quality.py
           python3 scripts/test_ci_workflow_security.py

@@ -158,6 +158,14 @@ ln -sfn "$PWD/supplier-procurement-production-quality-decision" \
 # production use remains unavailable until every L4 gate closes.
 ln -sfn "$PWD/experiment-causal-assessment" \
   "${CODEX_HOME:-$HOME/.codex}/skills/experiment-causal-assessment"
+
+# LTMA, LCCA, and COPO are also governed repository Skills.
+ln -sfn "$PWD/legal-tax-intellectual-property-market-access-decision" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/legal-tax-intellectual-property-market-access-decision"
+ln -sfn "$PWD/localization-country-calibration" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/localization-country-calibration"
+ln -sfn "$PWD/cross-domain-operating-posture-orchestration" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/cross-domain-operating-posture-orchestration"
 ```
 
 Do not use `cp -r` as an update mechanism; existing destinations can retain stale files or produce nested directories.

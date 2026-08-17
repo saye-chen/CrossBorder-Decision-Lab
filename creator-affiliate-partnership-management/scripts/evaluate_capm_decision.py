@@ -30,10 +30,16 @@ def evaluate(data: dict) -> dict:
         item = data["gates"].get(gate)
         if not isinstance(item, dict) or item.get("status") not in STATUSES:
             raise ValueError(f"invalid gate: {gate}")
+        evidence_ids = item.get("evidence_ids")
+        if not isinstance(evidence_ids, list) or not evidence_ids or any(not isinstance(x, str) or not x.strip() for x in evidence_ids):
+            raise ValueError(f"gate evidence required: {gate}")
+        undeclared = set(evidence_ids) - {item.get("evidence_id") for item in data["evidence"]}
+        if undeclared:
+            raise ValueError(f"gate evidence not declared: {gate}: {sorted(undeclared)}")
         state = item["status"]
         gate_blocked = set(item.get("blocked_actions", []))
         if state in {"blocked", "inconclusive"}: blocked |= gate_blocked
-        gates[gate] = {"status": state, "blocked_actions": sorted(gate_blocked), "owner_skill": item.get("owner_skill", "creator-affiliate-partnership-management")}
+        gates[gate] = {"status": state, "blocked_actions": sorted(gate_blocked), "evidence_ids": sorted(set(evidence_ids)), "owner_skill": item.get("owner_skill", "creator-affiliate-partnership-management")}
         recovery.extend(item.get("recovery_evidence", []))
 
     candidates = set(data["candidate_actions"])

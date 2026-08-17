@@ -243,6 +243,11 @@ class RightsAndStateTests(unittest.TestCase):
 
     def test_rights_exact_use(self): self.assertEqual(validate_rights(self.rights())["status"], "validated")
 
+    def test_rights_requires_explicit_as_of_time(self):
+        data = self.rights(); data.pop("as_of_time")
+        with self.assertRaisesRegex(ValueError, "as_of_time is required"):
+            validate_rights(data)
+
     def test_rights_do_not_infer_ai(self):
         data = self.rights(); data["requested"] = dict(data["requested"]); data["requested"]["ai_use"] = ["voice_clone"]
         self.assertEqual(validate_rights(data)["status"], "blocked")

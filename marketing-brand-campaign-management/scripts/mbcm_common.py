@@ -32,7 +32,9 @@ def iso_datetime(value,name):
     value=text(value,name)
     try:
         normalized=value[:-1]+"+00:00" if value.endswith("Z") else value
-        return datetime.datetime.fromisoformat(normalized)
+        parsed=datetime.datetime.fromisoformat(normalized)
+        if parsed.tzinfo is None: raise ValueError("timezone required")
+        return parsed
     except ValueError as exc:
         raise ModelError(f"{name}:iso_datetime_required") from exc
 

@@ -31,7 +31,7 @@
       "flip_condition": "主图恢复白底图+Buy Box稳定后USP回升至13.5%以上。",
       "evidence_binding": {
         "source": "广告报表+Listing分析",
-        "fingerprint": "sha256:plco1a1",
+        "fingerprint": "synthetic:plco1a1",
         "biz_time": "2026-08-01",
         "valid_until": "2026-08-08"
       },
@@ -70,7 +70,7 @@
       "flip_condition": "新变体CTR>+5%且CVR不低于白底图基线。",
       "evidence_binding": {
         "source": "A/B测试报表",
-        "fingerprint": "sha256:plco2b2",
+        "fingerprint": "synthetic:plco2b2",
         "biz_time": "2026-08-02",
         "valid_until": "2026-08-09"
       },
@@ -110,7 +110,7 @@
       "flip_condition": "宣称修正为合规表述(\"FDA registered facility\")并通过合规预审。",
       "evidence_binding": {
         "source": "Listing文本+合规规则",
-        "fingerprint": "sha256:plco3c3",
+        "fingerprint": "synthetic:plco3c3",
         "biz_time": "2026-08-03",
         "valid_until": "2026-08-04"
       },
@@ -149,7 +149,7 @@
       "flip_condition": "按Walmart规范重写(80字符标题+Rich Media+Pro Seller Badge)后USP达平台均值。",
       "evidence_binding": {
         "source": "Amazon+ Walmart Listing对比",
-        "fingerprint": "sha256:plco4d4",
+        "fingerprint": "synthetic:plco4d4",
         "biz_time": "2026-08-01",
         "valid_until": "2026-08-15"
       },
@@ -188,7 +188,7 @@
       "flip_condition": "红色变体评论升至200+条且评分达4.0+，或拆分为独立ASIN。",
       "evidence_binding": {
         "source": "变体评论分布+退款数据",
-        "fingerprint": "sha256:plco5e5",
+        "fingerprint": "synthetic:plco5e5",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-12"
       },
@@ -227,7 +227,7 @@
       "flip_condition": "申诉通过+索引恢复至日均Session>1,500持续7天。",
       "evidence_binding": {
         "source": "Listing状态+申诉记录",
-        "fingerprint": "sha256:plco6f6",
+        "fingerprint": "synthetic:plco6f6",
         "biz_time": "2026-08-05",
         "valid_until": "2026-08-19"
       },

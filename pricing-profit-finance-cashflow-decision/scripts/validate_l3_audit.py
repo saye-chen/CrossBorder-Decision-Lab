@@ -16,6 +16,7 @@ REQUIRED_DIMENSIONS = {
     "complex_scenario", "continuous_challenge", "extreme_scenario", "stress_test",
 }
 REQUIRED_SCENARIO_TYPES = REQUIRED_DIMENSIONS - {"report_depth", "scenario_breadth"}
+REQUIRED_SCENARIO_COUNT = 17
 def validate(matrix: dict[str, Any]) -> dict[str, Any]:
     errors: list[str] = []
     if matrix.get("scope") != "synthetic_and_deterministic_only":
@@ -30,6 +31,8 @@ def validate(matrix: dict[str, Any]) -> dict[str, Any]:
     if dimension_ids != REQUIRED_DIMENSIONS:
         errors.append("AUDIT_DIMENSION_COVERAGE_INCOMPLETE")
     scenarios = matrix.get("scenarios", [])
+    if len(scenarios) != REQUIRED_SCENARIO_COUNT:
+        errors.append(f"AUDIT_SCENARIO_COUNT_MUST_BE_{REQUIRED_SCENARIO_COUNT}")
     scenario_ids = [item.get("id") for item in scenarios]
     if len(scenario_ids) != len(set(scenario_ids)):
         errors.append("AUDIT_SCENARIO_ID_DUPLICATE")

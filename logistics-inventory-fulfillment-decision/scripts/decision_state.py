@@ -27,7 +27,9 @@ def impacted(fields): return sorted({m for f in fields for m in IMPACT.get(f,[])
 
 def parse_time(value):
     if value.endswith("Z"): value=value[:-1]+"+00:00"
-    return datetime.fromisoformat(value)
+    parsed=datetime.fromisoformat(value)
+    if parsed.tzinfo is None: raise ValueError("time must include timezone")
+    return parsed
 
 def run(d):
     reports=d.get("reports",[]);errors=[];ids={}

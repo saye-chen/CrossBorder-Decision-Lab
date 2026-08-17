@@ -4,7 +4,7 @@ def run(d):
     inbound=0
     for i,x in enumerate(d.get("inbound",[])):
         inbound+=n(x,"qty")*num(x.get("eligibility",0),f"eligibility[{i}]",0)
-        if x.get("eligibility",0)>1: raise ValueError("eligibility must be <= 1")
+        if not 0 <= x.get("eligibility",0) <= 1: raise ValueError("eligibility must be in [0, 1]")
     pos=n(d,"sellable")+inbound+n(d,"released_production")-n(d,"allocated")-n(d,"backorders")-n(d,"expected_quarantine_loss")
     if pos<0 and not d.get("allow_negative_position",False): raise ValueError("inventory position is negative")
     opening=n(d,"opening_physical");left=opening+n(d,"receipts")+n(d,"returns_received")+n(d,"positive_adjustments")

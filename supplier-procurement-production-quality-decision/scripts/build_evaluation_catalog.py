@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import copy,json,pathlib
 ROOT=pathlib.Path(__file__).resolve().parents[1]
+from decision_engines import REQUIRED_MODELS
 GROUPS=[("decision",36),("calculation",36),("cross_domain",28),("multi_turn",24),("complex",20),("extreme",16)]
 DECISIONS=["supplier_selection","procurement_commitment","sample_approval","production_release","batch_quality_release","supplier_recovery_exit"]
 MODES=["spot","trader","OEM","ODM","own_factory","subcontract"]
@@ -46,14 +47,7 @@ DECISION_VALID={
 }
 DECISION_FAILURE_FIELD={"supplier_selection":"identity_verified","procurement_commitment":"cash_gate","sample_approval":"measurement_acceptable","production_release":"control_plan_ready","batch_quality_release":"batch_lineage_complete","supplier_recovery_exit":"containment_active"}
 FIXTURE_BY_MODEL=dict(MODEL_FIXTURES)
-DECISION_REQUIRED_MODELS={
- "supplier_selection":["capacity","concentration"],
- "procurement_commitment":["quote_normalization","bom_rollup","should_cost","total_cost_of_ownership"],
- "sample_approval":["measurement_system"],
- "production_release":["process_stability","capacity"],
- "batch_quality_release":["sampling","quantity_reconciliation","escape_risk"],
- "supplier_recovery_exit":["recovery_choice","cost_of_quality"],
-}
+DECISION_REQUIRED_MODELS=REQUIRED_MODELS
 INVALID_FIXTURES={
  "quote_normalization":{"currency":"USD","fx_rate":0,"quantity":0,"unit_price":1},
  "bom_rollup":{"components":[{"quantity":1,"unit_cost":1,"scrap_rate":1}]},
@@ -85,7 +79,9 @@ def decision_payload(decision,variant):
     else:payload["model_inputs"]["recovery_choice"]["options"][0]["loss"]=10+variant
     import hashlib
     def h(value):return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()).hexdigest()
-    payload["evidence_bindings"]=[{"id":f"E-{decision}-{variant}","object_version":"v1","hash":"a"*64,"supported_fields":[f"model_inputs.{model}" for model in DECISION_REQUIRED_MODELS[decision]],"input_hashes":{model:h(payload["model_inputs"][model]) for model in DECISION_REQUIRED_MODELS[decision]}}]
+    binding={"id":f"E-{decision}-{variant}","object_version":"v1","supported_fields":[f"model_inputs.{model}" for model in DECISION_REQUIRED_MODELS[decision]],"input_hashes":{model:h(payload["model_inputs"][model]) for model in DECISION_REQUIRED_MODELS[decision]}}
+    binding["hash"]=h(binding)
+    payload["evidence_bindings"]=[binding]
     return payload
 def build():
     cases=[];n=0

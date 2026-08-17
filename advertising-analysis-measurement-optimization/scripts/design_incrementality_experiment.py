@@ -9,10 +9,12 @@ def design(p):
     mde=finite(p.get("absolute_mde"),"absolute_mde")
     alpha=finite(p.get("alpha",.05),"alpha"); power=finite(p.get("power",.8),"power")
     cluster_size=finite(p.get("average_cluster_size",1),"average_cluster_size")
-    icc=finite(p.get("icc",0),"icc"); periods=int(finite(p.get("periods",1),"periods"))
+    icc=finite(p.get("icc",0),"icc"); periods_value=finite(p.get("periods",1),"periods"); periods=int(periods_value)
     if not 0<baseline<1 or mde<=0 or baseline+mde>=1 or not 0<alpha<.5 or not .5<power<1:
         raise ValueError("invalid baseline, MDE, alpha, or power")
-    if cluster_size<1 or not 0<=icc<1 or periods<1: raise ValueError("invalid clustering or periods")
+    if cluster_size<1 or not 0<=icc<1 or periods<1 or periods_value != periods: raise ValueError("invalid clustering or periods")
+    assignment_unit=p.get("assignment_unit","geo")
+    if not isinstance(assignment_unit,str) or not assignment_unit.strip(): raise ValueError("assignment_unit must be non-empty")
     # Stable standard critical values for the supported preregistration levels.
     z_alpha=1.96 if abs(alpha-.05)<1e-9 else 2.576 if abs(alpha-.01)<1e-9 else None
     z_power=.842 if abs(power-.8)<1e-9 else 1.282 if abs(power-.9)<1e-9 else None
@@ -23,7 +25,7 @@ def design(p):
     design_effect=1+(cluster_size-1)*icc
     per_arm=math.ceil(individual*design_effect)
     clusters=math.ceil(per_arm/cluster_size)
-    return {"estimand":"intention_to_treat","assignment_unit":p.get("assignment_unit","geo"),
+    return {"estimand":"intention_to_treat","assignment_unit":assignment_unit,
             "individual_equivalent_per_arm":individual,"design_effect":design_effect,
             "required_observations_per_arm":per_arm,"required_clusters_per_arm":clusters,
             "minimum_periods":periods,"alpha":alpha,"power":power,"absolute_mde":mde,

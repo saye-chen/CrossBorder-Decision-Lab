@@ -1,5 +1,5 @@
 {"packets":{
 "D03":{"object_ref":"P1","object_version":"v2","scope_ref":"US-Amazon","use_ref":"consumer-use","blocked_actions":["product_release"],"market_access_gate":"professional_review","d05_owned_decisions":["market_access_gate","claim_use_boundary"],"external_write":false},
-"D04":{"object_ref":"P1","object_version":"v2","product_facts":{"material":"M1"},"market_access_gate":"passed","blocked_actions":[],"quality_gate":"passed","production_release_requested":true,"d05_owned_decisions":["market_access_gate"],"external_write":false},
+"D04":{"object_ref":"P1","object_version":"v2","product_facts":{"material":"M1"},"market_access_gate":"continue_with_conditions","blocked_actions":["unreviewed_external_release"],"quality_gate":"passed","production_release_requested":true,"d05_owned_decisions":["market_access_gate"],"external_write":false},
 "D08":{"object_ref":"P1","object_version":"v2","claims":[{"claim_id":"C1","publish":true},{"claim_id":"C2","publish":false}],"claim_use_boundary":{"allowed_claim_ids":["C1"]},"blocked_actions":["publish:C2"],"d05_owned_decisions":["claim_use_boundary"],"external_write":false}
 }}

@@ -17,7 +17,7 @@
     "DEEP_DIVE": "DILIGENCE",
     "INVESTMENT_CANDIDATE": "DILIGENCE"
   },
-  "handoff_destinations": ["PLCO", "AAMO", "CAPM", "LIFD", "SPPQ", "VLB", "CIG", "MBMC"],
+  "handoff_destinations": ["PLCO", "AAMO", "CAPM", "LIFD", "SPPQ", "VLB", "CIG", "MBCM"],
   "external_write": false,
   "connector_mode": "reserved_interface"
 }

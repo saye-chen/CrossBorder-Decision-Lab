@@ -25,7 +25,7 @@ class Models(unittest.TestCase):
     def test_marginal_negative(self):
         d=run("marginal_analysis.py",[{"spend":100,"mature_revenue":400,"contribution_profit":50},{"spend":200,"mature_revenue":500,"contribution_profit":40}]);self.assertLess(d["stages"][1]["marginal_contribution"],0)
     def test_incrementality(self):
-        d=run("evaluate_incrementality.py",{"treatment":{"n":100,"value":1200,"variance":4},"control":{"n":100,"value":1000,"variance":4},"incremental_spend":50,"contribution_margin_rate":.5});self.assertEqual(d["decision"],"Go")
+        d=run("evaluate_incrementality.py",{"treatment":{"n":100,"value":1200,"variance":4},"control":{"n":100,"value":1000,"variance":4},"incremental_spend":50,"contribution_margin_rate":.5,"maturity":{"assignment":"mature","exposure":"mature","outcome":"mature","refund":"mature"}});self.assertEqual(d["decision"],"Go")
     def test_budget_rejects_negative_margin(self):
         d=run("allocate_budget.py",{"budget":300,"candidates":[{"id":"a","step":100,"max_budget":200,"marginal_contribution_per_currency":.2},{"id":"b","step":100,"max_budget":200,"marginal_contribution_per_currency":-.1}]});self.assertEqual(d["allocations"][0]["allocated"],200);self.assertEqual(d["allocations"][1]["allocated"],0)
 

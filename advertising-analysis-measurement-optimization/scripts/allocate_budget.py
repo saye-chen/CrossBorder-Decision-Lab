@@ -82,6 +82,9 @@ def allocate(payload: dict) -> dict:
     ranked = sorted(candidates, key=lambda item: (-item["risk_adjusted_marginal"], item["id"]))
     for item in ranked:
         if item["risk_adjusted_marginal"] <= 0:
+            item["allocated"] = 0.0
+            group_spend[item["group"]] -= item["min_budget"]
+            spendable += item["min_budget"]
             rejected.append({"id": item["id"], "reason": "non_positive_risk_adjusted_marginal"})
             continue
         group_cap = group_caps.get(item["group"], math.inf)

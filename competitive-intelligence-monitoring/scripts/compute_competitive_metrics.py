@@ -33,22 +33,26 @@ def main():
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
-    data = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    cpi_weights = data.get("cpi_weights", DEFAULT_CPI_WEIGHTS)
-    validate_weights(CRI_WEIGHTS, "CRI")
-    validate_weights(cpi_weights, "CPI")
-    own_cpi = weighted(data["own"]["dimensions"], cpi_weights, "own.dimensions")
-    rows = []
-    proxies = []
-    for competitor in data.get("competitors", []):
-        cri = weighted(competitor["overlaps"], CRI_WEIGHTS, f"{competitor['id']}.overlaps")
-        cpi = weighted(competitor["dimensions"], cpi_weights, f"{competitor['id']}.dimensions")
-        proxy = competitor.get("share_proxy")
-        if proxy is not None:
-            if not isinstance(proxy, (int, float)) or proxy < 0:
-                raise ValueError("share_proxy must be non-negative")
-            proxies.append(float(proxy))
-        rows.append({"id": competitor["id"], "cri": cri, "cpi": cpi, "rcg": cpi - own_cpi, "share_proxy": proxy})
+    try:
+        data = json.loads(Path(args.input).read_text(encoding="utf-8"))
+        cpi_weights = data.get("cpi_weights", DEFAULT_CPI_WEIGHTS)
+        validate_weights(CRI_WEIGHTS, "CRI")
+        validate_weights(cpi_weights, "CPI")
+        own_cpi = weighted(data["own"]["dimensions"], cpi_weights, "own.dimensions")
+        rows = []
+        proxies = []
+        for competitor in data.get("competitors", []):
+            competitor_id = competitor.get("id", "<unknown>")
+            cri = weighted(competitor["overlaps"], CRI_WEIGHTS, f"{competitor_id}.overlaps")
+            cpi = weighted(competitor["dimensions"], cpi_weights, f"{competitor_id}.dimensions")
+            proxy = competitor.get("share_proxy")
+            if proxy is not None:
+                if not isinstance(proxy, (int, float)) or proxy < 0:
+                    raise ValueError(f"{competitor_id}.share_proxy must be non-negative")
+                proxies.append(float(proxy))
+            rows.append({"id": competitor_id, "cri": cri, "cpi": cpi, "rcg": cpi - own_cpi, "share_proxy": proxy})
+    except (OSError, json.JSONDecodeError, KeyError, TypeError, ValueError) as exc:
+        parser.error(f"invalid CIM metrics input: {exc}")
     proxy_hhi = None
     total = sum(proxies)
     if proxies and total > 0:

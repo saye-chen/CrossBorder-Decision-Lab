@@ -9,6 +9,6 @@ def run(d):
     stats={f"p{int(q*100)}":round(qtile(samples,q),6) for q in [.5,.75,.9,.95]}
     promise=n(d,"promise_days");prob=sum(x<=promise for x in samples)/len(samples)
     target=num(d.get("target_probability",.9),"target_probability",0)
-    if target>1: raise ValueError("target_probability must be <= 1")
+    if not 0 <= target <= 1: raise ValueError("target_probability must be in [0, 1]")
     return {**stats,"promise_probability":round(prob,6),"target_probability":target,"decision":"pass" if prob>=target else "blocked","buffer_to_p90":round(promise-stats["p90"],6)}
 if __name__=="__main__":main(run)

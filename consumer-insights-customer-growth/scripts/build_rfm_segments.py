@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build deterministic RFM metrics and interpretable lifecycle segments."""
-import argparse,csv,json
+import argparse,csv,json,hashlib
 from collections import defaultdict
 from datetime import date,datetime
 from pathlib import Path
@@ -21,6 +21,7 @@ def main():
         elif recency<=60: segment="active"
         elif recency<=120: segment="dormant"
         else: segment="lapsed"
-        output.append({"customer_key":cid,"as_of":a.as_of,"recency_days":recency,"frequency":frequency,"contribution_margin":margin,"segment":segment})
-    Path(a.output).write_text(json.dumps(sorted(output,key=lambda x:x["customer_key"]),ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+        customer_ref=hashlib.sha256(cid.encode("utf-8")).hexdigest()[:24]
+        output.append({"customer_ref":customer_ref,"as_of":a.as_of,"recency_days":recency,"frequency":frequency,"contribution_margin":margin,"segment":segment})
+    Path(a.output).write_text(json.dumps(sorted(output,key=lambda x:x["customer_ref"]),ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 if __name__=="__main__": main()

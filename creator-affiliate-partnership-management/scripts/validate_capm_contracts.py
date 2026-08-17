@@ -9,7 +9,10 @@ from validate_schema_instance import validate
 
 ROOT = Path(__file__).resolve().parents[1]
 
-def instant(value: str) -> datetime: return datetime.fromisoformat(value.replace("Z", "+00:00"))
+def instant(value: str) -> datetime:
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None: raise ValueError("timezone required")
+    return parsed
 
 def check(name: str, data: dict) -> dict:
     schema_path = ROOT / "schemas" / f"{name}.schema.json"

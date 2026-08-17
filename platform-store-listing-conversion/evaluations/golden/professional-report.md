@@ -23,7 +23,7 @@ A1 来源独立；A2 对象稳定；A3 时间窗成熟。推翻条件为任一�
 
 ## 经济与计算
 C1 输入: 周Session 12,500, USP 14.2%→11.8%(降17%)。变体B点击率+8%但加购率-22%。Buy Box丢失3天≈180笔订单×$28.5=$5,130损失。主图变体A(白底图)USP=14.2%, 变体B(场景图)USP=12.1%。Offer承接评分: A=82/100, B=54/100。
-币种 USD，使用确定性计算器，可复算：是。输入哈希 sha256:domain-in，输出哈希 sha256:domain-out。经济结果只能约束可承受动作，不能签发本域之外的资本、价格、库存或客户决定。
+币种 USD，使用确定性计算器，可复算：是。输入哈希 synthetic:domain-in，输出哈希 synthetic:domain-out。经济结果只能约束可承受动作，不能签发本域之外的资本、价格、库存或客户决定。
 
 ## 计算台账
 C1 状态 complete；输入缺失时为不可计算而不是零。单位、币种、税口径、归因口径和时间窗不一致时阻断比较，历史计算保留原始参数版本。
@@ -58,32 +58,32 @@ C1 状态 complete；输入缺失时为不可计算而不是零。单位、币�
 
 ### PLCO-PE-01：流量正常转化下滑
 模式：standard；预期状态：`diagnose`。
-证据 E1S-SESSION vs 反证 E1C-USP。来源：广告报表+Listing分析；指纹：sha256:plco1a1；业务时间：2026-08-01；有效期至：2026-08-08。
+证据 E1S-SESSION vs 反证 E1C-USP。来源：广告报表+Listing分析；指纹：synthetic:plco1a1；业务时间：2026-08-01；有效期至：2026-08-08。
 判断：Session 12,500/周持平说明索引可见性正常。USP从14.2%降至11.8%说明问题在Offer承接或漏斗中段。漏斗分析定位到详情页→加购环节流失+22%。
 翻转：主图恢复白底图+Buy Box稳定后USP回升至13.5%以上。
 ### PLCO-PE-02：主图高点击低成交
 模式：conflict；预期状态：`experiment_required`。
-证据 E2S-CTR vs 反证 E2C-CVR。来源：A/B测试报表；指纹：sha256:plco2b2；业务时间：2026-08-02；有效期至：2026-08-09。
+证据 E2S-CTR vs 反证 E2C-CVR。来源：A/B测试报表；指纹：synthetic:plco2b2；业务时间：2026-08-02；有效期至：2026-08-09。
 判断：场景图主图CTR+8%但CVR-15%，说明吸引的流量与Offer不匹配。场景图吸引的是"氛围感"用户，但产品规格/价格不满足其预期。需A/B测试带产品规格标注的场景图(平衡点击与转化)。
 翻转：新变体CTR>+5%且CVR不低于白底图基线。
 ### PLCO-PE-03：受限宣称上架
 模式：extreme；预期状态：`blocked`。
-证据 E3S-CLAIM vs 反证 E3C-COMPLIANCE。来源：Listing文本+合规规则；指纹：sha256:plco3c3；业务时间：2026-08-03；有效期至：2026-08-04。
+证据 E3S-CLAIM vs 反证 E3C-COMPLIANCE。来源：Listing文本+合规规则；指纹：synthetic:plco3c3；业务时间：2026-08-03；有效期至：2026-08-04。
 判断：Listing标题含"FDA approved"但产品仅为FDA registered(非approved)。该宣称在目标国构成虚假广告，即使转化率高也必须修正。修正后预计CTR下降3-5%(失去"权威背书"效应)。
 翻转：宣称修正为合规表述("FDA registered facility")并通过合规预审。
 ### PLCO-PE-04：跨平台Listing迁移
 模式：multi_turn；预期状态：`recompute`。
-证据 E4S-AMZ-LISTING vs 反证 E4C-WMT-LOCAL。来源：Amazon+ Walmart Listing对比；指纹：sha256:plco4d4；业务时间：2026-08-01；有效期至：2026-08-15。
+证据 E4S-AMZ-LISTING vs 反证 E4C-WMT-LOCAL。来源：Amazon+ Walmart Listing对比；指纹：synthetic:plco4d4；业务时间：2026-08-01；有效期至：2026-08-15。
 判断：Amazon US Listing(标题200字符+5 bullet points+A+页面)直接迁移至Walmart Marketplace。Walmart标题限80字符、无bullet points、Rich Media替代A+。直接迁移导致信息密度下降60%、Offer承接断裂。
 翻转：按Walmart规范重写(80字符标题+Rich Media+Pro Seller Badge)后USP达平台均值。
 ### PLCO-PE-05：变体评论错配
 模式：adversarial；预期状态：`hold`。
-证据 E5S-VARIANTS vs 反证 E5C-REVIEW-MIX。来源：变体评论分布+退款数据；指纹：sha256:plco5e5；业务时间：2026-08-05；有效期至：2026-08-12。
+证据 E5S-VARIANTS vs 反证 E5C-REVIEW-MIX。来源：变体评论分布+退款数据；指纹：synthetic:plco5e5；业务时间：2026-08-05；有效期至：2026-08-12。
 判断：父ASIN下合并5个颜色变体，总评论1,200条。但黑色变体占评论900条(4.6★)，红色变体仅80条(3.8★)。合并显示时红色变体享受父ASIN的评论聚合优势，但实际产品体验(3.8★)与展示评分(4.3★聚合)不匹配，导致红色变体退款率18%。
 翻转：红色变体评论升至200+条且评分达4.0+，或拆分为独立ASIN。
 ### PLCO-PE-06：抑制恢复
 模式：recovery；预期状态：`controlled_recovery`。
-证据 E6S-SUPPRESS vs 反证 E6C-REINSTATE。来源：Listing状态+申诉记录；指纹：sha256:plco6f6；业务时间：2026-08-05；有效期至：2026-08-19。
+证据 E6S-SUPPRESS vs 反证 E6C-REINSTATE。来源：Listing状态+申诉记录；指纹：synthetic:plco6f6；业务时间：2026-08-05；有效期至：2026-08-19。
 判断：Listing因知识产权投诉被抑制48h(已申诉)。抑制期间搜索不可见，预估损失: 日均Session 1,800×2天×USP 13%×$28.5=$13,338。恢复后需7-14天索引恢复至抑制前水平。
 翻转：申诉通过+索引恢复至日均Session>1,500持续7天。
 

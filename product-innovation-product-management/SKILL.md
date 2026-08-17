@@ -70,7 +70,7 @@ D03只输出产品主权内的事实和建议；其他域通过版本化输入/�
 6. 所有共享决定先运行 `scripts/validate_decision_contract.py`，执行 `ERDG-CONTRACT-2026.07`。
 7. 规范对象与生命周期实例运行 `scripts/validate_wp2_contracts.py`。
 8. WP3 决策包运行 `scripts/validate_wp3_package.py`；F01建成前因果Claim必须阻断。
-9. WP4 使用 `scripts/evaluate_product_models.py` 路由八类模型；所有数值使用十进制字符串。
+9. WP4 使用 `scripts/evaluate_product_models.py` 路由当前注册的模型集合；所有数值使用十进制字符串。
 10. D03—D06 字段变化先运行 `scripts/compute_product_change_impact.py`，再由 `scripts/validate_cross_domain_envelope.py` 校验逐 Claim 回执、幂等与版本边界。
 11. D04/D05 临时交接、本地化、专业意见和正式迁移包统一运行 `scripts/validate_wp6_contracts.py`；双轨差异使用 `scripts/evaluate_temporary_contract_migration.py`。
 12. 消费 D05 当前市场准入包时运行 `scripts/validate_d05_consumer.py`；D05 Gate 只约束动作上限，不得接管产品定义、规格或生命周期主权。

@@ -4,7 +4,7 @@ from plco_common import number, run_cli
 def calculate(data):
     visits=number(data.get("qualified_visits"),"qualified_visits")
     gap=number(data.get("conversion_gap"),"conversion_gap"); share=number(data.get("recoverable_share"),"recoverable_share")
-    if gap>1 or share>1: raise ValueError("conversion_gap and recoverable_share must be <= 1")
+    if not 0 <= gap <= 1 or not 0 <= share <= 1: raise ValueError("conversion_gap and recoverable_share must be in [0, 1]")
     margin=data.get("mature_contribution_per_order",{}); lo=number(margin.get("low"),"margin.low",False); hi=number(margin.get("high"),"margin.high",False)
     if lo>hi: raise ValueError("margin.low exceeds margin.high")
     orders=visits*gap*share; cost=number(data.get("implementation_cost",0),"implementation_cost")
