@@ -13,6 +13,12 @@ from evaluate_randomized_effect import evaluate_randomized_effect
 def _band(target:float,repeats:int)->float:
     return max(0.005,3*math.sqrt(target*(1-target)/repeats))
 
+def _stable(value):
+    if isinstance(value, float): return round(value, 12)
+    if isinstance(value, dict): return {key: _stable(item) for key, item in value.items()}
+    if isinstance(value, list): return [_stable(item) for item in value]
+    return value
+
 
 def run()->dict:
     continuous_seed=20260810; binary_seed=20260811
@@ -41,7 +47,7 @@ def run()->dict:
         "continuous_positive_bias_rmse":{"seed":continuous_seed,"repeats":repeats_cont,"true_effect":true_effect,"bias":bias,"rmse":rmse,"power":positive_reject/repeats_cont,"pass":abs(bias)<=0.02 and rmse<0.2},
         "binary_newcombe_null_coverage":{"seed":binary_seed,"repeats":repeats_binary,"baseline":0.08,"observed":coverage,"target":target_coverage,"acceptance_lower":target_coverage-_band(target_coverage,repeats_binary),"pass":coverage>=target_coverage-_band(target_coverage,repeats_binary)}
     }
-    return {"schema_version":"1.0.0","evaluation_id":"ECAE-SIMULATION-2026-08-10","simulation_policy":{"mc_band":"max(0.005, 3*MCSE)","implementation":"stdlib seeded DGP"},"checks":checks,"status":"pass" if all(item["pass"] for item in checks.values()) else "fail","limitations":["This is implementer-owned evidence, not independent parity.","Additional skewed, clustered, ratio, rare-event and small-sample grids remain required for L3."]}
+    return _stable({"schema_version":"1.0.0","evaluation_id":"ECAE-SIMULATION-2026-08-10","simulation_policy":{"mc_band":"max(0.005, 3*MCSE)","implementation":"stdlib seeded DGP"},"checks":checks,"status":"pass" if all(item["pass"] for item in checks.values()) else "fail","limitations":["This is implementer-owned evidence, not independent parity.","Additional skewed, clustered, ratio, rare-event and small-sample grids remain required for L3."]})
 
 
 if __name__=="__main__": print(json.dumps(run(),ensure_ascii=False,indent=2,sort_keys=True))

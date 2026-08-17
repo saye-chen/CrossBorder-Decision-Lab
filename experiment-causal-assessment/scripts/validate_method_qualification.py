@@ -28,6 +28,15 @@ PROTOCOL_ONLY = {"long_term_surrogate_contract", "transportability_contract"}
 def load(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
+def equivalent(left, right, tolerance=1e-10):
+    if isinstance(left, float) or isinstance(right, float):
+        return isinstance(left, (int, float)) and isinstance(right, (int, float)) and abs(left-right) <= tolerance * max(1.0, abs(left), abs(right))
+    if isinstance(left, dict) and isinstance(right, dict):
+        return left.keys() == right.keys() and all(equivalent(left[key], right[key], tolerance) for key in left)
+    if isinstance(left, list) and isinstance(right, list):
+        return len(left) == len(right) and all(equivalent(a, b, tolerance) for a, b in zip(left, right))
+    return left == right
+
 
 def validate() -> dict:
     failures: list[str] = []
@@ -133,7 +142,7 @@ def validate() -> dict:
         "active_native_method_count": len(active_native),
         "protocol_only_method_count": len(protocol_only),
         "advanced_backend_count_withheld": len(installed_unverified),
-        "native_parity_pass": stored_parity.get("all_pass") is True and current_parity == stored_parity,
+        "native_parity_pass": stored_parity.get("all_pass") is True and equivalent(current_parity, stored_parity),
         "l3_controlled_pilot_gate_closed": review.get("l3_controlled_pilot_gate_closed") is True,
         "l4_external_review_gate_closed": False,
         "production_ready": False,

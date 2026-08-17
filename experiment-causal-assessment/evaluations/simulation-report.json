@@ -1,13 +1,42 @@
 {
-  "schema_version":"1.0.0",
-  "evaluation_id":"ECAE-SIMULATION-2026-08-10",
-  "generated_by":"scripts/run_simulation_evaluations.py",
-  "simulation_policy":{"implementation":"stdlib seeded DGP","mc_band":"max(0.005, 3*MCSE)"},
-  "checks":{
-    "continuous_null_type_one":{"seed":20260810,"repeats":3000,"target":0.05,"observed":0.057,"acceptance_band":0.011937336386313321,"pass":true},
-    "continuous_positive_bias_rmse":{"seed":20260810,"repeats":3000,"true_effect":0.45,"bias":-0.001283249254509955,"rmse":0.1560036570053042,"power":0.816,"pass":true},
-    "binary_newcombe_null_coverage":{"seed":20260811,"repeats":2500,"baseline":0.08,"target":0.95,"observed":0.9636,"acceptance_lower":0.9369233031693779,"pass":true}
+  "checks": {
+    "binary_newcombe_null_coverage": {
+      "acceptance_lower": 0.936923303169,
+      "baseline": 0.08,
+      "observed": 0.9636,
+      "pass": true,
+      "repeats": 2500,
+      "seed": 20260811,
+      "target": 0.95
+    },
+    "continuous_null_type_one": {
+      "acceptance_band": 0.011937336386,
+      "observed": 0.057,
+      "pass": true,
+      "repeats": 3000,
+      "seed": 20260810,
+      "target": 0.05
+    },
+    "continuous_positive_bias_rmse": {
+      "bias": -0.001283249255,
+      "pass": true,
+      "power": 0.816,
+      "repeats": 3000,
+      "rmse": 0.156003657005,
+      "seed": 20260810,
+      "true_effect": 0.45
+    }
   },
-  "status":"pass",
-  "limitations":["This is implementer-owned evidence, not independent parity.","Additional skewed, clustered, ratio, rare-event and small-sample grids remain required for L3."]
+  "evaluation_id": "ECAE-SIMULATION-2026-08-10",
+  "generated_by": "scripts/run_simulation_evaluations.py",
+  "limitations": [
+    "This is implementer-owned evidence, not independent parity.",
+    "Additional skewed, clustered, ratio, rare-event and small-sample grids remain required for L3."
+  ],
+  "schema_version": "1.0.0",
+  "simulation_policy": {
+    "implementation": "stdlib seeded DGP",
+    "mc_band": "max(0.005, 3*MCSE)"
+  },
+  "status": "pass"
 }
