@@ -193,3 +193,7 @@ ROAS/ACOS/ROI/CAC 的注册口径和证据等级
 运行 `python3 scripts/validate_structure_contract.py` 校验工作包 2—10 的入口和合同；运行所有 `scripts/test_*.py` 验证对账、模型、参数、物流、跨域主权、本地化、报告、连续追问、混合批次、55 场景执行、迁移兼容、消费者技术验收、回滚和历史回放门。通过可证明 L1—L3，但不证明具体业务动作已接受或 L4 已完成；重大财务判断和生产放行升级给财务/审计责任人。
 
 短任务使用 `mktemp -d` 创建唯一临时目录，只删除本次命令返回的准确路径并验证目录已不存在；复杂可恢复任务使用 `${TMPDIR:-/tmp}/pricing-profit-finance-cashflow-decision/<task-id>/`，写入 `.task-owner.json` 后再处理。只清理归属标记与任务 ID 同时匹配的目录；清理失败必须报告准确残留路径和原因。
+
+## 运营交付
+
+当用户需要拿结果执行、转交或复盘时，读取[运营交付协议](../governance/interaction/operator-delivery.md)，按[专属成果清单](../governance/interaction/operator-deliverables.json)中本域条目交付。首屏用经营语言说明结论、理由、限制、下一步与停止条件；必要证据和计算放附录。独立解释不额外触发完整报告，正式决定保持既有专业门槛。

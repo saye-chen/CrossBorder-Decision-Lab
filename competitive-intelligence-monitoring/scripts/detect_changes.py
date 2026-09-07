@@ -18,7 +18,10 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--baseline-periods", type=int, default=8)
     parser.add_argument("--calibration", help="Optional JSON with field thresholds and calibration metadata")
+    parser.add_argument("--baseline-method", choices=["mean_std", "median_mad"], default="mean_std")
     args = parser.parse_args()
+    if args.baseline_periods < 3:
+        parser.error("baseline-periods must be at least 3")
     rows = canonicalize_many(json.loads(Path(args.input).read_text(encoding="utf-8")))
     if not isinstance(rows, list) or len(rows) < 2:
         raise SystemExit("input must be a JSON list with at least two snapshots")
@@ -45,12 +48,18 @@ def main():
         absolute = value - before
         relative = None if before == 0 else absolute / abs(before)
         baseline_values = [row.get(field) for row in rows[-(args.baseline_periods + 1):-1]]
-        baseline_values = [x for x in baseline_values if isinstance(x, (int, float))]
+        baseline_values = [x for x in baseline_values if isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x)]
         zscore = None
+        center = scale = None
         if len(baseline_values) >= 3:
-            sigma = statistics.stdev(baseline_values)
-            if sigma:
-                zscore = (value - statistics.mean(baseline_values)) / sigma
+            if args.baseline_method == "median_mad":
+                center = statistics.median(baseline_values)
+                scale = 1.4826 * statistics.median(abs(x - center) for x in baseline_values)
+            else:
+                center = statistics.mean(baseline_values)
+                scale = statistics.stdev(baseline_values)
+            if scale:
+                zscore = (value - center) / scale
         threshold = thresholds.get(field)
         threshold_hit = False
         if threshold is not None and field in {"price", "rank"} and relative is not None:
@@ -71,12 +80,15 @@ def main():
                 "absolute_change": absolute, "relative_change": relative,
                 "zscore": None if zscore is None or math.isnan(zscore) else zscore,
                 "baseline_mature": len(baseline_values) >= args.baseline_periods,
+                "baseline_method": args.baseline_method, "baseline_center": center,
+                "baseline_scale": scale, "baseline_count": len(baseline_values),
                 "severity": severity, "attribution": "pending_verification",
                 "confirmation_status": "confirmed" if confirmed else "candidate_waiting_next_snapshot",
             })
     result = {
         "product_id": current.get("product_id"), "snapshot_at": current.get("snapshot_at"),
         "calibration": calibration.get("metadata", {}), "alerts": alerts,
+        "baseline_method": args.baseline_method,
     }
     Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

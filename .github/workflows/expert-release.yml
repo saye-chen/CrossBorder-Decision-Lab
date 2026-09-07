@@ -139,5 +139,6 @@ jobs:
           python3 scripts/test_ci_workflow_security.py
           python3 scripts/test_full_repository_audit.py
           python3 -m unittest governance/interaction/tests/test_interaction_platform_connectors.py
+          python3 scripts/test_operator_starter.py
       - name: Reject whitespace errors
         run: git diff --check

@@ -6,15 +6,30 @@ from __future__ import annotations
 import json
 import pathlib
 import sys
+import argparse
+import importlib.util
 from jsonschema import Draft202012Validator
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 SCHEMA = ROOT / "governance/interaction/schemas/operator-playbook.schema.json"
 
 
-def validate(payload: dict) -> list[str]:
+def validate(payload: dict, source_packet: dict | None = None, *, trusted_packet_hash: str | None = None) -> list[str]:
     schema = json.loads(SCHEMA.read_text())
     errors = [f"schema: {error.message}" for error in Draft202012Validator(schema, format_checker=Draft202012Validator.FORMAT_CHECKER).iter_errors(payload)]
+    if errors:
+        return errors
+    if source_packet is None or not trusted_packet_hash:
+        return ["independently trusted source packet and hash are required"]
+    spec = importlib.util.spec_from_file_location("playbook_source_compiler", pathlib.Path(__file__).with_name("compile_operator_playbook.py"))
+    compiler = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(compiler)
+    try:
+        expected = compiler.compile_playbook(source_packet, trusted_packet_hash=trusted_packet_hash)
+        if payload != expected:
+            errors.append("playbook differs from trusted source projection")
+    except (ValueError, KeyError, TypeError) as exc:
+        errors.append(f"source rejected: {exc}")
     if payload.get("contract") != "CBDS-OPERATOR-PLAYBOOK-2026.07": errors.append("unsupported playbook contract")
     source = payload.get("source_packet", {})
     if source.get("validation_status") != "passed" or source.get("erdg_contract") != "ERDG-CONTRACT-2026.07": errors.append("playbook must bind to ERDG-passed packet")
@@ -32,10 +47,15 @@ def validate(payload: dict) -> list[str]:
 
 
 def main() -> int:
-    if len(sys.argv) != 2:
-        print("usage: validate_operator_playbook.py INPUT.json")
-        return 2
-    errors = validate(json.loads(pathlib.Path(sys.argv[1]).read_text()))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input", type=pathlib.Path)
+    parser.add_argument("--source", type=pathlib.Path, required=True)
+    parser.add_argument("--trusted-packet-hash", required=True)
+    args = parser.parse_args()
+    try:
+        errors = validate(json.loads(args.input.read_text()), json.loads(args.source.read_text()), trusted_packet_hash=args.trusted_packet_hash)
+    except (OSError, ValueError, TypeError) as exc:
+        errors = [str(exc)]
     print(json.dumps({"valid": not errors, "errors": errors}, ensure_ascii=False, indent=2))
     return 0 if not errors else 1
 

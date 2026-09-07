@@ -54,16 +54,16 @@ class InteractionPlatformConnectorTests(unittest.TestCase):
         return {"packet_id":"PK1","owner_domain":"D08","object":{"object_type":"listing","object_id":"ASIN1","version":"v1"},"as_of_time":"2026-08-07T00:00:00+08:00","decision":{"decision_id":"DEC1","status":"validated","posture":"test","action_ceiling":"bounded listing experiment"},"actions":[{"action_id":"A1","instruction":"Run the pre-registered listing experiment","owner_role":"listing operator","dependencies":["approved copy"],"success_conditions":["primary metric reaches pre-registered threshold"],"guardrails":["no unsupported claim"],"stop_conditions":["policy or conversion guardrail breach"],"approval_required":True}],"rollback":{"trigger":["guardrail breach"],"steps":["restore prior version"],"residual_exposure_owner":"listing owner"},"outcome_feedback":{"metrics":["conversion"],"observation_window":"pre-registered mature window","writeback_target":"PLCO decision cycle"},"external_write":False,"erdg_validation":{"status":"passed","contract":"ERDG-CONTRACT-2026.07"}}
 
     def test_04_playbook_compiles_without_promoting_actions(self):
-        packet = self.packet_fixture(); result = self.compiler.compile_playbook(packet)
-        self.assertEqual(self.playbook.validate(result), []); self.assertEqual(result["actions"][0]["status"], "proposed"); self.assertFalse(result["external_write"])
+        packet = self.packet_fixture(); result = self.compiler.compile_playbook(packet, trusted_packet_hash=self.compiler.canonical_hash(packet))
+        self.assertEqual(self.playbook.validate(result, packet, trusted_packet_hash=self.compiler.canonical_hash(packet)), []); self.assertEqual(result["actions"][0]["status"], "proposed"); self.assertFalse(result["external_write"])
         bad = copy.deepcopy(packet); bad["actions"][0]["stop_conditions"] = []
-        with self.assertRaises(ValueError): self.compiler.compile_playbook(bad)
+        with self.assertRaises(ValueError): self.compiler.compile_playbook(bad, trusted_packet_hash=self.compiler.canonical_hash(bad))
 
     def test_05_unvalidated_packet_and_self_authorized_write_do_not_compile(self):
         bad = self.packet_fixture(); bad["erdg_validation"]["status"] = "pending"
-        with self.assertRaises(ValueError): self.compiler.compile_playbook(bad)
+        with self.assertRaises(ValueError): self.compiler.compile_playbook(bad, trusted_packet_hash=self.compiler.canonical_hash(bad))
         bad = self.packet_fixture(); bad["external_write"] = True
-        with self.assertRaises(ValueError): self.compiler.compile_playbook(bad)
+        with self.assertRaises(ValueError): self.compiler.compile_playbook(bad, trusted_packet_hash=self.compiler.canonical_hash(bad))
 
     def test_06_current_cards_pass_and_expired_cards_fail(self):
         for path in (ROOT / "governance/platform-knowledge/cards").glob("*.json"):
@@ -103,7 +103,7 @@ class InteractionPlatformConnectorTests(unittest.TestCase):
         field_schema = json.loads((ROOT / "governance/connectors/schemas/field-contract.schema.json").read_text())
         for schema in (intake_schema, playbook_schema, card_schema, manifest_schema, field_schema): Draft202012Validator.check_schema(schema)
         Draft202012Validator(intake_schema, format_checker=Draft202012Validator.FORMAT_CHECKER).validate(self.intake_fixture())
-        Draft202012Validator(playbook_schema, format_checker=Draft202012Validator.FORMAT_CHECKER).validate(self.compiler.compile_playbook(self.packet_fixture()))
+        Draft202012Validator(playbook_schema, format_checker=Draft202012Validator.FORMAT_CHECKER).validate(self.compiler.compile_playbook(self.packet_fixture(), trusted_packet_hash=self.compiler.canonical_hash(self.packet_fixture())))
         for path in (ROOT / "governance/platform-knowledge/cards").glob("*.json"): Draft202012Validator(card_schema, format_checker=Draft202012Validator.FORMAT_CHECKER).validate(json.loads(path.read_text()))
         for path in (ROOT / "governance/connectors/manifests").glob("*.json"): Draft202012Validator(manifest_schema).validate(json.loads(path.read_text()))
         for path in (ROOT / "governance/connectors/field-contracts").glob("*.json"): Draft202012Validator(field_schema).validate(json.loads(path.read_text()))
@@ -118,5 +118,53 @@ class InteractionPlatformConnectorTests(unittest.TestCase):
         for expected in ("decision binding identity or owner mismatch", "operation is outside the approved decision ceiling", "target does not match the approved decision binding", "decision packet hash is invalid"):
             self.assertIn(expected, result["reasons"])
 
+
+    def test_13_registry_domains_reach_public_intake_and_view(self):
+        registry = json.loads((ROOT / "governance/domain-architecture-registry.json").read_text())
+        for domain in registry["domains"]:
+            if domain["availability"] != "current": continue
+            intake = self.intake_fixture(); intake["domain_id"] = domain["domain_id"]
+            self.assertEqual(self.intake.validate(intake), [])
+            packet = self.packet_fixture(); packet["owner_domain"] = domain["domain_id"]
+            if domain["domain_id"] == "D14": packet["actions"] = []
+            digest = self.compiler.canonical_hash(packet)
+            result = self.compiler.compile_playbook(packet, trusted_packet_hash=digest)
+            self.assertEqual(self.playbook.validate(result, packet, trusted_packet_hash=digest), [])
+        intake["domain_id"] = "D99"
+        self.assertTrue(self.intake.validate(intake))
+
+    def test_14_tampering_source_and_every_view_field_is_rejected(self):
+        packet = self.packet_fixture(); digest = self.compiler.canonical_hash(packet)
+        original = self.compiler.compile_playbook(packet, trusted_packet_hash=digest)
+        mutations = [("instruction", "Change price to 0.01"), ("owner_role", "finance"),
+                     ("dependencies", []), ("approval_required", False),
+                     ("success_conditions", ["anything"]), ("stop_conditions", ["never"])]
+        for field, value in mutations:
+            bad = copy.deepcopy(original); bad["actions"][0][field] = value
+            self.assertTrue(self.playbook.validate(bad, packet, trusted_packet_hash=digest), field)
+        self.assertTrue(self.playbook.validate(original))
+        bad = copy.deepcopy(packet); bad["actions"][0]["instruction"] = "altered"
+        with self.assertRaises(ValueError): self.compiler.compile_playbook(bad, trusted_packet_hash=digest)
+        self.assertTrue(self.playbook.validate(original, bad, trusted_packet_hash=digest))
+
+    def test_15_blocked_and_orchestrator_cannot_own_operating_actions(self):
+        for field, value in (("status", "blocked"), ("status", "inconclusive"), ("owner_domain", "D14")):
+            packet = self.packet_fixture()
+            if field == "status": packet["decision"][field] = value
+            else: packet[field] = value
+            with self.assertRaises(ValueError):
+                self.compiler.compile_playbook(packet, trusted_packet_hash=self.compiler.canonical_hash(packet))
+
+    def test_16_partial_calculation_preserves_only_independent_results(self):
+        packet = self.intake_fixture(); packet["route"] = "calculate"
+        packet["calculation_targets"] = ["unit_economics"]
+        packet["missing_fields"] = [{"field":"video", "impact":"local", "required_for":["content_review"],
+            "source_system":"user", "owner":"seller", "fallback":"independent_result_only"}]
+        self.assertEqual(self.intake.validate(packet), [])
+        packet["missing_fields"][0]["required_for"] = ["unit_economics"]
+        self.assertTrue(self.intake.validate(packet))
+        packet["missing_fields"][0]["required_for"] = ["content_review"]
+        packet["missing_fields"][0]["impact"] = "blocking"
+        self.assertTrue(self.intake.validate(packet))
 
 if __name__ == "__main__": unittest.main()

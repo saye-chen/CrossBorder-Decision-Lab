@@ -67,6 +67,17 @@ class GoldenReportGate(unittest.TestCase):
                 result = report_eval.score_report(file.read_text(encoding="utf-8"), "contract")
                 self.assertEqual(result["result"], "FAIL", result)
 
+    def test_full_keyword_only_report_cannot_pass_as_professional_content(self):
+        terms = "；".join(t for _, words in report_eval.DIMENSIONS.values() for t in words)
+        body = terms + "；支持证据；反对证据；最弱假设；置信度；决策影响；E1 A1 C1"
+        text = "\n".join("## " + h + "\n" + body + "\n\n\n" for h in report_eval.FULL_REQUIRED_HEADINGS)
+        result = report_eval.score_report(text, "full")
+        self.assertEqual(result["result"], "FAIL")
+        self.assertEqual(result["professional_quality"], "not_assessed")
+        good = report_eval.score_report((GOLDEN / "cidm-single.md").read_text())
+        self.assertEqual(good["assessment_scope"], "format_completeness_only")
+        self.assertEqual(good["professional_quality"], "not_assessed")
+
     def test_progressive_lineage_golden_passes_deterministic_validator(self):
         script = ROOT / "category-investment-decision/scripts/validate_report_lineage.py"
         bundle = ROOT / "evaluations/lineage/cidm-progressive-rebase.json"

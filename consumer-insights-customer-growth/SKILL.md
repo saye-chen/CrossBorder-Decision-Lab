@@ -155,3 +155,7 @@ description: 默认用中文执行跨境电商消费者洞察、客户增长、�
 通过 `integrations/experiment-causal-assessment/adapter.json` 接收与本域用途、CE 门槛、payload、适用范围和有效期绑定的 F01 回执。待签、低等级、过期、范围不符、缺字段或哈希不一致时保持 `unknown`，不得把旧标签、归因或预测升级为因果/增量。F01 只提供合格证据；客户身份、客户状态、CRM 动作与服务补偿主权仍归 CIG，且 `external_write=false`。
 
 跨域统一硬门禁：交付报告或 handoff 前运行 `python3 ../governance/decision-quality/validate_domain_quality.py <report> --handoff`。
+
+## 运营交付
+
+当用户需要拿结果执行、转交或复盘时，读取[运营交付协议](../governance/interaction/operator-delivery.md)，按[专属成果清单](../governance/interaction/operator-deliverables.json)中本域条目交付。首屏用经营语言说明结论、理由、限制、下一步与停止条件；必要证据和计算放附录。独立解释不额外触发完整报告，正式决定保持既有专业门槛。

@@ -73,6 +73,24 @@ class MonitoringScripts(unittest.TestCase):
             self.assertEqual(data["competitors"][0]["cri"], 1.0)
             self.assertIn("不等同真实市场份额", data["proxy_hhi_warning"])
 
+    def test_baseline_method_changes_are_explicit_and_zero_scale_is_safe(self):
+        with tempfile.TemporaryDirectory() as td:
+            source, output = Path(td)/"in.json", Path(td)/"out.json"
+            values = [99, 100, 101, 99, 100, 101, 100, 500, 110]
+            rows = [{"product_id":"A", "snapshot_at":f"2026-01-{i+1:02d}", "price":v} for i,v in enumerate(values)]
+            source.write_text(json.dumps(rows))
+            subprocess.run(["python3", ROOT/"detect_changes.py", "--input", source, "--output", output, "--baseline-method", "median_mad"], check=True)
+            data=json.loads(output.read_text()); alert=data["alerts"][0]
+            self.assertEqual(data["baseline_method"], "median_mad")
+            self.assertEqual(alert["baseline_center"], 100)
+            self.assertAlmostEqual(alert["baseline_scale"], 1.4826)
+            self.assertAlmostEqual(alert["zscore"], 10/1.4826)
+            self.assertTrue(alert["baseline_mature"])
+            for row in rows[:-1]: row["price"]=100
+            source.write_text(json.dumps(rows))
+            subprocess.run(["python3", ROOT/"detect_changes.py", "--input", source, "--output", output, "--baseline-method", "median_mad"], check=True)
+            self.assertIsNone(json.loads(output.read_text())["alerts"][0]["zscore"])
+
     def test_learning_loop_keeps_denominators(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)

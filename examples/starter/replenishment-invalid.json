@@ -1,0 +1,53 @@
+{
+  "case_id": "SYNTHETIC-replenishment",
+  "object_id": "SKU-DEMO",
+  "country": "US",
+  "platform": "demo-marketplace",
+  "currency": "USD",
+  "as_of_time": "2026-09-07T00:00:00+08:00",
+  "source_class": "synthetic_fixture",
+  "source_ref": "synthetic:starter",
+  "external_write": false,
+  "production_ready": false,
+  "data": {
+    "expected_protection_demand": 80,
+    "target_demand_quantile": 100,
+    "target_inventory_position": 140,
+    "current_inventory_position": 40,
+    "opening_available": 40,
+    "case_pack": 0,
+    "moq": 20,
+    "supplier_capacity": 200,
+    "cash_capacity_units": 100,
+    "warehouse_capacity_units": 200,
+    "lifecycle_cap": 100,
+    "shelf_life_cap": 100,
+    "order_date": "2026-09-07",
+    "supplier_confirmation_days": 1,
+    "production_days": 2,
+    "quality_release_days": 1,
+    "origin_handling_days": 1,
+    "main_haul_days": 3,
+    "customs_days": 1,
+    "inbound_days": 1,
+    "receiving_putaway_days": 1,
+    "timeline": [
+      {
+        "period": "week-1",
+        "eligible_arrival": 0,
+        "demand": 30,
+        "reservation": 0,
+        "expected_loss": 0,
+        "protection_floor": 0
+      },
+      {
+        "period": "week-2",
+        "eligible_arrival": 100,
+        "demand": 30,
+        "reservation": 0,
+        "expected_loss": 0,
+        "protection_floor": 0
+      }
+    ]
+  }
+}

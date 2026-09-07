@@ -1,0 +1,29 @@
+{
+  "case_id": "SYNTHETIC-ad-profit",
+  "object_id": "SKU-DEMO",
+  "country": "US",
+  "platform": "demo-marketplace",
+  "currency": "USD",
+  "as_of_time": "2026-09-07T00:00:00+08:00",
+  "source_class": "synthetic_fixture",
+  "source_ref": "synthetic:starter",
+  "external_write": false,
+  "production_ready": false,
+  "data": [
+    {
+      "order_id": "DEMO-001",
+      "currency": "USD",
+      "maturity": "mature",
+      "gross_revenue": 1000,
+      "discount": 0,
+      "refund": 100,
+      "chargeback": 0,
+      "tax": 0,
+      "cogs": 300,
+      "fulfillment": 100,
+      "platform_fee": 90,
+      "service_cost": 10,
+      "ad_spend": -1
+    }
+  ]
+}

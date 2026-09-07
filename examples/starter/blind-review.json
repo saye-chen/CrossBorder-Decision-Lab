@@ -1,0 +1,12 @@
+{
+  "production_ready": false,
+  "instructions": "Copy outside repository. Fill with observed evidence; null is not zero. Keep candidate sources hidden from reviewers. This template is not a real review.",
+  "records": [{
+    "case_id": null, "candidate_id": null, "reviewer_ref": null,
+    "evidence_ref": null, "input_hash": null, "evidence_cutoff": null,
+    "source_class": null, "completed": null, "understood_next_action": null,
+    "elapsed_seconds": null, "clarification_rounds": null, "human_interventions": null,
+    "fact_errors": null, "calculation_errors": null, "critical_omissions": null,
+    "read_characters": null, "measured_tokens": null, "measured_cost": null
+  }]
+}

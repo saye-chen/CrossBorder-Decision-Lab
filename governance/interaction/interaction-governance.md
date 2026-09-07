@@ -1,5 +1,5 @@
 # Interaction Governance
-All thirteen current Skill entrypoints read this file for formal decisions,
+All registered D01-D14 Skill entrypoints read this file for formal decisions,
 high-impact recommendations, missing-data cases, pasted external content, or
 requests that could trigger an external action. Domain-specific evidence,
 calculation, threshold, and output protocols remain authoritative.
@@ -37,15 +37,28 @@ rollback, outcome feedback, and approval requirements. Compilation may shorten
 or reorder presentation but may not add an action, numeric target, platform
 fact, approval, or completion claim.
 
-Run `scripts/compile_operator_playbook.py PACKET.json OUTPUT.json`, then
-`scripts/validate_operator_playbook.py OUTPUT.json`. Only packets carrying
-`erdg_validation.status=passed` compile. All emitted actions start as
+Run `scripts/compile_operator_playbook.py PACKET.json OUTPUT.json --trusted-packet-hash HASH`, then
+`scripts/validate_operator_playbook.py OUTPUT.json --source PACKET.json --trusted-packet-hash HASH`.
+HASH must come from the caller's independently retained ERDG-accepted source
+record, not from the submitted packet, model output, or the playbook itself.
+The caller is the trust boundary: these tools verify binding, not the identity
+of an external approver. Missing trusted source/hash fails closed. Old playbooks
+must be revalidated against that source; a format-only check is not acceptance.
+Only packets carrying `erdg_validation.status=passed` compile. All emitted actions start as
 `proposed`; external writes remain forbidden unless a separate Connector Action
 Gateway authorization exists.
 
-## Skill routing
+## Partial calculations and operator presentation
 
-All thirteen current Skill entrypoints read this file for formal decisions,
-high-impact recommendations, missing-data cases, pasted external content, or
-requests that could trigger an external action. Domain-specific evidence,
-calculation, threshold, and output protocols remain authoritative.
+A `calculate` intake with missing fields must name `calculation_targets`.
+Only fields outside those targets, with `independent_result_only` fallback and
+non-blocking impact, may remain missing. A target-dependent or blocking missing
+field still prevents calculation. Record which results were withheld.
+
+Playbook compilation rejects operating actions on blocked/inconclusive sources.
+Deliver the diagnostic and missing-evidence list separately, then revalidate a
+new source after recovery. D14 may compile an action-free coordination summary;
+business actions remain owned by D01-D13 and are rendered from their own accepted
+packets. Never relabel a D14 action as a business-owner action.
+
+For user-facing deliverables, read [operator delivery](operator-delivery.md).

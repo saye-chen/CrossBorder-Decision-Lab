@@ -1,0 +1,359 @@
+{
+  "version": "1.0.0",
+  "assessment_scope": "operator_delivery_only",
+  "production_ready": false,
+  "domains": [
+    {
+      "skill": "category-investment-decision",
+      "label": "CIDM",
+      "deliverable": "候选比较与测试决策单",
+      "required_sections": [
+        "候选对象与同口径窗口",
+        "支持与反对进入证据",
+        "不行动及小测方案",
+        "价格成本翻转点",
+        "最大损失与测试上限",
+        "评分者分歧与校准状态"
+      ],
+      "stop": "资金或经济红线触发，停止相关投入",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "competitive-intelligence-monitoring",
+      "label": "CIM",
+      "deliverable": "竞品变化复核单",
+      "required_sections": [
+        "实体与展示条件",
+        "可比快照及变化",
+        "实际基线方法",
+        "采集污染与替代解释",
+        "响应价值与有效窗口",
+        "下一次验证"
+      ],
+      "stop": "来源不可比或确认失败时撤回趋势主张",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "product-innovation-product-management",
+      "label": "PIPM",
+      "deliverable": "产品规格变更单",
+      "required_sections": [
+        "旧规格与新规格",
+        "需求证据与产品版本",
+        "产品证明和待验证声明",
+        "成本与变体影响",
+        "验证方法及验收条件",
+        "回滚版本"
+      ],
+      "stop": "关键产品证明或准入不足时不批准相关变更",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "supplier-procurement-production-quality-decision",
+      "label": "SPPQ",
+      "deliverable": "供应报价与批次评审单",
+      "required_sections": [
+        "报价口径及供应主体",
+        "成本和条款差异",
+        "检测材料和缺口",
+        "计量资格与批次边界",
+        "可放行或隔离范围",
+        "采购质量负责人及恢复证据"
+      ],
+      "stop": "关键缺陷或检测资格失败时保持隔离",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "legal-tax-intellectual-property-market-access-decision",
+      "label": "LTMA",
+      "deliverable": "SKU 准入材料缺口单",
+      "required_sections": [
+        "SKU和主体辖区",
+        "规则版本与用途",
+        "现有材料及真实性边界",
+        "缺口责任人和专业复核",
+        "可以进行的准备",
+        "阻断动作及解除条件"
+      ],
+      "stop": "证据失效或专业意见不适用时不扩大准入结论",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "pricing-profit-finance-cashflow-decision",
+      "label": "PPFC",
+      "deliverable": "利润现金与参数变化单",
+      "required_sections": [
+        "原报表字段映射和对账差额",
+        "利润现金库存口径",
+        "新旧费率运费与差异桥",
+        "价格成本翻转点",
+        "现金峰值和最大损失",
+        "财务复核与结果成熟窗"
+      ],
+      "stop": "数量金额无法守恒时保留可核实部分并停止点估计",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "logistics-inventory-fulfillment-decision",
+      "label": "LIFD",
+      "deliverable": "补货与履约排期单",
+      "required_sections": [
+        "库存及可信在途",
+        "需求交期分布与适用窗",
+        "建议数量及约束",
+        "最晚下单发运及可售日",
+        "缺口区间与现金占用",
+        "备选路线及未选原因"
+      ],
+      "stop": "需求或到货不可信时不给确定采购承诺",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "platform-store-listing-conversion",
+      "label": "PLCO",
+      "deliverable": "页面修改前后与素材 Brief",
+      "required_sections": [
+        "页面版本和商家可控字段",
+        "标题修改前后",
+        "逐张主图证明与拍摄说明",
+        "详情模块顺序",
+        "审批及发布验证",
+        "实验和回滚版本"
+      ],
+      "stop": "产品声明无证据或页面身份不一致时停止相关发布",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "advertising-analysis-measurement-optimization",
+      "label": "AAMO",
+      "deliverable": "广告利润诊断与调整单",
+      "required_sections": [
+        "报表字段与三本账映射",
+        "优先检查三项",
+        "根因与替代解释",
+        "预算出价候选和边际约束",
+        "订单及退款成熟窗",
+        "观察停止与恢复条件"
+      ],
+      "stop": "追踪归因或成熟利润无法核实时不批准放量",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "creator-affiliate-partnership-management",
+      "label": "CAPM",
+      "deliverable": "达人合作与结算单",
+      "required_sections": [
+        "达人比较及匹配证据",
+        "报价佣金样品和损失上限",
+        "内容 Brief 与权利用途",
+        "样品发布与挂链追踪",
+        "成熟订单归因和结算",
+        "争议订单及恢复责任"
+      ],
+      "stop": "权利授权或主体不清时阻断相关承诺",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "video-link-breakdown",
+      "label": "VLB",
+      "deliverable": "分镜与创意实验单",
+      "required_sections": [
+        "可观察画面与素材限制",
+        "钩子节奏和机制假设",
+        "产品证明镜头",
+        "分镜与可测试变量",
+        "下一版调整及成本",
+        "成功停止和替代解释"
+      ],
+      "stop": "未观察到的画面不补写为事实，缺权利不发布",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "marketing-brand-campaign-management",
+      "label": "MBCM",
+      "deliverable": "一页活动执行计划",
+      "required_sections": [
+        "目标人群与Offer",
+        "渠道角色与重叠",
+        "素材需求和预算方向",
+        "日历依赖与负责人",
+        "活动结束和停止条件",
+        "蚕食及成熟结果复盘"
+      ],
+      "stop": "资源边界或关键准备门失败时缩小活动范围",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "consumer-insights-customer-growth",
+      "label": "CIG",
+      "deliverable": "客群复购与不触达决策单",
+      "required_sections": [
+        "身份事件授权及字段核对",
+        "客群与成熟复购窗口",
+        "贡献价值及数据资格",
+        "可执行动作或不触达理由",
+        "频控退订与成本",
+        "增量资格和后续观察"
+      ],
+      "stop": "身份授权或曝光无法核实则不自动触达或宣称增量",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "cross-domain-operating-posture-orchestration",
+      "label": "COPO",
+      "deliverable": "联合经营结论与依赖单",
+      "required_sections": [
+        "综合结论与有效期",
+        "各专业责任域回执",
+        "冲突和受影响结果",
+        "动作依赖顺序",
+        "实际复核岗位",
+        "下一复盘与选择性重算"
+      ],
+      "stop": "缺关键owner时不代判，保留独立有效结果",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "experiment-causal-assessment",
+      "label": "ECAE",
+      "deliverable": "实验资格与最低成本验证单",
+      "required_sections": [
+        "当前能说明到哪一级",
+        "目标效应与比较条件",
+        "设计及最少有效数据",
+        "最便宜可行验证方案",
+        "识别失败和降级理由",
+        "停止及复现条件"
+      ],
+      "stop": "识别失败时不输出高等级因果主张",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    },
+    {
+      "skill": "localization-country-calibration",
+      "label": "LCCA",
+      "deliverable": "跨市场复用差异单",
+      "required_sections": [
+        "来源与目标市场范围",
+        "可直接沿用内容",
+        "需要重算参数",
+        "需重新取证事实",
+        "禁止迁移内容",
+        "阻断原因及复核来源"
+      ],
+      "stop": "过期冲突或不兼容时禁止迁移相关结论",
+      "review": {
+        "case_id": null,
+        "decision_version": null,
+        "executed": null,
+        "observed_result": null,
+        "concurrent_changes": [],
+        "reviewer": null
+      }
+    }
+  ]
+}

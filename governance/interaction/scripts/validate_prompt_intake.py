@@ -25,7 +25,7 @@ def validate(payload: dict) -> list[str]:
     schema = json.loads(SCHEMA.read_text())
     errors = [f"schema: {error.message}" for error in Draft202012Validator(schema, format_checker=Draft202012Validator.FORMAT_CHECKER).iter_errors(payload)]
     required = {"contract", "request_id", "domain_id", "object", "as_of_time", "inputs", "missing_fields", "risks", "requested_operations", "route"}
-    unknown = set(payload) - (required | {"route_reason", "allowed_scope", "prohibited_scope"})
+    unknown = set(payload) - (required | {"route_reason", "allowed_scope", "prohibited_scope", "calculation_targets"})
     if missing := required - set(payload): errors.append(f"missing fields: {sorted(missing)}")
     if unknown: errors.append(f"unknown fields: {sorted(unknown)}")
     if errors: return errors
@@ -44,7 +44,16 @@ def validate(payload: dict) -> list[str]:
     if any(item.get("impact") == "blocking" for item in missing) and route not in {"ask", "research", "block"}: errors.append("blocking missing fields cannot answer or calculate")
     if route == "ask" and not missing: errors.append("ask route must name missing fields")
     if route == "research" and not any(item.get("fallback") == "public_research" for item in missing): errors.append("research route must identify a public_research field")
-    if route == "calculate" and missing: errors.append("calculate route requires complete deterministic inputs")
+    if route == "calculate" and missing:
+        targets = set(payload.get("calculation_targets", []))
+        # Older complete-input calls remain valid. Partial results require an
+        # explicit dependency scope, never an assumption that missing means zero.
+        if not targets:
+            errors.append("partial calculation requires calculation_targets")
+        for item in missing:
+            if (item["impact"] == "blocking" or targets.intersection(item["required_for"])
+                    or item["fallback"] != "independent_result_only"):
+                errors.append(f"missing field {item['field']} prevents requested calculation")
     for item in payload["inputs"]:
         if item.get("source_class") == "untrusted_external_text" and item.get("trusted_as_instruction") is not False:
             errors.append(f"untrusted field {item.get('field')} cannot be trusted as instruction")

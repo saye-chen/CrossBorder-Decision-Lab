@@ -4,6 +4,17 @@
 
 > Professional decision infrastructure for cross-border commerce—turning experience-dependent judgment into evidence-based, model-backed, actionable, and compounding decision assets.
 
+## Start with one operating task
+
+| Task | First useful result |
+|---|---|
+| Ads generate orders but little profit | Net revenue, pre/post-ad contribution and missing inputs |
+| Decide whether to prepare a small product test | Unit contribution, break-even orders and traffic assumptions |
+| Prepare a replenishment review | Quantity scenario, inventory gaps and availability dates |
+
+Follow the [getting-started guide (Chinese)](guides/getting-started.md): environment check, synthetic example, authorized inputs, one-page calculation card, human review and outcome feedback. See [field mapping and privacy](guides/input-and-privacy.md), [capability evidence](guides/capability-and-evidence.md) and [pilot evaluation](guides/pilot-evaluation.md). These are preparation tools, not approved operating decisions; connectors remain contract-only.
+
+
 Current release train: `2026.07`; target architecture: `CBDS-ARCH-2026.07`; shared contract: `ERDG-CONTRACT-2026.07`.
 
 CrossBorder Decision Lab is built for cross-border operators, brands, investors, and professional teams. It connects category investment, competitive intelligence, product, supply/procurement/production/quality, legal/tax/IP/market access, pricing finance, fulfillment, conversion, advertising, partnerships, content, marketing, and customer growth into fourteen professional domains that can operate independently and collaborate under shared decision contracts.
@@ -68,7 +79,7 @@ Models are upgradeable and replaceable reasoning engines. CrossBorder Decision L
 
 ### The compounding mechanism of long-term use
 
-Every real use increases the system's long-term value:
+Authorized, verified, deduplicated and reviewed use with mature outcomes can increase the system's long-term value:
 
 - new questions expand professional scenario coverage;
 - new evidence enriches country, platform, and category benchmarks;

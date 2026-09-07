@@ -46,3 +46,7 @@ description: 默认用中文编排跨境经营中的多域诊断、冲突升级�
 输出一个可审计的经营决策单，至少包含：当前有效姿态、事实/推断/未知、owner 回执、冲突与阻断门、已批准资源边界、动作顺序、成功/停止/回滚条件、待补证据、下一复盘时间和 L4 边界。
 
 复杂计算、结构化校验和场景复算使用 `scripts/copo.py` 及相应 JSON Schema。正式交付运行 `scripts/validate_decision_contract.py --input <decision-bundle.json>`，遵循 `ERDG-CONTRACT-2026.07` 和 `governance/erdg/adapters/cross-domain-operating-posture-orchestration/adapter.json`。合同或门槛失败时降级为诊断/补数/升级，不生成可执行姿态。
+
+## 运营交付
+
+当用户需要拿结果执行、转交或复盘时，读取[运营交付协议](../governance/interaction/operator-delivery.md)，按[专属成果清单](../governance/interaction/operator-deliverables.json)中本域条目交付。首屏用经营语言说明结论、理由、限制、下一步与停止条件；必要证据和计算放附录。独立解释不额外触发完整报告，正式决定保持既有专业门槛。

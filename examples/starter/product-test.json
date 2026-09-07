@@ -1,0 +1,36 @@
+{
+  "case_id": "SYNTHETIC-product-test",
+  "object_id": "SKU-DEMO",
+  "country": "US",
+  "platform": "demo-marketplace",
+  "currency": "USD",
+  "as_of_time": "2026-09-07T00:00:00+08:00",
+  "source_class": "synthetic_fixture",
+  "source_ref": "synthetic:starter",
+  "external_write": false,
+  "production_ready": false,
+  "data": {
+    "price": 30,
+    "fixed_costs": {
+      "samples": 100,
+      "creative": 100,
+      "test_ads": 100
+    },
+    "variable_costs": {
+      "product": 8,
+      "logistics": 4,
+      "packaging": 1,
+      "other": 0
+    },
+    "rates": {
+      "platform_commission": 0.1,
+      "creator_commission": 0,
+      "payment": 0.03,
+      "return_loss": 0.02
+    },
+    "funnel": {
+      "ctr": 0.02,
+      "cvr": 0.05
+    }
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Score decision reports against the repository expert-release contract."""
+"""Check report formatting; never certify professional or business correctness."""
 
 from __future__ import annotations
 
@@ -44,6 +44,10 @@ def semantic_checks(text: str, profile: str) -> list[str]:
         body = section(text, heading)
         if len(re.sub(r"[`#|*\s]", "", body)) < 20:
             errors.append(f"shallow_section:{heading}")
+    bodies = [re.sub(r"\s+", "", section(text, heading)) for heading in REQUIRED_HEADINGS]
+    nonempty = [body for body in bodies if body]
+    if len(nonempty) - len(set(nonempty)) >= 2:
+        errors.append("repeated_section_content")
     ids = {kind: set(re.findall(rf"(?<![A-Z0-9]){kind}(\d+)(?!\d)", text)) for kind in "EAC"}
     if any(not values for values in ids.values()):
         errors.append("missing_ledger_ids")
@@ -84,7 +88,7 @@ def score_report(text: str, profile: str = "fixture") -> dict:
     semantic_errors = semantic_checks(text, profile)
     threshold = 100 if profile == "full" else 85
     result = "PASS" if total >= threshold and critical_ok and refs_ok and not redlines and not semantic_errors else "FAIL"
-    return {"result": result, "profile": profile, "score": total, "dimensions": dimensions, "redlines": redlines, "semantic_errors": semantic_errors, "missing_required_sections": missing_headings, "ledger_refs_ok": refs_ok}
+    return {"result": result, "assessment_scope": "format_completeness_only", "professional_quality": "not_assessed", "business_effectiveness": "not_assessed", "profile": profile, "score": total, "dimensions": dimensions, "redlines": redlines, "semantic_errors": semantic_errors, "missing_required_sections": missing_headings, "ledger_refs_ok": refs_ok}
 
 
 def main() -> None:

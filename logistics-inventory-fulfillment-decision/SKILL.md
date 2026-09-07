@@ -184,3 +184,7 @@ Hard gates与阻断项
 
 正式决策、跨域交接和状态变更必须通过 `scripts/validate_decision_contract.py` 接入 `ERDG-CONTRACT-2026.07`，并使用 `governance/erdg/adapters/logistics-inventory-fulfillment-decision/adapter.json` 声明 LIFD 主权；ERDG 失败时不得形成生效动作。
 <!-- Professional evaluation routing: release audits read evaluations/evaluation-catalog.json and evaluations/golden/*.md; synthetic assets prove engineering quality only, never L4 real-world calibration. -->
+
+## 运营交付
+
+当用户需要拿结果执行、转交或复盘时，读取[运营交付协议](../governance/interaction/operator-delivery.md)，按[专属成果清单](../governance/interaction/operator-deliverables.json)中本域条目交付。首屏用经营语言说明结论、理由、限制、下一步与停止条件；必要证据和计算放附录。独立解释不额外触发完整报告，正式决定保持既有专业门槛。
