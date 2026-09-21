@@ -240,6 +240,8 @@ sequenceDiagram
 
 当前版本已经形成十四项可独立运行、可跨域联动的专业决策能力，并完成：
 
+- 报告合同登记表 `governance/report-contract-registry.json` 覆盖专业报告、Decision Card、跨域/极端报告、CAPM 五类报告、MBCM 十类报告、结构化 JSON 报告和 ECAE 基础报告；`scripts/validate_report_contracts.py` 是统一报告交付门。
+
 - 专业场景与生命周期覆盖；
 - 确定性经济模型与统计估计工具；
 - 单 Skill、跨 Skill 和连续追问执行；
@@ -253,7 +255,7 @@ sequenceDiagram
 | 专业能力 | 14 个域 | 专业主权、独立运行与跨域合同 | 不等于真实经营效果 |
 | 全局基础设施 | ERDG、ECAE、LCCA | 治理、因果资格和本地化适用性 | 不拥有业务最终决策权 |
 | 规范化评测 | 835 个源案例 | 场景、异常和语义覆盖 | 不等于 835 个真实经营案例 |
-| 专业验证 | 33 个入口 | 语义校验与数值复算可执行 | 不等于生产成熟 |
+| 专业验证 | 34 个入口 | 语义校验、报告合同与数值复算可执行 | 不等于生产成熟 |
 | 防篡改验证 | 12 类突变 | 关键守卫不能被静默删除或放宽 | 不替代外部独立保证 |
 | 当前成熟度 | `controlled_pilot` | L1—L3 工程门完成，可受控试点 | 不授权生产自动决策、高风险用途或外部写入 |
 
@@ -332,6 +334,7 @@ flowchart LR
 | [`experiment-causal-assessment/`](experiment-causal-assessment/SKILL.md) | ECAE 实验设计、因果资格、证据分级、诊断、复现、消费者接受与 L4 预留门 |
 | [`localization-country-calibration/`](localization-country-calibration/SKILL.md) | LCCA 本地化作用域、动态事实、确定性转换、可比性、迁移等级、消费者接受与 L4 预留门 |
 | [`governance/foundation-capability-registry.json`](governance/foundation-capability-registry.json) | ECAE/LCCA 共享底座身份、能力、消费者、主权和成熟度 |
+| [`governance/report-contract-registry.json`](governance/report-contract-registry.json) | 所有专业报告、决策卡、结构化报告和基础报告的统一交付合同 |
 | [`governance/interaction/`](governance/interaction/interaction-governance.md) | Prompt Intake Guard 与 Decision Packet → Operator Playbook 编译控制 |
 | [`governance/platform-knowledge/`](governance/platform-knowledge/platform-knowledge-contract.md) | PLCO、AAMO、LIFD 的版本化平台知识卡与失效门 |
 | [`governance/connectors/`](governance/connectors/connector-governance.md) | SP-API、Seller Central、广告与 ERP 的只读证据接口和 Action Gateway |

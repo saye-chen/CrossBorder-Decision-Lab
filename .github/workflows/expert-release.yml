@@ -32,6 +32,8 @@ jobs:
         run: python3 -m pip install -r requirements-dev.txt
       - name: Refresh controlled-pilot generated bindings
         run: python3 experiment-causal-assessment/scripts/build_consumer_preflight.py
+      - name: Reject generated binding drift
+        run: git diff --exit-code -- experiment-causal-assessment/evaluations/consumer-production-preflight
       - name: Prepare locked ECAE oracle runtime
         run: |
           python3 -m venv .venv/ecae-python
@@ -140,5 +142,6 @@ jobs:
           python3 scripts/test_full_repository_audit.py
           python3 -m unittest governance/interaction/tests/test_interaction_platform_connectors.py
           python3 scripts/test_operator_starter.py
+          python3 scripts/test_report_contracts.py
       - name: Reject whitespace errors
         run: git diff --check

@@ -5,4 +5,6 @@ R=Path(__file__).resolve().parents[1];s=importlib.util.spec_from_file_location("
 class T(unittest.TestCase):
  def test_legacy_domains_have_self_contained_professional_evaluations(self):
   for skill in v.b.P:self.assertEqual(v.validate(skill),[],skill)
+ def test_every_registered_markdown_golden_passes_shared_full_gate(self):
+  self.assertEqual(v.validate_registered_markdown_reports(),[])
 if __name__=="__main__":unittest.main(verbosity=2)

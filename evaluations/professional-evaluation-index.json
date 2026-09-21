@@ -87,7 +87,7 @@
       "skill": "marketing-brand-campaign-management",
       "source_case_count": 120,
       "source_catalog_hash": "eacd1c2723e8cc1aedade6d5ce21d4755b388fadb67d3f73cd0af6af3b963df1",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5"
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421"
     },
     {
       "domain_id": "D13",
@@ -101,7 +101,7 @@
       "skill": "cross-domain-operating-posture-orchestration",
       "source_case_count": 45,
       "source_catalog_hash": "919968d543cbfdd18356c7101bf275e17701bf549727672abd18d89325ed7669",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5"
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14"
     }
   ],
   "cases": [
@@ -86094,11 +86094,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-001",
       "source_hash": "7d01f88669e696918d7bcd1f9ddff4182684a5ed1a6db409197e62fd56f27310",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -86224,11 +86224,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-002",
       "source_hash": "fcd0118ac03b22d92217113261593cb6b7569a3c534eb0e577b950c10b568cba",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -86354,11 +86354,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-003",
       "source_hash": "43c7de3cb4ccf4f963c3986b339b67d8670b271da82ccc3323fc011832ee28a0",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -86484,11 +86484,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-004",
       "source_hash": "0fa1070065c3153acfac927981a44acb499a388975e5c4a9de0e07b358407971",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -86614,11 +86614,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-005",
       "source_hash": "af604bae39558b044e08c3e916adce1874900ce202105c4d53b4c47fc7c2468a",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -86744,11 +86744,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-006",
       "source_hash": "8579c2893d1b30e160f46eede193dda44bcd38fe08ebe2f50c9e7b7cd77fb900",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -86874,11 +86874,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-007",
       "source_hash": "d49d52dd90505e30bffda8cd7ad5db50c15e08eff0e8966ba85364d72261d988",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -87004,11 +87004,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-008",
       "source_hash": "5f167261b01de27cd91fd1a6d34535899215def793b80ce566dd9a20ecf8ba9a",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -87134,11 +87134,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-009",
       "source_hash": "b667031a93283111ce6b8291ad6a563b444ac2a0a430818d2628a1906c4004ef",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -87264,11 +87264,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-010",
       "source_hash": "3852229c6a6e425c6d2aae1a6b28b9466320e74b87b784e9a5aa39a7e36de08f",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -87394,11 +87394,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-011",
       "source_hash": "c3e5753535f95b9cb82a1f9852c925a060d23246708a9cf5cd99656bb3955193",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -87524,11 +87524,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-012",
       "source_hash": "1a0e1f51e85fc5460cf5a63f7395a6cf0b83a07825a47950409d23b8bbabc194",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -87654,11 +87654,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-013",
       "source_hash": "7fbc17aac301a5b44e2724883d24ed1de745b619e08c8de4a7cc2a810143b76e",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -87784,11 +87784,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-014",
       "source_hash": "94f23416c9f4b9bcb0c1ccd4c0c7892d490ad0b5d216ce465c367eb11c1ef6a8",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -87914,11 +87914,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-015",
       "source_hash": "6367d7696bb5b54589e3004aec77d6d74fb73985f224f84970200ed3cd78d0bc",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -88044,11 +88044,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-016",
       "source_hash": "8f86bfb835a1f1efb5f428fb4d6b63cf9df4bce4cf5ca18a18aaede32d2dfffe",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -88174,11 +88174,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-017",
       "source_hash": "64b9ffcd921dfdd4baaa206d4b243cf82473c515a720ed459ee5aee4d3ae39b7",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -88304,11 +88304,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-018",
       "source_hash": "15e7872bfb395b379745fa3a8ec5ccada6d4bee0544aa7832f103b5465534bf3",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -88434,11 +88434,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-019",
       "source_hash": "f4eb6f09b22d7b0a5a8b4782467628e5c9b171aaef6600c8cfc197f79ee9bb41",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -88564,11 +88564,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-020",
       "source_hash": "43e61a6b48081b2f9256959fea8ae2174d671dd5f330af7a04f8ed17cc27c57b",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -88694,11 +88694,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-021",
       "source_hash": "73606574e10545ad4f5ddbd3f4ff81eeef53073132f779db71af5eedf4ae0355",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -88824,11 +88824,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-022",
       "source_hash": "f0c77049e05e2212fa401c378e7cde3fc57338d2cebe9500b727fe3aa21db3c4",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -88954,11 +88954,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-023",
       "source_hash": "8edc046a568bc2c7dec0e689312c47473a51036223aa908b6045d0e3b36bc6d2",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -89084,11 +89084,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-024",
       "source_hash": "a94db9eb510aa708e0b9284e2c6543b62d2d6fb8932d5ba58eef540ac008f789",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -89214,11 +89214,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-025",
       "source_hash": "d8e271eb86317f54e69fa009ed7fe503578df7893abb34963c1419287f5ca0c1",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -89344,11 +89344,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-026",
       "source_hash": "6a1d586a6d7d19929bfc05cb6d7a030cd752217118a3ab360ad33bc11aaaa00d",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -89474,11 +89474,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-027",
       "source_hash": "348e1656c6d959f4cff21a1742ad35cc36d6a019638e63da3e030cf107e11807",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -89604,11 +89604,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-028",
       "source_hash": "5af2da9ffad8b111fc302b81dfc32b7d609852b31039d722ba31e44ed8807017",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -89734,11 +89734,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-029",
       "source_hash": "8d27294a6a7444c9b558b1fba07f6d3795b5b7bcb8be19a98d06390ea4b2b8f6",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -89864,11 +89864,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-030",
       "source_hash": "4d3efd1fe2a4a85c0156b5c66d535946afed044ae63fdea0a1539a3f63b07ce4",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -89994,11 +89994,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-031",
       "source_hash": "3bd11882955cb0a8c5d3bb08f30f30758e698cce18139a14deb50baa989489a0",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -90124,11 +90124,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-032",
       "source_hash": "2d4b85656cb9c57c1acc9c3131709692442debbf02851c2242bbe9e231327bcc",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -90254,11 +90254,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-033",
       "source_hash": "486c6d2704574d425f848e149dc4e47aa55212836f74f933190b410512670e08",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -90384,11 +90384,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-034",
       "source_hash": "a59b098d374b90d9f2ed6e74191d867421b25952d39183d02fd42c2455724d14",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -90514,11 +90514,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-035",
       "source_hash": "05019ce6ac7d4777777abad2c929d8ffcce12945d48e5b64f03de874205d3516",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -90644,11 +90644,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-ST-036",
       "source_hash": "60adc4dc712fb3cd1e05b7f6ab5bf70e3ad1d13aeba138baa61a1589c20ae2c7",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -90774,11 +90774,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-001",
       "source_hash": "f85c3c8275f3db38357027c13919ee0c7b1d8d07578c297bd7389278722eefc9",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -90905,11 +90905,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-002",
       "source_hash": "fdb081118b6557c3f8bb2f49465b36a6e212880523086a67add5905ef99d975f",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -91036,11 +91036,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-003",
       "source_hash": "1fae94fe49e246c71147816d0f63cfbaadf2c7dca7c8ed72a393b9bbdb524dc3",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -91167,11 +91167,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-004",
       "source_hash": "9dcc39fa55272a27dc9d3256cbc323521e03c35db03e90e084333cc47f9319f1",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -91298,11 +91298,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-005",
       "source_hash": "07cd4f48babd75a54cc12cefaace50ccdb2a805dfdff6155ec8804f2c6baed0f",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -91429,11 +91429,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-006",
       "source_hash": "5b54b844aa1edeca15055dac71dbcab4bdbd0d8615900d23ae6d87c9a4948d85",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -91560,11 +91560,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-007",
       "source_hash": "43957168a98338bba6a69d6512b1cfbf128a586dd1649decfb8899253a98b2bd",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -91691,11 +91691,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-008",
       "source_hash": "9160589d7bcfcf45f0f0965083a21775910f9990c8a7e29fc6cac1939f7ef378",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -91822,11 +91822,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-009",
       "source_hash": "d3486720fcef320b14081196a493df39a3874e9333768a01f74c504889d2edc3",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -91953,11 +91953,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-010",
       "source_hash": "8e8eaec271d4f7e35a9e89be704c711c2acccb3e97cc6d913ca367877395bf86",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -92084,11 +92084,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-011",
       "source_hash": "7af2be47985bc57578451220913f34037511fc41f55903bcba830d500820afb8",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -92215,11 +92215,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-012",
       "source_hash": "5652d50c065a9c4970d55f6bcac6afa71991884fb6959496f16a27fcdf9f90a2",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -92346,11 +92346,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-013",
       "source_hash": "3372f9cf46e70a7d9b875915d727ebf7f9c959a3c163bebdba26a318d0df20ea",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -92477,11 +92477,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-014",
       "source_hash": "86e9b4a9004141b684665f82ab5e75549bce690d95d60ad20dbe1e857fcfa08e",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -92608,11 +92608,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-015",
       "source_hash": "adbaefba999d721d32fb237d8d28c3aee0590cb545fab83b9fcf41e4e6307555",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -92739,11 +92739,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-016",
       "source_hash": "e2c84989927e39c2055c15c542dddf0526f1701ffbcd0e0a113c11510694e1f4",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -92870,11 +92870,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-017",
       "source_hash": "9891fcd1bb46f0207fb8a07b44c47400e3cbe05194d9d3abe9b9226312963dc6",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -93001,11 +93001,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-018",
       "source_hash": "42a53c8417f832fdf753e8f216c25167b448197c796ddfa8f0a33a7a722e3543",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -93132,11 +93132,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-019",
       "source_hash": "a89d8a68a665b1f11d7ef8a867ed54fe76f2ee88f5ed42a1928b06c8b33dab25",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -93263,11 +93263,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-020",
       "source_hash": "7fc9248a087b81f6f8ecc27175bc6cf10628d26031548a2127df932b03f59f8b",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -93394,11 +93394,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-021",
       "source_hash": "7dd17980a34c2a724303584b17d41f6ebb2bc26cd319c0694ba4f3c7ee1637e7",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -93525,11 +93525,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-022",
       "source_hash": "aba18990260fafff55e551e1ffaccb50b391de76c7380552b929bbb143c42f65",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -93656,11 +93656,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-023",
       "source_hash": "e9de3fae6bcc4f13d0daac0594a8980990404cb0d6bcde19897afdbdb7c0196e",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -93787,11 +93787,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-024",
       "source_hash": "491dff9490d3acc57b947bdf46ea039302d42a5ba0dbc4792bd2cb2adedd2fdb",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -93918,11 +93918,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-025",
       "source_hash": "52045f88cb7341d799906c46921ed170e7e5154dfd82067e9b9a1b6fa28da7bd",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -94049,11 +94049,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-026",
       "source_hash": "13e4f492f8c63d1eac5b0d8dc0147974685953abebdb383948b5141521cbe2f7",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -94180,11 +94180,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-027",
       "source_hash": "89a3021b276c27177c1eb36910be1f5b9ae0eb11b6d0667a1d1bf1643c110ffd",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -94311,11 +94311,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-CR-028",
       "source_hash": "bfc79ed10e983478a279c541cc9d1df6a131f93059e27cf9082ba29d88e90224",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -94442,11 +94442,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-001",
       "source_hash": "df1e57f86ec40352a3c9d9b180d1f0c058f47b19284f36c04acc9c8f8e636f4e",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -94573,11 +94573,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-002",
       "source_hash": "99055d14ba147d63fa8108184053bf501d037db1af34326045695b6af67ec51d",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -94704,11 +94704,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-003",
       "source_hash": "81e319256d478efe7e691e144ccef1e8d8fc9251473fe145c77010c3a8732621",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -94835,11 +94835,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-004",
       "source_hash": "48fbb620eb4dc25239ca3ff53d8f3acc106cd5ccf6b61ae41e08343a834874e2",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -94966,11 +94966,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-005",
       "source_hash": "e3b24011db90bbe3b8f7c21c37dd98a443f00ab3e48c6b65bc093da4502920d3",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -95097,11 +95097,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-006",
       "source_hash": "2e2f1070c7bf002857428dcb1b1def9649e7ff7f801847be9899040ce5a4e672",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -95228,11 +95228,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-007",
       "source_hash": "6768a4982afee4c0dafce302c5aab074f16382f68ba284bebc0ebe6b468352a1",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -95359,11 +95359,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-008",
       "source_hash": "25f170abb7cbdbe26fa7fd680cfb978dd3fdfb792bacf092acd01bd6629298fc",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -95490,11 +95490,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-009",
       "source_hash": "7892c108093500a576a6c2e1de273ae0eface45400c0e47be88e66500e2805ee",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -95621,11 +95621,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-010",
       "source_hash": "80d26222993f920e00a1bb98029e448c334f3a9cbc98af3adf04554338339465",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -95752,11 +95752,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-011",
       "source_hash": "af6580f43c195af3a7670f54fc6067a18e44efd11b6a2c5e8aee518df6e98b9e",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -95883,11 +95883,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-012",
       "source_hash": "ec1b4417598bed8680fc522cfad126256823d64667db27b7f3e79b8a7967c485",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -96014,11 +96014,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-013",
       "source_hash": "253a96a195e3c4e42e18fd409f30daa9c02223d0c4510ba654a4d5413bff3ee3",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -96145,11 +96145,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-014",
       "source_hash": "c251741d6c1b92f308247e5081bff2d36d5f2799f394b81ab42cf209c62a198a",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -96276,11 +96276,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-015",
       "source_hash": "04f8c14ed04f32ea568e574cf93e2e4aaceaec784ef52017c2209f4757c1d7b4",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -96407,11 +96407,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-016",
       "source_hash": "6d24591d66aa1978d5235204326ee175be380af47546a38d144d223c58edaea7",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -96538,11 +96538,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-017",
       "source_hash": "47bd88bbfb5906278651d1d7e4ba8032e0c182ee83ab9ae65ace557352b9c650",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -96669,11 +96669,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-018",
       "source_hash": "21e6443eceb56147090d125bdf5bca67a7c6470a7a5ef74af4ef2de2afacaf17",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -96800,11 +96800,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-019",
       "source_hash": "f970d411d0863f57b5640b6e849fe2f57d86f332c6fb68501b0115bb4bd8ac1c",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -96931,11 +96931,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-MU-020",
       "source_hash": "5ed992d17f650ffa348f10bef274a67a68212f954571b8bb6f2038d78ef0bec3",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -97062,11 +97062,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-001",
       "source_hash": "d0f0e008ed764a98123be8ec32ea1cf5a730b3fc9eedab3cc11a8c41e99cce2d",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -97193,11 +97193,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-002",
       "source_hash": "9b667172367c4f1272dead8625d1a04d8aac34903f612b5505e40c4e03dc5a86",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -97324,11 +97324,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-003",
       "source_hash": "8577b90e46f1ab71dc6c53de1814e63b791d95e2418dc9786a35696df1252ea8",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -97455,11 +97455,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-004",
       "source_hash": "a9137999f3bbbdc208dd53c35316c02c51b34974df9436aa07c44f5aaaa64106",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -97586,11 +97586,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-005",
       "source_hash": "a0f75d3845b6321a0113e0303a85f451bea4d727f7d26eceea6b639bbb8efecd",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -97717,11 +97717,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-006",
       "source_hash": "2b216c0e249ac67ddafb415e02ff178d5a0fc8b409532e1415a1b09176c0bab4",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -97848,11 +97848,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-007",
       "source_hash": "a0eac1fa8ceb528d4a347611c041502d9e5b70cb4fc82eb22c75292951c5df6e",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -97979,11 +97979,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-008",
       "source_hash": "4615757019726ecb9f4b40f26aaa34a86c40393e882da00ac27c3dd5ebd08b45",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -98110,11 +98110,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-009",
       "source_hash": "0f085c7b15e77f1769e92183638b14f8f91191b3344f6ba8ce7dade538f3d832",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -98241,11 +98241,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-010",
       "source_hash": "0e7fd38e8caf7022878b7077d7958972536d32e6e21350722c485c04aba462b0",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -98372,11 +98372,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-011",
       "source_hash": "6bd002643c0eb258936b275e173fd00678e09a8d919f46c8dc345420a57445db",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -98503,11 +98503,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-012",
       "source_hash": "3e29c031fcd25373f4a65d9ec42e1d3f70b504796dd5c76ccdbc7de4e8384fa2",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -98634,11 +98634,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-013",
       "source_hash": "f7f3d7ad34b73e2d9af0480de9197d0dca3e5911889d23ea2d00473e2cf27371",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -98765,11 +98765,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-014",
       "source_hash": "97d35386caa1a09f64c45404a861b50af06f7b6e4793343c1c2445bc4075338d",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -98896,11 +98896,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-015",
       "source_hash": "ab1e690e2a9a509899d7a29e296f2d3bf7fab52df5430ae7ab1858e2570204d3",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -99027,11 +99027,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-EX-016",
       "source_hash": "8a02bbdc333016536c40dee9d13edd478622750ff3bf770c640cdd24c9fcb4a8",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -99158,11 +99158,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-001",
       "source_hash": "cb3b8efd64e6becc1215214a593c18ee1823acb60edea94e5296d206f4707896",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -99289,11 +99289,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-002",
       "source_hash": "cd3c8b91381f2884c1dc2e2f282372dd6a40deaaf893d3d2042072fcd675f0d8",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -99420,11 +99420,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-003",
       "source_hash": "0709917d02b9badb2ddd1b98ced0a64924614f6f94e22cf3d0300c8ced7992f5",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -99551,11 +99551,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-004",
       "source_hash": "a372c37baa260c81dc96d060879e9c0c133cb831d7ca197d2567e3f20d3009b2",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -99682,11 +99682,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-005",
       "source_hash": "6a645f61dbadc9493e94a8d4e7363c827d15c4de35e084b738702ff585bf985b",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -99813,11 +99813,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-006",
       "source_hash": "48febe8354ca0ebafa380fbe77e7165bf9a3df853cd14f224e17a51d022c2363",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -99944,11 +99944,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-007",
       "source_hash": "db870a44229abcb1a8883f475f96e9cf3fdcd002eae5b6d34ad7a3afbcb34887",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -100075,11 +100075,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-008",
       "source_hash": "220ea8652571c30ff823dd2beec8c5e76a9ceb739e56bbedeac00a17718cc163",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -100206,11 +100206,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-009",
       "source_hash": "5f32045a6371d306e0d9c5d3f272fda4c17c2119527369f7945eab217acf1efd",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -100337,11 +100337,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-010",
       "source_hash": "83590d0624eddbabb0f2fb44f34cbcacdf1e38fd7b607f665e7db58aed66a100",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -100468,11 +100468,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-011",
       "source_hash": "b3573c2e1a475439296be5911f21cd6392ee1983a33cc776d91e217759be9510",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -100599,11 +100599,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-PR-012",
       "source_hash": "f5e63d62c4449e796d3eee45e538694fa2bc8c401f29aeb30b98156c97796176",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -100730,11 +100730,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-001",
       "source_hash": "c67d3143617439e73ef42941a095f3176f430809f8f509290db2c49f6ff75a11",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "38b866f42351ac9f558a9243106f7ef00794235a5bc9832155495e6908d5bacf",
@@ -100861,11 +100861,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-002",
       "source_hash": "4284879fd5e041e4c7662609fbcbb938862574a7be927f500739df240ae236f4",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "0845dd9eb549481ce219650f68b3f500fb8b7ab190ca6e1750835fc0409c9669",
@@ -100992,11 +100992,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-003",
       "source_hash": "a10f481fb92c3dab22a179a323f88a269799bda78f9198cc3a7ba7ef2b1477a8",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "1a116203b818601132059f6a50cae81dd4459c8b97b5923a219add1585263346",
@@ -101123,11 +101123,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-004",
       "source_hash": "21be60a6d0d83f0885f7bc5f470736324c928f6ec9bd5a501f0ce61723fd50a0",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "6ae9551558ee60e6fe28ca28f123eb741de31675fffb38f7dbaeb058a096bdf8",
@@ -101254,11 +101254,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-005",
       "source_hash": "af6a964d53bbf85ca81bde5c69c2c71970639a596f3110854ee8bacd543f661c",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "a97b097113d937ecd8d54e84d7d94a3c65002eb02513fb5eba20afe731a708fa",
@@ -101385,11 +101385,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-006",
       "source_hash": "f9d06e74e8b71fef6bed2e214014dd293fd9ffed3cd8e974f462243f101ab8c9",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "e482db23569f09845af7cb69df3bc5610ce47abfd0135e625b964fa6351d8056",
@@ -101516,11 +101516,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-007",
       "source_hash": "fd0a3d8f869ab0e8c85d069cf6867f55e2e722a9c48c679d8850661ab58ba88f",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "8f937a5e30b946008cd4298381240136eaeb9a1e3ddff25feb92540d2e172deb",
@@ -101647,11 +101647,11 @@
       "source_catalog": "marketing-brand-campaign-management/evaluations/fixtures/evaluation-catalog.json",
       "source_case_id": "MBCM-AD-008",
       "source_hash": "ab733b0f2da30469450151f783d362a208bc3444bb1d50cb9e6391fcf76360f5",
-      "golden_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+      "golden_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "marketing-brand-campaign-management/evaluations/golden/03-gtm-readiness.md",
-        "domain_golden_root_hash": "255df76a12bf97239dd8589ba112b7cf8b439c3f79a26600454356d2dfa57bd5",
+        "domain_golden_root_hash": "836ce8150ebdad2460dec1480b4a8a7681bfad771bbe97bf5a72fde6391c4421",
         "case_report_path": null
       },
       "case_oracle_hash": "36f1a162cdbdd20f2a96553200aee72a113a5a1ec8f39c7e60c68e4fe1b9c794",
@@ -104983,11 +104983,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-01",
       "source_hash": "d0e1f7a07e09c6c1643af46e74d3189cddfc9a2f624fad6fdaf90786573d0339",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "826139b09e5f2a02eeaab7ba3e492ba2f1b919dba024d73deb112b6b20f5aa71",
@@ -105100,11 +105100,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-02",
       "source_hash": "2c66e37ece8d7638ca4c37a7eb19c72ba1fa7101507d2ea3ca17ba874241ac21",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
@@ -105217,11 +105217,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-03",
       "source_hash": "8f09b9660c2e9c4c62b89278398b8b4ed3aed44a5ddf2fa9c33220dbcae6e48c",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -105334,11 +105334,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-04",
       "source_hash": "6cc5483760d1a36310634f9680a74ef51e10893239a2e8f049609d1d23a00c9f",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "f3d4c17379d4f25f0bc0ac9decbe7efadfd126c673e2c0fc7f4f38c48a7e5390",
@@ -105451,11 +105451,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-05",
       "source_hash": "60b0c824397bfe9e0febb2dae941d87fc7e297e4560f35683e0fe7c972f35135",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
@@ -105568,11 +105568,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-06",
       "source_hash": "fe64fa0fb6e25aa1dbf5de49dc3535b3167923de87a70ed3b0e4b2a293955369",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
@@ -105685,11 +105685,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-07",
       "source_hash": "e38505c6333e5f22fc95a142d333c927d9b38ae4c004644062ca1ecfcaaa7cf2",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "d8f5a841df90fc5a2af4ec62f1bb2016d6e516a4a446c90376fec8f97ea508e2",
@@ -105802,11 +105802,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-08",
       "source_hash": "b3dd9940af26c013c81df41a30848c29ab36b9aa788b494d5946a72c577ef64f",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -105919,11 +105919,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-09",
       "source_hash": "7d54203e3e82c8658443afbcb63888254da28d1d3365eaa53bc0b1a9de00eac7",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
@@ -106036,11 +106036,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-10",
       "source_hash": "762edca992ddc326a263bcf1c6404cd92710f02210df4f6c393989771f533a9b",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
@@ -106153,11 +106153,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-11",
       "source_hash": "8b225df52d20b54b6a1084043ff42c98f8a7642c8a6e18a4e8922638bb76cbca",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
@@ -106270,11 +106270,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-12",
       "source_hash": "a83eca4d83c63b5134be6487a4fd1a74d9a4edaf8f3628f3c10d7cc02950679b",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "1abf9c3be6abe007aabdc658de5936d25a415f7b42f986238c632286eea7dd07",
@@ -106387,11 +106387,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-13",
       "source_hash": "9437f8de020e38e7851a6a6ca10e2f7475e4cdb0b9d415621248b7488a253088",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "43090f032d6a72f2d1bd57b69d17258fe6035ec698ce61e66996e2314f1208f5",
@@ -106504,11 +106504,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-14",
       "source_hash": "651b28c903b3a376b051522e367290fa8af3029996b68e4b32c5b2327fe9a74c",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -106621,11 +106621,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SD-15",
       "source_hash": "c6ec6e66d139866d701f49794450af6b9d2f900255e7164eb93a809881440cbd",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "a21cc0a3db036a1261a0afaf0c5df5f379497f242f6ea6ea96a842255256d6f4",
@@ -106738,11 +106738,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-01",
       "source_hash": "4d0cf69c60181efda6fde892ed52b62778a3ffe4cb7d7284bbc931029cc4e646",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "826139b09e5f2a02eeaab7ba3e492ba2f1b919dba024d73deb112b6b20f5aa71",
@@ -106855,11 +106855,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-02",
       "source_hash": "789e24aab181cf95b7882c6b06526f0abd9261531fc14f74c22d5a4613539319",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
@@ -106972,11 +106972,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-03",
       "source_hash": "680850940849778a9315d42a9edb530ad234e2884c005c9a1603abfd1c823aaf",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -107089,11 +107089,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-04",
       "source_hash": "ff5bc3498f9aed241d24e64c673b4941ac8ea8fc8f68ea13019814f2f40e02c8",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "f3d4c17379d4f25f0bc0ac9decbe7efadfd126c673e2c0fc7f4f38c48a7e5390",
@@ -107206,11 +107206,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-05",
       "source_hash": "9e4a073d44a23ce471a34cb8b92eae90429cb54a140a2aae135bccdb7bf0c7ba",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
@@ -107323,11 +107323,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-06",
       "source_hash": "f9274a4cca15d816740a539e4b17c60960b2cf87720b3677346bba5760604580",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
@@ -107440,11 +107440,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-07",
       "source_hash": "c6471e7e5a4acbd37784bcc56bdf051f01734c160b713b7722d292804658dba9",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "d8f5a841df90fc5a2af4ec62f1bb2016d6e516a4a446c90376fec8f97ea508e2",
@@ -107557,11 +107557,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-08",
       "source_hash": "60ead0ce2bf61186e968be49ddcdd87c46aa558b3ee95007ebff93e432af141b",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -107674,11 +107674,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-09",
       "source_hash": "6fa0a61576966a29c0d0bf5102fd41b439441e49a42012844b56e66891b422c5",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
@@ -107791,11 +107791,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-10",
       "source_hash": "b22045427bac52fa0eb95c76993386dca62345aa7e439dabcec960cd3f56b3af",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
@@ -107908,11 +107908,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-11",
       "source_hash": "a78a3f00db9100925300d20ab75591902bad393ba89419a3f0e733c8e16befb1",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
@@ -108025,11 +108025,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-12",
       "source_hash": "99bbf3e21b5b0dc605b466c8800a14aa1cc339da0496b4d50e5cf721c97cd3f7",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "1abf9c3be6abe007aabdc658de5936d25a415f7b42f986238c632286eea7dd07",
@@ -108142,11 +108142,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-13",
       "source_hash": "2ed2d19a2880f121cb91ef97cabccdefe751cf34ba694839f2b418c6cfa914c9",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "43090f032d6a72f2d1bd57b69d17258fe6035ec698ce61e66996e2314f1208f5",
@@ -108259,11 +108259,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-14",
       "source_hash": "a3f47ee717c935d1764a0148c1152b289a78588a917777c60c1697ec0a337519",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -108376,11 +108376,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "PD-15",
       "source_hash": "28d11688fab2f5965f0a7916f600cdeaf97c96f5ff430c2e7252e893f3b882e4",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "a21cc0a3db036a1261a0afaf0c5df5f379497f242f6ea6ea96a842255256d6f4",
@@ -108493,11 +108493,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-01",
       "source_hash": "a17ce48e15005d58a90580c2af0f57e797392428804ef43151444672d39457b6",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "826139b09e5f2a02eeaab7ba3e492ba2f1b919dba024d73deb112b6b20f5aa71",
@@ -108610,11 +108610,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-02",
       "source_hash": "ae628dec9bcd3c5694e3b97988b5b10e28a6840056f579a2b75ad1e2dd1d700e",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
@@ -108727,11 +108727,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-03",
       "source_hash": "3003089c0c732ed3769ed6969476af1657d33fada696c12a54e1e5cecf1b1075",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -108844,11 +108844,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-04",
       "source_hash": "16b859313f394073542c3330f42075d7517ee1e8bb434b239e8513846ab18a82",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "f3d4c17379d4f25f0bc0ac9decbe7efadfd126c673e2c0fc7f4f38c48a7e5390",
@@ -108961,11 +108961,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-05",
       "source_hash": "103b8ccb8e4c538ea9fe5324b84f8e2ee1881b0be3a85b601e1142a7867e5bfc",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "7d41a6b96da2672611522cdca6193d63d5b03bb7b6e3de7b7e45b5b1ceb6fef0",
@@ -109078,11 +109078,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-06",
       "source_hash": "ef7da4666aee4ab9a5acb9c8e1db73267f7b39102000c0f49513a687dc096b47",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
@@ -109195,11 +109195,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-07",
       "source_hash": "ac599a2224cf4d04eb97554f5b226f31d1cce4ae7d9ee91d80017f803f8606dd",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "d8f5a841df90fc5a2af4ec62f1bb2016d6e516a4a446c90376fec8f97ea508e2",
@@ -109312,11 +109312,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-08",
       "source_hash": "61f2e52ce1dd1e89b4e0eca0e1cf6aa57409bb6751fa4354cea755e412eee0a4",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -109429,11 +109429,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-09",
       "source_hash": "416b5261bf16aa5cd4b31dad88e3a9e3f505e559b92dadbca3e7b0bea878df1f",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
@@ -109546,11 +109546,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-10",
       "source_hash": "4cc993e475a0d8c99e0b8af8f34be16be49699efdb3348d03c4ccd0c42b62c52",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "8f98f5bb032206446b7329d8ad65ca5903f0560fc32383bf4010b5a34d08db46",
@@ -109663,11 +109663,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-11",
       "source_hash": "ac8af71a86e83d533281666d45f5e305bf54424e1e2455acb0f446b4ae2d7399",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "777bf97596b8bc39da0df8f38453372aa5acf814b73b84d7708623c208a099ad",
@@ -109780,11 +109780,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-12",
       "source_hash": "a7a4b6e624823464bffccf04061271d600fb39878a5cd93c280e276bdbd33c10",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "1abf9c3be6abe007aabdc658de5936d25a415f7b42f986238c632286eea7dd07",
@@ -109897,11 +109897,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-13",
       "source_hash": "a239e8afdfbdbf45d8d52086ec97d6b89f3c65a4102d4c7d0835e722ec656b4b",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "43090f032d6a72f2d1bd57b69d17258fe6035ec698ce61e66996e2314f1208f5",
@@ -110014,11 +110014,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-14",
       "source_hash": "ba802fcac58616eb57c045d56c6745e4a669422a97bb3e3e3ae80ff043ca8d1e",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "9a89d15e76cd492832c221830edd6ee3fbe007b879f09e4dd6a4f21ae759a269",
@@ -110131,11 +110131,11 @@
       "source_catalog": "cross-domain-operating-posture-orchestration/evaluations/scenario-cases.json",
       "source_case_id": "SR-15",
       "source_hash": "b1a5c91ef3b500046230fe6871a146ddd3024353734628bd02153869921938b7",
-      "golden_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+      "golden_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
       "golden_binding": {
         "level": "domain_root",
         "domain_golden_path": "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md",
-        "domain_golden_root_hash": "ab9628eab4805c704760952df4ff4669aa5d32b12292e460e1a83eece6ab47e5",
+        "domain_golden_root_hash": "432cda3744e76717328bf1e3e877bd60f38f306af22706fb636d4a88f5b67a14",
         "case_report_path": null
       },
       "case_oracle_hash": "a21cc0a3db036a1261a0afaf0c5df5f379497f242f6ea6ea96a842255256d6f4",

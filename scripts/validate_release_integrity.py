@@ -30,6 +30,7 @@ CORE = {
     "scripts/validate_python_environment.py",
     "scripts/validate_knowledge_quality.py",
     "scripts/test_knowledge_quality.py",
+    "scripts/validate_report_contracts.py",
 }
 
 

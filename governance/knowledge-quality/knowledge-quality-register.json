@@ -85,7 +85,7 @@
   ],
   "scale_claims": {
     "registered_domains": 14,
-    "registered_validation_entrypoints": 33,
+    "registered_validation_entrypoints": 34,
     "registered_source_cases": 835,
     "anti_tamper_mutations": 12,
     "maturity": "controlled pilot",

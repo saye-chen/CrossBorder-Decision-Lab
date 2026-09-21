@@ -14,16 +14,16 @@
 ## 2. 权威证据链
 
 1. `governance/domain-architecture-registry.json` 决定当前域身份、主权和可用性。
-2. `governance/professional-evaluation-registry.json` 为十三域评测的人工可读登记表。
+2. `governance/professional-evaluation-registry.json` 为十四域评测的人工可读登记表。
 3. `governance/professional-evaluation-case.schema.json` 定义统一案例字段。
 4. `evaluations/professional-evaluation-index.json` 绑定每个源案例和 Golden 的 SHA-256 指纹。
-5. `scripts/validate_professional_evaluation_registry.py` 验证 13 域、案例完整性、证据—主张—根因—动作关系、计算入口、主权和回滚。
+5. `scripts/validate_professional_evaluation_registry.py` 验证 14 域、案例完整性、证据—主张—根因—动作关系、计算入口、主权和回滚；`scripts/validate_report_contracts.py` 进一步验证所有报告类型的统一交付合同。
 6. `governance/release-mutation-contract.json` 与 `scripts/test_release_anti_cheat.py` 证明关键防线被删除或放宽时测试会失败。
 7. `scripts/validate_release_integrity.py` 执行所有登记的专业和数值验证入口，计算最终工程就绪状态。
 
 兼容路径、手填状态、Golden 文本、合成 fixture、测试数量和总分都不能单独成为权威完成证据。源目录发生变化后必须重建规范化索引，再运行总发布门；哈希不一致即失败。
 
-当前规范化快照包含 D01—D14 的 835 个源案例、33 个去重后的专业验证入口和 12 类防篡改突变。数量只用于描述覆盖面，发布结论仍由上述权威证据链逐项计算。
+当前规范化快照包含 D01—D14 的 835 个源案例、34 个去重后的专业验证入口和 12 类防篡改突变。数量只用于描述覆盖面，发布结论仍由上述权威证据链逐项计算。
 
 ## 3. D05 特别口径
 

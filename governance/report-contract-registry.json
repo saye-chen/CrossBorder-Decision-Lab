@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "contract": "CBDS-REPORT-CONTRACT-2026.07",
+  "scope": "all current D01-D14 and F01-F02 operator-facing report assets",
+  "policy": {
+    "professional_report_gate": "markdown professional and operational goldens must pass the full semantic contract",
+    "decision_card_gate": "cards must expose conclusion, evidence boundary, owner, observation window, success, stop and rollback controls",
+    "structured_report_gate": "JSON reports must pass their domain validator and the shared report envelope",
+    "foundation_gate": "ECAE and LCCA remain foundations and cannot emit business decisions or production claims",
+    "l4_external_assurance": "never inferred from a Golden report or synthetic fixture"
+  },
+  "assets": [
+    {
+      "id": "core_single_skill_reports",
+      "format": "markdown",
+      "profile": "contract",
+      "paths": [
+        "evaluations/golden/*.md"
+      ]
+    },
+    {
+      "id": "cross_skill_reports",
+      "format": "markdown",
+      "profile": "full",
+      "paths": [
+        "evaluations/golden-reports/*.md"
+      ]
+    },
+    {
+      "id": "extreme_reports",
+      "format": "markdown",
+      "profile": "full",
+      "paths": [
+        "evaluations/extreme-reports/*.md"
+      ]
+    },
+    {
+      "id": "domain_professional_markdown",
+      "format": "markdown",
+      "profile": "full",
+      "paths": [
+        "category-investment-decision/evaluations/golden/professional-report.md",
+        "competitive-intelligence-monitoring/evaluations/golden/professional-report.md",
+        "logistics-inventory-fulfillment-decision/evaluations/golden/professional-report.md",
+        "platform-store-listing-conversion/evaluations/golden/professional-report.md",
+        "advertising-analysis-measurement-optimization/evaluations/golden/professional-report.md",
+        "video-link-breakdown/evaluations/golden/professional-report.md",
+        "consumer-insights-customer-growth/evaluations/golden/professional-report.md",
+        "cross-domain-operating-posture-orchestration/evaluations/golden/professional-report.md"
+      ]
+    },
+    {
+      "id": "decision_cards",
+      "format": "markdown",
+      "profile": "card",
+      "paths": [
+        "category-investment-decision/evaluations/golden/decision-card.md",
+        "competitive-intelligence-monitoring/evaluations/golden/decision-card.md",
+        "logistics-inventory-fulfillment-decision/evaluations/golden/decision-card.md",
+        "platform-store-listing-conversion/evaluations/golden/decision-card.md",
+        "advertising-analysis-measurement-optimization/evaluations/golden/decision-card.md",
+        "video-link-breakdown/evaluations/golden/decision-card.md",
+        "consumer-insights-customer-growth/evaluations/golden/decision-card.md"
+      ]
+    },
+    {
+      "id": "capm_report_types",
+      "format": "markdown",
+      "profile": "full",
+      "paths": [
+        "creator-affiliate-partnership-management/evaluations/golden/*.md"
+      ]
+    },
+    {
+      "id": "mbcm_report_types",
+      "format": "markdown",
+      "profile": "full",
+      "paths": [
+        "marketing-brand-campaign-management/evaluations/golden/*.md"
+      ]
+    },
+    {
+      "id": "structured_domain_reports",
+      "format": "json",
+      "profile": "structured",
+      "paths": [
+        "product-innovation-product-management/evaluations/golden/*-report.json",
+        "supplier-procurement-production-quality-decision/evaluations/golden-professional-reports.json",
+        "legal-tax-intellectual-property-market-access-decision/evaluations/golden/*-report.json",
+        "pricing-profit-finance-cashflow-decision/evaluations/golden/*-report.json"
+      ]
+    },
+    {
+      "id": "foundation_reports",
+      "format": "json",
+      "profile": "foundation",
+      "paths": [
+        "experiment-causal-assessment/evaluations/simulation-report.json",
+        "experiment-causal-assessment/evaluations/backend-probe-report.json"
+      ]
+    }
+  ]
+}

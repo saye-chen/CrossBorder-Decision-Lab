@@ -36,7 +36,7 @@ ERDG does not own business decisions, choose production thresholds, infer causal
 
 `schemas/handoff-envelope.schema.json` is the sole authoritative v2 handoff
 contract. `schemas/decision-cycle.schema.json` defines the continuous
-decision-cycle identity. The thirteen current domains use this boundary directly;
+decision-cycle identity. All fourteen current domains use this boundary directly;
 no v1 runtime path or dual-read mode remains. Schema acceptance never promotes
 a planned domain, approves an external action or transfers decision sovereignty.
 
