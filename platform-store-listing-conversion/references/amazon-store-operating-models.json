@@ -1,0 +1,168 @@
+{
+  "contract": "PLCO-AMAZON-STORE-2026.07",
+  "runtime": "PLCO-2026.07",
+  "platform": "Amazon",
+  "maturity": "controlled_pilot",
+  "rule": "A store recommendation is conditional until seller identity, commercial program, fulfillment mode, marketplace and evidence freshness are resolved.",
+  "operating_workflows_ref": "platform-store-listing-conversion/references/amazon-operating-workflows-and-metrics.json",
+  "operating_workflows_human_ref": "platform-store-listing-conversion/references/amazon-operating-workflows-and-metrics.md",
+  "daily_operating_board_required": true,
+  "daily_work_requires_dimensions": ["operating_archetype_id", "overlay_ids", "lifecycle_phase", "cadence", "workstream_id", "metric_scope", "metric_class", "action_ceiling"],
+  "identity_layers": [
+    {
+      "id": "seller_account",
+      "definition": "The account and legal operating relationship that owns or controls the seller offer.",
+      "required_fields": ["seller_account_id", "seller_id", "legal_entity_id", "seller_role", "selling_program", "account_health_state"],
+      "must_not_be_confused_with": ["brand_store", "marketplace_site", "offer"]
+    },
+    {
+      "id": "brand_asset_layer",
+      "definition": "Brand authorization and storefront/content surfaces that may sit above one or more seller offers.",
+      "required_fields": ["brand_id", "brand_authorization_state", "catalog_owner"],
+      "must_not_be_confused_with": ["seller_account", "vendor_account", "offer"]
+    },
+    {
+      "id": "marketplace_site",
+      "definition": "A country or regional Amazon site with its own language, rule, tax and fulfillment context.",
+      "required_fields": ["marketplace_id", "marketplace_site", "tax_scope", "as_of_time"],
+      "must_not_be_confused_with": ["storefront", "seller_account"]
+    },
+    {
+      "id": "marketplace_offer",
+      "definition": "A seller-specific commercial offer for an ASIN/SKU on a marketplace site.",
+      "required_fields": ["catalog_owner", "inventory_owner", "fulfillment_mode", "offer_version"],
+      "must_not_be_confused_with": ["parent_asin", "brand_store", "account_average"]
+    }
+  ],
+  "required_profile_fields": [
+    {"id": "store_profile_id", "type": "string", "required_for": ["all"], "unknown_action": "block_routing"},
+    {"id": "seller_account_id", "type": "string", "required_for": ["all_operating_profiles"], "unknown_action": "conditional_only"},
+    {"id": "seller_id", "type": "string", "required_for": ["seller_central_3p", "amazon_business"], "unknown_action": "conditional_only"},
+    {"id": "legal_entity_id", "type": "string", "required_for": ["all_operating_profiles"], "unknown_action": "block_external_execution"},
+    {"id": "marketplace_id", "type": "string", "required_for": ["all"], "unknown_action": "block_cross_site_inheritance"},
+    {"id": "marketplace_site", "type": "string", "required_for": ["all"], "unknown_action": "block_current_rule_claim"},
+    {"id": "storefront_id", "type": "string", "required_for": ["storefront_scoped_reports"], "unknown_action": "listing_scope_only"},
+    {"id": "brand_id", "type": "string", "required_for": ["brand_owner", "brand_asset_layer"], "unknown_action": "do_not_assume_brand_permissions"},
+    {"id": "seller_role", "type": "enum", "allowed": ["brand_owner", "authorized_reseller", "vendor_1p", "service_operator", "unknown"], "required_for": ["all_operating_profiles"], "unknown_action": "conditional_only"},
+    {"id": "selling_program", "type": "enum", "allowed": ["seller_central_3p", "vendor_central_1p", "amazon_business", "unknown"], "required_for": ["all_operating_profiles"], "unknown_action": "block_program_inheritance"},
+    {"id": "fulfillment_mode", "type": "enum", "allowed": ["fba", "mfn", "vendor_fulfilled", "mixed", "unknown"], "required_for": ["all_operating_profiles"], "unknown_action": "block_fulfillment_economics"},
+    {"id": "inventory_owner", "type": "enum", "allowed": ["seller", "vendor", "third_party", "mixed", "unknown"], "required_for": ["all_operating_profiles"], "unknown_action": "block_inventory_claim"},
+    {"id": "catalog_owner", "type": "enum", "allowed": ["brand", "manufacturer", "amazon_catalog", "shared", "unknown"], "required_for": ["all"], "unknown_action": "block_content_authority_claim"},
+    {"id": "brand_authorization_state", "type": "enum", "allowed": ["confirmed", "partial", "absent", "not_applicable", "unknown"], "required_for": ["brand_owner", "authorized_reseller", "brand_asset_layer"], "unknown_action": "no_brand_surface_action"},
+    {"id": "ads_profile_id", "type": "string", "required_for": ["advertising_reports"], "unknown_action": "separate_ads_from_store_sales"},
+    {"id": "account_health_state", "type": "enum", "allowed": ["healthy", "restricted", "at_risk", "unknown"], "required_for": ["all_operating_profiles"], "unknown_action": "freeze_scale"},
+    {"id": "tax_scope", "type": "string", "required_for": ["all_operating_profiles"], "unknown_action": "legal_tax_inconclusive"},
+    {"id": "as_of_time", "type": "datetime", "required_for": ["all"], "unknown_action": "expire_dynamic_claims"},
+    {"id": "evidence_ids", "type": "array", "required_for": ["all"], "unknown_action": "evidence_inconclusive"}
+  ],
+  "operating_archetypes": [
+    {
+      "id": "AMZ-3P-BRAND-FBA",
+      "name": "3P brand owner with FBA",
+      "archetype_type": "operating_profile",
+      "seller_role": "brand_owner",
+      "selling_program": "seller_central_3p",
+      "fulfillment_mode": "fba",
+      "required_fields": ["seller_id", "brand_id", "brand_authorization_state", "inventory_owner", "account_health_state"],
+      "primary_decisions": ["brand_surface_eligibility", "retail_readiness", "FBA_margin", "ASIN_and_offer_integrity", "ads_to_listing_handoff"],
+      "forbidden_inheritance": ["vendor_1p_terms", "reseller_buy_box_assumptions", "FBM_delivery_promise"]
+    },
+    {
+      "id": "AMZ-3P-BRAND-MFN",
+      "name": "3P brand owner with MFN/FBM",
+      "archetype_type": "operating_profile",
+      "seller_role": "brand_owner",
+      "selling_program": "seller_central_3p",
+      "fulfillment_mode": "mfn",
+      "required_fields": ["seller_id", "brand_id", "brand_authorization_state", "inventory_owner", "account_health_state"],
+      "primary_decisions": ["delivery_promise", "FBM_capacity", "offer_buyability", "return_risk", "ads_to_listing_handoff"],
+      "forbidden_inheritance": ["FBA_fee_or_SLA_assumptions", "vendor_1p_terms", "FBA_inventory_state"]
+    },
+    {
+      "id": "AMZ-3P-RESELLER-FBA",
+      "name": "3P authorized reseller with FBA",
+      "archetype_type": "operating_profile",
+      "seller_role": "authorized_reseller",
+      "selling_program": "seller_central_3p",
+      "fulfillment_mode": "fba",
+      "required_fields": ["seller_id", "brand_authorization_state", "inventory_owner", "catalog_owner", "account_health_state"],
+      "primary_decisions": ["authorization_and_rights", "Featured_Offer_competition", "purchase_cost", "price_policy", "offer_exit"],
+      "forbidden_inheritance": ["brand_owner_content_authority", "brand_incrementality", "manufacturer_claims"]
+    },
+    {
+      "id": "AMZ-3P-RESELLER-MFN",
+      "name": "3P authorized reseller with MFN/FBM",
+      "archetype_type": "operating_profile",
+      "seller_role": "authorized_reseller",
+      "selling_program": "seller_central_3p",
+      "fulfillment_mode": "mfn",
+      "required_fields": ["seller_id", "brand_authorization_state", "inventory_owner", "catalog_owner", "account_health_state"],
+      "primary_decisions": ["authorization_and_rights", "delivery_competitiveness", "offer_margin", "return_exposure", "exit_cost"],
+      "forbidden_inheritance": ["FBA_delivery_claim", "brand_store_authority", "vendor_1p_terms"]
+    },
+    {
+      "id": "AMZ-1P-VENDOR",
+      "name": "1P Vendor Central relationship",
+      "archetype_type": "operating_profile",
+      "seller_role": "vendor_1p",
+      "selling_program": "vendor_central_1p",
+      "fulfillment_mode": "vendor_fulfilled",
+      "required_fields": ["legal_entity_id", "catalog_owner", "inventory_owner", "account_health_state"],
+      "conditional_fields": ["vendor_code", "purchase_order_terms", "wholesale_price_version"],
+      "primary_decisions": ["wholesale_economics", "purchase_order_capacity", "retail_content_authority", "chargeback_exposure", "channel_conflict"],
+      "forbidden_inheritance": ["3P_seller_margin", "seller_central_offer_controls", "FBA_inventory_claim"]
+    }
+  ],
+  "overlays": [
+    {
+      "id": "AMZ-BUSINESS-B2B",
+      "name": "Amazon Business B2B overlay",
+      "archetype_type": "commercial_overlay",
+      "not_an_independent_seller_account": true,
+      "required_fields": ["seller_id", "marketplace_id", "tax_scope", "business_customer_mode"],
+      "primary_decisions": ["business_price_ladder", "MOQ_or_packaging", "invoice_and_tax", "B2B_demand_separation"],
+      "forbidden_inheritance": ["consumer_only_conversion", "consumer_price_elasticity", "consumer_offer_margin"]
+    },
+    {
+      "id": "AMZ-BRAND-ASSET-LAYER",
+      "name": "Brand Registry and Brand Store asset layer",
+      "archetype_type": "brand_asset_layer",
+      "not_an_independent_seller_account": true,
+      "required_fields": ["brand_id", "brand_authorization_state", "catalog_owner"],
+      "primary_decisions": ["brand_surface_permission", "A_plus_or_store_content", "brand_navigation", "brand_claim_boundary"],
+      "forbidden_inheritance": ["seller_account_identity", "seller_specific_offer", "vendor_1p_terms"]
+    },
+    {
+      "id": "AMZ-PORTFOLIO-MULTI-ACCOUNT",
+      "name": "Multi-account, multi-brand or multi-marketplace portfolio",
+      "archetype_type": "portfolio_topology",
+      "not_an_independent_seller_account": true,
+      "required_fields": ["portfolio_id", "legal_entity_id", "marketplace_id", "seller_account_id", "inventory_owner", "tax_scope"],
+      "primary_decisions": ["account_role_separation", "inventory_and_price_conflict", "brand_or_channel_cannibalization", "migration_and_exit"],
+      "forbidden_inheritance": ["cross_account_review_inheritance", "account_health_avoidance", "duplicate_listing_manipulation", "policy_evasion"]
+    }
+  ],
+  "decision_surfaces": [
+    "store_identity_and_permissions",
+    "catalog_rights_and_brand_authority",
+    "listing_parent_child_and_offer_integrity",
+    "featured_offer_and_buyability",
+    "fulfillment_inventory_and_returns",
+    "advertising_profile_and_attribution",
+    "portfolio_cannibalization_migration_and_exit"
+  ],
+  "routing_rules": [
+    {"id": "R-AMZ-IDENTITY", "rule": "Resolve seller account, legal entity, marketplace and selling program before any store or listing recommendation.", "failure_state": "blocked_routing"},
+    {"id": "R-AMZ-FULFILLMENT", "rule": "FBA, MFN/FBM and vendor fulfilled economics are separate models; missing fulfillment mode keeps economics inconclusive.", "failure_state": "inconclusive_economics"},
+    {"id": "R-AMZ-BRAND", "rule": "Brand Store/A+ recommendations require brand asset authority and catalog ownership evidence; a seller offer alone is insufficient.", "failure_state": "no_brand_surface_action"},
+    {"id": "R-AMZ-OFFER", "rule": "ASIN-level content facts may be reused only after seller-specific offer, price, inventory and Featured Offer checks.", "failure_state": "offer_revalidation_required"},
+    {"id": "R-AMZ-PORTFOLIO", "rule": "Multiple accounts or marketplaces require legal, authorization, inventory, price, data and exit evidence; no account-evasion path is executable.", "failure_state": "blocked_or_conditional"}
+  ],
+  "inheritance_rules": [
+    {"asset": "product_fact", "from": "same_catalog_owner_and_same_version", "to": "new_marketplace_offer", "classification": "revalidate", "reason": "site, offer, tax and fulfillment context changes"},
+    {"asset": "review_or_rating", "from": "one_asin_or_offer", "to": "different_product_or_illegal_parent", "classification": "prohibit", "reason": "object identity and policy risk"},
+    {"asset": "brand_store_content", "from": "brand_asset_layer", "to": "seller_offer", "classification": "revalidate", "reason": "brand authority and seller relationship may differ"},
+    {"asset": "ad_attribution", "from": "one_ads_profile_or_marketplace", "to": "another_store_profile", "classification": "prohibit", "reason": "profile, marketplace and attribution scope differ"},
+    {"asset": "fulfillment_promise", "from": "fba", "to": "mfn", "classification": "prohibit", "reason": "delivery and inventory responsibility differ"}
+  ]
+}

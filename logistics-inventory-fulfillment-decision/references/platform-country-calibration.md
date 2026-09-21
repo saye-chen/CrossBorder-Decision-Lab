@@ -12,6 +12,14 @@ Amazon FBA/FBM、TikTok Shop官方物流/平台仓/本地履约、Shopee官方�
 
 平台卡只保存稳定差异、所需字段和核验路径，不保存易失效费率或开放国家清单。
 
+### Amazon 店铺与履约路由
+
+Amazon 履约判断先按 `store_profile_id × seller_account_id × marketplace_id × selling_program × fulfillment_mode × seller_sku` 分桶。Seller Central 3P 的 FBA、MFN/FBM，Vendor Central 1P 的 Vendor fulfilled，以及授权经销商的库存责任、配送承诺、退货责任和可售口径分别校准；不能从“Amazon 店铺”平均值推导单个 Offer 的到货、库存或利润。
+
+物流报告必须补齐 Seller ID、法定主体、站点、库存所有权、目录所有权、SKU、available/reserved/inbound/unfulfillable、观察时间、仓型/履约渠道和证据引用。FBA→MFN、3P→1P、一个站点→另一个站点的配送与安全库存参数都需要重新取证；关键字段未知时只给补证清单和条件库存边界。
+
+Amazon 的日常履约工作按模式拆分：FBA 每日重点是可售/预留/入仓/不可售、入仓与缺货风险；MFN 每日重点是自履约容量、承诺命中、迟发、取消和退货；Vendor 每日重点是采购订单、供货确认、零售可售和扣款/索赔。每周看覆盖、服务趋势和恢复窗，每月看成熟库存资金、退货成本和站点/账户组合。`available_quantity`、`days_of_cover` 和服务指标必须带 Seller SKU、站点、履约模式、观察窗口和证据状态。
+
 ## 3. 国家维度
 
 校准距离、口岸、末端密度、进口主体、关税税费、偏远区、退货/销毁、节假日天气罢工、地址质量、拒收和客户时效预期。

@@ -34,6 +34,10 @@
 
 ## 高频组合卡片
 
+### Amazon 卡片使用边界
+
+以下 Amazon US/DE/JP 数值只是历史研究先验或待核验范围，不是当前费率、资格、开放国家、FBA 成本、广告 CPC 或税务结论。正式判断必须先锁定 Seller Central 3P/Vendor Central 1P、品牌 Owner/授权经销商、FBA/MFN/Vendor、卖家账户、Offer、站点和 `as_of_time`，再用当前官方/授权证据重算。不能把一个站点、账户或履约模式的范围直接套到另一个店铺。
+
 ### Amazon US
 
 | 字段 | 内容 |

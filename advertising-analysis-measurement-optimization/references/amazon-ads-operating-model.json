@@ -1,0 +1,147 @@
+{
+  "contract": "AAMO-AMAZON-ADS-2026.07",
+  "runtime": "AAMO-2026.07",
+  "platform": "Amazon",
+  "maturity": "controlled_pilot",
+  "rule": "Amazon advertising action is conditional until profile, marketplace, campaign object, targeting object, retail readiness and mature economic scope are reconciled.",
+  "store_profile_ref": "platform-store-listing-conversion/references/amazon-store-operating-models.json",
+  "store_operations_ref": "platform-store-listing-conversion/references/amazon-operating-workflows-and-metrics.json",
+  "dimensions": [
+    "store_profile_id", "seller_account_id", "seller_id", "legal_entity_id", "marketplace_id", "marketplace_site", "selling_program", "seller_role", "fulfillment_mode", "inventory_owner", "catalog_owner", "brand_authorization_state", "ads_profile_id", "ad_type", "campaign_id", "ad_group_id", "ad_id", "target_id", "target_type", "query_or_search_term", "placement", "promoted_asin", "purchased_asin", "page_version", "offer_version", "date", "attribution_window", "lifecycle", "as_of_time"
+  ],
+  "ad_types": [
+    {
+      "id": "sponsored_products",
+      "name": "Sponsored Products",
+      "primary_objects": ["campaign", "ad_group", "keyword_or_product_target", "search_term", "placement", "promoted_asin", "purchased_asin"],
+      "targeting_families": ["automatic", "keyword", "product", "category"],
+      "creative_or_page_dependency": ["promoted_asin_listing", "offer", "inventory", "featured_offer", "delivery"],
+      "daily_questions": ["which search terms should be harvested or negated", "which target/placement is consuming without mature contribution", "is low delivery caused by bid, budget, target, eligibility or retail readiness"],
+      "forbidden_inheritance": ["sponsored_brands_brand_asset_permissions", "dsp_audience_incrementality", "vendor_1p_sales_economics"]
+    },
+    {
+      "id": "sponsored_brands",
+      "name": "Sponsored Brands",
+      "primary_objects": ["campaign", "ad_group", "keyword_or_product_target", "brand_asset", "store_or_landing_page", "promoted_asin", "purchased_asin"],
+      "targeting_families": ["keyword", "product", "category"],
+      "creative_or_page_dependency": ["brand_authority", "brand_store_or_landing_page", "brand_logo_or_headline_or_video", "promoted_asin_listing"],
+      "daily_questions": ["is brand asset permission and destination version valid", "are brand/non_brand/competitor targets separated", "does attributed brand demand exceed natural demand after holdout or cannibalization review"],
+      "forbidden_inheritance": ["seller_account_from_brand_store", "brand_owner_incrementality_for_authorized_reseller", "consumer_demand_for_b2b"]
+    },
+    {
+      "id": "sponsored_display",
+      "name": "Sponsored Display",
+      "primary_objects": ["campaign", "ad_group", "audience_or_product_target", "placement", "promoted_asin", "purchased_asin"],
+      "targeting_families": ["contextual", "product", "audience"],
+      "creative_or_page_dependency": ["promoted_asin_listing", "offer", "inventory", "audience_scope"],
+      "daily_questions": ["is the audience/product pool authorized and deduplicated", "is the result prospecting, retargeting or cross-sell", "are view-through and click-through outcomes separated"],
+      "forbidden_inheritance": ["search_term_harvest_logic", "sponsored_products_keyword_efficiency", "brand_lift_without_incrementality"]
+    },
+    {
+      "id": "dsp",
+      "name": "DSP",
+      "primary_objects": ["campaign", "line_item", "audience", "creative", "inventory_source", "frequency", "promoted_asin_or_brand", "purchased_asin"],
+      "targeting_families": ["audience", "contextual", "retargeting", "prospecting"],
+      "creative_or_page_dependency": ["brand_or_product_asset", "landing_or_store_destination", "frequency_policy", "measurement_design"],
+      "daily_questions": ["is reach incremental or retargeting duplication", "is frequency controlled", "are view-through, click-through and post-view sales separated", "does the measurement design identify lift"],
+      "forbidden_inheritance": ["search_campaign_roas", "last_click_as_incrementality", "sponsored_products_bid_curve"]
+    }
+  ],
+  "campaign_hierarchy": [
+    {"level": "ads_profile", "required": ["ads_profile_id", "seller_account_id", "marketplace_id", "currency", "timezone"]},
+    {"level": "campaign", "required": ["campaign_id", "ad_type", "campaign_status", "lifecycle", "budget_or_spend_scope"]},
+    {"level": "ad_group_or_line_item", "required": ["ad_group_id", "targeting_family_or_audience", "destination_version"]},
+    {"level": "ad_or_creative", "required": ["ad_id", "asset_version", "approval_state"]},
+    {"level": "target", "required": ["target_id", "target_type", "target_value", "match_type_or_audience_rule", "bid_or_cost_control"]},
+    {"level": "query_or_search_term", "required": ["query_or_search_term", "query_source", "harvest_or_negative_state"]},
+    {"level": "placement_or_inventory_source", "required": ["placement", "placement_adjustment_or_inventory_source"]},
+    {"level": "promoted_object", "required": ["promoted_asin_or_brand", "offer_version", "retail_readiness_state"]},
+    {"level": "outcome_object", "required": ["purchased_asin", "order_or_unit_state", "attribution_type", "attribution_window", "maturity_state"]}
+  ],
+  "targeting_taxonomy": [
+    {"id": "automatic", "required_fields": ["target_id", "targeting_subtype", "promoted_asin"], "daily_action": "read_discovery_terms_and_retail_readiness_before_manual_harvest"},
+    {"id": "keyword", "required_fields": ["keyword", "match_type", "target_id", "promoted_asin"], "daily_action": "separate_exact_phrase_broad_and_negative_state"},
+    {"id": "product", "required_fields": ["product_target_asin_or_category", "target_id", "promoted_asin"], "daily_action": "separate_competitor_cross_sell_and_category_intent"},
+    {"id": "category", "required_fields": ["category_target", "refinements", "target_id", "promoted_asin"], "daily_action": "monitor relevance_and_conversion_by_refinement"},
+    {"id": "audience", "required_fields": ["audience_id", "audience_rule", "lookback_or_frequency", "target_id"], "daily_action": "deduplicate_prospecting_retargeting_and_cross_sell"}
+  ],
+  "delivery_gate": [
+    {"id": "A-G1-PROFILE", "check": "Ads Profile, Seller Account, Marketplace and legal scope are aligned", "failure_action": "blocked"},
+    {"id": "A-G2-CAMPAIGN", "check": "Campaign, ad group/line item, ad/creative and target are active and versioned", "failure_action": "reconcile_and_escalate"},
+    {"id": "A-G3-RETAIL", "check": "Promoted ASIN/brand has current eligibility, page, offer, inventory, price and delivery evidence", "failure_action": "freeze_scale"},
+    {"id": "A-G4-TARGET", "check": "Query/target/audience and placement are identified and not silently mixed", "failure_action": "diagnostic_only"},
+    {"id": "A-G5-MEASURE", "check": "Promotion, purchase, attribution type, window, currency and maturity reconcile", "failure_action": "inconclusive"},
+    {"id": "A-G6-ECONOMICS", "check": "ASIN/Offer mature contribution and marginal efficiency are available", "failure_action": "no_scale"}
+  ],
+  "workflows": [
+    {"id": "AMZ-ADS-01-PROFILE-ELIGIBILITY", "name": "Profile、账户与广告资格", "cadence": ["intraday", "daily", "event_driven"], "tasks": ["核对 Profile、Seller Account、站点和销售项目", "检查账户/活动/广告/商品资格与审核状态", "关联零售准备度、Offer、库存、价格和配送"], "metrics": ["M-ADS-PROFILE-MAPPING", "M-CAMPAIGN-ELIGIBILITY", "M-RETAIL-READINESS-STATE", "M-DELIVERY-STATE"], "owner_domains": ["advertising", "seller_operations", "platform_store_listing_conversion"], "action_ceiling": "reconcile_and_escalate"},
+    {"id": "AMZ-ADS-02-CAMPAIGN-ARCHITECTURE", "name": "Campaign、Ad Group、Ad/Creative 结构", "cadence": ["daily", "weekly", "event_driven"], "tasks": ["按广告类型、品牌/非品牌、探索/收割、ASIN 和站点检查结构", "检查重复投放、对象污染和版本漂移", "维护 campaign/ad group/ad/target 血缘"], "metrics": ["M-CAMPAIGN-STRUCTURE-COVERAGE", "M-DUPLICATE-TARGET-COUNT", "M-VERSION-LINEAGE-COMPLETENESS"], "owner_domains": ["advertising", "platform_store_listing_conversion"], "action_ceiling": "propose_reversible_change"},
+    {"id": "AMZ-ADS-03-SEARCH-TARGET", "name": "搜索词、关键词、商品目标与否定", "cadence": ["daily", "weekly"], "tasks": ["读取搜索词和目标的曝光/点击/订单/成熟贡献", "自动发现到手动收割去重归功", "处理匹配类型、否定词、竞品 ASIN、类目细分和购买 ASIN 错配"], "metrics": ["M-SEARCH-TERM-COVERAGE", "M-SEARCH-TERM-HARVEST-QUEUE", "M-NEGATIVE-COVERAGE", "M-TARGET-QUERY-MISMATCH", "M-PURCHASED-ASIN-MIX"], "owner_domains": ["advertising", "platform_store_listing_conversion"], "action_ceiling": "controlled_pilot_only"},
+    {"id": "AMZ-ADS-04-BID-BUDGET", "name": "预算、出价、节奏与边际效率", "cadence": ["intraday", "daily", "weekly", "monthly"], "tasks": ["检查预算状态、预算受限、消耗节奏和出价变更", "按目标/ASIN/广告位拆平均与边际效率", "按库存、配送、成熟利润和探索预算上限生成候选"], "metrics": ["M-BUDGET-STATUS", "M-BUDGET-PACING", "M-BID-VERSION", "M-MARGINAL-CONTRIBUTION", "M-RESERVE-BUDGET-USE"], "owner_domains": ["advertising", "pricing_profit", "logistics_inventory_fulfillment"], "action_ceiling": "controlled_pilot_only"},
+    {"id": "AMZ-ADS-05-PLACEMENT", "name": "广告位与交付边际", "cadence": ["daily", "weekly"], "tasks": ["按广告位看曝光、点击、订单、成熟利润和零售门禁", "区分广告位调节与基础出价效果", "检查不同广告位的页面/Offer/设备差异"], "metrics": ["M-PLACEMENT-MIX", "M-PLACEMENT-MARGINAL-CONTRIBUTION", "M-PLACEMENT-DELIVERY-RATE", "M-PLACEMENT-RETAIL-READINESS"], "owner_domains": ["advertising", "platform_store_listing_conversion"], "action_ceiling": "controlled_pilot_only"},
+    {"id": "AMZ-ADS-06-ATTRIBUTION-INCREMENTALITY", "name": "归因、蚕食与增量", "cadence": ["weekly", "monthly", "event_driven"], "tasks": ["拆点击/浏览归因、购买 ASIN、品牌光环和 New-to-brand", "与业务订单、退款成熟和自然基线对账", "设计 brand-off、地域留出或查询层实验"], "metrics": ["M-ATTRIBUTION-TYPE-MIX", "M-CLICK-VIEW-MIX", "M-BRAND-HALO-SALES", "M-INCREMENTAL-SALES", "M-CANNIBALIZATION-SIGNAL"], "owner_domains": ["advertising", "experiment_causal_assessment", "platform_store_listing_conversion"], "action_ceiling": "observe_only"},
+    {"id": "AMZ-ADS-07-MATURE-ECONOMICS", "name": "ASIN/Offer 成熟利润与放量", "cadence": ["weekly", "monthly"], "tasks": ["按 ASIN/Offer/履约方式重述退款、平台费、履约、促销和广告", "比较平均与边际贡献", "建立 no-scale、reduce、hold、scale candidate"], "metrics": ["M-MATURE-CONTRIBUTION", "M-BREAK_EVEN-ROAS", "M-MARGINAL-ROAS", "M-REFUND-MATURITY", "M-INVENTORY-GUARDRAIL"], "owner_domains": ["advertising", "pricing_profit", "logistics_inventory_fulfillment"], "action_ceiling": "controlled_pilot_only"},
+    {"id": "AMZ-ADS-08-STORE-ARCHETYPE", "name": "店铺类型与广告组合", "cadence": ["daily", "weekly", "monthly"], "tasks": ["按品牌商/授权经销商/Vendor 和 FBA/MFN 分离广告账", "核对 Brand Store、B2B、Offer 和 Ads Profile 权限", "防止跨店铺/跨站点/跨履约继承"], "metrics": ["M-STORE-AD-CONSISTENCY", "M-BRAND-AUTHORITY-STATE", "M-B2B-AD-SEGMENT", "M-PORTFOLIO-AD-CONFLICT"], "owner_domains": ["advertising", "platform_store_listing_conversion", "category_investment"], "action_ceiling": "reconcile_and_escalate"},
+    {"id": "AMZ-ADS-09-INCIDENT-RECOVERY", "name": "广告异常、停投、重建与回滚", "cadence": ["intraday", "event_driven"], "tasks": ["隔离追踪断裂、资格失败、账户受限、预算漂移和 ASIN 不可购", "保留前值、变更、回执和影响闭包", "恢复最近有效版本后重新验收"], "metrics": ["M-TRACKING-COMPLETENESS", "M-ADS-INCIDENT-AGE", "M-ROLLBACK-READINESS", "M-RESIDUAL-EXPOSURE"], "owner_domains": ["advertising", "governance", "platform_store_listing_conversion"], "action_ceiling": "reconcile_and_escalate"}
+  ],
+  "store_archetype_routes": {
+    "AMZ-3P-BRAND-FBA": {"required_ad_types": ["sponsored_products", "sponsored_brands", "sponsored_display"], "daily_workflows": ["AMZ-ADS-01-PROFILE-ELIGIBILITY", "AMZ-ADS-03-SEARCH-TARGET", "AMZ-ADS-04-BID-BUDGET", "AMZ-ADS-05-PLACEMENT"], "weekly_workflows": ["AMZ-ADS-06-ATTRIBUTION-INCREMENTALITY", "AMZ-ADS-07-MATURE-ECONOMICS", "AMZ-ADS-08-STORE-ARCHETYPE"]},
+    "AMZ-3P-BRAND-MFN": {"required_ad_types": ["sponsored_products", "sponsored_brands", "sponsored_display"], "daily_workflows": ["AMZ-ADS-01-PROFILE-ELIGIBILITY", "AMZ-ADS-03-SEARCH-TARGET", "AMZ-ADS-04-BID-BUDGET", "AMZ-ADS-05-PLACEMENT"], "weekly_workflows": ["AMZ-ADS-06-ATTRIBUTION-INCREMENTALITY", "AMZ-ADS-07-MATURE-ECONOMICS", "AMZ-ADS-08-STORE-ARCHETYPE"]},
+    "AMZ-3P-RESELLER-FBA": {"required_ad_types": ["sponsored_products", "sponsored_display"], "daily_workflows": ["AMZ-ADS-01-PROFILE-ELIGIBILITY", "AMZ-ADS-03-SEARCH-TARGET", "AMZ-ADS-04-BID-BUDGET"], "weekly_workflows": ["AMZ-ADS-05-PLACEMENT", "AMZ-ADS-07-MATURE-ECONOMICS", "AMZ-ADS-08-STORE-ARCHETYPE"]},
+    "AMZ-3P-RESELLER-MFN": {"required_ad_types": ["sponsored_products", "sponsored_display"], "daily_workflows": ["AMZ-ADS-01-PROFILE-ELIGIBILITY", "AMZ-ADS-03-SEARCH-TARGET", "AMZ-ADS-04-BID-BUDGET", "AMZ-ADS-05-PLACEMENT"], "weekly_workflows": ["AMZ-ADS-06-ATTRIBUTION-INCREMENTALITY", "AMZ-ADS-07-MATURE-ECONOMICS", "AMZ-ADS-08-STORE-ARCHETYPE"]},
+    "AMZ-1P-VENDOR": {"required_ad_types": ["sponsored_products", "sponsored_brands", "sponsored_display"], "daily_workflows": ["AMZ-ADS-01-PROFILE-ELIGIBILITY", "AMZ-ADS-04-BID-BUDGET", "AMZ-ADS-05-PLACEMENT"], "weekly_workflows": ["AMZ-ADS-06-ATTRIBUTION-INCREMENTALITY", "AMZ-ADS-07-MATURE-ECONOMICS", "AMZ-ADS-08-STORE-ARCHETYPE"]}
+  },
+  "report_routes": [
+    {"report_type": "amazon_ads_daily_operations", "cadence": "daily", "required_workflows": ["AMZ-ADS-01-PROFILE-ELIGIBILITY", "AMZ-ADS-03-SEARCH-TARGET", "AMZ-ADS-04-BID-BUDGET", "AMZ-ADS-05-PLACEMENT"], "action_ceiling": "reconcile_and_escalate"},
+    {"report_type": "amazon_search_term_target_memo", "cadence": "weekly", "required_workflows": ["AMZ-ADS-02-CAMPAIGN-ARCHITECTURE", "AMZ-ADS-03-SEARCH-TARGET"], "action_ceiling": "controlled_pilot_only"},
+    {"report_type": "amazon_ads_profit_incrementality_memo", "cadence": "weekly_or_monthly", "required_workflows": ["AMZ-ADS-06-ATTRIBUTION-INCREMENTALITY", "AMZ-ADS-07-MATURE-ECONOMICS"], "action_ceiling": "observe_only"},
+    {"report_type": "amazon_ads_incident_recovery_card", "cadence": "event_driven", "required_workflows": ["AMZ-ADS-01-PROFILE-ELIGIBILITY", "AMZ-ADS-09-INCIDENT-RECOVERY"], "action_ceiling": "reconcile_and_escalate"}
+  ],
+  "metric_catalog": [
+    {"id": "M-ADS-PROFILE-MAPPING", "name": "Ads Profile 映射完整度", "class": "data_quality", "scope": "profile", "definition": "已通过证据映射到 Seller Account、Marketplace、主体和币种时区的广告记录占比", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-CAMPAIGN-ELIGIBILITY", "name": "活动资格状态", "class": "leading", "scope": "campaign", "definition": "活动、广告、目标和推广对象在当前站点的资格与审核状态", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-RETAIL-READINESS-STATE", "name": "零售准备度状态", "class": "guardrail", "scope": "promoted_object", "definition": "可购买、Featured Offer、库存、价格、配送、页面和评论等门禁的联合状态", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-DELIVERY-STATE", "name": "交付状态", "class": "leading", "scope": "campaign_target_placement", "definition": "目标对象是否获得可解释的展示、点击和消耗机会", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-CAMPAIGN-STRUCTURE-COVERAGE", "name": "活动结构覆盖率", "class": "data_quality", "scope": "campaign", "definition": "活动到广告组、广告、目标、查询、推广对象和归因对象的血缘完整比例", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-DUPLICATE-TARGET-COUNT", "name": "重复目标数", "class": "diagnostic", "scope": "target", "definition": "在同一店铺、站点、推广 ASIN 和广告类型中发生不可解释重复的目标数量", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-VERSION-LINEAGE-COMPLETENESS", "name": "版本血缘完整度", "class": "data_quality", "scope": "campaign_asset", "definition": "预算、出价、素材、页面、Offer 和策略变更可追溯到生效时间与证据的比例", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-SEARCH-TERM-COVERAGE", "name": "搜索词覆盖率", "class": "diagnostic", "scope": "query", "definition": "可归因到目标、推广 ASIN、购买 ASIN 和动作状态的搜索词占比", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-SEARCH-TERM-HARVEST-QUEUE", "name": "搜索词收割队列", "class": "diagnostic", "scope": "query", "definition": "达到预设观察条件且尚未去重归功、建目标或保留观察的搜索词清单", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-NEGATIVE-COVERAGE", "name": "否定覆盖率", "class": "leading", "scope": "query_target", "definition": "已确认不符合意图、经济性或渠道策略的查询被阻断或隔离的比例", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-TARGET-QUERY-MISMATCH", "name": "目标与查询错配率", "class": "diagnostic", "scope": "target_query", "definition": "搜索词意图、目标类型、推广对象和购买 ASIN 不一致的记录占比", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-PURCHASED-ASIN-MIX", "name": "购买 ASIN 结构", "class": "outcome", "scope": "promoted_object_purchased_object", "definition": "广告归因订单或销售按推广 ASIN 与购买 ASIN 的分布", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-BUDGET-STATUS", "name": "预算状态", "class": "leading", "scope": "campaign", "definition": "预算是否受限、是否被提前耗尽以及受限原因", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-BUDGET-PACING", "name": "预算消耗节奏", "class": "leading", "scope": "campaign_daypart", "definition": "已消耗预算相对计划预算和剩余时段的速度", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-BID-VERSION", "name": "出价版本", "class": "data_quality", "scope": "target_placement", "definition": "当前出价、广告位调节和变更时间的可追溯版本", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-MARGINAL-CONTRIBUTION", "name": "边际贡献", "class": "outcome", "scope": "campaign_target_asin", "definition": "新增广告投入或预算增量带来的成熟贡献利润变化", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-RESERVE-BUDGET-USE", "name": "储备预算使用率", "class": "guardrail", "scope": "portfolio", "definition": "已授权的探索、事件或库存保护预算被使用的比例", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-PLACEMENT-MIX", "name": "广告位结构", "class": "diagnostic", "scope": "placement", "definition": "曝光、点击、订单、销售和消耗在广告位之间的分布", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-PLACEMENT-MARGINAL-CONTRIBUTION", "name": "广告位边际贡献", "class": "outcome", "scope": "placement_asin", "definition": "广告位增量流量对成熟贡献利润的边际变化", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-PLACEMENT-DELIVERY-RATE", "name": "广告位交付率", "class": "leading", "scope": "placement", "definition": "可竞争机会中获得展示或点击的比例，需声明机会口径", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-PLACEMENT-RETAIL-READINESS", "name": "广告位零售门禁通过率", "class": "guardrail", "scope": "placement_promoted_object", "definition": "不同广告位下推广对象通过可购买、Offer、库存和配送门禁的比例", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-ATTRIBUTION-TYPE-MIX", "name": "归因类型结构", "class": "data_quality", "scope": "campaign_asin", "definition": "点击归因、浏览归因及其他平台定义的销售结构", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-CLICK-VIEW-MIX", "name": "点击与浏览归因结构", "class": "diagnostic", "scope": "campaign_asin", "definition": "click-through 与 view-through 订单或销售的拆分", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-BRAND-HALO-SALES", "name": "品牌光环销售", "class": "outcome", "scope": "brand_campaign", "definition": "平台归因口径下非直接推广对象的品牌关联销售", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-INCREMENTAL-SALES", "name": "增量销售", "class": "outcome", "scope": "experiment_or_holdout", "definition": "相对于可比控制基线的额外销售，必须有设计或可审计反事实", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-CANNIBALIZATION-SIGNAL", "name": "自然需求蚕食信号", "class": "diagnostic", "scope": "query_brand_asin", "definition": "广告变化与自然销售、品牌词流量或控制组变化的相反关系信号", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-MATURE-CONTRIBUTION", "name": "成熟贡献利润", "class": "outcome", "scope": "asin_offer_fulfillment", "definition": "广告归因成熟后扣除退款、平台费、履约、促销与广告成本的贡献利润", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-BREAK_EVEN-ROAS", "name": "保本 ROAS", "class": "guardrail", "scope": "asin_offer", "definition": "在当前成熟贡献和可变成本结构下广告不亏损的最低 ROAS", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-MARGINAL-ROAS", "name": "边际 ROAS", "class": "outcome", "scope": "budget_change", "definition": "新增广告投入带来的成熟销售或贡献变化除以新增投入", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-REFUND-MATURITY", "name": "退款成熟度", "class": "guardrail", "scope": "asin_order_cohort", "definition": "订单队列已经过退款和退货观察窗的比例或状态", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-INVENTORY-GUARDRAIL", "name": "库存护栏", "class": "guardrail", "scope": "asin_marketplace_fulfillment", "definition": "广告决策可使用的可售、预留、在途、补货和缺货风险状态", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-STORE-AD-CONSISTENCY", "name": "店铺广告一致性", "class": "data_quality", "scope": "store_profile", "definition": "广告 Profile、店铺画像、销售项目、主体、站点和履约方式一致的比例", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-BRAND-AUTHORITY-STATE", "name": "品牌授权状态", "class": "guardrail", "scope": "brand_campaign", "definition": "品牌资产、Brand Store、目录和广告权限的当前证据状态", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-B2B-AD-SEGMENT", "name": "B2B 广告分层", "class": "diagnostic", "scope": "marketplace_campaign", "definition": "B2B 与消费者需求、Offer、价格和转化结果是否分开呈现", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-PORTFOLIO-AD-CONFLICT", "name": "组合广告冲突", "class": "diagnostic", "scope": "portfolio", "definition": "跨店铺、跨 ASIN、跨品牌或跨站点活动互相竞价、重复归因或污染实验的信号", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-TRACKING-COMPLETENESS", "name": "追踪完整度", "class": "data_quality", "scope": "report_window", "definition": "广告、订单、归因、成本、退款和证据可对账记录的完整比例", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-ADS-INCIDENT-AGE", "name": "广告异常年龄", "class": "diagnostic", "scope": "incident", "definition": "异常首次发现到当前仍未关闭的时间", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-ROLLBACK-READINESS", "name": "回滚准备度", "class": "data_quality", "scope": "campaign_change", "definition": "变更前值、证据、影响范围、回滚步骤和验收条件是否齐全", "missing_semantics": "unknown_not_zero"},
+    {"id": "M-RESIDUAL-EXPOSURE", "name": "残余暴露", "class": "guardrail", "scope": "incident_portfolio", "definition": "异常隔离后仍可能继续消耗、误归因、跨店污染或影响利润的未关闭范围", "missing_semantics": "unknown_not_zero"}
+  ],
+  "daily_board_contract": {
+    "required_fields": ["board_id", "store_profile_id", "ads_profile_id", "seller_account_id", "marketplace_id", "ad_type", "campaign_id", "ad_group_id", "target_id", "date", "cadence", "lifecycle", "workflow_id", "metric_snapshot_ids", "evidence_ids", "decision_question", "current_state", "unknowns", "action_ceiling", "success_conditions", "stop_conditions", "rollback_ref", "next_due", "as_of_time"],
+    "metric_record_required_fields": ["metric_id", "metric_scope", "object_key", "value_state", "value", "unit", "currency", "window_start", "window_end", "observed_at", "source_contract", "evidence_id", "definition_version", "attribution_type", "maturity_state", "unknown_reason"],
+    "value_states": ["observed", "derived", "inferred", "unknown", "not_applicable", "conflict"],
+    "rules": ["missing is not zero", "campaign average cannot replace target/query/ASIN scope", "platform attribution is not incrementality", "leading delivery metrics cannot prove profit", "any retail-readiness or identity conflict freezes scale", "the board does not authorize external writes"]
+  }
+}

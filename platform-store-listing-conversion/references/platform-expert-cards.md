@@ -6,7 +6,7 @@
 
 | 平台 | 原型 | 首要对象 | 深诊重点 | 典型失败 | 必须重验 |
 |---|---|---|---|---|---|
-| Amazon | 搜索货架 | ASIN/SKU/父子体/Offer | 类目属性、索引、标题图组、变体、Buy Box/可购买、A+/评论语境 | 抑制、索引丢失、父子污染、内容覆盖 | 站点字段、图片/标题、变体、品牌权限 |
+| Amazon | 搜索货架 | 卖家账户/ASIN/SKU/父子体/Offer/品牌店铺 | 先判店铺身份、Seller Central/Vendor Central、3P/1P、FBA/MFN、品牌权限，再诊断类目属性、索引、标题图组、变体、Featured Offer/可购买、A+/评论语境 | 账户/品牌/Offer身份错配、抑制、索引丢失、父子污染、内容覆盖、库存/履约承诺错位 | 卖家ID、法定主体、站点、经营角色、履约/库存所有权、品牌授权、Ads Profile、当前页面与规则 |
 | Walmart Marketplace | 搜索货架 | item/SKU/Offer | 内容质量、变体、配送、价格/库存同步 | unpublished、内容冲突、履约承诺错位 | 当前item规范与卖家控制权 |
 | eBay | 搜索货架/多卖家 | listing/item specifics/variation | 标题、类目属性、状态、运费退货与兼容 | item specifics缺失、变体错组 | 站点类目与刊登规则 |
 | Etsy | 垂直/搜索 | listing/variation/shop | 手工/设计事实、标题标签、图片、个性化、配送 | 权利/真实性风险、个性化错选 | 当前政策、类目和属性 |
@@ -20,6 +20,19 @@
 | Shopify/DTC | 独立站 | product/variant/PDP/landing/cart/checkout | 速度、移动、导航、PDP、落地页、结账、追踪 | 入口承诺断裂、事件丢失、技术/支付失败 | 主题/app/市场/支付/隐私与事件实现 |
 
 未知平台先完成：平台身份及官方入口、国家/站点、页面原型、对象/版本、可控字段、审核/索引/变体/评论、图片详情、价格库存配送、数据/实验权限、规则证据日期。任一关键项未知时只给条件诊断。
+
+## Amazon 深诊路由
+
+Amazon 不是一个可直接套用的“店铺”对象。报告必须先读取 [Amazon 店铺经营模型合同](amazon-store-operating-models.json)，将以下层级分开锁定：
+
+- 卖家账户：Seller ID、法定主体、Seller of Record、Seller Central 或 Vendor Central、账户健康和权限。
+- 品牌资产层：Brand Registry、品牌授权、Brand Store、A+ 和品牌内容的可用范围；它不是卖家账户，也不是 Offer。
+- Marketplace site：国家/站点、税务范围、语言、当前规则和履约承诺；不同站点不能静默继承。
+- Marketplace Offer：ASIN 下的卖家 SKU、库存所有权、履约方式、价格、配送和可购买状态；同一 ASIN 不等于同一 Offer。
+
+基础经营模式必须从 5 个 archetype 中选择：3P 品牌 + FBA、3P 品牌 + MFN、授权经销商 + FBA、授权经销商 + MFN、Vendor Central 1P。Amazon Business、Brand Registry/Brand Store 和多账户/多品牌/多站点是 overlay，不能冒充独立经营模式。缺少 `store_profile_id`、`seller_account_id`、`legal_entity_id`、`marketplace_id`、`seller_role`、`selling_program`、`fulfillment_mode`、`inventory_owner`、`as_of_time` 或证据指纹时，不得给出无条件可执行结论。
+
+店铺画像确定后，必须继续读取 [Amazon 运营流程与指标合同](amazon-operating-workflows-and-metrics.json) 和 [Amazon 运营流程与指标说明](amazon-operating-workflows-and-metrics.md)，为每个工作日绑定 `operating_archetype_id`、`overlay_ids`、`lifecycle_phase`、`cadence`、`workstream_id`、`metric_scope`、`metric_class` 和 `action_ceiling`。日内、每日、每周、每月和事件触发任务不能共用一张未分层的指标表；领先指标、诊断指标、结果指标、护栏指标和数据质量指标必须分开。
 
 ## 模块执行协议
 

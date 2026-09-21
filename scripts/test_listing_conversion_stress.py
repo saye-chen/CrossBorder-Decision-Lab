@@ -61,6 +61,14 @@ class ListingConversionStress(unittest.TestCase):
         self.assertIn("当前官方/授权资料重验",self.platforms)
         self.assertIn("不固化易变数字",self.platforms)
 
+    def test_amazon_store_depth_is_explicitly_routed(self):
+        amazon=json.loads(text(SKILL/"references/amazon-store-operating-models.json"))
+        self.assertEqual(len(amazon["operating_archetypes"]),5)
+        self.assertEqual(len(amazon["overlays"]),3)
+        self.assertIn("Amazon 深诊路由",self.platforms)
+        self.assertIn("validate_amazon_store_profile.py",self.skill)
+        self.assertIn("Ads Profile",self.skill)
+
     def test_thirteen_deterministic_tools_exist_and_are_routed(self):
         expected=("validate_plco_contract.py","validate_object_version.py","validate_evidence_ledger.py","evaluate_hard_gates.py","compare_page_versions.py","check_cross_layer_consistency.py","evaluate_task_coverage.py","evaluate_variant_structure.py","decompose_conversion_funnel.py","evaluate_listing_experiment.py","calculate_recoverable_value.py","rank_repair_actions.py","validate_page_lineage.py")
         for name in expected:
