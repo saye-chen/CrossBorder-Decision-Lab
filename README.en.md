@@ -258,11 +258,11 @@ The current version provides fourteen professional decision Skills that have com
 | Professional capabilities | 14 domains | sovereignty, independent operation, and cross-domain contracts | real operating effectiveness |
 | Global foundations | ERDG, ECAE, LCCA | governance, causal eligibility, and localization applicability | final business authority |
 | Normalized evaluations | 835 source cases | scenario, failure, and semantic coverage | 835 real operating cases |
-| Professional validation | 33 entrypoints | executable semantic and numerical recomputation | production maturity |
+| Professional validation | 34 entrypoints | executable semantic, report-contract, and numerical recomputation | production maturity |
 | Anti-tamper validation | 12 mutation classes | critical guards cannot be silently removed or weakened | external independent assurance |
 | Current maturity | `controlled_pilot` | L1–L3 engineering gates complete; controlled pilots allowed | production automation, high-stakes use, or external writes |
 
-The unified professional engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). ECAE and LCCA have completed their L1–L3 controlled-pilot gates and 13/13 consumer-contract acceptances; local fixtures and read-only preflight cases make no production-evidence claim. Run the repository-wide release validator to recompute the current state. L4 production dual-runs, real-outcome calibration, external qualification, and independent non-implementer review remain separate.
+The unified professional engineering release contract is documented in [`governance/professional-engineering-release.md`](governance/professional-engineering-release.md). The shared report contract is registered in [`governance/report-contract-registry.json`](governance/report-contract-registry.json) and validated by `scripts/validate_report_contracts.py`. ECAE and LCCA have completed their L1–L3 controlled-pilot gates and 13/13 consumer-contract acceptances; local fixtures and read-only preflight cases make no production-evidence claim. Run the repository-wide release validator to recompute the current state. L4 production dual-runs, real-outcome calibration, external qualification, and independent non-implementer review remain separate.
 
 The system is not tied to a single foundation-model provider. Models can continue to improve while professional decision contracts, calculation tools, operating benchmarks, and historical assets remain continuous.
 

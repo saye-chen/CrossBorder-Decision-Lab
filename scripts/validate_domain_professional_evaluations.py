@@ -19,7 +19,24 @@ def validate(skill):
   if bad in report+card:e.append(f"placeholder {bad}")
  if quality.score_report(report,"full")["result"]!="PASS":e.append("professional report fails shared semantic quality gate")
  return e
+
+def validate_registered_markdown_reports():
+ """Close the historical seven-domain gap by checking every registered Markdown Golden."""
+ e=[]
+ registry=json.loads((ROOT/"governance/professional-evaluation-registry.json").read_text())
+ for row in registry.get("domains",[]):
+  path=ROOT/row.get("golden","")
+  if path.suffix != ".md": continue
+  if not path.is_file():
+   e.append(f"{row.get('domain_id')}: missing registered Golden {row.get('golden')}")
+   continue
+  result=quality.score_report(path.read_text(),"full")
+  if result["result"]!="PASS" or result["score"]!=100.0:
+   e.append(f"{row.get('domain_id')}: registered Markdown Golden fails full gate")
+ return e
+
 if __name__=="__main__":
  skills=sys.argv[1:] or list(b.P);errors=[]
  for skill in skills:errors += [f"{skill}: {x}" for x in validate(skill)]
+ errors += validate_registered_markdown_reports()
  print("DOMAIN_PROFESSIONAL_EVALS=PASS" if not errors else "DOMAIN_PROFESSIONAL_EVALS=FAIL\n- "+"\n- ".join(errors));raise SystemExit(bool(errors))
