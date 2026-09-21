@@ -128,6 +128,10 @@ jobs:
           python3 scripts/validate_mbcm_blueprint.py
           python3 scripts/validate_repo.py
           python3 scripts/test_listing_conversion_stress.py
+          python3 platform-store-listing-conversion/scripts/test_amazon_store_depth.py
+          python3 platform-store-listing-conversion/scripts/test_amazon_store_depth_report.py
+          python3 platform-store-listing-conversion/scripts/test_amazon_operating_board.py
+          python3 advertising-analysis-measurement-optimization/scripts/test_amazon_ads_depth.py
           python3 creator-affiliate-partnership-management/scripts/test_capm.py
           python3 scripts/test_mbcm_integration.py
           python3 scripts/test_statistical_primitive_parity.py

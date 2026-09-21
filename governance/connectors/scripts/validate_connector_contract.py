@@ -42,7 +42,7 @@ def validate_manifest(manifest: dict) -> list[str]:
         canonical.add(name)
         if field.get("type") == "decimal_string" and not field.get("unit"): errors.append(f"decimal field {name} requires unit/currency")
         if field.get("type") == "datetime" and not field.get("timezone"): errors.append(f"datetime field {name} requires timezone rule")
-    contextual_keys = {"seller_id", "marketplace_id", "marketplace", "profile_id", "date", "snapshot_date", "attribution_window", "tenant_id", "warehouse_id", "snapshot_time"}
+    contextual_keys = {"seller_id", "seller_account_id", "marketplace_id", "marketplace", "profile_id", "date", "snapshot_date", "attribution_window", "tenant_id", "warehouse_id", "snapshot_time", "selling_program", "fulfillment_mode"}
     if not set(fields.get("object_key", [])) <= (canonical | contextual_keys): errors.append("object key is not resolvable")
     return errors
 

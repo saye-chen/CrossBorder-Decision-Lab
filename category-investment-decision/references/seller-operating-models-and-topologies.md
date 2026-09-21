@@ -126,6 +126,14 @@
 
 评估字段：实际控制人、法律实体、平台授权、品牌/货权、税务、库存所有权、价格政策、数据隔离、客服履约、账号关联和关闭迁移方案。无法证明合规经营目的时标记 `Blocked`，不提供规避关联和风控步骤。
 
+### Amazon 店铺经营模式交叉表
+
+Amazon 的“店铺”必须拆成基础经营模式 + 叠加层，不得把 Brand Store、Marketplace site 或单个 Offer 当成卖家账户。基础模式固定为：3P 品牌 + FBA、3P 品牌 + MFN/FBM、授权经销商 + FBA、授权经销商 + MFN/FBM、Vendor Central 1P。Amazon Business、Brand Registry/Brand Store、多账户/多品牌/多站点是 overlay，需单独证明资格、价格/税务、库存、品牌授权和退出路径。
+
+Amazon 组合评估至少锁定：`store_profile_id`、Seller ID/卖家账户、法定主体、Marketplace site、seller role、selling program、fulfillment mode、inventory owner、catalog owner、brand authorization、Ads Profile、account health、tax scope、`as_of_time` 和 evidence IDs。不同账户、站点、ASIN/Offer、FBA/MFN/Vendor 的利润、库存、广告归因、评论/内容继承和履约承诺不得静默合并；无合法经营目的的多账户方案标记 `Blocked`，不提供规避关联或风控的步骤。
+
+组合决策还要区分运营节奏：上新看身份、授权、目录、Offer 和初始库存；稳定期看成熟贡献、广告边际、服务与补货；增长期看边际放量和组合蚕食；异常期看账户/Offer/履约/归因影响闭包；迁移或退出期看 parity、回滚、库存释放和残余暴露。每一阶段的指标、负责人、观察窗和动作上限不同，不能用月度销售额替代日常经营可行性。
+
 ## 国家与平台拓扑
 
 ### 单一国家、多平台布局

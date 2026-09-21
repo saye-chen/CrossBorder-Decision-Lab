@@ -1,1 +1,23 @@
-{"contract":"CBDS-CONNECTOR-FIELDS-2026.07","field_contract_id":"seller-central-inventory-export","version":"1.0.0","connector_id":"seller-central-export","object_key":["seller_sku","marketplace","snapshot_date"],"fields":[{"source_field":"seller-sku","canonical_field":"seller_sku","type":"string","unit":null,"timezone":null,"required":true,"missing_semantics":"unknown_not_zero","allowed_uses":["identity","inventory"]},{"source_field":"afn-fulfillable-quantity","canonical_field":"available_quantity","type":"integer","unit":"unit","timezone":null,"required":true,"missing_semantics":"unknown_not_zero","allowed_uses":["inventory","replenishment_input"]},{"source_field":"snapshot-date","canonical_field":"observed_at","type":"date","unit":null,"timezone":"marketplace_declared","required":true,"missing_semantics":"unknown_not_zero","allowed_uses":["lineage","freshness"]}]}
+{
+  "contract": "CBDS-CONNECTOR-FIELDS-2026.07",
+  "field_contract_id": "seller-central-inventory-export",
+  "version": "1.2.0",
+  "connector_id": "seller-central-export",
+  "object_key": ["seller_id", "marketplace", "selling_program", "fulfillment_mode", "seller_sku", "snapshot_date"],
+  "fields": [
+    {"source_field": "seller-id", "canonical_field": "seller_id", "type": "string", "unit": null, "timezone": null, "required": true, "missing_semantics": "unknown_not_zero", "allowed_uses": ["identity", "store_routing"]},
+    {"source_field": "marketplace", "canonical_field": "marketplace", "type": "string", "unit": null, "timezone": null, "required": true, "missing_semantics": "unknown_not_zero", "allowed_uses": ["identity", "site_routing"]},
+    {"source_field": "selling-program", "canonical_field": "selling_program", "type": "string", "unit": null, "timezone": null, "required": true, "missing_semantics": "unknown_not_zero", "allowed_uses": ["identity", "program_routing"]},
+    {"source_field": "fulfillment-channel", "canonical_field": "fulfillment_mode", "type": "string", "unit": null, "timezone": null, "required": true, "missing_semantics": "unknown_not_zero", "allowed_uses": ["identity", "fulfillment", "economics"]},
+    {"source_field": "seller-sku", "canonical_field": "seller_sku", "type": "string", "unit": null, "timezone": null, "required": true, "missing_semantics": "unknown_not_zero", "allowed_uses": ["identity", "inventory"]},
+    {"source_field": "afn-fulfillable-quantity", "canonical_field": "available_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": true, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "replenishment_input"]},
+    {"source_field": "afn-reserved-quantity", "canonical_field": "reserved_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": false, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "buyability"]},
+    {"source_field": "afn-inbound-working-quantity", "canonical_field": "inbound_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": false, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "replenishment_input"]},
+    {"source_field": "afn-unsellable-quantity", "canonical_field": "unfulfillable_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": false, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "return_risk"]},
+    {"source_field": "afn-stranded-quantity", "canonical_field": "fba_stranded_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": false, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "buyability", "listing_handoff"]},
+    {"source_field": "afn-aged-quantity", "canonical_field": "fba_aged_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": false, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "economics", "exit"]},
+    {"source_field": "afn-removal-order-quantity", "canonical_field": "fba_removal_order_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": false, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "exit", "lineage"]},
+    {"source_field": "mfn-fulfillable-quantity", "canonical_field": "mfn_available_quantity", "type": "integer", "unit": "unit", "timezone": null, "required": false, "missing_semantics": "unknown_not_zero", "allowed_uses": ["inventory", "fulfillment"]},
+    {"source_field": "snapshot-date", "canonical_field": "snapshot_date", "type": "date", "unit": null, "timezone": "marketplace_declared", "required": true, "missing_semantics": "unknown_not_zero", "allowed_uses": ["lineage", "freshness"]}
+  ]
+}

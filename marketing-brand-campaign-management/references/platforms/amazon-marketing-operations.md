@@ -4,6 +4,14 @@
 
 Amazon Marketplace的Coupon、Deal、Prime/会员价格、Subscribe & Save、品牌推广、站内广告、Amazon Attribution与站外引流组合。具体名称、资格、费用、展示和可叠加规则属于动态事实，执行时必须核验Seller Central或官方页面。
 
+## 店铺与品牌层级路由
+
+每个活动先建立 Amazon `store_profile_id`，锁定 Seller ID/法定主体、Marketplace site、Seller Central 3P 或 Vendor Central 1P、卖家角色、FBA/MFN/Vendor 履约、库存所有权、目录所有权、品牌授权和 Ads Profile。Brand Registry、Brand Store、A+ 属于品牌资产层，不等于卖家账户；同一 ASIN 也不等于同一卖家 Offer。没有画像和证据指纹时，只输出条件方案，不给跨店铺迁移、放量或归因结论。
+
+活动比较必须按 `店铺账户 × 站点 × Offer × ASIN/variation × 履约方式 × 价格版本` 分桶。品牌 Owner、授权经销商、Vendor 1P 和 Amazon Business 叠加层分别核算价格控制、佣金/采购成本、库存责任、活动资格、广告归因和成熟贡献；不得用品牌店铺内容、Vendor 条款或 FBA 配送承诺替代其他 Offer 的事实。
+
+运营节奏也必须分开：日内处理资格、价格、库存、Offer 和活动异常；每日核对活动展示、费用、库存、配送、广告和退款成熟；每周复盘拉前、蚕食、成熟贡献和恢复窗；每月复核品牌资产、B2B 结构、站点组合和退出成本。品牌 Owner、授权经销商、Vendor 1P 的主指标集合不同，不能以一个“促销销售额/转化率”日报代替全部经营过程。
+
 ## Offer载体必须分开
 
 - Coupon：记录资格、预算、费用、领取/核销口径、展示位置和叠加关系。

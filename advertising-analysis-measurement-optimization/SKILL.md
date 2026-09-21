@@ -92,6 +92,14 @@ description: 默认用中文执行专家级跨境广告分析、测量与优化�
 - `google-search.md`、`google-shopping-pmax.md`、`meta-ads.md`、`tiktok-ads-dtc.md`
 - 未覆盖平台读取 `universal-platform-routing.md`
 
+### Amazon 专项运行契约
+
+Amazon 任务除平台卡外，必须读取 `references/amazon-ads-operating-model.json`，并按店铺画像、广告类型和生命周期绑定广告工作流。该契约固定 Ads Profile → Campaign → Ad Group/Line Item → Ad/Creative → Target → Query/Search Term → Placement/Inventory Source → Promoted Object → Outcome Object 的血缘，分开 Sponsored Products、Sponsored Brands、Sponsored Display 与 DSP，不允许用一个账户平均值覆盖不同店铺、站点、销售项目或履约方式。
+
+Amazon 广告进入预算、出价、放量或停投建议前，必须通过 `scripts/validate_amazon_ads_operating_profile.py`，至少具备店铺画像、Ads Profile、Seller Account、Marketplace、广告类型、Campaign、日期、证据、零售准备度、目标对象、归因类型和成熟状态。Sponsored Brands 还必须有品牌授权与品牌资产/目的地版本，DSP 还必须有受众规则和测量设计；缺失证据只能输出 `conditional/blocked`，且 `external_write` 必须为 `false`。
+
+Amazon 每日主板必须记录 `cadence`、`lifecycle`、`workflow_id`、`metric_scope`、`metric_class`、`value_state`、`evidence_id`、`attribution_type`、`maturity_state`、`action_ceiling`、`success_conditions`、`stop_conditions` 和 `rollback_ref`。搜索词收割、否定、预算出价和广告位调整必须在目标/查询/ASIN 粒度去重；平台归因、业务订单、成熟贡献利润和增量实验不得混账。当前只允许 controlled pilot，报告模板与具体指标定义以专项契约为准。
+
 平台产品、国家开放、字段、归因和政策是动态事实，平台卡只提供核验框架与专业差异，不把旧资料固化为当前事实。
 
 平台路由不得只按名称加载；先识别决定性交付机制和首要失效：

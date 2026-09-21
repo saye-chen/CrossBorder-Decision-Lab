@@ -64,6 +64,14 @@
       ]
     },
     {
+      "id": "amazon_ads_operator_reports",
+      "format": "markdown",
+      "profile": "full",
+      "paths": [
+        "advertising-analysis-measurement-optimization/evaluations/golden/amazon-ads-operator-memo.md"
+      ]
+    },
+    {
       "id": "capm_report_types",
       "format": "markdown",
       "profile": "full",
